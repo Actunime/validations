@@ -6,7 +6,6 @@
     "test": "exit 0",
     "prepare": "husky"
   },
-  "private": true,
   "author": "",
   "license": "ISC",
   "description": "",
