@@ -13,12 +13,6 @@
     "dev": "node build",
     "build": "tsc"
   },
-  "exports": {
-    "./base.json": "./build/config/base.json",
-    "./react-library.json": "./build/config/react-library.json",
-    "./nextjs.json": "./build/config/nextjs.json",
-    "./node.json": "./build/config/node.json"
-  },
   "author": "",
   "license": "ISC",
   "description": "",
