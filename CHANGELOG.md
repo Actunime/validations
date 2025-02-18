@@ -1,3 +1,12 @@
+## [1.0.3](https://github.com/Actunime/typescript-config/compare/v1.0.2...v1.0.3) (2025-02-18)
+
+
+### Bug Fixes
+
+* remvoe npm plugin ([0581307](https://github.com/Actunime/typescript-config/commit/05813074abe65ff28b3c7a5b43cf0bd4b6dc4114))
+* remvoe npm plugin ([fca64b6](https://github.com/Actunime/typescript-config/commit/fca64b63058b7ce86c66223ce2ab779665a562f5))
+* semantic-release ([3788df2](https://github.com/Actunime/typescript-config/commit/3788df2d2babaa5f61000856568699d766312450))
+
 ## [1.0.2](https://github.com/Actunime/typescript-config/compare/v1.0.1...v1.0.2) (2025-02-18)
 
 
