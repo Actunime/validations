@@ -18,6 +18,12 @@ jobs:
         with:
           node-version: '22'
 
+      - name: Authenticate with private NPM package
+        run: |
+         touch .npmrc
+         echo "@actunime:registry=https://npm.pkg.github.com" >> .npmrc
+         echo "//npm.pkg.github.com/:_authToken=${{ secrets.GH_TOKEN }}" >> .npmrc
+
       - name: Install dependencies
         run: npm install
 

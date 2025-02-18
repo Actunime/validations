@@ -1,26 +1,10 @@
 {
+    "extends": "@actunime/typescript-config/build/config/base.json",
     "compilerOptions": {
-        "outDir": "build",
-        "target": "ES2022",
-        "lib": [
-            "ES2022"
-        ],
-        "sourceMap": true,
-        "strict": true,
-        "noImplicitAny": false,
-        "declaration": true,
-        "types": ["node"],
-        "moduleResolution": "node",
-        "module": "CommonJS",
-        "isolatedModules": true,
-        "skipLibCheck": true,
-        "esModuleInterop": true,
-        "allowSyntheticDefaultImports": true,
-        "forceConsistentCasingInFileNames": true,
-        "resolveJsonModule": true
+        "outDir": "build"
     },
     "include": [
-        "./src/**/*"
+        "./src/**/*",
     ],
     "exclude": [
         "node_modules"
