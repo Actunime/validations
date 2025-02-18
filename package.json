@@ -1,16 +1,23 @@
 {
   "name": "@actunime/typescript-config",
   "version": "1.0.13",
-  "main": "src/index.js",
+  "main": "build/index.js",
+  "types": "build/index.d.ts",
+  "files": [
+    "build"
+  ],
   "scripts": {
     "test": "exit 0",
-    "prepare": "husky"
+    "prepare": "husky",
+    "watch": "tsc --watch",
+    "dev": "node build",
+    "build": "tsc"
   },
   "exports": {
-    "./base.json": "./src/base.json",
-    "./react-library.json": "./src/react-library.json",
-    "./nextjs.json": "./src/nextjs.json",
-    "./node.json": "./src/node.json"
+    "./base.json": "./build/config/base.json",
+    "./react-library.json": "./build/config/react-library.json",
+    "./nextjs.json": "./build/config/nextjs.json",
+    "./node.json": "./build/config/node.json"
   },
   "author": "",
   "license": "ISC",
