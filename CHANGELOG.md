@@ -1,3 +1,10 @@
+## [1.0.7](https://github.com/Actunime/typescript-config/compare/v1.0.6...v1.0.7) (2025-02-18)
+
+
+### Bug Fixes
+
+* semantic-release ([3a19e0e](https://github.com/Actunime/typescript-config/commit/3a19e0ee4c765945c01d68c7888327a1940b5da2))
+
 ## [1.0.6](https://github.com/Actunime/typescript-config/compare/v1.0.5...v1.0.6) (2025-02-18)
 
 
