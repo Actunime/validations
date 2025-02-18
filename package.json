@@ -6,12 +6,9 @@
     "test": "exit 0",
     "prepare": "husky"
   },
-  "exports": {
-    "./base.json": "./src/base.json",
-    "./react-library.json": "./src/react-library.json",
-    "./nextjs.json": "./src/nextjs.json",
-    "./node.json": "./src/node.json"
-  },
+  "files": [
+    "src"
+  ],
   "author": "",
   "license": "ISC",
   "description": "",
