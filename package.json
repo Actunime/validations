@@ -3,12 +3,23 @@
   "version": "1.0.0",
   "main": "index.js",
   "scripts": {
-    "test": "exit 0"
+    "test": "exit 0",
+    "prepare": "husky"
   },
   "author": "",
   "license": "ISC",
   "description": "",
   "publishConfig": {
     "@actunime:registry": "https://npm.pkg.github.com"
+  },
+  
+  "devDependencies": {
+    "@commitlint/cli": "^19.6.1",
+    "@commitlint/config-conventional": "^19.5.0",
+    "husky": "^9.1.7",
+    "semantic-release": "^24.2.3"
+  },
+  "engines": {
+    "node": ">=22"
   }
 }
