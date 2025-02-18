@@ -1,3 +1,11 @@
+## [1.0.13](https://github.com/Actunime/typescript-config/compare/v1.0.12...v1.0.13) (2025-02-18)
+
+
+### Bug Fixes
+
+* structure ([79f6351](https://github.com/Actunime/typescript-config/commit/79f6351252c93c44b0eb339ecadde3763a115e4d))
+* structure ([08aad97](https://github.com/Actunime/typescript-config/commit/08aad97ef650db962c6e430e5fba7df840bf5a16))
+
 ## [1.0.12](https://github.com/Actunime/typescript-config/compare/v1.0.11...v1.0.12) (2025-02-18)
 
 
