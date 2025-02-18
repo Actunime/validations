@@ -1,3 +1,10 @@
+## [1.0.2](https://github.com/Actunime/typescript-config/compare/v1.0.1...v1.0.2) (2025-02-18)
+
+
+### Bug Fixes
+
+* node 22 ([4608acd](https://github.com/Actunime/typescript-config/commit/4608acdf66d828e8c2a6d94c960b661d227b7876))
+
 ## [1.0.1](https://github.com/Actunime/typescript-config/compare/v1.0.0...v1.0.1) (2025-02-18)
 
 
