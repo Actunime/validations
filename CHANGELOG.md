@@ -1,3 +1,10 @@
+## [1.0.1](https://github.com/Actunime/validations/compare/v1.0.0...v1.0.1) (2025-02-18)
+
+
+### Bug Fixes
+
+* package add export ([dce1c68](https://github.com/Actunime/validations/commit/dce1c6813aa0527518c4eadff43be6eb63b2a720))
+
 # 1.0.0 (2025-02-18)
 
 
