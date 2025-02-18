@@ -12,7 +12,6 @@
   "publishConfig": {
     "@actunime:registry": "https://npm.pkg.github.com"
   },
-  
   "devDependencies": {
     "@commitlint/cli": "^19.6.1",
     "@commitlint/config-conventional": "^19.5.0",
