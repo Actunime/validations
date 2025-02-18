@@ -23,7 +23,11 @@ module.exports = {
     ],
     publish: [
         {
+            path: '@semantic-release/npm',
+        },
+        {
             path: '@semantic-release/github'
         }
-    ]
+    ],
+    pub
 }
