@@ -1,9 +1,11 @@
 {
   "name": "@actunime/typescript-config",
-  "version": "0.0.0",
-  "private": true,
-  "license": "MIT",
-  "publishConfig": {
-    "access": "public"
-  }
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "test": "exit 0"
+  },
+  "author": "",
+  "license": "ISC",
+  "description": ""
 }
