@@ -28,6 +28,5 @@ module.exports = {
         {
             path: '@semantic-release/github'
         }
-    ],
-    pub
+    ]
 }
