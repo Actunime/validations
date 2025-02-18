@@ -1,3 +1,3 @@
 "use strict";
-console.log("Hello from package-x");
-//# sourceMappingURL=index.js.map
+Object.defineProperty(exports, "__esModule", { value: true });
+console.log("Hello from package-template");
