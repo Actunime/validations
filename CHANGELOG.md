@@ -1,3 +1,10 @@
+## [1.0.8](https://github.com/Actunime/typescript-config/compare/v1.0.7...v1.0.8) (2025-02-18)
+
+
+### Bug Fixes
+
+* test upgrade ([e5d0337](https://github.com/Actunime/typescript-config/commit/e5d0337676f216a685837cd02a43c56a48825299))
+
 ## [1.0.7](https://github.com/Actunime/typescript-config/compare/v1.0.6...v1.0.7) (2025-02-18)
 
 
