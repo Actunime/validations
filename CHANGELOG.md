@@ -1,3 +1,10 @@
+## [1.0.3](https://github.com/Actunime/validations/compare/v1.0.2...v1.0.3) (2025-02-19)
+
+
+### Bug Fixes
+
+* utilisation de pnpm ([b13e687](https://github.com/Actunime/validations/commit/b13e6873225952736a068bca385a1c03a1e62f84))
+
 ## [1.0.2](https://github.com/Actunime/validations/compare/v1.0.1...v1.0.2) (2025-02-18)
 
 
