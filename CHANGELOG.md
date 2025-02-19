@@ -1,3 +1,10 @@
+## [1.0.4](https://github.com/Actunime/validations/compare/v1.0.3...v1.0.4) (2025-02-19)
+
+
+### Bug Fixes
+
+* husky use pnpm ([b8237c3](https://github.com/Actunime/validations/commit/b8237c3ed469d41564b38bf5249d6d0e7712e58c))
+
 ## [1.0.3](https://github.com/Actunime/validations/compare/v1.0.2...v1.0.3) (2025-02-19)
 
 
