@@ -1,3 +1,10 @@
+## [1.0.5](https://github.com/Actunime/validations/compare/v1.0.4...v1.0.5) (2025-02-19)
+
+
+### Bug Fixes
+
+* validation inscription ([0865ee7](https://github.com/Actunime/validations/commit/0865ee789e80042ca09a07f29ebf5dc178e74c59))
+
 ## [1.0.4](https://github.com/Actunime/validations/compare/v1.0.3...v1.0.4) (2025-02-19)
 
 
