@@ -1,3 +1,10 @@
+## [1.0.6](https://github.com/Actunime/validations/compare/v1.0.5...v1.0.6) (2025-02-22)
+
+
+### Bug Fixes
+
+* **readme:** add readme ([16a7fae](https://github.com/Actunime/validations/commit/16a7faed904fb644217fe88c9e6f4e7049523e49))
+
 ## [1.0.5](https://github.com/Actunime/validations/compare/v1.0.4...v1.0.5) (2025-02-19)
 
 
