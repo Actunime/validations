@@ -15,57 +15,19 @@ import { Add_Groupe_ZOD } from "./_groupeZOD";
 import { Add_Manga_ZOD } from "./_mangaZOD";
 import {
   Create_Link_ZOD,
+  LinkBody,
+  MediaDateBody,
   MediaDateZodSchema,
   MediaImageZodSchema,
+  MediaTitleBody,
   MediaTitleZodSchema,
 } from "./_media";
 import { Add_Person_ZOD } from "./_personZOD";
 import { Add_Track_ZOD } from "./_trackZOD";
-import { zodBoolean, zodNumber } from "./_util";
+import { PaginationBody, zodBoolean, zodNumber } from "./_util";
 import { Add_Image_ZOD } from "./_imageZOD";
-
-export const Anime_Pagination_ZOD = z
-  .object({
-    page: zodNumber(),
-    limit: zodNumber(),
-    strict: z.boolean().optional(),
-    sort: z
-      .object({
-        "episodes.nextAiringDate": z.enum(["DESC", "ASC"]).optional(),
-        updaptedAt: z.enum(["DESC", "ASC"]).optional(),
-        createdAt: z.enum(["DESC", "ASC"]).optional(),
-      })
-      .partial()
-      .strict(),
-    query: z
-      .object({
-        ids: z.optional(z.array(z.string())),
-        name: z.string().optional(),
-        status: z.string().optional(),
-        genres: z.array(z.string()).optional(),
-        allowUnverified: z.boolean().optional(),
-      })
-      .partial()
-      .strict(),
-    with: z
-      .object({
-        groupe: z.boolean().optional(),
-        parent: z.boolean().optional(),
-        source: z.boolean().optional(),
-        staffs: z.boolean().optional(),
-        companys: z.boolean().optional(),
-        characters: z.boolean().optional(),
-        tracks: z.boolean().optional(),
-        cover: z.boolean().optional(),
-        banner: z.boolean().optional(),
-      })
-      .partial()
-      .strict(),
-  })
-  .partial()
-  .strict();
-
-export type IAnime_Pagination_ZOD = z.infer<typeof Anime_Pagination_ZOD>;
+import { PatchParamsBody } from "./_patchZOD";
+import { MediaSourceArray } from "@actunime/utils";
 
 const Anime_Episode_ZOD = z.object({
   airing: z.optional(zodNumber()),
@@ -74,12 +36,18 @@ const Anime_Episode_ZOD = z.object({
   durationMinute: z.optional(zodNumber()),
 });
 
+const AnimeEpisodeBody = z.object({
+  airing: z.number(),
+  nextAiringDate: z.string(),
+  total: z.number(),
+  durationMinute: z.number(),
+})
+
 export const Add_Anime_ZOD = z.object({
   id: z.string(),
   parentLabel: z.optional(z.enum(MediaParentLabelArray)),
 });
 
-export type IAdd_Anime_ZOD = z.infer<typeof Add_Anime_ZOD>;
 // Définir une regex pour les URL de vidéos YouTube
 const youtubeUrlRegex = /^(https?:\/\/)?(www\.)?(youtube\.com|youtu\.?be)\/.+$/;
 
@@ -88,11 +56,58 @@ const youtubeUrlSchema = z.string().regex(youtubeUrlRegex, {
   message: "L'URL doit être une URL de vidéo YouTube valide."
 });
 
+
+export const AnimeQueryBody = z.object({
+  title: MediaTitleBody.partial(),
+  date: MediaDateBody.partial(),
+  format: z.enum(AnimeFormatArray),
+  vf: z.boolean(),
+  genres: z.array(z.enum(MediaGenresArray)),
+  status: z.enum(MediaStatusArray),
+  trailer: youtubeUrlSchema,
+  episodes: AnimeEpisodeBody.partial(),
+  adult: z.boolean(),
+  explicit: z.boolean(),
+  links: LinkBody.partial(),
+  createdAt: z.string(),
+  updatedAt: z.string(),
+});
+
+const check = (v: number) => [-1, 1].includes(v);
+const checkErr = "le sort doit être soit -1 ou 1";
+export const AnimeSortBody = z.object({
+  vf: z.number().refine(check, checkErr),
+  status: z.number().refine(check, checkErr),
+  adult: z.number().refine(check, checkErr),
+  explicit: z.number().refine(check, checkErr),
+  createdAt: z.number().refine(check, checkErr),
+  updatedAt: z.number().refine(check, checkErr),
+})
+
+export const AnimePaginationBody = PaginationBody.extend({
+  sort: AnimeSortBody.partial(),
+  query: AnimeQueryBody.partial()
+})
+
+
+export const Anime_Pagination_ZOD = z.object({
+  page: z.number(),
+  limit: z.number(),
+  strict: z.boolean(),
+  sort: AnimeSortBody.partial(),
+  query: AnimeQueryBody.partial()
+})
+
+export type IAnime_Pagination_ZOD = z.infer<typeof Anime_Pagination_ZOD>;
+
+export type IAdd_Anime_ZOD = z.infer<typeof Add_Anime_ZOD>;
+
 export const Create_Anime_ZOD = z
   .object({
     groupe: Add_Groupe_ZOD,
-    parent: z.optional(Add_Anime_ZOD.partial()),
-    source: z.optional(Add_Manga_ZOD.partial()),
+    parent: z.optional(Add_Anime_ZOD),
+    manga: z.optional(Add_Manga_ZOD),
+    source: z.enum(MediaSourceArray),
     title: MediaTitleZodSchema,
     date: z.optional(MediaDateZodSchema),
     cover: z.optional(Add_Image_ZOD.partial()),
@@ -239,6 +254,10 @@ export const Create_Anime_ZOD = z
   );
 
 export type ICreate_Anime_ZOD = z.infer<typeof Create_Anime_ZOD>;
+
+export const AnimeCreateBody = PatchParamsBody.partial().extend({
+  data: Create_Anime_ZOD
+})
 
 export const Create_Anime_ZOD_FORM = z.object({
   note: z.string().optional(),

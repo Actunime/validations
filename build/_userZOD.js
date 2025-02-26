@@ -83,3 +83,4 @@ exports.UserAnimeListe_ZOD = zod_1.z.object({
     startedAt: zod_1.z.string().optional(),
     completedAt: zod_1.z.string().optional(),
 });
+//# sourceMappingURL=_userZOD.js.map

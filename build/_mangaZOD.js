@@ -1,6 +1,6 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.MangaDataToZOD = exports.Create_Manga_ZOD_FORM = exports.Create_Manga_ZOD = exports.Add_Manga_ZOD = exports.Manga_Pagination_ZOD = void 0;
+exports.MangaDataToZOD = exports.Create_Manga_ZOD_FORM = exports.MangaCreateBody = exports.Create_Manga_ZOD = exports.Add_Manga_ZOD = exports.Manga_Pagination_ZOD = exports.MangaPaginationBody = exports.MangaSortBody = exports.MangaQueryBody = void 0;
 const types_1 = require("@actunime/types");
 const zod_1 = require("zod");
 const _characterZOD_1 = require("./_characterZOD");
@@ -11,6 +11,40 @@ const _personZOD_1 = require("./_personZOD");
 const _trackZOD_1 = require("./_trackZOD");
 const _util_1 = require("./_util");
 const _imageZOD_1 = require("./_imageZOD");
+const _patchZOD_1 = require("./_patchZOD");
+const Manga_ChapterVolume_ZOD = zod_1.z.object({
+    airing: zod_1.z.optional((0, _util_1.zodNumber)()),
+    nextAiringDate: zod_1.z.optional(zod_1.z.string()),
+    total: zod_1.z.optional((0, _util_1.zodNumber)()),
+});
+exports.MangaQueryBody = zod_1.z.object({
+    title: _media_1.MediaTitleBody.partial(),
+    date: _media_1.MediaDateBody.partial(),
+    format: zod_1.z.enum(types_1.MangaFormatArray),
+    vf: zod_1.z.boolean(),
+    genres: zod_1.z.array(zod_1.z.enum(types_1.MediaGenresArray)),
+    status: zod_1.z.enum(types_1.MediaStatusArray),
+    trailer: _media_1.MediaTrailerZod,
+    chapters: Manga_ChapterVolume_ZOD.partial(),
+    volumes: Manga_ChapterVolume_ZOD.partial(),
+    adult: zod_1.z.boolean(),
+    explicit: zod_1.z.boolean(),
+    links: _media_1.LinkBody.partial(),
+});
+const check = (v) => [-1, 1].includes(v);
+const checkErr = "le sort doit être soit -1 ou 1";
+exports.MangaSortBody = zod_1.z.object({
+    vf: zod_1.z.number().refine(check, checkErr),
+    status: zod_1.z.number().refine(check, checkErr),
+    adult: zod_1.z.number().refine(check, checkErr),
+    explicit: zod_1.z.number().refine(check, checkErr),
+    createdAt: zod_1.z.number().refine(check, checkErr),
+    updatedAt: zod_1.z.number().refine(check, checkErr),
+});
+exports.MangaPaginationBody = _util_1.PaginationBody.extend({
+    sort: exports.MangaSortBody.partial(),
+    query: exports.MangaQueryBody.partial()
+});
 exports.Manga_Pagination_ZOD = zod_1.z
     .object({
     page: (0, _util_1.zodNumber)(),
@@ -44,18 +78,8 @@ exports.Manga_Pagination_ZOD = zod_1.z
 })
     .partial()
     .strict();
-const Manga_ChapterVolume_ZOD = zod_1.z.object({
-    airing: zod_1.z.optional((0, _util_1.zodNumber)()),
-    nextAiringDate: zod_1.z.optional(zod_1.z.string()),
-    total: zod_1.z.optional((0, _util_1.zodNumber)()),
-});
 exports.Add_Manga_ZOD = zod_1.z
-    .object({
-    id: zod_1.z.string().optional(),
-    parentLabel: zod_1.z.optional(zod_1.z.enum(types_1.MediaParentLabelArray)),
-    sourceLabel: zod_1.z.optional(zod_1.z.enum(types_1.MediaSourceArray)),
-})
-    .partial();
+    .object({ id: zod_1.z.string(), parentLabel: zod_1.z.optional(zod_1.z.enum(types_1.MediaParentLabelArray)) });
 exports.Create_Manga_ZOD = zod_1.z
     .object({
     groupe: _groupeZOD_1.Add_Groupe_ZOD,
@@ -82,6 +106,9 @@ exports.Create_Manga_ZOD = zod_1.z
     tracks: zod_1.z.optional(zod_1.z.array(_trackZOD_1.Add_Track_ZOD)),
 })
     .strict();
+exports.MangaCreateBody = _patchZOD_1.PatchParamsBody.partial().extend({
+    data: exports.Create_Manga_ZOD
+});
 exports.Create_Manga_ZOD_FORM = zod_1.z.object({
     note: zod_1.z.string().optional(),
     data: exports.Create_Manga_ZOD,
@@ -138,3 +165,4 @@ const MangaDataToZOD = (data) => {
     return toZOD;
 };
 exports.MangaDataToZOD = MangaDataToZOD;
+//# sourceMappingURL=_mangaZOD.js.map

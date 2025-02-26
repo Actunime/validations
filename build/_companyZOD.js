@@ -1,44 +1,53 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.CompanyDataToZOD = exports.Add_Company_ZOD = exports.Create_Company_ZOD_FORM = exports.Create_Company_ZOD = exports.Company_Pagination_ZOD = void 0;
+exports.CompanyDataToZOD = exports.Add_Company_ZOD = exports.Create_Company_ZOD_FORM = exports.CompanyCreateBody = exports.Create_Company_ZOD = exports.Company_Pagination_ZOD = exports.CompanyPaginationBody = exports.CompanySortBody = exports.CompanyQueryBody = void 0;
 const types_1 = require("@actunime/types");
 const zod_1 = require("zod");
 const _media_1 = require("./_media");
 const _util_1 = require("./_util");
 const _imageZOD_1 = require("./_imageZOD");
-exports.Company_Pagination_ZOD = zod_1.z
-    .object({
-    page: (0, _util_1.zodNumber)(),
-    limit: (0, _util_1.zodNumber)(),
-    strict: zod_1.z.boolean().optional(),
-    sort: zod_1.z
-        .object({
-        updaptedAt: zod_1.z.enum(["DESC", "ASC"]).optional(),
-        createdAt: zod_1.z.enum(["DESC", "ASC"]).optional(),
-    })
-        .partial()
-        .strict(),
-    query: zod_1.z
-        .object({
-        name: zod_1.z.string().optional(),
-        type: zod_1.z.enum(types_1.CompanyTypeArray),
-        allowUnverified: zod_1.z.boolean().optional(),
-    })
-        .partial()
-        .strict(),
-    with: zod_1.z.object({}).partial().strict(),
-})
-    .partial()
-    .strict();
-exports.Create_Company_ZOD = zod_1.z
-    .object({
+const _patchZOD_1 = require("./_patchZOD");
+exports.CompanyQueryBody = zod_1.z.object({
     type: zod_1.z.enum(["STUDIO", "PRODUCER"]),
     name: zod_1.z.string(),
+    links: _media_1.LinkBody.partial(),
+    logo: _imageZOD_1.ImageBody.partial(),
+    createdDate: zod_1.z.optional(zod_1.z.string()),
+    createdAt: zod_1.z.string(),
+    updatedAt: zod_1.z.string(),
+});
+const check = (v) => [-1, 1].includes(v);
+const checkErr = "le sort doit être soit -1 ou 1";
+exports.CompanySortBody = zod_1.z.object({
+    type: (0, _util_1.zodNumber)().refine(check, checkErr),
+    name: (0, _util_1.zodNumber)().refine(check, checkErr),
+    createdDate: (0, _util_1.zodNumber)().refine(check, checkErr),
+    createdAt: (0, _util_1.zodNumber)().refine(check, checkErr),
+    updatedAt: (0, _util_1.zodNumber)().refine(check, checkErr),
+});
+exports.CompanyPaginationBody = _util_1.PaginationBody.extend({
+    sort: exports.CompanySortBody.partial(),
+    query: exports.CompanyQueryBody.partial()
+});
+exports.Company_Pagination_ZOD = zod_1.z.object({
+    page: zod_1.z.number(),
+    limit: zod_1.z.number(),
+    strict: zod_1.z.boolean(),
+    sort: exports.CompanySortBody.partial(),
+    query: exports.CompanyQueryBody.partial()
+});
+exports.Create_Company_ZOD = zod_1.z.object({
+    type: zod_1.z.enum(["STUDIO", "PRODUCER"]),
+    name: zod_1.z.string(),
+    bio: zod_1.z.optional(zod_1.z.string()),
     links: zod_1.z.optional(zod_1.z.array(_media_1.Create_Link_ZOD)),
     logo: zod_1.z.optional(_imageZOD_1.Add_Image_ZOD),
     createdDate: zod_1.z.optional(zod_1.z.string()),
 })
     .strict();
+exports.CompanyCreateBody = _patchZOD_1.PatchParamsBody.partial().extend({
+    data: exports.Create_Company_ZOD
+});
 exports.Create_Company_ZOD_FORM = zod_1.z.object({
     note: zod_1.z.string().optional(),
     data: exports.Create_Company_ZOD,
@@ -53,6 +62,7 @@ const CompanyDataToZOD = (data) => {
     const toZOD = {
         type: data.type,
         name: data.name,
+        bio: data.bio,
         links: data.links,
         logo: data.logo,
         createdDate: (0, types_1.dateToZod)(data.createdDate),
@@ -63,3 +73,4 @@ const CompanyDataToZOD = (data) => {
     return toZOD;
 };
 exports.CompanyDataToZOD = CompanyDataToZOD;
+//# sourceMappingURL=_companyZOD.js.map

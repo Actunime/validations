@@ -6,48 +6,56 @@ import {
   dateToZod,
 } from "@actunime/types";
 import { z } from "zod";
-import { Add_Person_ZOD } from "./_personZOD";
-import { zodNumber } from "./_util";
-import { Add_Image_ZOD } from "./_imageZOD";
-
-export const Character_Pagination_ZOD = z
-  .object({
-    page: zodNumber(),
-    limit: zodNumber(),
-    strict: z.boolean().optional(),
-    sort: z
-      .object({
-        updaptedAt: z.enum(["DESC", "ASC"]).optional(),
-        createdAt: z.enum(["DESC", "ASC"]).optional(),
-      })
-      .partial()
-      .strict(),
-    query: z
-      .object({
-        name: z.optional(z.string()),
-        allowUnverified: z.boolean().optional(),
-      })
-      .partial()
-      .strict(),
-    with: z
-      .object({
-        actors: z.boolean().optional(),
-        avatar: z.boolean().optional(),
-      })
-      .partial()
-      .strict(),
-  })
-  .partial()
-  .strict();
-
-export type ICharacter_Pagination_ZOD = z.infer<
-  typeof Character_Pagination_ZOD
->;
+import { Add_Person_ZOD, PersonBody } from "./_personZOD";
+import { PaginationBody, zodNumber } from "./_util";
+import { Add_Image_ZOD, ImageBody } from "./_imageZOD";
+import { PatchParamsBody } from "./_patchZOD";
 
 export const Character_Name_ZOD = z.object({
   default: z.string(),
   alias: z.optional(z.array(z.object({ content: z.string() }))),
 });
+
+
+export const CharacterQueryBody = z.object({
+  title: Character_Name_ZOD.partial(),
+  age: zodNumber(),
+  birthDate: z.string(),
+  avatar: ImageBody.partial(),
+  gender: z.enum(CharacterGenderArray),
+  species: z.enum(CharacterSpeciesArray),
+  actors: PersonBody.partial(),
+  createdAt: z.string(),
+  updatedAt: z.string(),
+});
+
+const check = (v: number) => [-1, 1].includes(v);
+const checkErr = "le sort doit être soit -1 ou 1";
+export const CharacterSortBody = z.object({
+  age: zodNumber().refine(check, checkErr),
+  birthDate: zodNumber().refine(check, checkErr),
+  gender: zodNumber().refine(check, checkErr),
+  species: zodNumber().refine(check, checkErr),
+  createdAt: zodNumber().refine(check, checkErr),
+  updatedAt: zodNumber().refine(check, checkErr),
+})
+
+export const CharacterPaginationBody = PaginationBody.extend({
+  sort: CharacterSortBody.partial(),
+  query: CharacterQueryBody.partial()
+})
+
+export const Character_Pagination_ZOD = z.object({
+  page: z.number(),
+  limit: z.number(),
+  strict: z.boolean(),
+  sort: CharacterSortBody.partial(),
+  query: CharacterQueryBody.partial()
+})
+
+export type ICharacter_Pagination_ZOD = z.infer<
+  typeof Character_Pagination_ZOD
+>;
 
 export const Create_Character_ZOD = z
   .object({
@@ -63,6 +71,10 @@ export const Create_Character_ZOD = z
   .strict();
 
 export type ICreate_Character_ZOD = z.infer<typeof Create_Character_ZOD>;
+
+export const CharacterCreateBody = PatchParamsBody.partial().extend({
+  data: Create_Character_ZOD
+})
 
 export const Create_Character_ZOD_FORM = z.object({
   note: z.string().optional(),

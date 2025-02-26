@@ -1,12 +1,12 @@
 import { z } from "zod";
-import { Create_Link_ZOD } from "./_media";
-import { zodNumber } from "./_util";
-import { Add_Image_ZOD } from "./_imageZOD";
+import { Create_Link_ZOD, LinkBody } from "./_media";
+import { PaginationBody, zodNumber } from "./_util";
+import { Add_Image_ZOD, ImageBody } from "./_imageZOD";
 import { IPerson, PersonRoleArray, dateToZod } from "@actunime/types";
+import { PatchParamsBody } from "./_patchZOD";
 
 export const PersonName_validation = z.object({
-  first: z.string().min(2, "le prénom dois contenir au moins 2 caractères"),
-  last: z.optional(z.string()),
+  default: z.string(),
   alias: z.optional(
     z.array(
       z.object({
@@ -32,36 +32,17 @@ export const Base_Create_Person_ZOD = z
 
 export const Create_Person_ZOD = Base_Create_Person_ZOD
   .strict()
-  .refine((v) => {
-    console.log(v)
-    if (!v.isGroupe) {
-      if (!v.name.last) {
-        return false;
-      }
-    }
-    return true;
-  }, (v) => {
-    if (!v.isGroupe) {
-      if (!v.name.last) {
-        return {
-          message: "Le nom est obligatoire",
-          path: ["name.last"],
-        };
-      }
-    }
-    return {
-      message: "Problème"
-    }
-  })
 
 export const Partial_Create_Person_ZOD =
   Base_Create_Person_ZOD
     .strict()
     .partial()
 
-
-
 export type ICreate_Person_ZOD = z.infer<typeof Create_Person_ZOD>;
+
+export const PersonCreateBody = PatchParamsBody.partial().extend({
+  data: Create_Person_ZOD
+})
 
 export const Create_Person_ZOD_FORM = z.object({
   note: z.string().optional(),
@@ -71,31 +52,39 @@ export const Create_Person_ZOD_FORM = z.object({
 export type ICreate_Person_ZOD_FORM = z.infer<typeof Create_Person_ZOD_FORM>;
 
 
-export const Person_Pagination_ZOD = z
-  .object({
-    page: zodNumber(),
-    limit: zodNumber(),
-    strict: z.boolean().optional(),
-    sort: z
-      .object({
-        updaptedAt: z.enum(["DESC", "ASC"]).optional(),
-        createdAt: z.enum(["DESC", "ASC"]).optional(),
-      })
-      .partial()
-      .strict(),
-    query: z
-      .object({
-        name: z.string(),
-        allowUnverified: z.boolean().optional(),
-      })
-      .partial()
-      .strict(),
-    with: z.object({
-      avatar: z.boolean().optional(),
-    }).partial().strict(),
-  })
-  .partial()
-  .strict();
+export const PersonQueryBody = z.object({
+  isGroupe: z.boolean(),
+  name: PersonName_validation.partial(),
+  birthDate: z.string(),
+  deathDate: z.string(),
+  avatar: ImageBody.partial(),
+  links: LinkBody.partial(),
+  createdAt: z.string(),
+  updatedAt: z.string(),
+});
+
+const check = (v: number) => [-1, 1].includes(v);
+const checkErr = "le sort doit être soit -1 ou 1";
+export const PersonSortBody = z.object({
+  isGroupe: zodNumber().refine(check, checkErr),
+  birthDate: zodNumber().refine(check, checkErr),
+  deathDate: zodNumber().refine(check, checkErr),
+  createdAt: zodNumber().refine(check, checkErr),
+  updatedAt: zodNumber().refine(check, checkErr),
+})
+
+export const PersonPaginationBody = PaginationBody.extend({
+  sort: PersonSortBody.partial(),
+  query: PersonQueryBody.partial()
+})
+
+export const Person_Pagination_ZOD = z.object({
+  page: z.number(),
+  limit: z.number(),
+  strict: z.boolean(),
+  sort: PersonSortBody.partial(),
+  query: PersonQueryBody.partial()
+})
 
 export type IPerson_Pagination_ZOD = z.infer<typeof Person_Pagination_ZOD>;
 
@@ -106,6 +95,10 @@ export const Add_Person_ZOD = z.object({
 });
 
 export type IAdd_Person_ZOD = z.infer<typeof Add_Person_ZOD>;
+
+export const PersonBody = z.object({
+  id: z.string()
+});
 
 export const PersonDataToZOD = (data: IPerson) => {
   if (!data) return;

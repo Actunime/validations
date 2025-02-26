@@ -1,47 +1,60 @@
-import { CompanyTypeArray, ICompany, dateToZod } from "@actunime/types";
+import {  ICompany, dateToZod } from "@actunime/types";
 import { z } from "zod";
-import { Create_Link_ZOD } from "./_media";
-import { zodNumber } from "./_util";
-import { Add_Image_ZOD } from "./_imageZOD";
+import { Create_Link_ZOD, LinkBody } from "./_media";
+import { PaginationBody, zodNumber } from "./_util";
+import { Add_Image_ZOD, ImageBody } from "./_imageZOD";
+import { PatchParamsBody } from "./_patchZOD";
 
-export const Company_Pagination_ZOD = z
-  .object({
-    page: zodNumber(),
-    limit: zodNumber(),
-    strict: z.boolean().optional(),
-    sort: z
-      .object({
-        updaptedAt: z.enum(["DESC", "ASC"]).optional(),
-        createdAt: z.enum(["DESC", "ASC"]).optional(),
-      })
-      .partial()
-      .strict(),
-    query: z
-      .object({
-        name: z.string().optional(),
-        type: z.enum(CompanyTypeArray),
-        allowUnverified: z.boolean().optional(),
-      })
-      .partial()
-      .strict(),
-    with: z.object({}).partial().strict(),
-  })
-  .partial()
-  .strict();
+export const CompanyQueryBody = z.object({
+  type: z.enum(["STUDIO", "PRODUCER"]),
+  name: z.string(),
+  links: LinkBody.partial(),
+  logo: ImageBody.partial(),
+  createdDate: z.optional(z.string()),
+  createdAt: z.string(),
+  updatedAt: z.string(),
+});
+
+const check = (v: number) => [-1, 1].includes(v);
+const checkErr = "le sort doit être soit -1 ou 1";
+export const CompanySortBody = z.object({
+  type: zodNumber().refine(check, checkErr),
+  name: zodNumber().refine(check, checkErr),
+  createdDate: zodNumber().refine(check, checkErr),
+  createdAt: zodNumber().refine(check, checkErr),
+  updatedAt: zodNumber().refine(check, checkErr),
+})
+
+export const CompanyPaginationBody = PaginationBody.extend({
+  sort: CompanySortBody.partial(),
+  query: CompanyQueryBody.partial()
+})
+
+export const Company_Pagination_ZOD = z.object({
+  page: z.number(),
+  limit: z.number(),
+  strict: z.boolean(),
+  sort: CompanySortBody.partial(),
+  query: CompanyQueryBody.partial()
+})
 
 export type ICompany_Pagination_ZOD = z.infer<typeof Company_Pagination_ZOD>;
 
-export const Create_Company_ZOD = z
-  .object({
-    type: z.enum(["STUDIO", "PRODUCER"]),
-    name: z.string(),
-    links: z.optional(z.array(Create_Link_ZOD)),
-    logo: z.optional(Add_Image_ZOD),
-    createdDate: z.optional(z.string()),
-  })
+export const Create_Company_ZOD = z.object({
+  type: z.enum(["STUDIO", "PRODUCER"]),
+  name: z.string(),
+  bio: z.optional(z.string()),
+  links: z.optional(z.array(Create_Link_ZOD)),
+  logo: z.optional(Add_Image_ZOD),
+  createdDate: z.optional(z.string()),
+})
   .strict();
 
 export type ICreate_Company_ZOD = z.infer<typeof Create_Company_ZOD>;
+
+export const CompanyCreateBody = PatchParamsBody.partial().extend({
+  data: Create_Company_ZOD
+})
 
 export const Create_Company_ZOD_FORM = z.object({
   note: z.string().optional(),
@@ -66,6 +79,7 @@ export const CompanyDataToZOD = (
   const toZOD: ICreate_Company_ZOD = {
     type: data.type,
     name: data.name,
+    bio: data.bio,
     links: data.links,
     logo: data.logo,
     createdDate: dateToZod(data.createdDate),

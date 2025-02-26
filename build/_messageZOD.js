@@ -6,3 +6,4 @@ exports.Create_Message_ZOD = zod_1.z.object({
     content: zod_1.z.string(),
     replyTo: zod_1.z.optional(zod_1.z.string()),
 });
+//# sourceMappingURL=_messageZOD.js.map
