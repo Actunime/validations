@@ -1,3 +1,10 @@
+## [1.0.8](https://github.com/Actunime/validations/compare/v1.0.7...v1.0.8) (2025-03-02)
+
+
+### Bug Fixes
+
+* add onlyVerified on pagination ([a32d979](https://github.com/Actunime/validations/commit/a32d979cf2ab7023d5caa19a163b7548e369daf0))
+
 ## [1.0.7](https://github.com/Actunime/validations/compare/v1.0.6...v1.0.7) (2025-03-02)
 
 
