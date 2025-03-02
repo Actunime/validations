@@ -30,6 +30,8 @@ export const CompanyPaginationBody = PaginationBody.extend({
   query: CompanyQueryBody.partial()
 })
 
+export type ICompanyPaginationBody = z.infer<typeof CompanyPaginationBody>;
+
 export const Company_Pagination_ZOD = z.object({
   page: z.number(),
   limit: z.number(),

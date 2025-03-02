@@ -47,6 +47,8 @@ export const PatchPaginationBody = PaginationBody.extend({
   query: PatchQueryBody.partial()
 })
 
+export type IPatchPaginationBody = z.infer<typeof PatchPaginationBody>;
+
 export const PatchParamsBody = z.object({
   description: z.string(),
   reason: z.string(),

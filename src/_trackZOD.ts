@@ -31,6 +31,8 @@ export const TrackPaginationBody = PaginationBody.extend({
   query: TrackQueryBody.partial()
 })
 
+export type ITrackPaginationBody = z.infer<typeof TrackPaginationBody>;
+
 export const Track_Pagination_ZOD = z.object({
   page: z.number(),
   limit: z.number(),

@@ -1,7 +1,32 @@
 import { UserRolesArray, IUser, UserAnimeListStatusArray } from "@actunime/types";
 import { z } from "zod";
-import { zodNumber } from "./_util";
+import { PaginationBody, zodNumber } from "./_util";
 import { Add_Image_ZOD } from "./_imageZOD";
+
+export const UserQueryBody = z.object({
+  username: z.string(),
+  displayName: z.string(),
+  roles: z.array(z.enum(UserRolesArray)),
+  createdAt: z.string(),
+  updatedAt: z.string(),
+});
+
+const check = (v: number) => [-1, 1].includes(v);
+const checkErr = "le sort doit être soit -1 ou 1";
+export const UserSortBody = z.object({
+  username: zodNumber().refine(check, checkErr),
+  displayName: zodNumber().refine(check, checkErr),
+  roles: zodNumber().refine(check, checkErr),
+  createdAt: zodNumber().refine(check, checkErr),
+  updatedAt: zodNumber().refine(check, checkErr),
+})
+
+export const UserPaginationBody = PaginationBody.extend({
+  sort: UserSortBody.partial(),
+  query: UserQueryBody.partial()
+})
+
+export type IUserPaginationBody = z.infer<typeof UserPaginationBody>;
 
 export const User_Pagination_ZOD = z
   .object({

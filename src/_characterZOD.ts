@@ -45,6 +45,10 @@ export const CharacterPaginationBody = PaginationBody.extend({
   query: CharacterQueryBody.partial()
 })
 
+export type ICharacterPaginationBody = z.infer<
+  typeof CharacterPaginationBody
+>;
+
 export const Character_Pagination_ZOD = z.object({
   page: z.number(),
   limit: z.number(),

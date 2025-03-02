@@ -89,6 +89,7 @@ export const AnimePaginationBody = PaginationBody.extend({
   query: AnimeQueryBody.partial()
 })
 
+export type IAnimePaginationBody = z.infer<typeof AnimePaginationBody>;
 
 export const Anime_Pagination_ZOD = z.object({
   page: z.number(),

@@ -78,6 +78,8 @@ export const PersonPaginationBody = PaginationBody.extend({
   query: PersonQueryBody.partial()
 })
 
+export type IPersonPaginationBody = z.infer<typeof PersonPaginationBody>;
+
 export const Person_Pagination_ZOD = z.object({
   page: z.number(),
   limit: z.number(),

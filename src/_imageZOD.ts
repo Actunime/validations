@@ -22,6 +22,8 @@ export const ImagePaginationBody = PaginationBody.extend({
   query: ImageQueryBody.partial()
 })
 
+export type IImagePaginationBody = z.infer<typeof ImagePaginationBody>;
+
 export const Image_Pagination_ZOD = z.object({
   page: z.number(),
   limit: z.number(),

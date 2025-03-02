@@ -64,6 +64,8 @@ export const MangaPaginationBody = PaginationBody.extend({
   query: MangaQueryBody.partial()
 })
 
+export type IMangaPaginationBody = z.infer<typeof MangaPaginationBody>;
+
 export const Manga_Pagination_ZOD = z
   .object({
     page: zodNumber(),

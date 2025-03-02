@@ -20,6 +20,8 @@ export const GroupePaginationBody = PaginationBody.extend({
   query: GroupeQueryBody.partial()
 })
 
+export type IGroupePaginationBody = z.infer<typeof GroupePaginationBody>;
+
 export const Groupe_Pagination_ZOD = z
   .object({
     page: zodNumber(),
