@@ -2,6 +2,7 @@ import { z } from "zod";
 import { PaginationBody, zodNumber } from "./_util";
 import { IImage, ImageLabelArray } from "@actunime/types";
 import { PatchParamsBody } from "./_patchZOD";
+import { FromBody } from "./_media";
 
 export const ImageQueryBody = z.object({
   label: z.enum(ImageLabelArray),
@@ -19,8 +20,9 @@ export const ImageSortBody = z.object({
 
 export const ImagePaginationBody = PaginationBody.extend({
   sort: ImageSortBody.partial(),
-  query: ImageQueryBody.partial()
-})
+  query: ImageQueryBody.partial(),
+  from: FromBody,
+}).partial()
 
 export type IImagePaginationBody = z.infer<typeof ImagePaginationBody>;
 

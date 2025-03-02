@@ -7,12 +7,13 @@ const _personZOD_1 = require("./_personZOD");
 const _util_1 = require("./_util");
 const _imageZOD_1 = require("./_imageZOD");
 const _patchZOD_1 = require("./_patchZOD");
+const _media_1 = require("./_media");
 exports.Character_Name_ZOD = zod_1.z.object({
     default: zod_1.z.string(),
     alias: zod_1.z.optional(zod_1.z.array(zod_1.z.object({ content: zod_1.z.string() }))),
 });
 exports.CharacterQueryBody = zod_1.z.object({
-    title: exports.Character_Name_ZOD.partial(),
+    name: exports.Character_Name_ZOD.partial(),
     age: (0, _util_1.zodNumber)(),
     birthDate: zod_1.z.string(),
     avatar: _imageZOD_1.ImageBody.partial(),
@@ -34,8 +35,9 @@ exports.CharacterSortBody = zod_1.z.object({
 });
 exports.CharacterPaginationBody = _util_1.PaginationBody.extend({
     sort: exports.CharacterSortBody.partial(),
-    query: exports.CharacterQueryBody.partial()
-});
+    query: exports.CharacterQueryBody.partial(),
+    from: _media_1.FromBody,
+}).partial();
 exports.Character_Pagination_ZOD = zod_1.z.object({
     page: zod_1.z.number(),
     limit: zod_1.z.number(),

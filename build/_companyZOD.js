@@ -27,8 +27,9 @@ exports.CompanySortBody = zod_1.z.object({
 });
 exports.CompanyPaginationBody = _util_1.PaginationBody.extend({
     sort: exports.CompanySortBody.partial(),
-    query: exports.CompanyQueryBody.partial()
-});
+    query: exports.CompanyQueryBody.partial(),
+    from: _media_1.FromBody,
+}).partial();
 exports.Company_Pagination_ZOD = zod_1.z.object({
     page: zod_1.z.number(),
     limit: zod_1.z.number(),

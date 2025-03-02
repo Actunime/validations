@@ -43,8 +43,9 @@ exports.MangaSortBody = zod_1.z.object({
 });
 exports.MangaPaginationBody = _util_1.PaginationBody.extend({
     sort: exports.MangaSortBody.partial(),
-    query: exports.MangaQueryBody.partial()
-});
+    query: exports.MangaQueryBody.partial(),
+    from: _media_1.FromBody,
+}).partial();
 exports.Manga_Pagination_ZOD = zod_1.z
     .object({
     page: (0, _util_1.zodNumber)(),

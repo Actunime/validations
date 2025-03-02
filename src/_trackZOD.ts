@@ -1,6 +1,6 @@
 import { TrackTypeArray, dateToZod, ITrack } from "@actunime/types";
 import { z } from "zod";
-import { Create_Link_ZOD, LinkBody } from "./_media";
+import { Create_Link_ZOD, FromBody, LinkBody } from "./_media";
 import { Add_Person_ZOD, PersonBody } from "./_personZOD";
 import { PaginationBody, zodNumber } from "./_util";
 import { Add_Image_ZOD, ImageBody } from "./_imageZOD";
@@ -28,8 +28,9 @@ export const TrackSortBody = z.object({
 
 export const TrackPaginationBody = PaginationBody.extend({
   sort: TrackSortBody.partial(),
-  query: TrackQueryBody.partial()
-})
+  query: TrackQueryBody.partial(),
+    from: FromBody,
+  }).partial()
 
 export type ITrackPaginationBody = z.infer<typeof TrackPaginationBody>;
 

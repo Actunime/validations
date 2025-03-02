@@ -74,15 +74,12 @@ export declare const CompanySortBody: z.ZodObject<{
     updatedAt: string | number;
     createdDate: string | number;
 }>;
-export declare const CompanyPaginationBody: z.ZodObject<z.objectUtil.extendShape<{
-    page: z.ZodNumber;
-    limit: z.ZodNumber;
-    strict: z.ZodBoolean;
-    onlyVerified: z.ZodBoolean;
-    sort: z.ZodAny;
-    query: z.ZodAny;
-}, {
-    sort: z.ZodObject<{
+export declare const CompanyPaginationBody: z.ZodObject<{
+    page: z.ZodOptional<z.ZodNumber>;
+    limit: z.ZodOptional<z.ZodNumber>;
+    strict: z.ZodOptional<z.ZodBoolean>;
+    onlyVerified: z.ZodOptional<z.ZodBoolean>;
+    sort: z.ZodOptional<z.ZodObject<{
         type: z.ZodOptional<z.ZodEffects<z.ZodEffects<z.ZodUnion<[z.ZodNumber, z.ZodString]>, number, string | number>, number, string | number>>;
         name: z.ZodOptional<z.ZodEffects<z.ZodEffects<z.ZodUnion<[z.ZodNumber, z.ZodString]>, number, string | number>, number, string | number>>;
         createdDate: z.ZodOptional<z.ZodEffects<z.ZodEffects<z.ZodUnion<[z.ZodNumber, z.ZodString]>, number, string | number>, number, string | number>>;
@@ -100,8 +97,8 @@ export declare const CompanyPaginationBody: z.ZodObject<z.objectUtil.extendShape
         name?: string | number | undefined;
         updatedAt?: string | number | undefined;
         createdDate?: string | number | undefined;
-    }>;
-    query: z.ZodObject<{
+    }>>;
+    query: z.ZodOptional<z.ZodObject<{
         type: z.ZodOptional<z.ZodEnum<["STUDIO", "PRODUCER"]>>;
         name: z.ZodOptional<z.ZodString>;
         links: z.ZodOptional<z.ZodObject<{
@@ -155,20 +152,30 @@ export declare const CompanyPaginationBody: z.ZodObject<z.objectUtil.extendShape
             label?: "COVER" | "BANNER" | "AVATAR" | "LOGO" | undefined;
         } | undefined;
         createdDate?: string | undefined;
-    }>;
-}>, "strip", z.ZodTypeAny, {
-    page: number;
-    limit: number;
-    strict: boolean;
-    onlyVerified: boolean;
-    sort: {
+    }>>;
+    from: z.ZodOptional<z.ZodObject<{
+        id: z.ZodString;
+        path: z.ZodEnum<("User" | "Account" | "UserProfile" | "UserPreferences" | "UserAnimeListe" | "UserDeleteAnimeFromListe" | "Groupe" | "Manga" | "Anime" | "Person" | "Character" | "Track" | "Company" | "Image" | "Patch" | "Activity" | "Report" | "DisabledUser" | "PremiumUser")[] & [string, ...string[]]>;
+    }, "strip", z.ZodTypeAny, {
+        path: "User" | "Account" | "UserProfile" | "UserPreferences" | "UserAnimeListe" | "UserDeleteAnimeFromListe" | "Groupe" | "Manga" | "Anime" | "Person" | "Character" | "Track" | "Company" | "Image" | "Patch" | "Activity" | "Report" | "DisabledUser" | "PremiumUser";
+        id: string;
+    }, {
+        path: "User" | "Account" | "UserProfile" | "UserPreferences" | "UserAnimeListe" | "UserDeleteAnimeFromListe" | "Groupe" | "Manga" | "Anime" | "Person" | "Character" | "Track" | "Company" | "Image" | "Patch" | "Activity" | "Report" | "DisabledUser" | "PremiumUser";
+        id: string;
+    }>>;
+}, "strip", z.ZodTypeAny, {
+    page?: number | undefined;
+    limit?: number | undefined;
+    strict?: boolean | undefined;
+    onlyVerified?: boolean | undefined;
+    sort?: {
         type?: number | undefined;
         createdAt?: number | undefined;
         name?: number | undefined;
         updatedAt?: number | undefined;
         createdDate?: number | undefined;
-    };
-    query: {
+    } | undefined;
+    query?: {
         type?: "STUDIO" | "PRODUCER" | undefined;
         createdAt?: string | undefined;
         name?: string | undefined;
@@ -182,20 +189,24 @@ export declare const CompanyPaginationBody: z.ZodObject<z.objectUtil.extendShape
             label?: "COVER" | "BANNER" | "AVATAR" | "LOGO" | undefined;
         } | undefined;
         createdDate?: string | undefined;
-    };
+    } | undefined;
+    from?: {
+        path: "User" | "Account" | "UserProfile" | "UserPreferences" | "UserAnimeListe" | "UserDeleteAnimeFromListe" | "Groupe" | "Manga" | "Anime" | "Person" | "Character" | "Track" | "Company" | "Image" | "Patch" | "Activity" | "Report" | "DisabledUser" | "PremiumUser";
+        id: string;
+    } | undefined;
 }, {
-    page: number;
-    limit: number;
-    strict: boolean;
-    onlyVerified: boolean;
-    sort: {
+    page?: number | undefined;
+    limit?: number | undefined;
+    strict?: boolean | undefined;
+    onlyVerified?: boolean | undefined;
+    sort?: {
         type?: string | number | undefined;
         createdAt?: string | number | undefined;
         name?: string | number | undefined;
         updatedAt?: string | number | undefined;
         createdDate?: string | number | undefined;
-    };
-    query: {
+    } | undefined;
+    query?: {
         type?: "STUDIO" | "PRODUCER" | undefined;
         createdAt?: string | undefined;
         name?: string | undefined;
@@ -209,7 +220,11 @@ export declare const CompanyPaginationBody: z.ZodObject<z.objectUtil.extendShape
             label?: "COVER" | "BANNER" | "AVATAR" | "LOGO" | undefined;
         } | undefined;
         createdDate?: string | undefined;
-    };
+    } | undefined;
+    from?: {
+        path: "User" | "Account" | "UserProfile" | "UserPreferences" | "UserAnimeListe" | "UserDeleteAnimeFromListe" | "Groupe" | "Manga" | "Anime" | "Person" | "Character" | "Track" | "Company" | "Image" | "Patch" | "Activity" | "Report" | "DisabledUser" | "PremiumUser";
+        id: string;
+    } | undefined;
 }>;
 export type ICompanyPaginationBody = z.infer<typeof CompanyPaginationBody>;
 export declare const Company_Pagination_ZOD: z.ZodObject<{

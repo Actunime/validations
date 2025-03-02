@@ -28,8 +28,9 @@ exports.TrackSortBody = zod_1.z.object({
 });
 exports.TrackPaginationBody = _util_1.PaginationBody.extend({
     sort: exports.TrackSortBody.partial(),
-    query: exports.TrackQueryBody.partial()
-});
+    query: exports.TrackQueryBody.partial(),
+    from: _media_1.FromBody,
+}).partial();
 exports.Track_Pagination_ZOD = zod_1.z.object({
     page: zod_1.z.number(),
     limit: zod_1.z.number(),

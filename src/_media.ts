@@ -1,5 +1,6 @@
 import { z } from "zod";
 import { zodDate } from "./_util";
+import { TargetPathArray } from "@actunime/types";
 
 export const MediaDateZodSchema = z.object({
   start: z.optional(
@@ -79,3 +80,9 @@ const youtubeUrlRegex = /^(https?:\/\/)?(www\.)?(youtube\.com|youtu\.?be)\/.+$/;
 export const MediaTrailerZod = z.string().regex(youtubeUrlRegex, {
   message: "L'URL doit être une URL de vidéo YouTube valide."
 });
+
+
+export const FromBody = z.object({
+  id: z.string(),
+  path: z.enum(TargetPathArray),
+})

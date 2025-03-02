@@ -1,6 +1,6 @@
 import {  ICompany, dateToZod } from "@actunime/types";
 import { z } from "zod";
-import { Create_Link_ZOD, LinkBody } from "./_media";
+import { Create_Link_ZOD, FromBody, LinkBody } from "./_media";
 import { PaginationBody, zodNumber } from "./_util";
 import { Add_Image_ZOD, ImageBody } from "./_imageZOD";
 import { PatchParamsBody } from "./_patchZOD";
@@ -27,8 +27,9 @@ export const CompanySortBody = z.object({
 
 export const CompanyPaginationBody = PaginationBody.extend({
   sort: CompanySortBody.partial(),
-  query: CompanyQueryBody.partial()
-})
+  query: CompanyQueryBody.partial(),
+  from: FromBody,
+}).partial()
 
 export type ICompanyPaginationBody = z.infer<typeof CompanyPaginationBody>;
 

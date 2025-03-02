@@ -792,15 +792,12 @@ export declare const PersonSortBody: z.ZodObject<{
     birthDate: string | number;
     deathDate: string | number;
 }>;
-export declare const PersonPaginationBody: z.ZodObject<z.objectUtil.extendShape<{
-    page: z.ZodNumber;
-    limit: z.ZodNumber;
-    strict: z.ZodBoolean;
-    onlyVerified: z.ZodBoolean;
-    sort: z.ZodAny;
-    query: z.ZodAny;
-}, {
-    sort: z.ZodObject<{
+export declare const PersonPaginationBody: z.ZodObject<{
+    page: z.ZodOptional<z.ZodNumber>;
+    limit: z.ZodOptional<z.ZodNumber>;
+    strict: z.ZodOptional<z.ZodBoolean>;
+    onlyVerified: z.ZodOptional<z.ZodBoolean>;
+    sort: z.ZodOptional<z.ZodObject<{
         isGroupe: z.ZodOptional<z.ZodEffects<z.ZodEffects<z.ZodUnion<[z.ZodNumber, z.ZodString]>, number, string | number>, number, string | number>>;
         birthDate: z.ZodOptional<z.ZodEffects<z.ZodEffects<z.ZodUnion<[z.ZodNumber, z.ZodString]>, number, string | number>, number, string | number>>;
         deathDate: z.ZodOptional<z.ZodEffects<z.ZodEffects<z.ZodUnion<[z.ZodNumber, z.ZodString]>, number, string | number>, number, string | number>>;
@@ -818,8 +815,8 @@ export declare const PersonPaginationBody: z.ZodObject<z.objectUtil.extendShape<
         isGroupe?: string | number | undefined;
         birthDate?: string | number | undefined;
         deathDate?: string | number | undefined;
-    }>;
-    query: z.ZodObject<{
+    }>>;
+    query: z.ZodOptional<z.ZodObject<{
         isGroupe: z.ZodOptional<z.ZodBoolean>;
         name: z.ZodOptional<z.ZodObject<{
             default: z.ZodOptional<z.ZodString>;
@@ -905,20 +902,30 @@ export declare const PersonPaginationBody: z.ZodObject<z.objectUtil.extendShape<
             value?: string | undefined;
             name?: string | undefined;
         } | undefined;
-    }>;
-}>, "strip", z.ZodTypeAny, {
-    page: number;
-    limit: number;
-    strict: boolean;
-    onlyVerified: boolean;
-    sort: {
+    }>>;
+    from: z.ZodOptional<z.ZodObject<{
+        id: z.ZodString;
+        path: z.ZodEnum<("User" | "Account" | "UserProfile" | "UserPreferences" | "UserAnimeListe" | "UserDeleteAnimeFromListe" | "Groupe" | "Manga" | "Anime" | "Person" | "Character" | "Track" | "Company" | "Image" | "Patch" | "Activity" | "Report" | "DisabledUser" | "PremiumUser")[] & [string, ...string[]]>;
+    }, "strip", z.ZodTypeAny, {
+        path: "User" | "Account" | "UserProfile" | "UserPreferences" | "UserAnimeListe" | "UserDeleteAnimeFromListe" | "Groupe" | "Manga" | "Anime" | "Person" | "Character" | "Track" | "Company" | "Image" | "Patch" | "Activity" | "Report" | "DisabledUser" | "PremiumUser";
+        id: string;
+    }, {
+        path: "User" | "Account" | "UserProfile" | "UserPreferences" | "UserAnimeListe" | "UserDeleteAnimeFromListe" | "Groupe" | "Manga" | "Anime" | "Person" | "Character" | "Track" | "Company" | "Image" | "Patch" | "Activity" | "Report" | "DisabledUser" | "PremiumUser";
+        id: string;
+    }>>;
+}, "strip", z.ZodTypeAny, {
+    page?: number | undefined;
+    limit?: number | undefined;
+    strict?: boolean | undefined;
+    onlyVerified?: boolean | undefined;
+    sort?: {
         createdAt?: number | undefined;
         updatedAt?: number | undefined;
         isGroupe?: number | undefined;
         birthDate?: number | undefined;
         deathDate?: number | undefined;
-    };
-    query: {
+    } | undefined;
+    query?: {
         createdAt?: string | undefined;
         name?: {
             default?: string | undefined;
@@ -938,20 +945,24 @@ export declare const PersonPaginationBody: z.ZodObject<z.objectUtil.extendShape<
             value?: string | undefined;
             name?: string | undefined;
         } | undefined;
-    };
+    } | undefined;
+    from?: {
+        path: "User" | "Account" | "UserProfile" | "UserPreferences" | "UserAnimeListe" | "UserDeleteAnimeFromListe" | "Groupe" | "Manga" | "Anime" | "Person" | "Character" | "Track" | "Company" | "Image" | "Patch" | "Activity" | "Report" | "DisabledUser" | "PremiumUser";
+        id: string;
+    } | undefined;
 }, {
-    page: number;
-    limit: number;
-    strict: boolean;
-    onlyVerified: boolean;
-    sort: {
+    page?: number | undefined;
+    limit?: number | undefined;
+    strict?: boolean | undefined;
+    onlyVerified?: boolean | undefined;
+    sort?: {
         createdAt?: string | number | undefined;
         updatedAt?: string | number | undefined;
         isGroupe?: string | number | undefined;
         birthDate?: string | number | undefined;
         deathDate?: string | number | undefined;
-    };
-    query: {
+    } | undefined;
+    query?: {
         createdAt?: string | undefined;
         name?: {
             default?: string | undefined;
@@ -971,7 +982,11 @@ export declare const PersonPaginationBody: z.ZodObject<z.objectUtil.extendShape<
             value?: string | undefined;
             name?: string | undefined;
         } | undefined;
-    };
+    } | undefined;
+    from?: {
+        path: "User" | "Account" | "UserProfile" | "UserPreferences" | "UserAnimeListe" | "UserDeleteAnimeFromListe" | "Groupe" | "Manga" | "Anime" | "Person" | "Character" | "Track" | "Company" | "Image" | "Patch" | "Activity" | "Report" | "DisabledUser" | "PremiumUser";
+        id: string;
+    } | undefined;
 }>;
 export type IPersonPaginationBody = z.infer<typeof PersonPaginationBody>;
 export declare const Person_Pagination_ZOD: z.ZodObject<{

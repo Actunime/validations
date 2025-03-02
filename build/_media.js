@@ -1,8 +1,9 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.MediaTrailerZod = exports.MediaTitleBody = exports.MediaTitleZodSchema = exports.LinkBody = exports.Create_Link_ZOD = exports.MediaImageZodSchema = exports.MediaDateBody = exports.MediaDateZodSchema = void 0;
+exports.FromBody = exports.MediaTrailerZod = exports.MediaTitleBody = exports.MediaTitleZodSchema = exports.LinkBody = exports.Create_Link_ZOD = exports.MediaImageZodSchema = exports.MediaDateBody = exports.MediaDateZodSchema = void 0;
 const zod_1 = require("zod");
 const _util_1 = require("./_util");
+const types_1 = require("@actunime/types");
 exports.MediaDateZodSchema = zod_1.z.object({
     start: zod_1.z.optional(zod_1.z
         .string()
@@ -57,5 +58,9 @@ const youtubeUrlRegex = /^(https?:\/\/)?(www\.)?(youtube\.com|youtu\.?be)\/.+$/;
 // Créer un schéma Zod pour valider les URL YouTube
 exports.MediaTrailerZod = zod_1.z.string().regex(youtubeUrlRegex, {
     message: "L'URL doit être une URL de vidéo YouTube valide."
+});
+exports.FromBody = zod_1.z.object({
+    id: zod_1.z.string(),
+    path: zod_1.z.enum(types_1.TargetPathArray),
 });
 //# sourceMappingURL=_media.js.map

@@ -1,5 +1,5 @@
 import { z } from "zod";
-import { Create_Link_ZOD, LinkBody } from "./_media";
+import { Create_Link_ZOD, FromBody, LinkBody } from "./_media";
 import { PaginationBody, zodNumber } from "./_util";
 import { Add_Image_ZOD, ImageBody } from "./_imageZOD";
 import { IPerson, PersonRoleArray, dateToZod } from "@actunime/types";
@@ -75,8 +75,9 @@ export const PersonSortBody = z.object({
 
 export const PersonPaginationBody = PaginationBody.extend({
   sort: PersonSortBody.partial(),
-  query: PersonQueryBody.partial()
-})
+  query: PersonQueryBody.partial(),
+  from: FromBody,
+}).partial()
 
 export type IPersonPaginationBody = z.infer<typeof PersonPaginationBody>;
 

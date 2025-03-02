@@ -161,15 +161,12 @@ export declare const MangaSortBody: z.ZodObject<{
     adult: number;
     explicit: number;
 }>;
-export declare const MangaPaginationBody: z.ZodObject<z.objectUtil.extendShape<{
-    page: z.ZodNumber;
-    limit: z.ZodNumber;
-    strict: z.ZodBoolean;
-    onlyVerified: z.ZodBoolean;
-    sort: z.ZodAny;
-    query: z.ZodAny;
-}, {
-    sort: z.ZodObject<{
+export declare const MangaPaginationBody: z.ZodObject<{
+    page: z.ZodOptional<z.ZodNumber>;
+    limit: z.ZodOptional<z.ZodNumber>;
+    strict: z.ZodOptional<z.ZodBoolean>;
+    onlyVerified: z.ZodOptional<z.ZodBoolean>;
+    sort: z.ZodOptional<z.ZodObject<{
         vf: z.ZodOptional<z.ZodEffects<z.ZodNumber, number, number>>;
         status: z.ZodOptional<z.ZodEffects<z.ZodNumber, number, number>>;
         adult: z.ZodOptional<z.ZodEffects<z.ZodNumber, number, number>>;
@@ -190,8 +187,8 @@ export declare const MangaPaginationBody: z.ZodObject<z.objectUtil.extendShape<{
         vf?: number | undefined;
         adult?: number | undefined;
         explicit?: number | undefined;
-    }>;
-    query: z.ZodObject<{
+    }>>;
+    query: z.ZodOptional<z.ZodObject<{
         title: z.ZodOptional<z.ZodObject<{
             default: z.ZodOptional<z.ZodString>;
             alias: z.ZodOptional<z.ZodArray<z.ZodObject<{
@@ -329,21 +326,31 @@ export declare const MangaPaginationBody: z.ZodObject<z.objectUtil.extendShape<{
         } | undefined;
         adult?: boolean | undefined;
         explicit?: boolean | undefined;
-    }>;
-}>, "strip", z.ZodTypeAny, {
-    page: number;
-    limit: number;
-    strict: boolean;
-    onlyVerified: boolean;
-    sort: {
+    }>>;
+    from: z.ZodOptional<z.ZodObject<{
+        id: z.ZodString;
+        path: z.ZodEnum<("User" | "Account" | "UserProfile" | "UserPreferences" | "UserAnimeListe" | "UserDeleteAnimeFromListe" | "Groupe" | "Manga" | "Anime" | "Person" | "Character" | "Track" | "Company" | "Image" | "Patch" | "Activity" | "Report" | "DisabledUser" | "PremiumUser")[] & [string, ...string[]]>;
+    }, "strip", z.ZodTypeAny, {
+        path: "User" | "Account" | "UserProfile" | "UserPreferences" | "UserAnimeListe" | "UserDeleteAnimeFromListe" | "Groupe" | "Manga" | "Anime" | "Person" | "Character" | "Track" | "Company" | "Image" | "Patch" | "Activity" | "Report" | "DisabledUser" | "PremiumUser";
+        id: string;
+    }, {
+        path: "User" | "Account" | "UserProfile" | "UserPreferences" | "UserAnimeListe" | "UserDeleteAnimeFromListe" | "Groupe" | "Manga" | "Anime" | "Person" | "Character" | "Track" | "Company" | "Image" | "Patch" | "Activity" | "Report" | "DisabledUser" | "PremiumUser";
+        id: string;
+    }>>;
+}, "strip", z.ZodTypeAny, {
+    page?: number | undefined;
+    limit?: number | undefined;
+    strict?: boolean | undefined;
+    onlyVerified?: boolean | undefined;
+    sort?: {
         status?: number | undefined;
         createdAt?: number | undefined;
         updatedAt?: number | undefined;
         vf?: number | undefined;
         adult?: number | undefined;
         explicit?: number | undefined;
-    };
-    query: {
+    } | undefined;
+    query?: {
         status?: "AIRING" | "PAUSED" | "ENDED" | "STOPPED" | "POSTONED" | "SOON" | "any" | undefined;
         date?: {
             start?: string | undefined;
@@ -375,21 +382,25 @@ export declare const MangaPaginationBody: z.ZodObject<z.objectUtil.extendShape<{
         } | undefined;
         adult?: boolean | undefined;
         explicit?: boolean | undefined;
-    };
+    } | undefined;
+    from?: {
+        path: "User" | "Account" | "UserProfile" | "UserPreferences" | "UserAnimeListe" | "UserDeleteAnimeFromListe" | "Groupe" | "Manga" | "Anime" | "Person" | "Character" | "Track" | "Company" | "Image" | "Patch" | "Activity" | "Report" | "DisabledUser" | "PremiumUser";
+        id: string;
+    } | undefined;
 }, {
-    page: number;
-    limit: number;
-    strict: boolean;
-    onlyVerified: boolean;
-    sort: {
+    page?: number | undefined;
+    limit?: number | undefined;
+    strict?: boolean | undefined;
+    onlyVerified?: boolean | undefined;
+    sort?: {
         status?: number | undefined;
         createdAt?: number | undefined;
         updatedAt?: number | undefined;
         vf?: number | undefined;
         adult?: number | undefined;
         explicit?: number | undefined;
-    };
-    query: {
+    } | undefined;
+    query?: {
         status?: "AIRING" | "PAUSED" | "ENDED" | "STOPPED" | "POSTONED" | "SOON" | "any" | undefined;
         date?: {
             start?: string | undefined;
@@ -421,7 +432,11 @@ export declare const MangaPaginationBody: z.ZodObject<z.objectUtil.extendShape<{
         } | undefined;
         adult?: boolean | undefined;
         explicit?: boolean | undefined;
-    };
+    } | undefined;
+    from?: {
+        path: "User" | "Account" | "UserProfile" | "UserPreferences" | "UserAnimeListe" | "UserDeleteAnimeFromListe" | "Groupe" | "Manga" | "Anime" | "Person" | "Character" | "Track" | "Company" | "Image" | "Patch" | "Activity" | "Report" | "DisabledUser" | "PremiumUser";
+        id: string;
+    } | undefined;
 }>;
 export type IMangaPaginationBody = z.infer<typeof MangaPaginationBody>;
 export declare const Manga_Pagination_ZOD: z.ZodObject<{

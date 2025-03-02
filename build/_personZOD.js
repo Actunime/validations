@@ -59,8 +59,9 @@ exports.PersonSortBody = zod_1.z.object({
 });
 exports.PersonPaginationBody = _util_1.PaginationBody.extend({
     sort: exports.PersonSortBody.partial(),
-    query: exports.PersonQueryBody.partial()
-});
+    query: exports.PersonQueryBody.partial(),
+    from: _media_1.FromBody,
+}).partial();
 exports.Person_Pagination_ZOD = zod_1.z.object({
     page: zod_1.z.number(),
     limit: zod_1.z.number(),

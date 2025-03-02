@@ -26,15 +26,12 @@ export declare const ImageSortBody: z.ZodObject<{
     updatedAt: string | number;
     label: string | number;
 }>;
-export declare const ImagePaginationBody: z.ZodObject<z.objectUtil.extendShape<{
-    page: z.ZodNumber;
-    limit: z.ZodNumber;
-    strict: z.ZodBoolean;
-    onlyVerified: z.ZodBoolean;
-    sort: z.ZodAny;
-    query: z.ZodAny;
-}, {
-    sort: z.ZodObject<{
+export declare const ImagePaginationBody: z.ZodObject<{
+    page: z.ZodOptional<z.ZodNumber>;
+    limit: z.ZodOptional<z.ZodNumber>;
+    strict: z.ZodOptional<z.ZodBoolean>;
+    onlyVerified: z.ZodOptional<z.ZodBoolean>;
+    sort: z.ZodOptional<z.ZodObject<{
         label: z.ZodOptional<z.ZodEffects<z.ZodEffects<z.ZodUnion<[z.ZodNumber, z.ZodString]>, number, string | number>, number, string | number>>;
         createdAt: z.ZodOptional<z.ZodEffects<z.ZodEffects<z.ZodUnion<[z.ZodNumber, z.ZodString]>, number, string | number>, number, string | number>>;
         updatedAt: z.ZodOptional<z.ZodEffects<z.ZodEffects<z.ZodUnion<[z.ZodNumber, z.ZodString]>, number, string | number>, number, string | number>>;
@@ -46,8 +43,8 @@ export declare const ImagePaginationBody: z.ZodObject<z.objectUtil.extendShape<{
         createdAt?: string | number | undefined;
         updatedAt?: string | number | undefined;
         label?: string | number | undefined;
-    }>;
-    query: z.ZodObject<{
+    }>>;
+    query: z.ZodOptional<z.ZodObject<{
         label: z.ZodOptional<z.ZodEnum<("COVER" | "BANNER" | "AVATAR" | "LOGO")[] & [string, ...string[]]>>;
         createdAt: z.ZodOptional<z.ZodString>;
         updatedAt: z.ZodOptional<z.ZodString>;
@@ -59,37 +56,55 @@ export declare const ImagePaginationBody: z.ZodObject<z.objectUtil.extendShape<{
         createdAt?: string | undefined;
         updatedAt?: string | undefined;
         label?: "COVER" | "BANNER" | "AVATAR" | "LOGO" | undefined;
-    }>;
-}>, "strip", z.ZodTypeAny, {
-    page: number;
-    limit: number;
-    strict: boolean;
-    onlyVerified: boolean;
-    sort: {
+    }>>;
+    from: z.ZodOptional<z.ZodObject<{
+        id: z.ZodString;
+        path: z.ZodEnum<("User" | "Account" | "UserProfile" | "UserPreferences" | "UserAnimeListe" | "UserDeleteAnimeFromListe" | "Groupe" | "Manga" | "Anime" | "Person" | "Character" | "Track" | "Company" | "Image" | "Patch" | "Activity" | "Report" | "DisabledUser" | "PremiumUser")[] & [string, ...string[]]>;
+    }, "strip", z.ZodTypeAny, {
+        path: "User" | "Account" | "UserProfile" | "UserPreferences" | "UserAnimeListe" | "UserDeleteAnimeFromListe" | "Groupe" | "Manga" | "Anime" | "Person" | "Character" | "Track" | "Company" | "Image" | "Patch" | "Activity" | "Report" | "DisabledUser" | "PremiumUser";
+        id: string;
+    }, {
+        path: "User" | "Account" | "UserProfile" | "UserPreferences" | "UserAnimeListe" | "UserDeleteAnimeFromListe" | "Groupe" | "Manga" | "Anime" | "Person" | "Character" | "Track" | "Company" | "Image" | "Patch" | "Activity" | "Report" | "DisabledUser" | "PremiumUser";
+        id: string;
+    }>>;
+}, "strip", z.ZodTypeAny, {
+    page?: number | undefined;
+    limit?: number | undefined;
+    strict?: boolean | undefined;
+    onlyVerified?: boolean | undefined;
+    sort?: {
         createdAt?: number | undefined;
         updatedAt?: number | undefined;
         label?: number | undefined;
-    };
-    query: {
+    } | undefined;
+    query?: {
         createdAt?: string | undefined;
         updatedAt?: string | undefined;
         label?: "COVER" | "BANNER" | "AVATAR" | "LOGO" | undefined;
-    };
+    } | undefined;
+    from?: {
+        path: "User" | "Account" | "UserProfile" | "UserPreferences" | "UserAnimeListe" | "UserDeleteAnimeFromListe" | "Groupe" | "Manga" | "Anime" | "Person" | "Character" | "Track" | "Company" | "Image" | "Patch" | "Activity" | "Report" | "DisabledUser" | "PremiumUser";
+        id: string;
+    } | undefined;
 }, {
-    page: number;
-    limit: number;
-    strict: boolean;
-    onlyVerified: boolean;
-    sort: {
+    page?: number | undefined;
+    limit?: number | undefined;
+    strict?: boolean | undefined;
+    onlyVerified?: boolean | undefined;
+    sort?: {
         createdAt?: string | number | undefined;
         updatedAt?: string | number | undefined;
         label?: string | number | undefined;
-    };
-    query: {
+    } | undefined;
+    query?: {
         createdAt?: string | undefined;
         updatedAt?: string | undefined;
         label?: "COVER" | "BANNER" | "AVATAR" | "LOGO" | undefined;
-    };
+    } | undefined;
+    from?: {
+        path: "User" | "Account" | "UserProfile" | "UserPreferences" | "UserAnimeListe" | "UserDeleteAnimeFromListe" | "Groupe" | "Manga" | "Anime" | "Person" | "Character" | "Track" | "Company" | "Image" | "Patch" | "Activity" | "Report" | "DisabledUser" | "PremiumUser";
+        id: string;
+    } | undefined;
 }>;
 export type IImagePaginationBody = z.infer<typeof ImagePaginationBody>;
 export declare const Image_Pagination_ZOD: z.ZodObject<{

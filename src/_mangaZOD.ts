@@ -14,6 +14,7 @@ import { Add_Company_ZOD } from "./_companyZOD";
 import { Add_Groupe_ZOD } from "./_groupeZOD";
 import {
   Create_Link_ZOD,
+  FromBody,
   LinkBody,
   MediaDateBody,
   MediaDateZodSchema,
@@ -61,8 +62,9 @@ export const MangaSortBody = z.object({
 
 export const MangaPaginationBody = PaginationBody.extend({
   sort: MangaSortBody.partial(),
-  query: MangaQueryBody.partial()
-})
+  query: MangaQueryBody.partial(),
+  from: FromBody,
+}).partial()
 
 export type IMangaPaginationBody = z.infer<typeof MangaPaginationBody>;
 

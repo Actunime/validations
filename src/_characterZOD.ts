@@ -10,6 +10,7 @@ import { Add_Person_ZOD, PersonBody } from "./_personZOD";
 import { PaginationBody, zodNumber } from "./_util";
 import { Add_Image_ZOD, ImageBody } from "./_imageZOD";
 import { PatchParamsBody } from "./_patchZOD";
+import { FromBody } from "./_media";
 
 export const Character_Name_ZOD = z.object({
   default: z.string(),
@@ -18,7 +19,7 @@ export const Character_Name_ZOD = z.object({
 
 
 export const CharacterQueryBody = z.object({
-  title: Character_Name_ZOD.partial(),
+  name: Character_Name_ZOD.partial(),
   age: zodNumber(),
   birthDate: z.string(),
   avatar: ImageBody.partial(),
@@ -42,8 +43,9 @@ export const CharacterSortBody = z.object({
 
 export const CharacterPaginationBody = PaginationBody.extend({
   sort: CharacterSortBody.partial(),
-  query: CharacterQueryBody.partial()
-})
+  query: CharacterQueryBody.partial(),
+  from: FromBody,
+}).partial()
 
 export type ICharacterPaginationBody = z.infer<
   typeof CharacterPaginationBody

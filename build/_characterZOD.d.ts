@@ -21,7 +21,7 @@ export declare const Character_Name_ZOD: z.ZodObject<{
     }[] | undefined;
 }>;
 export declare const CharacterQueryBody: z.ZodObject<{
-    title: z.ZodObject<{
+    name: z.ZodObject<{
         default: z.ZodOptional<z.ZodString>;
         alias: z.ZodOptional<z.ZodOptional<z.ZodArray<z.ZodObject<{
             content: z.ZodString;
@@ -66,17 +66,17 @@ export declare const CharacterQueryBody: z.ZodObject<{
     updatedAt: z.ZodString;
 }, "strip", z.ZodTypeAny, {
     createdAt: string;
+    name: {
+        default?: string | undefined;
+        alias?: {
+            content: string;
+        }[] | undefined;
+    };
     updatedAt: string;
     birthDate: string;
     avatar: {
         id?: string | undefined;
         label?: "COVER" | "BANNER" | "AVATAR" | "LOGO" | undefined;
-    };
-    title: {
-        default?: string | undefined;
-        alias?: {
-            content: string;
-        }[] | undefined;
     };
     age: number;
     gender: "MASCULIN" | "FEMININ" | "NEUTRE" | "TRANSGENRE" | "NON_BINAIRE" | "GENRE_FLUIDE" | "AUTRE";
@@ -86,17 +86,17 @@ export declare const CharacterQueryBody: z.ZodObject<{
     };
 }, {
     createdAt: string;
+    name: {
+        default?: string | undefined;
+        alias?: {
+            content: string;
+        }[] | undefined;
+    };
     updatedAt: string;
     birthDate: string;
     avatar: {
         id?: string | undefined;
         label?: "COVER" | "BANNER" | "AVATAR" | "LOGO" | undefined;
-    };
-    title: {
-        default?: string | undefined;
-        alias?: {
-            content: string;
-        }[] | undefined;
     };
     age: string | number;
     gender: "MASCULIN" | "FEMININ" | "NEUTRE" | "TRANSGENRE" | "NON_BINAIRE" | "GENRE_FLUIDE" | "AUTRE";
@@ -127,15 +127,12 @@ export declare const CharacterSortBody: z.ZodObject<{
     gender: string | number;
     species: string | number;
 }>;
-export declare const CharacterPaginationBody: z.ZodObject<z.objectUtil.extendShape<{
-    page: z.ZodNumber;
-    limit: z.ZodNumber;
-    strict: z.ZodBoolean;
-    onlyVerified: z.ZodBoolean;
-    sort: z.ZodAny;
-    query: z.ZodAny;
-}, {
-    sort: z.ZodObject<{
+export declare const CharacterPaginationBody: z.ZodObject<{
+    page: z.ZodOptional<z.ZodNumber>;
+    limit: z.ZodOptional<z.ZodNumber>;
+    strict: z.ZodOptional<z.ZodBoolean>;
+    onlyVerified: z.ZodOptional<z.ZodBoolean>;
+    sort: z.ZodOptional<z.ZodObject<{
         age: z.ZodOptional<z.ZodEffects<z.ZodEffects<z.ZodUnion<[z.ZodNumber, z.ZodString]>, number, string | number>, number, string | number>>;
         birthDate: z.ZodOptional<z.ZodEffects<z.ZodEffects<z.ZodUnion<[z.ZodNumber, z.ZodString]>, number, string | number>, number, string | number>>;
         gender: z.ZodOptional<z.ZodEffects<z.ZodEffects<z.ZodUnion<[z.ZodNumber, z.ZodString]>, number, string | number>, number, string | number>>;
@@ -156,9 +153,9 @@ export declare const CharacterPaginationBody: z.ZodObject<z.objectUtil.extendSha
         age?: string | number | undefined;
         gender?: string | number | undefined;
         species?: string | number | undefined;
-    }>;
-    query: z.ZodObject<{
-        title: z.ZodOptional<z.ZodObject<{
+    }>>;
+    query: z.ZodOptional<z.ZodObject<{
+        name: z.ZodOptional<z.ZodObject<{
             default: z.ZodOptional<z.ZodString>;
             alias: z.ZodOptional<z.ZodOptional<z.ZodArray<z.ZodObject<{
                 content: z.ZodString;
@@ -203,17 +200,17 @@ export declare const CharacterPaginationBody: z.ZodObject<z.objectUtil.extendSha
         updatedAt: z.ZodOptional<z.ZodString>;
     }, "strip", z.ZodTypeAny, {
         createdAt?: string | undefined;
+        name?: {
+            default?: string | undefined;
+            alias?: {
+                content: string;
+            }[] | undefined;
+        } | undefined;
         updatedAt?: string | undefined;
         birthDate?: string | undefined;
         avatar?: {
             id?: string | undefined;
             label?: "COVER" | "BANNER" | "AVATAR" | "LOGO" | undefined;
-        } | undefined;
-        title?: {
-            default?: string | undefined;
-            alias?: {
-                content: string;
-            }[] | undefined;
         } | undefined;
         age?: number | undefined;
         gender?: "MASCULIN" | "FEMININ" | "NEUTRE" | "TRANSGENRE" | "NON_BINAIRE" | "GENRE_FLUIDE" | "AUTRE" | undefined;
@@ -223,17 +220,17 @@ export declare const CharacterPaginationBody: z.ZodObject<z.objectUtil.extendSha
         } | undefined;
     }, {
         createdAt?: string | undefined;
+        name?: {
+            default?: string | undefined;
+            alias?: {
+                content: string;
+            }[] | undefined;
+        } | undefined;
         updatedAt?: string | undefined;
         birthDate?: string | undefined;
         avatar?: {
             id?: string | undefined;
             label?: "COVER" | "BANNER" | "AVATAR" | "LOGO" | undefined;
-        } | undefined;
-        title?: {
-            default?: string | undefined;
-            alias?: {
-                content: string;
-            }[] | undefined;
         } | undefined;
         age?: string | number | undefined;
         gender?: "MASCULIN" | "FEMININ" | "NEUTRE" | "TRANSGENRE" | "NON_BINAIRE" | "GENRE_FLUIDE" | "AUTRE" | undefined;
@@ -241,33 +238,43 @@ export declare const CharacterPaginationBody: z.ZodObject<z.objectUtil.extendSha
         actors?: {
             id?: string | undefined;
         } | undefined;
-    }>;
-}>, "strip", z.ZodTypeAny, {
-    page: number;
-    limit: number;
-    strict: boolean;
-    onlyVerified: boolean;
-    sort: {
+    }>>;
+    from: z.ZodOptional<z.ZodObject<{
+        id: z.ZodString;
+        path: z.ZodEnum<("User" | "Account" | "UserProfile" | "UserPreferences" | "UserAnimeListe" | "UserDeleteAnimeFromListe" | "Groupe" | "Manga" | "Anime" | "Person" | "Character" | "Track" | "Company" | "Image" | "Patch" | "Activity" | "Report" | "DisabledUser" | "PremiumUser")[] & [string, ...string[]]>;
+    }, "strip", z.ZodTypeAny, {
+        path: "User" | "Account" | "UserProfile" | "UserPreferences" | "UserAnimeListe" | "UserDeleteAnimeFromListe" | "Groupe" | "Manga" | "Anime" | "Person" | "Character" | "Track" | "Company" | "Image" | "Patch" | "Activity" | "Report" | "DisabledUser" | "PremiumUser";
+        id: string;
+    }, {
+        path: "User" | "Account" | "UserProfile" | "UserPreferences" | "UserAnimeListe" | "UserDeleteAnimeFromListe" | "Groupe" | "Manga" | "Anime" | "Person" | "Character" | "Track" | "Company" | "Image" | "Patch" | "Activity" | "Report" | "DisabledUser" | "PremiumUser";
+        id: string;
+    }>>;
+}, "strip", z.ZodTypeAny, {
+    page?: number | undefined;
+    limit?: number | undefined;
+    strict?: boolean | undefined;
+    onlyVerified?: boolean | undefined;
+    sort?: {
         createdAt?: number | undefined;
         updatedAt?: number | undefined;
         birthDate?: number | undefined;
         age?: number | undefined;
         gender?: number | undefined;
         species?: number | undefined;
-    };
-    query: {
+    } | undefined;
+    query?: {
         createdAt?: string | undefined;
+        name?: {
+            default?: string | undefined;
+            alias?: {
+                content: string;
+            }[] | undefined;
+        } | undefined;
         updatedAt?: string | undefined;
         birthDate?: string | undefined;
         avatar?: {
             id?: string | undefined;
             label?: "COVER" | "BANNER" | "AVATAR" | "LOGO" | undefined;
-        } | undefined;
-        title?: {
-            default?: string | undefined;
-            alias?: {
-                content: string;
-            }[] | undefined;
         } | undefined;
         age?: number | undefined;
         gender?: "MASCULIN" | "FEMININ" | "NEUTRE" | "TRANSGENRE" | "NON_BINAIRE" | "GENRE_FLUIDE" | "AUTRE" | undefined;
@@ -275,33 +282,37 @@ export declare const CharacterPaginationBody: z.ZodObject<z.objectUtil.extendSha
         actors?: {
             id?: string | undefined;
         } | undefined;
-    };
+    } | undefined;
+    from?: {
+        path: "User" | "Account" | "UserProfile" | "UserPreferences" | "UserAnimeListe" | "UserDeleteAnimeFromListe" | "Groupe" | "Manga" | "Anime" | "Person" | "Character" | "Track" | "Company" | "Image" | "Patch" | "Activity" | "Report" | "DisabledUser" | "PremiumUser";
+        id: string;
+    } | undefined;
 }, {
-    page: number;
-    limit: number;
-    strict: boolean;
-    onlyVerified: boolean;
-    sort: {
+    page?: number | undefined;
+    limit?: number | undefined;
+    strict?: boolean | undefined;
+    onlyVerified?: boolean | undefined;
+    sort?: {
         createdAt?: string | number | undefined;
         updatedAt?: string | number | undefined;
         birthDate?: string | number | undefined;
         age?: string | number | undefined;
         gender?: string | number | undefined;
         species?: string | number | undefined;
-    };
-    query: {
+    } | undefined;
+    query?: {
         createdAt?: string | undefined;
+        name?: {
+            default?: string | undefined;
+            alias?: {
+                content: string;
+            }[] | undefined;
+        } | undefined;
         updatedAt?: string | undefined;
         birthDate?: string | undefined;
         avatar?: {
             id?: string | undefined;
             label?: "COVER" | "BANNER" | "AVATAR" | "LOGO" | undefined;
-        } | undefined;
-        title?: {
-            default?: string | undefined;
-            alias?: {
-                content: string;
-            }[] | undefined;
         } | undefined;
         age?: string | number | undefined;
         gender?: "MASCULIN" | "FEMININ" | "NEUTRE" | "TRANSGENRE" | "NON_BINAIRE" | "GENRE_FLUIDE" | "AUTRE" | undefined;
@@ -309,7 +320,11 @@ export declare const CharacterPaginationBody: z.ZodObject<z.objectUtil.extendSha
         actors?: {
             id?: string | undefined;
         } | undefined;
-    };
+    } | undefined;
+    from?: {
+        path: "User" | "Account" | "UserProfile" | "UserPreferences" | "UserAnimeListe" | "UserDeleteAnimeFromListe" | "Groupe" | "Manga" | "Anime" | "Person" | "Character" | "Track" | "Company" | "Image" | "Patch" | "Activity" | "Report" | "DisabledUser" | "PremiumUser";
+        id: string;
+    } | undefined;
 }>;
 export type ICharacterPaginationBody = z.infer<typeof CharacterPaginationBody>;
 export declare const Character_Pagination_ZOD: z.ZodObject<{
@@ -339,7 +354,7 @@ export declare const Character_Pagination_ZOD: z.ZodObject<{
         species?: string | number | undefined;
     }>;
     query: z.ZodObject<{
-        title: z.ZodOptional<z.ZodObject<{
+        name: z.ZodOptional<z.ZodObject<{
             default: z.ZodOptional<z.ZodString>;
             alias: z.ZodOptional<z.ZodOptional<z.ZodArray<z.ZodObject<{
                 content: z.ZodString;
@@ -384,17 +399,17 @@ export declare const Character_Pagination_ZOD: z.ZodObject<{
         updatedAt: z.ZodOptional<z.ZodString>;
     }, "strip", z.ZodTypeAny, {
         createdAt?: string | undefined;
+        name?: {
+            default?: string | undefined;
+            alias?: {
+                content: string;
+            }[] | undefined;
+        } | undefined;
         updatedAt?: string | undefined;
         birthDate?: string | undefined;
         avatar?: {
             id?: string | undefined;
             label?: "COVER" | "BANNER" | "AVATAR" | "LOGO" | undefined;
-        } | undefined;
-        title?: {
-            default?: string | undefined;
-            alias?: {
-                content: string;
-            }[] | undefined;
         } | undefined;
         age?: number | undefined;
         gender?: "MASCULIN" | "FEMININ" | "NEUTRE" | "TRANSGENRE" | "NON_BINAIRE" | "GENRE_FLUIDE" | "AUTRE" | undefined;
@@ -404,17 +419,17 @@ export declare const Character_Pagination_ZOD: z.ZodObject<{
         } | undefined;
     }, {
         createdAt?: string | undefined;
+        name?: {
+            default?: string | undefined;
+            alias?: {
+                content: string;
+            }[] | undefined;
+        } | undefined;
         updatedAt?: string | undefined;
         birthDate?: string | undefined;
         avatar?: {
             id?: string | undefined;
             label?: "COVER" | "BANNER" | "AVATAR" | "LOGO" | undefined;
-        } | undefined;
-        title?: {
-            default?: string | undefined;
-            alias?: {
-                content: string;
-            }[] | undefined;
         } | undefined;
         age?: string | number | undefined;
         gender?: "MASCULIN" | "FEMININ" | "NEUTRE" | "TRANSGENRE" | "NON_BINAIRE" | "GENRE_FLUIDE" | "AUTRE" | undefined;
@@ -437,17 +452,17 @@ export declare const Character_Pagination_ZOD: z.ZodObject<{
     };
     query: {
         createdAt?: string | undefined;
+        name?: {
+            default?: string | undefined;
+            alias?: {
+                content: string;
+            }[] | undefined;
+        } | undefined;
         updatedAt?: string | undefined;
         birthDate?: string | undefined;
         avatar?: {
             id?: string | undefined;
             label?: "COVER" | "BANNER" | "AVATAR" | "LOGO" | undefined;
-        } | undefined;
-        title?: {
-            default?: string | undefined;
-            alias?: {
-                content: string;
-            }[] | undefined;
         } | undefined;
         age?: number | undefined;
         gender?: "MASCULIN" | "FEMININ" | "NEUTRE" | "TRANSGENRE" | "NON_BINAIRE" | "GENRE_FLUIDE" | "AUTRE" | undefined;
@@ -470,17 +485,17 @@ export declare const Character_Pagination_ZOD: z.ZodObject<{
     };
     query: {
         createdAt?: string | undefined;
+        name?: {
+            default?: string | undefined;
+            alias?: {
+                content: string;
+            }[] | undefined;
+        } | undefined;
         updatedAt?: string | undefined;
         birthDate?: string | undefined;
         avatar?: {
             id?: string | undefined;
             label?: "COVER" | "BANNER" | "AVATAR" | "LOGO" | undefined;
-        } | undefined;
-        title?: {
-            default?: string | undefined;
-            alias?: {
-                content: string;
-            }[] | undefined;
         } | undefined;
         age?: string | number | undefined;
         gender?: "MASCULIN" | "FEMININ" | "NEUTRE" | "TRANSGENRE" | "NON_BINAIRE" | "GENRE_FLUIDE" | "AUTRE" | undefined;

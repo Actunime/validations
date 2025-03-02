@@ -5,6 +5,7 @@ const zod_1 = require("zod");
 const _util_1 = require("./_util");
 const types_1 = require("@actunime/types");
 const _patchZOD_1 = require("./_patchZOD");
+const _media_1 = require("./_media");
 exports.ImageQueryBody = zod_1.z.object({
     label: zod_1.z.enum(types_1.ImageLabelArray),
     createdAt: zod_1.z.string(),
@@ -19,8 +20,9 @@ exports.ImageSortBody = zod_1.z.object({
 });
 exports.ImagePaginationBody = _util_1.PaginationBody.extend({
     sort: exports.ImageSortBody.partial(),
-    query: exports.ImageQueryBody.partial()
-});
+    query: exports.ImageQueryBody.partial(),
+    from: _media_1.FromBody,
+}).partial();
 exports.Image_Pagination_ZOD = zod_1.z.object({
     page: zod_1.z.number(),
     limit: zod_1.z.number(),
