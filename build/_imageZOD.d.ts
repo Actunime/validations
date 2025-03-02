@@ -30,6 +30,7 @@ export declare const ImagePaginationBody: z.ZodObject<z.objectUtil.extendShape<{
     page: z.ZodNumber;
     limit: z.ZodNumber;
     strict: z.ZodBoolean;
+    onlyVerified: z.ZodBoolean;
     sort: z.ZodAny;
     query: z.ZodAny;
 }, {
@@ -63,6 +64,7 @@ export declare const ImagePaginationBody: z.ZodObject<z.objectUtil.extendShape<{
     page: number;
     limit: number;
     strict: boolean;
+    onlyVerified: boolean;
     sort: {
         createdAt?: number | undefined;
         updatedAt?: number | undefined;
@@ -77,6 +79,7 @@ export declare const ImagePaginationBody: z.ZodObject<z.objectUtil.extendShape<{
     page: number;
     limit: number;
     strict: boolean;
+    onlyVerified: boolean;
     sort: {
         createdAt?: string | number | undefined;
         updatedAt?: string | number | undefined;

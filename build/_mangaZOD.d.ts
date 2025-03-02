@@ -165,6 +165,7 @@ export declare const MangaPaginationBody: z.ZodObject<z.objectUtil.extendShape<{
     page: z.ZodNumber;
     limit: z.ZodNumber;
     strict: z.ZodBoolean;
+    onlyVerified: z.ZodBoolean;
     sort: z.ZodAny;
     query: z.ZodAny;
 }, {
@@ -333,6 +334,7 @@ export declare const MangaPaginationBody: z.ZodObject<z.objectUtil.extendShape<{
     page: number;
     limit: number;
     strict: boolean;
+    onlyVerified: boolean;
     sort: {
         status?: number | undefined;
         createdAt?: number | undefined;
@@ -378,6 +380,7 @@ export declare const MangaPaginationBody: z.ZodObject<z.objectUtil.extendShape<{
     page: number;
     limit: number;
     strict: boolean;
+    onlyVerified: boolean;
     sort: {
         status?: number | undefined;
         createdAt?: number | undefined;

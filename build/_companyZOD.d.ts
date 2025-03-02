@@ -78,6 +78,7 @@ export declare const CompanyPaginationBody: z.ZodObject<z.objectUtil.extendShape
     page: z.ZodNumber;
     limit: z.ZodNumber;
     strict: z.ZodBoolean;
+    onlyVerified: z.ZodBoolean;
     sort: z.ZodAny;
     query: z.ZodAny;
 }, {
@@ -159,6 +160,7 @@ export declare const CompanyPaginationBody: z.ZodObject<z.objectUtil.extendShape
     page: number;
     limit: number;
     strict: boolean;
+    onlyVerified: boolean;
     sort: {
         type?: number | undefined;
         createdAt?: number | undefined;
@@ -185,6 +187,7 @@ export declare const CompanyPaginationBody: z.ZodObject<z.objectUtil.extendShape
     page: number;
     limit: number;
     strict: boolean;
+    onlyVerified: boolean;
     sort: {
         type?: string | number | undefined;
         createdAt?: string | number | undefined;

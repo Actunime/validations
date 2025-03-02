@@ -6,18 +6,21 @@ export declare const PaginationBody: z.ZodObject<{
     page: z.ZodNumber;
     limit: z.ZodNumber;
     strict: z.ZodBoolean;
+    onlyVerified: z.ZodBoolean;
     sort: z.ZodAny;
     query: z.ZodAny;
 }, "strip", z.ZodTypeAny, {
     page: number;
     limit: number;
     strict: boolean;
+    onlyVerified: boolean;
     sort?: any;
     query?: any;
 }, {
     page: number;
     limit: number;
     strict: boolean;
+    onlyVerified: boolean;
     sort?: any;
     query?: any;
 }>;

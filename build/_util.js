@@ -18,6 +18,7 @@ exports.PaginationBody = zod_1.z.object({
     page: zod_1.z.number(),
     limit: zod_1.z.number(),
     strict: zod_1.z.boolean(),
+    onlyVerified: zod_1.z.boolean(),
     sort: zod_1.z.any(),
     query: zod_1.z.any(),
 });
