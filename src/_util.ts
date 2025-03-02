@@ -24,6 +24,7 @@ export const PaginationBody = z.object({
   page: z.number(),
   limit: z.number(),
   strict: z.boolean(),
+  onlyVerified: z.boolean(),
   sort: z.any(),
   query: z.any(),
 })
