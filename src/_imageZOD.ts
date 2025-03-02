@@ -68,7 +68,7 @@ export const ImageDataToZOD = (data: IImage) => {
   if (!data) return;
 
   const toZOD: ICreate_Image_ZOD = {
-    value: data.url,
+    value: data.url!,
     label: data.label
   };
 

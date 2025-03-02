@@ -1,5 +1,4 @@
 import {
-  PatchActionArray,
   PatchStatusArray,
   PatchTypeArray,
   TargetPathArray,
@@ -32,7 +31,7 @@ export const Update_Pagination_ZOD = z
             z.enum(PatchStatusArray),
           ]),
         ),
-        actionLabel: z.optional(z.enum(PatchActionArray)),
+        // actionLabel: z.optional(z.enum(PatchActionArray)),
         actionUser: z.optional(z.string()),
         type: z.optional(
           z.union([z.enum(TargetPathArray), z.array(z.enum(PatchTypeArray))]),
@@ -57,7 +56,7 @@ export const Update_Pagination_ZOD = z
 export type IUpdate_Pagination_ZOD = z.infer<typeof Update_Pagination_ZOD>;
 
 export const Update_Action_ZOD = z.object({
-  label: z.enum(PatchActionArray),
+  // label: z.enum(PatchActionArray),
   note: z.string(),
   changes: z.any().optional(),
 });

@@ -2,7 +2,7 @@ import { z } from "zod";
 import { PaginationBody, zodNumber } from "./_util";
 import {
   TargetPathArray,
-  PatchActionArray,
+  // PatchActionArray,
   PatchStatusArray,
   PatchTypeArray,
 } from "@actunime/types";
@@ -77,7 +77,7 @@ export const Patch_Pagination_ZOD = z
             z.enum(PatchStatusArray),
           ]),
         ),
-        actionLabel: z.optional(z.enum(PatchActionArray)),
+        // actionLabel: z.optional(z.enum(PatchActionArray)),
         actionUser: z.optional(z.string()),
         type: z.optional(
           z.union([z.enum(TargetPathArray), z.array(z.enum(PatchTypeArray))]),
@@ -102,7 +102,7 @@ export const Patch_Pagination_ZOD = z
 export type IPatch_Pagination_ZOD = z.infer<typeof Patch_Pagination_ZOD>;
 
 export const Patch_Action_ZOD = z.object({
-  label: z.enum(PatchActionArray),
+  // label: z.enum(PatchActionArray),
   note: z.string(),
   changes: z.any().optional(),
 });

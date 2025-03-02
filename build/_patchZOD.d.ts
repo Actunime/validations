@@ -1,8 +1,8 @@
 import { z } from "zod";
 export declare const PatchQueryBody: z.ZodObject<{
     id: z.ZodString;
-    type: z.ZodEnum<("CREATE" | "CREATE_REQUEST" | "PATCH" | "UPDATE_REQUEST" | "DELETE" | "DELETE_FORCE" | "DELETE_RESTORE")[] & [string, ...string[]]>;
-    status: z.ZodEnum<("PENDING" | "IN_PROGRESS" | "ACCEPTED" | "REJECTED" | "REVERTED")[] & [string, ...string[]]>;
+    type: z.ZodEnum<("CREATE" | "UPDATE" | "MODERATOR_CREATE" | "MODERATOR_UPDATE")[] & [string, ...string[]]>;
+    status: z.ZodEnum<("PENDING" | "PROGRESS" | "ACCEPTED" | "DENIED")[] & [string, ...string[]]>;
     target: z.ZodObject<{
         id: z.ZodString;
     }, "strip", z.ZodTypeAny, {
@@ -33,8 +33,8 @@ export declare const PatchQueryBody: z.ZodObject<{
     createdAt: z.ZodEffects<z.ZodString, string, string>;
     updatedAt: z.ZodEffects<z.ZodString, string, string>;
 }, "strip", z.ZodTypeAny, {
-    type: "CREATE" | "CREATE_REQUEST" | "PATCH" | "UPDATE_REQUEST" | "DELETE" | "DELETE_FORCE" | "DELETE_RESTORE";
-    status: "PENDING" | "IN_PROGRESS" | "ACCEPTED" | "REJECTED" | "REVERTED";
+    type: "CREATE" | "UPDATE" | "MODERATOR_CREATE" | "MODERATOR_UPDATE";
+    status: "PENDING" | "PROGRESS" | "ACCEPTED" | "DENIED";
     createdAt: string;
     author: {
         id: string;
@@ -54,8 +54,8 @@ export declare const PatchQueryBody: z.ZodObject<{
     original?: any;
     changes?: any;
 }, {
-    type: "CREATE" | "CREATE_REQUEST" | "PATCH" | "UPDATE_REQUEST" | "DELETE" | "DELETE_FORCE" | "DELETE_RESTORE";
-    status: "PENDING" | "IN_PROGRESS" | "ACCEPTED" | "REJECTED" | "REVERTED";
+    type: "CREATE" | "UPDATE" | "MODERATOR_CREATE" | "MODERATOR_UPDATE";
+    status: "PENDING" | "PROGRESS" | "ACCEPTED" | "DENIED";
     createdAt: string;
     author: {
         id: string;
@@ -204,8 +204,8 @@ export declare const PatchPaginationBody: z.ZodObject<z.objectUtil.extendShape<{
     }>;
     query: z.ZodObject<{
         id: z.ZodOptional<z.ZodString>;
-        type: z.ZodOptional<z.ZodEnum<("CREATE" | "CREATE_REQUEST" | "PATCH" | "UPDATE_REQUEST" | "DELETE" | "DELETE_FORCE" | "DELETE_RESTORE")[] & [string, ...string[]]>>;
-        status: z.ZodOptional<z.ZodEnum<("PENDING" | "IN_PROGRESS" | "ACCEPTED" | "REJECTED" | "REVERTED")[] & [string, ...string[]]>>;
+        type: z.ZodOptional<z.ZodEnum<("CREATE" | "UPDATE" | "MODERATOR_CREATE" | "MODERATOR_UPDATE")[] & [string, ...string[]]>>;
+        status: z.ZodOptional<z.ZodEnum<("PENDING" | "PROGRESS" | "ACCEPTED" | "DENIED")[] & [string, ...string[]]>>;
         target: z.ZodOptional<z.ZodObject<{
             id: z.ZodString;
         }, "strip", z.ZodTypeAny, {
@@ -236,8 +236,8 @@ export declare const PatchPaginationBody: z.ZodObject<z.objectUtil.extendShape<{
         createdAt: z.ZodOptional<z.ZodEffects<z.ZodString, string, string>>;
         updatedAt: z.ZodOptional<z.ZodEffects<z.ZodString, string, string>>;
     }, "strip", z.ZodTypeAny, {
-        type?: "CREATE" | "CREATE_REQUEST" | "PATCH" | "UPDATE_REQUEST" | "DELETE" | "DELETE_FORCE" | "DELETE_RESTORE" | undefined;
-        status?: "PENDING" | "IN_PROGRESS" | "ACCEPTED" | "REJECTED" | "REVERTED" | undefined;
+        type?: "CREATE" | "UPDATE" | "MODERATOR_CREATE" | "MODERATOR_UPDATE" | undefined;
+        status?: "PENDING" | "PROGRESS" | "ACCEPTED" | "DENIED" | undefined;
         createdAt?: string | undefined;
         author?: {
             id: string;
@@ -257,8 +257,8 @@ export declare const PatchPaginationBody: z.ZodObject<z.objectUtil.extendShape<{
         } | undefined;
         updatedAt?: string | undefined;
     }, {
-        type?: "CREATE" | "CREATE_REQUEST" | "PATCH" | "UPDATE_REQUEST" | "DELETE" | "DELETE_FORCE" | "DELETE_RESTORE" | undefined;
-        status?: "PENDING" | "IN_PROGRESS" | "ACCEPTED" | "REJECTED" | "REVERTED" | undefined;
+        type?: "CREATE" | "UPDATE" | "MODERATOR_CREATE" | "MODERATOR_UPDATE" | undefined;
+        status?: "PENDING" | "PROGRESS" | "ACCEPTED" | "DENIED" | undefined;
         createdAt?: string | undefined;
         author?: {
             id: string;
@@ -301,8 +301,8 @@ export declare const PatchPaginationBody: z.ZodObject<z.objectUtil.extendShape<{
         updatedAt?: number | undefined;
     };
     query: {
-        type?: "CREATE" | "CREATE_REQUEST" | "PATCH" | "UPDATE_REQUEST" | "DELETE" | "DELETE_FORCE" | "DELETE_RESTORE" | undefined;
-        status?: "PENDING" | "IN_PROGRESS" | "ACCEPTED" | "REJECTED" | "REVERTED" | undefined;
+        type?: "CREATE" | "UPDATE" | "MODERATOR_CREATE" | "MODERATOR_UPDATE" | undefined;
+        status?: "PENDING" | "PROGRESS" | "ACCEPTED" | "DENIED" | undefined;
         createdAt?: string | undefined;
         author?: {
             id: string;
@@ -345,8 +345,8 @@ export declare const PatchPaginationBody: z.ZodObject<z.objectUtil.extendShape<{
         updatedAt?: number | undefined;
     };
     query: {
-        type?: "CREATE" | "CREATE_REQUEST" | "PATCH" | "UPDATE_REQUEST" | "DELETE" | "DELETE_FORCE" | "DELETE_RESTORE" | undefined;
-        status?: "PENDING" | "IN_PROGRESS" | "ACCEPTED" | "REJECTED" | "REVERTED" | undefined;
+        type?: "CREATE" | "UPDATE" | "MODERATOR_CREATE" | "MODERATOR_UPDATE" | undefined;
+        status?: "PENDING" | "PROGRESS" | "ACCEPTED" | "DENIED" | undefined;
         createdAt?: string | undefined;
         author?: {
             id: string;
@@ -395,27 +395,24 @@ export declare const Patch_Pagination_ZOD: z.ZodObject<{
         target: z.ZodOptional<z.ZodOptional<z.ZodString>>;
         targetPath: z.ZodOptional<z.ZodOptional<z.ZodUnion<[z.ZodEnum<("User" | "Account" | "UserProfile" | "UserPreferences" | "UserAnimeListe" | "UserDeleteAnimeFromListe" | "Groupe" | "Manga" | "Anime" | "Person" | "Character" | "Track" | "Company" | "Image" | "Patch" | "Activity" | "Report" | "DisabledUser" | "PremiumUser")[] & [string, ...string[]]>, z.ZodArray<z.ZodEnum<("User" | "Account" | "UserProfile" | "UserPreferences" | "UserAnimeListe" | "UserDeleteAnimeFromListe" | "Groupe" | "Manga" | "Anime" | "Person" | "Character" | "Track" | "Company" | "Image" | "Patch" | "Activity" | "Report" | "DisabledUser" | "PremiumUser")[] & [string, ...string[]]>, "many">]>>>;
         author: z.ZodOptional<z.ZodOptional<z.ZodString>>;
-        status: z.ZodOptional<z.ZodOptional<z.ZodUnion<[z.ZodArray<z.ZodEnum<("PENDING" | "IN_PROGRESS" | "ACCEPTED" | "REJECTED" | "REVERTED")[] & [string, ...string[]]>, "many">, z.ZodEnum<("PENDING" | "IN_PROGRESS" | "ACCEPTED" | "REJECTED" | "REVERTED")[] & [string, ...string[]]>]>>>;
-        actionLabel: z.ZodOptional<z.ZodOptional<z.ZodEnum<("IN_PROGRESS" | "REQUEST" | "CHANGE" | "ACCEPT" | "REJECT" | "REVERT" | "DIRECT_CREATE" | "DIRECT_PATCH")[] & [string, ...string[]]>>>;
+        status: z.ZodOptional<z.ZodOptional<z.ZodUnion<[z.ZodArray<z.ZodEnum<("PENDING" | "PROGRESS" | "ACCEPTED" | "DENIED")[] & [string, ...string[]]>, "many">, z.ZodEnum<("PENDING" | "PROGRESS" | "ACCEPTED" | "DENIED")[] & [string, ...string[]]>]>>>;
         actionUser: z.ZodOptional<z.ZodOptional<z.ZodString>>;
-        type: z.ZodOptional<z.ZodOptional<z.ZodUnion<[z.ZodEnum<("User" | "Account" | "UserProfile" | "UserPreferences" | "UserAnimeListe" | "UserDeleteAnimeFromListe" | "Groupe" | "Manga" | "Anime" | "Person" | "Character" | "Track" | "Company" | "Image" | "Patch" | "Activity" | "Report" | "DisabledUser" | "PremiumUser")[] & [string, ...string[]]>, z.ZodArray<z.ZodEnum<("CREATE" | "CREATE_REQUEST" | "PATCH" | "UPDATE_REQUEST" | "DELETE" | "DELETE_FORCE" | "DELETE_RESTORE")[] & [string, ...string[]]>, "many">]>>>;
+        type: z.ZodOptional<z.ZodOptional<z.ZodUnion<[z.ZodEnum<("User" | "Account" | "UserProfile" | "UserPreferences" | "UserAnimeListe" | "UserDeleteAnimeFromListe" | "Groupe" | "Manga" | "Anime" | "Person" | "Character" | "Track" | "Company" | "Image" | "Patch" | "Activity" | "Report" | "DisabledUser" | "PremiumUser")[] & [string, ...string[]]>, z.ZodArray<z.ZodEnum<("CREATE" | "UPDATE" | "MODERATOR_CREATE" | "MODERATOR_UPDATE")[] & [string, ...string[]]>, "many">]>>>;
         ref: z.ZodOptional<z.ZodOptional<z.ZodString>>;
     }, "strict", z.ZodTypeAny, {
-        type?: "User" | "Account" | "UserProfile" | "UserPreferences" | "UserAnimeListe" | "UserDeleteAnimeFromListe" | "Groupe" | "Manga" | "Anime" | "Person" | "Character" | "Track" | "Company" | "Image" | "Patch" | "Activity" | "Report" | "DisabledUser" | "PremiumUser" | ("CREATE" | "CREATE_REQUEST" | "PATCH" | "UPDATE_REQUEST" | "DELETE" | "DELETE_FORCE" | "DELETE_RESTORE")[] | undefined;
-        status?: "PENDING" | "IN_PROGRESS" | "ACCEPTED" | "REJECTED" | "REVERTED" | ("PENDING" | "IN_PROGRESS" | "ACCEPTED" | "REJECTED" | "REVERTED")[] | undefined;
+        type?: "User" | "Account" | "UserProfile" | "UserPreferences" | "UserAnimeListe" | "UserDeleteAnimeFromListe" | "Groupe" | "Manga" | "Anime" | "Person" | "Character" | "Track" | "Company" | "Image" | "Patch" | "Activity" | "Report" | "DisabledUser" | "PremiumUser" | ("CREATE" | "UPDATE" | "MODERATOR_CREATE" | "MODERATOR_UPDATE")[] | undefined;
+        status?: "PENDING" | "PROGRESS" | "ACCEPTED" | "DENIED" | ("PENDING" | "PROGRESS" | "ACCEPTED" | "DENIED")[] | undefined;
         author?: string | undefined;
         target?: string | undefined;
         targetPath?: "User" | "Account" | "UserProfile" | "UserPreferences" | "UserAnimeListe" | "UserDeleteAnimeFromListe" | "Groupe" | "Manga" | "Anime" | "Person" | "Character" | "Track" | "Company" | "Image" | "Patch" | "Activity" | "Report" | "DisabledUser" | "PremiumUser" | ("User" | "Account" | "UserProfile" | "UserPreferences" | "UserAnimeListe" | "UserDeleteAnimeFromListe" | "Groupe" | "Manga" | "Anime" | "Person" | "Character" | "Track" | "Company" | "Image" | "Patch" | "Activity" | "Report" | "DisabledUser" | "PremiumUser")[] | undefined;
-        actionLabel?: "IN_PROGRESS" | "REQUEST" | "CHANGE" | "ACCEPT" | "REJECT" | "REVERT" | "DIRECT_CREATE" | "DIRECT_PATCH" | undefined;
         actionUser?: string | undefined;
         ref?: string | undefined;
     }, {
-        type?: "User" | "Account" | "UserProfile" | "UserPreferences" | "UserAnimeListe" | "UserDeleteAnimeFromListe" | "Groupe" | "Manga" | "Anime" | "Person" | "Character" | "Track" | "Company" | "Image" | "Patch" | "Activity" | "Report" | "DisabledUser" | "PremiumUser" | ("CREATE" | "CREATE_REQUEST" | "PATCH" | "UPDATE_REQUEST" | "DELETE" | "DELETE_FORCE" | "DELETE_RESTORE")[] | undefined;
-        status?: "PENDING" | "IN_PROGRESS" | "ACCEPTED" | "REJECTED" | "REVERTED" | ("PENDING" | "IN_PROGRESS" | "ACCEPTED" | "REJECTED" | "REVERTED")[] | undefined;
+        type?: "User" | "Account" | "UserProfile" | "UserPreferences" | "UserAnimeListe" | "UserDeleteAnimeFromListe" | "Groupe" | "Manga" | "Anime" | "Person" | "Character" | "Track" | "Company" | "Image" | "Patch" | "Activity" | "Report" | "DisabledUser" | "PremiumUser" | ("CREATE" | "UPDATE" | "MODERATOR_CREATE" | "MODERATOR_UPDATE")[] | undefined;
+        status?: "PENDING" | "PROGRESS" | "ACCEPTED" | "DENIED" | ("PENDING" | "PROGRESS" | "ACCEPTED" | "DENIED")[] | undefined;
         author?: string | undefined;
         target?: string | undefined;
         targetPath?: "User" | "Account" | "UserProfile" | "UserPreferences" | "UserAnimeListe" | "UserDeleteAnimeFromListe" | "Groupe" | "Manga" | "Anime" | "Person" | "Character" | "Track" | "Company" | "Image" | "Patch" | "Activity" | "Report" | "DisabledUser" | "PremiumUser" | ("User" | "Account" | "UserProfile" | "UserPreferences" | "UserAnimeListe" | "UserDeleteAnimeFromListe" | "Groupe" | "Manga" | "Anime" | "Person" | "Character" | "Track" | "Company" | "Image" | "Patch" | "Activity" | "Report" | "DisabledUser" | "PremiumUser")[] | undefined;
-        actionLabel?: "IN_PROGRESS" | "REQUEST" | "CHANGE" | "ACCEPT" | "REJECT" | "REVERT" | "DIRECT_CREATE" | "DIRECT_PATCH" | undefined;
         actionUser?: string | undefined;
         ref?: string | undefined;
     }>>;
@@ -444,12 +441,11 @@ export declare const Patch_Pagination_ZOD: z.ZodObject<{
         createdAt?: "DESC" | "ASC" | undefined;
     } | undefined;
     query?: {
-        type?: "User" | "Account" | "UserProfile" | "UserPreferences" | "UserAnimeListe" | "UserDeleteAnimeFromListe" | "Groupe" | "Manga" | "Anime" | "Person" | "Character" | "Track" | "Company" | "Image" | "Patch" | "Activity" | "Report" | "DisabledUser" | "PremiumUser" | ("CREATE" | "CREATE_REQUEST" | "PATCH" | "UPDATE_REQUEST" | "DELETE" | "DELETE_FORCE" | "DELETE_RESTORE")[] | undefined;
-        status?: "PENDING" | "IN_PROGRESS" | "ACCEPTED" | "REJECTED" | "REVERTED" | ("PENDING" | "IN_PROGRESS" | "ACCEPTED" | "REJECTED" | "REVERTED")[] | undefined;
+        type?: "User" | "Account" | "UserProfile" | "UserPreferences" | "UserAnimeListe" | "UserDeleteAnimeFromListe" | "Groupe" | "Manga" | "Anime" | "Person" | "Character" | "Track" | "Company" | "Image" | "Patch" | "Activity" | "Report" | "DisabledUser" | "PremiumUser" | ("CREATE" | "UPDATE" | "MODERATOR_CREATE" | "MODERATOR_UPDATE")[] | undefined;
+        status?: "PENDING" | "PROGRESS" | "ACCEPTED" | "DENIED" | ("PENDING" | "PROGRESS" | "ACCEPTED" | "DENIED")[] | undefined;
         author?: string | undefined;
         target?: string | undefined;
         targetPath?: "User" | "Account" | "UserProfile" | "UserPreferences" | "UserAnimeListe" | "UserDeleteAnimeFromListe" | "Groupe" | "Manga" | "Anime" | "Person" | "Character" | "Track" | "Company" | "Image" | "Patch" | "Activity" | "Report" | "DisabledUser" | "PremiumUser" | ("User" | "Account" | "UserProfile" | "UserPreferences" | "UserAnimeListe" | "UserDeleteAnimeFromListe" | "Groupe" | "Manga" | "Anime" | "Person" | "Character" | "Track" | "Company" | "Image" | "Patch" | "Activity" | "Report" | "DisabledUser" | "PremiumUser")[] | undefined;
-        actionLabel?: "IN_PROGRESS" | "REQUEST" | "CHANGE" | "ACCEPT" | "REJECT" | "REVERT" | "DIRECT_CREATE" | "DIRECT_PATCH" | undefined;
         actionUser?: string | undefined;
         ref?: string | undefined;
     } | undefined;
@@ -468,12 +464,11 @@ export declare const Patch_Pagination_ZOD: z.ZodObject<{
         createdAt?: "DESC" | "ASC" | undefined;
     } | undefined;
     query?: {
-        type?: "User" | "Account" | "UserProfile" | "UserPreferences" | "UserAnimeListe" | "UserDeleteAnimeFromListe" | "Groupe" | "Manga" | "Anime" | "Person" | "Character" | "Track" | "Company" | "Image" | "Patch" | "Activity" | "Report" | "DisabledUser" | "PremiumUser" | ("CREATE" | "CREATE_REQUEST" | "PATCH" | "UPDATE_REQUEST" | "DELETE" | "DELETE_FORCE" | "DELETE_RESTORE")[] | undefined;
-        status?: "PENDING" | "IN_PROGRESS" | "ACCEPTED" | "REJECTED" | "REVERTED" | ("PENDING" | "IN_PROGRESS" | "ACCEPTED" | "REJECTED" | "REVERTED")[] | undefined;
+        type?: "User" | "Account" | "UserProfile" | "UserPreferences" | "UserAnimeListe" | "UserDeleteAnimeFromListe" | "Groupe" | "Manga" | "Anime" | "Person" | "Character" | "Track" | "Company" | "Image" | "Patch" | "Activity" | "Report" | "DisabledUser" | "PremiumUser" | ("CREATE" | "UPDATE" | "MODERATOR_CREATE" | "MODERATOR_UPDATE")[] | undefined;
+        status?: "PENDING" | "PROGRESS" | "ACCEPTED" | "DENIED" | ("PENDING" | "PROGRESS" | "ACCEPTED" | "DENIED")[] | undefined;
         author?: string | undefined;
         target?: string | undefined;
         targetPath?: "User" | "Account" | "UserProfile" | "UserPreferences" | "UserAnimeListe" | "UserDeleteAnimeFromListe" | "Groupe" | "Manga" | "Anime" | "Person" | "Character" | "Track" | "Company" | "Image" | "Patch" | "Activity" | "Report" | "DisabledUser" | "PremiumUser" | ("User" | "Account" | "UserProfile" | "UserPreferences" | "UserAnimeListe" | "UserDeleteAnimeFromListe" | "Groupe" | "Manga" | "Anime" | "Person" | "Character" | "Track" | "Company" | "Image" | "Patch" | "Activity" | "Report" | "DisabledUser" | "PremiumUser")[] | undefined;
-        actionLabel?: "IN_PROGRESS" | "REQUEST" | "CHANGE" | "ACCEPT" | "REJECT" | "REVERT" | "DIRECT_CREATE" | "DIRECT_PATCH" | undefined;
         actionUser?: string | undefined;
         ref?: string | undefined;
     } | undefined;
@@ -486,15 +481,12 @@ export declare const Patch_Pagination_ZOD: z.ZodObject<{
 }>;
 export type IPatch_Pagination_ZOD = z.infer<typeof Patch_Pagination_ZOD>;
 export declare const Patch_Action_ZOD: z.ZodObject<{
-    label: z.ZodEnum<("IN_PROGRESS" | "REQUEST" | "CHANGE" | "ACCEPT" | "REJECT" | "REVERT" | "DIRECT_CREATE" | "DIRECT_PATCH")[] & [string, ...string[]]>;
     note: z.ZodString;
     changes: z.ZodOptional<z.ZodAny>;
 }, "strip", z.ZodTypeAny, {
-    label: "IN_PROGRESS" | "REQUEST" | "CHANGE" | "ACCEPT" | "REJECT" | "REVERT" | "DIRECT_CREATE" | "DIRECT_PATCH";
     note: string;
     changes?: any;
 }, {
-    label: "IN_PROGRESS" | "REQUEST" | "CHANGE" | "ACCEPT" | "REJECT" | "REVERT" | "DIRECT_CREATE" | "DIRECT_PATCH";
     note: string;
     changes?: any;
 }>;

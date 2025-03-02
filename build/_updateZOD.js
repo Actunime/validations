@@ -25,7 +25,7 @@ exports.Update_Pagination_ZOD = zod_1.z
             zod_1.z.array(zod_1.z.enum(types_1.PatchStatusArray)),
             zod_1.z.enum(types_1.PatchStatusArray),
         ])),
-        actionLabel: zod_1.z.optional(zod_1.z.enum(types_1.PatchActionArray)),
+        // actionLabel: z.optional(z.enum(PatchActionArray)),
         actionUser: zod_1.z.optional(zod_1.z.string()),
         type: zod_1.z.optional(zod_1.z.union([zod_1.z.enum(types_1.TargetPathArray), zod_1.z.array(zod_1.z.enum(types_1.PatchTypeArray))])),
         ref: zod_1.z.optional(zod_1.z.string()),
@@ -45,7 +45,7 @@ exports.Update_Pagination_ZOD = zod_1.z
     .partial()
     .strict();
 exports.Update_Action_ZOD = zod_1.z.object({
-    label: zod_1.z.enum(types_1.PatchActionArray),
+    // label: z.enum(PatchActionArray),
     note: zod_1.z.string(),
     changes: zod_1.z.any().optional(),
 });
