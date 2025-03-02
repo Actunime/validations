@@ -1,3 +1,12 @@
+## [1.0.7](https://github.com/Actunime/validations/compare/v1.0.6...v1.0.7) (2025-03-02)
+
+
+### Bug Fixes
+
+* invisible ([1ee6eb4](https://github.com/Actunime/validations/commit/1ee6eb4e5782ee59a32888d97da184cc3b0876c1))
+* invisible ([352c85a](https://github.com/Actunime/validations/commit/352c85afe8591fa96bee962c715ffe21da72daf8))
+* types ([62aa53e](https://github.com/Actunime/validations/commit/62aa53e33b9eeb1095bc52e858433e01b0d54998))
+
 ## [1.0.6](https://github.com/Actunime/validations/compare/v1.0.5...v1.0.6) (2025-02-22)
 
 
