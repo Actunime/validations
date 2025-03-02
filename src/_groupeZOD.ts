@@ -1,6 +1,24 @@
 import { z } from "zod";
-import { zodNumber } from "./_util";
+import { PaginationBody, zodNumber } from "./_util";
 import { IGroupe } from "@actunime/types";
+import { PatchParamsBody } from "./_patchZOD";
+
+export const GroupeQueryBody = z.object({
+  name: z.string(),
+})
+
+const check = (v: number) => [-1, 1].includes(v);
+const checkErr = "le sort doit être soit -1 ou 1";
+export const GroupeSortBody = z.object({
+  name: z.number().refine(check, checkErr),
+  createdAt: z.number().refine(check, checkErr),
+  updatedAt: z.number().refine(check, checkErr),
+})
+
+export const GroupePaginationBody = PaginationBody.extend({
+  sort: GroupeSortBody.partial(),
+  query: GroupeQueryBody.partial()
+})
 
 export const Groupe_Pagination_ZOD = z
   .object({
@@ -39,6 +57,10 @@ export const Create_Groupe_ZOD = z.object({
 });
 
 export type ICreate_Groupe_ZOD = z.infer<typeof Create_Groupe_ZOD>;
+
+export const GroupeCreateBody = PatchParamsBody.partial().extend({
+  data: Create_Groupe_ZOD
+})
 
 export const Add_Groupe_ZOD = z.object({
   id: z.optional(z.string()),

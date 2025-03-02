@@ -1,9 +1,49 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.DeletePatch_ZOD = exports.DenyChangesToPatch_ZOD = exports.AcceptChangesToPatch_ZOD = exports.AddChangesToPatch_ZOD = exports.Patch_Action_ZOD = exports.Patch_Pagination_ZOD = void 0;
+exports.DeletePatch_ZOD = exports.DenyChangesToPatch_ZOD = exports.AcceptChangesToPatch_ZOD = exports.AddChangesToPatch_ZOD = exports.Patch_Action_ZOD = exports.Patch_Pagination_ZOD = exports.PatchParamsBody = exports.PatchPaginationBody = exports.PatchSortBody = exports.PatchQueryBody = void 0;
 const zod_1 = require("zod");
 const _util_1 = require("./_util");
 const types_1 = require("@actunime/types");
+exports.PatchQueryBody = zod_1.z.object({
+    id: zod_1.z.string(),
+    type: zod_1.z.enum(types_1.PatchTypeArray),
+    status: zod_1.z.enum(types_1.PatchStatusArray),
+    target: zod_1.z.object({ id: zod_1.z.string() }),
+    targetPath: zod_1.z.enum(types_1.TargetPathArray),
+    description: zod_1.z.string(),
+    reason: zod_1.z.string(),
+    original: zod_1.z.any(),
+    changes: zod_1.z.any(),
+    isChangesUpdated: zod_1.z.boolean(),
+    author: zod_1.z.object({ id: zod_1.z.string() }),
+    moderator: zod_1.z.object({ id: zod_1.z.string() }),
+    createdAt: zod_1.z.string().refine((v) => !isNaN(Date.parse(v)), "Date invalide"),
+    updatedAt: zod_1.z.string().refine((v) => !isNaN(Date.parse(v)), "Date invalide"),
+});
+const check = (v) => [-1, 1].includes(v);
+const checkErr = "le sort doit être soit -1 ou 1";
+exports.PatchSortBody = zod_1.z.object({
+    id: zod_1.z.number().refine(check, checkErr),
+    type: zod_1.z.number().refine(check, checkErr),
+    status: zod_1.z.number().refine(check, checkErr),
+    target: zod_1.z.number().refine(check, checkErr),
+    targetPath: zod_1.z.number().refine(check, checkErr),
+    description: zod_1.z.number().refine(check, checkErr),
+    reason: zod_1.z.number().refine(check, checkErr),
+    isChangesUpdated: zod_1.z.number().refine(check, checkErr),
+    author: zod_1.z.object({ id: zod_1.z.number().refine(check, checkErr) }),
+    moderator: zod_1.z.object({ id: zod_1.z.number().refine(check, checkErr) }),
+    createdAt: zod_1.z.number().refine(check, checkErr),
+    updatedAt: zod_1.z.number().refine(check, checkErr),
+});
+exports.PatchPaginationBody = _util_1.PaginationBody.extend({
+    sort: exports.PatchSortBody.partial(),
+    query: exports.PatchQueryBody.partial()
+});
+exports.PatchParamsBody = zod_1.z.object({
+    description: zod_1.z.string(),
+    reason: zod_1.z.string(),
+});
 exports.Patch_Pagination_ZOD = zod_1.z
     .object({
     page: (0, _util_1.zodNumber)(),
@@ -86,3 +126,4 @@ exports.DeletePatch_ZOD = zod_1.z
 //   data: Create_Patch_ZOD,
 // });
 // export type ICreate_Patch_ZOD_FORM = z.infer<typeof Create_Patch_ZOD_FORM>;
+//# sourceMappingURL=_patchZOD.js.map

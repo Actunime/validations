@@ -9,6 +9,16 @@ export declare const MediaDateZodSchema: z.ZodObject<{
     start?: string | undefined;
     end?: string | undefined;
 }>;
+export declare const MediaDateBody: z.ZodObject<{
+    start: z.ZodString;
+    end: z.ZodString;
+}, "strip", z.ZodTypeAny, {
+    start: string;
+    end: string;
+}, {
+    start: string;
+    end: string;
+}>;
 export declare const MediaImageZodSchema: z.ZodObject<{
     cover: z.ZodOptional<z.ZodString>;
     banner: z.ZodOptional<z.ZodString>;
@@ -28,6 +38,16 @@ export declare const Create_Link_ZOD: z.ZodObject<{
 }, {
     value: string;
     name: string;
+}>;
+export declare const LinkBody: z.ZodObject<{
+    name: z.ZodDefault<z.ZodString>;
+    value: z.ZodDefault<z.ZodString>;
+}, "strip", z.ZodTypeAny, {
+    value: string;
+    name: string;
+}, {
+    value?: string | undefined;
+    name?: string | undefined;
 }>;
 export type ICreate_Link_ZOD = z.infer<typeof Create_Link_ZOD>;
 export declare const MediaTitleZodSchema: z.ZodEffects<z.ZodObject<{
@@ -60,4 +80,24 @@ export declare const MediaTitleZodSchema: z.ZodEffects<z.ZodObject<{
         content: string;
     }[] | undefined;
 }>;
-//# sourceMappingURL=_media.d.ts.map
+export declare const MediaTitleBody: z.ZodObject<{
+    default: z.ZodString;
+    alias: z.ZodArray<z.ZodObject<{
+        content: z.ZodString;
+    }, "strip", z.ZodTypeAny, {
+        content: string;
+    }, {
+        content: string;
+    }>, "many">;
+}, "strip", z.ZodTypeAny, {
+    default: string;
+    alias: {
+        content: string;
+    }[];
+}, {
+    default: string;
+    alias: {
+        content: string;
+    }[];
+}>;
+export declare const MediaTrailerZod: z.ZodString;

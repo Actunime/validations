@@ -1,6 +1,6 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.MediaTitleZodSchema = exports.Create_Link_ZOD = exports.MediaImageZodSchema = exports.MediaDateZodSchema = void 0;
+exports.MediaTrailerZod = exports.MediaTitleBody = exports.MediaTitleZodSchema = exports.LinkBody = exports.Create_Link_ZOD = exports.MediaImageZodSchema = exports.MediaDateBody = exports.MediaDateZodSchema = void 0;
 const zod_1 = require("zod");
 const _util_1 = require("./_util");
 exports.MediaDateZodSchema = zod_1.z.object({
@@ -15,6 +15,10 @@ exports.MediaDateZodSchema = zod_1.z.object({
         message: "date invalide",
     })),
 });
+exports.MediaDateBody = zod_1.z.object({
+    start: zod_1.z.string(),
+    end: zod_1.z.string(),
+});
 exports.MediaImageZodSchema = zod_1.z.object({
     cover: zod_1.z.optional(zod_1.z.string()),
     banner: zod_1.z.optional(zod_1.z.string()),
@@ -25,6 +29,10 @@ exports.Create_Link_ZOD = zod_1.z.object({
     value: zod_1.z.string().refine((value) => urlRegex.test(value), {
         message: "Doit être une URL HTTPS valide",
     }),
+});
+exports.LinkBody = zod_1.z.object({
+    name: zod_1.z.string().default("Actunime"),
+    value: zod_1.z.string().regex(urlRegex, "Lien HTTPS invalide").default("https://actunime.fr/")
 });
 exports.MediaTitleZodSchema = zod_1.z
     .object({
@@ -40,3 +48,14 @@ exports.MediaTitleZodSchema = zod_1.z
 })
     .refine((v) => !v.alias?.find(({ content }) => content === v.default) ||
     `La valeur de alias ne doit pas contenir la valeur par défaut`);
+exports.MediaTitleBody = zod_1.z.object({
+    default: zod_1.z.string(),
+    alias: zod_1.z.array(zod_1.z.object({ content: zod_1.z.string() }))
+});
+// Définir une regex pour les URL de vidéos YouTube
+const youtubeUrlRegex = /^(https?:\/\/)?(www\.)?(youtube\.com|youtu\.?be)\/.+$/;
+// Créer un schéma Zod pour valider les URL YouTube
+exports.MediaTrailerZod = zod_1.z.string().regex(youtubeUrlRegex, {
+    message: "L'URL doit être une URL de vidéo YouTube valide."
+});
+//# sourceMappingURL=_media.js.map

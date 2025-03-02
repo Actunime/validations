@@ -14,13 +14,55 @@ import { Add_Company_ZOD } from "./_companyZOD";
 import { Add_Groupe_ZOD } from "./_groupeZOD";
 import {
   Create_Link_ZOD,
+  LinkBody,
+  MediaDateBody,
   MediaDateZodSchema,
+  MediaTitleBody,
   MediaTitleZodSchema,
+  MediaTrailerZod,
 } from "./_media";
 import { Add_Person_ZOD } from "./_personZOD";
 import { Add_Track_ZOD } from "./_trackZOD";
-import { zodBoolean, zodNumber } from "./_util";
+import { PaginationBody, zodBoolean, zodNumber } from "./_util";
 import { Add_Image_ZOD } from "./_imageZOD";
+import { PatchParamsBody } from "./_patchZOD";
+
+const Manga_ChapterVolume_ZOD = z.object({
+  airing: z.optional(zodNumber()),
+  nextAiringDate: z.optional(z.string()),
+  total: z.optional(zodNumber()),
+});
+
+export const MangaQueryBody = z.object({
+  title: MediaTitleBody.partial(),
+  date: MediaDateBody.partial(),
+  format: z.enum(MangaFormatArray),
+  vf: z.boolean(),
+  genres: z.array(z.enum(MediaGenresArray)),
+  status: z.enum(MediaStatusArray),
+  trailer: MediaTrailerZod,
+  chapters: Manga_ChapterVolume_ZOD.partial(),
+  volumes: Manga_ChapterVolume_ZOD.partial(),
+  adult: z.boolean(),
+  explicit: z.boolean(),
+  links: LinkBody.partial(),
+});
+
+const check = (v: number) => [-1, 1].includes(v);
+const checkErr = "le sort doit être soit -1 ou 1";
+export const MangaSortBody = z.object({
+  vf: z.number().refine(check, checkErr),
+  status: z.number().refine(check, checkErr),
+  adult: z.number().refine(check, checkErr),
+  explicit: z.number().refine(check, checkErr),
+  createdAt: z.number().refine(check, checkErr),
+  updatedAt: z.number().refine(check, checkErr),
+})
+
+export const MangaPaginationBody = PaginationBody.extend({
+  sort: MangaSortBody.partial(),
+  query: MangaQueryBody.partial()
+})
 
 export const Manga_Pagination_ZOD = z
   .object({
@@ -58,19 +100,8 @@ export const Manga_Pagination_ZOD = z
 
 export type IManga_Pagination_ZOD = z.infer<typeof Manga_Pagination_ZOD>;
 
-const Manga_ChapterVolume_ZOD = z.object({
-  airing: z.optional(zodNumber()),
-  nextAiringDate: z.optional(z.string()),
-  total: z.optional(zodNumber()),
-});
-
 export const Add_Manga_ZOD = z
-  .object({
-    id: z.string().optional(),
-    parentLabel: z.optional(z.enum(MediaParentLabelArray)),
-    sourceLabel: z.optional(z.enum(MediaSourceArray)),
-  })
-  .partial();
+  .object({ id: z.string(), parentLabel: z.optional(z.enum(MediaParentLabelArray)) })
 
 export type IAdd_Manga_ZOD = z.infer<typeof Add_Manga_ZOD>;
 
@@ -103,6 +134,10 @@ export const Create_Manga_ZOD = z
 
 export type ICreate_Manga_ZOD = z.infer<typeof Create_Manga_ZOD>;
 
+export const MangaCreateBody = PatchParamsBody.partial().extend({
+  data: Create_Manga_ZOD
+})
+
 export const Create_Manga_ZOD_FORM = z.object({
   note: z.string().optional(),
   data: Create_Manga_ZOD,
@@ -125,30 +160,30 @@ export const MangaDataToZOD = (data: IManga) => {
     banner: data.banner,
     ...(data.date
       ? {
-          date: {
-            start: dateToZod(data.date.start),
-            end: dateToZod(data.date.end),
-          } as any,
-        }
+        date: {
+          start: dateToZod(data.date.start),
+          end: dateToZod(data.date.end),
+        } as any,
+      }
       : {}),
     status: data.status as any,
     format: data.format as any,
     vf: data.vf || ("false" as any),
     ...(data.chapters
       ? {
-          chapters: {
-            ...data.chapters,
-            nextAiringDate: dateTimeToZod(data.chapters.nextAiringDate),
-          },
-        }
+        chapters: {
+          ...data.chapters,
+          nextAiringDate: dateTimeToZod(data.chapters.nextAiringDate),
+        },
+      }
       : {}),
     ...(data.volumes
       ? {
-          volumes: {
-            ...data.volumes,
-            nextAiringDate: dateTimeToZod(data.volumes.nextAiringDate),
-          },
-        }
+        volumes: {
+          ...data.volumes,
+          nextAiringDate: dateTimeToZod(data.volumes.nextAiringDate),
+        },
+      }
       : {}),
     adult: data.adult || ("false" as any),
     explicit: data.explicit || ("false" as any),

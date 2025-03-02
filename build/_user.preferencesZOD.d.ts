@@ -38,4 +38,3 @@ export declare const Patch_UserPreferences_ZOD_FORM: z.ZodObject<{
 }>;
 export type IPatch_UserPreferences_ZOD_FORM = z.infer<typeof Patch_UserPreferences_ZOD_FORM>;
 export declare const UserDataToPatchPreferencesZOD: (data: IUser) => Partial<IPatch_UserPreferences_ZOD>;
-//# sourceMappingURL=_user.preferencesZOD.d.ts.map

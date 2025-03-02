@@ -18,3 +18,12 @@ export const zodDate = () =>
     .transform((value) =>
       typeof value === "string" ? new Date(value) : value,
     );
+
+
+export const PaginationBody = z.object({
+  page: z.number(),
+  limit: z.number(),
+  strict: z.boolean(),
+  sort: z.any(),
+  query: z.any(),
+})

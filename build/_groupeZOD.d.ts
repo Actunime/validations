@@ -1,5 +1,77 @@
 import { z } from "zod";
 import { IGroupe } from "@actunime/types";
+export declare const GroupeQueryBody: z.ZodObject<{
+    name: z.ZodString;
+}, "strip", z.ZodTypeAny, {
+    name: string;
+}, {
+    name: string;
+}>;
+export declare const GroupeSortBody: z.ZodObject<{
+    name: z.ZodEffects<z.ZodNumber, number, number>;
+    createdAt: z.ZodEffects<z.ZodNumber, number, number>;
+    updatedAt: z.ZodEffects<z.ZodNumber, number, number>;
+}, "strip", z.ZodTypeAny, {
+    createdAt: number;
+    name: number;
+    updatedAt: number;
+}, {
+    createdAt: number;
+    name: number;
+    updatedAt: number;
+}>;
+export declare const GroupePaginationBody: z.ZodObject<z.objectUtil.extendShape<{
+    page: z.ZodNumber;
+    limit: z.ZodNumber;
+    strict: z.ZodBoolean;
+    sort: z.ZodAny;
+    query: z.ZodAny;
+}, {
+    sort: z.ZodObject<{
+        name: z.ZodOptional<z.ZodEffects<z.ZodNumber, number, number>>;
+        createdAt: z.ZodOptional<z.ZodEffects<z.ZodNumber, number, number>>;
+        updatedAt: z.ZodOptional<z.ZodEffects<z.ZodNumber, number, number>>;
+    }, "strip", z.ZodTypeAny, {
+        createdAt?: number | undefined;
+        name?: number | undefined;
+        updatedAt?: number | undefined;
+    }, {
+        createdAt?: number | undefined;
+        name?: number | undefined;
+        updatedAt?: number | undefined;
+    }>;
+    query: z.ZodObject<{
+        name: z.ZodOptional<z.ZodString>;
+    }, "strip", z.ZodTypeAny, {
+        name?: string | undefined;
+    }, {
+        name?: string | undefined;
+    }>;
+}>, "strip", z.ZodTypeAny, {
+    page: number;
+    limit: number;
+    strict: boolean;
+    sort: {
+        createdAt?: number | undefined;
+        name?: number | undefined;
+        updatedAt?: number | undefined;
+    };
+    query: {
+        name?: string | undefined;
+    };
+}, {
+    page: number;
+    limit: number;
+    strict: boolean;
+    sort: {
+        createdAt?: number | undefined;
+        name?: number | undefined;
+        updatedAt?: number | undefined;
+    };
+    query: {
+        name?: string | undefined;
+    };
+}>;
 export declare const Groupe_Pagination_ZOD: z.ZodObject<{
     page: z.ZodOptional<z.ZodEffects<z.ZodUnion<[z.ZodNumber, z.ZodString]>, number, string | number>>;
     limit: z.ZodOptional<z.ZodEffects<z.ZodUnion<[z.ZodNumber, z.ZodString]>, number, string | number>>;
@@ -35,13 +107,13 @@ export declare const Groupe_Pagination_ZOD: z.ZodObject<{
         mangas?: boolean | undefined;
     }>>;
 }, "strict", z.ZodTypeAny, {
+    page?: number | undefined;
+    limit?: number | undefined;
+    strict?: boolean | undefined;
     sort?: {
         createdAt?: "DESC" | "ASC" | undefined;
         updatedAt?: "DESC" | "ASC" | undefined;
     } | undefined;
-    page?: number | undefined;
-    limit?: number | undefined;
-    strict?: boolean | undefined;
     query?: {
         name?: string | undefined;
         allowUnverified?: boolean | undefined;
@@ -51,13 +123,13 @@ export declare const Groupe_Pagination_ZOD: z.ZodObject<{
         mangas?: boolean | undefined;
     } | undefined;
 }, {
+    page?: string | number | undefined;
+    limit?: string | number | undefined;
+    strict?: boolean | undefined;
     sort?: {
         createdAt?: "DESC" | "ASC" | undefined;
         updatedAt?: "DESC" | "ASC" | undefined;
     } | undefined;
-    page?: string | number | undefined;
-    limit?: string | number | undefined;
-    strict?: boolean | undefined;
     query?: {
         name?: string | undefined;
         allowUnverified?: boolean | undefined;
@@ -76,6 +148,30 @@ export declare const Create_Groupe_ZOD: z.ZodObject<{
     name: string;
 }>;
 export type ICreate_Groupe_ZOD = z.infer<typeof Create_Groupe_ZOD>;
+export declare const GroupeCreateBody: z.ZodObject<z.objectUtil.extendShape<{
+    description: z.ZodOptional<z.ZodString>;
+    reason: z.ZodOptional<z.ZodString>;
+}, {
+    data: z.ZodObject<{
+        name: z.ZodString;
+    }, "strip", z.ZodTypeAny, {
+        name: string;
+    }, {
+        name: string;
+    }>;
+}>, "strip", z.ZodTypeAny, {
+    data: {
+        name: string;
+    };
+    description?: string | undefined;
+    reason?: string | undefined;
+}, {
+    data: {
+        name: string;
+    };
+    description?: string | undefined;
+    reason?: string | undefined;
+}>;
 export declare const Add_Groupe_ZOD: z.ZodObject<{
     id: z.ZodOptional<z.ZodString>;
     newGroupe: z.ZodOptional<z.ZodObject<{
@@ -121,4 +217,3 @@ export type ICreate_Groupe_ZOD_FORM = z.infer<typeof Create_Groupe_ZOD_FORM>;
 export declare const GroupeDataToZOD: (data: IGroupe) => {
     name: string;
 } | undefined;
-//# sourceMappingURL=_groupeZOD.d.ts.map

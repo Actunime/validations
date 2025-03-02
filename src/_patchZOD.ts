@@ -1,11 +1,56 @@
 import { z } from "zod";
-import { zodNumber } from "./_util";
+import { PaginationBody, zodNumber } from "./_util";
 import {
   TargetPathArray,
   PatchActionArray,
   PatchStatusArray,
   PatchTypeArray,
 } from "@actunime/types";
+import { flatten } from 'flat';
+
+export const PatchQueryBody = z.object({
+  id: z.string(),
+  type: z.enum(PatchTypeArray),
+  status: z.enum(PatchStatusArray),
+  target: z.object({ id: z.string() }),
+  targetPath: z.enum(TargetPathArray),
+  description: z.string(),
+  reason: z.string(),
+  original: z.any(),
+  changes: z.any(),
+  isChangesUpdated: z.boolean(),
+  author: z.object({ id: z.string() }),
+  moderator: z.object({ id: z.string() }),
+  createdAt: z.string().refine((v) => !isNaN(Date.parse(v)), "Date invalide"),
+  updatedAt: z.string().refine((v) => !isNaN(Date.parse(v)), "Date invalide"),
+});
+
+const check = (v: number) => [-1, 1].includes(v);
+const checkErr = "le sort doit être soit -1 ou 1";
+export const PatchSortBody = z.object({
+  id: z.number().refine(check, checkErr),
+  type: z.number().refine(check, checkErr),
+  status: z.number().refine(check, checkErr),
+  target: z.number().refine(check, checkErr),
+  targetPath: z.number().refine(check, checkErr),
+  description: z.number().refine(check, checkErr),
+  reason: z.number().refine(check, checkErr),
+  isChangesUpdated: z.number().refine(check, checkErr),
+  author: z.object({ id: z.number().refine(check, checkErr) }),
+  moderator: z.object({ id: z.number().refine(check, checkErr) }),
+  createdAt: z.number().refine(check, checkErr),
+  updatedAt: z.number().refine(check, checkErr),
+})
+
+export const PatchPaginationBody = PaginationBody.extend({
+  sort: PatchSortBody.partial(),
+  query: PatchQueryBody.partial()
+})
+
+export const PatchParamsBody = z.object({
+  description: z.string(),
+  reason: z.string(),
+})
 
 export const Patch_Pagination_ZOD = z
   .object({

@@ -1,6 +1,6 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.AnimeDataToZOD = exports.Create_Anime_Update_ZOD = exports.PreCreateAnimeZodSchema = exports.Create_Anime_ZOD_FORM = exports.Create_Anime_ZOD = exports.Add_Anime_ZOD = exports.Anime_Pagination_ZOD = void 0;
+exports.AnimeDataToZOD = exports.Create_Anime_Update_ZOD = exports.PreCreateAnimeZodSchema = exports.Create_Anime_ZOD_FORM = exports.AnimeCreateBody = exports.Create_Anime_ZOD = exports.Anime_Pagination_ZOD = exports.AnimePaginationBody = exports.AnimeSortBody = exports.AnimeQueryBody = exports.Add_Anime_ZOD = void 0;
 const types_1 = require("@actunime/types");
 const zod_1 = require("zod");
 const _characterZOD_1 = require("./_characterZOD");
@@ -12,51 +12,19 @@ const _personZOD_1 = require("./_personZOD");
 const _trackZOD_1 = require("./_trackZOD");
 const _util_1 = require("./_util");
 const _imageZOD_1 = require("./_imageZOD");
-exports.Anime_Pagination_ZOD = zod_1.z
-    .object({
-    page: (0, _util_1.zodNumber)(),
-    limit: (0, _util_1.zodNumber)(),
-    strict: zod_1.z.boolean().optional(),
-    sort: zod_1.z
-        .object({
-        "episodes.nextAiringDate": zod_1.z.enum(["DESC", "ASC"]).optional(),
-        updaptedAt: zod_1.z.enum(["DESC", "ASC"]).optional(),
-        createdAt: zod_1.z.enum(["DESC", "ASC"]).optional(),
-    })
-        .partial()
-        .strict(),
-    query: zod_1.z
-        .object({
-        ids: zod_1.z.optional(zod_1.z.array(zod_1.z.string())),
-        name: zod_1.z.string().optional(),
-        status: zod_1.z.string().optional(),
-        genres: zod_1.z.array(zod_1.z.string()).optional(),
-        allowUnverified: zod_1.z.boolean().optional(),
-    })
-        .partial()
-        .strict(),
-    with: zod_1.z
-        .object({
-        groupe: zod_1.z.boolean().optional(),
-        parent: zod_1.z.boolean().optional(),
-        source: zod_1.z.boolean().optional(),
-        staffs: zod_1.z.boolean().optional(),
-        companys: zod_1.z.boolean().optional(),
-        characters: zod_1.z.boolean().optional(),
-        tracks: zod_1.z.boolean().optional(),
-        cover: zod_1.z.boolean().optional(),
-        banner: zod_1.z.boolean().optional(),
-    })
-        .partial()
-        .strict(),
-})
-    .partial()
-    .strict();
+const _patchZOD_1 = require("./_patchZOD");
+const utils_1 = require("@actunime/utils");
 const Anime_Episode_ZOD = zod_1.z.object({
     airing: zod_1.z.optional((0, _util_1.zodNumber)()),
     nextAiringDate: zod_1.z.optional(zod_1.z.string()),
     total: zod_1.z.optional((0, _util_1.zodNumber)()),
     durationMinute: zod_1.z.optional((0, _util_1.zodNumber)()),
+});
+const AnimeEpisodeBody = zod_1.z.object({
+    airing: zod_1.z.number(),
+    nextAiringDate: zod_1.z.string(),
+    total: zod_1.z.number(),
+    durationMinute: zod_1.z.number(),
 });
 exports.Add_Anime_ZOD = zod_1.z.object({
     id: zod_1.z.string(),
@@ -68,11 +36,48 @@ const youtubeUrlRegex = /^(https?:\/\/)?(www\.)?(youtube\.com|youtu\.?be)\/.+$/;
 const youtubeUrlSchema = zod_1.z.string().regex(youtubeUrlRegex, {
     message: "L'URL doit être une URL de vidéo YouTube valide."
 });
+exports.AnimeQueryBody = zod_1.z.object({
+    title: _media_1.MediaTitleBody.partial(),
+    date: _media_1.MediaDateBody.partial(),
+    format: zod_1.z.enum(types_1.AnimeFormatArray),
+    vf: zod_1.z.boolean(),
+    genres: zod_1.z.array(zod_1.z.enum(types_1.MediaGenresArray)),
+    status: zod_1.z.enum(types_1.MediaStatusArray),
+    trailer: youtubeUrlSchema,
+    episodes: AnimeEpisodeBody.partial(),
+    adult: zod_1.z.boolean(),
+    explicit: zod_1.z.boolean(),
+    links: _media_1.LinkBody.partial(),
+    createdAt: zod_1.z.string(),
+    updatedAt: zod_1.z.string(),
+});
+const check = (v) => [-1, 1].includes(v);
+const checkErr = "le sort doit être soit -1 ou 1";
+exports.AnimeSortBody = zod_1.z.object({
+    vf: zod_1.z.number().refine(check, checkErr),
+    status: zod_1.z.number().refine(check, checkErr),
+    adult: zod_1.z.number().refine(check, checkErr),
+    explicit: zod_1.z.number().refine(check, checkErr),
+    createdAt: zod_1.z.number().refine(check, checkErr),
+    updatedAt: zod_1.z.number().refine(check, checkErr),
+});
+exports.AnimePaginationBody = _util_1.PaginationBody.extend({
+    sort: exports.AnimeSortBody.partial(),
+    query: exports.AnimeQueryBody.partial()
+});
+exports.Anime_Pagination_ZOD = zod_1.z.object({
+    page: zod_1.z.number(),
+    limit: zod_1.z.number(),
+    strict: zod_1.z.boolean(),
+    sort: exports.AnimeSortBody.partial(),
+    query: exports.AnimeQueryBody.partial()
+});
 exports.Create_Anime_ZOD = zod_1.z
     .object({
     groupe: _groupeZOD_1.Add_Groupe_ZOD,
-    parent: zod_1.z.optional(exports.Add_Anime_ZOD.partial()),
-    source: zod_1.z.optional(_mangaZOD_1.Add_Manga_ZOD.partial()),
+    parent: zod_1.z.optional(exports.Add_Anime_ZOD),
+    manga: zod_1.z.optional(_mangaZOD_1.Add_Manga_ZOD),
+    source: zod_1.z.enum(utils_1.MediaSourceArray),
     title: _media_1.MediaTitleZodSchema,
     date: zod_1.z.optional(_media_1.MediaDateZodSchema),
     cover: zod_1.z.optional(_imageZOD_1.Add_Image_ZOD.partial()),
@@ -206,6 +211,9 @@ exports.Create_Anime_ZOD = zod_1.z
         path: ["CreateAnime"],
     };
 });
+exports.AnimeCreateBody = _patchZOD_1.PatchParamsBody.partial().extend({
+    data: exports.Create_Anime_ZOD
+});
 exports.Create_Anime_ZOD_FORM = zod_1.z.object({
     note: zod_1.z.string().optional(),
     data: exports.Create_Anime_ZOD,
@@ -287,3 +295,4 @@ const AnimeDataToZOD = (data) => {
     return toZOD;
 };
 exports.AnimeDataToZOD = AnimeDataToZOD;
+//# sourceMappingURL=_animeZOD.js.map

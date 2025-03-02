@@ -1,14 +1,14 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.PersonDataToZOD = exports.Add_Person_ZOD = exports.Person_Pagination_ZOD = exports.Create_Person_ZOD_FORM = exports.Partial_Create_Person_ZOD = exports.Create_Person_ZOD = exports.Base_Create_Person_ZOD = exports.PersonName_validation = void 0;
+exports.PersonDataToZOD = exports.PersonBody = exports.Add_Person_ZOD = exports.Person_Pagination_ZOD = exports.PersonPaginationBody = exports.PersonSortBody = exports.PersonQueryBody = exports.Create_Person_ZOD_FORM = exports.PersonCreateBody = exports.Partial_Create_Person_ZOD = exports.Create_Person_ZOD = exports.Base_Create_Person_ZOD = exports.PersonName_validation = void 0;
 const zod_1 = require("zod");
 const _media_1 = require("./_media");
 const _util_1 = require("./_util");
 const _imageZOD_1 = require("./_imageZOD");
 const types_1 = require("@actunime/types");
+const _patchZOD_1 = require("./_patchZOD");
 exports.PersonName_validation = zod_1.z.object({
-    first: zod_1.z.string().min(2, "le prénom dois contenir au moins 2 caractères"),
-    last: zod_1.z.optional(zod_1.z.string()),
+    default: zod_1.z.string(),
     alias: zod_1.z.optional(zod_1.z.array(zod_1.z.object({
         content: zod_1.z
             .string()
@@ -27,64 +27,54 @@ exports.Base_Create_Person_ZOD = zod_1.z
 })
     .strict();
 exports.Create_Person_ZOD = exports.Base_Create_Person_ZOD
-    .strict()
-    .refine((v) => {
-    console.log(v);
-    if (!v.isGroupe) {
-        if (!v.name.last) {
-            return false;
-        }
-    }
-    return true;
-}, (v) => {
-    if (!v.isGroupe) {
-        if (!v.name.last) {
-            return {
-                message: "Le nom est obligatoire",
-                path: ["name.last"],
-            };
-        }
-    }
-    return {
-        message: "Problème"
-    };
-});
+    .strict();
 exports.Partial_Create_Person_ZOD = exports.Base_Create_Person_ZOD
     .strict()
     .partial();
+exports.PersonCreateBody = _patchZOD_1.PatchParamsBody.partial().extend({
+    data: exports.Create_Person_ZOD
+});
 exports.Create_Person_ZOD_FORM = zod_1.z.object({
     note: zod_1.z.string().optional(),
     data: exports.Create_Person_ZOD,
 });
-exports.Person_Pagination_ZOD = zod_1.z
-    .object({
-    page: (0, _util_1.zodNumber)(),
-    limit: (0, _util_1.zodNumber)(),
-    strict: zod_1.z.boolean().optional(),
-    sort: zod_1.z
-        .object({
-        updaptedAt: zod_1.z.enum(["DESC", "ASC"]).optional(),
-        createdAt: zod_1.z.enum(["DESC", "ASC"]).optional(),
-    })
-        .partial()
-        .strict(),
-    query: zod_1.z
-        .object({
-        name: zod_1.z.string(),
-        allowUnverified: zod_1.z.boolean().optional(),
-    })
-        .partial()
-        .strict(),
-    with: zod_1.z.object({
-        avatar: zod_1.z.boolean().optional(),
-    }).partial().strict(),
-})
-    .partial()
-    .strict();
+exports.PersonQueryBody = zod_1.z.object({
+    isGroupe: zod_1.z.boolean(),
+    name: exports.PersonName_validation.partial(),
+    birthDate: zod_1.z.string(),
+    deathDate: zod_1.z.string(),
+    avatar: _imageZOD_1.ImageBody.partial(),
+    links: _media_1.LinkBody.partial(),
+    createdAt: zod_1.z.string(),
+    updatedAt: zod_1.z.string(),
+});
+const check = (v) => [-1, 1].includes(v);
+const checkErr = "le sort doit être soit -1 ou 1";
+exports.PersonSortBody = zod_1.z.object({
+    isGroupe: (0, _util_1.zodNumber)().refine(check, checkErr),
+    birthDate: (0, _util_1.zodNumber)().refine(check, checkErr),
+    deathDate: (0, _util_1.zodNumber)().refine(check, checkErr),
+    createdAt: (0, _util_1.zodNumber)().refine(check, checkErr),
+    updatedAt: (0, _util_1.zodNumber)().refine(check, checkErr),
+});
+exports.PersonPaginationBody = _util_1.PaginationBody.extend({
+    sort: exports.PersonSortBody.partial(),
+    query: exports.PersonQueryBody.partial()
+});
+exports.Person_Pagination_ZOD = zod_1.z.object({
+    page: zod_1.z.number(),
+    limit: zod_1.z.number(),
+    strict: zod_1.z.boolean(),
+    sort: exports.PersonSortBody.partial(),
+    query: exports.PersonQueryBody.partial()
+});
 exports.Add_Person_ZOD = zod_1.z.object({
     id: zod_1.z.optional(zod_1.z.string()),
     newPerson: zod_1.z.optional(exports.Create_Person_ZOD),
     role: zod_1.z.optional(zod_1.z.enum(types_1.PersonRoleArray)),
+});
+exports.PersonBody = zod_1.z.object({
+    id: zod_1.z.string()
 });
 const PersonDataToZOD = (data) => {
     if (!data)
@@ -104,3 +94,4 @@ const PersonDataToZOD = (data) => {
     return toZOD;
 };
 exports.PersonDataToZOD = PersonDataToZOD;
+//# sourceMappingURL=_personZOD.js.map

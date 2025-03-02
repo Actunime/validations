@@ -18,6 +18,11 @@ export const MediaDateZodSchema = z.object({
   ),
 });
 
+export const MediaDateBody = z.object({
+  start: z.string(),
+  end: z.string(),
+})
+
 export const MediaImageZodSchema = z.object({
   cover: z.optional(z.string()),
   banner: z.optional(z.string()),
@@ -31,6 +36,11 @@ export const Create_Link_ZOD = z.object({
     message: "Doit être une URL HTTPS valide",
   }),
 });
+
+export const LinkBody = z.object({
+  name: z.string().default("Actunime"),
+  value: z.string().regex(urlRegex, "Lien HTTPS invalide").default("https://actunime.fr/")
+})
 
 export type ICreate_Link_ZOD = z.infer<typeof Create_Link_ZOD>;
 
@@ -55,3 +65,17 @@ export const MediaTitleZodSchema = z
       !v.alias?.find(({ content }) => content === v.default) ||
       `La valeur de alias ne doit pas contenir la valeur par défaut`,
   );
+
+export const MediaTitleBody = z.object({
+  default: z.string(),
+  alias: z.array(z.object({ content: z.string() }))
+})
+
+
+// Définir une regex pour les URL de vidéos YouTube
+const youtubeUrlRegex = /^(https?:\/\/)?(www\.)?(youtube\.com|youtu\.?be)\/.+$/;
+
+// Créer un schéma Zod pour valider les URL YouTube
+export const MediaTrailerZod = z.string().regex(youtubeUrlRegex, {
+  message: "L'URL doit être une URL de vidéo YouTube valide."
+});

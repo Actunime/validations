@@ -1,39 +1,43 @@
 import { TrackTypeArray, dateToZod, ITrack } from "@actunime/types";
 import { z } from "zod";
-import { Create_Link_ZOD } from "./_media";
-import { Add_Person_ZOD } from "./_personZOD";
-import { zodNumber } from "./_util";
-import { Add_Image_ZOD } from "./_imageZOD";
+import { Create_Link_ZOD, LinkBody } from "./_media";
+import { Add_Person_ZOD, PersonBody } from "./_personZOD";
+import { PaginationBody, zodNumber } from "./_util";
+import { Add_Image_ZOD, ImageBody } from "./_imageZOD";
+import { PatchParamsBody } from "./_patchZOD";
 
-export const Track_Pagination_ZOD = z
-  .object({
-    page: zodNumber(),
-    limit: zodNumber(),
-    strict: z.boolean().optional(),
-    sort: z
-      .object({
-        updaptedAt: z.enum(["DESC", "ASC"]).optional(),
-        createdAt: z.enum(["DESC", "ASC"]).optional(),
-      })
-      .partial()
-      .strict(),
-    query: z
-      .object({
-        name: z.optional(z.string()),
-        allowUnverified: z.boolean().optional(),
-      })
-      .partial()
-      .strict(),
-    with: z
-      .object({
-        artists: z.boolean().optional(),
-        cover: z.boolean().optional(),
-      })
-      .partial()
-      .strict(),
-  })
-  .partial()
-  .strict();
+export const TrackQueryBody = z.object({
+  name: z.object({ default: z.string(), native: z.optional(z.string()) }),
+  type: z.enum(TrackTypeArray),
+  pubDate: z.string(),
+  artists: PersonBody.partial(),
+  cover: ImageBody.partial(),
+  links: LinkBody.partial(),
+  createdAt: z.string(),
+  updatedAt: z.string(),
+});
+
+const check = (v: number) => [-1, 1].includes(v);
+const checkErr = "le sort doit être soit -1 ou 1";
+export const TrackSortBody = z.object({
+  type: zodNumber().refine(check, checkErr),
+  pubDate: zodNumber().refine(check, checkErr),
+  createdAt: zodNumber().refine(check, checkErr),
+  updatedAt: zodNumber().refine(check, checkErr),
+})
+
+export const TrackPaginationBody = PaginationBody.extend({
+  sort: TrackSortBody.partial(),
+  query: TrackQueryBody.partial()
+})
+
+export const Track_Pagination_ZOD = z.object({
+  page: z.number(),
+  limit: z.number(),
+  strict: z.boolean(),
+  sort: TrackSortBody.partial(),
+  query: TrackQueryBody.partial()
+})
 
 export type ITrack_Pagination_ZOD = z.infer<typeof Track_Pagination_ZOD>;
 
@@ -49,6 +53,10 @@ export const Create_Track_ZOD = z
   .strict();
 
 export type ICreate_Track_ZOD = z.infer<typeof Create_Track_ZOD>;
+
+export const TrackCreateBody = PatchParamsBody.partial().extend({
+  data: Create_Track_ZOD
+})
 
 export const Create_Track_ZOD_FORM = z.object({
   note: z.string().optional(),

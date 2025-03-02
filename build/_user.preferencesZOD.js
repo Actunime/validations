@@ -25,3 +25,4 @@ const UserDataToPatchPreferencesZOD = (data) => {
     return toZOD;
 };
 exports.UserDataToPatchPreferencesZOD = UserDataToPatchPreferencesZOD;
+//# sourceMappingURL=_user.preferencesZOD.js.map

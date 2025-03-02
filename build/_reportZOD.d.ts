@@ -49,13 +49,13 @@ export declare const Report_Pagination_ZOD: z.ZodObject<{
         by?: boolean | undefined;
     }>>;
 }, "strict", z.ZodTypeAny, {
+    page?: number | undefined;
+    limit?: number | undefined;
+    strict?: boolean | undefined;
     sort?: {
         updaptedAt?: "DESC" | "ASC" | undefined;
         createdAt?: "DESC" | "ASC" | undefined;
     } | undefined;
-    page?: number | undefined;
-    limit?: number | undefined;
-    strict?: boolean | undefined;
     query?: {
         status?: "PENDING" | "REJECTED" | "VERIFIED" | undefined;
         author?: string | undefined;
@@ -70,13 +70,13 @@ export declare const Report_Pagination_ZOD: z.ZodObject<{
         by?: boolean | undefined;
     } | undefined;
 }, {
+    page?: string | number | undefined;
+    limit?: string | number | undefined;
+    strict?: boolean | undefined;
     sort?: {
         updaptedAt?: "DESC" | "ASC" | undefined;
         createdAt?: "DESC" | "ASC" | undefined;
     } | undefined;
-    page?: string | number | undefined;
-    limit?: string | number | undefined;
-    strict?: boolean | undefined;
     query?: {
         status?: "PENDING" | "REJECTED" | "VERIFIED" | undefined;
         author?: string | undefined;
@@ -129,4 +129,3 @@ export declare const Patch_Report_ZOD: z.ZodObject<{
     status?: "PENDING" | "REJECTED" | "VERIFIED" | undefined;
 }>;
 export type IPatch_Report_ZOD = z.infer<typeof Patch_Report_ZOD>;
-//# sourceMappingURL=_reportZOD.d.ts.map
