@@ -1,10 +1,30 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.UserAnimeListe_ZOD = exports.UserDataToZOD = exports.Create_User_ZOD = exports.Disable_User_ZOD_FORM = exports.Patch_User_ZOD_FORM = exports.Patch_User_ZOD = exports.User_Pagination_ZOD = void 0;
+exports.UserAnimeListe_ZOD = exports.UserDataToZOD = exports.Create_User_ZOD = exports.Disable_User_ZOD_FORM = exports.Patch_User_ZOD_FORM = exports.Patch_User_ZOD = exports.User_Pagination_ZOD = exports.UserPaginationBody = exports.UserSortBody = exports.UserQueryBody = void 0;
 const types_1 = require("@actunime/types");
 const zod_1 = require("zod");
 const _util_1 = require("./_util");
 const _imageZOD_1 = require("./_imageZOD");
+exports.UserQueryBody = zod_1.z.object({
+    username: zod_1.z.string(),
+    displayName: zod_1.z.string(),
+    roles: zod_1.z.array(zod_1.z.enum(types_1.UserRolesArray)),
+    createdAt: zod_1.z.string(),
+    updatedAt: zod_1.z.string(),
+});
+const check = (v) => [-1, 1].includes(v);
+const checkErr = "le sort doit être soit -1 ou 1";
+exports.UserSortBody = zod_1.z.object({
+    username: (0, _util_1.zodNumber)().refine(check, checkErr),
+    displayName: (0, _util_1.zodNumber)().refine(check, checkErr),
+    roles: (0, _util_1.zodNumber)().refine(check, checkErr),
+    createdAt: (0, _util_1.zodNumber)().refine(check, checkErr),
+    updatedAt: (0, _util_1.zodNumber)().refine(check, checkErr),
+});
+exports.UserPaginationBody = _util_1.PaginationBody.extend({
+    sort: exports.UserSortBody.partial(),
+    query: exports.UserQueryBody.partial()
+});
 exports.User_Pagination_ZOD = zod_1.z
     .object({
     page: (0, _util_1.zodNumber)(),

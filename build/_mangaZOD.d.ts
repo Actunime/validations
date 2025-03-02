@@ -423,6 +423,7 @@ export declare const MangaPaginationBody: z.ZodObject<z.objectUtil.extendShape<{
         explicit?: boolean | undefined;
     };
 }>;
+export type IMangaPaginationBody = z.infer<typeof MangaPaginationBody>;
 export declare const Manga_Pagination_ZOD: z.ZodObject<{
     page: z.ZodOptional<z.ZodEffects<z.ZodUnion<[z.ZodNumber, z.ZodString]>, number, string | number>>;
     limit: z.ZodOptional<z.ZodEffects<z.ZodUnion<[z.ZodNumber, z.ZodString]>, number, string | number>>;

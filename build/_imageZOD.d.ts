@@ -91,6 +91,7 @@ export declare const ImagePaginationBody: z.ZodObject<z.objectUtil.extendShape<{
         label?: "COVER" | "BANNER" | "AVATAR" | "LOGO" | undefined;
     };
 }>;
+export type IImagePaginationBody = z.infer<typeof ImagePaginationBody>;
 export declare const Image_Pagination_ZOD: z.ZodObject<{
     page: z.ZodNumber;
     limit: z.ZodNumber;

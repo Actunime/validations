@@ -405,6 +405,7 @@ export declare const AnimePaginationBody: z.ZodObject<z.objectUtil.extendShape<{
         } | undefined;
     };
 }>;
+export type IAnimePaginationBody = z.infer<typeof AnimePaginationBody>;
 export declare const Anime_Pagination_ZOD: z.ZodObject<{
     page: z.ZodNumber;
     limit: z.ZodNumber;

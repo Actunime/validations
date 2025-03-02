@@ -1,5 +1,129 @@
 import { IUser } from "@actunime/types";
 import { z } from "zod";
+export declare const UserQueryBody: z.ZodObject<{
+    username: z.ZodString;
+    displayName: z.ZodString;
+    roles: z.ZodArray<z.ZodEnum<("MEMBER" | "PREMIUM" | "MODERATOR" | "ANIME_MODERATOR" | "MANGA_MODERATOR" | "CHARACTER_MODERATOR" | "PERSON_MODERATOR" | "TRACK_MODERATOR" | "COMPANY_MODERATOR" | "ADMINISTRATOR" | "ACTUNIME")[] & [string, ...string[]]>, "many">;
+    createdAt: z.ZodString;
+    updatedAt: z.ZodString;
+}, "strip", z.ZodTypeAny, {
+    createdAt: string;
+    updatedAt: string;
+    username: string;
+    displayName: string;
+    roles: ("MEMBER" | "PREMIUM" | "MODERATOR" | "ANIME_MODERATOR" | "MANGA_MODERATOR" | "CHARACTER_MODERATOR" | "PERSON_MODERATOR" | "TRACK_MODERATOR" | "COMPANY_MODERATOR" | "ADMINISTRATOR" | "ACTUNIME")[];
+}, {
+    createdAt: string;
+    updatedAt: string;
+    username: string;
+    displayName: string;
+    roles: ("MEMBER" | "PREMIUM" | "MODERATOR" | "ANIME_MODERATOR" | "MANGA_MODERATOR" | "CHARACTER_MODERATOR" | "PERSON_MODERATOR" | "TRACK_MODERATOR" | "COMPANY_MODERATOR" | "ADMINISTRATOR" | "ACTUNIME")[];
+}>;
+export declare const UserSortBody: z.ZodObject<{
+    username: z.ZodEffects<z.ZodEffects<z.ZodUnion<[z.ZodNumber, z.ZodString]>, number, string | number>, number, string | number>;
+    displayName: z.ZodEffects<z.ZodEffects<z.ZodUnion<[z.ZodNumber, z.ZodString]>, number, string | number>, number, string | number>;
+    roles: z.ZodEffects<z.ZodEffects<z.ZodUnion<[z.ZodNumber, z.ZodString]>, number, string | number>, number, string | number>;
+    createdAt: z.ZodEffects<z.ZodEffects<z.ZodUnion<[z.ZodNumber, z.ZodString]>, number, string | number>, number, string | number>;
+    updatedAt: z.ZodEffects<z.ZodEffects<z.ZodUnion<[z.ZodNumber, z.ZodString]>, number, string | number>, number, string | number>;
+}, "strip", z.ZodTypeAny, {
+    createdAt: number;
+    updatedAt: number;
+    username: number;
+    displayName: number;
+    roles: number;
+}, {
+    createdAt: string | number;
+    updatedAt: string | number;
+    username: string | number;
+    displayName: string | number;
+    roles: string | number;
+}>;
+export declare const UserPaginationBody: z.ZodObject<z.objectUtil.extendShape<{
+    page: z.ZodNumber;
+    limit: z.ZodNumber;
+    strict: z.ZodBoolean;
+    onlyVerified: z.ZodBoolean;
+    sort: z.ZodAny;
+    query: z.ZodAny;
+}, {
+    sort: z.ZodObject<{
+        username: z.ZodOptional<z.ZodEffects<z.ZodEffects<z.ZodUnion<[z.ZodNumber, z.ZodString]>, number, string | number>, number, string | number>>;
+        displayName: z.ZodOptional<z.ZodEffects<z.ZodEffects<z.ZodUnion<[z.ZodNumber, z.ZodString]>, number, string | number>, number, string | number>>;
+        roles: z.ZodOptional<z.ZodEffects<z.ZodEffects<z.ZodUnion<[z.ZodNumber, z.ZodString]>, number, string | number>, number, string | number>>;
+        createdAt: z.ZodOptional<z.ZodEffects<z.ZodEffects<z.ZodUnion<[z.ZodNumber, z.ZodString]>, number, string | number>, number, string | number>>;
+        updatedAt: z.ZodOptional<z.ZodEffects<z.ZodEffects<z.ZodUnion<[z.ZodNumber, z.ZodString]>, number, string | number>, number, string | number>>;
+    }, "strip", z.ZodTypeAny, {
+        createdAt?: number | undefined;
+        updatedAt?: number | undefined;
+        username?: number | undefined;
+        displayName?: number | undefined;
+        roles?: number | undefined;
+    }, {
+        createdAt?: string | number | undefined;
+        updatedAt?: string | number | undefined;
+        username?: string | number | undefined;
+        displayName?: string | number | undefined;
+        roles?: string | number | undefined;
+    }>;
+    query: z.ZodObject<{
+        username: z.ZodOptional<z.ZodString>;
+        displayName: z.ZodOptional<z.ZodString>;
+        roles: z.ZodOptional<z.ZodArray<z.ZodEnum<("MEMBER" | "PREMIUM" | "MODERATOR" | "ANIME_MODERATOR" | "MANGA_MODERATOR" | "CHARACTER_MODERATOR" | "PERSON_MODERATOR" | "TRACK_MODERATOR" | "COMPANY_MODERATOR" | "ADMINISTRATOR" | "ACTUNIME")[] & [string, ...string[]]>, "many">>;
+        createdAt: z.ZodOptional<z.ZodString>;
+        updatedAt: z.ZodOptional<z.ZodString>;
+    }, "strip", z.ZodTypeAny, {
+        createdAt?: string | undefined;
+        updatedAt?: string | undefined;
+        username?: string | undefined;
+        displayName?: string | undefined;
+        roles?: ("MEMBER" | "PREMIUM" | "MODERATOR" | "ANIME_MODERATOR" | "MANGA_MODERATOR" | "CHARACTER_MODERATOR" | "PERSON_MODERATOR" | "TRACK_MODERATOR" | "COMPANY_MODERATOR" | "ADMINISTRATOR" | "ACTUNIME")[] | undefined;
+    }, {
+        createdAt?: string | undefined;
+        updatedAt?: string | undefined;
+        username?: string | undefined;
+        displayName?: string | undefined;
+        roles?: ("MEMBER" | "PREMIUM" | "MODERATOR" | "ANIME_MODERATOR" | "MANGA_MODERATOR" | "CHARACTER_MODERATOR" | "PERSON_MODERATOR" | "TRACK_MODERATOR" | "COMPANY_MODERATOR" | "ADMINISTRATOR" | "ACTUNIME")[] | undefined;
+    }>;
+}>, "strip", z.ZodTypeAny, {
+    page: number;
+    limit: number;
+    strict: boolean;
+    onlyVerified: boolean;
+    sort: {
+        createdAt?: number | undefined;
+        updatedAt?: number | undefined;
+        username?: number | undefined;
+        displayName?: number | undefined;
+        roles?: number | undefined;
+    };
+    query: {
+        createdAt?: string | undefined;
+        updatedAt?: string | undefined;
+        username?: string | undefined;
+        displayName?: string | undefined;
+        roles?: ("MEMBER" | "PREMIUM" | "MODERATOR" | "ANIME_MODERATOR" | "MANGA_MODERATOR" | "CHARACTER_MODERATOR" | "PERSON_MODERATOR" | "TRACK_MODERATOR" | "COMPANY_MODERATOR" | "ADMINISTRATOR" | "ACTUNIME")[] | undefined;
+    };
+}, {
+    page: number;
+    limit: number;
+    strict: boolean;
+    onlyVerified: boolean;
+    sort: {
+        createdAt?: string | number | undefined;
+        updatedAt?: string | number | undefined;
+        username?: string | number | undefined;
+        displayName?: string | number | undefined;
+        roles?: string | number | undefined;
+    };
+    query: {
+        createdAt?: string | undefined;
+        updatedAt?: string | undefined;
+        username?: string | undefined;
+        displayName?: string | undefined;
+        roles?: ("MEMBER" | "PREMIUM" | "MODERATOR" | "ANIME_MODERATOR" | "MANGA_MODERATOR" | "CHARACTER_MODERATOR" | "PERSON_MODERATOR" | "TRACK_MODERATOR" | "COMPANY_MODERATOR" | "ADMINISTRATOR" | "ACTUNIME")[] | undefined;
+    };
+}>;
+export type IUserPaginationBody = z.infer<typeof UserPaginationBody>;
 export declare const User_Pagination_ZOD: z.ZodObject<{
     page: z.ZodOptional<z.ZodEffects<z.ZodUnion<[z.ZodNumber, z.ZodString]>, number, string | number>>;
     limit: z.ZodOptional<z.ZodEffects<z.ZodUnion<[z.ZodNumber, z.ZodString]>, number, string | number>>;

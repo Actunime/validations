@@ -211,6 +211,7 @@ export declare const CompanyPaginationBody: z.ZodObject<z.objectUtil.extendShape
         createdDate?: string | undefined;
     };
 }>;
+export type ICompanyPaginationBody = z.infer<typeof CompanyPaginationBody>;
 export declare const Company_Pagination_ZOD: z.ZodObject<{
     page: z.ZodNumber;
     limit: z.ZodNumber;

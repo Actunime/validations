@@ -311,6 +311,7 @@ export declare const CharacterPaginationBody: z.ZodObject<z.objectUtil.extendSha
         } | undefined;
     };
 }>;
+export type ICharacterPaginationBody = z.infer<typeof CharacterPaginationBody>;
 export declare const Character_Pagination_ZOD: z.ZodObject<{
     page: z.ZodNumber;
     limit: z.ZodNumber;

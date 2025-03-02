@@ -370,6 +370,7 @@ export declare const PatchPaginationBody: z.ZodObject<z.objectUtil.extendShape<{
         updatedAt?: string | undefined;
     };
 }>;
+export type IPatchPaginationBody = z.infer<typeof PatchPaginationBody>;
 export declare const PatchParamsBody: z.ZodObject<{
     description: z.ZodString;
     reason: z.ZodString;

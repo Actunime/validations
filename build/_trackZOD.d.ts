@@ -271,6 +271,7 @@ export declare const TrackPaginationBody: z.ZodObject<z.objectUtil.extendShape<{
         } | undefined;
     };
 }>;
+export type ITrackPaginationBody = z.infer<typeof TrackPaginationBody>;
 export declare const Track_Pagination_ZOD: z.ZodObject<{
     page: z.ZodNumber;
     limit: z.ZodNumber;

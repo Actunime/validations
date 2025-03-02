@@ -973,6 +973,7 @@ export declare const PersonPaginationBody: z.ZodObject<z.objectUtil.extendShape<
         } | undefined;
     };
 }>;
+export type IPersonPaginationBody = z.infer<typeof PersonPaginationBody>;
 export declare const Person_Pagination_ZOD: z.ZodObject<{
     page: z.ZodNumber;
     limit: z.ZodNumber;

@@ -75,6 +75,7 @@ export declare const GroupePaginationBody: z.ZodObject<z.objectUtil.extendShape<
         name?: string | undefined;
     };
 }>;
+export type IGroupePaginationBody = z.infer<typeof GroupePaginationBody>;
 export declare const Groupe_Pagination_ZOD: z.ZodObject<{
     page: z.ZodOptional<z.ZodEffects<z.ZodUnion<[z.ZodNumber, z.ZodString]>, number, string | number>>;
     limit: z.ZodOptional<z.ZodEffects<z.ZodUnion<[z.ZodNumber, z.ZodString]>, number, string | number>>;
