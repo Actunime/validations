@@ -27,11 +27,14 @@ export const UserPaginationBody = PaginationBody.extend({
 })
 
 export const UserMutationBody = z.object({
+  username: z.string(),
   displayName: z.string(),
   bio: z.optional(z.string()),
   avatar: z.optional(Add_Image_ZOD),
   banner: z.optional(Add_Image_ZOD),
 })
+
+export type IUserMutationBody = z.infer<typeof UserMutationBody>;
 
 export type IUserPaginationBody = z.infer<typeof UserPaginationBody>;
 

@@ -26,6 +26,7 @@ exports.UserPaginationBody = _util_1.PaginationBody.extend({
     query: exports.UserQueryBody.partial()
 });
 exports.UserMutationBody = zod_1.z.object({
+    username: zod_1.z.string(),
     displayName: zod_1.z.string(),
     bio: zod_1.z.optional(zod_1.z.string()),
     avatar: zod_1.z.optional(_imageZOD_1.Add_Image_ZOD),

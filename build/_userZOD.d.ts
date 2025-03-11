@@ -124,6 +124,7 @@ export declare const UserPaginationBody: z.ZodObject<z.objectUtil.extendShape<{
     };
 }>;
 export declare const UserMutationBody: z.ZodObject<{
+    username: z.ZodString;
     displayName: z.ZodString;
     bio: z.ZodOptional<z.ZodString>;
     avatar: z.ZodOptional<z.ZodObject<{
@@ -183,6 +184,7 @@ export declare const UserMutationBody: z.ZodObject<{
         } | undefined;
     }>>;
 }, "strip", z.ZodTypeAny, {
+    username: string;
     displayName: string;
     banner?: {
         id?: string | undefined;
@@ -202,6 +204,7 @@ export declare const UserMutationBody: z.ZodObject<{
         } | undefined;
     } | undefined;
 }, {
+    username: string;
     displayName: string;
     banner?: {
         id?: string | undefined;
