@@ -28,7 +28,7 @@ export const UserPaginationBody = PaginationBody.extend({
 
 export const UserMutationBody = z.object({
   username: z.string(),
-  displayName: z.string(),
+  displayName: z.string().min(3, "Le pseudonyme doit contenir au moins 3 caractères").max(18, "Le pseudonyme doit contenir au maximum 18 caractères"),
   bio: z.optional(z.string()),
   avatar: z.optional(Add_Image_ZOD),
   banner: z.optional(Add_Image_ZOD),
