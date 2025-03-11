@@ -224,6 +224,7 @@ export declare const UserMutationBody: z.ZodObject<{
         } | undefined;
     } | undefined;
 }>;
+export type IUserMutationBody = z.infer<typeof UserMutationBody>;
 export type IUserPaginationBody = z.infer<typeof UserPaginationBody>;
 export declare const User_Pagination_ZOD: z.ZodObject<{
     page: z.ZodOptional<z.ZodEffects<z.ZodUnion<[z.ZodNumber, z.ZodString]>, number, string | number>>;
