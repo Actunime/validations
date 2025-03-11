@@ -1,6 +1,6 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.UserAnimeListe_ZOD = exports.UserDataToZOD = exports.Create_User_ZOD = exports.Disable_User_ZOD_FORM = exports.Patch_User_ZOD_FORM = exports.Patch_User_ZOD = exports.User_Pagination_ZOD = exports.UserPaginationBody = exports.UserSortBody = exports.UserQueryBody = void 0;
+exports.UserAnimeListe_ZOD = exports.UserDataToZOD = exports.Create_User_ZOD = exports.Disable_User_ZOD_FORM = exports.Patch_User_ZOD_FORM = exports.Patch_User_ZOD = exports.User_Pagination_ZOD = exports.UserMutationBody = exports.UserPaginationBody = exports.UserSortBody = exports.UserQueryBody = void 0;
 const types_1 = require("@actunime/types");
 const zod_1 = require("zod");
 const _util_1 = require("./_util");
@@ -24,6 +24,12 @@ exports.UserSortBody = zod_1.z.object({
 exports.UserPaginationBody = _util_1.PaginationBody.extend({
     sort: exports.UserSortBody.partial(),
     query: exports.UserQueryBody.partial()
+});
+exports.UserMutationBody = zod_1.z.object({
+    displayName: zod_1.z.string(),
+    bio: zod_1.z.optional(zod_1.z.string()),
+    avatar: zod_1.z.optional(_imageZOD_1.Add_Image_ZOD),
+    banner: zod_1.z.optional(_imageZOD_1.Add_Image_ZOD),
 });
 exports.User_Pagination_ZOD = zod_1.z
     .object({

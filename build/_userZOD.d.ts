@@ -123,6 +123,104 @@ export declare const UserPaginationBody: z.ZodObject<z.objectUtil.extendShape<{
         roles?: ("MEMBER" | "PREMIUM" | "MODERATOR" | "ANIME_MODERATOR" | "MANGA_MODERATOR" | "CHARACTER_MODERATOR" | "PERSON_MODERATOR" | "TRACK_MODERATOR" | "COMPANY_MODERATOR" | "ADMINISTRATOR" | "ACTUNIME")[] | undefined;
     };
 }>;
+export declare const UserMutationBody: z.ZodObject<{
+    displayName: z.ZodString;
+    bio: z.ZodOptional<z.ZodString>;
+    avatar: z.ZodOptional<z.ZodObject<{
+        id: z.ZodOptional<z.ZodString>;
+        label: z.ZodOptional<z.ZodEnum<("COVER" | "BANNER" | "AVATAR" | "LOGO")[] & [string, ...string[]]>>;
+        newImage: z.ZodOptional<z.ZodObject<{
+            label: z.ZodEnum<("COVER" | "BANNER" | "AVATAR" | "LOGO")[] & [string, ...string[]]>;
+            value: z.ZodString;
+        }, "strip", z.ZodTypeAny, {
+            value: string;
+            label: "COVER" | "BANNER" | "AVATAR" | "LOGO";
+        }, {
+            value: string;
+            label: "COVER" | "BANNER" | "AVATAR" | "LOGO";
+        }>>;
+    }, "strip", z.ZodTypeAny, {
+        id?: string | undefined;
+        label?: "COVER" | "BANNER" | "AVATAR" | "LOGO" | undefined;
+        newImage?: {
+            value: string;
+            label: "COVER" | "BANNER" | "AVATAR" | "LOGO";
+        } | undefined;
+    }, {
+        id?: string | undefined;
+        label?: "COVER" | "BANNER" | "AVATAR" | "LOGO" | undefined;
+        newImage?: {
+            value: string;
+            label: "COVER" | "BANNER" | "AVATAR" | "LOGO";
+        } | undefined;
+    }>>;
+    banner: z.ZodOptional<z.ZodObject<{
+        id: z.ZodOptional<z.ZodString>;
+        label: z.ZodOptional<z.ZodEnum<("COVER" | "BANNER" | "AVATAR" | "LOGO")[] & [string, ...string[]]>>;
+        newImage: z.ZodOptional<z.ZodObject<{
+            label: z.ZodEnum<("COVER" | "BANNER" | "AVATAR" | "LOGO")[] & [string, ...string[]]>;
+            value: z.ZodString;
+        }, "strip", z.ZodTypeAny, {
+            value: string;
+            label: "COVER" | "BANNER" | "AVATAR" | "LOGO";
+        }, {
+            value: string;
+            label: "COVER" | "BANNER" | "AVATAR" | "LOGO";
+        }>>;
+    }, "strip", z.ZodTypeAny, {
+        id?: string | undefined;
+        label?: "COVER" | "BANNER" | "AVATAR" | "LOGO" | undefined;
+        newImage?: {
+            value: string;
+            label: "COVER" | "BANNER" | "AVATAR" | "LOGO";
+        } | undefined;
+    }, {
+        id?: string | undefined;
+        label?: "COVER" | "BANNER" | "AVATAR" | "LOGO" | undefined;
+        newImage?: {
+            value: string;
+            label: "COVER" | "BANNER" | "AVATAR" | "LOGO";
+        } | undefined;
+    }>>;
+}, "strip", z.ZodTypeAny, {
+    displayName: string;
+    banner?: {
+        id?: string | undefined;
+        label?: "COVER" | "BANNER" | "AVATAR" | "LOGO" | undefined;
+        newImage?: {
+            value: string;
+            label: "COVER" | "BANNER" | "AVATAR" | "LOGO";
+        } | undefined;
+    } | undefined;
+    bio?: string | undefined;
+    avatar?: {
+        id?: string | undefined;
+        label?: "COVER" | "BANNER" | "AVATAR" | "LOGO" | undefined;
+        newImage?: {
+            value: string;
+            label: "COVER" | "BANNER" | "AVATAR" | "LOGO";
+        } | undefined;
+    } | undefined;
+}, {
+    displayName: string;
+    banner?: {
+        id?: string | undefined;
+        label?: "COVER" | "BANNER" | "AVATAR" | "LOGO" | undefined;
+        newImage?: {
+            value: string;
+            label: "COVER" | "BANNER" | "AVATAR" | "LOGO";
+        } | undefined;
+    } | undefined;
+    bio?: string | undefined;
+    avatar?: {
+        id?: string | undefined;
+        label?: "COVER" | "BANNER" | "AVATAR" | "LOGO" | undefined;
+        newImage?: {
+            value: string;
+            label: "COVER" | "BANNER" | "AVATAR" | "LOGO";
+        } | undefined;
+    } | undefined;
+}>;
 export type IUserPaginationBody = z.infer<typeof UserPaginationBody>;
 export declare const User_Pagination_ZOD: z.ZodObject<{
     page: z.ZodOptional<z.ZodEffects<z.ZodUnion<[z.ZodNumber, z.ZodString]>, number, string | number>>;

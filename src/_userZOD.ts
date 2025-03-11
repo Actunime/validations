@@ -26,6 +26,13 @@ export const UserPaginationBody = PaginationBody.extend({
   query: UserQueryBody.partial()
 })
 
+export const UserMutationBody = z.object({
+  displayName: z.string(),
+  bio: z.optional(z.string()),
+  avatar: z.optional(Add_Image_ZOD),
+  banner: z.optional(Add_Image_ZOD),
+})
+
 export type IUserPaginationBody = z.infer<typeof UserPaginationBody>;
 
 export const User_Pagination_ZOD = z
