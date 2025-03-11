@@ -1,3 +1,11 @@
+## [1.0.12](https://github.com/Actunime/validations/compare/v1.0.11...v1.0.12) (2025-03-11)
+
+
+### Bug Fixes
+
+* add UserMutationBody validation ([fa8beaa](https://github.com/Actunime/validations/commit/fa8beaabe63f1a15dff3b5f12b9edca2fd10524c))
+* add UserMutationBody validation ([1a5ab1d](https://github.com/Actunime/validations/commit/1a5ab1df40a39541b0893b8fb90beac423a90d15))
+
 ## [1.0.11](https://github.com/Actunime/validations/compare/v1.0.10...v1.0.11) (2025-03-11)
 
 
