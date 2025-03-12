@@ -1,3 +1,10 @@
+## [1.0.14](https://github.com/Actunime/validations/compare/v1.0.13...v1.0.14) (2025-03-12)
+
+
+### Bug Fixes
+
+* validation types ([43f33b2](https://github.com/Actunime/validations/commit/43f33b28470c4430139741f83f560ddf0634c292))
+
 ## [1.0.13](https://github.com/Actunime/validations/compare/v1.0.12...v1.0.13) (2025-03-11)
 
 
