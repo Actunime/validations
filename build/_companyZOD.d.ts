@@ -563,6 +563,7 @@ export declare const CompanyCreateBody: z.ZodObject<z.objectUtil.extendShape<{
     description?: string | undefined;
     reason?: string | undefined;
 }>;
+export type ICompanyCreateBody = z.infer<typeof CompanyCreateBody>;
 export declare const Create_Company_ZOD_FORM: z.ZodObject<{
     note: z.ZodOptional<z.ZodString>;
     data: z.ZodObject<{

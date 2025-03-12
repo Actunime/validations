@@ -137,6 +137,7 @@ export declare const AnimeQueryBody: z.ZodObject<{
         durationMinute?: number | undefined;
     };
 }>;
+export type IAnimeQueryBody = z.infer<typeof AnimeQueryBody>;
 export declare const AnimeSortBody: z.ZodObject<{
     vf: z.ZodEffects<z.ZodNumber, number, number>;
     status: z.ZodEffects<z.ZodNumber, number, number>;
@@ -159,6 +160,7 @@ export declare const AnimeSortBody: z.ZodObject<{
     adult: number;
     explicit: number;
 }>;
+export type IAnimeSortBody = z.infer<typeof AnimeSortBody>;
 export declare const AnimePaginationBody: z.ZodObject<z.objectUtil.extendShape<{
     page: z.ZodNumber;
     limit: z.ZodNumber;
@@ -5404,6 +5406,7 @@ export declare const AnimeCreateBody: z.ZodObject<z.objectUtil.extendShape<{
     description?: string | undefined;
     reason?: string | undefined;
 }>;
+export type IAnimeCreateBody = z.infer<typeof AnimeCreateBody>;
 export declare const Create_Anime_ZOD_FORM: z.ZodObject<{
     note: z.ZodOptional<z.ZodString>;
     data: z.ZodEffects<z.ZodObject<{

@@ -176,6 +176,7 @@ export declare const GroupeCreateBody: z.ZodObject<z.objectUtil.extendShape<{
     description?: string | undefined;
     reason?: string | undefined;
 }>;
+export type IGroupeCreateBody = z.infer<typeof GroupeCreateBody>;
 export declare const Add_Groupe_ZOD: z.ZodObject<{
     id: z.ZodOptional<z.ZodString>;
     newGroupe: z.ZodOptional<z.ZodObject<{

@@ -1190,6 +1190,7 @@ export declare const TrackCreateBody: z.ZodObject<z.objectUtil.extendShape<{
     description?: string | undefined;
     reason?: string | undefined;
 }>;
+export type ITrackCreateBody = z.infer<typeof TrackCreateBody>;
 export declare const Create_Track_ZOD_FORM: z.ZodObject<{
     note: z.ZodOptional<z.ZodString>;
     data: z.ZodObject<{

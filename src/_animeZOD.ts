@@ -73,6 +73,8 @@ export const AnimeQueryBody = z.object({
   updatedAt: z.string(),
 });
 
+export type IAnimeQueryBody = z.infer<typeof AnimeQueryBody>;
+
 const check = (v: number) => [-1, 1].includes(v);
 const checkErr = "le sort doit être soit -1 ou 1";
 export const AnimeSortBody = z.object({
@@ -83,6 +85,8 @@ export const AnimeSortBody = z.object({
   createdAt: z.number().refine(check, checkErr),
   updatedAt: z.number().refine(check, checkErr),
 })
+
+export type IAnimeSortBody = z.infer<typeof AnimeSortBody>;
 
 export const AnimePaginationBody = PaginationBody.extend({
   sort: AnimeSortBody.partial(),
@@ -259,6 +263,8 @@ export type ICreate_Anime_ZOD = z.infer<typeof Create_Anime_ZOD>;
 export const AnimeCreateBody = PatchParamsBody.partial().extend({
   data: Create_Anime_ZOD
 })
+
+export type IAnimeCreateBody = z.infer<typeof AnimeCreateBody>;
 
 export const Create_Anime_ZOD_FORM = z.object({
   note: z.string().optional(),

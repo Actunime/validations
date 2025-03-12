@@ -47,6 +47,8 @@ export const ImageCreateBody = PatchParamsBody.partial().extend({
   data: Create_Image_ZOD
 })
 
+export type IImageCreateBody = z.infer<typeof ImageCreateBody>;
+
 export const Create_Image_ZOD_FORM = z.object({
   note: z.string().optional(),
   data: Create_Image_ZOD,

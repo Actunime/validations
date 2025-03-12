@@ -44,6 +44,8 @@ export const PersonCreateBody = PatchParamsBody.partial().extend({
   data: Create_Person_ZOD
 })
 
+export type IPersonCreateBody = z.infer<typeof PersonCreateBody>;
+
 export const Create_Person_ZOD_FORM = z.object({
   note: z.string().optional(),
   data: Create_Person_ZOD,

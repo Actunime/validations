@@ -61,6 +61,8 @@ export const TrackCreateBody = PatchParamsBody.partial().extend({
   data: Create_Track_ZOD
 })
 
+export type ITrackCreateBody = z.infer<typeof TrackCreateBody>;
+
 export const Create_Track_ZOD_FORM = z.object({
   note: z.string().optional(),
   data: Create_Track_ZOD,

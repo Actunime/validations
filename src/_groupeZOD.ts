@@ -64,6 +64,8 @@ export const GroupeCreateBody = PatchParamsBody.partial().extend({
   data: Create_Groupe_ZOD
 })
 
+export type IGroupeCreateBody = z.infer<typeof GroupeCreateBody>;
+
 export const Add_Groupe_ZOD = z.object({
   id: z.optional(z.string()),
   newGroupe: z.optional(Create_Groupe_ZOD),

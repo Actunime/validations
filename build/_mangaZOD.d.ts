@@ -4470,6 +4470,7 @@ export declare const MangaCreateBody: z.ZodObject<z.objectUtil.extendShape<{
     description?: string | undefined;
     reason?: string | undefined;
 }>;
+export type IMangaCreateBody = z.infer<typeof MangaCreateBody>;
 export declare const Create_Manga_ZOD_FORM: z.ZodObject<{
     note: z.ZodOptional<z.ZodString>;
     data: z.ZodObject<{

@@ -59,6 +59,8 @@ export const CompanyCreateBody = PatchParamsBody.partial().extend({
   data: Create_Company_ZOD
 })
 
+export type ICompanyCreateBody = z.infer<typeof CompanyCreateBody>;
+
 export const Create_Company_ZOD_FORM = z.object({
   note: z.string().optional(),
   data: Create_Company_ZOD,

@@ -142,6 +142,8 @@ export const MangaCreateBody = PatchParamsBody.partial().extend({
   data: Create_Manga_ZOD
 })
 
+export type IMangaCreateBody = z.infer<typeof MangaCreateBody>;
+
 export const Create_Manga_ZOD_FORM = z.object({
   note: z.string().optional(),
   data: Create_Manga_ZOD,

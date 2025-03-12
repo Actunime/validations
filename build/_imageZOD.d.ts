@@ -207,6 +207,7 @@ export declare const ImageCreateBody: z.ZodObject<z.objectUtil.extendShape<{
     description?: string | undefined;
     reason?: string | undefined;
 }>;
+export type IImageCreateBody = z.infer<typeof ImageCreateBody>;
 export declare const Create_Image_ZOD_FORM: z.ZodObject<{
     note: z.ZodOptional<z.ZodString>;
     data: z.ZodObject<{

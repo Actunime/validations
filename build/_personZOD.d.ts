@@ -520,6 +520,7 @@ export declare const PersonCreateBody: z.ZodObject<z.objectUtil.extendShape<{
     description?: string | undefined;
     reason?: string | undefined;
 }>;
+export type IPersonCreateBody = z.infer<typeof PersonCreateBody>;
 export declare const Create_Person_ZOD_FORM: z.ZodObject<{
     note: z.ZodOptional<z.ZodString>;
     data: z.ZodObject<{

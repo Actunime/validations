@@ -1254,6 +1254,7 @@ export declare const CharacterCreateBody: z.ZodObject<z.objectUtil.extendShape<{
     description?: string | undefined;
     reason?: string | undefined;
 }>;
+export type ICharacterCreateBody = z.infer<typeof CharacterCreateBody>;
 export declare const Create_Character_ZOD_FORM: z.ZodObject<{
     note: z.ZodOptional<z.ZodString>;
     data: z.ZodObject<{

@@ -82,6 +82,8 @@ export const CharacterCreateBody = PatchParamsBody.partial().extend({
   data: Create_Character_ZOD
 })
 
+export type ICharacterCreateBody = z.infer<typeof CharacterCreateBody>;
+
 export const Create_Character_ZOD_FORM = z.object({
   note: z.string().optional(),
   data: Create_Character_ZOD,
