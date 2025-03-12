@@ -7,6 +7,7 @@ import {
   MediaStatusObj,
   dateTimeToZod,
   dateToZod,
+  MediaSourceArray,
 } from "@actunime/types";
 import { z } from "zod";
 import { Add_Character_ZOD } from "./_characterZOD";
@@ -27,7 +28,6 @@ import { Add_Track_ZOD } from "./_trackZOD";
 import { PaginationBody, zodBoolean, zodNumber } from "./_util";
 import { Add_Image_ZOD } from "./_imageZOD";
 import { PatchParamsBody } from "./_patchZOD";
-import { MediaSourceArray } from "@actunime/utils";
 
 const Anime_Episode_ZOD = z.object({
   airing: z.optional(zodNumber()),

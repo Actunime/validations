@@ -13,7 +13,6 @@ const _trackZOD_1 = require("./_trackZOD");
 const _util_1 = require("./_util");
 const _imageZOD_1 = require("./_imageZOD");
 const _patchZOD_1 = require("./_patchZOD");
-const utils_1 = require("@actunime/utils");
 const Anime_Episode_ZOD = zod_1.z.object({
     airing: zod_1.z.optional((0, _util_1.zodNumber)()),
     nextAiringDate: zod_1.z.optional(zod_1.z.string()),
@@ -77,7 +76,7 @@ exports.Create_Anime_ZOD = zod_1.z
     groupe: _groupeZOD_1.Add_Groupe_ZOD,
     parent: zod_1.z.optional(exports.Add_Anime_ZOD.partial()),
     manga: zod_1.z.optional(_mangaZOD_1.Add_Manga_ZOD.partial()),
-    source: zod_1.z.enum(utils_1.MediaSourceArray),
+    source: zod_1.z.enum(types_1.MediaSourceArray),
     title: _media_1.MediaTitleZodSchema,
     date: zod_1.z.optional(_media_1.MediaDateZodSchema),
     cover: zod_1.z.optional(_imageZOD_1.Add_Image_ZOD.partial()),
