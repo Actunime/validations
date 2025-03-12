@@ -75,8 +75,8 @@ exports.Anime_Pagination_ZOD = zod_1.z.object({
 exports.Create_Anime_ZOD = zod_1.z
     .object({
     groupe: _groupeZOD_1.Add_Groupe_ZOD,
-    parent: zod_1.z.optional(exports.Add_Anime_ZOD),
-    manga: zod_1.z.optional(_mangaZOD_1.Add_Manga_ZOD),
+    parent: zod_1.z.optional(exports.Add_Anime_ZOD.partial()),
+    manga: zod_1.z.optional(_mangaZOD_1.Add_Manga_ZOD.partial()),
     source: zod_1.z.enum(utils_1.MediaSourceArray),
     title: _media_1.MediaTitleZodSchema,
     date: zod_1.z.optional(_media_1.MediaDateZodSchema),

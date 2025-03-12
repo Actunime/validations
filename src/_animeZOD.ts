@@ -110,8 +110,8 @@ export type IAdd_Anime_ZOD = z.infer<typeof Add_Anime_ZOD>;
 export const Create_Anime_ZOD = z
   .object({
     groupe: Add_Groupe_ZOD,
-    parent: z.optional(Add_Anime_ZOD),
-    manga: z.optional(Add_Manga_ZOD),
+    parent: z.optional(Add_Anime_ZOD.partial()),
+    manga: z.optional(Add_Manga_ZOD.partial()),
     source: z.enum(MediaSourceArray),
     title: MediaTitleZodSchema,
     date: z.optional(MediaDateZodSchema),

@@ -672,23 +672,23 @@ export declare const Create_Anime_ZOD: z.ZodEffects<z.ZodObject<{
         } | undefined;
     }>;
     parent: z.ZodOptional<z.ZodObject<{
-        id: z.ZodString;
-        parentLabel: z.ZodOptional<z.ZodEnum<("SEQUEL" | "SPIN_OFF" | "ALTERNATIVE" | "REBOOT" | "FILM")[] & [string, ...string[]]>>;
+        id: z.ZodOptional<z.ZodString>;
+        parentLabel: z.ZodOptional<z.ZodOptional<z.ZodEnum<("SEQUEL" | "SPIN_OFF" | "ALTERNATIVE" | "REBOOT" | "FILM")[] & [string, ...string[]]>>>;
     }, "strip", z.ZodTypeAny, {
-        id: string;
+        id?: string | undefined;
         parentLabel?: "SEQUEL" | "SPIN_OFF" | "ALTERNATIVE" | "REBOOT" | "FILM" | undefined;
     }, {
-        id: string;
+        id?: string | undefined;
         parentLabel?: "SEQUEL" | "SPIN_OFF" | "ALTERNATIVE" | "REBOOT" | "FILM" | undefined;
     }>>;
     manga: z.ZodOptional<z.ZodObject<{
-        id: z.ZodString;
-        parentLabel: z.ZodOptional<z.ZodEnum<("SEQUEL" | "SPIN_OFF" | "ALTERNATIVE" | "REBOOT" | "FILM")[] & [string, ...string[]]>>;
+        id: z.ZodOptional<z.ZodString>;
+        parentLabel: z.ZodOptional<z.ZodOptional<z.ZodEnum<("SEQUEL" | "SPIN_OFF" | "ALTERNATIVE" | "REBOOT" | "FILM")[] & [string, ...string[]]>>>;
     }, "strip", z.ZodTypeAny, {
-        id: string;
+        id?: string | undefined;
         parentLabel?: "SEQUEL" | "SPIN_OFF" | "ALTERNATIVE" | "REBOOT" | "FILM" | undefined;
     }, {
-        id: string;
+        id?: string | undefined;
         parentLabel?: "SEQUEL" | "SPIN_OFF" | "ALTERNATIVE" | "REBOOT" | "FILM" | undefined;
     }>>;
     source: z.ZodEnum<("MANGA" | "MANHWA" | "MANHUA" | "LIGHT_NOVEL" | "ORIGINAL" | "VISUAL_NOVEL" | "WEB_NOVEL" | "GAME" | "NOVEL" | "ANIME")[] & [string, ...string[]]>;
@@ -2001,7 +2001,7 @@ export declare const Create_Anime_ZOD: z.ZodEffects<z.ZodObject<{
     genres?: ("ACTION" | "AVENTURE" | "COMEDIE" | "DRAME" | "FANTAISIE" | "FANTASTIQUE" | "HORREUR" | "ROMANCE" | "SCI_FI" | "SPORTS" | "THRILLER" | "MECHA" | "MYSTERE" | "PSYCHOLOGIQUE" | "ISEKAI" | "HAREM" | "REVERSE_HAREM" | "ECCHI" | "SLICE_OF_LIFE" | "YAOI" | "YURI" | "SHOUNEN" | "SEINEN" | "SHOJO" | "JOSEI" | "KODOMOMUKE")[] | undefined;
     trailer?: string | undefined;
     parent?: {
-        id: string;
+        id?: string | undefined;
         parentLabel?: "SEQUEL" | "SPIN_OFF" | "ALTERNATIVE" | "REBOOT" | "FILM" | undefined;
     } | undefined;
     staffs?: {
@@ -2165,7 +2165,7 @@ export declare const Create_Anime_ZOD: z.ZodEffects<z.ZodObject<{
         durationMinute?: number | undefined;
     } | undefined;
     manga?: {
-        id: string;
+        id?: string | undefined;
         parentLabel?: "SEQUEL" | "SPIN_OFF" | "ALTERNATIVE" | "REBOOT" | "FILM" | undefined;
     } | undefined;
 }, {
@@ -2214,7 +2214,7 @@ export declare const Create_Anime_ZOD: z.ZodEffects<z.ZodObject<{
     genres?: ("ACTION" | "AVENTURE" | "COMEDIE" | "DRAME" | "FANTAISIE" | "FANTASTIQUE" | "HORREUR" | "ROMANCE" | "SCI_FI" | "SPORTS" | "THRILLER" | "MECHA" | "MYSTERE" | "PSYCHOLOGIQUE" | "ISEKAI" | "HAREM" | "REVERSE_HAREM" | "ECCHI" | "SLICE_OF_LIFE" | "YAOI" | "YURI" | "SHOUNEN" | "SEINEN" | "SHOJO" | "JOSEI" | "KODOMOMUKE")[] | undefined;
     trailer?: string | undefined;
     parent?: {
-        id: string;
+        id?: string | undefined;
         parentLabel?: "SEQUEL" | "SPIN_OFF" | "ALTERNATIVE" | "REBOOT" | "FILM" | undefined;
     } | undefined;
     staffs?: {
@@ -2378,7 +2378,7 @@ export declare const Create_Anime_ZOD: z.ZodEffects<z.ZodObject<{
         durationMinute?: string | number | undefined;
     } | undefined;
     manga?: {
-        id: string;
+        id?: string | undefined;
         parentLabel?: "SEQUEL" | "SPIN_OFF" | "ALTERNATIVE" | "REBOOT" | "FILM" | undefined;
     } | undefined;
 }>, {
@@ -2427,7 +2427,7 @@ export declare const Create_Anime_ZOD: z.ZodEffects<z.ZodObject<{
     genres?: ("ACTION" | "AVENTURE" | "COMEDIE" | "DRAME" | "FANTAISIE" | "FANTASTIQUE" | "HORREUR" | "ROMANCE" | "SCI_FI" | "SPORTS" | "THRILLER" | "MECHA" | "MYSTERE" | "PSYCHOLOGIQUE" | "ISEKAI" | "HAREM" | "REVERSE_HAREM" | "ECCHI" | "SLICE_OF_LIFE" | "YAOI" | "YURI" | "SHOUNEN" | "SEINEN" | "SHOJO" | "JOSEI" | "KODOMOMUKE")[] | undefined;
     trailer?: string | undefined;
     parent?: {
-        id: string;
+        id?: string | undefined;
         parentLabel?: "SEQUEL" | "SPIN_OFF" | "ALTERNATIVE" | "REBOOT" | "FILM" | undefined;
     } | undefined;
     staffs?: {
@@ -2591,7 +2591,7 @@ export declare const Create_Anime_ZOD: z.ZodEffects<z.ZodObject<{
         durationMinute?: number | undefined;
     } | undefined;
     manga?: {
-        id: string;
+        id?: string | undefined;
         parentLabel?: "SEQUEL" | "SPIN_OFF" | "ALTERNATIVE" | "REBOOT" | "FILM" | undefined;
     } | undefined;
 }, {
@@ -2640,7 +2640,7 @@ export declare const Create_Anime_ZOD: z.ZodEffects<z.ZodObject<{
     genres?: ("ACTION" | "AVENTURE" | "COMEDIE" | "DRAME" | "FANTAISIE" | "FANTASTIQUE" | "HORREUR" | "ROMANCE" | "SCI_FI" | "SPORTS" | "THRILLER" | "MECHA" | "MYSTERE" | "PSYCHOLOGIQUE" | "ISEKAI" | "HAREM" | "REVERSE_HAREM" | "ECCHI" | "SLICE_OF_LIFE" | "YAOI" | "YURI" | "SHOUNEN" | "SEINEN" | "SHOJO" | "JOSEI" | "KODOMOMUKE")[] | undefined;
     trailer?: string | undefined;
     parent?: {
-        id: string;
+        id?: string | undefined;
         parentLabel?: "SEQUEL" | "SPIN_OFF" | "ALTERNATIVE" | "REBOOT" | "FILM" | undefined;
     } | undefined;
     staffs?: {
@@ -2804,7 +2804,7 @@ export declare const Create_Anime_ZOD: z.ZodEffects<z.ZodObject<{
         durationMinute?: string | number | undefined;
     } | undefined;
     manga?: {
-        id: string;
+        id?: string | undefined;
         parentLabel?: "SEQUEL" | "SPIN_OFF" | "ALTERNATIVE" | "REBOOT" | "FILM" | undefined;
     } | undefined;
 }>;
@@ -2835,23 +2835,23 @@ export declare const AnimeCreateBody: z.ZodObject<z.objectUtil.extendShape<{
             } | undefined;
         }>;
         parent: z.ZodOptional<z.ZodObject<{
-            id: z.ZodString;
-            parentLabel: z.ZodOptional<z.ZodEnum<("SEQUEL" | "SPIN_OFF" | "ALTERNATIVE" | "REBOOT" | "FILM")[] & [string, ...string[]]>>;
+            id: z.ZodOptional<z.ZodString>;
+            parentLabel: z.ZodOptional<z.ZodOptional<z.ZodEnum<("SEQUEL" | "SPIN_OFF" | "ALTERNATIVE" | "REBOOT" | "FILM")[] & [string, ...string[]]>>>;
         }, "strip", z.ZodTypeAny, {
-            id: string;
+            id?: string | undefined;
             parentLabel?: "SEQUEL" | "SPIN_OFF" | "ALTERNATIVE" | "REBOOT" | "FILM" | undefined;
         }, {
-            id: string;
+            id?: string | undefined;
             parentLabel?: "SEQUEL" | "SPIN_OFF" | "ALTERNATIVE" | "REBOOT" | "FILM" | undefined;
         }>>;
         manga: z.ZodOptional<z.ZodObject<{
-            id: z.ZodString;
-            parentLabel: z.ZodOptional<z.ZodEnum<("SEQUEL" | "SPIN_OFF" | "ALTERNATIVE" | "REBOOT" | "FILM")[] & [string, ...string[]]>>;
+            id: z.ZodOptional<z.ZodString>;
+            parentLabel: z.ZodOptional<z.ZodOptional<z.ZodEnum<("SEQUEL" | "SPIN_OFF" | "ALTERNATIVE" | "REBOOT" | "FILM")[] & [string, ...string[]]>>>;
         }, "strip", z.ZodTypeAny, {
-            id: string;
+            id?: string | undefined;
             parentLabel?: "SEQUEL" | "SPIN_OFF" | "ALTERNATIVE" | "REBOOT" | "FILM" | undefined;
         }, {
-            id: string;
+            id?: string | undefined;
             parentLabel?: "SEQUEL" | "SPIN_OFF" | "ALTERNATIVE" | "REBOOT" | "FILM" | undefined;
         }>>;
         source: z.ZodEnum<("MANGA" | "MANHWA" | "MANHUA" | "LIGHT_NOVEL" | "ORIGINAL" | "VISUAL_NOVEL" | "WEB_NOVEL" | "GAME" | "NOVEL" | "ANIME")[] & [string, ...string[]]>;
@@ -4164,7 +4164,7 @@ export declare const AnimeCreateBody: z.ZodObject<z.objectUtil.extendShape<{
         genres?: ("ACTION" | "AVENTURE" | "COMEDIE" | "DRAME" | "FANTAISIE" | "FANTASTIQUE" | "HORREUR" | "ROMANCE" | "SCI_FI" | "SPORTS" | "THRILLER" | "MECHA" | "MYSTERE" | "PSYCHOLOGIQUE" | "ISEKAI" | "HAREM" | "REVERSE_HAREM" | "ECCHI" | "SLICE_OF_LIFE" | "YAOI" | "YURI" | "SHOUNEN" | "SEINEN" | "SHOJO" | "JOSEI" | "KODOMOMUKE")[] | undefined;
         trailer?: string | undefined;
         parent?: {
-            id: string;
+            id?: string | undefined;
             parentLabel?: "SEQUEL" | "SPIN_OFF" | "ALTERNATIVE" | "REBOOT" | "FILM" | undefined;
         } | undefined;
         staffs?: {
@@ -4328,7 +4328,7 @@ export declare const AnimeCreateBody: z.ZodObject<z.objectUtil.extendShape<{
             durationMinute?: number | undefined;
         } | undefined;
         manga?: {
-            id: string;
+            id?: string | undefined;
             parentLabel?: "SEQUEL" | "SPIN_OFF" | "ALTERNATIVE" | "REBOOT" | "FILM" | undefined;
         } | undefined;
     }, {
@@ -4377,7 +4377,7 @@ export declare const AnimeCreateBody: z.ZodObject<z.objectUtil.extendShape<{
         genres?: ("ACTION" | "AVENTURE" | "COMEDIE" | "DRAME" | "FANTAISIE" | "FANTASTIQUE" | "HORREUR" | "ROMANCE" | "SCI_FI" | "SPORTS" | "THRILLER" | "MECHA" | "MYSTERE" | "PSYCHOLOGIQUE" | "ISEKAI" | "HAREM" | "REVERSE_HAREM" | "ECCHI" | "SLICE_OF_LIFE" | "YAOI" | "YURI" | "SHOUNEN" | "SEINEN" | "SHOJO" | "JOSEI" | "KODOMOMUKE")[] | undefined;
         trailer?: string | undefined;
         parent?: {
-            id: string;
+            id?: string | undefined;
             parentLabel?: "SEQUEL" | "SPIN_OFF" | "ALTERNATIVE" | "REBOOT" | "FILM" | undefined;
         } | undefined;
         staffs?: {
@@ -4541,7 +4541,7 @@ export declare const AnimeCreateBody: z.ZodObject<z.objectUtil.extendShape<{
             durationMinute?: string | number | undefined;
         } | undefined;
         manga?: {
-            id: string;
+            id?: string | undefined;
             parentLabel?: "SEQUEL" | "SPIN_OFF" | "ALTERNATIVE" | "REBOOT" | "FILM" | undefined;
         } | undefined;
     }>, {
@@ -4590,7 +4590,7 @@ export declare const AnimeCreateBody: z.ZodObject<z.objectUtil.extendShape<{
         genres?: ("ACTION" | "AVENTURE" | "COMEDIE" | "DRAME" | "FANTAISIE" | "FANTASTIQUE" | "HORREUR" | "ROMANCE" | "SCI_FI" | "SPORTS" | "THRILLER" | "MECHA" | "MYSTERE" | "PSYCHOLOGIQUE" | "ISEKAI" | "HAREM" | "REVERSE_HAREM" | "ECCHI" | "SLICE_OF_LIFE" | "YAOI" | "YURI" | "SHOUNEN" | "SEINEN" | "SHOJO" | "JOSEI" | "KODOMOMUKE")[] | undefined;
         trailer?: string | undefined;
         parent?: {
-            id: string;
+            id?: string | undefined;
             parentLabel?: "SEQUEL" | "SPIN_OFF" | "ALTERNATIVE" | "REBOOT" | "FILM" | undefined;
         } | undefined;
         staffs?: {
@@ -4754,7 +4754,7 @@ export declare const AnimeCreateBody: z.ZodObject<z.objectUtil.extendShape<{
             durationMinute?: number | undefined;
         } | undefined;
         manga?: {
-            id: string;
+            id?: string | undefined;
             parentLabel?: "SEQUEL" | "SPIN_OFF" | "ALTERNATIVE" | "REBOOT" | "FILM" | undefined;
         } | undefined;
     }, {
@@ -4803,7 +4803,7 @@ export declare const AnimeCreateBody: z.ZodObject<z.objectUtil.extendShape<{
         genres?: ("ACTION" | "AVENTURE" | "COMEDIE" | "DRAME" | "FANTAISIE" | "FANTASTIQUE" | "HORREUR" | "ROMANCE" | "SCI_FI" | "SPORTS" | "THRILLER" | "MECHA" | "MYSTERE" | "PSYCHOLOGIQUE" | "ISEKAI" | "HAREM" | "REVERSE_HAREM" | "ECCHI" | "SLICE_OF_LIFE" | "YAOI" | "YURI" | "SHOUNEN" | "SEINEN" | "SHOJO" | "JOSEI" | "KODOMOMUKE")[] | undefined;
         trailer?: string | undefined;
         parent?: {
-            id: string;
+            id?: string | undefined;
             parentLabel?: "SEQUEL" | "SPIN_OFF" | "ALTERNATIVE" | "REBOOT" | "FILM" | undefined;
         } | undefined;
         staffs?: {
@@ -4967,7 +4967,7 @@ export declare const AnimeCreateBody: z.ZodObject<z.objectUtil.extendShape<{
             durationMinute?: string | number | undefined;
         } | undefined;
         manga?: {
-            id: string;
+            id?: string | undefined;
             parentLabel?: "SEQUEL" | "SPIN_OFF" | "ALTERNATIVE" | "REBOOT" | "FILM" | undefined;
         } | undefined;
     }>;
@@ -5018,7 +5018,7 @@ export declare const AnimeCreateBody: z.ZodObject<z.objectUtil.extendShape<{
         genres?: ("ACTION" | "AVENTURE" | "COMEDIE" | "DRAME" | "FANTAISIE" | "FANTASTIQUE" | "HORREUR" | "ROMANCE" | "SCI_FI" | "SPORTS" | "THRILLER" | "MECHA" | "MYSTERE" | "PSYCHOLOGIQUE" | "ISEKAI" | "HAREM" | "REVERSE_HAREM" | "ECCHI" | "SLICE_OF_LIFE" | "YAOI" | "YURI" | "SHOUNEN" | "SEINEN" | "SHOJO" | "JOSEI" | "KODOMOMUKE")[] | undefined;
         trailer?: string | undefined;
         parent?: {
-            id: string;
+            id?: string | undefined;
             parentLabel?: "SEQUEL" | "SPIN_OFF" | "ALTERNATIVE" | "REBOOT" | "FILM" | undefined;
         } | undefined;
         staffs?: {
@@ -5182,7 +5182,7 @@ export declare const AnimeCreateBody: z.ZodObject<z.objectUtil.extendShape<{
             durationMinute?: number | undefined;
         } | undefined;
         manga?: {
-            id: string;
+            id?: string | undefined;
             parentLabel?: "SEQUEL" | "SPIN_OFF" | "ALTERNATIVE" | "REBOOT" | "FILM" | undefined;
         } | undefined;
     };
@@ -5235,7 +5235,7 @@ export declare const AnimeCreateBody: z.ZodObject<z.objectUtil.extendShape<{
         genres?: ("ACTION" | "AVENTURE" | "COMEDIE" | "DRAME" | "FANTAISIE" | "FANTASTIQUE" | "HORREUR" | "ROMANCE" | "SCI_FI" | "SPORTS" | "THRILLER" | "MECHA" | "MYSTERE" | "PSYCHOLOGIQUE" | "ISEKAI" | "HAREM" | "REVERSE_HAREM" | "ECCHI" | "SLICE_OF_LIFE" | "YAOI" | "YURI" | "SHOUNEN" | "SEINEN" | "SHOJO" | "JOSEI" | "KODOMOMUKE")[] | undefined;
         trailer?: string | undefined;
         parent?: {
-            id: string;
+            id?: string | undefined;
             parentLabel?: "SEQUEL" | "SPIN_OFF" | "ALTERNATIVE" | "REBOOT" | "FILM" | undefined;
         } | undefined;
         staffs?: {
@@ -5399,7 +5399,7 @@ export declare const AnimeCreateBody: z.ZodObject<z.objectUtil.extendShape<{
             durationMinute?: string | number | undefined;
         } | undefined;
         manga?: {
-            id: string;
+            id?: string | undefined;
             parentLabel?: "SEQUEL" | "SPIN_OFF" | "ALTERNATIVE" | "REBOOT" | "FILM" | undefined;
         } | undefined;
     };
@@ -5431,23 +5431,23 @@ export declare const Create_Anime_ZOD_FORM: z.ZodObject<{
             } | undefined;
         }>;
         parent: z.ZodOptional<z.ZodObject<{
-            id: z.ZodString;
-            parentLabel: z.ZodOptional<z.ZodEnum<("SEQUEL" | "SPIN_OFF" | "ALTERNATIVE" | "REBOOT" | "FILM")[] & [string, ...string[]]>>;
+            id: z.ZodOptional<z.ZodString>;
+            parentLabel: z.ZodOptional<z.ZodOptional<z.ZodEnum<("SEQUEL" | "SPIN_OFF" | "ALTERNATIVE" | "REBOOT" | "FILM")[] & [string, ...string[]]>>>;
         }, "strip", z.ZodTypeAny, {
-            id: string;
+            id?: string | undefined;
             parentLabel?: "SEQUEL" | "SPIN_OFF" | "ALTERNATIVE" | "REBOOT" | "FILM" | undefined;
         }, {
-            id: string;
+            id?: string | undefined;
             parentLabel?: "SEQUEL" | "SPIN_OFF" | "ALTERNATIVE" | "REBOOT" | "FILM" | undefined;
         }>>;
         manga: z.ZodOptional<z.ZodObject<{
-            id: z.ZodString;
-            parentLabel: z.ZodOptional<z.ZodEnum<("SEQUEL" | "SPIN_OFF" | "ALTERNATIVE" | "REBOOT" | "FILM")[] & [string, ...string[]]>>;
+            id: z.ZodOptional<z.ZodString>;
+            parentLabel: z.ZodOptional<z.ZodOptional<z.ZodEnum<("SEQUEL" | "SPIN_OFF" | "ALTERNATIVE" | "REBOOT" | "FILM")[] & [string, ...string[]]>>>;
         }, "strip", z.ZodTypeAny, {
-            id: string;
+            id?: string | undefined;
             parentLabel?: "SEQUEL" | "SPIN_OFF" | "ALTERNATIVE" | "REBOOT" | "FILM" | undefined;
         }, {
-            id: string;
+            id?: string | undefined;
             parentLabel?: "SEQUEL" | "SPIN_OFF" | "ALTERNATIVE" | "REBOOT" | "FILM" | undefined;
         }>>;
         source: z.ZodEnum<("MANGA" | "MANHWA" | "MANHUA" | "LIGHT_NOVEL" | "ORIGINAL" | "VISUAL_NOVEL" | "WEB_NOVEL" | "GAME" | "NOVEL" | "ANIME")[] & [string, ...string[]]>;
@@ -6760,7 +6760,7 @@ export declare const Create_Anime_ZOD_FORM: z.ZodObject<{
         genres?: ("ACTION" | "AVENTURE" | "COMEDIE" | "DRAME" | "FANTAISIE" | "FANTASTIQUE" | "HORREUR" | "ROMANCE" | "SCI_FI" | "SPORTS" | "THRILLER" | "MECHA" | "MYSTERE" | "PSYCHOLOGIQUE" | "ISEKAI" | "HAREM" | "REVERSE_HAREM" | "ECCHI" | "SLICE_OF_LIFE" | "YAOI" | "YURI" | "SHOUNEN" | "SEINEN" | "SHOJO" | "JOSEI" | "KODOMOMUKE")[] | undefined;
         trailer?: string | undefined;
         parent?: {
-            id: string;
+            id?: string | undefined;
             parentLabel?: "SEQUEL" | "SPIN_OFF" | "ALTERNATIVE" | "REBOOT" | "FILM" | undefined;
         } | undefined;
         staffs?: {
@@ -6924,7 +6924,7 @@ export declare const Create_Anime_ZOD_FORM: z.ZodObject<{
             durationMinute?: number | undefined;
         } | undefined;
         manga?: {
-            id: string;
+            id?: string | undefined;
             parentLabel?: "SEQUEL" | "SPIN_OFF" | "ALTERNATIVE" | "REBOOT" | "FILM" | undefined;
         } | undefined;
     }, {
@@ -6973,7 +6973,7 @@ export declare const Create_Anime_ZOD_FORM: z.ZodObject<{
         genres?: ("ACTION" | "AVENTURE" | "COMEDIE" | "DRAME" | "FANTAISIE" | "FANTASTIQUE" | "HORREUR" | "ROMANCE" | "SCI_FI" | "SPORTS" | "THRILLER" | "MECHA" | "MYSTERE" | "PSYCHOLOGIQUE" | "ISEKAI" | "HAREM" | "REVERSE_HAREM" | "ECCHI" | "SLICE_OF_LIFE" | "YAOI" | "YURI" | "SHOUNEN" | "SEINEN" | "SHOJO" | "JOSEI" | "KODOMOMUKE")[] | undefined;
         trailer?: string | undefined;
         parent?: {
-            id: string;
+            id?: string | undefined;
             parentLabel?: "SEQUEL" | "SPIN_OFF" | "ALTERNATIVE" | "REBOOT" | "FILM" | undefined;
         } | undefined;
         staffs?: {
@@ -7137,7 +7137,7 @@ export declare const Create_Anime_ZOD_FORM: z.ZodObject<{
             durationMinute?: string | number | undefined;
         } | undefined;
         manga?: {
-            id: string;
+            id?: string | undefined;
             parentLabel?: "SEQUEL" | "SPIN_OFF" | "ALTERNATIVE" | "REBOOT" | "FILM" | undefined;
         } | undefined;
     }>, {
@@ -7186,7 +7186,7 @@ export declare const Create_Anime_ZOD_FORM: z.ZodObject<{
         genres?: ("ACTION" | "AVENTURE" | "COMEDIE" | "DRAME" | "FANTAISIE" | "FANTASTIQUE" | "HORREUR" | "ROMANCE" | "SCI_FI" | "SPORTS" | "THRILLER" | "MECHA" | "MYSTERE" | "PSYCHOLOGIQUE" | "ISEKAI" | "HAREM" | "REVERSE_HAREM" | "ECCHI" | "SLICE_OF_LIFE" | "YAOI" | "YURI" | "SHOUNEN" | "SEINEN" | "SHOJO" | "JOSEI" | "KODOMOMUKE")[] | undefined;
         trailer?: string | undefined;
         parent?: {
-            id: string;
+            id?: string | undefined;
             parentLabel?: "SEQUEL" | "SPIN_OFF" | "ALTERNATIVE" | "REBOOT" | "FILM" | undefined;
         } | undefined;
         staffs?: {
@@ -7350,7 +7350,7 @@ export declare const Create_Anime_ZOD_FORM: z.ZodObject<{
             durationMinute?: number | undefined;
         } | undefined;
         manga?: {
-            id: string;
+            id?: string | undefined;
             parentLabel?: "SEQUEL" | "SPIN_OFF" | "ALTERNATIVE" | "REBOOT" | "FILM" | undefined;
         } | undefined;
     }, {
@@ -7399,7 +7399,7 @@ export declare const Create_Anime_ZOD_FORM: z.ZodObject<{
         genres?: ("ACTION" | "AVENTURE" | "COMEDIE" | "DRAME" | "FANTAISIE" | "FANTASTIQUE" | "HORREUR" | "ROMANCE" | "SCI_FI" | "SPORTS" | "THRILLER" | "MECHA" | "MYSTERE" | "PSYCHOLOGIQUE" | "ISEKAI" | "HAREM" | "REVERSE_HAREM" | "ECCHI" | "SLICE_OF_LIFE" | "YAOI" | "YURI" | "SHOUNEN" | "SEINEN" | "SHOJO" | "JOSEI" | "KODOMOMUKE")[] | undefined;
         trailer?: string | undefined;
         parent?: {
-            id: string;
+            id?: string | undefined;
             parentLabel?: "SEQUEL" | "SPIN_OFF" | "ALTERNATIVE" | "REBOOT" | "FILM" | undefined;
         } | undefined;
         staffs?: {
@@ -7563,7 +7563,7 @@ export declare const Create_Anime_ZOD_FORM: z.ZodObject<{
             durationMinute?: string | number | undefined;
         } | undefined;
         manga?: {
-            id: string;
+            id?: string | undefined;
             parentLabel?: "SEQUEL" | "SPIN_OFF" | "ALTERNATIVE" | "REBOOT" | "FILM" | undefined;
         } | undefined;
     }>;
@@ -7614,7 +7614,7 @@ export declare const Create_Anime_ZOD_FORM: z.ZodObject<{
         genres?: ("ACTION" | "AVENTURE" | "COMEDIE" | "DRAME" | "FANTAISIE" | "FANTASTIQUE" | "HORREUR" | "ROMANCE" | "SCI_FI" | "SPORTS" | "THRILLER" | "MECHA" | "MYSTERE" | "PSYCHOLOGIQUE" | "ISEKAI" | "HAREM" | "REVERSE_HAREM" | "ECCHI" | "SLICE_OF_LIFE" | "YAOI" | "YURI" | "SHOUNEN" | "SEINEN" | "SHOJO" | "JOSEI" | "KODOMOMUKE")[] | undefined;
         trailer?: string | undefined;
         parent?: {
-            id: string;
+            id?: string | undefined;
             parentLabel?: "SEQUEL" | "SPIN_OFF" | "ALTERNATIVE" | "REBOOT" | "FILM" | undefined;
         } | undefined;
         staffs?: {
@@ -7778,7 +7778,7 @@ export declare const Create_Anime_ZOD_FORM: z.ZodObject<{
             durationMinute?: number | undefined;
         } | undefined;
         manga?: {
-            id: string;
+            id?: string | undefined;
             parentLabel?: "SEQUEL" | "SPIN_OFF" | "ALTERNATIVE" | "REBOOT" | "FILM" | undefined;
         } | undefined;
     };
@@ -7830,7 +7830,7 @@ export declare const Create_Anime_ZOD_FORM: z.ZodObject<{
         genres?: ("ACTION" | "AVENTURE" | "COMEDIE" | "DRAME" | "FANTAISIE" | "FANTASTIQUE" | "HORREUR" | "ROMANCE" | "SCI_FI" | "SPORTS" | "THRILLER" | "MECHA" | "MYSTERE" | "PSYCHOLOGIQUE" | "ISEKAI" | "HAREM" | "REVERSE_HAREM" | "ECCHI" | "SLICE_OF_LIFE" | "YAOI" | "YURI" | "SHOUNEN" | "SEINEN" | "SHOJO" | "JOSEI" | "KODOMOMUKE")[] | undefined;
         trailer?: string | undefined;
         parent?: {
-            id: string;
+            id?: string | undefined;
             parentLabel?: "SEQUEL" | "SPIN_OFF" | "ALTERNATIVE" | "REBOOT" | "FILM" | undefined;
         } | undefined;
         staffs?: {
@@ -7994,7 +7994,7 @@ export declare const Create_Anime_ZOD_FORM: z.ZodObject<{
             durationMinute?: string | number | undefined;
         } | undefined;
         manga?: {
-            id: string;
+            id?: string | undefined;
             parentLabel?: "SEQUEL" | "SPIN_OFF" | "ALTERNATIVE" | "REBOOT" | "FILM" | undefined;
         } | undefined;
     };
@@ -9746,7 +9746,7 @@ export declare const AnimeDataToZOD: (data: IAnime) => {
     genres?: ("ACTION" | "AVENTURE" | "COMEDIE" | "DRAME" | "FANTAISIE" | "FANTASTIQUE" | "HORREUR" | "ROMANCE" | "SCI_FI" | "SPORTS" | "THRILLER" | "MECHA" | "MYSTERE" | "PSYCHOLOGIQUE" | "ISEKAI" | "HAREM" | "REVERSE_HAREM" | "ECCHI" | "SLICE_OF_LIFE" | "YAOI" | "YURI" | "SHOUNEN" | "SEINEN" | "SHOJO" | "JOSEI" | "KODOMOMUKE")[] | undefined;
     trailer?: string | undefined;
     parent?: {
-        id: string;
+        id?: string | undefined;
         parentLabel?: "SEQUEL" | "SPIN_OFF" | "ALTERNATIVE" | "REBOOT" | "FILM" | undefined;
     } | undefined;
     staffs?: {
@@ -9910,7 +9910,7 @@ export declare const AnimeDataToZOD: (data: IAnime) => {
         durationMinute?: number | undefined;
     } | undefined;
     manga?: {
-        id: string;
+        id?: string | undefined;
         parentLabel?: "SEQUEL" | "SPIN_OFF" | "ALTERNATIVE" | "REBOOT" | "FILM" | undefined;
     } | undefined;
 } | undefined;
