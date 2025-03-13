@@ -6,6 +6,7 @@ const _util_1 = require("./_util");
 const types_1 = require("@actunime/types");
 exports.PatchQueryBody = zod_1.z.object({
     id: zod_1.z.string(),
+    ref: zod_1.z.object({ id: zod_1.z.string() }),
     type: zod_1.z.enum(types_1.PatchTypeArray),
     status: zod_1.z.enum(types_1.PatchStatusArray),
     target: zod_1.z.object({ id: zod_1.z.string() }),
@@ -24,6 +25,7 @@ const check = (v) => [-1, 1].includes(v);
 const checkErr = "le sort doit être soit -1 ou 1";
 exports.PatchSortBody = zod_1.z.object({
     id: zod_1.z.number().refine(check, checkErr),
+    ref: zod_1.z.object({ id: zod_1.z.number().refine(check, checkErr) }),
     type: zod_1.z.number().refine(check, checkErr),
     status: zod_1.z.number().refine(check, checkErr),
     target: zod_1.z.number().refine(check, checkErr),

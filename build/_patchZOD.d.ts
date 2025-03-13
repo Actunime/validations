@@ -1,6 +1,13 @@
 import { z } from "zod";
 export declare const PatchQueryBody: z.ZodObject<{
     id: z.ZodString;
+    ref: z.ZodObject<{
+        id: z.ZodString;
+    }, "strip", z.ZodTypeAny, {
+        id: string;
+    }, {
+        id: string;
+    }>;
     type: z.ZodEnum<("CREATE" | "UPDATE" | "MODERATOR_CREATE" | "MODERATOR_UPDATE")[] & [string, ...string[]]>;
     status: z.ZodEnum<("PENDING" | "PROGRESS" | "ACCEPTED" | "DENIED")[] & [string, ...string[]]>;
     target: z.ZodObject<{
@@ -44,6 +51,9 @@ export declare const PatchQueryBody: z.ZodObject<{
     };
     targetPath: "User" | "Account" | "UserProfile" | "UserPreferences" | "UserAnimeListe" | "UserDeleteAnimeFromListe" | "Groupe" | "Manga" | "Anime" | "Person" | "Character" | "Track" | "Company" | "Image" | "Patch" | "Activity" | "Report" | "DisabledUser" | "PremiumUser";
     id: string;
+    ref: {
+        id: string;
+    };
     description: string;
     reason: string;
     isChangesUpdated: boolean;
@@ -65,6 +75,9 @@ export declare const PatchQueryBody: z.ZodObject<{
     };
     targetPath: "User" | "Account" | "UserProfile" | "UserPreferences" | "UserAnimeListe" | "UserDeleteAnimeFromListe" | "Groupe" | "Manga" | "Anime" | "Person" | "Character" | "Track" | "Company" | "Image" | "Patch" | "Activity" | "Report" | "DisabledUser" | "PremiumUser";
     id: string;
+    ref: {
+        id: string;
+    };
     description: string;
     reason: string;
     isChangesUpdated: boolean;
@@ -77,6 +90,13 @@ export declare const PatchQueryBody: z.ZodObject<{
 }>;
 export declare const PatchSortBody: z.ZodObject<{
     id: z.ZodEffects<z.ZodNumber, number, number>;
+    ref: z.ZodObject<{
+        id: z.ZodEffects<z.ZodNumber, number, number>;
+    }, "strip", z.ZodTypeAny, {
+        id: number;
+    }, {
+        id: number;
+    }>;
     type: z.ZodEffects<z.ZodNumber, number, number>;
     status: z.ZodEffects<z.ZodNumber, number, number>;
     target: z.ZodEffects<z.ZodNumber, number, number>;
@@ -110,6 +130,9 @@ export declare const PatchSortBody: z.ZodObject<{
     target: number;
     targetPath: number;
     id: number;
+    ref: {
+        id: number;
+    };
     description: number;
     reason: number;
     isChangesUpdated: number;
@@ -127,6 +150,9 @@ export declare const PatchSortBody: z.ZodObject<{
     target: number;
     targetPath: number;
     id: number;
+    ref: {
+        id: number;
+    };
     description: number;
     reason: number;
     isChangesUpdated: number;
@@ -145,6 +171,13 @@ export declare const PatchPaginationBody: z.ZodObject<z.objectUtil.extendShape<{
 }, {
     sort: z.ZodObject<{
         id: z.ZodOptional<z.ZodEffects<z.ZodNumber, number, number>>;
+        ref: z.ZodOptional<z.ZodObject<{
+            id: z.ZodEffects<z.ZodNumber, number, number>;
+        }, "strip", z.ZodTypeAny, {
+            id: number;
+        }, {
+            id: number;
+        }>>;
         type: z.ZodOptional<z.ZodEffects<z.ZodNumber, number, number>>;
         status: z.ZodOptional<z.ZodEffects<z.ZodNumber, number, number>>;
         target: z.ZodOptional<z.ZodEffects<z.ZodNumber, number, number>>;
@@ -178,6 +211,9 @@ export declare const PatchPaginationBody: z.ZodObject<z.objectUtil.extendShape<{
         target?: number | undefined;
         targetPath?: number | undefined;
         id?: number | undefined;
+        ref?: {
+            id: number;
+        } | undefined;
         description?: number | undefined;
         reason?: number | undefined;
         isChangesUpdated?: number | undefined;
@@ -195,6 +231,9 @@ export declare const PatchPaginationBody: z.ZodObject<z.objectUtil.extendShape<{
         target?: number | undefined;
         targetPath?: number | undefined;
         id?: number | undefined;
+        ref?: {
+            id: number;
+        } | undefined;
         description?: number | undefined;
         reason?: number | undefined;
         isChangesUpdated?: number | undefined;
@@ -205,6 +244,13 @@ export declare const PatchPaginationBody: z.ZodObject<z.objectUtil.extendShape<{
     }>;
     query: z.ZodObject<{
         id: z.ZodOptional<z.ZodString>;
+        ref: z.ZodOptional<z.ZodObject<{
+            id: z.ZodString;
+        }, "strip", z.ZodTypeAny, {
+            id: string;
+        }, {
+            id: string;
+        }>>;
         type: z.ZodOptional<z.ZodEnum<("CREATE" | "UPDATE" | "MODERATOR_CREATE" | "MODERATOR_UPDATE")[] & [string, ...string[]]>>;
         status: z.ZodOptional<z.ZodEnum<("PENDING" | "PROGRESS" | "ACCEPTED" | "DENIED")[] & [string, ...string[]]>>;
         target: z.ZodOptional<z.ZodObject<{
@@ -248,6 +294,9 @@ export declare const PatchPaginationBody: z.ZodObject<z.objectUtil.extendShape<{
         } | undefined;
         targetPath?: "User" | "Account" | "UserProfile" | "UserPreferences" | "UserAnimeListe" | "UserDeleteAnimeFromListe" | "Groupe" | "Manga" | "Anime" | "Person" | "Character" | "Track" | "Company" | "Image" | "Patch" | "Activity" | "Report" | "DisabledUser" | "PremiumUser" | undefined;
         id?: string | undefined;
+        ref?: {
+            id: string;
+        } | undefined;
         description?: string | undefined;
         reason?: string | undefined;
         original?: any;
@@ -269,6 +318,9 @@ export declare const PatchPaginationBody: z.ZodObject<z.objectUtil.extendShape<{
         } | undefined;
         targetPath?: "User" | "Account" | "UserProfile" | "UserPreferences" | "UserAnimeListe" | "UserDeleteAnimeFromListe" | "Groupe" | "Manga" | "Anime" | "Person" | "Character" | "Track" | "Company" | "Image" | "Patch" | "Activity" | "Report" | "DisabledUser" | "PremiumUser" | undefined;
         id?: string | undefined;
+        ref?: {
+            id: string;
+        } | undefined;
         description?: string | undefined;
         reason?: string | undefined;
         original?: any;
@@ -294,6 +346,9 @@ export declare const PatchPaginationBody: z.ZodObject<z.objectUtil.extendShape<{
         target?: number | undefined;
         targetPath?: number | undefined;
         id?: number | undefined;
+        ref?: {
+            id: number;
+        } | undefined;
         description?: number | undefined;
         reason?: number | undefined;
         isChangesUpdated?: number | undefined;
@@ -314,6 +369,9 @@ export declare const PatchPaginationBody: z.ZodObject<z.objectUtil.extendShape<{
         } | undefined;
         targetPath?: "User" | "Account" | "UserProfile" | "UserPreferences" | "UserAnimeListe" | "UserDeleteAnimeFromListe" | "Groupe" | "Manga" | "Anime" | "Person" | "Character" | "Track" | "Company" | "Image" | "Patch" | "Activity" | "Report" | "DisabledUser" | "PremiumUser" | undefined;
         id?: string | undefined;
+        ref?: {
+            id: string;
+        } | undefined;
         description?: string | undefined;
         reason?: string | undefined;
         original?: any;
@@ -339,6 +397,9 @@ export declare const PatchPaginationBody: z.ZodObject<z.objectUtil.extendShape<{
         target?: number | undefined;
         targetPath?: number | undefined;
         id?: number | undefined;
+        ref?: {
+            id: number;
+        } | undefined;
         description?: number | undefined;
         reason?: number | undefined;
         isChangesUpdated?: number | undefined;
@@ -359,6 +420,9 @@ export declare const PatchPaginationBody: z.ZodObject<z.objectUtil.extendShape<{
         } | undefined;
         targetPath?: "User" | "Account" | "UserProfile" | "UserPreferences" | "UserAnimeListe" | "UserDeleteAnimeFromListe" | "Groupe" | "Manga" | "Anime" | "Person" | "Character" | "Track" | "Company" | "Image" | "Patch" | "Activity" | "Report" | "DisabledUser" | "PremiumUser" | undefined;
         id?: string | undefined;
+        ref?: {
+            id: string;
+        } | undefined;
         description?: string | undefined;
         reason?: string | undefined;
         original?: any;
@@ -409,16 +473,16 @@ export declare const Patch_Pagination_ZOD: z.ZodObject<{
         author?: string | undefined;
         target?: string | undefined;
         targetPath?: "User" | "Account" | "UserProfile" | "UserPreferences" | "UserAnimeListe" | "UserDeleteAnimeFromListe" | "Groupe" | "Manga" | "Anime" | "Person" | "Character" | "Track" | "Company" | "Image" | "Patch" | "Activity" | "Report" | "DisabledUser" | "PremiumUser" | ("User" | "Account" | "UserProfile" | "UserPreferences" | "UserAnimeListe" | "UserDeleteAnimeFromListe" | "Groupe" | "Manga" | "Anime" | "Person" | "Character" | "Track" | "Company" | "Image" | "Patch" | "Activity" | "Report" | "DisabledUser" | "PremiumUser")[] | undefined;
-        actionUser?: string | undefined;
         ref?: string | undefined;
+        actionUser?: string | undefined;
     }, {
         type?: "User" | "Account" | "UserProfile" | "UserPreferences" | "UserAnimeListe" | "UserDeleteAnimeFromListe" | "Groupe" | "Manga" | "Anime" | "Person" | "Character" | "Track" | "Company" | "Image" | "Patch" | "Activity" | "Report" | "DisabledUser" | "PremiumUser" | ("CREATE" | "UPDATE" | "MODERATOR_CREATE" | "MODERATOR_UPDATE")[] | undefined;
         status?: "PENDING" | "PROGRESS" | "ACCEPTED" | "DENIED" | ("PENDING" | "PROGRESS" | "ACCEPTED" | "DENIED")[] | undefined;
         author?: string | undefined;
         target?: string | undefined;
         targetPath?: "User" | "Account" | "UserProfile" | "UserPreferences" | "UserAnimeListe" | "UserDeleteAnimeFromListe" | "Groupe" | "Manga" | "Anime" | "Person" | "Character" | "Track" | "Company" | "Image" | "Patch" | "Activity" | "Report" | "DisabledUser" | "PremiumUser" | ("User" | "Account" | "UserProfile" | "UserPreferences" | "UserAnimeListe" | "UserDeleteAnimeFromListe" | "Groupe" | "Manga" | "Anime" | "Person" | "Character" | "Track" | "Company" | "Image" | "Patch" | "Activity" | "Report" | "DisabledUser" | "PremiumUser")[] | undefined;
-        actionUser?: string | undefined;
         ref?: string | undefined;
+        actionUser?: string | undefined;
     }>>;
     with: z.ZodOptional<z.ZodObject<{
         author: z.ZodOptional<z.ZodOptional<z.ZodBoolean>>;
@@ -450,8 +514,8 @@ export declare const Patch_Pagination_ZOD: z.ZodObject<{
         author?: string | undefined;
         target?: string | undefined;
         targetPath?: "User" | "Account" | "UserProfile" | "UserPreferences" | "UserAnimeListe" | "UserDeleteAnimeFromListe" | "Groupe" | "Manga" | "Anime" | "Person" | "Character" | "Track" | "Company" | "Image" | "Patch" | "Activity" | "Report" | "DisabledUser" | "PremiumUser" | ("User" | "Account" | "UserProfile" | "UserPreferences" | "UserAnimeListe" | "UserDeleteAnimeFromListe" | "Groupe" | "Manga" | "Anime" | "Person" | "Character" | "Track" | "Company" | "Image" | "Patch" | "Activity" | "Report" | "DisabledUser" | "PremiumUser")[] | undefined;
-        actionUser?: string | undefined;
         ref?: string | undefined;
+        actionUser?: string | undefined;
     } | undefined;
     with?: {
         author?: boolean | undefined;
@@ -473,8 +537,8 @@ export declare const Patch_Pagination_ZOD: z.ZodObject<{
         author?: string | undefined;
         target?: string | undefined;
         targetPath?: "User" | "Account" | "UserProfile" | "UserPreferences" | "UserAnimeListe" | "UserDeleteAnimeFromListe" | "Groupe" | "Manga" | "Anime" | "Person" | "Character" | "Track" | "Company" | "Image" | "Patch" | "Activity" | "Report" | "DisabledUser" | "PremiumUser" | ("User" | "Account" | "UserProfile" | "UserPreferences" | "UserAnimeListe" | "UserDeleteAnimeFromListe" | "Groupe" | "Manga" | "Anime" | "Person" | "Character" | "Track" | "Company" | "Image" | "Patch" | "Activity" | "Report" | "DisabledUser" | "PremiumUser")[] | undefined;
-        actionUser?: string | undefined;
         ref?: string | undefined;
+        actionUser?: string | undefined;
     } | undefined;
     with?: {
         author?: boolean | undefined;

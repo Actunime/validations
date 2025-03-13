@@ -6,10 +6,10 @@ import {
   PatchStatusArray,
   PatchTypeArray,
 } from "@actunime/types";
-import { flatten } from 'flat';
 
 export const PatchQueryBody = z.object({
   id: z.string(),
+  ref: z.object({ id: z.string() }),
   type: z.enum(PatchTypeArray),
   status: z.enum(PatchStatusArray),
   target: z.object({ id: z.string() }),
@@ -29,6 +29,7 @@ const check = (v: number) => [-1, 1].includes(v);
 const checkErr = "le sort doit être soit -1 ou 1";
 export const PatchSortBody = z.object({
   id: z.number().refine(check, checkErr),
+  ref: z.object({ id: z.number().refine(check, checkErr) }),
   type: z.number().refine(check, checkErr),
   status: z.number().refine(check, checkErr),
   target: z.number().refine(check, checkErr),

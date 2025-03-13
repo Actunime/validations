@@ -27,16 +27,16 @@ export declare const Update_Pagination_ZOD: z.ZodObject<{
         author?: string | undefined;
         target?: string | undefined;
         targetPath?: "User" | "Account" | "UserProfile" | "UserPreferences" | "UserAnimeListe" | "UserDeleteAnimeFromListe" | "Groupe" | "Manga" | "Anime" | "Person" | "Character" | "Track" | "Company" | "Image" | "Patch" | "Activity" | "Report" | "DisabledUser" | "PremiumUser" | ("User" | "Account" | "UserProfile" | "UserPreferences" | "UserAnimeListe" | "UserDeleteAnimeFromListe" | "Groupe" | "Manga" | "Anime" | "Person" | "Character" | "Track" | "Company" | "Image" | "Patch" | "Activity" | "Report" | "DisabledUser" | "PremiumUser")[] | undefined;
-        actionUser?: string | undefined;
         ref?: string | undefined;
+        actionUser?: string | undefined;
     }, {
         type?: "User" | "Account" | "UserProfile" | "UserPreferences" | "UserAnimeListe" | "UserDeleteAnimeFromListe" | "Groupe" | "Manga" | "Anime" | "Person" | "Character" | "Track" | "Company" | "Image" | "Patch" | "Activity" | "Report" | "DisabledUser" | "PremiumUser" | ("CREATE" | "UPDATE" | "MODERATOR_CREATE" | "MODERATOR_UPDATE")[] | undefined;
         status?: "PENDING" | "PROGRESS" | "ACCEPTED" | "DENIED" | ("PENDING" | "PROGRESS" | "ACCEPTED" | "DENIED")[] | undefined;
         author?: string | undefined;
         target?: string | undefined;
         targetPath?: "User" | "Account" | "UserProfile" | "UserPreferences" | "UserAnimeListe" | "UserDeleteAnimeFromListe" | "Groupe" | "Manga" | "Anime" | "Person" | "Character" | "Track" | "Company" | "Image" | "Patch" | "Activity" | "Report" | "DisabledUser" | "PremiumUser" | ("User" | "Account" | "UserProfile" | "UserPreferences" | "UserAnimeListe" | "UserDeleteAnimeFromListe" | "Groupe" | "Manga" | "Anime" | "Person" | "Character" | "Track" | "Company" | "Image" | "Patch" | "Activity" | "Report" | "DisabledUser" | "PremiumUser")[] | undefined;
-        actionUser?: string | undefined;
         ref?: string | undefined;
+        actionUser?: string | undefined;
     }>>;
     with: z.ZodOptional<z.ZodObject<{
         author: z.ZodOptional<z.ZodOptional<z.ZodBoolean>>;
@@ -68,8 +68,8 @@ export declare const Update_Pagination_ZOD: z.ZodObject<{
         author?: string | undefined;
         target?: string | undefined;
         targetPath?: "User" | "Account" | "UserProfile" | "UserPreferences" | "UserAnimeListe" | "UserDeleteAnimeFromListe" | "Groupe" | "Manga" | "Anime" | "Person" | "Character" | "Track" | "Company" | "Image" | "Patch" | "Activity" | "Report" | "DisabledUser" | "PremiumUser" | ("User" | "Account" | "UserProfile" | "UserPreferences" | "UserAnimeListe" | "UserDeleteAnimeFromListe" | "Groupe" | "Manga" | "Anime" | "Person" | "Character" | "Track" | "Company" | "Image" | "Patch" | "Activity" | "Report" | "DisabledUser" | "PremiumUser")[] | undefined;
-        actionUser?: string | undefined;
         ref?: string | undefined;
+        actionUser?: string | undefined;
     } | undefined;
     with?: {
         author?: boolean | undefined;
@@ -91,8 +91,8 @@ export declare const Update_Pagination_ZOD: z.ZodObject<{
         author?: string | undefined;
         target?: string | undefined;
         targetPath?: "User" | "Account" | "UserProfile" | "UserPreferences" | "UserAnimeListe" | "UserDeleteAnimeFromListe" | "Groupe" | "Manga" | "Anime" | "Person" | "Character" | "Track" | "Company" | "Image" | "Patch" | "Activity" | "Report" | "DisabledUser" | "PremiumUser" | ("User" | "Account" | "UserProfile" | "UserPreferences" | "UserAnimeListe" | "UserDeleteAnimeFromListe" | "Groupe" | "Manga" | "Anime" | "Person" | "Character" | "Track" | "Company" | "Image" | "Patch" | "Activity" | "Report" | "DisabledUser" | "PremiumUser")[] | undefined;
-        actionUser?: string | undefined;
         ref?: string | undefined;
+        actionUser?: string | undefined;
     } | undefined;
     with?: {
         author?: boolean | undefined;
