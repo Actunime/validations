@@ -1,3 +1,10 @@
+## [1.0.17](https://github.com/Actunime/validations/compare/v1.0.16...v1.0.17) (2025-03-13)
+
+
+### Bug Fixes
+
+* **types:** pagination validation ([8ca6b63](https://github.com/Actunime/validations/commit/8ca6b639387db651dec41076af58946717f87b89))
+
 ## [1.0.16](https://github.com/Actunime/validations/compare/v1.0.15...v1.0.16) (2025-03-12)
 
 
