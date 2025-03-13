@@ -24,3 +24,4 @@ export declare const PaginationBody: z.ZodObject<{
     sort?: any;
     query?: any;
 }>;
+export type IPaginationBody = z.infer<typeof PaginationBody>;

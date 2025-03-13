@@ -28,3 +28,5 @@ export const PaginationBody = z.object({
   sort: z.any(),
   query: z.any(),
 })
+
+export type IPaginationBody = z.infer<typeof PaginationBody>
