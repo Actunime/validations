@@ -1,3 +1,10 @@
+## [1.0.16](https://github.com/Actunime/validations/compare/v1.0.15...v1.0.16) (2025-03-12)
+
+
+### Bug Fixes
+
+* anime validation ([74c7f26](https://github.com/Actunime/validations/commit/74c7f26679d3620fdcfc6382fa6879c2444581e8))
+
 ## [1.0.15](https://github.com/Actunime/validations/compare/v1.0.14...v1.0.15) (2025-03-12)
 
 
