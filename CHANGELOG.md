@@ -1,3 +1,10 @@
+## [1.0.19](https://github.com/Actunime/validations/compare/v1.0.18...v1.0.19) (2025-03-14)
+
+
+### Bug Fixes
+
+* **types:** validations améliorations ([f3b43ae](https://github.com/Actunime/validations/commit/f3b43ae4849a345a6698dbfbe6069632208dcdc1))
+
 ## [1.0.18](https://github.com/Actunime/validations/compare/v1.0.17...v1.0.18) (2025-03-13)
 
 
