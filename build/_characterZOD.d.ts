@@ -65,13 +65,13 @@ export declare const CharacterQueryBody: z.ZodObject<{
     createdAt: z.ZodString;
     updatedAt: z.ZodString;
 }, "strip", z.ZodTypeAny, {
-    createdAt: string;
     name: {
         default?: string | undefined;
         alias?: {
             content: string;
         }[] | undefined;
     };
+    createdAt: string;
     updatedAt: string;
     birthDate: string;
     avatar: {
@@ -85,13 +85,13 @@ export declare const CharacterQueryBody: z.ZodObject<{
         id?: string | undefined;
     };
 }, {
-    createdAt: string;
     name: {
         default?: string | undefined;
         alias?: {
             content: string;
         }[] | undefined;
     };
+    createdAt: string;
     updatedAt: string;
     birthDate: string;
     avatar: {
@@ -199,13 +199,13 @@ export declare const CharacterPaginationBody: z.ZodObject<{
         createdAt: z.ZodOptional<z.ZodString>;
         updatedAt: z.ZodOptional<z.ZodString>;
     }, "strip", z.ZodTypeAny, {
-        createdAt?: string | undefined;
         name?: {
             default?: string | undefined;
             alias?: {
                 content: string;
             }[] | undefined;
         } | undefined;
+        createdAt?: string | undefined;
         updatedAt?: string | undefined;
         birthDate?: string | undefined;
         avatar?: {
@@ -219,13 +219,13 @@ export declare const CharacterPaginationBody: z.ZodObject<{
             id?: string | undefined;
         } | undefined;
     }, {
-        createdAt?: string | undefined;
         name?: {
             default?: string | undefined;
             alias?: {
                 content: string;
             }[] | undefined;
         } | undefined;
+        createdAt?: string | undefined;
         updatedAt?: string | undefined;
         birthDate?: string | undefined;
         avatar?: {
@@ -263,13 +263,13 @@ export declare const CharacterPaginationBody: z.ZodObject<{
         species?: number | undefined;
     } | undefined;
     query?: {
-        createdAt?: string | undefined;
         name?: {
             default?: string | undefined;
             alias?: {
                 content: string;
             }[] | undefined;
         } | undefined;
+        createdAt?: string | undefined;
         updatedAt?: string | undefined;
         birthDate?: string | undefined;
         avatar?: {
@@ -301,13 +301,13 @@ export declare const CharacterPaginationBody: z.ZodObject<{
         species?: string | number | undefined;
     } | undefined;
     query?: {
-        createdAt?: string | undefined;
         name?: {
             default?: string | undefined;
             alias?: {
                 content: string;
             }[] | undefined;
         } | undefined;
+        createdAt?: string | undefined;
         updatedAt?: string | undefined;
         birthDate?: string | undefined;
         avatar?: {
@@ -398,13 +398,13 @@ export declare const Character_Pagination_ZOD: z.ZodObject<{
         createdAt: z.ZodOptional<z.ZodString>;
         updatedAt: z.ZodOptional<z.ZodString>;
     }, "strip", z.ZodTypeAny, {
-        createdAt?: string | undefined;
         name?: {
             default?: string | undefined;
             alias?: {
                 content: string;
             }[] | undefined;
         } | undefined;
+        createdAt?: string | undefined;
         updatedAt?: string | undefined;
         birthDate?: string | undefined;
         avatar?: {
@@ -418,13 +418,13 @@ export declare const Character_Pagination_ZOD: z.ZodObject<{
             id?: string | undefined;
         } | undefined;
     }, {
-        createdAt?: string | undefined;
         name?: {
             default?: string | undefined;
             alias?: {
                 content: string;
             }[] | undefined;
         } | undefined;
+        createdAt?: string | undefined;
         updatedAt?: string | undefined;
         birthDate?: string | undefined;
         avatar?: {
@@ -451,13 +451,13 @@ export declare const Character_Pagination_ZOD: z.ZodObject<{
         species?: number | undefined;
     };
     query: {
-        createdAt?: string | undefined;
         name?: {
             default?: string | undefined;
             alias?: {
                 content: string;
             }[] | undefined;
         } | undefined;
+        createdAt?: string | undefined;
         updatedAt?: string | undefined;
         birthDate?: string | undefined;
         avatar?: {
@@ -484,13 +484,13 @@ export declare const Character_Pagination_ZOD: z.ZodObject<{
         species?: string | number | undefined;
     };
     query: {
-        createdAt?: string | undefined;
         name?: {
             default?: string | undefined;
             alias?: {
                 content: string;
             }[] | undefined;
         } | undefined;
+        createdAt?: string | undefined;
         updatedAt?: string | undefined;
         birthDate?: string | undefined;
         avatar?: {

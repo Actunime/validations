@@ -734,13 +734,13 @@ export declare const PersonQueryBody: z.ZodObject<{
     createdAt: z.ZodString;
     updatedAt: z.ZodString;
 }, "strip", z.ZodTypeAny, {
-    createdAt: string;
     name: {
         default?: string | undefined;
         alias?: {
             content: string;
         }[] | undefined;
     };
+    createdAt: string;
     updatedAt: string;
     isGroupe: boolean;
     birthDate: string;
@@ -754,13 +754,13 @@ export declare const PersonQueryBody: z.ZodObject<{
         name?: string | undefined;
     };
 }, {
-    createdAt: string;
     name: {
         default?: string | undefined;
         alias?: {
             content: string;
         }[] | undefined;
     };
+    createdAt: string;
     updatedAt: string;
     isGroupe: boolean;
     birthDate: string;
@@ -864,13 +864,13 @@ export declare const PersonPaginationBody: z.ZodObject<{
         createdAt: z.ZodOptional<z.ZodString>;
         updatedAt: z.ZodOptional<z.ZodString>;
     }, "strip", z.ZodTypeAny, {
-        createdAt?: string | undefined;
         name?: {
             default?: string | undefined;
             alias?: {
                 content: string;
             }[] | undefined;
         } | undefined;
+        createdAt?: string | undefined;
         updatedAt?: string | undefined;
         isGroupe?: boolean | undefined;
         birthDate?: string | undefined;
@@ -884,13 +884,13 @@ export declare const PersonPaginationBody: z.ZodObject<{
             name?: string | undefined;
         } | undefined;
     }, {
-        createdAt?: string | undefined;
         name?: {
             default?: string | undefined;
             alias?: {
                 content: string;
             }[] | undefined;
         } | undefined;
+        createdAt?: string | undefined;
         updatedAt?: string | undefined;
         isGroupe?: boolean | undefined;
         birthDate?: string | undefined;
@@ -927,13 +927,13 @@ export declare const PersonPaginationBody: z.ZodObject<{
         deathDate?: number | undefined;
     } | undefined;
     query?: {
-        createdAt?: string | undefined;
         name?: {
             default?: string | undefined;
             alias?: {
                 content: string;
             }[] | undefined;
         } | undefined;
+        createdAt?: string | undefined;
         updatedAt?: string | undefined;
         isGroupe?: boolean | undefined;
         birthDate?: string | undefined;
@@ -964,13 +964,13 @@ export declare const PersonPaginationBody: z.ZodObject<{
         deathDate?: string | number | undefined;
     } | undefined;
     query?: {
-        createdAt?: string | undefined;
         name?: {
             default?: string | undefined;
             alias?: {
                 content: string;
             }[] | undefined;
         } | undefined;
+        createdAt?: string | undefined;
         updatedAt?: string | undefined;
         isGroupe?: boolean | undefined;
         birthDate?: string | undefined;
@@ -1060,13 +1060,13 @@ export declare const Person_Pagination_ZOD: z.ZodObject<{
         createdAt: z.ZodOptional<z.ZodString>;
         updatedAt: z.ZodOptional<z.ZodString>;
     }, "strip", z.ZodTypeAny, {
-        createdAt?: string | undefined;
         name?: {
             default?: string | undefined;
             alias?: {
                 content: string;
             }[] | undefined;
         } | undefined;
+        createdAt?: string | undefined;
         updatedAt?: string | undefined;
         isGroupe?: boolean | undefined;
         birthDate?: string | undefined;
@@ -1080,13 +1080,13 @@ export declare const Person_Pagination_ZOD: z.ZodObject<{
             name?: string | undefined;
         } | undefined;
     }, {
-        createdAt?: string | undefined;
         name?: {
             default?: string | undefined;
             alias?: {
                 content: string;
             }[] | undefined;
         } | undefined;
+        createdAt?: string | undefined;
         updatedAt?: string | undefined;
         isGroupe?: boolean | undefined;
         birthDate?: string | undefined;
@@ -1112,13 +1112,13 @@ export declare const Person_Pagination_ZOD: z.ZodObject<{
         deathDate?: number | undefined;
     };
     query: {
-        createdAt?: string | undefined;
         name?: {
             default?: string | undefined;
             alias?: {
                 content: string;
             }[] | undefined;
         } | undefined;
+        createdAt?: string | undefined;
         updatedAt?: string | undefined;
         isGroupe?: boolean | undefined;
         birthDate?: string | undefined;
@@ -1144,13 +1144,13 @@ export declare const Person_Pagination_ZOD: z.ZodObject<{
         deathDate?: string | number | undefined;
     };
     query: {
-        createdAt?: string | undefined;
         name?: {
             default?: string | undefined;
             alias?: {
                 content: string;
             }[] | undefined;
         } | undefined;
+        createdAt?: string | undefined;
         updatedAt?: string | undefined;
         isGroupe?: boolean | undefined;
         birthDate?: string | undefined;

@@ -447,11 +447,11 @@ export declare const Manga_Pagination_ZOD: z.ZodObject<{
         updaptedAt: z.ZodOptional<z.ZodOptional<z.ZodEnum<["DESC", "ASC"]>>>;
         createdAt: z.ZodOptional<z.ZodOptional<z.ZodEnum<["DESC", "ASC"]>>>;
     }, "strict", z.ZodTypeAny, {
-        updaptedAt?: "DESC" | "ASC" | undefined;
         createdAt?: "DESC" | "ASC" | undefined;
+        updaptedAt?: "DESC" | "ASC" | undefined;
     }, {
-        updaptedAt?: "DESC" | "ASC" | undefined;
         createdAt?: "DESC" | "ASC" | undefined;
+        updaptedAt?: "DESC" | "ASC" | undefined;
     }>>;
     query: z.ZodOptional<z.ZodObject<{
         name: z.ZodOptional<z.ZodOptional<z.ZodString>>;
@@ -490,8 +490,8 @@ export declare const Manga_Pagination_ZOD: z.ZodObject<{
     limit?: number | undefined;
     strict?: boolean | undefined;
     sort?: {
-        updaptedAt?: "DESC" | "ASC" | undefined;
         createdAt?: "DESC" | "ASC" | undefined;
+        updaptedAt?: "DESC" | "ASC" | undefined;
     } | undefined;
     query?: {
         name?: string | undefined;
@@ -510,8 +510,8 @@ export declare const Manga_Pagination_ZOD: z.ZodObject<{
     limit?: string | number | undefined;
     strict?: boolean | undefined;
     sort?: {
-        updaptedAt?: "DESC" | "ASC" | undefined;
         createdAt?: "DESC" | "ASC" | undefined;
+        updaptedAt?: "DESC" | "ASC" | undefined;
     } | undefined;
     query?: {
         name?: string | undefined;

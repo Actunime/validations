@@ -7,11 +7,11 @@ export declare const Update_Pagination_ZOD: z.ZodObject<{
         updaptedAt: z.ZodOptional<z.ZodOptional<z.ZodEnum<["DESC", "ASC"]>>>;
         createdAt: z.ZodOptional<z.ZodOptional<z.ZodEnum<["DESC", "ASC"]>>>;
     }, "strict", z.ZodTypeAny, {
-        updaptedAt?: "DESC" | "ASC" | undefined;
         createdAt?: "DESC" | "ASC" | undefined;
+        updaptedAt?: "DESC" | "ASC" | undefined;
     }, {
-        updaptedAt?: "DESC" | "ASC" | undefined;
         createdAt?: "DESC" | "ASC" | undefined;
+        updaptedAt?: "DESC" | "ASC" | undefined;
     }>>;
     query: z.ZodOptional<z.ZodObject<{
         target: z.ZodOptional<z.ZodOptional<z.ZodString>>;
@@ -25,17 +25,17 @@ export declare const Update_Pagination_ZOD: z.ZodObject<{
         type?: "User" | "Account" | "UserProfile" | "UserPreferences" | "UserAnimeListe" | "UserDeleteAnimeFromListe" | "Groupe" | "Manga" | "Anime" | "Person" | "Character" | "Track" | "Company" | "Image" | "Patch" | "Activity" | "Report" | "DisabledUser" | "PremiumUser" | ("CREATE" | "UPDATE" | "MODERATOR_CREATE" | "MODERATOR_UPDATE")[] | undefined;
         status?: "PENDING" | "PROGRESS" | "ACCEPTED" | "DENIED" | ("PENDING" | "PROGRESS" | "ACCEPTED" | "DENIED")[] | undefined;
         author?: string | undefined;
+        ref?: string | undefined;
         target?: string | undefined;
         targetPath?: "User" | "Account" | "UserProfile" | "UserPreferences" | "UserAnimeListe" | "UserDeleteAnimeFromListe" | "Groupe" | "Manga" | "Anime" | "Person" | "Character" | "Track" | "Company" | "Image" | "Patch" | "Activity" | "Report" | "DisabledUser" | "PremiumUser" | ("User" | "Account" | "UserProfile" | "UserPreferences" | "UserAnimeListe" | "UserDeleteAnimeFromListe" | "Groupe" | "Manga" | "Anime" | "Person" | "Character" | "Track" | "Company" | "Image" | "Patch" | "Activity" | "Report" | "DisabledUser" | "PremiumUser")[] | undefined;
-        ref?: string | undefined;
         actionUser?: string | undefined;
     }, {
         type?: "User" | "Account" | "UserProfile" | "UserPreferences" | "UserAnimeListe" | "UserDeleteAnimeFromListe" | "Groupe" | "Manga" | "Anime" | "Person" | "Character" | "Track" | "Company" | "Image" | "Patch" | "Activity" | "Report" | "DisabledUser" | "PremiumUser" | ("CREATE" | "UPDATE" | "MODERATOR_CREATE" | "MODERATOR_UPDATE")[] | undefined;
         status?: "PENDING" | "PROGRESS" | "ACCEPTED" | "DENIED" | ("PENDING" | "PROGRESS" | "ACCEPTED" | "DENIED")[] | undefined;
         author?: string | undefined;
+        ref?: string | undefined;
         target?: string | undefined;
         targetPath?: "User" | "Account" | "UserProfile" | "UserPreferences" | "UserAnimeListe" | "UserDeleteAnimeFromListe" | "Groupe" | "Manga" | "Anime" | "Person" | "Character" | "Track" | "Company" | "Image" | "Patch" | "Activity" | "Report" | "DisabledUser" | "PremiumUser" | ("User" | "Account" | "UserProfile" | "UserPreferences" | "UserAnimeListe" | "UserDeleteAnimeFromListe" | "Groupe" | "Manga" | "Anime" | "Person" | "Character" | "Track" | "Company" | "Image" | "Patch" | "Activity" | "Report" | "DisabledUser" | "PremiumUser")[] | undefined;
-        ref?: string | undefined;
         actionUser?: string | undefined;
     }>>;
     with: z.ZodOptional<z.ZodObject<{
@@ -45,13 +45,13 @@ export declare const Update_Pagination_ZOD: z.ZodObject<{
         ref: z.ZodOptional<z.ZodOptional<z.ZodBoolean>>;
     }, "strict", z.ZodTypeAny, {
         author?: boolean | undefined;
-        target?: boolean | undefined;
         ref?: boolean | undefined;
+        target?: boolean | undefined;
         actions?: boolean | undefined;
     }, {
         author?: boolean | undefined;
-        target?: boolean | undefined;
         ref?: boolean | undefined;
+        target?: boolean | undefined;
         actions?: boolean | undefined;
     }>>;
 }, "strict", z.ZodTypeAny, {
@@ -59,22 +59,22 @@ export declare const Update_Pagination_ZOD: z.ZodObject<{
     limit?: number | undefined;
     strict?: boolean | undefined;
     sort?: {
-        updaptedAt?: "DESC" | "ASC" | undefined;
         createdAt?: "DESC" | "ASC" | undefined;
+        updaptedAt?: "DESC" | "ASC" | undefined;
     } | undefined;
     query?: {
         type?: "User" | "Account" | "UserProfile" | "UserPreferences" | "UserAnimeListe" | "UserDeleteAnimeFromListe" | "Groupe" | "Manga" | "Anime" | "Person" | "Character" | "Track" | "Company" | "Image" | "Patch" | "Activity" | "Report" | "DisabledUser" | "PremiumUser" | ("CREATE" | "UPDATE" | "MODERATOR_CREATE" | "MODERATOR_UPDATE")[] | undefined;
         status?: "PENDING" | "PROGRESS" | "ACCEPTED" | "DENIED" | ("PENDING" | "PROGRESS" | "ACCEPTED" | "DENIED")[] | undefined;
         author?: string | undefined;
+        ref?: string | undefined;
         target?: string | undefined;
         targetPath?: "User" | "Account" | "UserProfile" | "UserPreferences" | "UserAnimeListe" | "UserDeleteAnimeFromListe" | "Groupe" | "Manga" | "Anime" | "Person" | "Character" | "Track" | "Company" | "Image" | "Patch" | "Activity" | "Report" | "DisabledUser" | "PremiumUser" | ("User" | "Account" | "UserProfile" | "UserPreferences" | "UserAnimeListe" | "UserDeleteAnimeFromListe" | "Groupe" | "Manga" | "Anime" | "Person" | "Character" | "Track" | "Company" | "Image" | "Patch" | "Activity" | "Report" | "DisabledUser" | "PremiumUser")[] | undefined;
-        ref?: string | undefined;
         actionUser?: string | undefined;
     } | undefined;
     with?: {
         author?: boolean | undefined;
-        target?: boolean | undefined;
         ref?: boolean | undefined;
+        target?: boolean | undefined;
         actions?: boolean | undefined;
     } | undefined;
 }, {
@@ -82,22 +82,22 @@ export declare const Update_Pagination_ZOD: z.ZodObject<{
     limit?: string | number | undefined;
     strict?: boolean | undefined;
     sort?: {
-        updaptedAt?: "DESC" | "ASC" | undefined;
         createdAt?: "DESC" | "ASC" | undefined;
+        updaptedAt?: "DESC" | "ASC" | undefined;
     } | undefined;
     query?: {
         type?: "User" | "Account" | "UserProfile" | "UserPreferences" | "UserAnimeListe" | "UserDeleteAnimeFromListe" | "Groupe" | "Manga" | "Anime" | "Person" | "Character" | "Track" | "Company" | "Image" | "Patch" | "Activity" | "Report" | "DisabledUser" | "PremiumUser" | ("CREATE" | "UPDATE" | "MODERATOR_CREATE" | "MODERATOR_UPDATE")[] | undefined;
         status?: "PENDING" | "PROGRESS" | "ACCEPTED" | "DENIED" | ("PENDING" | "PROGRESS" | "ACCEPTED" | "DENIED")[] | undefined;
         author?: string | undefined;
+        ref?: string | undefined;
         target?: string | undefined;
         targetPath?: "User" | "Account" | "UserProfile" | "UserPreferences" | "UserAnimeListe" | "UserDeleteAnimeFromListe" | "Groupe" | "Manga" | "Anime" | "Person" | "Character" | "Track" | "Company" | "Image" | "Patch" | "Activity" | "Report" | "DisabledUser" | "PremiumUser" | ("User" | "Account" | "UserProfile" | "UserPreferences" | "UserAnimeListe" | "UserDeleteAnimeFromListe" | "Groupe" | "Manga" | "Anime" | "Person" | "Character" | "Track" | "Company" | "Image" | "Patch" | "Activity" | "Report" | "DisabledUser" | "PremiumUser")[] | undefined;
-        ref?: string | undefined;
         actionUser?: string | undefined;
     } | undefined;
     with?: {
         author?: boolean | undefined;
-        target?: boolean | undefined;
         ref?: boolean | undefined;
+        target?: boolean | undefined;
         actions?: boolean | undefined;
     } | undefined;
 }>;

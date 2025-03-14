@@ -4,41 +4,34 @@ import {
   TargetPathArray,
 } from "@actunime/types";
 import { z } from "zod";
-import { zodNumber } from "./_util";
+import { PaginationBody, zodNumber } from "./_util";
+import {  } from "./_media";
 
-export const Activity_Pagination_ZOD = z
-  .object({
-    page: zodNumber(),
-    limit: zodNumber(),
-    strict: z.boolean().optional(),
-    sort: z
-      .object({
-        updaptedAt: z.enum(["DESC", "ASC"]).optional(),
-        createdAt: z.enum(["DESC", "ASC"]).optional(),
-      })
-      .partial()
-      .strict(),
-    query: z
-      .object({
-        type: z.enum(ActivityTypeArray),
-        action: z.enum(ActivityActionArray),
-        author: z.string().optional(),
-        target: z.string().optional(),
-        targetPath: z.enum(TargetPathArray),
-      })
-      .partial()
-      .strict(),
-    with: z
-      .object({
-        author: z.boolean().optional(),
-        target: z.boolean().optional(),
-      })
-      .partial()
-      .strict(),
-  })
-  .partial()
-  .strict();
+export const ActivityQueryBody = z.object({
+  type: z.enum(ActivityTypeArray),
+  action: z.enum(ActivityActionArray),
+  author: z.string().optional(),
+  targets: z.array(z.object({ path: z.enum(TargetPathArray), id: z.string() })),
+  createdAt: z.string(),
+  updatedAt: z.string(),
+});
 
-type IActivity_Pagination_ZOD = z.infer<typeof Activity_Pagination_ZOD>;
+export type IActivityQueryBody = z.infer<typeof ActivityQueryBody>;
 
-export type { IActivity_Pagination_ZOD };
+const check = (v: number) => [-1, 1].includes(v);
+const checkErr = "le sort doit être soit -1 ou 1";
+export const ActivitySortBody = z.object({
+  type: z.number().refine(check, checkErr),
+  action: z.number().refine(check, checkErr),
+  createdAt: z.number().refine(check, checkErr),
+  updatedAt: z.number().refine(check, checkErr),
+})
+
+export type IActivitySortBody = z.infer<typeof ActivitySortBody>;
+
+export const ActivityPaginationBody = PaginationBody.extend({
+  sort: ActivitySortBody.partial(),
+  query: ActivityQueryBody.partial()
+})
+
+export type IActivityPaginationBody = z.infer<typeof ActivityPaginationBody>;

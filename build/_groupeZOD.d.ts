@@ -12,12 +12,12 @@ export declare const GroupeSortBody: z.ZodObject<{
     createdAt: z.ZodEffects<z.ZodNumber, number, number>;
     updatedAt: z.ZodEffects<z.ZodNumber, number, number>;
 }, "strip", z.ZodTypeAny, {
-    createdAt: number;
     name: number;
+    createdAt: number;
     updatedAt: number;
 }, {
-    createdAt: number;
     name: number;
+    createdAt: number;
     updatedAt: number;
 }>;
 export declare const GroupePaginationBody: z.ZodObject<z.objectUtil.extendShape<{
@@ -33,12 +33,12 @@ export declare const GroupePaginationBody: z.ZodObject<z.objectUtil.extendShape<
         createdAt: z.ZodOptional<z.ZodEffects<z.ZodNumber, number, number>>;
         updatedAt: z.ZodOptional<z.ZodEffects<z.ZodNumber, number, number>>;
     }, "strip", z.ZodTypeAny, {
-        createdAt?: number | undefined;
         name?: number | undefined;
+        createdAt?: number | undefined;
         updatedAt?: number | undefined;
     }, {
-        createdAt?: number | undefined;
         name?: number | undefined;
+        createdAt?: number | undefined;
         updatedAt?: number | undefined;
     }>;
     query: z.ZodObject<{
@@ -54,8 +54,8 @@ export declare const GroupePaginationBody: z.ZodObject<z.objectUtil.extendShape<
     strict: boolean;
     onlyVerified: boolean;
     sort: {
-        createdAt?: number | undefined;
         name?: number | undefined;
+        createdAt?: number | undefined;
         updatedAt?: number | undefined;
     };
     query: {
@@ -67,8 +67,8 @@ export declare const GroupePaginationBody: z.ZodObject<z.objectUtil.extendShape<
     strict: boolean;
     onlyVerified: boolean;
     sort: {
-        createdAt?: number | undefined;
         name?: number | undefined;
+        createdAt?: number | undefined;
         updatedAt?: number | undefined;
     };
     query: {

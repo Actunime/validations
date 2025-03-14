@@ -44,7 +44,6 @@ export declare const TrackQueryBody: z.ZodObject<{
     updatedAt: z.ZodString;
 }, "strip", z.ZodTypeAny, {
     type: "OPENING" | "ENDING" | "OST" | "INSERT";
-    createdAt: string;
     cover: {
         id?: string | undefined;
         label?: "COVER" | "BANNER" | "AVATAR" | "LOGO" | undefined;
@@ -53,6 +52,7 @@ export declare const TrackQueryBody: z.ZodObject<{
         default: string;
         native?: string | undefined;
     };
+    createdAt: string;
     updatedAt: string;
     links: {
         value?: string | undefined;
@@ -64,7 +64,6 @@ export declare const TrackQueryBody: z.ZodObject<{
     };
 }, {
     type: "OPENING" | "ENDING" | "OST" | "INSERT";
-    createdAt: string;
     cover: {
         id?: string | undefined;
         label?: "COVER" | "BANNER" | "AVATAR" | "LOGO" | undefined;
@@ -73,6 +72,7 @@ export declare const TrackQueryBody: z.ZodObject<{
         default: string;
         native?: string | undefined;
     };
+    createdAt: string;
     updatedAt: string;
     links: {
         value?: string | undefined;
@@ -164,7 +164,6 @@ export declare const TrackPaginationBody: z.ZodObject<{
         updatedAt: z.ZodOptional<z.ZodString>;
     }, "strip", z.ZodTypeAny, {
         type?: "OPENING" | "ENDING" | "OST" | "INSERT" | undefined;
-        createdAt?: string | undefined;
         cover?: {
             id?: string | undefined;
             label?: "COVER" | "BANNER" | "AVATAR" | "LOGO" | undefined;
@@ -173,6 +172,7 @@ export declare const TrackPaginationBody: z.ZodObject<{
             default: string;
             native?: string | undefined;
         } | undefined;
+        createdAt?: string | undefined;
         updatedAt?: string | undefined;
         links?: {
             value?: string | undefined;
@@ -184,7 +184,6 @@ export declare const TrackPaginationBody: z.ZodObject<{
         } | undefined;
     }, {
         type?: "OPENING" | "ENDING" | "OST" | "INSERT" | undefined;
-        createdAt?: string | undefined;
         cover?: {
             id?: string | undefined;
             label?: "COVER" | "BANNER" | "AVATAR" | "LOGO" | undefined;
@@ -193,6 +192,7 @@ export declare const TrackPaginationBody: z.ZodObject<{
             default: string;
             native?: string | undefined;
         } | undefined;
+        createdAt?: string | undefined;
         updatedAt?: string | undefined;
         links?: {
             value?: string | undefined;
@@ -226,7 +226,6 @@ export declare const TrackPaginationBody: z.ZodObject<{
     } | undefined;
     query?: {
         type?: "OPENING" | "ENDING" | "OST" | "INSERT" | undefined;
-        createdAt?: string | undefined;
         cover?: {
             id?: string | undefined;
             label?: "COVER" | "BANNER" | "AVATAR" | "LOGO" | undefined;
@@ -235,6 +234,7 @@ export declare const TrackPaginationBody: z.ZodObject<{
             default: string;
             native?: string | undefined;
         } | undefined;
+        createdAt?: string | undefined;
         updatedAt?: string | undefined;
         links?: {
             value?: string | undefined;
@@ -262,7 +262,6 @@ export declare const TrackPaginationBody: z.ZodObject<{
     } | undefined;
     query?: {
         type?: "OPENING" | "ENDING" | "OST" | "INSERT" | undefined;
-        createdAt?: string | undefined;
         cover?: {
             id?: string | undefined;
             label?: "COVER" | "BANNER" | "AVATAR" | "LOGO" | undefined;
@@ -271,6 +270,7 @@ export declare const TrackPaginationBody: z.ZodObject<{
             default: string;
             native?: string | undefined;
         } | undefined;
+        createdAt?: string | undefined;
         updatedAt?: string | undefined;
         links?: {
             value?: string | undefined;
@@ -351,7 +351,6 @@ export declare const Track_Pagination_ZOD: z.ZodObject<{
         updatedAt: z.ZodOptional<z.ZodString>;
     }, "strip", z.ZodTypeAny, {
         type?: "OPENING" | "ENDING" | "OST" | "INSERT" | undefined;
-        createdAt?: string | undefined;
         cover?: {
             id?: string | undefined;
             label?: "COVER" | "BANNER" | "AVATAR" | "LOGO" | undefined;
@@ -360,6 +359,7 @@ export declare const Track_Pagination_ZOD: z.ZodObject<{
             default: string;
             native?: string | undefined;
         } | undefined;
+        createdAt?: string | undefined;
         updatedAt?: string | undefined;
         links?: {
             value?: string | undefined;
@@ -371,7 +371,6 @@ export declare const Track_Pagination_ZOD: z.ZodObject<{
         } | undefined;
     }, {
         type?: "OPENING" | "ENDING" | "OST" | "INSERT" | undefined;
-        createdAt?: string | undefined;
         cover?: {
             id?: string | undefined;
             label?: "COVER" | "BANNER" | "AVATAR" | "LOGO" | undefined;
@@ -380,6 +379,7 @@ export declare const Track_Pagination_ZOD: z.ZodObject<{
             default: string;
             native?: string | undefined;
         } | undefined;
+        createdAt?: string | undefined;
         updatedAt?: string | undefined;
         links?: {
             value?: string | undefined;
@@ -402,7 +402,6 @@ export declare const Track_Pagination_ZOD: z.ZodObject<{
     };
     query: {
         type?: "OPENING" | "ENDING" | "OST" | "INSERT" | undefined;
-        createdAt?: string | undefined;
         cover?: {
             id?: string | undefined;
             label?: "COVER" | "BANNER" | "AVATAR" | "LOGO" | undefined;
@@ -411,6 +410,7 @@ export declare const Track_Pagination_ZOD: z.ZodObject<{
             default: string;
             native?: string | undefined;
         } | undefined;
+        createdAt?: string | undefined;
         updatedAt?: string | undefined;
         links?: {
             value?: string | undefined;
@@ -433,7 +433,6 @@ export declare const Track_Pagination_ZOD: z.ZodObject<{
     };
     query: {
         type?: "OPENING" | "ENDING" | "OST" | "INSERT" | undefined;
-        createdAt?: string | undefined;
         cover?: {
             id?: string | undefined;
             label?: "COVER" | "BANNER" | "AVATAR" | "LOGO" | undefined;
@@ -442,6 +441,7 @@ export declare const Track_Pagination_ZOD: z.ZodObject<{
             default: string;
             native?: string | undefined;
         } | undefined;
+        createdAt?: string | undefined;
         updatedAt?: string | undefined;
         links?: {
             value?: string | undefined;

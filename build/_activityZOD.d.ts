@@ -1,85 +1,163 @@
 import { z } from "zod";
-export declare const Activity_Pagination_ZOD: z.ZodObject<{
-    page: z.ZodOptional<z.ZodEffects<z.ZodUnion<[z.ZodNumber, z.ZodString]>, number, string | number>>;
-    limit: z.ZodOptional<z.ZodEffects<z.ZodUnion<[z.ZodNumber, z.ZodString]>, number, string | number>>;
-    strict: z.ZodOptional<z.ZodOptional<z.ZodBoolean>>;
-    sort: z.ZodOptional<z.ZodObject<{
-        updaptedAt: z.ZodOptional<z.ZodOptional<z.ZodEnum<["DESC", "ASC"]>>>;
-        createdAt: z.ZodOptional<z.ZodOptional<z.ZodEnum<["DESC", "ASC"]>>>;
-    }, "strict", z.ZodTypeAny, {
-        updaptedAt?: "DESC" | "ASC" | undefined;
-        createdAt?: "DESC" | "ASC" | undefined;
+export declare const ActivityQueryBody: z.ZodObject<{
+    type: z.ZodEnum<("PUBLIC" | "MEMBER" | "MODERATION" | "SYSTEM")[] & [string, ...string[]]>;
+    action: z.ZodEnum<("ROLES_CHANGES" | "PREMIUM_CHANGES" | "DISABLE_MEMBER" | "ENABLE_MEMBER" | "REPORT_STATUS_CHANGES" | "UPDATE_STATUS_CHANGES" | "UPDATE_EDIT_CHANGES" | "CREATE_ANIME" | "CREATE_MANGA" | "CREATE_PERSON" | "CREATE_GROUPE" | "CREATE_CHARACTER" | "CREATE_TRACK" | "CREATE_COMPANY" | "CREATE_REPORT" | "CREATE_IMAGE" | "UPDATE_ANIME" | "UPDATE_MANGA" | "UPDATE_PERSON" | "UPDATE_GROUPE" | "UPDATE_CHARACTER" | "UPDATE_TRACK" | "UPDATE_COMPANY" | "UPDATE_REPORT" | "UPDATE_PATCH" | "UPDATE_IMAGE" | "REQUEST_ANIME" | "REQUEST_MANGA" | "REQUEST_PERSON" | "REQUEST_GROUPE" | "REQUEST_CHARACTER" | "REQUEST_TRACK" | "REQUEST_COMPANY" | "REQUEST_IMAGE" | "ACCEPT_CREATE_REQUEST_ANIME" | "ACCEPT_CREATE_REQUEST_MANGA" | "ACCEPT_CREATE_REQUEST_PERSON" | "ACCEPT_CREATE_REQUEST_GROUPE" | "ACCEPT_CREATE_REQUEST_CHARACTER" | "ACCEPT_CREATE_REQUEST_TRACK" | "ACCEPT_CREATE_REQUEST_COMPANY" | "ACCEPT_CREATE_REQUEST_IMAGE" | "UPDATE_CREATE_REQUEST_ANIME" | "UPDATE_CREATE_REQUEST_MANGA" | "UPDATE_CREATE_REQUEST_PERSON" | "UPDATE_CREATE_REQUEST_GROUPE" | "UPDATE_CREATE_REQUEST_CHARACTER" | "UPDATE_CREATE_REQUEST_TRACK" | "UPDATE_CREATE_REQUEST_COMPANY" | "UPDATE_CREATE_REQUEST_IMAGE" | "DENY_CREATE_REQUEST_ANIME" | "DENY_CREATE_REQUEST_MANGA" | "DENY_CREATE_REQUEST_PERSON" | "DENY_CREATE_REQUEST_GROUPE" | "DENY_CREATE_REQUEST_CHARACTER" | "DENY_CREATE_REQUEST_TRACK" | "DENY_CREATE_REQUEST_COMPANY" | "DENY_CREATE_REQUEST_IMAGE" | "DELETE_CREATE_REQUEST_ANIME" | "DELETE_CREATE_REQUEST_MANGA" | "DELETE_CREATE_REQUEST_PERSON" | "DELETE_CREATE_REQUEST_GROUPE" | "DELETE_CREATE_REQUEST_CHARACTER" | "DELETE_CREATE_REQUEST_TRACK" | "DELETE_CREATE_REQUEST_COMPANY" | "DELETE_CREATE_REQUEST_IMAGE" | "LOGOUT" | "LOGIN" | "SIGNUP" | "PROFILE_CHANGES")[] & [string, ...string[]]>;
+    author: z.ZodOptional<z.ZodString>;
+    targets: z.ZodArray<z.ZodObject<{
+        path: z.ZodEnum<("User" | "Account" | "UserProfile" | "UserPreferences" | "UserAnimeListe" | "UserDeleteAnimeFromListe" | "Groupe" | "Manga" | "Anime" | "Person" | "Character" | "Track" | "Company" | "Image" | "Patch" | "Activity" | "Report" | "DisabledUser" | "PremiumUser")[] & [string, ...string[]]>;
+        id: z.ZodString;
+    }, "strip", z.ZodTypeAny, {
+        path: "User" | "Account" | "UserProfile" | "UserPreferences" | "UserAnimeListe" | "UserDeleteAnimeFromListe" | "Groupe" | "Manga" | "Anime" | "Person" | "Character" | "Track" | "Company" | "Image" | "Patch" | "Activity" | "Report" | "DisabledUser" | "PremiumUser";
+        id: string;
     }, {
-        updaptedAt?: "DESC" | "ASC" | undefined;
-        createdAt?: "DESC" | "ASC" | undefined;
-    }>>;
-    query: z.ZodOptional<z.ZodObject<{
+        path: "User" | "Account" | "UserProfile" | "UserPreferences" | "UserAnimeListe" | "UserDeleteAnimeFromListe" | "Groupe" | "Manga" | "Anime" | "Person" | "Character" | "Track" | "Company" | "Image" | "Patch" | "Activity" | "Report" | "DisabledUser" | "PremiumUser";
+        id: string;
+    }>, "many">;
+    createdAt: z.ZodString;
+    updatedAt: z.ZodString;
+}, "strip", z.ZodTypeAny, {
+    type: "PUBLIC" | "MEMBER" | "MODERATION" | "SYSTEM";
+    action: "ROLES_CHANGES" | "PREMIUM_CHANGES" | "DISABLE_MEMBER" | "ENABLE_MEMBER" | "REPORT_STATUS_CHANGES" | "UPDATE_STATUS_CHANGES" | "UPDATE_EDIT_CHANGES" | "CREATE_ANIME" | "CREATE_MANGA" | "CREATE_PERSON" | "CREATE_GROUPE" | "CREATE_CHARACTER" | "CREATE_TRACK" | "CREATE_COMPANY" | "CREATE_REPORT" | "CREATE_IMAGE" | "UPDATE_ANIME" | "UPDATE_MANGA" | "UPDATE_PERSON" | "UPDATE_GROUPE" | "UPDATE_CHARACTER" | "UPDATE_TRACK" | "UPDATE_COMPANY" | "UPDATE_REPORT" | "UPDATE_PATCH" | "UPDATE_IMAGE" | "REQUEST_ANIME" | "REQUEST_MANGA" | "REQUEST_PERSON" | "REQUEST_GROUPE" | "REQUEST_CHARACTER" | "REQUEST_TRACK" | "REQUEST_COMPANY" | "REQUEST_IMAGE" | "ACCEPT_CREATE_REQUEST_ANIME" | "ACCEPT_CREATE_REQUEST_MANGA" | "ACCEPT_CREATE_REQUEST_PERSON" | "ACCEPT_CREATE_REQUEST_GROUPE" | "ACCEPT_CREATE_REQUEST_CHARACTER" | "ACCEPT_CREATE_REQUEST_TRACK" | "ACCEPT_CREATE_REQUEST_COMPANY" | "ACCEPT_CREATE_REQUEST_IMAGE" | "UPDATE_CREATE_REQUEST_ANIME" | "UPDATE_CREATE_REQUEST_MANGA" | "UPDATE_CREATE_REQUEST_PERSON" | "UPDATE_CREATE_REQUEST_GROUPE" | "UPDATE_CREATE_REQUEST_CHARACTER" | "UPDATE_CREATE_REQUEST_TRACK" | "UPDATE_CREATE_REQUEST_COMPANY" | "UPDATE_CREATE_REQUEST_IMAGE" | "DENY_CREATE_REQUEST_ANIME" | "DENY_CREATE_REQUEST_MANGA" | "DENY_CREATE_REQUEST_PERSON" | "DENY_CREATE_REQUEST_GROUPE" | "DENY_CREATE_REQUEST_CHARACTER" | "DENY_CREATE_REQUEST_TRACK" | "DENY_CREATE_REQUEST_COMPANY" | "DENY_CREATE_REQUEST_IMAGE" | "DELETE_CREATE_REQUEST_ANIME" | "DELETE_CREATE_REQUEST_MANGA" | "DELETE_CREATE_REQUEST_PERSON" | "DELETE_CREATE_REQUEST_GROUPE" | "DELETE_CREATE_REQUEST_CHARACTER" | "DELETE_CREATE_REQUEST_TRACK" | "DELETE_CREATE_REQUEST_COMPANY" | "DELETE_CREATE_REQUEST_IMAGE" | "LOGOUT" | "LOGIN" | "SIGNUP" | "PROFILE_CHANGES";
+    targets: {
+        path: "User" | "Account" | "UserProfile" | "UserPreferences" | "UserAnimeListe" | "UserDeleteAnimeFromListe" | "Groupe" | "Manga" | "Anime" | "Person" | "Character" | "Track" | "Company" | "Image" | "Patch" | "Activity" | "Report" | "DisabledUser" | "PremiumUser";
+        id: string;
+    }[];
+    createdAt: string;
+    updatedAt: string;
+    author?: string | undefined;
+}, {
+    type: "PUBLIC" | "MEMBER" | "MODERATION" | "SYSTEM";
+    action: "ROLES_CHANGES" | "PREMIUM_CHANGES" | "DISABLE_MEMBER" | "ENABLE_MEMBER" | "REPORT_STATUS_CHANGES" | "UPDATE_STATUS_CHANGES" | "UPDATE_EDIT_CHANGES" | "CREATE_ANIME" | "CREATE_MANGA" | "CREATE_PERSON" | "CREATE_GROUPE" | "CREATE_CHARACTER" | "CREATE_TRACK" | "CREATE_COMPANY" | "CREATE_REPORT" | "CREATE_IMAGE" | "UPDATE_ANIME" | "UPDATE_MANGA" | "UPDATE_PERSON" | "UPDATE_GROUPE" | "UPDATE_CHARACTER" | "UPDATE_TRACK" | "UPDATE_COMPANY" | "UPDATE_REPORT" | "UPDATE_PATCH" | "UPDATE_IMAGE" | "REQUEST_ANIME" | "REQUEST_MANGA" | "REQUEST_PERSON" | "REQUEST_GROUPE" | "REQUEST_CHARACTER" | "REQUEST_TRACK" | "REQUEST_COMPANY" | "REQUEST_IMAGE" | "ACCEPT_CREATE_REQUEST_ANIME" | "ACCEPT_CREATE_REQUEST_MANGA" | "ACCEPT_CREATE_REQUEST_PERSON" | "ACCEPT_CREATE_REQUEST_GROUPE" | "ACCEPT_CREATE_REQUEST_CHARACTER" | "ACCEPT_CREATE_REQUEST_TRACK" | "ACCEPT_CREATE_REQUEST_COMPANY" | "ACCEPT_CREATE_REQUEST_IMAGE" | "UPDATE_CREATE_REQUEST_ANIME" | "UPDATE_CREATE_REQUEST_MANGA" | "UPDATE_CREATE_REQUEST_PERSON" | "UPDATE_CREATE_REQUEST_GROUPE" | "UPDATE_CREATE_REQUEST_CHARACTER" | "UPDATE_CREATE_REQUEST_TRACK" | "UPDATE_CREATE_REQUEST_COMPANY" | "UPDATE_CREATE_REQUEST_IMAGE" | "DENY_CREATE_REQUEST_ANIME" | "DENY_CREATE_REQUEST_MANGA" | "DENY_CREATE_REQUEST_PERSON" | "DENY_CREATE_REQUEST_GROUPE" | "DENY_CREATE_REQUEST_CHARACTER" | "DENY_CREATE_REQUEST_TRACK" | "DENY_CREATE_REQUEST_COMPANY" | "DENY_CREATE_REQUEST_IMAGE" | "DELETE_CREATE_REQUEST_ANIME" | "DELETE_CREATE_REQUEST_MANGA" | "DELETE_CREATE_REQUEST_PERSON" | "DELETE_CREATE_REQUEST_GROUPE" | "DELETE_CREATE_REQUEST_CHARACTER" | "DELETE_CREATE_REQUEST_TRACK" | "DELETE_CREATE_REQUEST_COMPANY" | "DELETE_CREATE_REQUEST_IMAGE" | "LOGOUT" | "LOGIN" | "SIGNUP" | "PROFILE_CHANGES";
+    targets: {
+        path: "User" | "Account" | "UserProfile" | "UserPreferences" | "UserAnimeListe" | "UserDeleteAnimeFromListe" | "Groupe" | "Manga" | "Anime" | "Person" | "Character" | "Track" | "Company" | "Image" | "Patch" | "Activity" | "Report" | "DisabledUser" | "PremiumUser";
+        id: string;
+    }[];
+    createdAt: string;
+    updatedAt: string;
+    author?: string | undefined;
+}>;
+export type IActivityQueryBody = z.infer<typeof ActivityQueryBody>;
+export declare const ActivitySortBody: z.ZodObject<{
+    type: z.ZodEffects<z.ZodNumber, number, number>;
+    action: z.ZodEffects<z.ZodNumber, number, number>;
+    createdAt: z.ZodEffects<z.ZodNumber, number, number>;
+    updatedAt: z.ZodEffects<z.ZodNumber, number, number>;
+}, "strip", z.ZodTypeAny, {
+    type: number;
+    action: number;
+    createdAt: number;
+    updatedAt: number;
+}, {
+    type: number;
+    action: number;
+    createdAt: number;
+    updatedAt: number;
+}>;
+export type IActivitySortBody = z.infer<typeof ActivitySortBody>;
+export declare const ActivityPaginationBody: z.ZodObject<z.objectUtil.extendShape<{
+    page: z.ZodNumber;
+    limit: z.ZodNumber;
+    strict: z.ZodBoolean;
+    onlyVerified: z.ZodBoolean;
+    sort: z.ZodAny;
+    query: z.ZodAny;
+}, {
+    sort: z.ZodObject<{
+        type: z.ZodOptional<z.ZodEffects<z.ZodNumber, number, number>>;
+        action: z.ZodOptional<z.ZodEffects<z.ZodNumber, number, number>>;
+        createdAt: z.ZodOptional<z.ZodEffects<z.ZodNumber, number, number>>;
+        updatedAt: z.ZodOptional<z.ZodEffects<z.ZodNumber, number, number>>;
+    }, "strip", z.ZodTypeAny, {
+        type?: number | undefined;
+        action?: number | undefined;
+        createdAt?: number | undefined;
+        updatedAt?: number | undefined;
+    }, {
+        type?: number | undefined;
+        action?: number | undefined;
+        createdAt?: number | undefined;
+        updatedAt?: number | undefined;
+    }>;
+    query: z.ZodObject<{
         type: z.ZodOptional<z.ZodEnum<("PUBLIC" | "MEMBER" | "MODERATION" | "SYSTEM")[] & [string, ...string[]]>>;
         action: z.ZodOptional<z.ZodEnum<("ROLES_CHANGES" | "PREMIUM_CHANGES" | "DISABLE_MEMBER" | "ENABLE_MEMBER" | "REPORT_STATUS_CHANGES" | "UPDATE_STATUS_CHANGES" | "UPDATE_EDIT_CHANGES" | "CREATE_ANIME" | "CREATE_MANGA" | "CREATE_PERSON" | "CREATE_GROUPE" | "CREATE_CHARACTER" | "CREATE_TRACK" | "CREATE_COMPANY" | "CREATE_REPORT" | "CREATE_IMAGE" | "UPDATE_ANIME" | "UPDATE_MANGA" | "UPDATE_PERSON" | "UPDATE_GROUPE" | "UPDATE_CHARACTER" | "UPDATE_TRACK" | "UPDATE_COMPANY" | "UPDATE_REPORT" | "UPDATE_PATCH" | "UPDATE_IMAGE" | "REQUEST_ANIME" | "REQUEST_MANGA" | "REQUEST_PERSON" | "REQUEST_GROUPE" | "REQUEST_CHARACTER" | "REQUEST_TRACK" | "REQUEST_COMPANY" | "REQUEST_IMAGE" | "ACCEPT_CREATE_REQUEST_ANIME" | "ACCEPT_CREATE_REQUEST_MANGA" | "ACCEPT_CREATE_REQUEST_PERSON" | "ACCEPT_CREATE_REQUEST_GROUPE" | "ACCEPT_CREATE_REQUEST_CHARACTER" | "ACCEPT_CREATE_REQUEST_TRACK" | "ACCEPT_CREATE_REQUEST_COMPANY" | "ACCEPT_CREATE_REQUEST_IMAGE" | "UPDATE_CREATE_REQUEST_ANIME" | "UPDATE_CREATE_REQUEST_MANGA" | "UPDATE_CREATE_REQUEST_PERSON" | "UPDATE_CREATE_REQUEST_GROUPE" | "UPDATE_CREATE_REQUEST_CHARACTER" | "UPDATE_CREATE_REQUEST_TRACK" | "UPDATE_CREATE_REQUEST_COMPANY" | "UPDATE_CREATE_REQUEST_IMAGE" | "DENY_CREATE_REQUEST_ANIME" | "DENY_CREATE_REQUEST_MANGA" | "DENY_CREATE_REQUEST_PERSON" | "DENY_CREATE_REQUEST_GROUPE" | "DENY_CREATE_REQUEST_CHARACTER" | "DENY_CREATE_REQUEST_TRACK" | "DENY_CREATE_REQUEST_COMPANY" | "DENY_CREATE_REQUEST_IMAGE" | "DELETE_CREATE_REQUEST_ANIME" | "DELETE_CREATE_REQUEST_MANGA" | "DELETE_CREATE_REQUEST_PERSON" | "DELETE_CREATE_REQUEST_GROUPE" | "DELETE_CREATE_REQUEST_CHARACTER" | "DELETE_CREATE_REQUEST_TRACK" | "DELETE_CREATE_REQUEST_COMPANY" | "DELETE_CREATE_REQUEST_IMAGE" | "LOGOUT" | "LOGIN" | "SIGNUP" | "PROFILE_CHANGES")[] & [string, ...string[]]>>;
         author: z.ZodOptional<z.ZodOptional<z.ZodString>>;
-        target: z.ZodOptional<z.ZodOptional<z.ZodString>>;
-        targetPath: z.ZodOptional<z.ZodEnum<("User" | "Account" | "UserProfile" | "UserPreferences" | "UserAnimeListe" | "UserDeleteAnimeFromListe" | "Groupe" | "Manga" | "Anime" | "Person" | "Character" | "Track" | "Company" | "Image" | "Patch" | "Activity" | "Report" | "DisabledUser" | "PremiumUser")[] & [string, ...string[]]>>;
-    }, "strict", z.ZodTypeAny, {
+        targets: z.ZodOptional<z.ZodArray<z.ZodObject<{
+            path: z.ZodEnum<("User" | "Account" | "UserProfile" | "UserPreferences" | "UserAnimeListe" | "UserDeleteAnimeFromListe" | "Groupe" | "Manga" | "Anime" | "Person" | "Character" | "Track" | "Company" | "Image" | "Patch" | "Activity" | "Report" | "DisabledUser" | "PremiumUser")[] & [string, ...string[]]>;
+            id: z.ZodString;
+        }, "strip", z.ZodTypeAny, {
+            path: "User" | "Account" | "UserProfile" | "UserPreferences" | "UserAnimeListe" | "UserDeleteAnimeFromListe" | "Groupe" | "Manga" | "Anime" | "Person" | "Character" | "Track" | "Company" | "Image" | "Patch" | "Activity" | "Report" | "DisabledUser" | "PremiumUser";
+            id: string;
+        }, {
+            path: "User" | "Account" | "UserProfile" | "UserPreferences" | "UserAnimeListe" | "UserDeleteAnimeFromListe" | "Groupe" | "Manga" | "Anime" | "Person" | "Character" | "Track" | "Company" | "Image" | "Patch" | "Activity" | "Report" | "DisabledUser" | "PremiumUser";
+            id: string;
+        }>, "many">>;
+        createdAt: z.ZodOptional<z.ZodString>;
+        updatedAt: z.ZodOptional<z.ZodString>;
+    }, "strip", z.ZodTypeAny, {
         type?: "PUBLIC" | "MEMBER" | "MODERATION" | "SYSTEM" | undefined;
         action?: "ROLES_CHANGES" | "PREMIUM_CHANGES" | "DISABLE_MEMBER" | "ENABLE_MEMBER" | "REPORT_STATUS_CHANGES" | "UPDATE_STATUS_CHANGES" | "UPDATE_EDIT_CHANGES" | "CREATE_ANIME" | "CREATE_MANGA" | "CREATE_PERSON" | "CREATE_GROUPE" | "CREATE_CHARACTER" | "CREATE_TRACK" | "CREATE_COMPANY" | "CREATE_REPORT" | "CREATE_IMAGE" | "UPDATE_ANIME" | "UPDATE_MANGA" | "UPDATE_PERSON" | "UPDATE_GROUPE" | "UPDATE_CHARACTER" | "UPDATE_TRACK" | "UPDATE_COMPANY" | "UPDATE_REPORT" | "UPDATE_PATCH" | "UPDATE_IMAGE" | "REQUEST_ANIME" | "REQUEST_MANGA" | "REQUEST_PERSON" | "REQUEST_GROUPE" | "REQUEST_CHARACTER" | "REQUEST_TRACK" | "REQUEST_COMPANY" | "REQUEST_IMAGE" | "ACCEPT_CREATE_REQUEST_ANIME" | "ACCEPT_CREATE_REQUEST_MANGA" | "ACCEPT_CREATE_REQUEST_PERSON" | "ACCEPT_CREATE_REQUEST_GROUPE" | "ACCEPT_CREATE_REQUEST_CHARACTER" | "ACCEPT_CREATE_REQUEST_TRACK" | "ACCEPT_CREATE_REQUEST_COMPANY" | "ACCEPT_CREATE_REQUEST_IMAGE" | "UPDATE_CREATE_REQUEST_ANIME" | "UPDATE_CREATE_REQUEST_MANGA" | "UPDATE_CREATE_REQUEST_PERSON" | "UPDATE_CREATE_REQUEST_GROUPE" | "UPDATE_CREATE_REQUEST_CHARACTER" | "UPDATE_CREATE_REQUEST_TRACK" | "UPDATE_CREATE_REQUEST_COMPANY" | "UPDATE_CREATE_REQUEST_IMAGE" | "DENY_CREATE_REQUEST_ANIME" | "DENY_CREATE_REQUEST_MANGA" | "DENY_CREATE_REQUEST_PERSON" | "DENY_CREATE_REQUEST_GROUPE" | "DENY_CREATE_REQUEST_CHARACTER" | "DENY_CREATE_REQUEST_TRACK" | "DENY_CREATE_REQUEST_COMPANY" | "DENY_CREATE_REQUEST_IMAGE" | "DELETE_CREATE_REQUEST_ANIME" | "DELETE_CREATE_REQUEST_MANGA" | "DELETE_CREATE_REQUEST_PERSON" | "DELETE_CREATE_REQUEST_GROUPE" | "DELETE_CREATE_REQUEST_CHARACTER" | "DELETE_CREATE_REQUEST_TRACK" | "DELETE_CREATE_REQUEST_COMPANY" | "DELETE_CREATE_REQUEST_IMAGE" | "LOGOUT" | "LOGIN" | "SIGNUP" | "PROFILE_CHANGES" | undefined;
         author?: string | undefined;
-        target?: string | undefined;
-        targetPath?: "User" | "Account" | "UserProfile" | "UserPreferences" | "UserAnimeListe" | "UserDeleteAnimeFromListe" | "Groupe" | "Manga" | "Anime" | "Person" | "Character" | "Track" | "Company" | "Image" | "Patch" | "Activity" | "Report" | "DisabledUser" | "PremiumUser" | undefined;
+        targets?: {
+            path: "User" | "Account" | "UserProfile" | "UserPreferences" | "UserAnimeListe" | "UserDeleteAnimeFromListe" | "Groupe" | "Manga" | "Anime" | "Person" | "Character" | "Track" | "Company" | "Image" | "Patch" | "Activity" | "Report" | "DisabledUser" | "PremiumUser";
+            id: string;
+        }[] | undefined;
+        createdAt?: string | undefined;
+        updatedAt?: string | undefined;
     }, {
         type?: "PUBLIC" | "MEMBER" | "MODERATION" | "SYSTEM" | undefined;
         action?: "ROLES_CHANGES" | "PREMIUM_CHANGES" | "DISABLE_MEMBER" | "ENABLE_MEMBER" | "REPORT_STATUS_CHANGES" | "UPDATE_STATUS_CHANGES" | "UPDATE_EDIT_CHANGES" | "CREATE_ANIME" | "CREATE_MANGA" | "CREATE_PERSON" | "CREATE_GROUPE" | "CREATE_CHARACTER" | "CREATE_TRACK" | "CREATE_COMPANY" | "CREATE_REPORT" | "CREATE_IMAGE" | "UPDATE_ANIME" | "UPDATE_MANGA" | "UPDATE_PERSON" | "UPDATE_GROUPE" | "UPDATE_CHARACTER" | "UPDATE_TRACK" | "UPDATE_COMPANY" | "UPDATE_REPORT" | "UPDATE_PATCH" | "UPDATE_IMAGE" | "REQUEST_ANIME" | "REQUEST_MANGA" | "REQUEST_PERSON" | "REQUEST_GROUPE" | "REQUEST_CHARACTER" | "REQUEST_TRACK" | "REQUEST_COMPANY" | "REQUEST_IMAGE" | "ACCEPT_CREATE_REQUEST_ANIME" | "ACCEPT_CREATE_REQUEST_MANGA" | "ACCEPT_CREATE_REQUEST_PERSON" | "ACCEPT_CREATE_REQUEST_GROUPE" | "ACCEPT_CREATE_REQUEST_CHARACTER" | "ACCEPT_CREATE_REQUEST_TRACK" | "ACCEPT_CREATE_REQUEST_COMPANY" | "ACCEPT_CREATE_REQUEST_IMAGE" | "UPDATE_CREATE_REQUEST_ANIME" | "UPDATE_CREATE_REQUEST_MANGA" | "UPDATE_CREATE_REQUEST_PERSON" | "UPDATE_CREATE_REQUEST_GROUPE" | "UPDATE_CREATE_REQUEST_CHARACTER" | "UPDATE_CREATE_REQUEST_TRACK" | "UPDATE_CREATE_REQUEST_COMPANY" | "UPDATE_CREATE_REQUEST_IMAGE" | "DENY_CREATE_REQUEST_ANIME" | "DENY_CREATE_REQUEST_MANGA" | "DENY_CREATE_REQUEST_PERSON" | "DENY_CREATE_REQUEST_GROUPE" | "DENY_CREATE_REQUEST_CHARACTER" | "DENY_CREATE_REQUEST_TRACK" | "DENY_CREATE_REQUEST_COMPANY" | "DENY_CREATE_REQUEST_IMAGE" | "DELETE_CREATE_REQUEST_ANIME" | "DELETE_CREATE_REQUEST_MANGA" | "DELETE_CREATE_REQUEST_PERSON" | "DELETE_CREATE_REQUEST_GROUPE" | "DELETE_CREATE_REQUEST_CHARACTER" | "DELETE_CREATE_REQUEST_TRACK" | "DELETE_CREATE_REQUEST_COMPANY" | "DELETE_CREATE_REQUEST_IMAGE" | "LOGOUT" | "LOGIN" | "SIGNUP" | "PROFILE_CHANGES" | undefined;
         author?: string | undefined;
-        target?: string | undefined;
-        targetPath?: "User" | "Account" | "UserProfile" | "UserPreferences" | "UserAnimeListe" | "UserDeleteAnimeFromListe" | "Groupe" | "Manga" | "Anime" | "Person" | "Character" | "Track" | "Company" | "Image" | "Patch" | "Activity" | "Report" | "DisabledUser" | "PremiumUser" | undefined;
-    }>>;
-    with: z.ZodOptional<z.ZodObject<{
-        author: z.ZodOptional<z.ZodOptional<z.ZodBoolean>>;
-        target: z.ZodOptional<z.ZodOptional<z.ZodBoolean>>;
-    }, "strict", z.ZodTypeAny, {
-        author?: boolean | undefined;
-        target?: boolean | undefined;
-    }, {
-        author?: boolean | undefined;
-        target?: boolean | undefined;
-    }>>;
-}, "strict", z.ZodTypeAny, {
-    page?: number | undefined;
-    limit?: number | undefined;
-    strict?: boolean | undefined;
-    sort?: {
-        updaptedAt?: "DESC" | "ASC" | undefined;
-        createdAt?: "DESC" | "ASC" | undefined;
-    } | undefined;
-    query?: {
+        targets?: {
+            path: "User" | "Account" | "UserProfile" | "UserPreferences" | "UserAnimeListe" | "UserDeleteAnimeFromListe" | "Groupe" | "Manga" | "Anime" | "Person" | "Character" | "Track" | "Company" | "Image" | "Patch" | "Activity" | "Report" | "DisabledUser" | "PremiumUser";
+            id: string;
+        }[] | undefined;
+        createdAt?: string | undefined;
+        updatedAt?: string | undefined;
+    }>;
+}>, "strip", z.ZodTypeAny, {
+    page: number;
+    limit: number;
+    strict: boolean;
+    onlyVerified: boolean;
+    sort: {
+        type?: number | undefined;
+        action?: number | undefined;
+        createdAt?: number | undefined;
+        updatedAt?: number | undefined;
+    };
+    query: {
         type?: "PUBLIC" | "MEMBER" | "MODERATION" | "SYSTEM" | undefined;
         action?: "ROLES_CHANGES" | "PREMIUM_CHANGES" | "DISABLE_MEMBER" | "ENABLE_MEMBER" | "REPORT_STATUS_CHANGES" | "UPDATE_STATUS_CHANGES" | "UPDATE_EDIT_CHANGES" | "CREATE_ANIME" | "CREATE_MANGA" | "CREATE_PERSON" | "CREATE_GROUPE" | "CREATE_CHARACTER" | "CREATE_TRACK" | "CREATE_COMPANY" | "CREATE_REPORT" | "CREATE_IMAGE" | "UPDATE_ANIME" | "UPDATE_MANGA" | "UPDATE_PERSON" | "UPDATE_GROUPE" | "UPDATE_CHARACTER" | "UPDATE_TRACK" | "UPDATE_COMPANY" | "UPDATE_REPORT" | "UPDATE_PATCH" | "UPDATE_IMAGE" | "REQUEST_ANIME" | "REQUEST_MANGA" | "REQUEST_PERSON" | "REQUEST_GROUPE" | "REQUEST_CHARACTER" | "REQUEST_TRACK" | "REQUEST_COMPANY" | "REQUEST_IMAGE" | "ACCEPT_CREATE_REQUEST_ANIME" | "ACCEPT_CREATE_REQUEST_MANGA" | "ACCEPT_CREATE_REQUEST_PERSON" | "ACCEPT_CREATE_REQUEST_GROUPE" | "ACCEPT_CREATE_REQUEST_CHARACTER" | "ACCEPT_CREATE_REQUEST_TRACK" | "ACCEPT_CREATE_REQUEST_COMPANY" | "ACCEPT_CREATE_REQUEST_IMAGE" | "UPDATE_CREATE_REQUEST_ANIME" | "UPDATE_CREATE_REQUEST_MANGA" | "UPDATE_CREATE_REQUEST_PERSON" | "UPDATE_CREATE_REQUEST_GROUPE" | "UPDATE_CREATE_REQUEST_CHARACTER" | "UPDATE_CREATE_REQUEST_TRACK" | "UPDATE_CREATE_REQUEST_COMPANY" | "UPDATE_CREATE_REQUEST_IMAGE" | "DENY_CREATE_REQUEST_ANIME" | "DENY_CREATE_REQUEST_MANGA" | "DENY_CREATE_REQUEST_PERSON" | "DENY_CREATE_REQUEST_GROUPE" | "DENY_CREATE_REQUEST_CHARACTER" | "DENY_CREATE_REQUEST_TRACK" | "DENY_CREATE_REQUEST_COMPANY" | "DENY_CREATE_REQUEST_IMAGE" | "DELETE_CREATE_REQUEST_ANIME" | "DELETE_CREATE_REQUEST_MANGA" | "DELETE_CREATE_REQUEST_PERSON" | "DELETE_CREATE_REQUEST_GROUPE" | "DELETE_CREATE_REQUEST_CHARACTER" | "DELETE_CREATE_REQUEST_TRACK" | "DELETE_CREATE_REQUEST_COMPANY" | "DELETE_CREATE_REQUEST_IMAGE" | "LOGOUT" | "LOGIN" | "SIGNUP" | "PROFILE_CHANGES" | undefined;
         author?: string | undefined;
-        target?: string | undefined;
-        targetPath?: "User" | "Account" | "UserProfile" | "UserPreferences" | "UserAnimeListe" | "UserDeleteAnimeFromListe" | "Groupe" | "Manga" | "Anime" | "Person" | "Character" | "Track" | "Company" | "Image" | "Patch" | "Activity" | "Report" | "DisabledUser" | "PremiumUser" | undefined;
-    } | undefined;
-    with?: {
-        author?: boolean | undefined;
-        target?: boolean | undefined;
-    } | undefined;
+        targets?: {
+            path: "User" | "Account" | "UserProfile" | "UserPreferences" | "UserAnimeListe" | "UserDeleteAnimeFromListe" | "Groupe" | "Manga" | "Anime" | "Person" | "Character" | "Track" | "Company" | "Image" | "Patch" | "Activity" | "Report" | "DisabledUser" | "PremiumUser";
+            id: string;
+        }[] | undefined;
+        createdAt?: string | undefined;
+        updatedAt?: string | undefined;
+    };
 }, {
-    page?: string | number | undefined;
-    limit?: string | number | undefined;
-    strict?: boolean | undefined;
-    sort?: {
-        updaptedAt?: "DESC" | "ASC" | undefined;
-        createdAt?: "DESC" | "ASC" | undefined;
-    } | undefined;
-    query?: {
+    page: number;
+    limit: number;
+    strict: boolean;
+    onlyVerified: boolean;
+    sort: {
+        type?: number | undefined;
+        action?: number | undefined;
+        createdAt?: number | undefined;
+        updatedAt?: number | undefined;
+    };
+    query: {
         type?: "PUBLIC" | "MEMBER" | "MODERATION" | "SYSTEM" | undefined;
         action?: "ROLES_CHANGES" | "PREMIUM_CHANGES" | "DISABLE_MEMBER" | "ENABLE_MEMBER" | "REPORT_STATUS_CHANGES" | "UPDATE_STATUS_CHANGES" | "UPDATE_EDIT_CHANGES" | "CREATE_ANIME" | "CREATE_MANGA" | "CREATE_PERSON" | "CREATE_GROUPE" | "CREATE_CHARACTER" | "CREATE_TRACK" | "CREATE_COMPANY" | "CREATE_REPORT" | "CREATE_IMAGE" | "UPDATE_ANIME" | "UPDATE_MANGA" | "UPDATE_PERSON" | "UPDATE_GROUPE" | "UPDATE_CHARACTER" | "UPDATE_TRACK" | "UPDATE_COMPANY" | "UPDATE_REPORT" | "UPDATE_PATCH" | "UPDATE_IMAGE" | "REQUEST_ANIME" | "REQUEST_MANGA" | "REQUEST_PERSON" | "REQUEST_GROUPE" | "REQUEST_CHARACTER" | "REQUEST_TRACK" | "REQUEST_COMPANY" | "REQUEST_IMAGE" | "ACCEPT_CREATE_REQUEST_ANIME" | "ACCEPT_CREATE_REQUEST_MANGA" | "ACCEPT_CREATE_REQUEST_PERSON" | "ACCEPT_CREATE_REQUEST_GROUPE" | "ACCEPT_CREATE_REQUEST_CHARACTER" | "ACCEPT_CREATE_REQUEST_TRACK" | "ACCEPT_CREATE_REQUEST_COMPANY" | "ACCEPT_CREATE_REQUEST_IMAGE" | "UPDATE_CREATE_REQUEST_ANIME" | "UPDATE_CREATE_REQUEST_MANGA" | "UPDATE_CREATE_REQUEST_PERSON" | "UPDATE_CREATE_REQUEST_GROUPE" | "UPDATE_CREATE_REQUEST_CHARACTER" | "UPDATE_CREATE_REQUEST_TRACK" | "UPDATE_CREATE_REQUEST_COMPANY" | "UPDATE_CREATE_REQUEST_IMAGE" | "DENY_CREATE_REQUEST_ANIME" | "DENY_CREATE_REQUEST_MANGA" | "DENY_CREATE_REQUEST_PERSON" | "DENY_CREATE_REQUEST_GROUPE" | "DENY_CREATE_REQUEST_CHARACTER" | "DENY_CREATE_REQUEST_TRACK" | "DENY_CREATE_REQUEST_COMPANY" | "DENY_CREATE_REQUEST_IMAGE" | "DELETE_CREATE_REQUEST_ANIME" | "DELETE_CREATE_REQUEST_MANGA" | "DELETE_CREATE_REQUEST_PERSON" | "DELETE_CREATE_REQUEST_GROUPE" | "DELETE_CREATE_REQUEST_CHARACTER" | "DELETE_CREATE_REQUEST_TRACK" | "DELETE_CREATE_REQUEST_COMPANY" | "DELETE_CREATE_REQUEST_IMAGE" | "LOGOUT" | "LOGIN" | "SIGNUP" | "PROFILE_CHANGES" | undefined;
         author?: string | undefined;
-        target?: string | undefined;
-        targetPath?: "User" | "Account" | "UserProfile" | "UserPreferences" | "UserAnimeListe" | "UserDeleteAnimeFromListe" | "Groupe" | "Manga" | "Anime" | "Person" | "Character" | "Track" | "Company" | "Image" | "Patch" | "Activity" | "Report" | "DisabledUser" | "PremiumUser" | undefined;
-    } | undefined;
-    with?: {
-        author?: boolean | undefined;
-        target?: boolean | undefined;
-    } | undefined;
+        targets?: {
+            path: "User" | "Account" | "UserProfile" | "UserPreferences" | "UserAnimeListe" | "UserDeleteAnimeFromListe" | "Groupe" | "Manga" | "Anime" | "Person" | "Character" | "Track" | "Company" | "Image" | "Patch" | "Activity" | "Report" | "DisabledUser" | "PremiumUser";
+            id: string;
+        }[] | undefined;
+        createdAt?: string | undefined;
+        updatedAt?: string | undefined;
+    };
 }>;
-type IActivity_Pagination_ZOD = z.infer<typeof Activity_Pagination_ZOD>;
-export type { IActivity_Pagination_ZOD };
+export type IActivityPaginationBody = z.infer<typeof ActivityPaginationBody>;

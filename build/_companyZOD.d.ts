@@ -28,8 +28,8 @@ export declare const CompanyQueryBody: z.ZodObject<{
     updatedAt: z.ZodString;
 }, "strip", z.ZodTypeAny, {
     type: "STUDIO" | "PRODUCER";
-    createdAt: string;
     name: string;
+    createdAt: string;
     updatedAt: string;
     links: {
         value?: string | undefined;
@@ -42,8 +42,8 @@ export declare const CompanyQueryBody: z.ZodObject<{
     createdDate?: string | undefined;
 }, {
     type: "STUDIO" | "PRODUCER";
-    createdAt: string;
     name: string;
+    createdAt: string;
     updatedAt: string;
     links: {
         value?: string | undefined;
@@ -63,14 +63,14 @@ export declare const CompanySortBody: z.ZodObject<{
     updatedAt: z.ZodEffects<z.ZodEffects<z.ZodUnion<[z.ZodNumber, z.ZodString]>, number, string | number>, number, string | number>;
 }, "strip", z.ZodTypeAny, {
     type: number;
-    createdAt: number;
     name: number;
+    createdAt: number;
     updatedAt: number;
     createdDate: number;
 }, {
     type: string | number;
-    createdAt: string | number;
     name: string | number;
+    createdAt: string | number;
     updatedAt: string | number;
     createdDate: string | number;
 }>;
@@ -87,14 +87,14 @@ export declare const CompanyPaginationBody: z.ZodObject<{
         updatedAt: z.ZodOptional<z.ZodEffects<z.ZodEffects<z.ZodUnion<[z.ZodNumber, z.ZodString]>, number, string | number>, number, string | number>>;
     }, "strip", z.ZodTypeAny, {
         type?: number | undefined;
-        createdAt?: number | undefined;
         name?: number | undefined;
+        createdAt?: number | undefined;
         updatedAt?: number | undefined;
         createdDate?: number | undefined;
     }, {
         type?: string | number | undefined;
-        createdAt?: string | number | undefined;
         name?: string | number | undefined;
+        createdAt?: string | number | undefined;
         updatedAt?: string | number | undefined;
         createdDate?: string | number | undefined;
     }>>;
@@ -126,8 +126,8 @@ export declare const CompanyPaginationBody: z.ZodObject<{
         updatedAt: z.ZodOptional<z.ZodString>;
     }, "strip", z.ZodTypeAny, {
         type?: "STUDIO" | "PRODUCER" | undefined;
-        createdAt?: string | undefined;
         name?: string | undefined;
+        createdAt?: string | undefined;
         updatedAt?: string | undefined;
         links?: {
             value?: string | undefined;
@@ -140,8 +140,8 @@ export declare const CompanyPaginationBody: z.ZodObject<{
         createdDate?: string | undefined;
     }, {
         type?: "STUDIO" | "PRODUCER" | undefined;
-        createdAt?: string | undefined;
         name?: string | undefined;
+        createdAt?: string | undefined;
         updatedAt?: string | undefined;
         links?: {
             value?: string | undefined;
@@ -170,15 +170,15 @@ export declare const CompanyPaginationBody: z.ZodObject<{
     onlyVerified?: boolean | undefined;
     sort?: {
         type?: number | undefined;
-        createdAt?: number | undefined;
         name?: number | undefined;
+        createdAt?: number | undefined;
         updatedAt?: number | undefined;
         createdDate?: number | undefined;
     } | undefined;
     query?: {
         type?: "STUDIO" | "PRODUCER" | undefined;
-        createdAt?: string | undefined;
         name?: string | undefined;
+        createdAt?: string | undefined;
         updatedAt?: string | undefined;
         links?: {
             value?: string | undefined;
@@ -201,15 +201,15 @@ export declare const CompanyPaginationBody: z.ZodObject<{
     onlyVerified?: boolean | undefined;
     sort?: {
         type?: string | number | undefined;
-        createdAt?: string | number | undefined;
         name?: string | number | undefined;
+        createdAt?: string | number | undefined;
         updatedAt?: string | number | undefined;
         createdDate?: string | number | undefined;
     } | undefined;
     query?: {
         type?: "STUDIO" | "PRODUCER" | undefined;
-        createdAt?: string | undefined;
         name?: string | undefined;
+        createdAt?: string | undefined;
         updatedAt?: string | undefined;
         links?: {
             value?: string | undefined;
@@ -239,14 +239,14 @@ export declare const Company_Pagination_ZOD: z.ZodObject<{
         updatedAt: z.ZodOptional<z.ZodEffects<z.ZodEffects<z.ZodUnion<[z.ZodNumber, z.ZodString]>, number, string | number>, number, string | number>>;
     }, "strip", z.ZodTypeAny, {
         type?: number | undefined;
-        createdAt?: number | undefined;
         name?: number | undefined;
+        createdAt?: number | undefined;
         updatedAt?: number | undefined;
         createdDate?: number | undefined;
     }, {
         type?: string | number | undefined;
-        createdAt?: string | number | undefined;
         name?: string | number | undefined;
+        createdAt?: string | number | undefined;
         updatedAt?: string | number | undefined;
         createdDate?: string | number | undefined;
     }>;
@@ -278,8 +278,8 @@ export declare const Company_Pagination_ZOD: z.ZodObject<{
         updatedAt: z.ZodOptional<z.ZodString>;
     }, "strip", z.ZodTypeAny, {
         type?: "STUDIO" | "PRODUCER" | undefined;
-        createdAt?: string | undefined;
         name?: string | undefined;
+        createdAt?: string | undefined;
         updatedAt?: string | undefined;
         links?: {
             value?: string | undefined;
@@ -292,8 +292,8 @@ export declare const Company_Pagination_ZOD: z.ZodObject<{
         createdDate?: string | undefined;
     }, {
         type?: "STUDIO" | "PRODUCER" | undefined;
-        createdAt?: string | undefined;
         name?: string | undefined;
+        createdAt?: string | undefined;
         updatedAt?: string | undefined;
         links?: {
             value?: string | undefined;
@@ -311,15 +311,15 @@ export declare const Company_Pagination_ZOD: z.ZodObject<{
     strict: boolean;
     sort: {
         type?: number | undefined;
-        createdAt?: number | undefined;
         name?: number | undefined;
+        createdAt?: number | undefined;
         updatedAt?: number | undefined;
         createdDate?: number | undefined;
     };
     query: {
         type?: "STUDIO" | "PRODUCER" | undefined;
-        createdAt?: string | undefined;
         name?: string | undefined;
+        createdAt?: string | undefined;
         updatedAt?: string | undefined;
         links?: {
             value?: string | undefined;
@@ -337,15 +337,15 @@ export declare const Company_Pagination_ZOD: z.ZodObject<{
     strict: boolean;
     sort: {
         type?: string | number | undefined;
-        createdAt?: string | number | undefined;
         name?: string | number | undefined;
+        createdAt?: string | number | undefined;
         updatedAt?: string | number | undefined;
         createdDate?: string | number | undefined;
     };
     query: {
         type?: "STUDIO" | "PRODUCER" | undefined;
-        createdAt?: string | undefined;
         name?: string | undefined;
+        createdAt?: string | undefined;
         updatedAt?: string | undefined;
         links?: {
             value?: string | undefined;
