@@ -1,3 +1,11 @@
+## [1.0.20](https://github.com/Actunime/validations/compare/v1.0.19...v1.0.20) (2025-03-14)
+
+
+### Bug Fixes
+
+* **types:** add mediadelete validation ([65d9983](https://github.com/Actunime/validations/commit/65d9983dd2c571ac06e82eb6c44aaf9a2ee35896))
+* **types:** validations améliorations ([ca82e95](https://github.com/Actunime/validations/commit/ca82e95f2a2b7e514945403e3d5e0625e282ebf0))
+
 ## [1.0.19](https://github.com/Actunime/validations/compare/v1.0.18...v1.0.19) (2025-03-14)
 
 
