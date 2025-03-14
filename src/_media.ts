@@ -86,3 +86,9 @@ export const FromBody = z.object({
   id: z.string(),
   path: z.enum(TargetPathArray),
 })
+
+export const MediaDeleteBody = z.object({
+  reason: z.string(),
+})
+
+export type IMediaDeleteBody = z.infer<typeof MediaDeleteBody>;
