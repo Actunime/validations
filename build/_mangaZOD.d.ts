@@ -4248,8 +4248,8 @@ export declare const MangaCreateBody: z.ZodObject<z.objectUtil.extendShape<{
             } | undefined;
         }[] | undefined;
     };
-    description?: string | undefined;
     reason?: string | undefined;
+    description?: string | undefined;
 }, {
     data: {
         status: "AIRING" | "PAUSED" | "ENDED" | "STOPPED" | "POSTONED" | "SOON" | "any";
@@ -4467,8 +4467,8 @@ export declare const MangaCreateBody: z.ZodObject<z.objectUtil.extendShape<{
             } | undefined;
         }[] | undefined;
     };
-    description?: string | undefined;
     reason?: string | undefined;
+    description?: string | undefined;
 }>;
 export type IMangaCreateBody = z.infer<typeof MangaCreateBody>;
 export declare const Create_Manga_ZOD_FORM: z.ZodObject<{

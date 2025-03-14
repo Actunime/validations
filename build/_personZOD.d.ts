@@ -490,8 +490,8 @@ export declare const PersonCreateBody: z.ZodObject<z.objectUtil.extendShape<{
             name: string;
         }[] | undefined;
     };
-    description?: string | undefined;
     reason?: string | undefined;
+    description?: string | undefined;
 }, {
     data: {
         name: {
@@ -517,8 +517,8 @@ export declare const PersonCreateBody: z.ZodObject<z.objectUtil.extendShape<{
             name: string;
         }[] | undefined;
     };
-    description?: string | undefined;
     reason?: string | undefined;
+    description?: string | undefined;
 }>;
 export type IPersonCreateBody = z.infer<typeof PersonCreateBody>;
 export declare const Create_Person_ZOD_FORM: z.ZodObject<{

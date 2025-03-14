@@ -167,14 +167,14 @@ export declare const GroupeCreateBody: z.ZodObject<z.objectUtil.extendShape<{
     data: {
         name: string;
     };
-    description?: string | undefined;
     reason?: string | undefined;
+    description?: string | undefined;
 }, {
     data: {
         name: string;
     };
-    description?: string | undefined;
     reason?: string | undefined;
+    description?: string | undefined;
 }>;
 export type IGroupeCreateBody = z.infer<typeof GroupeCreateBody>;
 export declare const Add_Groupe_ZOD: z.ZodObject<{

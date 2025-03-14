@@ -43,6 +43,7 @@ export declare const PatchQueryBody: z.ZodObject<{
     type: "CREATE" | "UPDATE" | "MODERATOR_CREATE" | "MODERATOR_UPDATE";
     status: "PENDING" | "PROGRESS" | "ACCEPTED" | "DENIED";
     id: string;
+    reason: string;
     author: {
         id: string;
     };
@@ -56,7 +57,6 @@ export declare const PatchQueryBody: z.ZodObject<{
     };
     targetPath: "User" | "Account" | "UserProfile" | "UserPreferences" | "UserAnimeListe" | "UserDeleteAnimeFromListe" | "Groupe" | "Manga" | "Anime" | "Person" | "Character" | "Track" | "Company" | "Image" | "Patch" | "Activity" | "Report" | "DisabledUser" | "PremiumUser";
     description: string;
-    reason: string;
     isChangesUpdated: boolean;
     moderator: {
         id: string;
@@ -67,6 +67,7 @@ export declare const PatchQueryBody: z.ZodObject<{
     type: "CREATE" | "UPDATE" | "MODERATOR_CREATE" | "MODERATOR_UPDATE";
     status: "PENDING" | "PROGRESS" | "ACCEPTED" | "DENIED";
     id: string;
+    reason: string;
     author: {
         id: string;
     };
@@ -80,7 +81,6 @@ export declare const PatchQueryBody: z.ZodObject<{
     };
     targetPath: "User" | "Account" | "UserProfile" | "UserPreferences" | "UserAnimeListe" | "UserDeleteAnimeFromListe" | "Groupe" | "Manga" | "Anime" | "Person" | "Character" | "Track" | "Company" | "Image" | "Patch" | "Activity" | "Report" | "DisabledUser" | "PremiumUser";
     description: string;
-    reason: string;
     isChangesUpdated: boolean;
     moderator: {
         id: string;
@@ -124,6 +124,7 @@ export declare const PatchSortBody: z.ZodObject<{
     type: number;
     status: number;
     id: number;
+    reason: number;
     author: {
         id: number;
     };
@@ -135,7 +136,6 @@ export declare const PatchSortBody: z.ZodObject<{
     target: number;
     targetPath: number;
     description: number;
-    reason: number;
     isChangesUpdated: number;
     moderator: {
         id: number;
@@ -144,6 +144,7 @@ export declare const PatchSortBody: z.ZodObject<{
     type: number;
     status: number;
     id: number;
+    reason: number;
     author: {
         id: number;
     };
@@ -155,7 +156,6 @@ export declare const PatchSortBody: z.ZodObject<{
     target: number;
     targetPath: number;
     description: number;
-    reason: number;
     isChangesUpdated: number;
     moderator: {
         id: number;
@@ -205,6 +205,7 @@ export declare const PatchPaginationBody: z.ZodObject<z.objectUtil.extendShape<{
         type?: number | undefined;
         status?: number | undefined;
         id?: number | undefined;
+        reason?: number | undefined;
         author?: {
             id: number;
         } | undefined;
@@ -216,7 +217,6 @@ export declare const PatchPaginationBody: z.ZodObject<z.objectUtil.extendShape<{
         target?: number | undefined;
         targetPath?: number | undefined;
         description?: number | undefined;
-        reason?: number | undefined;
         isChangesUpdated?: number | undefined;
         moderator?: {
             id: number;
@@ -225,6 +225,7 @@ export declare const PatchPaginationBody: z.ZodObject<z.objectUtil.extendShape<{
         type?: number | undefined;
         status?: number | undefined;
         id?: number | undefined;
+        reason?: number | undefined;
         author?: {
             id: number;
         } | undefined;
@@ -236,7 +237,6 @@ export declare const PatchPaginationBody: z.ZodObject<z.objectUtil.extendShape<{
         target?: number | undefined;
         targetPath?: number | undefined;
         description?: number | undefined;
-        reason?: number | undefined;
         isChangesUpdated?: number | undefined;
         moderator?: {
             id: number;
@@ -286,6 +286,7 @@ export declare const PatchPaginationBody: z.ZodObject<z.objectUtil.extendShape<{
         type?: "CREATE" | "UPDATE" | "MODERATOR_CREATE" | "MODERATOR_UPDATE" | undefined;
         status?: "PENDING" | "PROGRESS" | "ACCEPTED" | "DENIED" | undefined;
         id?: string | undefined;
+        reason?: string | undefined;
         author?: {
             id: string;
         } | undefined;
@@ -299,7 +300,6 @@ export declare const PatchPaginationBody: z.ZodObject<z.objectUtil.extendShape<{
         } | undefined;
         targetPath?: "User" | "Account" | "UserProfile" | "UserPreferences" | "UserAnimeListe" | "UserDeleteAnimeFromListe" | "Groupe" | "Manga" | "Anime" | "Person" | "Character" | "Track" | "Company" | "Image" | "Patch" | "Activity" | "Report" | "DisabledUser" | "PremiumUser" | undefined;
         description?: string | undefined;
-        reason?: string | undefined;
         original?: any;
         changes?: any;
         isChangesUpdated?: boolean | undefined;
@@ -310,6 +310,7 @@ export declare const PatchPaginationBody: z.ZodObject<z.objectUtil.extendShape<{
         type?: "CREATE" | "UPDATE" | "MODERATOR_CREATE" | "MODERATOR_UPDATE" | undefined;
         status?: "PENDING" | "PROGRESS" | "ACCEPTED" | "DENIED" | undefined;
         id?: string | undefined;
+        reason?: string | undefined;
         author?: {
             id: string;
         } | undefined;
@@ -323,7 +324,6 @@ export declare const PatchPaginationBody: z.ZodObject<z.objectUtil.extendShape<{
         } | undefined;
         targetPath?: "User" | "Account" | "UserProfile" | "UserPreferences" | "UserAnimeListe" | "UserDeleteAnimeFromListe" | "Groupe" | "Manga" | "Anime" | "Person" | "Character" | "Track" | "Company" | "Image" | "Patch" | "Activity" | "Report" | "DisabledUser" | "PremiumUser" | undefined;
         description?: string | undefined;
-        reason?: string | undefined;
         original?: any;
         changes?: any;
         isChangesUpdated?: boolean | undefined;
@@ -340,6 +340,7 @@ export declare const PatchPaginationBody: z.ZodObject<z.objectUtil.extendShape<{
         type?: number | undefined;
         status?: number | undefined;
         id?: number | undefined;
+        reason?: number | undefined;
         author?: {
             id: number;
         } | undefined;
@@ -351,7 +352,6 @@ export declare const PatchPaginationBody: z.ZodObject<z.objectUtil.extendShape<{
         target?: number | undefined;
         targetPath?: number | undefined;
         description?: number | undefined;
-        reason?: number | undefined;
         isChangesUpdated?: number | undefined;
         moderator?: {
             id: number;
@@ -361,6 +361,7 @@ export declare const PatchPaginationBody: z.ZodObject<z.objectUtil.extendShape<{
         type?: "CREATE" | "UPDATE" | "MODERATOR_CREATE" | "MODERATOR_UPDATE" | undefined;
         status?: "PENDING" | "PROGRESS" | "ACCEPTED" | "DENIED" | undefined;
         id?: string | undefined;
+        reason?: string | undefined;
         author?: {
             id: string;
         } | undefined;
@@ -374,7 +375,6 @@ export declare const PatchPaginationBody: z.ZodObject<z.objectUtil.extendShape<{
         } | undefined;
         targetPath?: "User" | "Account" | "UserProfile" | "UserPreferences" | "UserAnimeListe" | "UserDeleteAnimeFromListe" | "Groupe" | "Manga" | "Anime" | "Person" | "Character" | "Track" | "Company" | "Image" | "Patch" | "Activity" | "Report" | "DisabledUser" | "PremiumUser" | undefined;
         description?: string | undefined;
-        reason?: string | undefined;
         original?: any;
         changes?: any;
         isChangesUpdated?: boolean | undefined;
@@ -391,6 +391,7 @@ export declare const PatchPaginationBody: z.ZodObject<z.objectUtil.extendShape<{
         type?: number | undefined;
         status?: number | undefined;
         id?: number | undefined;
+        reason?: number | undefined;
         author?: {
             id: number;
         } | undefined;
@@ -402,7 +403,6 @@ export declare const PatchPaginationBody: z.ZodObject<z.objectUtil.extendShape<{
         target?: number | undefined;
         targetPath?: number | undefined;
         description?: number | undefined;
-        reason?: number | undefined;
         isChangesUpdated?: number | undefined;
         moderator?: {
             id: number;
@@ -412,6 +412,7 @@ export declare const PatchPaginationBody: z.ZodObject<z.objectUtil.extendShape<{
         type?: "CREATE" | "UPDATE" | "MODERATOR_CREATE" | "MODERATOR_UPDATE" | undefined;
         status?: "PENDING" | "PROGRESS" | "ACCEPTED" | "DENIED" | undefined;
         id?: string | undefined;
+        reason?: string | undefined;
         author?: {
             id: string;
         } | undefined;
@@ -425,7 +426,6 @@ export declare const PatchPaginationBody: z.ZodObject<z.objectUtil.extendShape<{
         } | undefined;
         targetPath?: "User" | "Account" | "UserProfile" | "UserPreferences" | "UserAnimeListe" | "UserDeleteAnimeFromListe" | "Groupe" | "Manga" | "Anime" | "Person" | "Character" | "Track" | "Company" | "Image" | "Patch" | "Activity" | "Report" | "DisabledUser" | "PremiumUser" | undefined;
         description?: string | undefined;
-        reason?: string | undefined;
         original?: any;
         changes?: any;
         isChangesUpdated?: boolean | undefined;
@@ -439,11 +439,11 @@ export declare const PatchParamsBody: z.ZodObject<{
     description: z.ZodString;
     reason: z.ZodString;
 }, "strip", z.ZodTypeAny, {
-    description: string;
     reason: string;
+    description: string;
 }, {
-    description: string;
     reason: string;
+    description: string;
 }>;
 export declare const Patch_Pagination_ZOD: z.ZodObject<{
     page: z.ZodOptional<z.ZodEffects<z.ZodUnion<[z.ZodNumber, z.ZodString]>, number, string | number>>;

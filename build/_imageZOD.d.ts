@@ -197,15 +197,15 @@ export declare const ImageCreateBody: z.ZodObject<z.objectUtil.extendShape<{
         value: string;
         label: "COVER" | "BANNER" | "AVATAR" | "LOGO";
     };
-    description?: string | undefined;
     reason?: string | undefined;
+    description?: string | undefined;
 }, {
     data: {
         value: string;
         label: "COVER" | "BANNER" | "AVATAR" | "LOGO";
     };
-    description?: string | undefined;
     reason?: string | undefined;
+    description?: string | undefined;
 }>;
 export type IImageCreateBody = z.infer<typeof ImageCreateBody>;
 export declare const Create_Image_ZOD_FORM: z.ZodObject<{

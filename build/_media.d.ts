@@ -111,3 +111,11 @@ export declare const FromBody: z.ZodObject<{
     path: "User" | "Account" | "UserProfile" | "UserPreferences" | "UserAnimeListe" | "UserDeleteAnimeFromListe" | "Groupe" | "Manga" | "Anime" | "Person" | "Character" | "Track" | "Company" | "Image" | "Patch" | "Activity" | "Report" | "DisabledUser" | "PremiumUser";
     id: string;
 }>;
+export declare const MediaDeleteBody: z.ZodObject<{
+    reason: z.ZodString;
+}, "strip", z.ZodTypeAny, {
+    reason: string;
+}, {
+    reason: string;
+}>;
+export type IMediaDeleteBody = z.infer<typeof MediaDeleteBody>;
