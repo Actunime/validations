@@ -1,3 +1,10 @@
+## [1.0.18](https://github.com/Actunime/validations/compare/v1.0.17...v1.0.18) (2025-03-13)
+
+
+### Bug Fixes
+
+* **types:** patch ref query ([0d66db9](https://github.com/Actunime/validations/commit/0d66db93398a8ac7a288e16be6a6580dcc3e80c7))
+
 ## [1.0.17](https://github.com/Actunime/validations/compare/v1.0.16...v1.0.17) (2025-03-13)
 
 
