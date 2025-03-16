@@ -6,6 +6,7 @@ import {
   PatchStatusArray,
   PatchTypeArray,
 } from "@actunime/types";
+import { MediaDeleteBody } from "./_media";
 
 export const PatchQueryBody = z.object({
   id: z.string(),
@@ -151,20 +152,3 @@ export const DeletePatch_ZOD = z
   .strict();
 
 export type IDeletePatch_ZOD = z.infer<typeof DeletePatch_ZOD>;
-
-
-// export const Create_Patch_ZOD = z
-//   .object({
-//     ref: z.object({ id: z.string() }),
-//     newValues: z.any(),
-//   })
-//   .strict();
-
-// export type ICreate_Patch_ZOD = z.infer<typeof Create_Patch_ZOD>;
-
-// export const Create_Patch_ZOD_FORM = z.object({
-//   note: z.string().optional(),
-//   data: Create_Patch_ZOD,
-// });
-
-// export type ICreate_Patch_ZOD_FORM = z.infer<typeof Create_Patch_ZOD_FORM>;
