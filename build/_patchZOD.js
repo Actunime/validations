@@ -116,16 +116,4 @@ exports.DeletePatch_ZOD = zod_1.z
     moderatorNote: zod_1.z.string().optional(),
 })
     .strict();
-// export const Create_Patch_ZOD = z
-//   .object({
-//     ref: z.object({ id: z.string() }),
-//     newValues: z.any(),
-//   })
-//   .strict();
-// export type ICreate_Patch_ZOD = z.infer<typeof Create_Patch_ZOD>;
-// export const Create_Patch_ZOD_FORM = z.object({
-//   note: z.string().optional(),
-//   data: Create_Patch_ZOD,
-// });
-// export type ICreate_Patch_ZOD_FORM = z.infer<typeof Create_Patch_ZOD_FORM>;
 //# sourceMappingURL=_patchZOD.js.map

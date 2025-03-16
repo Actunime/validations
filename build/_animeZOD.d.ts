@@ -2107,6 +2107,16 @@ export declare const Create_Anime_ZOD: z.ZodEffects<z.ZodObject<{
         } | undefined;
     }[] | undefined;
     synopsis?: string | undefined;
+    episodes?: {
+        airing?: number | undefined;
+        nextAiringDate?: string | undefined;
+        total?: number | undefined;
+        durationMinute?: number | undefined;
+    } | undefined;
+    manga?: {
+        id?: string | undefined;
+        parentLabel?: "SEQUEL" | "SPIN_OFF" | "ALTERNATIVE" | "REBOOT" | "FILM" | undefined;
+    } | undefined;
     tracks?: {
         id?: string | undefined;
         newTrack?: {
@@ -2158,16 +2168,6 @@ export declare const Create_Anime_ZOD: z.ZodEffects<z.ZodObject<{
             }[] | undefined;
         } | undefined;
     }[] | undefined;
-    episodes?: {
-        airing?: number | undefined;
-        nextAiringDate?: string | undefined;
-        total?: number | undefined;
-        durationMinute?: number | undefined;
-    } | undefined;
-    manga?: {
-        id?: string | undefined;
-        parentLabel?: "SEQUEL" | "SPIN_OFF" | "ALTERNATIVE" | "REBOOT" | "FILM" | undefined;
-    } | undefined;
 }, {
     status: "AIRING" | "PAUSED" | "ENDED" | "STOPPED" | "POSTONED" | "SOON" | "any";
     title: {
@@ -2320,6 +2320,16 @@ export declare const Create_Anime_ZOD: z.ZodEffects<z.ZodObject<{
         } | undefined;
     }[] | undefined;
     synopsis?: string | undefined;
+    episodes?: {
+        airing?: string | number | undefined;
+        nextAiringDate?: string | undefined;
+        total?: string | number | undefined;
+        durationMinute?: string | number | undefined;
+    } | undefined;
+    manga?: {
+        id?: string | undefined;
+        parentLabel?: "SEQUEL" | "SPIN_OFF" | "ALTERNATIVE" | "REBOOT" | "FILM" | undefined;
+    } | undefined;
     tracks?: {
         id?: string | undefined;
         newTrack?: {
@@ -2371,16 +2381,6 @@ export declare const Create_Anime_ZOD: z.ZodEffects<z.ZodObject<{
             }[] | undefined;
         } | undefined;
     }[] | undefined;
-    episodes?: {
-        airing?: string | number | undefined;
-        nextAiringDate?: string | undefined;
-        total?: string | number | undefined;
-        durationMinute?: string | number | undefined;
-    } | undefined;
-    manga?: {
-        id?: string | undefined;
-        parentLabel?: "SEQUEL" | "SPIN_OFF" | "ALTERNATIVE" | "REBOOT" | "FILM" | undefined;
-    } | undefined;
 }>, {
     status: "AIRING" | "PAUSED" | "ENDED" | "STOPPED" | "POSTONED" | "SOON" | "any";
     title: {
@@ -2533,6 +2533,16 @@ export declare const Create_Anime_ZOD: z.ZodEffects<z.ZodObject<{
         } | undefined;
     }[] | undefined;
     synopsis?: string | undefined;
+    episodes?: {
+        airing?: number | undefined;
+        nextAiringDate?: string | undefined;
+        total?: number | undefined;
+        durationMinute?: number | undefined;
+    } | undefined;
+    manga?: {
+        id?: string | undefined;
+        parentLabel?: "SEQUEL" | "SPIN_OFF" | "ALTERNATIVE" | "REBOOT" | "FILM" | undefined;
+    } | undefined;
     tracks?: {
         id?: string | undefined;
         newTrack?: {
@@ -2584,16 +2594,6 @@ export declare const Create_Anime_ZOD: z.ZodEffects<z.ZodObject<{
             }[] | undefined;
         } | undefined;
     }[] | undefined;
-    episodes?: {
-        airing?: number | undefined;
-        nextAiringDate?: string | undefined;
-        total?: number | undefined;
-        durationMinute?: number | undefined;
-    } | undefined;
-    manga?: {
-        id?: string | undefined;
-        parentLabel?: "SEQUEL" | "SPIN_OFF" | "ALTERNATIVE" | "REBOOT" | "FILM" | undefined;
-    } | undefined;
 }, {
     status: "AIRING" | "PAUSED" | "ENDED" | "STOPPED" | "POSTONED" | "SOON" | "any";
     title: {
@@ -2746,6 +2746,16 @@ export declare const Create_Anime_ZOD: z.ZodEffects<z.ZodObject<{
         } | undefined;
     }[] | undefined;
     synopsis?: string | undefined;
+    episodes?: {
+        airing?: string | number | undefined;
+        nextAiringDate?: string | undefined;
+        total?: string | number | undefined;
+        durationMinute?: string | number | undefined;
+    } | undefined;
+    manga?: {
+        id?: string | undefined;
+        parentLabel?: "SEQUEL" | "SPIN_OFF" | "ALTERNATIVE" | "REBOOT" | "FILM" | undefined;
+    } | undefined;
     tracks?: {
         id?: string | undefined;
         newTrack?: {
@@ -2797,16 +2807,6 @@ export declare const Create_Anime_ZOD: z.ZodEffects<z.ZodObject<{
             }[] | undefined;
         } | undefined;
     }[] | undefined;
-    episodes?: {
-        airing?: string | number | undefined;
-        nextAiringDate?: string | undefined;
-        total?: string | number | undefined;
-        durationMinute?: string | number | undefined;
-    } | undefined;
-    manga?: {
-        id?: string | undefined;
-        parentLabel?: "SEQUEL" | "SPIN_OFF" | "ALTERNATIVE" | "REBOOT" | "FILM" | undefined;
-    } | undefined;
 }>;
 export type ICreate_Anime_ZOD = z.infer<typeof Create_Anime_ZOD>;
 export declare const AnimeCreateBody: z.ZodObject<z.objectUtil.extendShape<{
@@ -4270,6 +4270,16 @@ export declare const AnimeCreateBody: z.ZodObject<z.objectUtil.extendShape<{
             } | undefined;
         }[] | undefined;
         synopsis?: string | undefined;
+        episodes?: {
+            airing?: number | undefined;
+            nextAiringDate?: string | undefined;
+            total?: number | undefined;
+            durationMinute?: number | undefined;
+        } | undefined;
+        manga?: {
+            id?: string | undefined;
+            parentLabel?: "SEQUEL" | "SPIN_OFF" | "ALTERNATIVE" | "REBOOT" | "FILM" | undefined;
+        } | undefined;
         tracks?: {
             id?: string | undefined;
             newTrack?: {
@@ -4321,16 +4331,6 @@ export declare const AnimeCreateBody: z.ZodObject<z.objectUtil.extendShape<{
                 }[] | undefined;
             } | undefined;
         }[] | undefined;
-        episodes?: {
-            airing?: number | undefined;
-            nextAiringDate?: string | undefined;
-            total?: number | undefined;
-            durationMinute?: number | undefined;
-        } | undefined;
-        manga?: {
-            id?: string | undefined;
-            parentLabel?: "SEQUEL" | "SPIN_OFF" | "ALTERNATIVE" | "REBOOT" | "FILM" | undefined;
-        } | undefined;
     }, {
         status: "AIRING" | "PAUSED" | "ENDED" | "STOPPED" | "POSTONED" | "SOON" | "any";
         title: {
@@ -4483,6 +4483,16 @@ export declare const AnimeCreateBody: z.ZodObject<z.objectUtil.extendShape<{
             } | undefined;
         }[] | undefined;
         synopsis?: string | undefined;
+        episodes?: {
+            airing?: string | number | undefined;
+            nextAiringDate?: string | undefined;
+            total?: string | number | undefined;
+            durationMinute?: string | number | undefined;
+        } | undefined;
+        manga?: {
+            id?: string | undefined;
+            parentLabel?: "SEQUEL" | "SPIN_OFF" | "ALTERNATIVE" | "REBOOT" | "FILM" | undefined;
+        } | undefined;
         tracks?: {
             id?: string | undefined;
             newTrack?: {
@@ -4534,16 +4544,6 @@ export declare const AnimeCreateBody: z.ZodObject<z.objectUtil.extendShape<{
                 }[] | undefined;
             } | undefined;
         }[] | undefined;
-        episodes?: {
-            airing?: string | number | undefined;
-            nextAiringDate?: string | undefined;
-            total?: string | number | undefined;
-            durationMinute?: string | number | undefined;
-        } | undefined;
-        manga?: {
-            id?: string | undefined;
-            parentLabel?: "SEQUEL" | "SPIN_OFF" | "ALTERNATIVE" | "REBOOT" | "FILM" | undefined;
-        } | undefined;
     }>, {
         status: "AIRING" | "PAUSED" | "ENDED" | "STOPPED" | "POSTONED" | "SOON" | "any";
         title: {
@@ -4696,6 +4696,16 @@ export declare const AnimeCreateBody: z.ZodObject<z.objectUtil.extendShape<{
             } | undefined;
         }[] | undefined;
         synopsis?: string | undefined;
+        episodes?: {
+            airing?: number | undefined;
+            nextAiringDate?: string | undefined;
+            total?: number | undefined;
+            durationMinute?: number | undefined;
+        } | undefined;
+        manga?: {
+            id?: string | undefined;
+            parentLabel?: "SEQUEL" | "SPIN_OFF" | "ALTERNATIVE" | "REBOOT" | "FILM" | undefined;
+        } | undefined;
         tracks?: {
             id?: string | undefined;
             newTrack?: {
@@ -4747,16 +4757,6 @@ export declare const AnimeCreateBody: z.ZodObject<z.objectUtil.extendShape<{
                 }[] | undefined;
             } | undefined;
         }[] | undefined;
-        episodes?: {
-            airing?: number | undefined;
-            nextAiringDate?: string | undefined;
-            total?: number | undefined;
-            durationMinute?: number | undefined;
-        } | undefined;
-        manga?: {
-            id?: string | undefined;
-            parentLabel?: "SEQUEL" | "SPIN_OFF" | "ALTERNATIVE" | "REBOOT" | "FILM" | undefined;
-        } | undefined;
     }, {
         status: "AIRING" | "PAUSED" | "ENDED" | "STOPPED" | "POSTONED" | "SOON" | "any";
         title: {
@@ -4909,6 +4909,16 @@ export declare const AnimeCreateBody: z.ZodObject<z.objectUtil.extendShape<{
             } | undefined;
         }[] | undefined;
         synopsis?: string | undefined;
+        episodes?: {
+            airing?: string | number | undefined;
+            nextAiringDate?: string | undefined;
+            total?: string | number | undefined;
+            durationMinute?: string | number | undefined;
+        } | undefined;
+        manga?: {
+            id?: string | undefined;
+            parentLabel?: "SEQUEL" | "SPIN_OFF" | "ALTERNATIVE" | "REBOOT" | "FILM" | undefined;
+        } | undefined;
         tracks?: {
             id?: string | undefined;
             newTrack?: {
@@ -4960,16 +4970,6 @@ export declare const AnimeCreateBody: z.ZodObject<z.objectUtil.extendShape<{
                 }[] | undefined;
             } | undefined;
         }[] | undefined;
-        episodes?: {
-            airing?: string | number | undefined;
-            nextAiringDate?: string | undefined;
-            total?: string | number | undefined;
-            durationMinute?: string | number | undefined;
-        } | undefined;
-        manga?: {
-            id?: string | undefined;
-            parentLabel?: "SEQUEL" | "SPIN_OFF" | "ALTERNATIVE" | "REBOOT" | "FILM" | undefined;
-        } | undefined;
     }>;
 }>, "strip", z.ZodTypeAny, {
     data: {
@@ -5124,6 +5124,16 @@ export declare const AnimeCreateBody: z.ZodObject<z.objectUtil.extendShape<{
             } | undefined;
         }[] | undefined;
         synopsis?: string | undefined;
+        episodes?: {
+            airing?: number | undefined;
+            nextAiringDate?: string | undefined;
+            total?: number | undefined;
+            durationMinute?: number | undefined;
+        } | undefined;
+        manga?: {
+            id?: string | undefined;
+            parentLabel?: "SEQUEL" | "SPIN_OFF" | "ALTERNATIVE" | "REBOOT" | "FILM" | undefined;
+        } | undefined;
         tracks?: {
             id?: string | undefined;
             newTrack?: {
@@ -5175,16 +5185,6 @@ export declare const AnimeCreateBody: z.ZodObject<z.objectUtil.extendShape<{
                 }[] | undefined;
             } | undefined;
         }[] | undefined;
-        episodes?: {
-            airing?: number | undefined;
-            nextAiringDate?: string | undefined;
-            total?: number | undefined;
-            durationMinute?: number | undefined;
-        } | undefined;
-        manga?: {
-            id?: string | undefined;
-            parentLabel?: "SEQUEL" | "SPIN_OFF" | "ALTERNATIVE" | "REBOOT" | "FILM" | undefined;
-        } | undefined;
     };
     reason?: string | undefined;
     description?: string | undefined;
@@ -5341,6 +5341,16 @@ export declare const AnimeCreateBody: z.ZodObject<z.objectUtil.extendShape<{
             } | undefined;
         }[] | undefined;
         synopsis?: string | undefined;
+        episodes?: {
+            airing?: string | number | undefined;
+            nextAiringDate?: string | undefined;
+            total?: string | number | undefined;
+            durationMinute?: string | number | undefined;
+        } | undefined;
+        manga?: {
+            id?: string | undefined;
+            parentLabel?: "SEQUEL" | "SPIN_OFF" | "ALTERNATIVE" | "REBOOT" | "FILM" | undefined;
+        } | undefined;
         tracks?: {
             id?: string | undefined;
             newTrack?: {
@@ -5392,16 +5402,6 @@ export declare const AnimeCreateBody: z.ZodObject<z.objectUtil.extendShape<{
                 }[] | undefined;
             } | undefined;
         }[] | undefined;
-        episodes?: {
-            airing?: string | number | undefined;
-            nextAiringDate?: string | undefined;
-            total?: string | number | undefined;
-            durationMinute?: string | number | undefined;
-        } | undefined;
-        manga?: {
-            id?: string | undefined;
-            parentLabel?: "SEQUEL" | "SPIN_OFF" | "ALTERNATIVE" | "REBOOT" | "FILM" | undefined;
-        } | undefined;
     };
     reason?: string | undefined;
     description?: string | undefined;
@@ -6866,6 +6866,16 @@ export declare const Create_Anime_ZOD_FORM: z.ZodObject<{
             } | undefined;
         }[] | undefined;
         synopsis?: string | undefined;
+        episodes?: {
+            airing?: number | undefined;
+            nextAiringDate?: string | undefined;
+            total?: number | undefined;
+            durationMinute?: number | undefined;
+        } | undefined;
+        manga?: {
+            id?: string | undefined;
+            parentLabel?: "SEQUEL" | "SPIN_OFF" | "ALTERNATIVE" | "REBOOT" | "FILM" | undefined;
+        } | undefined;
         tracks?: {
             id?: string | undefined;
             newTrack?: {
@@ -6917,16 +6927,6 @@ export declare const Create_Anime_ZOD_FORM: z.ZodObject<{
                 }[] | undefined;
             } | undefined;
         }[] | undefined;
-        episodes?: {
-            airing?: number | undefined;
-            nextAiringDate?: string | undefined;
-            total?: number | undefined;
-            durationMinute?: number | undefined;
-        } | undefined;
-        manga?: {
-            id?: string | undefined;
-            parentLabel?: "SEQUEL" | "SPIN_OFF" | "ALTERNATIVE" | "REBOOT" | "FILM" | undefined;
-        } | undefined;
     }, {
         status: "AIRING" | "PAUSED" | "ENDED" | "STOPPED" | "POSTONED" | "SOON" | "any";
         title: {
@@ -7079,6 +7079,16 @@ export declare const Create_Anime_ZOD_FORM: z.ZodObject<{
             } | undefined;
         }[] | undefined;
         synopsis?: string | undefined;
+        episodes?: {
+            airing?: string | number | undefined;
+            nextAiringDate?: string | undefined;
+            total?: string | number | undefined;
+            durationMinute?: string | number | undefined;
+        } | undefined;
+        manga?: {
+            id?: string | undefined;
+            parentLabel?: "SEQUEL" | "SPIN_OFF" | "ALTERNATIVE" | "REBOOT" | "FILM" | undefined;
+        } | undefined;
         tracks?: {
             id?: string | undefined;
             newTrack?: {
@@ -7130,16 +7140,6 @@ export declare const Create_Anime_ZOD_FORM: z.ZodObject<{
                 }[] | undefined;
             } | undefined;
         }[] | undefined;
-        episodes?: {
-            airing?: string | number | undefined;
-            nextAiringDate?: string | undefined;
-            total?: string | number | undefined;
-            durationMinute?: string | number | undefined;
-        } | undefined;
-        manga?: {
-            id?: string | undefined;
-            parentLabel?: "SEQUEL" | "SPIN_OFF" | "ALTERNATIVE" | "REBOOT" | "FILM" | undefined;
-        } | undefined;
     }>, {
         status: "AIRING" | "PAUSED" | "ENDED" | "STOPPED" | "POSTONED" | "SOON" | "any";
         title: {
@@ -7292,6 +7292,16 @@ export declare const Create_Anime_ZOD_FORM: z.ZodObject<{
             } | undefined;
         }[] | undefined;
         synopsis?: string | undefined;
+        episodes?: {
+            airing?: number | undefined;
+            nextAiringDate?: string | undefined;
+            total?: number | undefined;
+            durationMinute?: number | undefined;
+        } | undefined;
+        manga?: {
+            id?: string | undefined;
+            parentLabel?: "SEQUEL" | "SPIN_OFF" | "ALTERNATIVE" | "REBOOT" | "FILM" | undefined;
+        } | undefined;
         tracks?: {
             id?: string | undefined;
             newTrack?: {
@@ -7343,16 +7353,6 @@ export declare const Create_Anime_ZOD_FORM: z.ZodObject<{
                 }[] | undefined;
             } | undefined;
         }[] | undefined;
-        episodes?: {
-            airing?: number | undefined;
-            nextAiringDate?: string | undefined;
-            total?: number | undefined;
-            durationMinute?: number | undefined;
-        } | undefined;
-        manga?: {
-            id?: string | undefined;
-            parentLabel?: "SEQUEL" | "SPIN_OFF" | "ALTERNATIVE" | "REBOOT" | "FILM" | undefined;
-        } | undefined;
     }, {
         status: "AIRING" | "PAUSED" | "ENDED" | "STOPPED" | "POSTONED" | "SOON" | "any";
         title: {
@@ -7505,6 +7505,16 @@ export declare const Create_Anime_ZOD_FORM: z.ZodObject<{
             } | undefined;
         }[] | undefined;
         synopsis?: string | undefined;
+        episodes?: {
+            airing?: string | number | undefined;
+            nextAiringDate?: string | undefined;
+            total?: string | number | undefined;
+            durationMinute?: string | number | undefined;
+        } | undefined;
+        manga?: {
+            id?: string | undefined;
+            parentLabel?: "SEQUEL" | "SPIN_OFF" | "ALTERNATIVE" | "REBOOT" | "FILM" | undefined;
+        } | undefined;
         tracks?: {
             id?: string | undefined;
             newTrack?: {
@@ -7556,16 +7566,6 @@ export declare const Create_Anime_ZOD_FORM: z.ZodObject<{
                 }[] | undefined;
             } | undefined;
         }[] | undefined;
-        episodes?: {
-            airing?: string | number | undefined;
-            nextAiringDate?: string | undefined;
-            total?: string | number | undefined;
-            durationMinute?: string | number | undefined;
-        } | undefined;
-        manga?: {
-            id?: string | undefined;
-            parentLabel?: "SEQUEL" | "SPIN_OFF" | "ALTERNATIVE" | "REBOOT" | "FILM" | undefined;
-        } | undefined;
     }>;
 }, "strip", z.ZodTypeAny, {
     data: {
@@ -7720,6 +7720,16 @@ export declare const Create_Anime_ZOD_FORM: z.ZodObject<{
             } | undefined;
         }[] | undefined;
         synopsis?: string | undefined;
+        episodes?: {
+            airing?: number | undefined;
+            nextAiringDate?: string | undefined;
+            total?: number | undefined;
+            durationMinute?: number | undefined;
+        } | undefined;
+        manga?: {
+            id?: string | undefined;
+            parentLabel?: "SEQUEL" | "SPIN_OFF" | "ALTERNATIVE" | "REBOOT" | "FILM" | undefined;
+        } | undefined;
         tracks?: {
             id?: string | undefined;
             newTrack?: {
@@ -7771,16 +7781,6 @@ export declare const Create_Anime_ZOD_FORM: z.ZodObject<{
                 }[] | undefined;
             } | undefined;
         }[] | undefined;
-        episodes?: {
-            airing?: number | undefined;
-            nextAiringDate?: string | undefined;
-            total?: number | undefined;
-            durationMinute?: number | undefined;
-        } | undefined;
-        manga?: {
-            id?: string | undefined;
-            parentLabel?: "SEQUEL" | "SPIN_OFF" | "ALTERNATIVE" | "REBOOT" | "FILM" | undefined;
-        } | undefined;
     };
     note?: string | undefined;
 }, {
@@ -7936,6 +7936,16 @@ export declare const Create_Anime_ZOD_FORM: z.ZodObject<{
             } | undefined;
         }[] | undefined;
         synopsis?: string | undefined;
+        episodes?: {
+            airing?: string | number | undefined;
+            nextAiringDate?: string | undefined;
+            total?: string | number | undefined;
+            durationMinute?: string | number | undefined;
+        } | undefined;
+        manga?: {
+            id?: string | undefined;
+            parentLabel?: "SEQUEL" | "SPIN_OFF" | "ALTERNATIVE" | "REBOOT" | "FILM" | undefined;
+        } | undefined;
         tracks?: {
             id?: string | undefined;
             newTrack?: {
@@ -7987,16 +7997,6 @@ export declare const Create_Anime_ZOD_FORM: z.ZodObject<{
                 }[] | undefined;
             } | undefined;
         }[] | undefined;
-        episodes?: {
-            airing?: string | number | undefined;
-            nextAiringDate?: string | undefined;
-            total?: string | number | undefined;
-            durationMinute?: string | number | undefined;
-        } | undefined;
-        manga?: {
-            id?: string | undefined;
-            parentLabel?: "SEQUEL" | "SPIN_OFF" | "ALTERNATIVE" | "REBOOT" | "FILM" | undefined;
-        } | undefined;
     };
     note?: string | undefined;
 }>;
@@ -9435,6 +9435,12 @@ export declare const Create_Anime_Update_ZOD: z.ZodObject<{
         } | undefined;
     }[] | undefined;
     synopsis?: string | undefined;
+    episodes?: {
+        airing?: number | undefined;
+        nextAiringDate?: string | undefined;
+        total?: number | undefined;
+        durationMinute?: number | undefined;
+    } | undefined;
     tracks?: {
         id?: string | undefined;
         newTrack?: {
@@ -9486,12 +9492,6 @@ export declare const Create_Anime_Update_ZOD: z.ZodObject<{
             }[] | undefined;
         } | undefined;
     }[] | undefined;
-    episodes?: {
-        airing?: number | undefined;
-        nextAiringDate?: string | undefined;
-        total?: number | undefined;
-        durationMinute?: number | undefined;
-    } | undefined;
     parentPath?: "Manga" | "Anime" | undefined;
     image?: {
         cover?: string | undefined;
@@ -9635,6 +9635,12 @@ export declare const Create_Anime_Update_ZOD: z.ZodObject<{
         } | undefined;
     }[] | undefined;
     synopsis?: string | undefined;
+    episodes?: {
+        airing?: string | number | undefined;
+        nextAiringDate?: string | undefined;
+        total?: string | number | undefined;
+        durationMinute?: string | number | undefined;
+    } | undefined;
     tracks?: {
         id?: string | undefined;
         newTrack?: {
@@ -9686,12 +9692,6 @@ export declare const Create_Anime_Update_ZOD: z.ZodObject<{
             }[] | undefined;
         } | undefined;
     }[] | undefined;
-    episodes?: {
-        airing?: string | number | undefined;
-        nextAiringDate?: string | undefined;
-        total?: string | number | undefined;
-        durationMinute?: string | number | undefined;
-    } | undefined;
     parentPath?: "Manga" | "Anime" | undefined;
     image?: {
         cover?: string | undefined;
@@ -9852,6 +9852,16 @@ export declare const AnimeDataToZOD: (data: IAnime) => {
         } | undefined;
     }[] | undefined;
     synopsis?: string | undefined;
+    episodes?: {
+        airing?: number | undefined;
+        nextAiringDate?: string | undefined;
+        total?: number | undefined;
+        durationMinute?: number | undefined;
+    } | undefined;
+    manga?: {
+        id?: string | undefined;
+        parentLabel?: "SEQUEL" | "SPIN_OFF" | "ALTERNATIVE" | "REBOOT" | "FILM" | undefined;
+    } | undefined;
     tracks?: {
         id?: string | undefined;
         newTrack?: {
@@ -9903,14 +9913,4 @@ export declare const AnimeDataToZOD: (data: IAnime) => {
             }[] | undefined;
         } | undefined;
     }[] | undefined;
-    episodes?: {
-        airing?: number | undefined;
-        nextAiringDate?: string | undefined;
-        total?: number | undefined;
-        durationMinute?: number | undefined;
-    } | undefined;
-    manga?: {
-        id?: string | undefined;
-        parentLabel?: "SEQUEL" | "SPIN_OFF" | "ALTERNATIVE" | "REBOOT" | "FILM" | undefined;
-    } | undefined;
 } | undefined;

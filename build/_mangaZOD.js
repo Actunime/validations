@@ -8,7 +8,6 @@ const _companyZOD_1 = require("./_companyZOD");
 const _groupeZOD_1 = require("./_groupeZOD");
 const _media_1 = require("./_media");
 const _personZOD_1 = require("./_personZOD");
-const _trackZOD_1 = require("./_trackZOD");
 const _util_1 = require("./_util");
 const _imageZOD_1 = require("./_imageZOD");
 const _patchZOD_1 = require("./_patchZOD");
@@ -103,8 +102,7 @@ exports.Create_Manga_ZOD = zod_1.z
     links: zod_1.z.optional(zod_1.z.array(_media_1.Create_Link_ZOD)),
     companys: zod_1.z.optional(zod_1.z.array(_companyZOD_1.Add_Company_ZOD)),
     staffs: zod_1.z.optional(zod_1.z.array(_personZOD_1.Add_Person_ZOD)),
-    characters: zod_1.z.optional(zod_1.z.array(_characterZOD_1.Add_Character_ZOD)),
-    tracks: zod_1.z.optional(zod_1.z.array(_trackZOD_1.Add_Track_ZOD)),
+    characters: zod_1.z.optional(zod_1.z.array(_characterZOD_1.Add_Character_ZOD))
 })
     .strict();
 exports.MangaCreateBody = _patchZOD_1.PatchParamsBody.partial().extend({

@@ -113,9 +113,23 @@ export declare const FromBody: z.ZodObject<{
 }>;
 export declare const MediaDeleteBody: z.ZodObject<{
     reason: z.ZodString;
+    reccursive: z.ZodBoolean;
 }, "strip", z.ZodTypeAny, {
     reason: string;
+    reccursive: boolean;
 }, {
     reason: string;
+    reccursive: boolean;
 }>;
 export type IMediaDeleteBody = z.infer<typeof MediaDeleteBody>;
+export declare const MediaVerifyBody: z.ZodObject<{
+    reason: z.ZodString;
+    reccursive: z.ZodBoolean;
+}, "strip", z.ZodTypeAny, {
+    reason: string;
+    reccursive: boolean;
+}, {
+    reason: string;
+    reccursive: boolean;
+}>;
+export type IMediaVerifyBody = z.infer<typeof MediaVerifyBody>;
