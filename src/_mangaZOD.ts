@@ -131,8 +131,7 @@ export const Create_Manga_ZOD = z
     links: z.optional(z.array(Create_Link_ZOD)),
     companys: z.optional(z.array(Add_Company_ZOD)),
     staffs: z.optional(z.array(Add_Person_ZOD)),
-    characters: z.optional(z.array(Add_Character_ZOD)),
-    tracks: z.optional(z.array(Add_Track_ZOD)),
+    characters: z.optional(z.array(Add_Character_ZOD))
   })
   .strict();
 
