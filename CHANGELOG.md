@@ -1,3 +1,13 @@
+## [1.0.21](https://github.com/Actunime/validations/compare/v1.0.20...v1.0.21) (2025-03-16)
+
+
+### Bug Fixes
+
+* **add:** ajout MediaVerifyBody ([99b390f](https://github.com/Actunime/validations/commit/99b390f1df9cbc29faed5f85d3c1d1b599374f96))
+* **add:** propriété reccursive MediaDeleteBody ([171ed17](https://github.com/Actunime/validations/commit/171ed17080d28b0454ce29e393372a3bb13602d0))
+* build ([77398cf](https://github.com/Actunime/validations/commit/77398cf6bd4aec731a0637b4a1fe6b490059f435))
+* **manga:** pourquoi y avais tracks ([afd84fd](https://github.com/Actunime/validations/commit/afd84fd8acc4fa8f3e35a59c3a77f74c3cfc76ed))
+
 ## [1.0.20](https://github.com/Actunime/validations/compare/v1.0.19...v1.0.20) (2025-03-14)
 
 
