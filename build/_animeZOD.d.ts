@@ -1759,7 +1759,7 @@ export declare const Create_Anime_ZOD: z.ZodEffects<z.ZodObject<{
                     label: "COVER" | "BANNER" | "AVATAR" | "LOGO";
                 } | undefined;
             }>>;
-            description: z.ZodString;
+            description: z.ZodOptional<z.ZodString>;
             links: z.ZodOptional<z.ZodArray<z.ZodObject<{
                 name: z.ZodString;
                 value: z.ZodEffects<z.ZodString, string, string>;
@@ -1778,7 +1778,6 @@ export declare const Create_Anime_ZOD: z.ZodEffects<z.ZodObject<{
                     content: string;
                 }[] | undefined;
             };
-            description: string;
             cover?: {
                 id?: string | undefined;
                 label?: "COVER" | "BANNER" | "AVATAR" | "LOGO" | undefined;
@@ -1787,6 +1786,7 @@ export declare const Create_Anime_ZOD: z.ZodEffects<z.ZodObject<{
                     label: "COVER" | "BANNER" | "AVATAR" | "LOGO";
                 } | undefined;
             } | undefined;
+            description?: string | undefined;
             links?: {
                 value: string;
                 name: string;
@@ -1828,7 +1828,6 @@ export declare const Create_Anime_ZOD: z.ZodEffects<z.ZodObject<{
                     content: string;
                 }[] | undefined;
             };
-            description: string;
             cover?: {
                 id?: string | undefined;
                 label?: "COVER" | "BANNER" | "AVATAR" | "LOGO" | undefined;
@@ -1837,6 +1836,7 @@ export declare const Create_Anime_ZOD: z.ZodEffects<z.ZodObject<{
                     label: "COVER" | "BANNER" | "AVATAR" | "LOGO";
                 } | undefined;
             } | undefined;
+            description?: string | undefined;
             links?: {
                 value: string;
                 name: string;
@@ -1881,7 +1881,6 @@ export declare const Create_Anime_ZOD: z.ZodEffects<z.ZodObject<{
                     content: string;
                 }[] | undefined;
             };
-            description: string;
             cover?: {
                 id?: string | undefined;
                 label?: "COVER" | "BANNER" | "AVATAR" | "LOGO" | undefined;
@@ -1890,6 +1889,7 @@ export declare const Create_Anime_ZOD: z.ZodEffects<z.ZodObject<{
                     label: "COVER" | "BANNER" | "AVATAR" | "LOGO";
                 } | undefined;
             } | undefined;
+            description?: string | undefined;
             links?: {
                 value: string;
                 name: string;
@@ -1934,7 +1934,6 @@ export declare const Create_Anime_ZOD: z.ZodEffects<z.ZodObject<{
                     content: string;
                 }[] | undefined;
             };
-            description: string;
             cover?: {
                 id?: string | undefined;
                 label?: "COVER" | "BANNER" | "AVATAR" | "LOGO" | undefined;
@@ -1943,6 +1942,7 @@ export declare const Create_Anime_ZOD: z.ZodEffects<z.ZodObject<{
                     label: "COVER" | "BANNER" | "AVATAR" | "LOGO";
                 } | undefined;
             } | undefined;
+            description?: string | undefined;
             links?: {
                 value: string;
                 name: string;
@@ -2150,7 +2150,6 @@ export declare const Create_Anime_ZOD: z.ZodEffects<z.ZodObject<{
                     content: string;
                 }[] | undefined;
             };
-            description: string;
             cover?: {
                 id?: string | undefined;
                 label?: "COVER" | "BANNER" | "AVATAR" | "LOGO" | undefined;
@@ -2159,6 +2158,7 @@ export declare const Create_Anime_ZOD: z.ZodEffects<z.ZodObject<{
                     label: "COVER" | "BANNER" | "AVATAR" | "LOGO";
                 } | undefined;
             } | undefined;
+            description?: string | undefined;
             links?: {
                 value: string;
                 name: string;
@@ -2366,7 +2366,6 @@ export declare const Create_Anime_ZOD: z.ZodEffects<z.ZodObject<{
                     content: string;
                 }[] | undefined;
             };
-            description: string;
             cover?: {
                 id?: string | undefined;
                 label?: "COVER" | "BANNER" | "AVATAR" | "LOGO" | undefined;
@@ -2375,6 +2374,7 @@ export declare const Create_Anime_ZOD: z.ZodEffects<z.ZodObject<{
                     label: "COVER" | "BANNER" | "AVATAR" | "LOGO";
                 } | undefined;
             } | undefined;
+            description?: string | undefined;
             links?: {
                 value: string;
                 name: string;
@@ -2582,7 +2582,6 @@ export declare const Create_Anime_ZOD: z.ZodEffects<z.ZodObject<{
                     content: string;
                 }[] | undefined;
             };
-            description: string;
             cover?: {
                 id?: string | undefined;
                 label?: "COVER" | "BANNER" | "AVATAR" | "LOGO" | undefined;
@@ -2591,6 +2590,7 @@ export declare const Create_Anime_ZOD: z.ZodEffects<z.ZodObject<{
                     label: "COVER" | "BANNER" | "AVATAR" | "LOGO";
                 } | undefined;
             } | undefined;
+            description?: string | undefined;
             links?: {
                 value: string;
                 name: string;
@@ -2798,7 +2798,6 @@ export declare const Create_Anime_ZOD: z.ZodEffects<z.ZodObject<{
                     content: string;
                 }[] | undefined;
             };
-            description: string;
             cover?: {
                 id?: string | undefined;
                 label?: "COVER" | "BANNER" | "AVATAR" | "LOGO" | undefined;
@@ -2807,6 +2806,7 @@ export declare const Create_Anime_ZOD: z.ZodEffects<z.ZodObject<{
                     label: "COVER" | "BANNER" | "AVATAR" | "LOGO";
                 } | undefined;
             } | undefined;
+            description?: string | undefined;
             links?: {
                 value: string;
                 name: string;
@@ -3957,7 +3957,7 @@ export declare const AnimeCreateBody: z.ZodObject<z.objectUtil.extendShape<{
                         label: "COVER" | "BANNER" | "AVATAR" | "LOGO";
                     } | undefined;
                 }>>;
-                description: z.ZodString;
+                description: z.ZodOptional<z.ZodString>;
                 links: z.ZodOptional<z.ZodArray<z.ZodObject<{
                     name: z.ZodString;
                     value: z.ZodEffects<z.ZodString, string, string>;
@@ -3976,7 +3976,6 @@ export declare const AnimeCreateBody: z.ZodObject<z.objectUtil.extendShape<{
                         content: string;
                     }[] | undefined;
                 };
-                description: string;
                 cover?: {
                     id?: string | undefined;
                     label?: "COVER" | "BANNER" | "AVATAR" | "LOGO" | undefined;
@@ -3985,6 +3984,7 @@ export declare const AnimeCreateBody: z.ZodObject<z.objectUtil.extendShape<{
                         label: "COVER" | "BANNER" | "AVATAR" | "LOGO";
                     } | undefined;
                 } | undefined;
+                description?: string | undefined;
                 links?: {
                     value: string;
                     name: string;
@@ -4026,7 +4026,6 @@ export declare const AnimeCreateBody: z.ZodObject<z.objectUtil.extendShape<{
                         content: string;
                     }[] | undefined;
                 };
-                description: string;
                 cover?: {
                     id?: string | undefined;
                     label?: "COVER" | "BANNER" | "AVATAR" | "LOGO" | undefined;
@@ -4035,6 +4034,7 @@ export declare const AnimeCreateBody: z.ZodObject<z.objectUtil.extendShape<{
                         label: "COVER" | "BANNER" | "AVATAR" | "LOGO";
                     } | undefined;
                 } | undefined;
+                description?: string | undefined;
                 links?: {
                     value: string;
                     name: string;
@@ -4079,7 +4079,6 @@ export declare const AnimeCreateBody: z.ZodObject<z.objectUtil.extendShape<{
                         content: string;
                     }[] | undefined;
                 };
-                description: string;
                 cover?: {
                     id?: string | undefined;
                     label?: "COVER" | "BANNER" | "AVATAR" | "LOGO" | undefined;
@@ -4088,6 +4087,7 @@ export declare const AnimeCreateBody: z.ZodObject<z.objectUtil.extendShape<{
                         label: "COVER" | "BANNER" | "AVATAR" | "LOGO";
                     } | undefined;
                 } | undefined;
+                description?: string | undefined;
                 links?: {
                     value: string;
                     name: string;
@@ -4132,7 +4132,6 @@ export declare const AnimeCreateBody: z.ZodObject<z.objectUtil.extendShape<{
                         content: string;
                     }[] | undefined;
                 };
-                description: string;
                 cover?: {
                     id?: string | undefined;
                     label?: "COVER" | "BANNER" | "AVATAR" | "LOGO" | undefined;
@@ -4141,6 +4140,7 @@ export declare const AnimeCreateBody: z.ZodObject<z.objectUtil.extendShape<{
                         label: "COVER" | "BANNER" | "AVATAR" | "LOGO";
                     } | undefined;
                 } | undefined;
+                description?: string | undefined;
                 links?: {
                     value: string;
                     name: string;
@@ -4348,7 +4348,6 @@ export declare const AnimeCreateBody: z.ZodObject<z.objectUtil.extendShape<{
                         content: string;
                     }[] | undefined;
                 };
-                description: string;
                 cover?: {
                     id?: string | undefined;
                     label?: "COVER" | "BANNER" | "AVATAR" | "LOGO" | undefined;
@@ -4357,6 +4356,7 @@ export declare const AnimeCreateBody: z.ZodObject<z.objectUtil.extendShape<{
                         label: "COVER" | "BANNER" | "AVATAR" | "LOGO";
                     } | undefined;
                 } | undefined;
+                description?: string | undefined;
                 links?: {
                     value: string;
                     name: string;
@@ -4564,7 +4564,6 @@ export declare const AnimeCreateBody: z.ZodObject<z.objectUtil.extendShape<{
                         content: string;
                     }[] | undefined;
                 };
-                description: string;
                 cover?: {
                     id?: string | undefined;
                     label?: "COVER" | "BANNER" | "AVATAR" | "LOGO" | undefined;
@@ -4573,6 +4572,7 @@ export declare const AnimeCreateBody: z.ZodObject<z.objectUtil.extendShape<{
                         label: "COVER" | "BANNER" | "AVATAR" | "LOGO";
                     } | undefined;
                 } | undefined;
+                description?: string | undefined;
                 links?: {
                     value: string;
                     name: string;
@@ -4780,7 +4780,6 @@ export declare const AnimeCreateBody: z.ZodObject<z.objectUtil.extendShape<{
                         content: string;
                     }[] | undefined;
                 };
-                description: string;
                 cover?: {
                     id?: string | undefined;
                     label?: "COVER" | "BANNER" | "AVATAR" | "LOGO" | undefined;
@@ -4789,6 +4788,7 @@ export declare const AnimeCreateBody: z.ZodObject<z.objectUtil.extendShape<{
                         label: "COVER" | "BANNER" | "AVATAR" | "LOGO";
                     } | undefined;
                 } | undefined;
+                description?: string | undefined;
                 links?: {
                     value: string;
                     name: string;
@@ -4996,7 +4996,6 @@ export declare const AnimeCreateBody: z.ZodObject<z.objectUtil.extendShape<{
                         content: string;
                     }[] | undefined;
                 };
-                description: string;
                 cover?: {
                     id?: string | undefined;
                     label?: "COVER" | "BANNER" | "AVATAR" | "LOGO" | undefined;
@@ -5005,6 +5004,7 @@ export declare const AnimeCreateBody: z.ZodObject<z.objectUtil.extendShape<{
                         label: "COVER" | "BANNER" | "AVATAR" | "LOGO";
                     } | undefined;
                 } | undefined;
+                description?: string | undefined;
                 links?: {
                     value: string;
                     name: string;
@@ -5214,7 +5214,6 @@ export declare const AnimeCreateBody: z.ZodObject<z.objectUtil.extendShape<{
                         content: string;
                     }[] | undefined;
                 };
-                description: string;
                 cover?: {
                     id?: string | undefined;
                     label?: "COVER" | "BANNER" | "AVATAR" | "LOGO" | undefined;
@@ -5223,6 +5222,7 @@ export declare const AnimeCreateBody: z.ZodObject<z.objectUtil.extendShape<{
                         label: "COVER" | "BANNER" | "AVATAR" | "LOGO";
                     } | undefined;
                 } | undefined;
+                description?: string | undefined;
                 links?: {
                     value: string;
                     name: string;
@@ -5434,7 +5434,6 @@ export declare const AnimeCreateBody: z.ZodObject<z.objectUtil.extendShape<{
                         content: string;
                     }[] | undefined;
                 };
-                description: string;
                 cover?: {
                     id?: string | undefined;
                     label?: "COVER" | "BANNER" | "AVATAR" | "LOGO" | undefined;
@@ -5443,6 +5442,7 @@ export declare const AnimeCreateBody: z.ZodObject<z.objectUtil.extendShape<{
                         label: "COVER" | "BANNER" | "AVATAR" | "LOGO";
                     } | undefined;
                 } | undefined;
+                description?: string | undefined;
                 links?: {
                     value: string;
                     name: string;
@@ -6594,7 +6594,7 @@ export declare const Create_Anime_ZOD_FORM: z.ZodObject<{
                         label: "COVER" | "BANNER" | "AVATAR" | "LOGO";
                     } | undefined;
                 }>>;
-                description: z.ZodString;
+                description: z.ZodOptional<z.ZodString>;
                 links: z.ZodOptional<z.ZodArray<z.ZodObject<{
                     name: z.ZodString;
                     value: z.ZodEffects<z.ZodString, string, string>;
@@ -6613,7 +6613,6 @@ export declare const Create_Anime_ZOD_FORM: z.ZodObject<{
                         content: string;
                     }[] | undefined;
                 };
-                description: string;
                 cover?: {
                     id?: string | undefined;
                     label?: "COVER" | "BANNER" | "AVATAR" | "LOGO" | undefined;
@@ -6622,6 +6621,7 @@ export declare const Create_Anime_ZOD_FORM: z.ZodObject<{
                         label: "COVER" | "BANNER" | "AVATAR" | "LOGO";
                     } | undefined;
                 } | undefined;
+                description?: string | undefined;
                 links?: {
                     value: string;
                     name: string;
@@ -6663,7 +6663,6 @@ export declare const Create_Anime_ZOD_FORM: z.ZodObject<{
                         content: string;
                     }[] | undefined;
                 };
-                description: string;
                 cover?: {
                     id?: string | undefined;
                     label?: "COVER" | "BANNER" | "AVATAR" | "LOGO" | undefined;
@@ -6672,6 +6671,7 @@ export declare const Create_Anime_ZOD_FORM: z.ZodObject<{
                         label: "COVER" | "BANNER" | "AVATAR" | "LOGO";
                     } | undefined;
                 } | undefined;
+                description?: string | undefined;
                 links?: {
                     value: string;
                     name: string;
@@ -6716,7 +6716,6 @@ export declare const Create_Anime_ZOD_FORM: z.ZodObject<{
                         content: string;
                     }[] | undefined;
                 };
-                description: string;
                 cover?: {
                     id?: string | undefined;
                     label?: "COVER" | "BANNER" | "AVATAR" | "LOGO" | undefined;
@@ -6725,6 +6724,7 @@ export declare const Create_Anime_ZOD_FORM: z.ZodObject<{
                         label: "COVER" | "BANNER" | "AVATAR" | "LOGO";
                     } | undefined;
                 } | undefined;
+                description?: string | undefined;
                 links?: {
                     value: string;
                     name: string;
@@ -6769,7 +6769,6 @@ export declare const Create_Anime_ZOD_FORM: z.ZodObject<{
                         content: string;
                     }[] | undefined;
                 };
-                description: string;
                 cover?: {
                     id?: string | undefined;
                     label?: "COVER" | "BANNER" | "AVATAR" | "LOGO" | undefined;
@@ -6778,6 +6777,7 @@ export declare const Create_Anime_ZOD_FORM: z.ZodObject<{
                         label: "COVER" | "BANNER" | "AVATAR" | "LOGO";
                     } | undefined;
                 } | undefined;
+                description?: string | undefined;
                 links?: {
                     value: string;
                     name: string;
@@ -6985,7 +6985,6 @@ export declare const Create_Anime_ZOD_FORM: z.ZodObject<{
                         content: string;
                     }[] | undefined;
                 };
-                description: string;
                 cover?: {
                     id?: string | undefined;
                     label?: "COVER" | "BANNER" | "AVATAR" | "LOGO" | undefined;
@@ -6994,6 +6993,7 @@ export declare const Create_Anime_ZOD_FORM: z.ZodObject<{
                         label: "COVER" | "BANNER" | "AVATAR" | "LOGO";
                     } | undefined;
                 } | undefined;
+                description?: string | undefined;
                 links?: {
                     value: string;
                     name: string;
@@ -7201,7 +7201,6 @@ export declare const Create_Anime_ZOD_FORM: z.ZodObject<{
                         content: string;
                     }[] | undefined;
                 };
-                description: string;
                 cover?: {
                     id?: string | undefined;
                     label?: "COVER" | "BANNER" | "AVATAR" | "LOGO" | undefined;
@@ -7210,6 +7209,7 @@ export declare const Create_Anime_ZOD_FORM: z.ZodObject<{
                         label: "COVER" | "BANNER" | "AVATAR" | "LOGO";
                     } | undefined;
                 } | undefined;
+                description?: string | undefined;
                 links?: {
                     value: string;
                     name: string;
@@ -7417,7 +7417,6 @@ export declare const Create_Anime_ZOD_FORM: z.ZodObject<{
                         content: string;
                     }[] | undefined;
                 };
-                description: string;
                 cover?: {
                     id?: string | undefined;
                     label?: "COVER" | "BANNER" | "AVATAR" | "LOGO" | undefined;
@@ -7426,6 +7425,7 @@ export declare const Create_Anime_ZOD_FORM: z.ZodObject<{
                         label: "COVER" | "BANNER" | "AVATAR" | "LOGO";
                     } | undefined;
                 } | undefined;
+                description?: string | undefined;
                 links?: {
                     value: string;
                     name: string;
@@ -7633,7 +7633,6 @@ export declare const Create_Anime_ZOD_FORM: z.ZodObject<{
                         content: string;
                     }[] | undefined;
                 };
-                description: string;
                 cover?: {
                     id?: string | undefined;
                     label?: "COVER" | "BANNER" | "AVATAR" | "LOGO" | undefined;
@@ -7642,6 +7641,7 @@ export declare const Create_Anime_ZOD_FORM: z.ZodObject<{
                         label: "COVER" | "BANNER" | "AVATAR" | "LOGO";
                     } | undefined;
                 } | undefined;
+                description?: string | undefined;
                 links?: {
                     value: string;
                     name: string;
@@ -7851,7 +7851,6 @@ export declare const Create_Anime_ZOD_FORM: z.ZodObject<{
                         content: string;
                     }[] | undefined;
                 };
-                description: string;
                 cover?: {
                     id?: string | undefined;
                     label?: "COVER" | "BANNER" | "AVATAR" | "LOGO" | undefined;
@@ -7860,6 +7859,7 @@ export declare const Create_Anime_ZOD_FORM: z.ZodObject<{
                         label: "COVER" | "BANNER" | "AVATAR" | "LOGO";
                     } | undefined;
                 } | undefined;
+                description?: string | undefined;
                 links?: {
                     value: string;
                     name: string;
@@ -8070,7 +8070,6 @@ export declare const Create_Anime_ZOD_FORM: z.ZodObject<{
                         content: string;
                     }[] | undefined;
                 };
-                description: string;
                 cover?: {
                     id?: string | undefined;
                     label?: "COVER" | "BANNER" | "AVATAR" | "LOGO" | undefined;
@@ -8079,6 +8078,7 @@ export declare const Create_Anime_ZOD_FORM: z.ZodObject<{
                         label: "COVER" | "BANNER" | "AVATAR" | "LOGO";
                     } | undefined;
                 } | undefined;
+                description?: string | undefined;
                 links?: {
                     value: string;
                     name: string;
@@ -9220,7 +9220,7 @@ export declare const Create_Anime_Update_ZOD: z.ZodObject<{
                     label: "COVER" | "BANNER" | "AVATAR" | "LOGO";
                 } | undefined;
             }>>;
-            description: z.ZodString;
+            description: z.ZodOptional<z.ZodString>;
             links: z.ZodOptional<z.ZodArray<z.ZodObject<{
                 name: z.ZodString;
                 value: z.ZodEffects<z.ZodString, string, string>;
@@ -9239,7 +9239,6 @@ export declare const Create_Anime_Update_ZOD: z.ZodObject<{
                     content: string;
                 }[] | undefined;
             };
-            description: string;
             cover?: {
                 id?: string | undefined;
                 label?: "COVER" | "BANNER" | "AVATAR" | "LOGO" | undefined;
@@ -9248,6 +9247,7 @@ export declare const Create_Anime_Update_ZOD: z.ZodObject<{
                     label: "COVER" | "BANNER" | "AVATAR" | "LOGO";
                 } | undefined;
             } | undefined;
+            description?: string | undefined;
             links?: {
                 value: string;
                 name: string;
@@ -9289,7 +9289,6 @@ export declare const Create_Anime_Update_ZOD: z.ZodObject<{
                     content: string;
                 }[] | undefined;
             };
-            description: string;
             cover?: {
                 id?: string | undefined;
                 label?: "COVER" | "BANNER" | "AVATAR" | "LOGO" | undefined;
@@ -9298,6 +9297,7 @@ export declare const Create_Anime_Update_ZOD: z.ZodObject<{
                     label: "COVER" | "BANNER" | "AVATAR" | "LOGO";
                 } | undefined;
             } | undefined;
+            description?: string | undefined;
             links?: {
                 value: string;
                 name: string;
@@ -9342,7 +9342,6 @@ export declare const Create_Anime_Update_ZOD: z.ZodObject<{
                     content: string;
                 }[] | undefined;
             };
-            description: string;
             cover?: {
                 id?: string | undefined;
                 label?: "COVER" | "BANNER" | "AVATAR" | "LOGO" | undefined;
@@ -9351,6 +9350,7 @@ export declare const Create_Anime_Update_ZOD: z.ZodObject<{
                     label: "COVER" | "BANNER" | "AVATAR" | "LOGO";
                 } | undefined;
             } | undefined;
+            description?: string | undefined;
             links?: {
                 value: string;
                 name: string;
@@ -9395,7 +9395,6 @@ export declare const Create_Anime_Update_ZOD: z.ZodObject<{
                     content: string;
                 }[] | undefined;
             };
-            description: string;
             cover?: {
                 id?: string | undefined;
                 label?: "COVER" | "BANNER" | "AVATAR" | "LOGO" | undefined;
@@ -9404,6 +9403,7 @@ export declare const Create_Anime_Update_ZOD: z.ZodObject<{
                     label: "COVER" | "BANNER" | "AVATAR" | "LOGO";
                 } | undefined;
             } | undefined;
+            description?: string | undefined;
             links?: {
                 value: string;
                 name: string;
@@ -9591,7 +9591,6 @@ export declare const Create_Anime_Update_ZOD: z.ZodObject<{
                     content: string;
                 }[] | undefined;
             };
-            description: string;
             cover?: {
                 id?: string | undefined;
                 label?: "COVER" | "BANNER" | "AVATAR" | "LOGO" | undefined;
@@ -9600,6 +9599,7 @@ export declare const Create_Anime_Update_ZOD: z.ZodObject<{
                     label: "COVER" | "BANNER" | "AVATAR" | "LOGO";
                 } | undefined;
             } | undefined;
+            description?: string | undefined;
             links?: {
                 value: string;
                 name: string;
@@ -9794,7 +9794,6 @@ export declare const Create_Anime_Update_ZOD: z.ZodObject<{
                     content: string;
                 }[] | undefined;
             };
-            description: string;
             cover?: {
                 id?: string | undefined;
                 label?: "COVER" | "BANNER" | "AVATAR" | "LOGO" | undefined;
@@ -9803,6 +9802,7 @@ export declare const Create_Anime_Update_ZOD: z.ZodObject<{
                     label: "COVER" | "BANNER" | "AVATAR" | "LOGO";
                 } | undefined;
             } | undefined;
+            description?: string | undefined;
             links?: {
                 value: string;
                 name: string;
@@ -10018,7 +10018,6 @@ export declare const AnimeDataToZOD: (data: IAnime) => {
                     content: string;
                 }[] | undefined;
             };
-            description: string;
             cover?: {
                 id?: string | undefined;
                 label?: "COVER" | "BANNER" | "AVATAR" | "LOGO" | undefined;
@@ -10027,6 +10026,7 @@ export declare const AnimeDataToZOD: (data: IAnime) => {
                     label: "COVER" | "BANNER" | "AVATAR" | "LOGO";
                 } | undefined;
             } | undefined;
+            description?: string | undefined;
             links?: {
                 value: string;
                 name: string;

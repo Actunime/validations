@@ -52,7 +52,7 @@ export const Create_Track_ZOD = z
     pubDate: z.optional(z.string()),
     artists: z.optional(z.array(Add_Person_ZOD)),
     cover: z.optional(Add_Image_ZOD),
-    description: z.string(),
+    description: z.optional(z.string()),
     links: z.optional(z.array(Create_Link_ZOD)),
   })
   .strict();

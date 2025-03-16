@@ -46,7 +46,7 @@ exports.Create_Track_ZOD = zod_1.z
     pubDate: zod_1.z.optional(zod_1.z.string()),
     artists: zod_1.z.optional(zod_1.z.array(_personZOD_1.Add_Person_ZOD)),
     cover: zod_1.z.optional(_imageZOD_1.Add_Image_ZOD),
-    description: zod_1.z.string(),
+    description: zod_1.z.optional(zod_1.z.string()),
     links: zod_1.z.optional(zod_1.z.array(_media_1.Create_Link_ZOD)),
 })
     .strict();
