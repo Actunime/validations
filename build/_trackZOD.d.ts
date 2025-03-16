@@ -50,6 +50,7 @@ export declare const TrackQueryBody: z.ZodObject<{
         value?: string | undefined;
         name?: string | undefined;
     }>;
+    description: z.ZodString;
     createdAt: z.ZodString;
     updatedAt: z.ZodString;
 }, "strip", z.ZodTypeAny, {
@@ -66,6 +67,7 @@ export declare const TrackQueryBody: z.ZodObject<{
     };
     createdAt: string;
     updatedAt: string;
+    description: string;
     links: {
         value?: string | undefined;
         name?: string | undefined;
@@ -88,6 +90,7 @@ export declare const TrackQueryBody: z.ZodObject<{
     };
     createdAt: string;
     updatedAt: string;
+    description: string;
     links: {
         value?: string | undefined;
         name?: string | undefined;
@@ -184,6 +187,7 @@ export declare const TrackPaginationBody: z.ZodObject<{
             value?: string | undefined;
             name?: string | undefined;
         }>>;
+        description: z.ZodOptional<z.ZodString>;
         createdAt: z.ZodOptional<z.ZodString>;
         updatedAt: z.ZodOptional<z.ZodString>;
     }, "strip", z.ZodTypeAny, {
@@ -200,6 +204,7 @@ export declare const TrackPaginationBody: z.ZodObject<{
         } | undefined;
         createdAt?: string | undefined;
         updatedAt?: string | undefined;
+        description?: string | undefined;
         links?: {
             value?: string | undefined;
             name?: string | undefined;
@@ -222,6 +227,7 @@ export declare const TrackPaginationBody: z.ZodObject<{
         } | undefined;
         createdAt?: string | undefined;
         updatedAt?: string | undefined;
+        description?: string | undefined;
         links?: {
             value?: string | undefined;
             name?: string | undefined;
@@ -266,6 +272,7 @@ export declare const TrackPaginationBody: z.ZodObject<{
         } | undefined;
         createdAt?: string | undefined;
         updatedAt?: string | undefined;
+        description?: string | undefined;
         links?: {
             value?: string | undefined;
             name?: string | undefined;
@@ -304,6 +311,7 @@ export declare const TrackPaginationBody: z.ZodObject<{
         } | undefined;
         createdAt?: string | undefined;
         updatedAt?: string | undefined;
+        description?: string | undefined;
         links?: {
             value?: string | undefined;
             name?: string | undefined;
@@ -389,6 +397,7 @@ export declare const Track_Pagination_ZOD: z.ZodObject<{
             value?: string | undefined;
             name?: string | undefined;
         }>>;
+        description: z.ZodOptional<z.ZodString>;
         createdAt: z.ZodOptional<z.ZodString>;
         updatedAt: z.ZodOptional<z.ZodString>;
     }, "strip", z.ZodTypeAny, {
@@ -405,6 +414,7 @@ export declare const Track_Pagination_ZOD: z.ZodObject<{
         } | undefined;
         createdAt?: string | undefined;
         updatedAt?: string | undefined;
+        description?: string | undefined;
         links?: {
             value?: string | undefined;
             name?: string | undefined;
@@ -427,6 +437,7 @@ export declare const Track_Pagination_ZOD: z.ZodObject<{
         } | undefined;
         createdAt?: string | undefined;
         updatedAt?: string | undefined;
+        description?: string | undefined;
         links?: {
             value?: string | undefined;
             name?: string | undefined;
@@ -460,6 +471,7 @@ export declare const Track_Pagination_ZOD: z.ZodObject<{
         } | undefined;
         createdAt?: string | undefined;
         updatedAt?: string | undefined;
+        description?: string | undefined;
         links?: {
             value?: string | undefined;
             name?: string | undefined;
@@ -493,6 +505,7 @@ export declare const Track_Pagination_ZOD: z.ZodObject<{
         } | undefined;
         createdAt?: string | undefined;
         updatedAt?: string | undefined;
+        description?: string | undefined;
         links?: {
             value?: string | undefined;
             name?: string | undefined;
@@ -723,6 +736,7 @@ export declare const Create_Track_ZOD: z.ZodObject<{
             label: "COVER" | "BANNER" | "AVATAR" | "LOGO";
         } | undefined;
     }>>;
+    description: z.ZodString;
     links: z.ZodOptional<z.ZodArray<z.ZodObject<{
         name: z.ZodString;
         value: z.ZodEffects<z.ZodString, string, string>;
@@ -741,6 +755,7 @@ export declare const Create_Track_ZOD: z.ZodObject<{
             content: string;
         }[] | undefined;
     };
+    description: string;
     cover?: {
         id?: string | undefined;
         label?: "COVER" | "BANNER" | "AVATAR" | "LOGO" | undefined;
@@ -790,6 +805,7 @@ export declare const Create_Track_ZOD: z.ZodObject<{
             content: string;
         }[] | undefined;
     };
+    description: string;
     cover?: {
         id?: string | undefined;
         label?: "COVER" | "BANNER" | "AVATAR" | "LOGO" | undefined;
@@ -1056,6 +1072,7 @@ export declare const TrackCreateBody: z.ZodObject<z.objectUtil.extendShape<{
                 label: "COVER" | "BANNER" | "AVATAR" | "LOGO";
             } | undefined;
         }>>;
+        description: z.ZodString;
         links: z.ZodOptional<z.ZodArray<z.ZodObject<{
             name: z.ZodString;
             value: z.ZodEffects<z.ZodString, string, string>;
@@ -1074,6 +1091,7 @@ export declare const TrackCreateBody: z.ZodObject<z.objectUtil.extendShape<{
                 content: string;
             }[] | undefined;
         };
+        description: string;
         cover?: {
             id?: string | undefined;
             label?: "COVER" | "BANNER" | "AVATAR" | "LOGO" | undefined;
@@ -1123,6 +1141,7 @@ export declare const TrackCreateBody: z.ZodObject<z.objectUtil.extendShape<{
                 content: string;
             }[] | undefined;
         };
+        description: string;
         cover?: {
             id?: string | undefined;
             label?: "COVER" | "BANNER" | "AVATAR" | "LOGO" | undefined;
@@ -1174,6 +1193,7 @@ export declare const TrackCreateBody: z.ZodObject<z.objectUtil.extendShape<{
                 content: string;
             }[] | undefined;
         };
+        description: string;
         cover?: {
             id?: string | undefined;
             label?: "COVER" | "BANNER" | "AVATAR" | "LOGO" | undefined;
@@ -1227,6 +1247,7 @@ export declare const TrackCreateBody: z.ZodObject<z.objectUtil.extendShape<{
                 content: string;
             }[] | undefined;
         };
+        description: string;
         cover?: {
             id?: string | undefined;
             label?: "COVER" | "BANNER" | "AVATAR" | "LOGO" | undefined;
@@ -1494,6 +1515,7 @@ export declare const Create_Track_ZOD_FORM: z.ZodObject<{
                 label: "COVER" | "BANNER" | "AVATAR" | "LOGO";
             } | undefined;
         }>>;
+        description: z.ZodString;
         links: z.ZodOptional<z.ZodArray<z.ZodObject<{
             name: z.ZodString;
             value: z.ZodEffects<z.ZodString, string, string>;
@@ -1512,6 +1534,7 @@ export declare const Create_Track_ZOD_FORM: z.ZodObject<{
                 content: string;
             }[] | undefined;
         };
+        description: string;
         cover?: {
             id?: string | undefined;
             label?: "COVER" | "BANNER" | "AVATAR" | "LOGO" | undefined;
@@ -1561,6 +1584,7 @@ export declare const Create_Track_ZOD_FORM: z.ZodObject<{
                 content: string;
             }[] | undefined;
         };
+        description: string;
         cover?: {
             id?: string | undefined;
             label?: "COVER" | "BANNER" | "AVATAR" | "LOGO" | undefined;
@@ -1612,6 +1636,7 @@ export declare const Create_Track_ZOD_FORM: z.ZodObject<{
                 content: string;
             }[] | undefined;
         };
+        description: string;
         cover?: {
             id?: string | undefined;
             label?: "COVER" | "BANNER" | "AVATAR" | "LOGO" | undefined;
@@ -1664,6 +1689,7 @@ export declare const Create_Track_ZOD_FORM: z.ZodObject<{
                 content: string;
             }[] | undefined;
         };
+        description: string;
         cover?: {
             id?: string | undefined;
             label?: "COVER" | "BANNER" | "AVATAR" | "LOGO" | undefined;
@@ -1930,6 +1956,7 @@ export declare const Add_Track_ZOD: z.ZodObject<{
                 label: "COVER" | "BANNER" | "AVATAR" | "LOGO";
             } | undefined;
         }>>;
+        description: z.ZodString;
         links: z.ZodOptional<z.ZodArray<z.ZodObject<{
             name: z.ZodString;
             value: z.ZodEffects<z.ZodString, string, string>;
@@ -1948,6 +1975,7 @@ export declare const Add_Track_ZOD: z.ZodObject<{
                 content: string;
             }[] | undefined;
         };
+        description: string;
         cover?: {
             id?: string | undefined;
             label?: "COVER" | "BANNER" | "AVATAR" | "LOGO" | undefined;
@@ -1997,6 +2025,7 @@ export declare const Add_Track_ZOD: z.ZodObject<{
                 content: string;
             }[] | undefined;
         };
+        description: string;
         cover?: {
             id?: string | undefined;
             label?: "COVER" | "BANNER" | "AVATAR" | "LOGO" | undefined;
@@ -2049,6 +2078,7 @@ export declare const Add_Track_ZOD: z.ZodObject<{
                 content: string;
             }[] | undefined;
         };
+        description: string;
         cover?: {
             id?: string | undefined;
             label?: "COVER" | "BANNER" | "AVATAR" | "LOGO" | undefined;
@@ -2101,6 +2131,7 @@ export declare const Add_Track_ZOD: z.ZodObject<{
                 content: string;
             }[] | undefined;
         };
+        description: string;
         cover?: {
             id?: string | undefined;
             label?: "COVER" | "BANNER" | "AVATAR" | "LOGO" | undefined;
@@ -2153,6 +2184,7 @@ export declare const TrackDataToZOD: (data: ITrack) => {
             content: string;
         }[] | undefined;
     };
+    description: string;
     cover?: {
         id?: string | undefined;
         label?: "COVER" | "BANNER" | "AVATAR" | "LOGO" | undefined;

@@ -15,6 +15,7 @@ exports.TrackQueryBody = zod_1.z.object({
     artists: _personZOD_1.PersonBody.partial(),
     cover: _imageZOD_1.ImageBody.partial(),
     links: _media_1.LinkBody.partial(),
+    description: zod_1.z.string(),
     createdAt: zod_1.z.string(),
     updatedAt: zod_1.z.string(),
 });
@@ -45,6 +46,7 @@ exports.Create_Track_ZOD = zod_1.z
     pubDate: zod_1.z.optional(zod_1.z.string()),
     artists: zod_1.z.optional(zod_1.z.array(_personZOD_1.Add_Person_ZOD)),
     cover: zod_1.z.optional(_imageZOD_1.Add_Image_ZOD),
+    description: zod_1.z.string(),
     links: zod_1.z.optional(zod_1.z.array(_media_1.Create_Link_ZOD)),
 })
     .strict();
@@ -68,6 +70,8 @@ const TrackDataToZOD = (data) => {
         pubDate: (0, types_1.dateToZod)(data.pubDate),
         cover: data.cover,
         artists: data.artists,
+        description: data.description,
+        links: data.links,
     };
     const safeParse = exports.Create_Track_ZOD.safeParse(toZOD);
     if (safeParse.success)
