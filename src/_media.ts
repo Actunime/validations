@@ -93,3 +93,10 @@ export const MediaDeleteBody = z.object({
 })
 
 export type IMediaDeleteBody = z.infer<typeof MediaDeleteBody>;
+
+export const MediaVerifyBody = z.object({
+  reason: z.string(),
+  reccursive: z.boolean(),
+})
+
+export type IMediaVerifyBody = z.infer<typeof MediaVerifyBody>;
