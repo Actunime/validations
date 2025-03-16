@@ -33,14 +33,14 @@ const Anime_Episode_ZOD = z.object({
   airing: z.optional(zodNumber()),
   nextAiringDate: z.optional(z.string()),
   total: z.optional(zodNumber()),
-  durationMinute: z.optional(zodNumber()),
+  durationMinutes: z.optional(zodNumber()),
 });
 
 const AnimeEpisodeBody = z.object({
   airing: z.number(),
   nextAiringDate: z.string(),
   total: z.number(),
-  durationMinute: z.number(),
+  durationMinutes: z.number(),
 })
 
 export const Add_Anime_ZOD = z.object({

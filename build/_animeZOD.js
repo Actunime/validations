@@ -17,13 +17,13 @@ const Anime_Episode_ZOD = zod_1.z.object({
     airing: zod_1.z.optional((0, _util_1.zodNumber)()),
     nextAiringDate: zod_1.z.optional(zod_1.z.string()),
     total: zod_1.z.optional((0, _util_1.zodNumber)()),
-    durationMinute: zod_1.z.optional((0, _util_1.zodNumber)()),
+    durationMinutes: zod_1.z.optional((0, _util_1.zodNumber)()),
 });
 const AnimeEpisodeBody = zod_1.z.object({
     airing: zod_1.z.number(),
     nextAiringDate: zod_1.z.string(),
     total: zod_1.z.number(),
-    durationMinute: zod_1.z.number(),
+    durationMinutes: zod_1.z.number(),
 });
 exports.Add_Anime_ZOD = zod_1.z.object({
     id: zod_1.z.string(),

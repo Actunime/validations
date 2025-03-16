@@ -50,17 +50,17 @@ export declare const AnimeQueryBody: z.ZodObject<{
         airing: z.ZodOptional<z.ZodNumber>;
         nextAiringDate: z.ZodOptional<z.ZodString>;
         total: z.ZodOptional<z.ZodNumber>;
-        durationMinute: z.ZodOptional<z.ZodNumber>;
+        durationMinutes: z.ZodOptional<z.ZodNumber>;
     }, "strip", z.ZodTypeAny, {
         airing?: number | undefined;
         nextAiringDate?: string | undefined;
         total?: number | undefined;
-        durationMinute?: number | undefined;
+        durationMinutes?: number | undefined;
     }, {
         airing?: number | undefined;
         nextAiringDate?: string | undefined;
         total?: number | undefined;
-        durationMinute?: number | undefined;
+        durationMinutes?: number | undefined;
     }>;
     adult: z.ZodBoolean;
     explicit: z.ZodBoolean;
@@ -104,7 +104,7 @@ export declare const AnimeQueryBody: z.ZodObject<{
         airing?: number | undefined;
         nextAiringDate?: string | undefined;
         total?: number | undefined;
-        durationMinute?: number | undefined;
+        durationMinutes?: number | undefined;
     };
 }, {
     status: "AIRING" | "PAUSED" | "ENDED" | "STOPPED" | "POSTONED" | "SOON" | "any";
@@ -134,7 +134,7 @@ export declare const AnimeQueryBody: z.ZodObject<{
         airing?: number | undefined;
         nextAiringDate?: string | undefined;
         total?: number | undefined;
-        durationMinute?: number | undefined;
+        durationMinutes?: number | undefined;
     };
 }>;
 export type IAnimeQueryBody = z.infer<typeof AnimeQueryBody>;
@@ -231,17 +231,17 @@ export declare const AnimePaginationBody: z.ZodObject<z.objectUtil.extendShape<{
             airing: z.ZodOptional<z.ZodNumber>;
             nextAiringDate: z.ZodOptional<z.ZodString>;
             total: z.ZodOptional<z.ZodNumber>;
-            durationMinute: z.ZodOptional<z.ZodNumber>;
+            durationMinutes: z.ZodOptional<z.ZodNumber>;
         }, "strip", z.ZodTypeAny, {
             airing?: number | undefined;
             nextAiringDate?: string | undefined;
             total?: number | undefined;
-            durationMinute?: number | undefined;
+            durationMinutes?: number | undefined;
         }, {
             airing?: number | undefined;
             nextAiringDate?: string | undefined;
             total?: number | undefined;
-            durationMinute?: number | undefined;
+            durationMinutes?: number | undefined;
         }>>;
         adult: z.ZodOptional<z.ZodBoolean>;
         explicit: z.ZodOptional<z.ZodBoolean>;
@@ -285,7 +285,7 @@ export declare const AnimePaginationBody: z.ZodObject<z.objectUtil.extendShape<{
             airing?: number | undefined;
             nextAiringDate?: string | undefined;
             total?: number | undefined;
-            durationMinute?: number | undefined;
+            durationMinutes?: number | undefined;
         } | undefined;
     }, {
         status?: "AIRING" | "PAUSED" | "ENDED" | "STOPPED" | "POSTONED" | "SOON" | "any" | undefined;
@@ -315,7 +315,7 @@ export declare const AnimePaginationBody: z.ZodObject<z.objectUtil.extendShape<{
             airing?: number | undefined;
             nextAiringDate?: string | undefined;
             total?: number | undefined;
-            durationMinute?: number | undefined;
+            durationMinutes?: number | undefined;
         } | undefined;
     }>;
 }>, "strip", z.ZodTypeAny, {
@@ -359,7 +359,7 @@ export declare const AnimePaginationBody: z.ZodObject<z.objectUtil.extendShape<{
             airing?: number | undefined;
             nextAiringDate?: string | undefined;
             total?: number | undefined;
-            durationMinute?: number | undefined;
+            durationMinutes?: number | undefined;
         } | undefined;
     };
 }, {
@@ -403,7 +403,7 @@ export declare const AnimePaginationBody: z.ZodObject<z.objectUtil.extendShape<{
             airing?: number | undefined;
             nextAiringDate?: string | undefined;
             total?: number | undefined;
-            durationMinute?: number | undefined;
+            durationMinutes?: number | undefined;
         } | undefined;
     };
 }>;
@@ -474,17 +474,17 @@ export declare const Anime_Pagination_ZOD: z.ZodObject<{
             airing: z.ZodOptional<z.ZodNumber>;
             nextAiringDate: z.ZodOptional<z.ZodString>;
             total: z.ZodOptional<z.ZodNumber>;
-            durationMinute: z.ZodOptional<z.ZodNumber>;
+            durationMinutes: z.ZodOptional<z.ZodNumber>;
         }, "strip", z.ZodTypeAny, {
             airing?: number | undefined;
             nextAiringDate?: string | undefined;
             total?: number | undefined;
-            durationMinute?: number | undefined;
+            durationMinutes?: number | undefined;
         }, {
             airing?: number | undefined;
             nextAiringDate?: string | undefined;
             total?: number | undefined;
-            durationMinute?: number | undefined;
+            durationMinutes?: number | undefined;
         }>>;
         adult: z.ZodOptional<z.ZodBoolean>;
         explicit: z.ZodOptional<z.ZodBoolean>;
@@ -528,7 +528,7 @@ export declare const Anime_Pagination_ZOD: z.ZodObject<{
             airing?: number | undefined;
             nextAiringDate?: string | undefined;
             total?: number | undefined;
-            durationMinute?: number | undefined;
+            durationMinutes?: number | undefined;
         } | undefined;
     }, {
         status?: "AIRING" | "PAUSED" | "ENDED" | "STOPPED" | "POSTONED" | "SOON" | "any" | undefined;
@@ -558,7 +558,7 @@ export declare const Anime_Pagination_ZOD: z.ZodObject<{
             airing?: number | undefined;
             nextAiringDate?: string | undefined;
             total?: number | undefined;
-            durationMinute?: number | undefined;
+            durationMinutes?: number | undefined;
         } | undefined;
     }>;
 }, "strip", z.ZodTypeAny, {
@@ -601,7 +601,7 @@ export declare const Anime_Pagination_ZOD: z.ZodObject<{
             airing?: number | undefined;
             nextAiringDate?: string | undefined;
             total?: number | undefined;
-            durationMinute?: number | undefined;
+            durationMinutes?: number | undefined;
         } | undefined;
     };
 }, {
@@ -644,7 +644,7 @@ export declare const Anime_Pagination_ZOD: z.ZodObject<{
             airing?: number | undefined;
             nextAiringDate?: string | undefined;
             total?: number | undefined;
-            durationMinute?: number | undefined;
+            durationMinutes?: number | undefined;
         } | undefined;
     };
 }>;
@@ -798,17 +798,17 @@ export declare const Create_Anime_ZOD: z.ZodEffects<z.ZodObject<{
         airing: z.ZodOptional<z.ZodEffects<z.ZodUnion<[z.ZodNumber, z.ZodString]>, number, string | number>>;
         nextAiringDate: z.ZodOptional<z.ZodString>;
         total: z.ZodOptional<z.ZodEffects<z.ZodUnion<[z.ZodNumber, z.ZodString]>, number, string | number>>;
-        durationMinute: z.ZodOptional<z.ZodEffects<z.ZodUnion<[z.ZodNumber, z.ZodString]>, number, string | number>>;
+        durationMinutes: z.ZodOptional<z.ZodEffects<z.ZodUnion<[z.ZodNumber, z.ZodString]>, number, string | number>>;
     }, "strip", z.ZodTypeAny, {
         airing?: number | undefined;
         nextAiringDate?: string | undefined;
         total?: number | undefined;
-        durationMinute?: number | undefined;
+        durationMinutes?: number | undefined;
     }, {
         airing?: string | number | undefined;
         nextAiringDate?: string | undefined;
         total?: string | number | undefined;
-        durationMinute?: string | number | undefined;
+        durationMinutes?: string | number | undefined;
     }>>;
     adult: z.ZodEffects<z.ZodUnion<[z.ZodBoolean, z.ZodLiteral<"true">, z.ZodLiteral<"false">]>, boolean, boolean | "true" | "false">;
     explicit: z.ZodEffects<z.ZodUnion<[z.ZodBoolean, z.ZodLiteral<"true">, z.ZodLiteral<"false">]>, boolean, boolean | "true" | "false">;
@@ -1759,6 +1759,7 @@ export declare const Create_Anime_ZOD: z.ZodEffects<z.ZodObject<{
                     label: "COVER" | "BANNER" | "AVATAR" | "LOGO";
                 } | undefined;
             }>>;
+            description: z.ZodString;
             links: z.ZodOptional<z.ZodArray<z.ZodObject<{
                 name: z.ZodString;
                 value: z.ZodEffects<z.ZodString, string, string>;
@@ -1777,6 +1778,7 @@ export declare const Create_Anime_ZOD: z.ZodEffects<z.ZodObject<{
                     content: string;
                 }[] | undefined;
             };
+            description: string;
             cover?: {
                 id?: string | undefined;
                 label?: "COVER" | "BANNER" | "AVATAR" | "LOGO" | undefined;
@@ -1826,6 +1828,7 @@ export declare const Create_Anime_ZOD: z.ZodEffects<z.ZodObject<{
                     content: string;
                 }[] | undefined;
             };
+            description: string;
             cover?: {
                 id?: string | undefined;
                 label?: "COVER" | "BANNER" | "AVATAR" | "LOGO" | undefined;
@@ -1878,6 +1881,7 @@ export declare const Create_Anime_ZOD: z.ZodEffects<z.ZodObject<{
                     content: string;
                 }[] | undefined;
             };
+            description: string;
             cover?: {
                 id?: string | undefined;
                 label?: "COVER" | "BANNER" | "AVATAR" | "LOGO" | undefined;
@@ -1930,6 +1934,7 @@ export declare const Create_Anime_ZOD: z.ZodEffects<z.ZodObject<{
                     content: string;
                 }[] | undefined;
             };
+            description: string;
             cover?: {
                 id?: string | undefined;
                 label?: "COVER" | "BANNER" | "AVATAR" | "LOGO" | undefined;
@@ -2129,7 +2134,7 @@ export declare const Create_Anime_ZOD: z.ZodEffects<z.ZodObject<{
         airing?: number | undefined;
         nextAiringDate?: string | undefined;
         total?: number | undefined;
-        durationMinute?: number | undefined;
+        durationMinutes?: number | undefined;
     } | undefined;
     manga?: {
         id?: string | undefined;
@@ -2145,6 +2150,7 @@ export declare const Create_Anime_ZOD: z.ZodEffects<z.ZodObject<{
                     content: string;
                 }[] | undefined;
             };
+            description: string;
             cover?: {
                 id?: string | undefined;
                 label?: "COVER" | "BANNER" | "AVATAR" | "LOGO" | undefined;
@@ -2344,7 +2350,7 @@ export declare const Create_Anime_ZOD: z.ZodEffects<z.ZodObject<{
         airing?: string | number | undefined;
         nextAiringDate?: string | undefined;
         total?: string | number | undefined;
-        durationMinute?: string | number | undefined;
+        durationMinutes?: string | number | undefined;
     } | undefined;
     manga?: {
         id?: string | undefined;
@@ -2360,6 +2366,7 @@ export declare const Create_Anime_ZOD: z.ZodEffects<z.ZodObject<{
                     content: string;
                 }[] | undefined;
             };
+            description: string;
             cover?: {
                 id?: string | undefined;
                 label?: "COVER" | "BANNER" | "AVATAR" | "LOGO" | undefined;
@@ -2559,7 +2566,7 @@ export declare const Create_Anime_ZOD: z.ZodEffects<z.ZodObject<{
         airing?: number | undefined;
         nextAiringDate?: string | undefined;
         total?: number | undefined;
-        durationMinute?: number | undefined;
+        durationMinutes?: number | undefined;
     } | undefined;
     manga?: {
         id?: string | undefined;
@@ -2575,6 +2582,7 @@ export declare const Create_Anime_ZOD: z.ZodEffects<z.ZodObject<{
                     content: string;
                 }[] | undefined;
             };
+            description: string;
             cover?: {
                 id?: string | undefined;
                 label?: "COVER" | "BANNER" | "AVATAR" | "LOGO" | undefined;
@@ -2774,7 +2782,7 @@ export declare const Create_Anime_ZOD: z.ZodEffects<z.ZodObject<{
         airing?: string | number | undefined;
         nextAiringDate?: string | undefined;
         total?: string | number | undefined;
-        durationMinute?: string | number | undefined;
+        durationMinutes?: string | number | undefined;
     } | undefined;
     manga?: {
         id?: string | undefined;
@@ -2790,6 +2798,7 @@ export declare const Create_Anime_ZOD: z.ZodEffects<z.ZodObject<{
                     content: string;
                 }[] | undefined;
             };
+            description: string;
             cover?: {
                 id?: string | undefined;
                 label?: "COVER" | "BANNER" | "AVATAR" | "LOGO" | undefined;
@@ -2987,17 +2996,17 @@ export declare const AnimeCreateBody: z.ZodObject<z.objectUtil.extendShape<{
             airing: z.ZodOptional<z.ZodEffects<z.ZodUnion<[z.ZodNumber, z.ZodString]>, number, string | number>>;
             nextAiringDate: z.ZodOptional<z.ZodString>;
             total: z.ZodOptional<z.ZodEffects<z.ZodUnion<[z.ZodNumber, z.ZodString]>, number, string | number>>;
-            durationMinute: z.ZodOptional<z.ZodEffects<z.ZodUnion<[z.ZodNumber, z.ZodString]>, number, string | number>>;
+            durationMinutes: z.ZodOptional<z.ZodEffects<z.ZodUnion<[z.ZodNumber, z.ZodString]>, number, string | number>>;
         }, "strip", z.ZodTypeAny, {
             airing?: number | undefined;
             nextAiringDate?: string | undefined;
             total?: number | undefined;
-            durationMinute?: number | undefined;
+            durationMinutes?: number | undefined;
         }, {
             airing?: string | number | undefined;
             nextAiringDate?: string | undefined;
             total?: string | number | undefined;
-            durationMinute?: string | number | undefined;
+            durationMinutes?: string | number | undefined;
         }>>;
         adult: z.ZodEffects<z.ZodUnion<[z.ZodBoolean, z.ZodLiteral<"true">, z.ZodLiteral<"false">]>, boolean, boolean | "true" | "false">;
         explicit: z.ZodEffects<z.ZodUnion<[z.ZodBoolean, z.ZodLiteral<"true">, z.ZodLiteral<"false">]>, boolean, boolean | "true" | "false">;
@@ -3948,6 +3957,7 @@ export declare const AnimeCreateBody: z.ZodObject<z.objectUtil.extendShape<{
                         label: "COVER" | "BANNER" | "AVATAR" | "LOGO";
                     } | undefined;
                 }>>;
+                description: z.ZodString;
                 links: z.ZodOptional<z.ZodArray<z.ZodObject<{
                     name: z.ZodString;
                     value: z.ZodEffects<z.ZodString, string, string>;
@@ -3966,6 +3976,7 @@ export declare const AnimeCreateBody: z.ZodObject<z.objectUtil.extendShape<{
                         content: string;
                     }[] | undefined;
                 };
+                description: string;
                 cover?: {
                     id?: string | undefined;
                     label?: "COVER" | "BANNER" | "AVATAR" | "LOGO" | undefined;
@@ -4015,6 +4026,7 @@ export declare const AnimeCreateBody: z.ZodObject<z.objectUtil.extendShape<{
                         content: string;
                     }[] | undefined;
                 };
+                description: string;
                 cover?: {
                     id?: string | undefined;
                     label?: "COVER" | "BANNER" | "AVATAR" | "LOGO" | undefined;
@@ -4067,6 +4079,7 @@ export declare const AnimeCreateBody: z.ZodObject<z.objectUtil.extendShape<{
                         content: string;
                     }[] | undefined;
                 };
+                description: string;
                 cover?: {
                     id?: string | undefined;
                     label?: "COVER" | "BANNER" | "AVATAR" | "LOGO" | undefined;
@@ -4119,6 +4132,7 @@ export declare const AnimeCreateBody: z.ZodObject<z.objectUtil.extendShape<{
                         content: string;
                     }[] | undefined;
                 };
+                description: string;
                 cover?: {
                     id?: string | undefined;
                     label?: "COVER" | "BANNER" | "AVATAR" | "LOGO" | undefined;
@@ -4318,7 +4332,7 @@ export declare const AnimeCreateBody: z.ZodObject<z.objectUtil.extendShape<{
             airing?: number | undefined;
             nextAiringDate?: string | undefined;
             total?: number | undefined;
-            durationMinute?: number | undefined;
+            durationMinutes?: number | undefined;
         } | undefined;
         manga?: {
             id?: string | undefined;
@@ -4334,6 +4348,7 @@ export declare const AnimeCreateBody: z.ZodObject<z.objectUtil.extendShape<{
                         content: string;
                     }[] | undefined;
                 };
+                description: string;
                 cover?: {
                     id?: string | undefined;
                     label?: "COVER" | "BANNER" | "AVATAR" | "LOGO" | undefined;
@@ -4533,7 +4548,7 @@ export declare const AnimeCreateBody: z.ZodObject<z.objectUtil.extendShape<{
             airing?: string | number | undefined;
             nextAiringDate?: string | undefined;
             total?: string | number | undefined;
-            durationMinute?: string | number | undefined;
+            durationMinutes?: string | number | undefined;
         } | undefined;
         manga?: {
             id?: string | undefined;
@@ -4549,6 +4564,7 @@ export declare const AnimeCreateBody: z.ZodObject<z.objectUtil.extendShape<{
                         content: string;
                     }[] | undefined;
                 };
+                description: string;
                 cover?: {
                     id?: string | undefined;
                     label?: "COVER" | "BANNER" | "AVATAR" | "LOGO" | undefined;
@@ -4748,7 +4764,7 @@ export declare const AnimeCreateBody: z.ZodObject<z.objectUtil.extendShape<{
             airing?: number | undefined;
             nextAiringDate?: string | undefined;
             total?: number | undefined;
-            durationMinute?: number | undefined;
+            durationMinutes?: number | undefined;
         } | undefined;
         manga?: {
             id?: string | undefined;
@@ -4764,6 +4780,7 @@ export declare const AnimeCreateBody: z.ZodObject<z.objectUtil.extendShape<{
                         content: string;
                     }[] | undefined;
                 };
+                description: string;
                 cover?: {
                     id?: string | undefined;
                     label?: "COVER" | "BANNER" | "AVATAR" | "LOGO" | undefined;
@@ -4963,7 +4980,7 @@ export declare const AnimeCreateBody: z.ZodObject<z.objectUtil.extendShape<{
             airing?: string | number | undefined;
             nextAiringDate?: string | undefined;
             total?: string | number | undefined;
-            durationMinute?: string | number | undefined;
+            durationMinutes?: string | number | undefined;
         } | undefined;
         manga?: {
             id?: string | undefined;
@@ -4979,6 +4996,7 @@ export declare const AnimeCreateBody: z.ZodObject<z.objectUtil.extendShape<{
                         content: string;
                     }[] | undefined;
                 };
+                description: string;
                 cover?: {
                     id?: string | undefined;
                     label?: "COVER" | "BANNER" | "AVATAR" | "LOGO" | undefined;
@@ -5180,7 +5198,7 @@ export declare const AnimeCreateBody: z.ZodObject<z.objectUtil.extendShape<{
             airing?: number | undefined;
             nextAiringDate?: string | undefined;
             total?: number | undefined;
-            durationMinute?: number | undefined;
+            durationMinutes?: number | undefined;
         } | undefined;
         manga?: {
             id?: string | undefined;
@@ -5196,6 +5214,7 @@ export declare const AnimeCreateBody: z.ZodObject<z.objectUtil.extendShape<{
                         content: string;
                     }[] | undefined;
                 };
+                description: string;
                 cover?: {
                     id?: string | undefined;
                     label?: "COVER" | "BANNER" | "AVATAR" | "LOGO" | undefined;
@@ -5399,7 +5418,7 @@ export declare const AnimeCreateBody: z.ZodObject<z.objectUtil.extendShape<{
             airing?: string | number | undefined;
             nextAiringDate?: string | undefined;
             total?: string | number | undefined;
-            durationMinute?: string | number | undefined;
+            durationMinutes?: string | number | undefined;
         } | undefined;
         manga?: {
             id?: string | undefined;
@@ -5415,6 +5434,7 @@ export declare const AnimeCreateBody: z.ZodObject<z.objectUtil.extendShape<{
                         content: string;
                     }[] | undefined;
                 };
+                description: string;
                 cover?: {
                     id?: string | undefined;
                     label?: "COVER" | "BANNER" | "AVATAR" | "LOGO" | undefined;
@@ -5613,17 +5633,17 @@ export declare const Create_Anime_ZOD_FORM: z.ZodObject<{
             airing: z.ZodOptional<z.ZodEffects<z.ZodUnion<[z.ZodNumber, z.ZodString]>, number, string | number>>;
             nextAiringDate: z.ZodOptional<z.ZodString>;
             total: z.ZodOptional<z.ZodEffects<z.ZodUnion<[z.ZodNumber, z.ZodString]>, number, string | number>>;
-            durationMinute: z.ZodOptional<z.ZodEffects<z.ZodUnion<[z.ZodNumber, z.ZodString]>, number, string | number>>;
+            durationMinutes: z.ZodOptional<z.ZodEffects<z.ZodUnion<[z.ZodNumber, z.ZodString]>, number, string | number>>;
         }, "strip", z.ZodTypeAny, {
             airing?: number | undefined;
             nextAiringDate?: string | undefined;
             total?: number | undefined;
-            durationMinute?: number | undefined;
+            durationMinutes?: number | undefined;
         }, {
             airing?: string | number | undefined;
             nextAiringDate?: string | undefined;
             total?: string | number | undefined;
-            durationMinute?: string | number | undefined;
+            durationMinutes?: string | number | undefined;
         }>>;
         adult: z.ZodEffects<z.ZodUnion<[z.ZodBoolean, z.ZodLiteral<"true">, z.ZodLiteral<"false">]>, boolean, boolean | "true" | "false">;
         explicit: z.ZodEffects<z.ZodUnion<[z.ZodBoolean, z.ZodLiteral<"true">, z.ZodLiteral<"false">]>, boolean, boolean | "true" | "false">;
@@ -6574,6 +6594,7 @@ export declare const Create_Anime_ZOD_FORM: z.ZodObject<{
                         label: "COVER" | "BANNER" | "AVATAR" | "LOGO";
                     } | undefined;
                 }>>;
+                description: z.ZodString;
                 links: z.ZodOptional<z.ZodArray<z.ZodObject<{
                     name: z.ZodString;
                     value: z.ZodEffects<z.ZodString, string, string>;
@@ -6592,6 +6613,7 @@ export declare const Create_Anime_ZOD_FORM: z.ZodObject<{
                         content: string;
                     }[] | undefined;
                 };
+                description: string;
                 cover?: {
                     id?: string | undefined;
                     label?: "COVER" | "BANNER" | "AVATAR" | "LOGO" | undefined;
@@ -6641,6 +6663,7 @@ export declare const Create_Anime_ZOD_FORM: z.ZodObject<{
                         content: string;
                     }[] | undefined;
                 };
+                description: string;
                 cover?: {
                     id?: string | undefined;
                     label?: "COVER" | "BANNER" | "AVATAR" | "LOGO" | undefined;
@@ -6693,6 +6716,7 @@ export declare const Create_Anime_ZOD_FORM: z.ZodObject<{
                         content: string;
                     }[] | undefined;
                 };
+                description: string;
                 cover?: {
                     id?: string | undefined;
                     label?: "COVER" | "BANNER" | "AVATAR" | "LOGO" | undefined;
@@ -6745,6 +6769,7 @@ export declare const Create_Anime_ZOD_FORM: z.ZodObject<{
                         content: string;
                     }[] | undefined;
                 };
+                description: string;
                 cover?: {
                     id?: string | undefined;
                     label?: "COVER" | "BANNER" | "AVATAR" | "LOGO" | undefined;
@@ -6944,7 +6969,7 @@ export declare const Create_Anime_ZOD_FORM: z.ZodObject<{
             airing?: number | undefined;
             nextAiringDate?: string | undefined;
             total?: number | undefined;
-            durationMinute?: number | undefined;
+            durationMinutes?: number | undefined;
         } | undefined;
         manga?: {
             id?: string | undefined;
@@ -6960,6 +6985,7 @@ export declare const Create_Anime_ZOD_FORM: z.ZodObject<{
                         content: string;
                     }[] | undefined;
                 };
+                description: string;
                 cover?: {
                     id?: string | undefined;
                     label?: "COVER" | "BANNER" | "AVATAR" | "LOGO" | undefined;
@@ -7159,7 +7185,7 @@ export declare const Create_Anime_ZOD_FORM: z.ZodObject<{
             airing?: string | number | undefined;
             nextAiringDate?: string | undefined;
             total?: string | number | undefined;
-            durationMinute?: string | number | undefined;
+            durationMinutes?: string | number | undefined;
         } | undefined;
         manga?: {
             id?: string | undefined;
@@ -7175,6 +7201,7 @@ export declare const Create_Anime_ZOD_FORM: z.ZodObject<{
                         content: string;
                     }[] | undefined;
                 };
+                description: string;
                 cover?: {
                     id?: string | undefined;
                     label?: "COVER" | "BANNER" | "AVATAR" | "LOGO" | undefined;
@@ -7374,7 +7401,7 @@ export declare const Create_Anime_ZOD_FORM: z.ZodObject<{
             airing?: number | undefined;
             nextAiringDate?: string | undefined;
             total?: number | undefined;
-            durationMinute?: number | undefined;
+            durationMinutes?: number | undefined;
         } | undefined;
         manga?: {
             id?: string | undefined;
@@ -7390,6 +7417,7 @@ export declare const Create_Anime_ZOD_FORM: z.ZodObject<{
                         content: string;
                     }[] | undefined;
                 };
+                description: string;
                 cover?: {
                     id?: string | undefined;
                     label?: "COVER" | "BANNER" | "AVATAR" | "LOGO" | undefined;
@@ -7589,7 +7617,7 @@ export declare const Create_Anime_ZOD_FORM: z.ZodObject<{
             airing?: string | number | undefined;
             nextAiringDate?: string | undefined;
             total?: string | number | undefined;
-            durationMinute?: string | number | undefined;
+            durationMinutes?: string | number | undefined;
         } | undefined;
         manga?: {
             id?: string | undefined;
@@ -7605,6 +7633,7 @@ export declare const Create_Anime_ZOD_FORM: z.ZodObject<{
                         content: string;
                     }[] | undefined;
                 };
+                description: string;
                 cover?: {
                     id?: string | undefined;
                     label?: "COVER" | "BANNER" | "AVATAR" | "LOGO" | undefined;
@@ -7806,7 +7835,7 @@ export declare const Create_Anime_ZOD_FORM: z.ZodObject<{
             airing?: number | undefined;
             nextAiringDate?: string | undefined;
             total?: number | undefined;
-            durationMinute?: number | undefined;
+            durationMinutes?: number | undefined;
         } | undefined;
         manga?: {
             id?: string | undefined;
@@ -7822,6 +7851,7 @@ export declare const Create_Anime_ZOD_FORM: z.ZodObject<{
                         content: string;
                     }[] | undefined;
                 };
+                description: string;
                 cover?: {
                     id?: string | undefined;
                     label?: "COVER" | "BANNER" | "AVATAR" | "LOGO" | undefined;
@@ -8024,7 +8054,7 @@ export declare const Create_Anime_ZOD_FORM: z.ZodObject<{
             airing?: string | number | undefined;
             nextAiringDate?: string | undefined;
             total?: string | number | undefined;
-            durationMinute?: string | number | undefined;
+            durationMinutes?: string | number | undefined;
         } | undefined;
         manga?: {
             id?: string | undefined;
@@ -8040,6 +8070,7 @@ export declare const Create_Anime_ZOD_FORM: z.ZodObject<{
                         content: string;
                     }[] | undefined;
                 };
+                description: string;
                 cover?: {
                     id?: string | undefined;
                     label?: "COVER" | "BANNER" | "AVATAR" | "LOGO" | undefined;
@@ -8228,17 +8259,17 @@ export declare const Create_Anime_Update_ZOD: z.ZodObject<{
         airing: z.ZodOptional<z.ZodEffects<z.ZodUnion<[z.ZodNumber, z.ZodString]>, number, string | number>>;
         nextAiringDate: z.ZodOptional<z.ZodString>;
         total: z.ZodOptional<z.ZodEffects<z.ZodUnion<[z.ZodNumber, z.ZodString]>, number, string | number>>;
-        durationMinute: z.ZodOptional<z.ZodEffects<z.ZodUnion<[z.ZodNumber, z.ZodString]>, number, string | number>>;
+        durationMinutes: z.ZodOptional<z.ZodEffects<z.ZodUnion<[z.ZodNumber, z.ZodString]>, number, string | number>>;
     }, "strip", z.ZodTypeAny, {
         airing?: number | undefined;
         nextAiringDate?: string | undefined;
         total?: number | undefined;
-        durationMinute?: number | undefined;
+        durationMinutes?: number | undefined;
     }, {
         airing?: string | number | undefined;
         nextAiringDate?: string | undefined;
         total?: string | number | undefined;
-        durationMinute?: string | number | undefined;
+        durationMinutes?: string | number | undefined;
     }>>;
     adult: z.ZodOptional<z.ZodBoolean>;
     explicit: z.ZodOptional<z.ZodBoolean>;
@@ -9189,6 +9220,7 @@ export declare const Create_Anime_Update_ZOD: z.ZodObject<{
                     label: "COVER" | "BANNER" | "AVATAR" | "LOGO";
                 } | undefined;
             }>>;
+            description: z.ZodString;
             links: z.ZodOptional<z.ZodArray<z.ZodObject<{
                 name: z.ZodString;
                 value: z.ZodEffects<z.ZodString, string, string>;
@@ -9207,6 +9239,7 @@ export declare const Create_Anime_Update_ZOD: z.ZodObject<{
                     content: string;
                 }[] | undefined;
             };
+            description: string;
             cover?: {
                 id?: string | undefined;
                 label?: "COVER" | "BANNER" | "AVATAR" | "LOGO" | undefined;
@@ -9256,6 +9289,7 @@ export declare const Create_Anime_Update_ZOD: z.ZodObject<{
                     content: string;
                 }[] | undefined;
             };
+            description: string;
             cover?: {
                 id?: string | undefined;
                 label?: "COVER" | "BANNER" | "AVATAR" | "LOGO" | undefined;
@@ -9308,6 +9342,7 @@ export declare const Create_Anime_Update_ZOD: z.ZodObject<{
                     content: string;
                 }[] | undefined;
             };
+            description: string;
             cover?: {
                 id?: string | undefined;
                 label?: "COVER" | "BANNER" | "AVATAR" | "LOGO" | undefined;
@@ -9360,6 +9395,7 @@ export declare const Create_Anime_Update_ZOD: z.ZodObject<{
                     content: string;
                 }[] | undefined;
             };
+            description: string;
             cover?: {
                 id?: string | undefined;
                 label?: "COVER" | "BANNER" | "AVATAR" | "LOGO" | undefined;
@@ -9543,7 +9579,7 @@ export declare const Create_Anime_Update_ZOD: z.ZodObject<{
         airing?: number | undefined;
         nextAiringDate?: string | undefined;
         total?: number | undefined;
-        durationMinute?: number | undefined;
+        durationMinutes?: number | undefined;
     } | undefined;
     tracks?: {
         id?: string | undefined;
@@ -9555,6 +9591,7 @@ export declare const Create_Anime_Update_ZOD: z.ZodObject<{
                     content: string;
                 }[] | undefined;
             };
+            description: string;
             cover?: {
                 id?: string | undefined;
                 label?: "COVER" | "BANNER" | "AVATAR" | "LOGO" | undefined;
@@ -9745,7 +9782,7 @@ export declare const Create_Anime_Update_ZOD: z.ZodObject<{
         airing?: string | number | undefined;
         nextAiringDate?: string | undefined;
         total?: string | number | undefined;
-        durationMinute?: string | number | undefined;
+        durationMinutes?: string | number | undefined;
     } | undefined;
     tracks?: {
         id?: string | undefined;
@@ -9757,6 +9794,7 @@ export declare const Create_Anime_Update_ZOD: z.ZodObject<{
                     content: string;
                 }[] | undefined;
             };
+            description: string;
             cover?: {
                 id?: string | undefined;
                 label?: "COVER" | "BANNER" | "AVATAR" | "LOGO" | undefined;
@@ -9964,7 +10002,7 @@ export declare const AnimeDataToZOD: (data: IAnime) => {
         airing?: number | undefined;
         nextAiringDate?: string | undefined;
         total?: number | undefined;
-        durationMinute?: number | undefined;
+        durationMinutes?: number | undefined;
     } | undefined;
     manga?: {
         id?: string | undefined;
@@ -9980,6 +10018,7 @@ export declare const AnimeDataToZOD: (data: IAnime) => {
                     content: string;
                 }[] | undefined;
             };
+            description: string;
             cover?: {
                 id?: string | undefined;
                 label?: "COVER" | "BANNER" | "AVATAR" | "LOGO" | undefined;
