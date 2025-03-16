@@ -1543,13 +1543,23 @@ export declare const Create_Anime_ZOD: z.ZodEffects<z.ZodObject<{
         newTrack: z.ZodOptional<z.ZodObject<{
             name: z.ZodObject<{
                 default: z.ZodString;
-                native: z.ZodOptional<z.ZodString>;
+                alias: z.ZodOptional<z.ZodArray<z.ZodObject<{
+                    content: z.ZodString;
+                }, "strip", z.ZodTypeAny, {
+                    content: string;
+                }, {
+                    content: string;
+                }>, "many">>;
             }, "strip", z.ZodTypeAny, {
                 default: string;
-                native?: string | undefined;
+                alias?: {
+                    content: string;
+                }[] | undefined;
             }, {
                 default: string;
-                native?: string | undefined;
+                alias?: {
+                    content: string;
+                }[] | undefined;
             }>;
             type: z.ZodEnum<("OPENING" | "ENDING" | "OST" | "INSERT")[] & [string, ...string[]]>;
             pubDate: z.ZodOptional<z.ZodString>;
@@ -1763,7 +1773,9 @@ export declare const Create_Anime_ZOD: z.ZodEffects<z.ZodObject<{
             type: "OPENING" | "ENDING" | "OST" | "INSERT";
             name: {
                 default: string;
-                native?: string | undefined;
+                alias?: {
+                    content: string;
+                }[] | undefined;
             };
             cover?: {
                 id?: string | undefined;
@@ -1810,7 +1822,9 @@ export declare const Create_Anime_ZOD: z.ZodEffects<z.ZodObject<{
             type: "OPENING" | "ENDING" | "OST" | "INSERT";
             name: {
                 default: string;
-                native?: string | undefined;
+                alias?: {
+                    content: string;
+                }[] | undefined;
             };
             cover?: {
                 id?: string | undefined;
@@ -1860,7 +1874,9 @@ export declare const Create_Anime_ZOD: z.ZodEffects<z.ZodObject<{
             type: "OPENING" | "ENDING" | "OST" | "INSERT";
             name: {
                 default: string;
-                native?: string | undefined;
+                alias?: {
+                    content: string;
+                }[] | undefined;
             };
             cover?: {
                 id?: string | undefined;
@@ -1910,7 +1926,9 @@ export declare const Create_Anime_ZOD: z.ZodEffects<z.ZodObject<{
             type: "OPENING" | "ENDING" | "OST" | "INSERT";
             name: {
                 default: string;
-                native?: string | undefined;
+                alias?: {
+                    content: string;
+                }[] | undefined;
             };
             cover?: {
                 id?: string | undefined;
@@ -2123,7 +2141,9 @@ export declare const Create_Anime_ZOD: z.ZodEffects<z.ZodObject<{
             type: "OPENING" | "ENDING" | "OST" | "INSERT";
             name: {
                 default: string;
-                native?: string | undefined;
+                alias?: {
+                    content: string;
+                }[] | undefined;
             };
             cover?: {
                 id?: string | undefined;
@@ -2336,7 +2356,9 @@ export declare const Create_Anime_ZOD: z.ZodEffects<z.ZodObject<{
             type: "OPENING" | "ENDING" | "OST" | "INSERT";
             name: {
                 default: string;
-                native?: string | undefined;
+                alias?: {
+                    content: string;
+                }[] | undefined;
             };
             cover?: {
                 id?: string | undefined;
@@ -2549,7 +2571,9 @@ export declare const Create_Anime_ZOD: z.ZodEffects<z.ZodObject<{
             type: "OPENING" | "ENDING" | "OST" | "INSERT";
             name: {
                 default: string;
-                native?: string | undefined;
+                alias?: {
+                    content: string;
+                }[] | undefined;
             };
             cover?: {
                 id?: string | undefined;
@@ -2762,7 +2786,9 @@ export declare const Create_Anime_ZOD: z.ZodEffects<z.ZodObject<{
             type: "OPENING" | "ENDING" | "OST" | "INSERT";
             name: {
                 default: string;
-                native?: string | undefined;
+                alias?: {
+                    content: string;
+                }[] | undefined;
             };
             cover?: {
                 id?: string | undefined;
@@ -3706,13 +3732,23 @@ export declare const AnimeCreateBody: z.ZodObject<z.objectUtil.extendShape<{
             newTrack: z.ZodOptional<z.ZodObject<{
                 name: z.ZodObject<{
                     default: z.ZodString;
-                    native: z.ZodOptional<z.ZodString>;
+                    alias: z.ZodOptional<z.ZodArray<z.ZodObject<{
+                        content: z.ZodString;
+                    }, "strip", z.ZodTypeAny, {
+                        content: string;
+                    }, {
+                        content: string;
+                    }>, "many">>;
                 }, "strip", z.ZodTypeAny, {
                     default: string;
-                    native?: string | undefined;
+                    alias?: {
+                        content: string;
+                    }[] | undefined;
                 }, {
                     default: string;
-                    native?: string | undefined;
+                    alias?: {
+                        content: string;
+                    }[] | undefined;
                 }>;
                 type: z.ZodEnum<("OPENING" | "ENDING" | "OST" | "INSERT")[] & [string, ...string[]]>;
                 pubDate: z.ZodOptional<z.ZodString>;
@@ -3926,7 +3962,9 @@ export declare const AnimeCreateBody: z.ZodObject<z.objectUtil.extendShape<{
                 type: "OPENING" | "ENDING" | "OST" | "INSERT";
                 name: {
                     default: string;
-                    native?: string | undefined;
+                    alias?: {
+                        content: string;
+                    }[] | undefined;
                 };
                 cover?: {
                     id?: string | undefined;
@@ -3973,7 +4011,9 @@ export declare const AnimeCreateBody: z.ZodObject<z.objectUtil.extendShape<{
                 type: "OPENING" | "ENDING" | "OST" | "INSERT";
                 name: {
                     default: string;
-                    native?: string | undefined;
+                    alias?: {
+                        content: string;
+                    }[] | undefined;
                 };
                 cover?: {
                     id?: string | undefined;
@@ -4023,7 +4063,9 @@ export declare const AnimeCreateBody: z.ZodObject<z.objectUtil.extendShape<{
                 type: "OPENING" | "ENDING" | "OST" | "INSERT";
                 name: {
                     default: string;
-                    native?: string | undefined;
+                    alias?: {
+                        content: string;
+                    }[] | undefined;
                 };
                 cover?: {
                     id?: string | undefined;
@@ -4073,7 +4115,9 @@ export declare const AnimeCreateBody: z.ZodObject<z.objectUtil.extendShape<{
                 type: "OPENING" | "ENDING" | "OST" | "INSERT";
                 name: {
                     default: string;
-                    native?: string | undefined;
+                    alias?: {
+                        content: string;
+                    }[] | undefined;
                 };
                 cover?: {
                     id?: string | undefined;
@@ -4286,7 +4330,9 @@ export declare const AnimeCreateBody: z.ZodObject<z.objectUtil.extendShape<{
                 type: "OPENING" | "ENDING" | "OST" | "INSERT";
                 name: {
                     default: string;
-                    native?: string | undefined;
+                    alias?: {
+                        content: string;
+                    }[] | undefined;
                 };
                 cover?: {
                     id?: string | undefined;
@@ -4499,7 +4545,9 @@ export declare const AnimeCreateBody: z.ZodObject<z.objectUtil.extendShape<{
                 type: "OPENING" | "ENDING" | "OST" | "INSERT";
                 name: {
                     default: string;
-                    native?: string | undefined;
+                    alias?: {
+                        content: string;
+                    }[] | undefined;
                 };
                 cover?: {
                     id?: string | undefined;
@@ -4712,7 +4760,9 @@ export declare const AnimeCreateBody: z.ZodObject<z.objectUtil.extendShape<{
                 type: "OPENING" | "ENDING" | "OST" | "INSERT";
                 name: {
                     default: string;
-                    native?: string | undefined;
+                    alias?: {
+                        content: string;
+                    }[] | undefined;
                 };
                 cover?: {
                     id?: string | undefined;
@@ -4925,7 +4975,9 @@ export declare const AnimeCreateBody: z.ZodObject<z.objectUtil.extendShape<{
                 type: "OPENING" | "ENDING" | "OST" | "INSERT";
                 name: {
                     default: string;
-                    native?: string | undefined;
+                    alias?: {
+                        content: string;
+                    }[] | undefined;
                 };
                 cover?: {
                     id?: string | undefined;
@@ -5140,7 +5192,9 @@ export declare const AnimeCreateBody: z.ZodObject<z.objectUtil.extendShape<{
                 type: "OPENING" | "ENDING" | "OST" | "INSERT";
                 name: {
                     default: string;
-                    native?: string | undefined;
+                    alias?: {
+                        content: string;
+                    }[] | undefined;
                 };
                 cover?: {
                     id?: string | undefined;
@@ -5357,7 +5411,9 @@ export declare const AnimeCreateBody: z.ZodObject<z.objectUtil.extendShape<{
                 type: "OPENING" | "ENDING" | "OST" | "INSERT";
                 name: {
                     default: string;
-                    native?: string | undefined;
+                    alias?: {
+                        content: string;
+                    }[] | undefined;
                 };
                 cover?: {
                     id?: string | undefined;
@@ -6302,13 +6358,23 @@ export declare const Create_Anime_ZOD_FORM: z.ZodObject<{
             newTrack: z.ZodOptional<z.ZodObject<{
                 name: z.ZodObject<{
                     default: z.ZodString;
-                    native: z.ZodOptional<z.ZodString>;
+                    alias: z.ZodOptional<z.ZodArray<z.ZodObject<{
+                        content: z.ZodString;
+                    }, "strip", z.ZodTypeAny, {
+                        content: string;
+                    }, {
+                        content: string;
+                    }>, "many">>;
                 }, "strip", z.ZodTypeAny, {
                     default: string;
-                    native?: string | undefined;
+                    alias?: {
+                        content: string;
+                    }[] | undefined;
                 }, {
                     default: string;
-                    native?: string | undefined;
+                    alias?: {
+                        content: string;
+                    }[] | undefined;
                 }>;
                 type: z.ZodEnum<("OPENING" | "ENDING" | "OST" | "INSERT")[] & [string, ...string[]]>;
                 pubDate: z.ZodOptional<z.ZodString>;
@@ -6522,7 +6588,9 @@ export declare const Create_Anime_ZOD_FORM: z.ZodObject<{
                 type: "OPENING" | "ENDING" | "OST" | "INSERT";
                 name: {
                     default: string;
-                    native?: string | undefined;
+                    alias?: {
+                        content: string;
+                    }[] | undefined;
                 };
                 cover?: {
                     id?: string | undefined;
@@ -6569,7 +6637,9 @@ export declare const Create_Anime_ZOD_FORM: z.ZodObject<{
                 type: "OPENING" | "ENDING" | "OST" | "INSERT";
                 name: {
                     default: string;
-                    native?: string | undefined;
+                    alias?: {
+                        content: string;
+                    }[] | undefined;
                 };
                 cover?: {
                     id?: string | undefined;
@@ -6619,7 +6689,9 @@ export declare const Create_Anime_ZOD_FORM: z.ZodObject<{
                 type: "OPENING" | "ENDING" | "OST" | "INSERT";
                 name: {
                     default: string;
-                    native?: string | undefined;
+                    alias?: {
+                        content: string;
+                    }[] | undefined;
                 };
                 cover?: {
                     id?: string | undefined;
@@ -6669,7 +6741,9 @@ export declare const Create_Anime_ZOD_FORM: z.ZodObject<{
                 type: "OPENING" | "ENDING" | "OST" | "INSERT";
                 name: {
                     default: string;
-                    native?: string | undefined;
+                    alias?: {
+                        content: string;
+                    }[] | undefined;
                 };
                 cover?: {
                     id?: string | undefined;
@@ -6882,7 +6956,9 @@ export declare const Create_Anime_ZOD_FORM: z.ZodObject<{
                 type: "OPENING" | "ENDING" | "OST" | "INSERT";
                 name: {
                     default: string;
-                    native?: string | undefined;
+                    alias?: {
+                        content: string;
+                    }[] | undefined;
                 };
                 cover?: {
                     id?: string | undefined;
@@ -7095,7 +7171,9 @@ export declare const Create_Anime_ZOD_FORM: z.ZodObject<{
                 type: "OPENING" | "ENDING" | "OST" | "INSERT";
                 name: {
                     default: string;
-                    native?: string | undefined;
+                    alias?: {
+                        content: string;
+                    }[] | undefined;
                 };
                 cover?: {
                     id?: string | undefined;
@@ -7308,7 +7386,9 @@ export declare const Create_Anime_ZOD_FORM: z.ZodObject<{
                 type: "OPENING" | "ENDING" | "OST" | "INSERT";
                 name: {
                     default: string;
-                    native?: string | undefined;
+                    alias?: {
+                        content: string;
+                    }[] | undefined;
                 };
                 cover?: {
                     id?: string | undefined;
@@ -7521,7 +7601,9 @@ export declare const Create_Anime_ZOD_FORM: z.ZodObject<{
                 type: "OPENING" | "ENDING" | "OST" | "INSERT";
                 name: {
                     default: string;
-                    native?: string | undefined;
+                    alias?: {
+                        content: string;
+                    }[] | undefined;
                 };
                 cover?: {
                     id?: string | undefined;
@@ -7736,7 +7818,9 @@ export declare const Create_Anime_ZOD_FORM: z.ZodObject<{
                 type: "OPENING" | "ENDING" | "OST" | "INSERT";
                 name: {
                     default: string;
-                    native?: string | undefined;
+                    alias?: {
+                        content: string;
+                    }[] | undefined;
                 };
                 cover?: {
                     id?: string | undefined;
@@ -7952,7 +8036,9 @@ export declare const Create_Anime_ZOD_FORM: z.ZodObject<{
                 type: "OPENING" | "ENDING" | "OST" | "INSERT";
                 name: {
                     default: string;
-                    native?: string | undefined;
+                    alias?: {
+                        content: string;
+                    }[] | undefined;
                 };
                 cover?: {
                     id?: string | undefined;
@@ -8887,13 +8973,23 @@ export declare const Create_Anime_Update_ZOD: z.ZodObject<{
         newTrack: z.ZodOptional<z.ZodObject<{
             name: z.ZodObject<{
                 default: z.ZodString;
-                native: z.ZodOptional<z.ZodString>;
+                alias: z.ZodOptional<z.ZodArray<z.ZodObject<{
+                    content: z.ZodString;
+                }, "strip", z.ZodTypeAny, {
+                    content: string;
+                }, {
+                    content: string;
+                }>, "many">>;
             }, "strip", z.ZodTypeAny, {
                 default: string;
-                native?: string | undefined;
+                alias?: {
+                    content: string;
+                }[] | undefined;
             }, {
                 default: string;
-                native?: string | undefined;
+                alias?: {
+                    content: string;
+                }[] | undefined;
             }>;
             type: z.ZodEnum<("OPENING" | "ENDING" | "OST" | "INSERT")[] & [string, ...string[]]>;
             pubDate: z.ZodOptional<z.ZodString>;
@@ -9107,7 +9203,9 @@ export declare const Create_Anime_Update_ZOD: z.ZodObject<{
             type: "OPENING" | "ENDING" | "OST" | "INSERT";
             name: {
                 default: string;
-                native?: string | undefined;
+                alias?: {
+                    content: string;
+                }[] | undefined;
             };
             cover?: {
                 id?: string | undefined;
@@ -9154,7 +9252,9 @@ export declare const Create_Anime_Update_ZOD: z.ZodObject<{
             type: "OPENING" | "ENDING" | "OST" | "INSERT";
             name: {
                 default: string;
-                native?: string | undefined;
+                alias?: {
+                    content: string;
+                }[] | undefined;
             };
             cover?: {
                 id?: string | undefined;
@@ -9204,7 +9304,9 @@ export declare const Create_Anime_Update_ZOD: z.ZodObject<{
             type: "OPENING" | "ENDING" | "OST" | "INSERT";
             name: {
                 default: string;
-                native?: string | undefined;
+                alias?: {
+                    content: string;
+                }[] | undefined;
             };
             cover?: {
                 id?: string | undefined;
@@ -9254,7 +9356,9 @@ export declare const Create_Anime_Update_ZOD: z.ZodObject<{
             type: "OPENING" | "ENDING" | "OST" | "INSERT";
             name: {
                 default: string;
-                native?: string | undefined;
+                alias?: {
+                    content: string;
+                }[] | undefined;
             };
             cover?: {
                 id?: string | undefined;
@@ -9447,7 +9551,9 @@ export declare const Create_Anime_Update_ZOD: z.ZodObject<{
             type: "OPENING" | "ENDING" | "OST" | "INSERT";
             name: {
                 default: string;
-                native?: string | undefined;
+                alias?: {
+                    content: string;
+                }[] | undefined;
             };
             cover?: {
                 id?: string | undefined;
@@ -9647,7 +9753,9 @@ export declare const Create_Anime_Update_ZOD: z.ZodObject<{
             type: "OPENING" | "ENDING" | "OST" | "INSERT";
             name: {
                 default: string;
-                native?: string | undefined;
+                alias?: {
+                    content: string;
+                }[] | undefined;
             };
             cover?: {
                 id?: string | undefined;
@@ -9868,7 +9976,9 @@ export declare const AnimeDataToZOD: (data: IAnime) => {
             type: "OPENING" | "ENDING" | "OST" | "INSERT";
             name: {
                 default: string;
-                native?: string | undefined;
+                alias?: {
+                    content: string;
+                }[] | undefined;
             };
             cover?: {
                 id?: string | undefined;
