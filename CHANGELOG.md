@@ -1,3 +1,10 @@
+## [1.0.22](https://github.com/Actunime/validations/compare/v1.0.21...v1.0.22) (2025-03-16)
+
+
+### Bug Fixes
+
+* add tracks alias ([d6525be](https://github.com/Actunime/validations/commit/d6525bed8c75ae16bda500ba51be38864b699502))
+
 ## [1.0.21](https://github.com/Actunime/validations/compare/v1.0.20...v1.0.21) (2025-03-16)
 
 
