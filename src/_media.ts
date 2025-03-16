@@ -89,6 +89,7 @@ export const FromBody = z.object({
 
 export const MediaDeleteBody = z.object({
   reason: z.string(),
+  reccursive: z.boolean(),
 })
 
 export type IMediaDeleteBody = z.infer<typeof MediaDeleteBody>;
