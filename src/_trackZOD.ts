@@ -7,7 +7,7 @@ import { Add_Image_ZOD, ImageBody } from "./_imageZOD";
 import { PatchParamsBody } from "./_patchZOD";
 
 export const TrackQueryBody = z.object({
-  name: z.object({ default: z.string(), native: z.optional(z.string()) }),
+  name: z.object({ default: z.string(), alias: z.optional(z.array(z.object({ content: z.string() }))) }),
   type: z.enum(TrackTypeArray),
   pubDate: z.string(),
   artists: PersonBody.partial(),
@@ -46,7 +46,7 @@ export type ITrack_Pagination_ZOD = z.infer<typeof Track_Pagination_ZOD>;
 
 export const Create_Track_ZOD = z
   .object({
-    name: z.object({ default: z.string(), native: z.optional(z.string()) }),
+    name: z.object({ default: z.string(), alias: z.optional(z.array(z.object({ content: z.string() }))) }),
     type: z.enum(TrackTypeArray),
     pubDate: z.optional(z.string()),
     artists: z.optional(z.array(Add_Person_ZOD)),
