@@ -1,3 +1,11 @@
+## [1.0.23](https://github.com/Actunime/validations/compare/v1.0.22...v1.0.23) (2025-03-16)
+
+
+### Bug Fixes
+
+* **name:** add s to durationMinute ([4062f74](https://github.com/Actunime/validations/commit/4062f74ef5e4802890053936faed6283f700524d))
+* **track:** add description to track validation ([988be09](https://github.com/Actunime/validations/commit/988be09080075b236a42b14fe119e0d5c4b04f80))
+
 ## [1.0.22](https://github.com/Actunime/validations/compare/v1.0.21...v1.0.22) (2025-03-16)
 
 
