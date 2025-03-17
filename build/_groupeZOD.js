@@ -20,7 +20,7 @@ exports.GroupePaginationBody = _util_1.PaginationBody.extend({
     query: exports.GroupeQueryBody.partial()
 });
 exports.GroupeBody = zod_1.z.object({
-    name: _media_1.MediaTitleBody.partial(),
+    name: _media_1.MediaTitleBody,
 });
 exports.GroupeCreateBody = _patchZOD_1.PatchParamsBody.partial().extend({
     data: exports.GroupeBody

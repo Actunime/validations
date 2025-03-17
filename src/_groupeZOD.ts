@@ -24,7 +24,7 @@ export const GroupePaginationBody = PaginationBody.extend({
 export type IGroupePaginationBody = z.infer<typeof GroupePaginationBody>;
 
 export const GroupeBody = z.object({
-  name: MediaTitleBody.partial(),
+  name: MediaTitleBody,
 });
 
 export type IGroupeBody = z.infer<typeof GroupeBody>;

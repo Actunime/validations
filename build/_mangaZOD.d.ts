@@ -871,23 +871,23 @@ export declare const MangaBody: z.ZodObject<{
         id: z.ZodOptional<z.ZodString>;
         newGroupe: z.ZodOptional<z.ZodObject<{
             name: z.ZodObject<{
-                default: z.ZodOptional<z.ZodString>;
-                alias: z.ZodOptional<z.ZodOptional<z.ZodArray<z.ZodString, "many">>>;
+                default: z.ZodString;
+                alias: z.ZodOptional<z.ZodArray<z.ZodString, "many">>;
             }, "strip", z.ZodTypeAny, {
-                default?: string | undefined;
+                default: string;
                 alias?: string[] | undefined;
             }, {
-                default?: string | undefined;
+                default: string;
                 alias?: string[] | undefined;
             }>;
         }, "strip", z.ZodTypeAny, {
             name: {
-                default?: string | undefined;
+                default: string;
                 alias?: string[] | undefined;
             };
         }, {
             name: {
-                default?: string | undefined;
+                default: string;
                 alias?: string[] | undefined;
             };
         }>>;
@@ -895,7 +895,7 @@ export declare const MangaBody: z.ZodObject<{
         id?: string | undefined;
         newGroupe?: {
             name: {
-                default?: string | undefined;
+                default: string;
                 alias?: string[] | undefined;
             };
         } | undefined;
@@ -903,7 +903,7 @@ export declare const MangaBody: z.ZodObject<{
         id?: string | undefined;
         newGroupe?: {
             name: {
-                default?: string | undefined;
+                default: string;
                 alias?: string[] | undefined;
             };
         } | undefined;
@@ -2221,7 +2221,7 @@ export declare const MangaBody: z.ZodObject<{
         id?: string | undefined;
         newGroupe?: {
             name: {
-                default?: string | undefined;
+                default: string;
                 alias?: string[] | undefined;
             };
         } | undefined;
@@ -2449,7 +2449,7 @@ export declare const MangaBody: z.ZodObject<{
         id?: string | undefined;
         newGroupe?: {
             name: {
-                default?: string | undefined;
+                default: string;
                 alias?: string[] | undefined;
             };
         } | undefined;
@@ -2675,23 +2675,23 @@ export declare const MangaCreateBody: z.ZodObject<z.objectUtil.extendShape<{
             id: z.ZodOptional<z.ZodString>;
             newGroupe: z.ZodOptional<z.ZodObject<{
                 name: z.ZodObject<{
-                    default: z.ZodOptional<z.ZodString>;
-                    alias: z.ZodOptional<z.ZodOptional<z.ZodArray<z.ZodString, "many">>>;
+                    default: z.ZodString;
+                    alias: z.ZodOptional<z.ZodArray<z.ZodString, "many">>;
                 }, "strip", z.ZodTypeAny, {
-                    default?: string | undefined;
+                    default: string;
                     alias?: string[] | undefined;
                 }, {
-                    default?: string | undefined;
+                    default: string;
                     alias?: string[] | undefined;
                 }>;
             }, "strip", z.ZodTypeAny, {
                 name: {
-                    default?: string | undefined;
+                    default: string;
                     alias?: string[] | undefined;
                 };
             }, {
                 name: {
-                    default?: string | undefined;
+                    default: string;
                     alias?: string[] | undefined;
                 };
             }>>;
@@ -2699,7 +2699,7 @@ export declare const MangaCreateBody: z.ZodObject<z.objectUtil.extendShape<{
             id?: string | undefined;
             newGroupe?: {
                 name: {
-                    default?: string | undefined;
+                    default: string;
                     alias?: string[] | undefined;
                 };
             } | undefined;
@@ -2707,7 +2707,7 @@ export declare const MangaCreateBody: z.ZodObject<z.objectUtil.extendShape<{
             id?: string | undefined;
             newGroupe?: {
                 name: {
-                    default?: string | undefined;
+                    default: string;
                     alias?: string[] | undefined;
                 };
             } | undefined;
@@ -4025,7 +4025,7 @@ export declare const MangaCreateBody: z.ZodObject<z.objectUtil.extendShape<{
             id?: string | undefined;
             newGroupe?: {
                 name: {
-                    default?: string | undefined;
+                    default: string;
                     alias?: string[] | undefined;
                 };
             } | undefined;
@@ -4253,7 +4253,7 @@ export declare const MangaCreateBody: z.ZodObject<z.objectUtil.extendShape<{
             id?: string | undefined;
             newGroupe?: {
                 name: {
-                    default?: string | undefined;
+                    default: string;
                     alias?: string[] | undefined;
                 };
             } | undefined;
@@ -4483,7 +4483,7 @@ export declare const MangaCreateBody: z.ZodObject<z.objectUtil.extendShape<{
             id?: string | undefined;
             newGroupe?: {
                 name: {
-                    default?: string | undefined;
+                    default: string;
                     alias?: string[] | undefined;
                 };
             } | undefined;
@@ -4715,7 +4715,7 @@ export declare const MangaCreateBody: z.ZodObject<z.objectUtil.extendShape<{
             id?: string | undefined;
             newGroupe?: {
                 name: {
-                    default?: string | undefined;
+                    default: string;
                     alias?: string[] | undefined;
                 };
             } | undefined;
@@ -4948,7 +4948,7 @@ export declare const MangaDataToZOD: (data: IManga) => {
         id?: string | undefined;
         newGroupe?: {
             name: {
-                default?: string | undefined;
+                default: string;
                 alias?: string[] | undefined;
             };
         } | undefined;
