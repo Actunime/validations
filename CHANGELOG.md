@@ -1,3 +1,10 @@
+## [1.0.24](https://github.com/Actunime/validations/compare/v1.0.23...v1.0.24) (2025-03-16)
+
+
+### Bug Fixes
+
+* **track:** set description to optional ([5fe0fdd](https://github.com/Actunime/validations/commit/5fe0fdde3840db955b9354edc48d49ca8a2c639a))
+
 ## [1.0.23](https://github.com/Actunime/validations/compare/v1.0.22...v1.0.23) (2025-03-16)
 
 
