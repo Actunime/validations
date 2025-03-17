@@ -1,3 +1,11 @@
+## [1.0.25](https://github.com/Actunime/validations/compare/v1.0.24...v1.0.25) (2025-03-17)
+
+
+### Bug Fixes
+
+* **types:** alias.content => alias ([2b1080c](https://github.com/Actunime/validations/commit/2b1080cad5b883e81512dbb132ab371578f7fde5))
+* **types:** bio => description ([1c4391c](https://github.com/Actunime/validations/commit/1c4391c1ea32a7f175c6e639b5f8e7e0932ec8a7))
+
 ## [1.0.24](https://github.com/Actunime/validations/compare/v1.0.23...v1.0.24) (2025-03-16)
 
 
