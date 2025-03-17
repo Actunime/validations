@@ -1,3 +1,10 @@
+## [1.0.30](https://github.com/Actunime/validations/compare/v1.0.29...v1.0.30) (2025-03-17)
+
+
+### Bug Fixes
+
+* divers ([77c36d2](https://github.com/Actunime/validations/commit/77c36d29c6c329b52edcd4248c7a5f4ea1343830))
+
 ## [1.0.29](https://github.com/Actunime/validations/compare/v1.0.28...v1.0.29) (2025-03-17)
 
 
