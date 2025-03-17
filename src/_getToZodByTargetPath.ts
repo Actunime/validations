@@ -1,9 +1,9 @@
-import { Create_Manga_ZOD, MangaDataToZOD } from "./_mangaZOD";
-import { AnimeDataToZOD, AnimeCreateBody } from "./_animeZOD";
-import { Create_Person_ZOD, PersonDataToZOD } from "./_personZOD";
-import { CharacterDataToZOD, Create_Character_ZOD } from "./_characterZOD";
-import { Create_Track_ZOD, TrackDataToZOD } from "./_trackZOD";
-import { CompanyDataToZOD, Create_Company_ZOD } from "./_companyZOD";
+import { MangaBody, MangaDataToZOD } from "./_mangaZOD";
+import { AnimeBody, AnimeDataToZOD } from "./_animeZOD";
+import { PersonBody, PersonDataToZOD } from "./_personZOD";
+import { CharacterDataToZOD, CharacterBody } from "./_characterZOD";
+import { TrackBody, TrackDataToZOD } from "./_trackZOD";
+import { CompanyDataToZOD, CompanyBody } from "./_companyZOD";
 import { GroupeDataToZOD } from "./_groupeZOD";
 import { ITargetPath } from "@actunime/types";
 import { ZodEffects, ZodObject } from "zod";
@@ -32,12 +32,12 @@ export const TargetPathToZod: Record<ITargetPath, (data: any) => any> = {
 };
 
 export const TargetPathZodResolver: Record<ITargetPath, ZodObject<any> | ZodEffects<ZodObject<any>>> = {
-  Anime: AnimeCreateBody,
-  Manga: Create_Manga_ZOD,
-  Character: Create_Character_ZOD,
-  Person: Create_Person_ZOD,
-  Company: Create_Company_ZOD,
-  Track: Create_Track_ZOD,
+  Anime: AnimeBody,
+  Manga: MangaBody,
+  Character: CharacterBody,
+  Person: PersonBody,
+  Company: CompanyBody,
+  Track: TrackBody,
   ...({} as Record<
     Exclude<
       ITargetPath,

@@ -1,13 +1,13 @@
 import { ICompany } from "@actunime/types";
 import { z } from "zod";
-import { Create_Link_ZOD, DateBody, FromBody, LinkBody } from "./_media";
+import { Create_Link_ZOD, DateBody, FromBody, LinkBody, MediaTitleBody } from "./_media";
 import { PaginationBody, zodNumber } from "./_util";
 import { Add_Image_ZOD, ImageBody } from "./_imageZOD";
 import { PatchParamsBody } from "./_patchZOD";
 
 export const CompanyQueryBody = z.object({
   type: z.enum(["STUDIO", "PRODUCER"]),
-  name: z.string(),
+  name: MediaTitleBody.partial(),
   links: LinkBody.partial(),
   logo: ImageBody.partial(),
   createdDate: z.optional(DateBody.partial()),
@@ -19,7 +19,6 @@ const check = (v: number) => [-1, 1].includes(v);
 const checkErr = "le sort doit être soit -1 ou 1";
 export const CompanySortBody = z.object({
   type: zodNumber().refine(check, checkErr),
-  name: zodNumber().refine(check, checkErr),
   createdDate: z.object({
     year: zodNumber().refine(check, checkErr),
     month: zodNumber().refine(check, checkErr),
@@ -47,45 +46,36 @@ export const Company_Pagination_ZOD = z.object({
 
 export type ICompany_Pagination_ZOD = z.infer<typeof Company_Pagination_ZOD>;
 
-export const Create_Company_ZOD = z.object({
+export const CompanyBody = z.object({
   type: z.enum(["STUDIO", "PRODUCER"]),
-  name: z.string(),
+  name: MediaTitleBody,
   description: z.optional(z.string()),
   links: z.optional(z.array(Create_Link_ZOD)),
   logo: z.optional(Add_Image_ZOD),
   createdDate: z.optional(DateBody.partial()),
-})
-  .strict();
+}).strict();
 
-export type ICreate_Company_ZOD = z.infer<typeof Create_Company_ZOD>;
+export type ICompanyBody = z.infer<typeof CompanyBody>;
 
 export const CompanyCreateBody = PatchParamsBody.partial().extend({
-  data: Create_Company_ZOD
+  data: CompanyBody
 })
 
 export type ICompanyCreateBody = z.infer<typeof CompanyCreateBody>;
 
-export const Create_Company_ZOD_FORM = z.object({
-  note: z.string().optional(),
-  data: Create_Company_ZOD,
-});
-
-export type ICreate_Company_ZOD_FORM = z.infer<typeof Create_Company_ZOD_FORM>;
-
-
-export const Add_Company_ZOD = z.object({
+export const CompanyAddBody = z.object({
   id: z.optional(z.string()),
-  newCompany: z.optional(Create_Company_ZOD),
+  newCompany: z.optional(CompanyBody),
 });
 
-export type IAdd_Company_ZOD = z.infer<typeof Add_Company_ZOD>;
+export type ICompanyAddBody = z.infer<typeof CompanyAddBody>;
 
 export const CompanyDataToZOD = (
   data: ICompany,
 ) => {
   if (!data) return;
 
-  const toZOD: ICreate_Company_ZOD = {
+  const toZOD: ICompanyBody = {
     type: data.type,
     name: data.name,
     description: data.description,
@@ -94,7 +84,7 @@ export const CompanyDataToZOD = (
     createdDate: data.createdDate,
   };
 
-  const safeParse = Create_Company_ZOD.safeParse(toZOD);
+  const safeParse = CompanyBody.safeParse(toZOD);
 
   if (safeParse.success) return safeParse.data;
 

@@ -2,13 +2,13 @@ import { ITrack } from "@actunime/types";
 import { z } from "zod";
 export declare const TrackQueryBody: z.ZodObject<{
     name: z.ZodObject<{
-        default: z.ZodString;
-        alias: z.ZodOptional<z.ZodArray<z.ZodString, "many">>;
+        default: z.ZodOptional<z.ZodString>;
+        alias: z.ZodOptional<z.ZodOptional<z.ZodArray<z.ZodString, "many">>>;
     }, "strip", z.ZodTypeAny, {
-        default: string;
+        default?: string | undefined;
         alias?: string[] | undefined;
     }, {
-        default: string;
+        default?: string | undefined;
         alias?: string[] | undefined;
     }>;
     type: z.ZodEnum<("OPENING" | "ENDING" | "BGM" | "INSERT")[] & [string, ...string[]]>;
@@ -35,11 +35,170 @@ export declare const TrackQueryBody: z.ZodObject<{
         seconds?: string | number | undefined;
     }>>;
     artists: z.ZodObject<{
-        id: z.ZodOptional<z.ZodString>;
-    }, "strip", z.ZodTypeAny, {
-        id?: string | undefined;
+        isGroupe: z.ZodOptional<z.ZodOptional<z.ZodBoolean>>;
+        name: z.ZodOptional<z.ZodObject<{
+            default: z.ZodString;
+            alias: z.ZodOptional<z.ZodArray<z.ZodString, "many">>;
+        }, "strip", z.ZodTypeAny, {
+            default: string;
+            alias?: string[] | undefined;
+        }, {
+            default: string;
+            alias?: string[] | undefined;
+        }>>;
+        birthDate: z.ZodOptional<z.ZodOptional<z.ZodObject<{
+            year: z.ZodOptional<z.ZodOptional<z.ZodEffects<z.ZodUnion<[z.ZodNumber, z.ZodString]>, number, string | number>>>;
+            month: z.ZodOptional<z.ZodOptional<z.ZodEffects<z.ZodUnion<[z.ZodNumber, z.ZodString]>, number, string | number>>>;
+            day: z.ZodOptional<z.ZodOptional<z.ZodEffects<z.ZodUnion<[z.ZodNumber, z.ZodString]>, number, string | number>>>;
+            hours: z.ZodOptional<z.ZodOptional<z.ZodEffects<z.ZodUnion<[z.ZodNumber, z.ZodString]>, number, string | number>>>;
+            minutes: z.ZodOptional<z.ZodOptional<z.ZodEffects<z.ZodUnion<[z.ZodNumber, z.ZodString]>, number, string | number>>>;
+            seconds: z.ZodOptional<z.ZodOptional<z.ZodEffects<z.ZodUnion<[z.ZodNumber, z.ZodString]>, number, string | number>>>;
+        }, "strip", z.ZodTypeAny, {
+            year?: number | undefined;
+            month?: number | undefined;
+            day?: number | undefined;
+            hours?: number | undefined;
+            minutes?: number | undefined;
+            seconds?: number | undefined;
+        }, {
+            year?: string | number | undefined;
+            month?: string | number | undefined;
+            day?: string | number | undefined;
+            hours?: string | number | undefined;
+            minutes?: string | number | undefined;
+            seconds?: string | number | undefined;
+        }>>>;
+        deathDate: z.ZodOptional<z.ZodOptional<z.ZodObject<{
+            year: z.ZodOptional<z.ZodOptional<z.ZodEffects<z.ZodUnion<[z.ZodNumber, z.ZodString]>, number, string | number>>>;
+            month: z.ZodOptional<z.ZodOptional<z.ZodEffects<z.ZodUnion<[z.ZodNumber, z.ZodString]>, number, string | number>>>;
+            day: z.ZodOptional<z.ZodOptional<z.ZodEffects<z.ZodUnion<[z.ZodNumber, z.ZodString]>, number, string | number>>>;
+            hours: z.ZodOptional<z.ZodOptional<z.ZodEffects<z.ZodUnion<[z.ZodNumber, z.ZodString]>, number, string | number>>>;
+            minutes: z.ZodOptional<z.ZodOptional<z.ZodEffects<z.ZodUnion<[z.ZodNumber, z.ZodString]>, number, string | number>>>;
+            seconds: z.ZodOptional<z.ZodOptional<z.ZodEffects<z.ZodUnion<[z.ZodNumber, z.ZodString]>, number, string | number>>>;
+        }, "strip", z.ZodTypeAny, {
+            year?: number | undefined;
+            month?: number | undefined;
+            day?: number | undefined;
+            hours?: number | undefined;
+            minutes?: number | undefined;
+            seconds?: number | undefined;
+        }, {
+            year?: string | number | undefined;
+            month?: string | number | undefined;
+            day?: string | number | undefined;
+            hours?: string | number | undefined;
+            minutes?: string | number | undefined;
+            seconds?: string | number | undefined;
+        }>>>;
+        description: z.ZodOptional<z.ZodOptional<z.ZodString>>;
+        avatar: z.ZodOptional<z.ZodOptional<z.ZodObject<{
+            id: z.ZodOptional<z.ZodString>;
+            label: z.ZodOptional<z.ZodEnum<("COVER" | "BANNER" | "AVATAR" | "LOGO")[] & [string, ...string[]]>>;
+            newImage: z.ZodOptional<z.ZodObject<{
+                label: z.ZodEnum<("COVER" | "BANNER" | "AVATAR" | "LOGO")[] & [string, ...string[]]>;
+                value: z.ZodString;
+            }, "strip", z.ZodTypeAny, {
+                value: string;
+                label: "COVER" | "BANNER" | "AVATAR" | "LOGO";
+            }, {
+                value: string;
+                label: "COVER" | "BANNER" | "AVATAR" | "LOGO";
+            }>>;
+        }, "strip", z.ZodTypeAny, {
+            id?: string | undefined;
+            label?: "COVER" | "BANNER" | "AVATAR" | "LOGO" | undefined;
+            newImage?: {
+                value: string;
+                label: "COVER" | "BANNER" | "AVATAR" | "LOGO";
+            } | undefined;
+        }, {
+            id?: string | undefined;
+            label?: "COVER" | "BANNER" | "AVATAR" | "LOGO" | undefined;
+            newImage?: {
+                value: string;
+                label: "COVER" | "BANNER" | "AVATAR" | "LOGO";
+            } | undefined;
+        }>>>;
+        links: z.ZodOptional<z.ZodOptional<z.ZodArray<z.ZodObject<{
+            name: z.ZodString;
+            value: z.ZodEffects<z.ZodString, string, string>;
+        }, "strip", z.ZodTypeAny, {
+            value: string;
+            name: string;
+        }, {
+            value: string;
+            name: string;
+        }>, "many">>>;
+    }, "strict", z.ZodTypeAny, {
+        name?: {
+            default: string;
+            alias?: string[] | undefined;
+        } | undefined;
+        description?: string | undefined;
+        isGroupe?: boolean | undefined;
+        birthDate?: {
+            year?: number | undefined;
+            month?: number | undefined;
+            day?: number | undefined;
+            hours?: number | undefined;
+            minutes?: number | undefined;
+            seconds?: number | undefined;
+        } | undefined;
+        deathDate?: {
+            year?: number | undefined;
+            month?: number | undefined;
+            day?: number | undefined;
+            hours?: number | undefined;
+            minutes?: number | undefined;
+            seconds?: number | undefined;
+        } | undefined;
+        avatar?: {
+            id?: string | undefined;
+            label?: "COVER" | "BANNER" | "AVATAR" | "LOGO" | undefined;
+            newImage?: {
+                value: string;
+                label: "COVER" | "BANNER" | "AVATAR" | "LOGO";
+            } | undefined;
+        } | undefined;
+        links?: {
+            value: string;
+            name: string;
+        }[] | undefined;
     }, {
-        id?: string | undefined;
+        name?: {
+            default: string;
+            alias?: string[] | undefined;
+        } | undefined;
+        description?: string | undefined;
+        isGroupe?: boolean | undefined;
+        birthDate?: {
+            year?: string | number | undefined;
+            month?: string | number | undefined;
+            day?: string | number | undefined;
+            hours?: string | number | undefined;
+            minutes?: string | number | undefined;
+            seconds?: string | number | undefined;
+        } | undefined;
+        deathDate?: {
+            year?: string | number | undefined;
+            month?: string | number | undefined;
+            day?: string | number | undefined;
+            hours?: string | number | undefined;
+            minutes?: string | number | undefined;
+            seconds?: string | number | undefined;
+        } | undefined;
+        avatar?: {
+            id?: string | undefined;
+            label?: "COVER" | "BANNER" | "AVATAR" | "LOGO" | undefined;
+            newImage?: {
+                value: string;
+                label: "COVER" | "BANNER" | "AVATAR" | "LOGO";
+            } | undefined;
+        } | undefined;
+        links?: {
+            value: string;
+            name: string;
+        }[] | undefined;
     }>;
     cover: z.ZodObject<{
         id: z.ZodOptional<z.ZodString>;
@@ -71,7 +230,7 @@ export declare const TrackQueryBody: z.ZodObject<{
         label?: "COVER" | "BANNER" | "AVATAR" | "LOGO" | undefined;
     };
     name: {
-        default: string;
+        default?: string | undefined;
         alias?: string[] | undefined;
     };
     createdAt: string;
@@ -82,7 +241,40 @@ export declare const TrackQueryBody: z.ZodObject<{
         name?: string | undefined;
     };
     artists: {
-        id?: string | undefined;
+        name?: {
+            default: string;
+            alias?: string[] | undefined;
+        } | undefined;
+        description?: string | undefined;
+        isGroupe?: boolean | undefined;
+        birthDate?: {
+            year?: number | undefined;
+            month?: number | undefined;
+            day?: number | undefined;
+            hours?: number | undefined;
+            minutes?: number | undefined;
+            seconds?: number | undefined;
+        } | undefined;
+        deathDate?: {
+            year?: number | undefined;
+            month?: number | undefined;
+            day?: number | undefined;
+            hours?: number | undefined;
+            minutes?: number | undefined;
+            seconds?: number | undefined;
+        } | undefined;
+        avatar?: {
+            id?: string | undefined;
+            label?: "COVER" | "BANNER" | "AVATAR" | "LOGO" | undefined;
+            newImage?: {
+                value: string;
+                label: "COVER" | "BANNER" | "AVATAR" | "LOGO";
+            } | undefined;
+        } | undefined;
+        links?: {
+            value: string;
+            name: string;
+        }[] | undefined;
     };
     pubDate?: {
         year?: number | undefined;
@@ -99,7 +291,7 @@ export declare const TrackQueryBody: z.ZodObject<{
         label?: "COVER" | "BANNER" | "AVATAR" | "LOGO" | undefined;
     };
     name: {
-        default: string;
+        default?: string | undefined;
         alias?: string[] | undefined;
     };
     createdAt: string;
@@ -110,7 +302,40 @@ export declare const TrackQueryBody: z.ZodObject<{
         name?: string | undefined;
     };
     artists: {
-        id?: string | undefined;
+        name?: {
+            default: string;
+            alias?: string[] | undefined;
+        } | undefined;
+        description?: string | undefined;
+        isGroupe?: boolean | undefined;
+        birthDate?: {
+            year?: string | number | undefined;
+            month?: string | number | undefined;
+            day?: string | number | undefined;
+            hours?: string | number | undefined;
+            minutes?: string | number | undefined;
+            seconds?: string | number | undefined;
+        } | undefined;
+        deathDate?: {
+            year?: string | number | undefined;
+            month?: string | number | undefined;
+            day?: string | number | undefined;
+            hours?: string | number | undefined;
+            minutes?: string | number | undefined;
+            seconds?: string | number | undefined;
+        } | undefined;
+        avatar?: {
+            id?: string | undefined;
+            label?: "COVER" | "BANNER" | "AVATAR" | "LOGO" | undefined;
+            newImage?: {
+                value: string;
+                label: "COVER" | "BANNER" | "AVATAR" | "LOGO";
+            } | undefined;
+        } | undefined;
+        links?: {
+            value: string;
+            name: string;
+        }[] | undefined;
     };
     pubDate?: {
         year?: string | number | undefined;
@@ -160,13 +385,13 @@ export declare const TrackPaginationBody: z.ZodObject<{
     }>>;
     query: z.ZodOptional<z.ZodObject<{
         name: z.ZodOptional<z.ZodObject<{
-            default: z.ZodString;
-            alias: z.ZodOptional<z.ZodArray<z.ZodString, "many">>;
+            default: z.ZodOptional<z.ZodString>;
+            alias: z.ZodOptional<z.ZodOptional<z.ZodArray<z.ZodString, "many">>>;
         }, "strip", z.ZodTypeAny, {
-            default: string;
+            default?: string | undefined;
             alias?: string[] | undefined;
         }, {
-            default: string;
+            default?: string | undefined;
             alias?: string[] | undefined;
         }>>;
         type: z.ZodOptional<z.ZodEnum<("OPENING" | "ENDING" | "BGM" | "INSERT")[] & [string, ...string[]]>>;
@@ -193,11 +418,170 @@ export declare const TrackPaginationBody: z.ZodObject<{
             seconds?: string | number | undefined;
         }>>>;
         artists: z.ZodOptional<z.ZodObject<{
-            id: z.ZodOptional<z.ZodString>;
-        }, "strip", z.ZodTypeAny, {
-            id?: string | undefined;
+            isGroupe: z.ZodOptional<z.ZodOptional<z.ZodBoolean>>;
+            name: z.ZodOptional<z.ZodObject<{
+                default: z.ZodString;
+                alias: z.ZodOptional<z.ZodArray<z.ZodString, "many">>;
+            }, "strip", z.ZodTypeAny, {
+                default: string;
+                alias?: string[] | undefined;
+            }, {
+                default: string;
+                alias?: string[] | undefined;
+            }>>;
+            birthDate: z.ZodOptional<z.ZodOptional<z.ZodObject<{
+                year: z.ZodOptional<z.ZodOptional<z.ZodEffects<z.ZodUnion<[z.ZodNumber, z.ZodString]>, number, string | number>>>;
+                month: z.ZodOptional<z.ZodOptional<z.ZodEffects<z.ZodUnion<[z.ZodNumber, z.ZodString]>, number, string | number>>>;
+                day: z.ZodOptional<z.ZodOptional<z.ZodEffects<z.ZodUnion<[z.ZodNumber, z.ZodString]>, number, string | number>>>;
+                hours: z.ZodOptional<z.ZodOptional<z.ZodEffects<z.ZodUnion<[z.ZodNumber, z.ZodString]>, number, string | number>>>;
+                minutes: z.ZodOptional<z.ZodOptional<z.ZodEffects<z.ZodUnion<[z.ZodNumber, z.ZodString]>, number, string | number>>>;
+                seconds: z.ZodOptional<z.ZodOptional<z.ZodEffects<z.ZodUnion<[z.ZodNumber, z.ZodString]>, number, string | number>>>;
+            }, "strip", z.ZodTypeAny, {
+                year?: number | undefined;
+                month?: number | undefined;
+                day?: number | undefined;
+                hours?: number | undefined;
+                minutes?: number | undefined;
+                seconds?: number | undefined;
+            }, {
+                year?: string | number | undefined;
+                month?: string | number | undefined;
+                day?: string | number | undefined;
+                hours?: string | number | undefined;
+                minutes?: string | number | undefined;
+                seconds?: string | number | undefined;
+            }>>>;
+            deathDate: z.ZodOptional<z.ZodOptional<z.ZodObject<{
+                year: z.ZodOptional<z.ZodOptional<z.ZodEffects<z.ZodUnion<[z.ZodNumber, z.ZodString]>, number, string | number>>>;
+                month: z.ZodOptional<z.ZodOptional<z.ZodEffects<z.ZodUnion<[z.ZodNumber, z.ZodString]>, number, string | number>>>;
+                day: z.ZodOptional<z.ZodOptional<z.ZodEffects<z.ZodUnion<[z.ZodNumber, z.ZodString]>, number, string | number>>>;
+                hours: z.ZodOptional<z.ZodOptional<z.ZodEffects<z.ZodUnion<[z.ZodNumber, z.ZodString]>, number, string | number>>>;
+                minutes: z.ZodOptional<z.ZodOptional<z.ZodEffects<z.ZodUnion<[z.ZodNumber, z.ZodString]>, number, string | number>>>;
+                seconds: z.ZodOptional<z.ZodOptional<z.ZodEffects<z.ZodUnion<[z.ZodNumber, z.ZodString]>, number, string | number>>>;
+            }, "strip", z.ZodTypeAny, {
+                year?: number | undefined;
+                month?: number | undefined;
+                day?: number | undefined;
+                hours?: number | undefined;
+                minutes?: number | undefined;
+                seconds?: number | undefined;
+            }, {
+                year?: string | number | undefined;
+                month?: string | number | undefined;
+                day?: string | number | undefined;
+                hours?: string | number | undefined;
+                minutes?: string | number | undefined;
+                seconds?: string | number | undefined;
+            }>>>;
+            description: z.ZodOptional<z.ZodOptional<z.ZodString>>;
+            avatar: z.ZodOptional<z.ZodOptional<z.ZodObject<{
+                id: z.ZodOptional<z.ZodString>;
+                label: z.ZodOptional<z.ZodEnum<("COVER" | "BANNER" | "AVATAR" | "LOGO")[] & [string, ...string[]]>>;
+                newImage: z.ZodOptional<z.ZodObject<{
+                    label: z.ZodEnum<("COVER" | "BANNER" | "AVATAR" | "LOGO")[] & [string, ...string[]]>;
+                    value: z.ZodString;
+                }, "strip", z.ZodTypeAny, {
+                    value: string;
+                    label: "COVER" | "BANNER" | "AVATAR" | "LOGO";
+                }, {
+                    value: string;
+                    label: "COVER" | "BANNER" | "AVATAR" | "LOGO";
+                }>>;
+            }, "strip", z.ZodTypeAny, {
+                id?: string | undefined;
+                label?: "COVER" | "BANNER" | "AVATAR" | "LOGO" | undefined;
+                newImage?: {
+                    value: string;
+                    label: "COVER" | "BANNER" | "AVATAR" | "LOGO";
+                } | undefined;
+            }, {
+                id?: string | undefined;
+                label?: "COVER" | "BANNER" | "AVATAR" | "LOGO" | undefined;
+                newImage?: {
+                    value: string;
+                    label: "COVER" | "BANNER" | "AVATAR" | "LOGO";
+                } | undefined;
+            }>>>;
+            links: z.ZodOptional<z.ZodOptional<z.ZodArray<z.ZodObject<{
+                name: z.ZodString;
+                value: z.ZodEffects<z.ZodString, string, string>;
+            }, "strip", z.ZodTypeAny, {
+                value: string;
+                name: string;
+            }, {
+                value: string;
+                name: string;
+            }>, "many">>>;
+        }, "strict", z.ZodTypeAny, {
+            name?: {
+                default: string;
+                alias?: string[] | undefined;
+            } | undefined;
+            description?: string | undefined;
+            isGroupe?: boolean | undefined;
+            birthDate?: {
+                year?: number | undefined;
+                month?: number | undefined;
+                day?: number | undefined;
+                hours?: number | undefined;
+                minutes?: number | undefined;
+                seconds?: number | undefined;
+            } | undefined;
+            deathDate?: {
+                year?: number | undefined;
+                month?: number | undefined;
+                day?: number | undefined;
+                hours?: number | undefined;
+                minutes?: number | undefined;
+                seconds?: number | undefined;
+            } | undefined;
+            avatar?: {
+                id?: string | undefined;
+                label?: "COVER" | "BANNER" | "AVATAR" | "LOGO" | undefined;
+                newImage?: {
+                    value: string;
+                    label: "COVER" | "BANNER" | "AVATAR" | "LOGO";
+                } | undefined;
+            } | undefined;
+            links?: {
+                value: string;
+                name: string;
+            }[] | undefined;
         }, {
-            id?: string | undefined;
+            name?: {
+                default: string;
+                alias?: string[] | undefined;
+            } | undefined;
+            description?: string | undefined;
+            isGroupe?: boolean | undefined;
+            birthDate?: {
+                year?: string | number | undefined;
+                month?: string | number | undefined;
+                day?: string | number | undefined;
+                hours?: string | number | undefined;
+                minutes?: string | number | undefined;
+                seconds?: string | number | undefined;
+            } | undefined;
+            deathDate?: {
+                year?: string | number | undefined;
+                month?: string | number | undefined;
+                day?: string | number | undefined;
+                hours?: string | number | undefined;
+                minutes?: string | number | undefined;
+                seconds?: string | number | undefined;
+            } | undefined;
+            avatar?: {
+                id?: string | undefined;
+                label?: "COVER" | "BANNER" | "AVATAR" | "LOGO" | undefined;
+                newImage?: {
+                    value: string;
+                    label: "COVER" | "BANNER" | "AVATAR" | "LOGO";
+                } | undefined;
+            } | undefined;
+            links?: {
+                value: string;
+                name: string;
+            }[] | undefined;
         }>>;
         cover: z.ZodOptional<z.ZodObject<{
             id: z.ZodOptional<z.ZodString>;
@@ -229,7 +613,7 @@ export declare const TrackPaginationBody: z.ZodObject<{
             label?: "COVER" | "BANNER" | "AVATAR" | "LOGO" | undefined;
         } | undefined;
         name?: {
-            default: string;
+            default?: string | undefined;
             alias?: string[] | undefined;
         } | undefined;
         createdAt?: string | undefined;
@@ -248,7 +632,40 @@ export declare const TrackPaginationBody: z.ZodObject<{
             seconds?: number | undefined;
         } | undefined;
         artists?: {
-            id?: string | undefined;
+            name?: {
+                default: string;
+                alias?: string[] | undefined;
+            } | undefined;
+            description?: string | undefined;
+            isGroupe?: boolean | undefined;
+            birthDate?: {
+                year?: number | undefined;
+                month?: number | undefined;
+                day?: number | undefined;
+                hours?: number | undefined;
+                minutes?: number | undefined;
+                seconds?: number | undefined;
+            } | undefined;
+            deathDate?: {
+                year?: number | undefined;
+                month?: number | undefined;
+                day?: number | undefined;
+                hours?: number | undefined;
+                minutes?: number | undefined;
+                seconds?: number | undefined;
+            } | undefined;
+            avatar?: {
+                id?: string | undefined;
+                label?: "COVER" | "BANNER" | "AVATAR" | "LOGO" | undefined;
+                newImage?: {
+                    value: string;
+                    label: "COVER" | "BANNER" | "AVATAR" | "LOGO";
+                } | undefined;
+            } | undefined;
+            links?: {
+                value: string;
+                name: string;
+            }[] | undefined;
         } | undefined;
     }, {
         type?: "OPENING" | "ENDING" | "BGM" | "INSERT" | undefined;
@@ -257,7 +674,7 @@ export declare const TrackPaginationBody: z.ZodObject<{
             label?: "COVER" | "BANNER" | "AVATAR" | "LOGO" | undefined;
         } | undefined;
         name?: {
-            default: string;
+            default?: string | undefined;
             alias?: string[] | undefined;
         } | undefined;
         createdAt?: string | undefined;
@@ -276,7 +693,40 @@ export declare const TrackPaginationBody: z.ZodObject<{
             seconds?: string | number | undefined;
         } | undefined;
         artists?: {
-            id?: string | undefined;
+            name?: {
+                default: string;
+                alias?: string[] | undefined;
+            } | undefined;
+            description?: string | undefined;
+            isGroupe?: boolean | undefined;
+            birthDate?: {
+                year?: string | number | undefined;
+                month?: string | number | undefined;
+                day?: string | number | undefined;
+                hours?: string | number | undefined;
+                minutes?: string | number | undefined;
+                seconds?: string | number | undefined;
+            } | undefined;
+            deathDate?: {
+                year?: string | number | undefined;
+                month?: string | number | undefined;
+                day?: string | number | undefined;
+                hours?: string | number | undefined;
+                minutes?: string | number | undefined;
+                seconds?: string | number | undefined;
+            } | undefined;
+            avatar?: {
+                id?: string | undefined;
+                label?: "COVER" | "BANNER" | "AVATAR" | "LOGO" | undefined;
+                newImage?: {
+                    value: string;
+                    label: "COVER" | "BANNER" | "AVATAR" | "LOGO";
+                } | undefined;
+            } | undefined;
+            links?: {
+                value: string;
+                name: string;
+            }[] | undefined;
         } | undefined;
     }>>;
     from: z.ZodOptional<z.ZodObject<{
@@ -307,7 +757,7 @@ export declare const TrackPaginationBody: z.ZodObject<{
             label?: "COVER" | "BANNER" | "AVATAR" | "LOGO" | undefined;
         } | undefined;
         name?: {
-            default: string;
+            default?: string | undefined;
             alias?: string[] | undefined;
         } | undefined;
         createdAt?: string | undefined;
@@ -326,7 +776,40 @@ export declare const TrackPaginationBody: z.ZodObject<{
             seconds?: number | undefined;
         } | undefined;
         artists?: {
-            id?: string | undefined;
+            name?: {
+                default: string;
+                alias?: string[] | undefined;
+            } | undefined;
+            description?: string | undefined;
+            isGroupe?: boolean | undefined;
+            birthDate?: {
+                year?: number | undefined;
+                month?: number | undefined;
+                day?: number | undefined;
+                hours?: number | undefined;
+                minutes?: number | undefined;
+                seconds?: number | undefined;
+            } | undefined;
+            deathDate?: {
+                year?: number | undefined;
+                month?: number | undefined;
+                day?: number | undefined;
+                hours?: number | undefined;
+                minutes?: number | undefined;
+                seconds?: number | undefined;
+            } | undefined;
+            avatar?: {
+                id?: string | undefined;
+                label?: "COVER" | "BANNER" | "AVATAR" | "LOGO" | undefined;
+                newImage?: {
+                    value: string;
+                    label: "COVER" | "BANNER" | "AVATAR" | "LOGO";
+                } | undefined;
+            } | undefined;
+            links?: {
+                value: string;
+                name: string;
+            }[] | undefined;
         } | undefined;
     } | undefined;
     from?: {
@@ -351,7 +834,7 @@ export declare const TrackPaginationBody: z.ZodObject<{
             label?: "COVER" | "BANNER" | "AVATAR" | "LOGO" | undefined;
         } | undefined;
         name?: {
-            default: string;
+            default?: string | undefined;
             alias?: string[] | undefined;
         } | undefined;
         createdAt?: string | undefined;
@@ -370,7 +853,40 @@ export declare const TrackPaginationBody: z.ZodObject<{
             seconds?: string | number | undefined;
         } | undefined;
         artists?: {
-            id?: string | undefined;
+            name?: {
+                default: string;
+                alias?: string[] | undefined;
+            } | undefined;
+            description?: string | undefined;
+            isGroupe?: boolean | undefined;
+            birthDate?: {
+                year?: string | number | undefined;
+                month?: string | number | undefined;
+                day?: string | number | undefined;
+                hours?: string | number | undefined;
+                minutes?: string | number | undefined;
+                seconds?: string | number | undefined;
+            } | undefined;
+            deathDate?: {
+                year?: string | number | undefined;
+                month?: string | number | undefined;
+                day?: string | number | undefined;
+                hours?: string | number | undefined;
+                minutes?: string | number | undefined;
+                seconds?: string | number | undefined;
+            } | undefined;
+            avatar?: {
+                id?: string | undefined;
+                label?: "COVER" | "BANNER" | "AVATAR" | "LOGO" | undefined;
+                newImage?: {
+                    value: string;
+                    label: "COVER" | "BANNER" | "AVATAR" | "LOGO";
+                } | undefined;
+            } | undefined;
+            links?: {
+                value: string;
+                name: string;
+            }[] | undefined;
         } | undefined;
     } | undefined;
     from?: {
@@ -401,13 +917,13 @@ export declare const Track_Pagination_ZOD: z.ZodObject<{
     }>;
     query: z.ZodObject<{
         name: z.ZodOptional<z.ZodObject<{
-            default: z.ZodString;
-            alias: z.ZodOptional<z.ZodArray<z.ZodString, "many">>;
+            default: z.ZodOptional<z.ZodString>;
+            alias: z.ZodOptional<z.ZodOptional<z.ZodArray<z.ZodString, "many">>>;
         }, "strip", z.ZodTypeAny, {
-            default: string;
+            default?: string | undefined;
             alias?: string[] | undefined;
         }, {
-            default: string;
+            default?: string | undefined;
             alias?: string[] | undefined;
         }>>;
         type: z.ZodOptional<z.ZodEnum<("OPENING" | "ENDING" | "BGM" | "INSERT")[] & [string, ...string[]]>>;
@@ -434,11 +950,170 @@ export declare const Track_Pagination_ZOD: z.ZodObject<{
             seconds?: string | number | undefined;
         }>>>;
         artists: z.ZodOptional<z.ZodObject<{
-            id: z.ZodOptional<z.ZodString>;
-        }, "strip", z.ZodTypeAny, {
-            id?: string | undefined;
+            isGroupe: z.ZodOptional<z.ZodOptional<z.ZodBoolean>>;
+            name: z.ZodOptional<z.ZodObject<{
+                default: z.ZodString;
+                alias: z.ZodOptional<z.ZodArray<z.ZodString, "many">>;
+            }, "strip", z.ZodTypeAny, {
+                default: string;
+                alias?: string[] | undefined;
+            }, {
+                default: string;
+                alias?: string[] | undefined;
+            }>>;
+            birthDate: z.ZodOptional<z.ZodOptional<z.ZodObject<{
+                year: z.ZodOptional<z.ZodOptional<z.ZodEffects<z.ZodUnion<[z.ZodNumber, z.ZodString]>, number, string | number>>>;
+                month: z.ZodOptional<z.ZodOptional<z.ZodEffects<z.ZodUnion<[z.ZodNumber, z.ZodString]>, number, string | number>>>;
+                day: z.ZodOptional<z.ZodOptional<z.ZodEffects<z.ZodUnion<[z.ZodNumber, z.ZodString]>, number, string | number>>>;
+                hours: z.ZodOptional<z.ZodOptional<z.ZodEffects<z.ZodUnion<[z.ZodNumber, z.ZodString]>, number, string | number>>>;
+                minutes: z.ZodOptional<z.ZodOptional<z.ZodEffects<z.ZodUnion<[z.ZodNumber, z.ZodString]>, number, string | number>>>;
+                seconds: z.ZodOptional<z.ZodOptional<z.ZodEffects<z.ZodUnion<[z.ZodNumber, z.ZodString]>, number, string | number>>>;
+            }, "strip", z.ZodTypeAny, {
+                year?: number | undefined;
+                month?: number | undefined;
+                day?: number | undefined;
+                hours?: number | undefined;
+                minutes?: number | undefined;
+                seconds?: number | undefined;
+            }, {
+                year?: string | number | undefined;
+                month?: string | number | undefined;
+                day?: string | number | undefined;
+                hours?: string | number | undefined;
+                minutes?: string | number | undefined;
+                seconds?: string | number | undefined;
+            }>>>;
+            deathDate: z.ZodOptional<z.ZodOptional<z.ZodObject<{
+                year: z.ZodOptional<z.ZodOptional<z.ZodEffects<z.ZodUnion<[z.ZodNumber, z.ZodString]>, number, string | number>>>;
+                month: z.ZodOptional<z.ZodOptional<z.ZodEffects<z.ZodUnion<[z.ZodNumber, z.ZodString]>, number, string | number>>>;
+                day: z.ZodOptional<z.ZodOptional<z.ZodEffects<z.ZodUnion<[z.ZodNumber, z.ZodString]>, number, string | number>>>;
+                hours: z.ZodOptional<z.ZodOptional<z.ZodEffects<z.ZodUnion<[z.ZodNumber, z.ZodString]>, number, string | number>>>;
+                minutes: z.ZodOptional<z.ZodOptional<z.ZodEffects<z.ZodUnion<[z.ZodNumber, z.ZodString]>, number, string | number>>>;
+                seconds: z.ZodOptional<z.ZodOptional<z.ZodEffects<z.ZodUnion<[z.ZodNumber, z.ZodString]>, number, string | number>>>;
+            }, "strip", z.ZodTypeAny, {
+                year?: number | undefined;
+                month?: number | undefined;
+                day?: number | undefined;
+                hours?: number | undefined;
+                minutes?: number | undefined;
+                seconds?: number | undefined;
+            }, {
+                year?: string | number | undefined;
+                month?: string | number | undefined;
+                day?: string | number | undefined;
+                hours?: string | number | undefined;
+                minutes?: string | number | undefined;
+                seconds?: string | number | undefined;
+            }>>>;
+            description: z.ZodOptional<z.ZodOptional<z.ZodString>>;
+            avatar: z.ZodOptional<z.ZodOptional<z.ZodObject<{
+                id: z.ZodOptional<z.ZodString>;
+                label: z.ZodOptional<z.ZodEnum<("COVER" | "BANNER" | "AVATAR" | "LOGO")[] & [string, ...string[]]>>;
+                newImage: z.ZodOptional<z.ZodObject<{
+                    label: z.ZodEnum<("COVER" | "BANNER" | "AVATAR" | "LOGO")[] & [string, ...string[]]>;
+                    value: z.ZodString;
+                }, "strip", z.ZodTypeAny, {
+                    value: string;
+                    label: "COVER" | "BANNER" | "AVATAR" | "LOGO";
+                }, {
+                    value: string;
+                    label: "COVER" | "BANNER" | "AVATAR" | "LOGO";
+                }>>;
+            }, "strip", z.ZodTypeAny, {
+                id?: string | undefined;
+                label?: "COVER" | "BANNER" | "AVATAR" | "LOGO" | undefined;
+                newImage?: {
+                    value: string;
+                    label: "COVER" | "BANNER" | "AVATAR" | "LOGO";
+                } | undefined;
+            }, {
+                id?: string | undefined;
+                label?: "COVER" | "BANNER" | "AVATAR" | "LOGO" | undefined;
+                newImage?: {
+                    value: string;
+                    label: "COVER" | "BANNER" | "AVATAR" | "LOGO";
+                } | undefined;
+            }>>>;
+            links: z.ZodOptional<z.ZodOptional<z.ZodArray<z.ZodObject<{
+                name: z.ZodString;
+                value: z.ZodEffects<z.ZodString, string, string>;
+            }, "strip", z.ZodTypeAny, {
+                value: string;
+                name: string;
+            }, {
+                value: string;
+                name: string;
+            }>, "many">>>;
+        }, "strict", z.ZodTypeAny, {
+            name?: {
+                default: string;
+                alias?: string[] | undefined;
+            } | undefined;
+            description?: string | undefined;
+            isGroupe?: boolean | undefined;
+            birthDate?: {
+                year?: number | undefined;
+                month?: number | undefined;
+                day?: number | undefined;
+                hours?: number | undefined;
+                minutes?: number | undefined;
+                seconds?: number | undefined;
+            } | undefined;
+            deathDate?: {
+                year?: number | undefined;
+                month?: number | undefined;
+                day?: number | undefined;
+                hours?: number | undefined;
+                minutes?: number | undefined;
+                seconds?: number | undefined;
+            } | undefined;
+            avatar?: {
+                id?: string | undefined;
+                label?: "COVER" | "BANNER" | "AVATAR" | "LOGO" | undefined;
+                newImage?: {
+                    value: string;
+                    label: "COVER" | "BANNER" | "AVATAR" | "LOGO";
+                } | undefined;
+            } | undefined;
+            links?: {
+                value: string;
+                name: string;
+            }[] | undefined;
         }, {
-            id?: string | undefined;
+            name?: {
+                default: string;
+                alias?: string[] | undefined;
+            } | undefined;
+            description?: string | undefined;
+            isGroupe?: boolean | undefined;
+            birthDate?: {
+                year?: string | number | undefined;
+                month?: string | number | undefined;
+                day?: string | number | undefined;
+                hours?: string | number | undefined;
+                minutes?: string | number | undefined;
+                seconds?: string | number | undefined;
+            } | undefined;
+            deathDate?: {
+                year?: string | number | undefined;
+                month?: string | number | undefined;
+                day?: string | number | undefined;
+                hours?: string | number | undefined;
+                minutes?: string | number | undefined;
+                seconds?: string | number | undefined;
+            } | undefined;
+            avatar?: {
+                id?: string | undefined;
+                label?: "COVER" | "BANNER" | "AVATAR" | "LOGO" | undefined;
+                newImage?: {
+                    value: string;
+                    label: "COVER" | "BANNER" | "AVATAR" | "LOGO";
+                } | undefined;
+            } | undefined;
+            links?: {
+                value: string;
+                name: string;
+            }[] | undefined;
         }>>;
         cover: z.ZodOptional<z.ZodObject<{
             id: z.ZodOptional<z.ZodString>;
@@ -470,7 +1145,7 @@ export declare const Track_Pagination_ZOD: z.ZodObject<{
             label?: "COVER" | "BANNER" | "AVATAR" | "LOGO" | undefined;
         } | undefined;
         name?: {
-            default: string;
+            default?: string | undefined;
             alias?: string[] | undefined;
         } | undefined;
         createdAt?: string | undefined;
@@ -489,7 +1164,40 @@ export declare const Track_Pagination_ZOD: z.ZodObject<{
             seconds?: number | undefined;
         } | undefined;
         artists?: {
-            id?: string | undefined;
+            name?: {
+                default: string;
+                alias?: string[] | undefined;
+            } | undefined;
+            description?: string | undefined;
+            isGroupe?: boolean | undefined;
+            birthDate?: {
+                year?: number | undefined;
+                month?: number | undefined;
+                day?: number | undefined;
+                hours?: number | undefined;
+                minutes?: number | undefined;
+                seconds?: number | undefined;
+            } | undefined;
+            deathDate?: {
+                year?: number | undefined;
+                month?: number | undefined;
+                day?: number | undefined;
+                hours?: number | undefined;
+                minutes?: number | undefined;
+                seconds?: number | undefined;
+            } | undefined;
+            avatar?: {
+                id?: string | undefined;
+                label?: "COVER" | "BANNER" | "AVATAR" | "LOGO" | undefined;
+                newImage?: {
+                    value: string;
+                    label: "COVER" | "BANNER" | "AVATAR" | "LOGO";
+                } | undefined;
+            } | undefined;
+            links?: {
+                value: string;
+                name: string;
+            }[] | undefined;
         } | undefined;
     }, {
         type?: "OPENING" | "ENDING" | "BGM" | "INSERT" | undefined;
@@ -498,7 +1206,7 @@ export declare const Track_Pagination_ZOD: z.ZodObject<{
             label?: "COVER" | "BANNER" | "AVATAR" | "LOGO" | undefined;
         } | undefined;
         name?: {
-            default: string;
+            default?: string | undefined;
             alias?: string[] | undefined;
         } | undefined;
         createdAt?: string | undefined;
@@ -517,7 +1225,40 @@ export declare const Track_Pagination_ZOD: z.ZodObject<{
             seconds?: string | number | undefined;
         } | undefined;
         artists?: {
-            id?: string | undefined;
+            name?: {
+                default: string;
+                alias?: string[] | undefined;
+            } | undefined;
+            description?: string | undefined;
+            isGroupe?: boolean | undefined;
+            birthDate?: {
+                year?: string | number | undefined;
+                month?: string | number | undefined;
+                day?: string | number | undefined;
+                hours?: string | number | undefined;
+                minutes?: string | number | undefined;
+                seconds?: string | number | undefined;
+            } | undefined;
+            deathDate?: {
+                year?: string | number | undefined;
+                month?: string | number | undefined;
+                day?: string | number | undefined;
+                hours?: string | number | undefined;
+                minutes?: string | number | undefined;
+                seconds?: string | number | undefined;
+            } | undefined;
+            avatar?: {
+                id?: string | undefined;
+                label?: "COVER" | "BANNER" | "AVATAR" | "LOGO" | undefined;
+                newImage?: {
+                    value: string;
+                    label: "COVER" | "BANNER" | "AVATAR" | "LOGO";
+                } | undefined;
+            } | undefined;
+            links?: {
+                value: string;
+                name: string;
+            }[] | undefined;
         } | undefined;
     }>;
 }, "strip", z.ZodTypeAny, {
@@ -537,7 +1278,7 @@ export declare const Track_Pagination_ZOD: z.ZodObject<{
             label?: "COVER" | "BANNER" | "AVATAR" | "LOGO" | undefined;
         } | undefined;
         name?: {
-            default: string;
+            default?: string | undefined;
             alias?: string[] | undefined;
         } | undefined;
         createdAt?: string | undefined;
@@ -556,7 +1297,40 @@ export declare const Track_Pagination_ZOD: z.ZodObject<{
             seconds?: number | undefined;
         } | undefined;
         artists?: {
-            id?: string | undefined;
+            name?: {
+                default: string;
+                alias?: string[] | undefined;
+            } | undefined;
+            description?: string | undefined;
+            isGroupe?: boolean | undefined;
+            birthDate?: {
+                year?: number | undefined;
+                month?: number | undefined;
+                day?: number | undefined;
+                hours?: number | undefined;
+                minutes?: number | undefined;
+                seconds?: number | undefined;
+            } | undefined;
+            deathDate?: {
+                year?: number | undefined;
+                month?: number | undefined;
+                day?: number | undefined;
+                hours?: number | undefined;
+                minutes?: number | undefined;
+                seconds?: number | undefined;
+            } | undefined;
+            avatar?: {
+                id?: string | undefined;
+                label?: "COVER" | "BANNER" | "AVATAR" | "LOGO" | undefined;
+                newImage?: {
+                    value: string;
+                    label: "COVER" | "BANNER" | "AVATAR" | "LOGO";
+                } | undefined;
+            } | undefined;
+            links?: {
+                value: string;
+                name: string;
+            }[] | undefined;
         } | undefined;
     };
 }, {
@@ -576,7 +1350,7 @@ export declare const Track_Pagination_ZOD: z.ZodObject<{
             label?: "COVER" | "BANNER" | "AVATAR" | "LOGO" | undefined;
         } | undefined;
         name?: {
-            default: string;
+            default?: string | undefined;
             alias?: string[] | undefined;
         } | undefined;
         createdAt?: string | undefined;
@@ -595,12 +1369,45 @@ export declare const Track_Pagination_ZOD: z.ZodObject<{
             seconds?: string | number | undefined;
         } | undefined;
         artists?: {
-            id?: string | undefined;
+            name?: {
+                default: string;
+                alias?: string[] | undefined;
+            } | undefined;
+            description?: string | undefined;
+            isGroupe?: boolean | undefined;
+            birthDate?: {
+                year?: string | number | undefined;
+                month?: string | number | undefined;
+                day?: string | number | undefined;
+                hours?: string | number | undefined;
+                minutes?: string | number | undefined;
+                seconds?: string | number | undefined;
+            } | undefined;
+            deathDate?: {
+                year?: string | number | undefined;
+                month?: string | number | undefined;
+                day?: string | number | undefined;
+                hours?: string | number | undefined;
+                minutes?: string | number | undefined;
+                seconds?: string | number | undefined;
+            } | undefined;
+            avatar?: {
+                id?: string | undefined;
+                label?: "COVER" | "BANNER" | "AVATAR" | "LOGO" | undefined;
+                newImage?: {
+                    value: string;
+                    label: "COVER" | "BANNER" | "AVATAR" | "LOGO";
+                } | undefined;
+            } | undefined;
+            links?: {
+                value: string;
+                name: string;
+            }[] | undefined;
         } | undefined;
     };
 }>;
 export type ITrack_Pagination_ZOD = z.infer<typeof Track_Pagination_ZOD>;
-export declare const Create_Track_ZOD: z.ZodObject<{
+export declare const TrackBody: z.ZodObject<{
     name: z.ZodObject<{
         default: z.ZodString;
         alias: z.ZodOptional<z.ZodArray<z.ZodString, "many">>;
@@ -1056,7 +1863,7 @@ export declare const Create_Track_ZOD: z.ZodObject<{
         role?: "DOUBLAGE_SEIYU" | "AUTEUR" | "EDITEUR" | "PRODUCTEUR" | "REALISATEUR" | "REALISATEUR_EPISODES" | "REALISATEUR_MISEENPAGE" | "DIRECTEUR_ARTISTIQUE_CINEMATROGRAPHIQUE" | "DIRECTEUR_ANIMATION" | "CONCEPTEUR" | "ANIMATEUR_PRINCIPAL" | "ANIMATEUR_INTERMEDIAIRE" | "COLORISTES" | "DIRECTEUR_ENREGISTREMENT" | "SCENARISTE" | "ANIMATEUR_3D" | "METTEUR_EN_SCENE" | "SUPERVISEUR" | "MONTEUR" | "RESPONSABLE_DROITS" | "PRODUCTEUR_MUSIQUE" | "RESPONSABLE_MARKETING" | "DIFFUSEUR" | "STORYBOARDER" | "ARTISTE_VFX" | "INGENIEUR_SON" | "DIRECTEUR_DOUBLAGE" | "TRADUCTEUR" | "MANGAKA" | "CHARACTER_DESIGNER" | "DESSINATEUR_DECORS" | "REALISATEUR_MISE_EN_PAGE" | "COMPOSITEUR" | "PAROLIER" | "ARRANGEUR" | "MUSICIEN" | "CHANTEUR_EUSE" | "CHEF_ORCHESTRE" | "PRODUCTEUR_MUSICAL" | "DESIGNER_SONORE" | "MIXEUR" | undefined;
     }[] | undefined;
 }>;
-export type ICreate_Track_ZOD = z.infer<typeof Create_Track_ZOD>;
+export type ITrackBody = z.infer<typeof TrackBody>;
 export declare const TrackCreateBody: z.ZodObject<z.objectUtil.extendShape<{
     description: z.ZodOptional<z.ZodString>;
     reason: z.ZodOptional<z.ZodString>;
@@ -1661,607 +2468,7 @@ export declare const TrackCreateBody: z.ZodObject<z.objectUtil.extendShape<{
     description?: string | undefined;
 }>;
 export type ITrackCreateBody = z.infer<typeof TrackCreateBody>;
-export declare const Create_Track_ZOD_FORM: z.ZodObject<{
-    note: z.ZodOptional<z.ZodString>;
-    data: z.ZodObject<{
-        name: z.ZodObject<{
-            default: z.ZodString;
-            alias: z.ZodOptional<z.ZodArray<z.ZodString, "many">>;
-        }, "strip", z.ZodTypeAny, {
-            default: string;
-            alias?: string[] | undefined;
-        }, {
-            default: string;
-            alias?: string[] | undefined;
-        }>;
-        type: z.ZodEnum<("OPENING" | "ENDING" | "BGM" | "INSERT")[] & [string, ...string[]]>;
-        pubDate: z.ZodOptional<z.ZodObject<{
-            year: z.ZodOptional<z.ZodOptional<z.ZodEffects<z.ZodUnion<[z.ZodNumber, z.ZodString]>, number, string | number>>>;
-            month: z.ZodOptional<z.ZodOptional<z.ZodEffects<z.ZodUnion<[z.ZodNumber, z.ZodString]>, number, string | number>>>;
-            day: z.ZodOptional<z.ZodOptional<z.ZodEffects<z.ZodUnion<[z.ZodNumber, z.ZodString]>, number, string | number>>>;
-            hours: z.ZodOptional<z.ZodOptional<z.ZodEffects<z.ZodUnion<[z.ZodNumber, z.ZodString]>, number, string | number>>>;
-            minutes: z.ZodOptional<z.ZodOptional<z.ZodEffects<z.ZodUnion<[z.ZodNumber, z.ZodString]>, number, string | number>>>;
-            seconds: z.ZodOptional<z.ZodOptional<z.ZodEffects<z.ZodUnion<[z.ZodNumber, z.ZodString]>, number, string | number>>>;
-        }, "strip", z.ZodTypeAny, {
-            year?: number | undefined;
-            month?: number | undefined;
-            day?: number | undefined;
-            hours?: number | undefined;
-            minutes?: number | undefined;
-            seconds?: number | undefined;
-        }, {
-            year?: string | number | undefined;
-            month?: string | number | undefined;
-            day?: string | number | undefined;
-            hours?: string | number | undefined;
-            minutes?: string | number | undefined;
-            seconds?: string | number | undefined;
-        }>>;
-        artists: z.ZodOptional<z.ZodArray<z.ZodObject<{
-            id: z.ZodOptional<z.ZodString>;
-            newPerson: z.ZodOptional<z.ZodObject<{
-                isGroupe: z.ZodOptional<z.ZodBoolean>;
-                name: z.ZodObject<{
-                    default: z.ZodString;
-                    alias: z.ZodOptional<z.ZodArray<z.ZodString, "many">>;
-                }, "strip", z.ZodTypeAny, {
-                    default: string;
-                    alias?: string[] | undefined;
-                }, {
-                    default: string;
-                    alias?: string[] | undefined;
-                }>;
-                birthDate: z.ZodOptional<z.ZodObject<{
-                    year: z.ZodOptional<z.ZodOptional<z.ZodEffects<z.ZodUnion<[z.ZodNumber, z.ZodString]>, number, string | number>>>;
-                    month: z.ZodOptional<z.ZodOptional<z.ZodEffects<z.ZodUnion<[z.ZodNumber, z.ZodString]>, number, string | number>>>;
-                    day: z.ZodOptional<z.ZodOptional<z.ZodEffects<z.ZodUnion<[z.ZodNumber, z.ZodString]>, number, string | number>>>;
-                    hours: z.ZodOptional<z.ZodOptional<z.ZodEffects<z.ZodUnion<[z.ZodNumber, z.ZodString]>, number, string | number>>>;
-                    minutes: z.ZodOptional<z.ZodOptional<z.ZodEffects<z.ZodUnion<[z.ZodNumber, z.ZodString]>, number, string | number>>>;
-                    seconds: z.ZodOptional<z.ZodOptional<z.ZodEffects<z.ZodUnion<[z.ZodNumber, z.ZodString]>, number, string | number>>>;
-                }, "strip", z.ZodTypeAny, {
-                    year?: number | undefined;
-                    month?: number | undefined;
-                    day?: number | undefined;
-                    hours?: number | undefined;
-                    minutes?: number | undefined;
-                    seconds?: number | undefined;
-                }, {
-                    year?: string | number | undefined;
-                    month?: string | number | undefined;
-                    day?: string | number | undefined;
-                    hours?: string | number | undefined;
-                    minutes?: string | number | undefined;
-                    seconds?: string | number | undefined;
-                }>>;
-                deathDate: z.ZodOptional<z.ZodObject<{
-                    year: z.ZodOptional<z.ZodOptional<z.ZodEffects<z.ZodUnion<[z.ZodNumber, z.ZodString]>, number, string | number>>>;
-                    month: z.ZodOptional<z.ZodOptional<z.ZodEffects<z.ZodUnion<[z.ZodNumber, z.ZodString]>, number, string | number>>>;
-                    day: z.ZodOptional<z.ZodOptional<z.ZodEffects<z.ZodUnion<[z.ZodNumber, z.ZodString]>, number, string | number>>>;
-                    hours: z.ZodOptional<z.ZodOptional<z.ZodEffects<z.ZodUnion<[z.ZodNumber, z.ZodString]>, number, string | number>>>;
-                    minutes: z.ZodOptional<z.ZodOptional<z.ZodEffects<z.ZodUnion<[z.ZodNumber, z.ZodString]>, number, string | number>>>;
-                    seconds: z.ZodOptional<z.ZodOptional<z.ZodEffects<z.ZodUnion<[z.ZodNumber, z.ZodString]>, number, string | number>>>;
-                }, "strip", z.ZodTypeAny, {
-                    year?: number | undefined;
-                    month?: number | undefined;
-                    day?: number | undefined;
-                    hours?: number | undefined;
-                    minutes?: number | undefined;
-                    seconds?: number | undefined;
-                }, {
-                    year?: string | number | undefined;
-                    month?: string | number | undefined;
-                    day?: string | number | undefined;
-                    hours?: string | number | undefined;
-                    minutes?: string | number | undefined;
-                    seconds?: string | number | undefined;
-                }>>;
-                description: z.ZodOptional<z.ZodString>;
-                avatar: z.ZodOptional<z.ZodObject<{
-                    id: z.ZodOptional<z.ZodString>;
-                    label: z.ZodOptional<z.ZodEnum<("COVER" | "BANNER" | "AVATAR" | "LOGO")[] & [string, ...string[]]>>;
-                    newImage: z.ZodOptional<z.ZodObject<{
-                        label: z.ZodEnum<("COVER" | "BANNER" | "AVATAR" | "LOGO")[] & [string, ...string[]]>;
-                        value: z.ZodString;
-                    }, "strip", z.ZodTypeAny, {
-                        value: string;
-                        label: "COVER" | "BANNER" | "AVATAR" | "LOGO";
-                    }, {
-                        value: string;
-                        label: "COVER" | "BANNER" | "AVATAR" | "LOGO";
-                    }>>;
-                }, "strip", z.ZodTypeAny, {
-                    id?: string | undefined;
-                    label?: "COVER" | "BANNER" | "AVATAR" | "LOGO" | undefined;
-                    newImage?: {
-                        value: string;
-                        label: "COVER" | "BANNER" | "AVATAR" | "LOGO";
-                    } | undefined;
-                }, {
-                    id?: string | undefined;
-                    label?: "COVER" | "BANNER" | "AVATAR" | "LOGO" | undefined;
-                    newImage?: {
-                        value: string;
-                        label: "COVER" | "BANNER" | "AVATAR" | "LOGO";
-                    } | undefined;
-                }>>;
-                links: z.ZodOptional<z.ZodArray<z.ZodObject<{
-                    name: z.ZodString;
-                    value: z.ZodEffects<z.ZodString, string, string>;
-                }, "strip", z.ZodTypeAny, {
-                    value: string;
-                    name: string;
-                }, {
-                    value: string;
-                    name: string;
-                }>, "many">>;
-            }, "strict", z.ZodTypeAny, {
-                name: {
-                    default: string;
-                    alias?: string[] | undefined;
-                };
-                description?: string | undefined;
-                isGroupe?: boolean | undefined;
-                birthDate?: {
-                    year?: number | undefined;
-                    month?: number | undefined;
-                    day?: number | undefined;
-                    hours?: number | undefined;
-                    minutes?: number | undefined;
-                    seconds?: number | undefined;
-                } | undefined;
-                deathDate?: {
-                    year?: number | undefined;
-                    month?: number | undefined;
-                    day?: number | undefined;
-                    hours?: number | undefined;
-                    minutes?: number | undefined;
-                    seconds?: number | undefined;
-                } | undefined;
-                avatar?: {
-                    id?: string | undefined;
-                    label?: "COVER" | "BANNER" | "AVATAR" | "LOGO" | undefined;
-                    newImage?: {
-                        value: string;
-                        label: "COVER" | "BANNER" | "AVATAR" | "LOGO";
-                    } | undefined;
-                } | undefined;
-                links?: {
-                    value: string;
-                    name: string;
-                }[] | undefined;
-            }, {
-                name: {
-                    default: string;
-                    alias?: string[] | undefined;
-                };
-                description?: string | undefined;
-                isGroupe?: boolean | undefined;
-                birthDate?: {
-                    year?: string | number | undefined;
-                    month?: string | number | undefined;
-                    day?: string | number | undefined;
-                    hours?: string | number | undefined;
-                    minutes?: string | number | undefined;
-                    seconds?: string | number | undefined;
-                } | undefined;
-                deathDate?: {
-                    year?: string | number | undefined;
-                    month?: string | number | undefined;
-                    day?: string | number | undefined;
-                    hours?: string | number | undefined;
-                    minutes?: string | number | undefined;
-                    seconds?: string | number | undefined;
-                } | undefined;
-                avatar?: {
-                    id?: string | undefined;
-                    label?: "COVER" | "BANNER" | "AVATAR" | "LOGO" | undefined;
-                    newImage?: {
-                        value: string;
-                        label: "COVER" | "BANNER" | "AVATAR" | "LOGO";
-                    } | undefined;
-                } | undefined;
-                links?: {
-                    value: string;
-                    name: string;
-                }[] | undefined;
-            }>>;
-            role: z.ZodOptional<z.ZodEnum<("DOUBLAGE_SEIYU" | "AUTEUR" | "EDITEUR" | "PRODUCTEUR" | "REALISATEUR" | "REALISATEUR_EPISODES" | "REALISATEUR_MISEENPAGE" | "DIRECTEUR_ARTISTIQUE_CINEMATROGRAPHIQUE" | "DIRECTEUR_ANIMATION" | "CONCEPTEUR" | "ANIMATEUR_PRINCIPAL" | "ANIMATEUR_INTERMEDIAIRE" | "COLORISTES" | "DIRECTEUR_ENREGISTREMENT" | "SCENARISTE" | "ANIMATEUR_3D" | "METTEUR_EN_SCENE" | "SUPERVISEUR" | "MONTEUR" | "RESPONSABLE_DROITS" | "PRODUCTEUR_MUSIQUE" | "RESPONSABLE_MARKETING" | "DIFFUSEUR" | "STORYBOARDER" | "ARTISTE_VFX" | "INGENIEUR_SON" | "DIRECTEUR_DOUBLAGE" | "TRADUCTEUR" | "MANGAKA" | "CHARACTER_DESIGNER" | "DESSINATEUR_DECORS" | "REALISATEUR_MISE_EN_PAGE" | "COMPOSITEUR" | "PAROLIER" | "ARRANGEUR" | "MUSICIEN" | "CHANTEUR_EUSE" | "CHEF_ORCHESTRE" | "PRODUCTEUR_MUSICAL" | "DESIGNER_SONORE" | "MIXEUR")[] & [string, ...string[]]>>;
-        }, "strip", z.ZodTypeAny, {
-            id?: string | undefined;
-            newPerson?: {
-                name: {
-                    default: string;
-                    alias?: string[] | undefined;
-                };
-                description?: string | undefined;
-                isGroupe?: boolean | undefined;
-                birthDate?: {
-                    year?: number | undefined;
-                    month?: number | undefined;
-                    day?: number | undefined;
-                    hours?: number | undefined;
-                    minutes?: number | undefined;
-                    seconds?: number | undefined;
-                } | undefined;
-                deathDate?: {
-                    year?: number | undefined;
-                    month?: number | undefined;
-                    day?: number | undefined;
-                    hours?: number | undefined;
-                    minutes?: number | undefined;
-                    seconds?: number | undefined;
-                } | undefined;
-                avatar?: {
-                    id?: string | undefined;
-                    label?: "COVER" | "BANNER" | "AVATAR" | "LOGO" | undefined;
-                    newImage?: {
-                        value: string;
-                        label: "COVER" | "BANNER" | "AVATAR" | "LOGO";
-                    } | undefined;
-                } | undefined;
-                links?: {
-                    value: string;
-                    name: string;
-                }[] | undefined;
-            } | undefined;
-            role?: "DOUBLAGE_SEIYU" | "AUTEUR" | "EDITEUR" | "PRODUCTEUR" | "REALISATEUR" | "REALISATEUR_EPISODES" | "REALISATEUR_MISEENPAGE" | "DIRECTEUR_ARTISTIQUE_CINEMATROGRAPHIQUE" | "DIRECTEUR_ANIMATION" | "CONCEPTEUR" | "ANIMATEUR_PRINCIPAL" | "ANIMATEUR_INTERMEDIAIRE" | "COLORISTES" | "DIRECTEUR_ENREGISTREMENT" | "SCENARISTE" | "ANIMATEUR_3D" | "METTEUR_EN_SCENE" | "SUPERVISEUR" | "MONTEUR" | "RESPONSABLE_DROITS" | "PRODUCTEUR_MUSIQUE" | "RESPONSABLE_MARKETING" | "DIFFUSEUR" | "STORYBOARDER" | "ARTISTE_VFX" | "INGENIEUR_SON" | "DIRECTEUR_DOUBLAGE" | "TRADUCTEUR" | "MANGAKA" | "CHARACTER_DESIGNER" | "DESSINATEUR_DECORS" | "REALISATEUR_MISE_EN_PAGE" | "COMPOSITEUR" | "PAROLIER" | "ARRANGEUR" | "MUSICIEN" | "CHANTEUR_EUSE" | "CHEF_ORCHESTRE" | "PRODUCTEUR_MUSICAL" | "DESIGNER_SONORE" | "MIXEUR" | undefined;
-        }, {
-            id?: string | undefined;
-            newPerson?: {
-                name: {
-                    default: string;
-                    alias?: string[] | undefined;
-                };
-                description?: string | undefined;
-                isGroupe?: boolean | undefined;
-                birthDate?: {
-                    year?: string | number | undefined;
-                    month?: string | number | undefined;
-                    day?: string | number | undefined;
-                    hours?: string | number | undefined;
-                    minutes?: string | number | undefined;
-                    seconds?: string | number | undefined;
-                } | undefined;
-                deathDate?: {
-                    year?: string | number | undefined;
-                    month?: string | number | undefined;
-                    day?: string | number | undefined;
-                    hours?: string | number | undefined;
-                    minutes?: string | number | undefined;
-                    seconds?: string | number | undefined;
-                } | undefined;
-                avatar?: {
-                    id?: string | undefined;
-                    label?: "COVER" | "BANNER" | "AVATAR" | "LOGO" | undefined;
-                    newImage?: {
-                        value: string;
-                        label: "COVER" | "BANNER" | "AVATAR" | "LOGO";
-                    } | undefined;
-                } | undefined;
-                links?: {
-                    value: string;
-                    name: string;
-                }[] | undefined;
-            } | undefined;
-            role?: "DOUBLAGE_SEIYU" | "AUTEUR" | "EDITEUR" | "PRODUCTEUR" | "REALISATEUR" | "REALISATEUR_EPISODES" | "REALISATEUR_MISEENPAGE" | "DIRECTEUR_ARTISTIQUE_CINEMATROGRAPHIQUE" | "DIRECTEUR_ANIMATION" | "CONCEPTEUR" | "ANIMATEUR_PRINCIPAL" | "ANIMATEUR_INTERMEDIAIRE" | "COLORISTES" | "DIRECTEUR_ENREGISTREMENT" | "SCENARISTE" | "ANIMATEUR_3D" | "METTEUR_EN_SCENE" | "SUPERVISEUR" | "MONTEUR" | "RESPONSABLE_DROITS" | "PRODUCTEUR_MUSIQUE" | "RESPONSABLE_MARKETING" | "DIFFUSEUR" | "STORYBOARDER" | "ARTISTE_VFX" | "INGENIEUR_SON" | "DIRECTEUR_DOUBLAGE" | "TRADUCTEUR" | "MANGAKA" | "CHARACTER_DESIGNER" | "DESSINATEUR_DECORS" | "REALISATEUR_MISE_EN_PAGE" | "COMPOSITEUR" | "PAROLIER" | "ARRANGEUR" | "MUSICIEN" | "CHANTEUR_EUSE" | "CHEF_ORCHESTRE" | "PRODUCTEUR_MUSICAL" | "DESIGNER_SONORE" | "MIXEUR" | undefined;
-        }>, "many">>;
-        cover: z.ZodOptional<z.ZodObject<{
-            id: z.ZodOptional<z.ZodString>;
-            label: z.ZodOptional<z.ZodEnum<("COVER" | "BANNER" | "AVATAR" | "LOGO")[] & [string, ...string[]]>>;
-            newImage: z.ZodOptional<z.ZodObject<{
-                label: z.ZodEnum<("COVER" | "BANNER" | "AVATAR" | "LOGO")[] & [string, ...string[]]>;
-                value: z.ZodString;
-            }, "strip", z.ZodTypeAny, {
-                value: string;
-                label: "COVER" | "BANNER" | "AVATAR" | "LOGO";
-            }, {
-                value: string;
-                label: "COVER" | "BANNER" | "AVATAR" | "LOGO";
-            }>>;
-        }, "strip", z.ZodTypeAny, {
-            id?: string | undefined;
-            label?: "COVER" | "BANNER" | "AVATAR" | "LOGO" | undefined;
-            newImage?: {
-                value: string;
-                label: "COVER" | "BANNER" | "AVATAR" | "LOGO";
-            } | undefined;
-        }, {
-            id?: string | undefined;
-            label?: "COVER" | "BANNER" | "AVATAR" | "LOGO" | undefined;
-            newImage?: {
-                value: string;
-                label: "COVER" | "BANNER" | "AVATAR" | "LOGO";
-            } | undefined;
-        }>>;
-        description: z.ZodOptional<z.ZodString>;
-        links: z.ZodOptional<z.ZodArray<z.ZodObject<{
-            name: z.ZodString;
-            value: z.ZodEffects<z.ZodString, string, string>;
-        }, "strip", z.ZodTypeAny, {
-            value: string;
-            name: string;
-        }, {
-            value: string;
-            name: string;
-        }>, "many">>;
-    }, "strict", z.ZodTypeAny, {
-        type: "OPENING" | "ENDING" | "BGM" | "INSERT";
-        name: {
-            default: string;
-            alias?: string[] | undefined;
-        };
-        cover?: {
-            id?: string | undefined;
-            label?: "COVER" | "BANNER" | "AVATAR" | "LOGO" | undefined;
-            newImage?: {
-                value: string;
-                label: "COVER" | "BANNER" | "AVATAR" | "LOGO";
-            } | undefined;
-        } | undefined;
-        description?: string | undefined;
-        links?: {
-            value: string;
-            name: string;
-        }[] | undefined;
-        pubDate?: {
-            year?: number | undefined;
-            month?: number | undefined;
-            day?: number | undefined;
-            hours?: number | undefined;
-            minutes?: number | undefined;
-            seconds?: number | undefined;
-        } | undefined;
-        artists?: {
-            id?: string | undefined;
-            newPerson?: {
-                name: {
-                    default: string;
-                    alias?: string[] | undefined;
-                };
-                description?: string | undefined;
-                isGroupe?: boolean | undefined;
-                birthDate?: {
-                    year?: number | undefined;
-                    month?: number | undefined;
-                    day?: number | undefined;
-                    hours?: number | undefined;
-                    minutes?: number | undefined;
-                    seconds?: number | undefined;
-                } | undefined;
-                deathDate?: {
-                    year?: number | undefined;
-                    month?: number | undefined;
-                    day?: number | undefined;
-                    hours?: number | undefined;
-                    minutes?: number | undefined;
-                    seconds?: number | undefined;
-                } | undefined;
-                avatar?: {
-                    id?: string | undefined;
-                    label?: "COVER" | "BANNER" | "AVATAR" | "LOGO" | undefined;
-                    newImage?: {
-                        value: string;
-                        label: "COVER" | "BANNER" | "AVATAR" | "LOGO";
-                    } | undefined;
-                } | undefined;
-                links?: {
-                    value: string;
-                    name: string;
-                }[] | undefined;
-            } | undefined;
-            role?: "DOUBLAGE_SEIYU" | "AUTEUR" | "EDITEUR" | "PRODUCTEUR" | "REALISATEUR" | "REALISATEUR_EPISODES" | "REALISATEUR_MISEENPAGE" | "DIRECTEUR_ARTISTIQUE_CINEMATROGRAPHIQUE" | "DIRECTEUR_ANIMATION" | "CONCEPTEUR" | "ANIMATEUR_PRINCIPAL" | "ANIMATEUR_INTERMEDIAIRE" | "COLORISTES" | "DIRECTEUR_ENREGISTREMENT" | "SCENARISTE" | "ANIMATEUR_3D" | "METTEUR_EN_SCENE" | "SUPERVISEUR" | "MONTEUR" | "RESPONSABLE_DROITS" | "PRODUCTEUR_MUSIQUE" | "RESPONSABLE_MARKETING" | "DIFFUSEUR" | "STORYBOARDER" | "ARTISTE_VFX" | "INGENIEUR_SON" | "DIRECTEUR_DOUBLAGE" | "TRADUCTEUR" | "MANGAKA" | "CHARACTER_DESIGNER" | "DESSINATEUR_DECORS" | "REALISATEUR_MISE_EN_PAGE" | "COMPOSITEUR" | "PAROLIER" | "ARRANGEUR" | "MUSICIEN" | "CHANTEUR_EUSE" | "CHEF_ORCHESTRE" | "PRODUCTEUR_MUSICAL" | "DESIGNER_SONORE" | "MIXEUR" | undefined;
-        }[] | undefined;
-    }, {
-        type: "OPENING" | "ENDING" | "BGM" | "INSERT";
-        name: {
-            default: string;
-            alias?: string[] | undefined;
-        };
-        cover?: {
-            id?: string | undefined;
-            label?: "COVER" | "BANNER" | "AVATAR" | "LOGO" | undefined;
-            newImage?: {
-                value: string;
-                label: "COVER" | "BANNER" | "AVATAR" | "LOGO";
-            } | undefined;
-        } | undefined;
-        description?: string | undefined;
-        links?: {
-            value: string;
-            name: string;
-        }[] | undefined;
-        pubDate?: {
-            year?: string | number | undefined;
-            month?: string | number | undefined;
-            day?: string | number | undefined;
-            hours?: string | number | undefined;
-            minutes?: string | number | undefined;
-            seconds?: string | number | undefined;
-        } | undefined;
-        artists?: {
-            id?: string | undefined;
-            newPerson?: {
-                name: {
-                    default: string;
-                    alias?: string[] | undefined;
-                };
-                description?: string | undefined;
-                isGroupe?: boolean | undefined;
-                birthDate?: {
-                    year?: string | number | undefined;
-                    month?: string | number | undefined;
-                    day?: string | number | undefined;
-                    hours?: string | number | undefined;
-                    minutes?: string | number | undefined;
-                    seconds?: string | number | undefined;
-                } | undefined;
-                deathDate?: {
-                    year?: string | number | undefined;
-                    month?: string | number | undefined;
-                    day?: string | number | undefined;
-                    hours?: string | number | undefined;
-                    minutes?: string | number | undefined;
-                    seconds?: string | number | undefined;
-                } | undefined;
-                avatar?: {
-                    id?: string | undefined;
-                    label?: "COVER" | "BANNER" | "AVATAR" | "LOGO" | undefined;
-                    newImage?: {
-                        value: string;
-                        label: "COVER" | "BANNER" | "AVATAR" | "LOGO";
-                    } | undefined;
-                } | undefined;
-                links?: {
-                    value: string;
-                    name: string;
-                }[] | undefined;
-            } | undefined;
-            role?: "DOUBLAGE_SEIYU" | "AUTEUR" | "EDITEUR" | "PRODUCTEUR" | "REALISATEUR" | "REALISATEUR_EPISODES" | "REALISATEUR_MISEENPAGE" | "DIRECTEUR_ARTISTIQUE_CINEMATROGRAPHIQUE" | "DIRECTEUR_ANIMATION" | "CONCEPTEUR" | "ANIMATEUR_PRINCIPAL" | "ANIMATEUR_INTERMEDIAIRE" | "COLORISTES" | "DIRECTEUR_ENREGISTREMENT" | "SCENARISTE" | "ANIMATEUR_3D" | "METTEUR_EN_SCENE" | "SUPERVISEUR" | "MONTEUR" | "RESPONSABLE_DROITS" | "PRODUCTEUR_MUSIQUE" | "RESPONSABLE_MARKETING" | "DIFFUSEUR" | "STORYBOARDER" | "ARTISTE_VFX" | "INGENIEUR_SON" | "DIRECTEUR_DOUBLAGE" | "TRADUCTEUR" | "MANGAKA" | "CHARACTER_DESIGNER" | "DESSINATEUR_DECORS" | "REALISATEUR_MISE_EN_PAGE" | "COMPOSITEUR" | "PAROLIER" | "ARRANGEUR" | "MUSICIEN" | "CHANTEUR_EUSE" | "CHEF_ORCHESTRE" | "PRODUCTEUR_MUSICAL" | "DESIGNER_SONORE" | "MIXEUR" | undefined;
-        }[] | undefined;
-    }>;
-}, "strip", z.ZodTypeAny, {
-    data: {
-        type: "OPENING" | "ENDING" | "BGM" | "INSERT";
-        name: {
-            default: string;
-            alias?: string[] | undefined;
-        };
-        cover?: {
-            id?: string | undefined;
-            label?: "COVER" | "BANNER" | "AVATAR" | "LOGO" | undefined;
-            newImage?: {
-                value: string;
-                label: "COVER" | "BANNER" | "AVATAR" | "LOGO";
-            } | undefined;
-        } | undefined;
-        description?: string | undefined;
-        links?: {
-            value: string;
-            name: string;
-        }[] | undefined;
-        pubDate?: {
-            year?: number | undefined;
-            month?: number | undefined;
-            day?: number | undefined;
-            hours?: number | undefined;
-            minutes?: number | undefined;
-            seconds?: number | undefined;
-        } | undefined;
-        artists?: {
-            id?: string | undefined;
-            newPerson?: {
-                name: {
-                    default: string;
-                    alias?: string[] | undefined;
-                };
-                description?: string | undefined;
-                isGroupe?: boolean | undefined;
-                birthDate?: {
-                    year?: number | undefined;
-                    month?: number | undefined;
-                    day?: number | undefined;
-                    hours?: number | undefined;
-                    minutes?: number | undefined;
-                    seconds?: number | undefined;
-                } | undefined;
-                deathDate?: {
-                    year?: number | undefined;
-                    month?: number | undefined;
-                    day?: number | undefined;
-                    hours?: number | undefined;
-                    minutes?: number | undefined;
-                    seconds?: number | undefined;
-                } | undefined;
-                avatar?: {
-                    id?: string | undefined;
-                    label?: "COVER" | "BANNER" | "AVATAR" | "LOGO" | undefined;
-                    newImage?: {
-                        value: string;
-                        label: "COVER" | "BANNER" | "AVATAR" | "LOGO";
-                    } | undefined;
-                } | undefined;
-                links?: {
-                    value: string;
-                    name: string;
-                }[] | undefined;
-            } | undefined;
-            role?: "DOUBLAGE_SEIYU" | "AUTEUR" | "EDITEUR" | "PRODUCTEUR" | "REALISATEUR" | "REALISATEUR_EPISODES" | "REALISATEUR_MISEENPAGE" | "DIRECTEUR_ARTISTIQUE_CINEMATROGRAPHIQUE" | "DIRECTEUR_ANIMATION" | "CONCEPTEUR" | "ANIMATEUR_PRINCIPAL" | "ANIMATEUR_INTERMEDIAIRE" | "COLORISTES" | "DIRECTEUR_ENREGISTREMENT" | "SCENARISTE" | "ANIMATEUR_3D" | "METTEUR_EN_SCENE" | "SUPERVISEUR" | "MONTEUR" | "RESPONSABLE_DROITS" | "PRODUCTEUR_MUSIQUE" | "RESPONSABLE_MARKETING" | "DIFFUSEUR" | "STORYBOARDER" | "ARTISTE_VFX" | "INGENIEUR_SON" | "DIRECTEUR_DOUBLAGE" | "TRADUCTEUR" | "MANGAKA" | "CHARACTER_DESIGNER" | "DESSINATEUR_DECORS" | "REALISATEUR_MISE_EN_PAGE" | "COMPOSITEUR" | "PAROLIER" | "ARRANGEUR" | "MUSICIEN" | "CHANTEUR_EUSE" | "CHEF_ORCHESTRE" | "PRODUCTEUR_MUSICAL" | "DESIGNER_SONORE" | "MIXEUR" | undefined;
-        }[] | undefined;
-    };
-    note?: string | undefined;
-}, {
-    data: {
-        type: "OPENING" | "ENDING" | "BGM" | "INSERT";
-        name: {
-            default: string;
-            alias?: string[] | undefined;
-        };
-        cover?: {
-            id?: string | undefined;
-            label?: "COVER" | "BANNER" | "AVATAR" | "LOGO" | undefined;
-            newImage?: {
-                value: string;
-                label: "COVER" | "BANNER" | "AVATAR" | "LOGO";
-            } | undefined;
-        } | undefined;
-        description?: string | undefined;
-        links?: {
-            value: string;
-            name: string;
-        }[] | undefined;
-        pubDate?: {
-            year?: string | number | undefined;
-            month?: string | number | undefined;
-            day?: string | number | undefined;
-            hours?: string | number | undefined;
-            minutes?: string | number | undefined;
-            seconds?: string | number | undefined;
-        } | undefined;
-        artists?: {
-            id?: string | undefined;
-            newPerson?: {
-                name: {
-                    default: string;
-                    alias?: string[] | undefined;
-                };
-                description?: string | undefined;
-                isGroupe?: boolean | undefined;
-                birthDate?: {
-                    year?: string | number | undefined;
-                    month?: string | number | undefined;
-                    day?: string | number | undefined;
-                    hours?: string | number | undefined;
-                    minutes?: string | number | undefined;
-                    seconds?: string | number | undefined;
-                } | undefined;
-                deathDate?: {
-                    year?: string | number | undefined;
-                    month?: string | number | undefined;
-                    day?: string | number | undefined;
-                    hours?: string | number | undefined;
-                    minutes?: string | number | undefined;
-                    seconds?: string | number | undefined;
-                } | undefined;
-                avatar?: {
-                    id?: string | undefined;
-                    label?: "COVER" | "BANNER" | "AVATAR" | "LOGO" | undefined;
-                    newImage?: {
-                        value: string;
-                        label: "COVER" | "BANNER" | "AVATAR" | "LOGO";
-                    } | undefined;
-                } | undefined;
-                links?: {
-                    value: string;
-                    name: string;
-                }[] | undefined;
-            } | undefined;
-            role?: "DOUBLAGE_SEIYU" | "AUTEUR" | "EDITEUR" | "PRODUCTEUR" | "REALISATEUR" | "REALISATEUR_EPISODES" | "REALISATEUR_MISEENPAGE" | "DIRECTEUR_ARTISTIQUE_CINEMATROGRAPHIQUE" | "DIRECTEUR_ANIMATION" | "CONCEPTEUR" | "ANIMATEUR_PRINCIPAL" | "ANIMATEUR_INTERMEDIAIRE" | "COLORISTES" | "DIRECTEUR_ENREGISTREMENT" | "SCENARISTE" | "ANIMATEUR_3D" | "METTEUR_EN_SCENE" | "SUPERVISEUR" | "MONTEUR" | "RESPONSABLE_DROITS" | "PRODUCTEUR_MUSIQUE" | "RESPONSABLE_MARKETING" | "DIFFUSEUR" | "STORYBOARDER" | "ARTISTE_VFX" | "INGENIEUR_SON" | "DIRECTEUR_DOUBLAGE" | "TRADUCTEUR" | "MANGAKA" | "CHARACTER_DESIGNER" | "DESSINATEUR_DECORS" | "REALISATEUR_MISE_EN_PAGE" | "COMPOSITEUR" | "PAROLIER" | "ARRANGEUR" | "MUSICIEN" | "CHANTEUR_EUSE" | "CHEF_ORCHESTRE" | "PRODUCTEUR_MUSICAL" | "DESIGNER_SONORE" | "MIXEUR" | undefined;
-        }[] | undefined;
-    };
-    note?: string | undefined;
-}>;
-export type ICreate_Track_ZOD_FORM = z.infer<typeof Create_Track_ZOD_FORM>;
-export declare const Add_Track_ZOD: z.ZodObject<{
+export declare const TrackAddBody: z.ZodObject<{
     id: z.ZodOptional<z.ZodString>;
     newTrack: z.ZodOptional<z.ZodObject<{
         name: z.ZodObject<{
@@ -2860,7 +3067,7 @@ export declare const Add_Track_ZOD: z.ZodObject<{
         }[] | undefined;
     } | undefined;
 }>;
-export type IAdd_Track_ZOD = z.infer<typeof Add_Track_ZOD>;
+export type ITrackAddBody = z.infer<typeof TrackAddBody>;
 export declare const TrackDataToZOD: (data: ITrack) => {
     type: "OPENING" | "ENDING" | "BGM" | "INSERT";
     name: {

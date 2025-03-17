@@ -1,13 +1,13 @@
 import { TrackTypeArray, ITrack } from "@actunime/types";
 import { z } from "zod";
-import { Create_Link_ZOD, DateBody, FromBody, LinkBody } from "./_media";
-import { Add_Person_ZOD, PersonBody } from "./_personZOD";
+import { Create_Link_ZOD, DateBody, FromBody, LinkBody, MediaTitleBody } from "./_media";
+import { PersonAddBody, PersonBody } from "./_personZOD";
 import { PaginationBody, zodNumber } from "./_util";
 import { Add_Image_ZOD, ImageBody } from "./_imageZOD";
 import { PatchParamsBody } from "./_patchZOD";
 
 export const TrackQueryBody = z.object({
-  name: z.object({ default: z.string(), alias: z.optional(z.array(z.string())) }),
+  name: MediaTitleBody.partial(),
   type: z.enum(TrackTypeArray),
   pubDate: z.optional(DateBody.partial()),
   artists: PersonBody.partial(),
@@ -45,45 +45,35 @@ export const Track_Pagination_ZOD = z.object({
 
 export type ITrack_Pagination_ZOD = z.infer<typeof Track_Pagination_ZOD>;
 
-export const Create_Track_ZOD = z
-  .object({
-    name: z.object({ default: z.string(), alias: z.optional(z.array(z.string())) }),
-    type: z.enum(TrackTypeArray),
-    pubDate: z.optional(DateBody.partial()),
-    artists: z.optional(z.array(Add_Person_ZOD)),
-    cover: z.optional(Add_Image_ZOD),
-    description: z.optional(z.string()),
-    links: z.optional(z.array(Create_Link_ZOD)),
-  })
-  .strict();
+export const TrackBody = z.object({
+  name: MediaTitleBody,
+  type: z.enum(TrackTypeArray),
+  pubDate: z.optional(DateBody.partial()),
+  artists: z.optional(z.array(PersonAddBody)),
+  cover: z.optional(Add_Image_ZOD),
+  description: z.optional(z.string()),
+  links: z.optional(z.array(Create_Link_ZOD)),
+}).strict();
 
-export type ICreate_Track_ZOD = z.infer<typeof Create_Track_ZOD>;
+export type ITrackBody = z.infer<typeof TrackBody>;
 
 export const TrackCreateBody = PatchParamsBody.partial().extend({
-  data: Create_Track_ZOD
+  data: TrackBody
 })
 
 export type ITrackCreateBody = z.infer<typeof TrackCreateBody>;
 
-export const Create_Track_ZOD_FORM = z.object({
-  note: z.string().optional(),
-  data: Create_Track_ZOD,
-});
-
-export type ICreate_Track_ZOD_FORM = z.infer<typeof Create_Track_ZOD_FORM>;
-
-
-export const Add_Track_ZOD = z.object({
+export const TrackAddBody = z.object({
   id: z.optional(z.string()),
-  newTrack: z.optional(Create_Track_ZOD),
+  newTrack: z.optional(TrackBody),
 });
 
-export type IAdd_Track_ZOD = z.infer<typeof Add_Track_ZOD>;
+export type ITrackAddBody = z.infer<typeof TrackAddBody>;
 
 export const TrackDataToZOD = (data: ITrack) => {
   if (!data) return;
 
-  const toZOD: ICreate_Track_ZOD = {
+  const toZOD: ITrackBody = {
     name: data.name,
     type: data.type,
     pubDate: data.pubDate,
@@ -93,7 +83,7 @@ export const TrackDataToZOD = (data: ITrack) => {
     links: data.links,
   };
 
-  const safeParse = Create_Track_ZOD.safeParse(toZOD);
+  const safeParse = TrackBody.safeParse(toZOD);
 
   if (safeParse.success) return safeParse.data;
 

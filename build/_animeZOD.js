@@ -1,6 +1,6 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.AnimeDataToZOD = exports.AnimeCreateBody = exports.Anime_Pagination_ZOD = exports.AnimePaginationBody = exports.AnimeSortBody = exports.AnimeQueryBody = exports.Add_Anime_ZOD = void 0;
+exports.AnimeDataToZOD = exports.AnimeCreateBody = exports.AnimeBody = exports.Anime_Pagination_ZOD = exports.AnimePaginationBody = exports.AnimeSortBody = exports.AnimeQueryBody = exports.Add_Anime_ZOD = void 0;
 const types_1 = require("@actunime/types");
 const zod_1 = require("zod");
 const _characterZOD_1 = require("./_characterZOD");
@@ -66,148 +66,146 @@ exports.Anime_Pagination_ZOD = zod_1.z.object({
     sort: exports.AnimeSortBody.partial(),
     query: exports.AnimeQueryBody.partial()
 });
-exports.AnimeCreateBody = _patchZOD_1.PatchParamsBody
-    .partial()
-    .extend({
-    data: zod_1.z.object({
-        groupe: _groupeZOD_1.Add_Groupe_ZOD,
-        parent: zod_1.z.optional(exports.Add_Anime_ZOD.partial()),
-        manga: zod_1.z.optional(_mangaZOD_1.Add_Manga_ZOD.partial()),
-        source: zod_1.z.enum(types_1.MediaSourceArray),
-        title: _media_1.MediaTitleBody,
-        date: zod_1.z.optional(_media_1.MediaDateBody.partial()),
-        cover: zod_1.z.optional(_imageZOD_1.Add_Image_ZOD.partial()),
-        banner: zod_1.z.optional(_imageZOD_1.Add_Image_ZOD.partial()),
-        synopsis: zod_1.z.optional(zod_1.z.string()),
-        format: zod_1.z.enum(types_1.AnimeFormatArray),
-        vf: zod_1.z.optional((0, _util_1.zodBoolean)()),
-        genres: zod_1.z.optional(zod_1.z.array(zod_1.z.enum(types_1.MediaGenresArray))),
-        // themes: z.optional(z.array(z.string())),
-        status: zod_1.z.enum(types_1.MediaStatusArray),
-        trailer: zod_1.z.optional(youtubeUrlSchema),
-        episodes: zod_1.z.optional(AnimeEpisodeBody.partial()),
-        adult: (0, _util_1.zodBoolean)(),
-        explicit: (0, _util_1.zodBoolean)(),
-        links: zod_1.z.optional(zod_1.z.array(_media_1.Create_Link_ZOD)),
-        companys: zod_1.z.optional(zod_1.z.array(_companyZOD_1.Add_Company_ZOD)),
-        staffs: zod_1.z.optional(zod_1.z.array(_personZOD_1.Add_Person_ZOD)),
-        characters: zod_1.z.optional(zod_1.z.array(_characterZOD_1.Add_Character_ZOD)),
-        tracks: zod_1.z.optional(zod_1.z.array(_trackZOD_1.Add_Track_ZOD)),
-    })
-        .strict()
-        .refine((data) => {
-        if (data.parent?.id) {
-            if (!data.parent.parentLabel) {
+exports.AnimeBody = zod_1.z.object({
+    groupe: _groupeZOD_1.GroupeAddBody,
+    parent: zod_1.z.optional(exports.Add_Anime_ZOD.partial()),
+    manga: zod_1.z.optional(_mangaZOD_1.MangaAddBody.partial()),
+    source: zod_1.z.enum(types_1.MediaSourceArray),
+    title: _media_1.MediaTitleBody,
+    date: zod_1.z.optional(_media_1.MediaDateBody.partial()),
+    cover: zod_1.z.optional(_imageZOD_1.Add_Image_ZOD.partial()),
+    banner: zod_1.z.optional(_imageZOD_1.Add_Image_ZOD.partial()),
+    synopsis: zod_1.z.optional(zod_1.z.string()),
+    format: zod_1.z.enum(types_1.AnimeFormatArray),
+    vf: zod_1.z.optional((0, _util_1.zodBoolean)()),
+    genres: zod_1.z.optional(zod_1.z.array(zod_1.z.enum(types_1.MediaGenresArray))),
+    // themes: z.optional(z.array(z.string())),
+    status: zod_1.z.enum(types_1.MediaStatusArray),
+    trailer: zod_1.z.optional(youtubeUrlSchema),
+    episodes: zod_1.z.optional(AnimeEpisodeBody.partial()),
+    adult: (0, _util_1.zodBoolean)(),
+    explicit: (0, _util_1.zodBoolean)(),
+    links: zod_1.z.optional(zod_1.z.array(_media_1.Create_Link_ZOD)),
+    companys: zod_1.z.optional(zod_1.z.array(_companyZOD_1.CompanyAddBody)),
+    staffs: zod_1.z.optional(zod_1.z.array(_personZOD_1.PersonAddBody)),
+    characters: zod_1.z.optional(zod_1.z.array(_characterZOD_1.CharacterAddBody)),
+    tracks: zod_1.z.optional(zod_1.z.array(_trackZOD_1.TrackAddBody)),
+})
+    .strict()
+    .refine((data) => {
+    if (data.parent?.id) {
+        if (!data.parent.parentLabel) {
+            return false;
+        }
+    }
+    let status = data.status;
+    if (status) {
+        if (["AIRING", "PAUSED"].includes(status)) {
+            if (!data.date?.start) {
+                return false;
+            }
+            if (!data.episodes?.airing) {
+                return false;
+            }
+            if (!data.episodes?.nextAiringDate) {
                 return false;
             }
         }
-        let status = data.status;
-        if (status) {
-            if (["AIRING", "PAUSED"].includes(status)) {
-                if (!data.date?.start) {
-                    return false;
-                }
-                if (!data.episodes?.airing) {
-                    return false;
-                }
-                if (!data.episodes?.nextAiringDate) {
-                    return false;
-                }
+        if (["ENDED", "STOPPED"].includes(status)) {
+            if (!data.episodes?.airing) {
+                return false;
             }
-            if (["ENDED", "STOPPED"].includes(status)) {
-                if (!data.episodes?.airing) {
-                    return false;
-                }
-                if (!data.episodes?.total) {
-                    return false;
-                }
-                if (!data.date?.start) {
-                    return false;
-                }
-                if (!data.date?.end) {
-                    return false;
-                }
+            if (!data.episodes?.total) {
+                return false;
             }
-            if (["POSTPONED"].includes(status)) {
-                if (!data.date?.start) {
-                    return false;
-                }
+            if (!data.date?.start) {
+                return false;
+            }
+            if (!data.date?.end) {
+                return false;
             }
         }
-        return true;
-    }, (data) => {
-        if (data.parent?.id) {
-            if (!data.parent?.parentLabel) {
+        if (["POSTPONED"].includes(status)) {
+            if (!data.date?.start) {
+                return false;
+            }
+        }
+    }
+    return true;
+}, (data) => {
+    if (data.parent?.id) {
+        if (!data.parent?.parentLabel) {
+            return {
+                message: "Ce champ est obligatoire si vous avez spécifié un parent.",
+                path: ["parentLabel"],
+            };
+        }
+    }
+    let status = data.status;
+    let message = `Le statut spécifié est: "${types_1.MediaStatusObj[status].label}", alors remplir ce champ est obligatoire !`;
+    if (status) {
+        if (["AIRING", "PAUSED"].includes(status)) {
+            if (!data.date?.start) {
                 return {
-                    message: "Ce champ est obligatoire si vous avez spécifié un parent.",
-                    path: ["parentLabel"],
+                    message,
+                    path: ["date.start"],
+                };
+            }
+            if (!data.episodes?.airing) {
+                return {
+                    message,
+                    path: ["episodes.airing"],
+                };
+            }
+            if (!data.episodes?.nextAiringDate) {
+                return {
+                    message,
+                    path: ["episodes.nextAiringDate"],
                 };
             }
         }
-        let status = data.status;
-        let message = `Le statut spécifié est: "${types_1.MediaStatusObj[status].label}", alors remplir ce champ est obligatoire !`;
-        if (status) {
-            if (["AIRING", "PAUSED"].includes(status)) {
-                if (!data.date?.start) {
-                    return {
-                        message,
-                        path: ["date.start"],
-                    };
-                }
-                if (!data.episodes?.airing) {
-                    return {
-                        message,
-                        path: ["episodes.airing"],
-                    };
-                }
-                if (!data.episodes?.nextAiringDate) {
-                    return {
-                        message,
-                        path: ["episodes.nextAiringDate"],
-                    };
-                }
+        if (["ENDED", "STOPPED"].includes(status)) {
+            if (!data.episodes?.airing) {
+                return {
+                    message,
+                    path: ["episodes.airing"],
+                };
             }
-            if (["ENDED", "STOPPED"].includes(status)) {
-                if (!data.episodes?.airing) {
-                    return {
-                        message,
-                        path: ["episodes.airing"],
-                    };
-                }
-                if (!data.episodes?.total) {
-                    return {
-                        message,
-                        path: ["episodes.total"],
-                    };
-                }
-                if (!data.date?.start) {
-                    return {
-                        message,
-                        path: ["date.start"],
-                    };
-                }
-                if (!data.date?.end) {
-                    return {
-                        message,
-                        path: ["date.end"],
-                    };
-                }
+            if (!data.episodes?.total) {
+                return {
+                    message,
+                    path: ["episodes.total"],
+                };
             }
-            if (["POSTPONED"].includes(status)) {
-                if (!data.date?.start) {
-                    return {
-                        message,
-                        path: ["date.start"],
-                    };
-                }
+            if (!data.date?.start) {
+                return {
+                    message,
+                    path: ["date.start"],
+                };
+            }
+            if (!data.date?.end) {
+                return {
+                    message,
+                    path: ["date.end"],
+                };
             }
         }
-        return {
-            message: "Nous avons un problème.",
-            path: ["CreateAnime"],
-        };
-    })
+        if (["POSTPONED"].includes(status)) {
+            if (!data.date?.start) {
+                return {
+                    message,
+                    path: ["date.start"],
+                };
+            }
+        }
+    }
+    return {
+        message: "Nous avons un problème.",
+        path: ["CreateAnime"],
+    };
 });
+exports.AnimeCreateBody = _patchZOD_1.PatchParamsBody.partial()
+    .extend({ data: exports.AnimeBody });
 const AnimeDataToZOD = (data) => {
     if (!data)
         return;

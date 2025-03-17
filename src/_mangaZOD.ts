@@ -6,9 +6,9 @@ import {
   MangaFormatArray,
 } from "@actunime/types";
 import { z } from "zod";
-import { Add_Character_ZOD } from "./_characterZOD";
-import { Add_Company_ZOD } from "./_companyZOD";
-import { Add_Groupe_ZOD } from "./_groupeZOD";
+import { CharacterAddBody } from "./_characterZOD";
+import { CompanyAddBody } from "./_companyZOD";
+import { GroupeAddBody } from "./_groupeZOD";
 import {
   Create_Link_ZOD,
   DateBody,
@@ -19,7 +19,7 @@ import {
   MediaTitleZodSchema,
   MediaTrailerZod,
 } from "./_media";
-import { Add_Person_ZOD } from "./_personZOD";
+import { PersonAddBody } from "./_personZOD";
 import { PaginationBody, zodBoolean, zodNumber } from "./_util";
 import { Add_Image_ZOD } from "./_imageZOD";
 import { PatchParamsBody } from "./_patchZOD";
@@ -64,52 +64,16 @@ export const MangaPaginationBody = PaginationBody.extend({
 
 export type IMangaPaginationBody = z.infer<typeof MangaPaginationBody>;
 
-export const Manga_Pagination_ZOD = z
-  .object({
-    page: zodNumber(),
-    limit: zodNumber(),
-    strict: z.boolean().optional(),
-    sort: z
-      .object({
-        updaptedAt: z.enum(["DESC", "ASC"]).optional(),
-        createdAt: z.enum(["DESC", "ASC"]).optional(),
-      })
-      .partial()
-      .strict(),
-    query: z
-      .object({
-        name: z.string().optional(),
-        allowUnverified: z.boolean().optional(),
-      })
-      .partial()
-      .strict(),
-    with: z
-      .object({
-        groupe: z.boolean().optional(),
-        parent: z.boolean().optional(),
-        source: z.boolean().optional(),
-        staffs: z.boolean().optional(),
-        companys: z.boolean().optional(),
-        characters: z.boolean().optional(),
-      })
-      .partial()
-      .strict(),
-  })
-  .partial()
-  .strict();
-
-export type IManga_Pagination_ZOD = z.infer<typeof Manga_Pagination_ZOD>;
-
-export const Add_Manga_ZOD = z
+export const MangaAddBody = z
   .object({ id: z.string(), parentLabel: z.optional(z.enum(MediaParentLabelArray)) })
 
-export type IAdd_Manga_ZOD = z.infer<typeof Add_Manga_ZOD>;
+export type IMangaAddBody = z.infer<typeof MangaAddBody>;
 
-export const Create_Manga_ZOD = z
+export const MangaBody = z
   .object({
-    groupe: Add_Groupe_ZOD,
-    parent: z.optional(Add_Manga_ZOD),
-    source: z.optional(Add_Manga_ZOD),
+    groupe: GroupeAddBody,
+    parent: z.optional(MangaAddBody),
+    // source: z.optional(MangaAddBody),
     title: MediaTitleZodSchema,
     date: z.optional(MediaDateBody.partial()),
     cover: z.optional(Add_Image_ZOD),
@@ -125,35 +89,27 @@ export const Create_Manga_ZOD = z
     adult: zodBoolean(),
     explicit: zodBoolean(),
     links: z.optional(z.array(Create_Link_ZOD)),
-    companys: z.optional(z.array(Add_Company_ZOD)),
-    staffs: z.optional(z.array(Add_Person_ZOD)),
-    characters: z.optional(z.array(Add_Character_ZOD))
+    companys: z.optional(z.array(CompanyAddBody)),
+    staffs: z.optional(z.array(PersonAddBody)),
+    characters: z.optional(z.array(CharacterAddBody))
   })
   .strict();
 
-export type ICreate_Manga_ZOD = z.infer<typeof Create_Manga_ZOD>;
+export type IMangaBody = z.infer<typeof MangaBody>;
 
 export const MangaCreateBody = PatchParamsBody.partial().extend({
-  data: Create_Manga_ZOD
+  data: MangaBody
 })
 
 export type IMangaCreateBody = z.infer<typeof MangaCreateBody>;
 
-export const Create_Manga_ZOD_FORM = z.object({
-  note: z.string().optional(),
-  data: Create_Manga_ZOD,
-});
-
-export type ICreate_Manga_ZOD_FORM = z.infer<typeof Create_Manga_ZOD_FORM>;
-
-
 export const MangaDataToZOD = (data: IManga) => {
   if (!data) return;
 
-  const toZOD: ICreate_Manga_ZOD = {
+  const toZOD: IMangaBody = {
     groupe: data.groupe!,
-    parent: data.parent as any,
-    source: data.source as any,
+    // parent: data.parent,
+    // source: data.source,
 
     title: data.title as any,
     synopsis: data.synopsis,
@@ -174,7 +130,7 @@ export const MangaDataToZOD = (data: IManga) => {
     characters: (data.characters || []) as any,
   };
 
-  const safeParse = Create_Manga_ZOD.safeParse(toZOD);
+  const safeParse = MangaBody.safeParse(toZOD);
 
   if (safeParse.success) return safeParse.data;
 

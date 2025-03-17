@@ -1,6 +1,6 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.MangaDataToZOD = exports.Create_Manga_ZOD_FORM = exports.MangaCreateBody = exports.Create_Manga_ZOD = exports.Add_Manga_ZOD = exports.Manga_Pagination_ZOD = exports.MangaPaginationBody = exports.MangaSortBody = exports.MangaQueryBody = void 0;
+exports.MangaDataToZOD = exports.MangaCreateBody = exports.MangaBody = exports.MangaAddBody = exports.MangaPaginationBody = exports.MangaSortBody = exports.MangaQueryBody = void 0;
 const types_1 = require("@actunime/types");
 const zod_1 = require("zod");
 const _characterZOD_1 = require("./_characterZOD");
@@ -45,46 +45,13 @@ exports.MangaPaginationBody = _util_1.PaginationBody.extend({
     query: exports.MangaQueryBody.partial(),
     from: _media_1.FromBody,
 }).partial();
-exports.Manga_Pagination_ZOD = zod_1.z
-    .object({
-    page: (0, _util_1.zodNumber)(),
-    limit: (0, _util_1.zodNumber)(),
-    strict: zod_1.z.boolean().optional(),
-    sort: zod_1.z
-        .object({
-        updaptedAt: zod_1.z.enum(["DESC", "ASC"]).optional(),
-        createdAt: zod_1.z.enum(["DESC", "ASC"]).optional(),
-    })
-        .partial()
-        .strict(),
-    query: zod_1.z
-        .object({
-        name: zod_1.z.string().optional(),
-        allowUnverified: zod_1.z.boolean().optional(),
-    })
-        .partial()
-        .strict(),
-    with: zod_1.z
-        .object({
-        groupe: zod_1.z.boolean().optional(),
-        parent: zod_1.z.boolean().optional(),
-        source: zod_1.z.boolean().optional(),
-        staffs: zod_1.z.boolean().optional(),
-        companys: zod_1.z.boolean().optional(),
-        characters: zod_1.z.boolean().optional(),
-    })
-        .partial()
-        .strict(),
-})
-    .partial()
-    .strict();
-exports.Add_Manga_ZOD = zod_1.z
+exports.MangaAddBody = zod_1.z
     .object({ id: zod_1.z.string(), parentLabel: zod_1.z.optional(zod_1.z.enum(types_1.MediaParentLabelArray)) });
-exports.Create_Manga_ZOD = zod_1.z
+exports.MangaBody = zod_1.z
     .object({
-    groupe: _groupeZOD_1.Add_Groupe_ZOD,
-    parent: zod_1.z.optional(exports.Add_Manga_ZOD),
-    source: zod_1.z.optional(exports.Add_Manga_ZOD),
+    groupe: _groupeZOD_1.GroupeAddBody,
+    parent: zod_1.z.optional(exports.MangaAddBody),
+    // source: z.optional(MangaAddBody),
     title: _media_1.MediaTitleZodSchema,
     date: zod_1.z.optional(_media_1.MediaDateBody.partial()),
     cover: zod_1.z.optional(_imageZOD_1.Add_Image_ZOD),
@@ -100,25 +67,21 @@ exports.Create_Manga_ZOD = zod_1.z
     adult: (0, _util_1.zodBoolean)(),
     explicit: (0, _util_1.zodBoolean)(),
     links: zod_1.z.optional(zod_1.z.array(_media_1.Create_Link_ZOD)),
-    companys: zod_1.z.optional(zod_1.z.array(_companyZOD_1.Add_Company_ZOD)),
-    staffs: zod_1.z.optional(zod_1.z.array(_personZOD_1.Add_Person_ZOD)),
-    characters: zod_1.z.optional(zod_1.z.array(_characterZOD_1.Add_Character_ZOD))
+    companys: zod_1.z.optional(zod_1.z.array(_companyZOD_1.CompanyAddBody)),
+    staffs: zod_1.z.optional(zod_1.z.array(_personZOD_1.PersonAddBody)),
+    characters: zod_1.z.optional(zod_1.z.array(_characterZOD_1.CharacterAddBody))
 })
     .strict();
 exports.MangaCreateBody = _patchZOD_1.PatchParamsBody.partial().extend({
-    data: exports.Create_Manga_ZOD
-});
-exports.Create_Manga_ZOD_FORM = zod_1.z.object({
-    note: zod_1.z.string().optional(),
-    data: exports.Create_Manga_ZOD,
+    data: exports.MangaBody
 });
 const MangaDataToZOD = (data) => {
     if (!data)
         return;
     const toZOD = {
         groupe: data.groupe,
-        parent: data.parent,
-        source: data.source,
+        // parent: data.parent,
+        // source: data.source,
         title: data.title,
         synopsis: data.synopsis,
         cover: data.cover,
@@ -137,7 +100,7 @@ const MangaDataToZOD = (data) => {
         staffs: (data.staffs || []),
         characters: (data.characters || []),
     };
-    const safeParse = exports.Create_Manga_ZOD.safeParse(toZOD);
+    const safeParse = exports.MangaBody.safeParse(toZOD);
     if (safeParse.success)
         return safeParse.data;
     return toZOD;

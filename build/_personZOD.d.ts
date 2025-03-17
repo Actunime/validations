@@ -1,1010 +1,5 @@
 import { z } from "zod";
 import { IPerson } from "@actunime/types";
-export declare const PersonName_validation: z.ZodObject<{
-    default: z.ZodString;
-    alias: z.ZodOptional<z.ZodArray<z.ZodString, "many">>;
-}, "strip", z.ZodTypeAny, {
-    default: string;
-    alias?: string[] | undefined;
-}, {
-    default: string;
-    alias?: string[] | undefined;
-}>;
-export declare const Base_Create_Person_ZOD: z.ZodObject<{
-    isGroupe: z.ZodOptional<z.ZodBoolean>;
-    name: z.ZodObject<{
-        default: z.ZodString;
-        alias: z.ZodOptional<z.ZodArray<z.ZodString, "many">>;
-    }, "strip", z.ZodTypeAny, {
-        default: string;
-        alias?: string[] | undefined;
-    }, {
-        default: string;
-        alias?: string[] | undefined;
-    }>;
-    birthDate: z.ZodOptional<z.ZodObject<{
-        year: z.ZodOptional<z.ZodOptional<z.ZodEffects<z.ZodUnion<[z.ZodNumber, z.ZodString]>, number, string | number>>>;
-        month: z.ZodOptional<z.ZodOptional<z.ZodEffects<z.ZodUnion<[z.ZodNumber, z.ZodString]>, number, string | number>>>;
-        day: z.ZodOptional<z.ZodOptional<z.ZodEffects<z.ZodUnion<[z.ZodNumber, z.ZodString]>, number, string | number>>>;
-        hours: z.ZodOptional<z.ZodOptional<z.ZodEffects<z.ZodUnion<[z.ZodNumber, z.ZodString]>, number, string | number>>>;
-        minutes: z.ZodOptional<z.ZodOptional<z.ZodEffects<z.ZodUnion<[z.ZodNumber, z.ZodString]>, number, string | number>>>;
-        seconds: z.ZodOptional<z.ZodOptional<z.ZodEffects<z.ZodUnion<[z.ZodNumber, z.ZodString]>, number, string | number>>>;
-    }, "strip", z.ZodTypeAny, {
-        year?: number | undefined;
-        month?: number | undefined;
-        day?: number | undefined;
-        hours?: number | undefined;
-        minutes?: number | undefined;
-        seconds?: number | undefined;
-    }, {
-        year?: string | number | undefined;
-        month?: string | number | undefined;
-        day?: string | number | undefined;
-        hours?: string | number | undefined;
-        minutes?: string | number | undefined;
-        seconds?: string | number | undefined;
-    }>>;
-    deathDate: z.ZodOptional<z.ZodObject<{
-        year: z.ZodOptional<z.ZodOptional<z.ZodEffects<z.ZodUnion<[z.ZodNumber, z.ZodString]>, number, string | number>>>;
-        month: z.ZodOptional<z.ZodOptional<z.ZodEffects<z.ZodUnion<[z.ZodNumber, z.ZodString]>, number, string | number>>>;
-        day: z.ZodOptional<z.ZodOptional<z.ZodEffects<z.ZodUnion<[z.ZodNumber, z.ZodString]>, number, string | number>>>;
-        hours: z.ZodOptional<z.ZodOptional<z.ZodEffects<z.ZodUnion<[z.ZodNumber, z.ZodString]>, number, string | number>>>;
-        minutes: z.ZodOptional<z.ZodOptional<z.ZodEffects<z.ZodUnion<[z.ZodNumber, z.ZodString]>, number, string | number>>>;
-        seconds: z.ZodOptional<z.ZodOptional<z.ZodEffects<z.ZodUnion<[z.ZodNumber, z.ZodString]>, number, string | number>>>;
-    }, "strip", z.ZodTypeAny, {
-        year?: number | undefined;
-        month?: number | undefined;
-        day?: number | undefined;
-        hours?: number | undefined;
-        minutes?: number | undefined;
-        seconds?: number | undefined;
-    }, {
-        year?: string | number | undefined;
-        month?: string | number | undefined;
-        day?: string | number | undefined;
-        hours?: string | number | undefined;
-        minutes?: string | number | undefined;
-        seconds?: string | number | undefined;
-    }>>;
-    description: z.ZodOptional<z.ZodString>;
-    avatar: z.ZodOptional<z.ZodObject<{
-        id: z.ZodOptional<z.ZodString>;
-        label: z.ZodOptional<z.ZodEnum<("COVER" | "BANNER" | "AVATAR" | "LOGO")[] & [string, ...string[]]>>;
-        newImage: z.ZodOptional<z.ZodObject<{
-            label: z.ZodEnum<("COVER" | "BANNER" | "AVATAR" | "LOGO")[] & [string, ...string[]]>;
-            value: z.ZodString;
-        }, "strip", z.ZodTypeAny, {
-            value: string;
-            label: "COVER" | "BANNER" | "AVATAR" | "LOGO";
-        }, {
-            value: string;
-            label: "COVER" | "BANNER" | "AVATAR" | "LOGO";
-        }>>;
-    }, "strip", z.ZodTypeAny, {
-        id?: string | undefined;
-        label?: "COVER" | "BANNER" | "AVATAR" | "LOGO" | undefined;
-        newImage?: {
-            value: string;
-            label: "COVER" | "BANNER" | "AVATAR" | "LOGO";
-        } | undefined;
-    }, {
-        id?: string | undefined;
-        label?: "COVER" | "BANNER" | "AVATAR" | "LOGO" | undefined;
-        newImage?: {
-            value: string;
-            label: "COVER" | "BANNER" | "AVATAR" | "LOGO";
-        } | undefined;
-    }>>;
-    links: z.ZodOptional<z.ZodArray<z.ZodObject<{
-        name: z.ZodString;
-        value: z.ZodEffects<z.ZodString, string, string>;
-    }, "strip", z.ZodTypeAny, {
-        value: string;
-        name: string;
-    }, {
-        value: string;
-        name: string;
-    }>, "many">>;
-}, "strict", z.ZodTypeAny, {
-    name: {
-        default: string;
-        alias?: string[] | undefined;
-    };
-    description?: string | undefined;
-    isGroupe?: boolean | undefined;
-    birthDate?: {
-        year?: number | undefined;
-        month?: number | undefined;
-        day?: number | undefined;
-        hours?: number | undefined;
-        minutes?: number | undefined;
-        seconds?: number | undefined;
-    } | undefined;
-    deathDate?: {
-        year?: number | undefined;
-        month?: number | undefined;
-        day?: number | undefined;
-        hours?: number | undefined;
-        minutes?: number | undefined;
-        seconds?: number | undefined;
-    } | undefined;
-    avatar?: {
-        id?: string | undefined;
-        label?: "COVER" | "BANNER" | "AVATAR" | "LOGO" | undefined;
-        newImage?: {
-            value: string;
-            label: "COVER" | "BANNER" | "AVATAR" | "LOGO";
-        } | undefined;
-    } | undefined;
-    links?: {
-        value: string;
-        name: string;
-    }[] | undefined;
-}, {
-    name: {
-        default: string;
-        alias?: string[] | undefined;
-    };
-    description?: string | undefined;
-    isGroupe?: boolean | undefined;
-    birthDate?: {
-        year?: string | number | undefined;
-        month?: string | number | undefined;
-        day?: string | number | undefined;
-        hours?: string | number | undefined;
-        minutes?: string | number | undefined;
-        seconds?: string | number | undefined;
-    } | undefined;
-    deathDate?: {
-        year?: string | number | undefined;
-        month?: string | number | undefined;
-        day?: string | number | undefined;
-        hours?: string | number | undefined;
-        minutes?: string | number | undefined;
-        seconds?: string | number | undefined;
-    } | undefined;
-    avatar?: {
-        id?: string | undefined;
-        label?: "COVER" | "BANNER" | "AVATAR" | "LOGO" | undefined;
-        newImage?: {
-            value: string;
-            label: "COVER" | "BANNER" | "AVATAR" | "LOGO";
-        } | undefined;
-    } | undefined;
-    links?: {
-        value: string;
-        name: string;
-    }[] | undefined;
-}>;
-export declare const Create_Person_ZOD: z.ZodObject<{
-    isGroupe: z.ZodOptional<z.ZodBoolean>;
-    name: z.ZodObject<{
-        default: z.ZodString;
-        alias: z.ZodOptional<z.ZodArray<z.ZodString, "many">>;
-    }, "strip", z.ZodTypeAny, {
-        default: string;
-        alias?: string[] | undefined;
-    }, {
-        default: string;
-        alias?: string[] | undefined;
-    }>;
-    birthDate: z.ZodOptional<z.ZodObject<{
-        year: z.ZodOptional<z.ZodOptional<z.ZodEffects<z.ZodUnion<[z.ZodNumber, z.ZodString]>, number, string | number>>>;
-        month: z.ZodOptional<z.ZodOptional<z.ZodEffects<z.ZodUnion<[z.ZodNumber, z.ZodString]>, number, string | number>>>;
-        day: z.ZodOptional<z.ZodOptional<z.ZodEffects<z.ZodUnion<[z.ZodNumber, z.ZodString]>, number, string | number>>>;
-        hours: z.ZodOptional<z.ZodOptional<z.ZodEffects<z.ZodUnion<[z.ZodNumber, z.ZodString]>, number, string | number>>>;
-        minutes: z.ZodOptional<z.ZodOptional<z.ZodEffects<z.ZodUnion<[z.ZodNumber, z.ZodString]>, number, string | number>>>;
-        seconds: z.ZodOptional<z.ZodOptional<z.ZodEffects<z.ZodUnion<[z.ZodNumber, z.ZodString]>, number, string | number>>>;
-    }, "strip", z.ZodTypeAny, {
-        year?: number | undefined;
-        month?: number | undefined;
-        day?: number | undefined;
-        hours?: number | undefined;
-        minutes?: number | undefined;
-        seconds?: number | undefined;
-    }, {
-        year?: string | number | undefined;
-        month?: string | number | undefined;
-        day?: string | number | undefined;
-        hours?: string | number | undefined;
-        minutes?: string | number | undefined;
-        seconds?: string | number | undefined;
-    }>>;
-    deathDate: z.ZodOptional<z.ZodObject<{
-        year: z.ZodOptional<z.ZodOptional<z.ZodEffects<z.ZodUnion<[z.ZodNumber, z.ZodString]>, number, string | number>>>;
-        month: z.ZodOptional<z.ZodOptional<z.ZodEffects<z.ZodUnion<[z.ZodNumber, z.ZodString]>, number, string | number>>>;
-        day: z.ZodOptional<z.ZodOptional<z.ZodEffects<z.ZodUnion<[z.ZodNumber, z.ZodString]>, number, string | number>>>;
-        hours: z.ZodOptional<z.ZodOptional<z.ZodEffects<z.ZodUnion<[z.ZodNumber, z.ZodString]>, number, string | number>>>;
-        minutes: z.ZodOptional<z.ZodOptional<z.ZodEffects<z.ZodUnion<[z.ZodNumber, z.ZodString]>, number, string | number>>>;
-        seconds: z.ZodOptional<z.ZodOptional<z.ZodEffects<z.ZodUnion<[z.ZodNumber, z.ZodString]>, number, string | number>>>;
-    }, "strip", z.ZodTypeAny, {
-        year?: number | undefined;
-        month?: number | undefined;
-        day?: number | undefined;
-        hours?: number | undefined;
-        minutes?: number | undefined;
-        seconds?: number | undefined;
-    }, {
-        year?: string | number | undefined;
-        month?: string | number | undefined;
-        day?: string | number | undefined;
-        hours?: string | number | undefined;
-        minutes?: string | number | undefined;
-        seconds?: string | number | undefined;
-    }>>;
-    description: z.ZodOptional<z.ZodString>;
-    avatar: z.ZodOptional<z.ZodObject<{
-        id: z.ZodOptional<z.ZodString>;
-        label: z.ZodOptional<z.ZodEnum<("COVER" | "BANNER" | "AVATAR" | "LOGO")[] & [string, ...string[]]>>;
-        newImage: z.ZodOptional<z.ZodObject<{
-            label: z.ZodEnum<("COVER" | "BANNER" | "AVATAR" | "LOGO")[] & [string, ...string[]]>;
-            value: z.ZodString;
-        }, "strip", z.ZodTypeAny, {
-            value: string;
-            label: "COVER" | "BANNER" | "AVATAR" | "LOGO";
-        }, {
-            value: string;
-            label: "COVER" | "BANNER" | "AVATAR" | "LOGO";
-        }>>;
-    }, "strip", z.ZodTypeAny, {
-        id?: string | undefined;
-        label?: "COVER" | "BANNER" | "AVATAR" | "LOGO" | undefined;
-        newImage?: {
-            value: string;
-            label: "COVER" | "BANNER" | "AVATAR" | "LOGO";
-        } | undefined;
-    }, {
-        id?: string | undefined;
-        label?: "COVER" | "BANNER" | "AVATAR" | "LOGO" | undefined;
-        newImage?: {
-            value: string;
-            label: "COVER" | "BANNER" | "AVATAR" | "LOGO";
-        } | undefined;
-    }>>;
-    links: z.ZodOptional<z.ZodArray<z.ZodObject<{
-        name: z.ZodString;
-        value: z.ZodEffects<z.ZodString, string, string>;
-    }, "strip", z.ZodTypeAny, {
-        value: string;
-        name: string;
-    }, {
-        value: string;
-        name: string;
-    }>, "many">>;
-}, "strict", z.ZodTypeAny, {
-    name: {
-        default: string;
-        alias?: string[] | undefined;
-    };
-    description?: string | undefined;
-    isGroupe?: boolean | undefined;
-    birthDate?: {
-        year?: number | undefined;
-        month?: number | undefined;
-        day?: number | undefined;
-        hours?: number | undefined;
-        minutes?: number | undefined;
-        seconds?: number | undefined;
-    } | undefined;
-    deathDate?: {
-        year?: number | undefined;
-        month?: number | undefined;
-        day?: number | undefined;
-        hours?: number | undefined;
-        minutes?: number | undefined;
-        seconds?: number | undefined;
-    } | undefined;
-    avatar?: {
-        id?: string | undefined;
-        label?: "COVER" | "BANNER" | "AVATAR" | "LOGO" | undefined;
-        newImage?: {
-            value: string;
-            label: "COVER" | "BANNER" | "AVATAR" | "LOGO";
-        } | undefined;
-    } | undefined;
-    links?: {
-        value: string;
-        name: string;
-    }[] | undefined;
-}, {
-    name: {
-        default: string;
-        alias?: string[] | undefined;
-    };
-    description?: string | undefined;
-    isGroupe?: boolean | undefined;
-    birthDate?: {
-        year?: string | number | undefined;
-        month?: string | number | undefined;
-        day?: string | number | undefined;
-        hours?: string | number | undefined;
-        minutes?: string | number | undefined;
-        seconds?: string | number | undefined;
-    } | undefined;
-    deathDate?: {
-        year?: string | number | undefined;
-        month?: string | number | undefined;
-        day?: string | number | undefined;
-        hours?: string | number | undefined;
-        minutes?: string | number | undefined;
-        seconds?: string | number | undefined;
-    } | undefined;
-    avatar?: {
-        id?: string | undefined;
-        label?: "COVER" | "BANNER" | "AVATAR" | "LOGO" | undefined;
-        newImage?: {
-            value: string;
-            label: "COVER" | "BANNER" | "AVATAR" | "LOGO";
-        } | undefined;
-    } | undefined;
-    links?: {
-        value: string;
-        name: string;
-    }[] | undefined;
-}>;
-export declare const Partial_Create_Person_ZOD: z.ZodObject<{
-    isGroupe: z.ZodOptional<z.ZodOptional<z.ZodBoolean>>;
-    name: z.ZodOptional<z.ZodObject<{
-        default: z.ZodString;
-        alias: z.ZodOptional<z.ZodArray<z.ZodString, "many">>;
-    }, "strip", z.ZodTypeAny, {
-        default: string;
-        alias?: string[] | undefined;
-    }, {
-        default: string;
-        alias?: string[] | undefined;
-    }>>;
-    birthDate: z.ZodOptional<z.ZodOptional<z.ZodObject<{
-        year: z.ZodOptional<z.ZodOptional<z.ZodEffects<z.ZodUnion<[z.ZodNumber, z.ZodString]>, number, string | number>>>;
-        month: z.ZodOptional<z.ZodOptional<z.ZodEffects<z.ZodUnion<[z.ZodNumber, z.ZodString]>, number, string | number>>>;
-        day: z.ZodOptional<z.ZodOptional<z.ZodEffects<z.ZodUnion<[z.ZodNumber, z.ZodString]>, number, string | number>>>;
-        hours: z.ZodOptional<z.ZodOptional<z.ZodEffects<z.ZodUnion<[z.ZodNumber, z.ZodString]>, number, string | number>>>;
-        minutes: z.ZodOptional<z.ZodOptional<z.ZodEffects<z.ZodUnion<[z.ZodNumber, z.ZodString]>, number, string | number>>>;
-        seconds: z.ZodOptional<z.ZodOptional<z.ZodEffects<z.ZodUnion<[z.ZodNumber, z.ZodString]>, number, string | number>>>;
-    }, "strip", z.ZodTypeAny, {
-        year?: number | undefined;
-        month?: number | undefined;
-        day?: number | undefined;
-        hours?: number | undefined;
-        minutes?: number | undefined;
-        seconds?: number | undefined;
-    }, {
-        year?: string | number | undefined;
-        month?: string | number | undefined;
-        day?: string | number | undefined;
-        hours?: string | number | undefined;
-        minutes?: string | number | undefined;
-        seconds?: string | number | undefined;
-    }>>>;
-    deathDate: z.ZodOptional<z.ZodOptional<z.ZodObject<{
-        year: z.ZodOptional<z.ZodOptional<z.ZodEffects<z.ZodUnion<[z.ZodNumber, z.ZodString]>, number, string | number>>>;
-        month: z.ZodOptional<z.ZodOptional<z.ZodEffects<z.ZodUnion<[z.ZodNumber, z.ZodString]>, number, string | number>>>;
-        day: z.ZodOptional<z.ZodOptional<z.ZodEffects<z.ZodUnion<[z.ZodNumber, z.ZodString]>, number, string | number>>>;
-        hours: z.ZodOptional<z.ZodOptional<z.ZodEffects<z.ZodUnion<[z.ZodNumber, z.ZodString]>, number, string | number>>>;
-        minutes: z.ZodOptional<z.ZodOptional<z.ZodEffects<z.ZodUnion<[z.ZodNumber, z.ZodString]>, number, string | number>>>;
-        seconds: z.ZodOptional<z.ZodOptional<z.ZodEffects<z.ZodUnion<[z.ZodNumber, z.ZodString]>, number, string | number>>>;
-    }, "strip", z.ZodTypeAny, {
-        year?: number | undefined;
-        month?: number | undefined;
-        day?: number | undefined;
-        hours?: number | undefined;
-        minutes?: number | undefined;
-        seconds?: number | undefined;
-    }, {
-        year?: string | number | undefined;
-        month?: string | number | undefined;
-        day?: string | number | undefined;
-        hours?: string | number | undefined;
-        minutes?: string | number | undefined;
-        seconds?: string | number | undefined;
-    }>>>;
-    description: z.ZodOptional<z.ZodOptional<z.ZodString>>;
-    avatar: z.ZodOptional<z.ZodOptional<z.ZodObject<{
-        id: z.ZodOptional<z.ZodString>;
-        label: z.ZodOptional<z.ZodEnum<("COVER" | "BANNER" | "AVATAR" | "LOGO")[] & [string, ...string[]]>>;
-        newImage: z.ZodOptional<z.ZodObject<{
-            label: z.ZodEnum<("COVER" | "BANNER" | "AVATAR" | "LOGO")[] & [string, ...string[]]>;
-            value: z.ZodString;
-        }, "strip", z.ZodTypeAny, {
-            value: string;
-            label: "COVER" | "BANNER" | "AVATAR" | "LOGO";
-        }, {
-            value: string;
-            label: "COVER" | "BANNER" | "AVATAR" | "LOGO";
-        }>>;
-    }, "strip", z.ZodTypeAny, {
-        id?: string | undefined;
-        label?: "COVER" | "BANNER" | "AVATAR" | "LOGO" | undefined;
-        newImage?: {
-            value: string;
-            label: "COVER" | "BANNER" | "AVATAR" | "LOGO";
-        } | undefined;
-    }, {
-        id?: string | undefined;
-        label?: "COVER" | "BANNER" | "AVATAR" | "LOGO" | undefined;
-        newImage?: {
-            value: string;
-            label: "COVER" | "BANNER" | "AVATAR" | "LOGO";
-        } | undefined;
-    }>>>;
-    links: z.ZodOptional<z.ZodOptional<z.ZodArray<z.ZodObject<{
-        name: z.ZodString;
-        value: z.ZodEffects<z.ZodString, string, string>;
-    }, "strip", z.ZodTypeAny, {
-        value: string;
-        name: string;
-    }, {
-        value: string;
-        name: string;
-    }>, "many">>>;
-}, "strict", z.ZodTypeAny, {
-    name?: {
-        default: string;
-        alias?: string[] | undefined;
-    } | undefined;
-    description?: string | undefined;
-    isGroupe?: boolean | undefined;
-    birthDate?: {
-        year?: number | undefined;
-        month?: number | undefined;
-        day?: number | undefined;
-        hours?: number | undefined;
-        minutes?: number | undefined;
-        seconds?: number | undefined;
-    } | undefined;
-    deathDate?: {
-        year?: number | undefined;
-        month?: number | undefined;
-        day?: number | undefined;
-        hours?: number | undefined;
-        minutes?: number | undefined;
-        seconds?: number | undefined;
-    } | undefined;
-    avatar?: {
-        id?: string | undefined;
-        label?: "COVER" | "BANNER" | "AVATAR" | "LOGO" | undefined;
-        newImage?: {
-            value: string;
-            label: "COVER" | "BANNER" | "AVATAR" | "LOGO";
-        } | undefined;
-    } | undefined;
-    links?: {
-        value: string;
-        name: string;
-    }[] | undefined;
-}, {
-    name?: {
-        default: string;
-        alias?: string[] | undefined;
-    } | undefined;
-    description?: string | undefined;
-    isGroupe?: boolean | undefined;
-    birthDate?: {
-        year?: string | number | undefined;
-        month?: string | number | undefined;
-        day?: string | number | undefined;
-        hours?: string | number | undefined;
-        minutes?: string | number | undefined;
-        seconds?: string | number | undefined;
-    } | undefined;
-    deathDate?: {
-        year?: string | number | undefined;
-        month?: string | number | undefined;
-        day?: string | number | undefined;
-        hours?: string | number | undefined;
-        minutes?: string | number | undefined;
-        seconds?: string | number | undefined;
-    } | undefined;
-    avatar?: {
-        id?: string | undefined;
-        label?: "COVER" | "BANNER" | "AVATAR" | "LOGO" | undefined;
-        newImage?: {
-            value: string;
-            label: "COVER" | "BANNER" | "AVATAR" | "LOGO";
-        } | undefined;
-    } | undefined;
-    links?: {
-        value: string;
-        name: string;
-    }[] | undefined;
-}>;
-export type ICreate_Person_ZOD = z.infer<typeof Create_Person_ZOD>;
-export declare const PersonCreateBody: z.ZodObject<z.objectUtil.extendShape<{
-    description: z.ZodOptional<z.ZodString>;
-    reason: z.ZodOptional<z.ZodString>;
-}, {
-    data: z.ZodObject<{
-        isGroupe: z.ZodOptional<z.ZodBoolean>;
-        name: z.ZodObject<{
-            default: z.ZodString;
-            alias: z.ZodOptional<z.ZodArray<z.ZodString, "many">>;
-        }, "strip", z.ZodTypeAny, {
-            default: string;
-            alias?: string[] | undefined;
-        }, {
-            default: string;
-            alias?: string[] | undefined;
-        }>;
-        birthDate: z.ZodOptional<z.ZodObject<{
-            year: z.ZodOptional<z.ZodOptional<z.ZodEffects<z.ZodUnion<[z.ZodNumber, z.ZodString]>, number, string | number>>>;
-            month: z.ZodOptional<z.ZodOptional<z.ZodEffects<z.ZodUnion<[z.ZodNumber, z.ZodString]>, number, string | number>>>;
-            day: z.ZodOptional<z.ZodOptional<z.ZodEffects<z.ZodUnion<[z.ZodNumber, z.ZodString]>, number, string | number>>>;
-            hours: z.ZodOptional<z.ZodOptional<z.ZodEffects<z.ZodUnion<[z.ZodNumber, z.ZodString]>, number, string | number>>>;
-            minutes: z.ZodOptional<z.ZodOptional<z.ZodEffects<z.ZodUnion<[z.ZodNumber, z.ZodString]>, number, string | number>>>;
-            seconds: z.ZodOptional<z.ZodOptional<z.ZodEffects<z.ZodUnion<[z.ZodNumber, z.ZodString]>, number, string | number>>>;
-        }, "strip", z.ZodTypeAny, {
-            year?: number | undefined;
-            month?: number | undefined;
-            day?: number | undefined;
-            hours?: number | undefined;
-            minutes?: number | undefined;
-            seconds?: number | undefined;
-        }, {
-            year?: string | number | undefined;
-            month?: string | number | undefined;
-            day?: string | number | undefined;
-            hours?: string | number | undefined;
-            minutes?: string | number | undefined;
-            seconds?: string | number | undefined;
-        }>>;
-        deathDate: z.ZodOptional<z.ZodObject<{
-            year: z.ZodOptional<z.ZodOptional<z.ZodEffects<z.ZodUnion<[z.ZodNumber, z.ZodString]>, number, string | number>>>;
-            month: z.ZodOptional<z.ZodOptional<z.ZodEffects<z.ZodUnion<[z.ZodNumber, z.ZodString]>, number, string | number>>>;
-            day: z.ZodOptional<z.ZodOptional<z.ZodEffects<z.ZodUnion<[z.ZodNumber, z.ZodString]>, number, string | number>>>;
-            hours: z.ZodOptional<z.ZodOptional<z.ZodEffects<z.ZodUnion<[z.ZodNumber, z.ZodString]>, number, string | number>>>;
-            minutes: z.ZodOptional<z.ZodOptional<z.ZodEffects<z.ZodUnion<[z.ZodNumber, z.ZodString]>, number, string | number>>>;
-            seconds: z.ZodOptional<z.ZodOptional<z.ZodEffects<z.ZodUnion<[z.ZodNumber, z.ZodString]>, number, string | number>>>;
-        }, "strip", z.ZodTypeAny, {
-            year?: number | undefined;
-            month?: number | undefined;
-            day?: number | undefined;
-            hours?: number | undefined;
-            minutes?: number | undefined;
-            seconds?: number | undefined;
-        }, {
-            year?: string | number | undefined;
-            month?: string | number | undefined;
-            day?: string | number | undefined;
-            hours?: string | number | undefined;
-            minutes?: string | number | undefined;
-            seconds?: string | number | undefined;
-        }>>;
-        description: z.ZodOptional<z.ZodString>;
-        avatar: z.ZodOptional<z.ZodObject<{
-            id: z.ZodOptional<z.ZodString>;
-            label: z.ZodOptional<z.ZodEnum<("COVER" | "BANNER" | "AVATAR" | "LOGO")[] & [string, ...string[]]>>;
-            newImage: z.ZodOptional<z.ZodObject<{
-                label: z.ZodEnum<("COVER" | "BANNER" | "AVATAR" | "LOGO")[] & [string, ...string[]]>;
-                value: z.ZodString;
-            }, "strip", z.ZodTypeAny, {
-                value: string;
-                label: "COVER" | "BANNER" | "AVATAR" | "LOGO";
-            }, {
-                value: string;
-                label: "COVER" | "BANNER" | "AVATAR" | "LOGO";
-            }>>;
-        }, "strip", z.ZodTypeAny, {
-            id?: string | undefined;
-            label?: "COVER" | "BANNER" | "AVATAR" | "LOGO" | undefined;
-            newImage?: {
-                value: string;
-                label: "COVER" | "BANNER" | "AVATAR" | "LOGO";
-            } | undefined;
-        }, {
-            id?: string | undefined;
-            label?: "COVER" | "BANNER" | "AVATAR" | "LOGO" | undefined;
-            newImage?: {
-                value: string;
-                label: "COVER" | "BANNER" | "AVATAR" | "LOGO";
-            } | undefined;
-        }>>;
-        links: z.ZodOptional<z.ZodArray<z.ZodObject<{
-            name: z.ZodString;
-            value: z.ZodEffects<z.ZodString, string, string>;
-        }, "strip", z.ZodTypeAny, {
-            value: string;
-            name: string;
-        }, {
-            value: string;
-            name: string;
-        }>, "many">>;
-    }, "strict", z.ZodTypeAny, {
-        name: {
-            default: string;
-            alias?: string[] | undefined;
-        };
-        description?: string | undefined;
-        isGroupe?: boolean | undefined;
-        birthDate?: {
-            year?: number | undefined;
-            month?: number | undefined;
-            day?: number | undefined;
-            hours?: number | undefined;
-            minutes?: number | undefined;
-            seconds?: number | undefined;
-        } | undefined;
-        deathDate?: {
-            year?: number | undefined;
-            month?: number | undefined;
-            day?: number | undefined;
-            hours?: number | undefined;
-            minutes?: number | undefined;
-            seconds?: number | undefined;
-        } | undefined;
-        avatar?: {
-            id?: string | undefined;
-            label?: "COVER" | "BANNER" | "AVATAR" | "LOGO" | undefined;
-            newImage?: {
-                value: string;
-                label: "COVER" | "BANNER" | "AVATAR" | "LOGO";
-            } | undefined;
-        } | undefined;
-        links?: {
-            value: string;
-            name: string;
-        }[] | undefined;
-    }, {
-        name: {
-            default: string;
-            alias?: string[] | undefined;
-        };
-        description?: string | undefined;
-        isGroupe?: boolean | undefined;
-        birthDate?: {
-            year?: string | number | undefined;
-            month?: string | number | undefined;
-            day?: string | number | undefined;
-            hours?: string | number | undefined;
-            minutes?: string | number | undefined;
-            seconds?: string | number | undefined;
-        } | undefined;
-        deathDate?: {
-            year?: string | number | undefined;
-            month?: string | number | undefined;
-            day?: string | number | undefined;
-            hours?: string | number | undefined;
-            minutes?: string | number | undefined;
-            seconds?: string | number | undefined;
-        } | undefined;
-        avatar?: {
-            id?: string | undefined;
-            label?: "COVER" | "BANNER" | "AVATAR" | "LOGO" | undefined;
-            newImage?: {
-                value: string;
-                label: "COVER" | "BANNER" | "AVATAR" | "LOGO";
-            } | undefined;
-        } | undefined;
-        links?: {
-            value: string;
-            name: string;
-        }[] | undefined;
-    }>;
-}>, "strip", z.ZodTypeAny, {
-    data: {
-        name: {
-            default: string;
-            alias?: string[] | undefined;
-        };
-        description?: string | undefined;
-        isGroupe?: boolean | undefined;
-        birthDate?: {
-            year?: number | undefined;
-            month?: number | undefined;
-            day?: number | undefined;
-            hours?: number | undefined;
-            minutes?: number | undefined;
-            seconds?: number | undefined;
-        } | undefined;
-        deathDate?: {
-            year?: number | undefined;
-            month?: number | undefined;
-            day?: number | undefined;
-            hours?: number | undefined;
-            minutes?: number | undefined;
-            seconds?: number | undefined;
-        } | undefined;
-        avatar?: {
-            id?: string | undefined;
-            label?: "COVER" | "BANNER" | "AVATAR" | "LOGO" | undefined;
-            newImage?: {
-                value: string;
-                label: "COVER" | "BANNER" | "AVATAR" | "LOGO";
-            } | undefined;
-        } | undefined;
-        links?: {
-            value: string;
-            name: string;
-        }[] | undefined;
-    };
-    reason?: string | undefined;
-    description?: string | undefined;
-}, {
-    data: {
-        name: {
-            default: string;
-            alias?: string[] | undefined;
-        };
-        description?: string | undefined;
-        isGroupe?: boolean | undefined;
-        birthDate?: {
-            year?: string | number | undefined;
-            month?: string | number | undefined;
-            day?: string | number | undefined;
-            hours?: string | number | undefined;
-            minutes?: string | number | undefined;
-            seconds?: string | number | undefined;
-        } | undefined;
-        deathDate?: {
-            year?: string | number | undefined;
-            month?: string | number | undefined;
-            day?: string | number | undefined;
-            hours?: string | number | undefined;
-            minutes?: string | number | undefined;
-            seconds?: string | number | undefined;
-        } | undefined;
-        avatar?: {
-            id?: string | undefined;
-            label?: "COVER" | "BANNER" | "AVATAR" | "LOGO" | undefined;
-            newImage?: {
-                value: string;
-                label: "COVER" | "BANNER" | "AVATAR" | "LOGO";
-            } | undefined;
-        } | undefined;
-        links?: {
-            value: string;
-            name: string;
-        }[] | undefined;
-    };
-    reason?: string | undefined;
-    description?: string | undefined;
-}>;
-export type IPersonCreateBody = z.infer<typeof PersonCreateBody>;
-export declare const Create_Person_ZOD_FORM: z.ZodObject<{
-    note: z.ZodOptional<z.ZodString>;
-    data: z.ZodObject<{
-        isGroupe: z.ZodOptional<z.ZodBoolean>;
-        name: z.ZodObject<{
-            default: z.ZodString;
-            alias: z.ZodOptional<z.ZodArray<z.ZodString, "many">>;
-        }, "strip", z.ZodTypeAny, {
-            default: string;
-            alias?: string[] | undefined;
-        }, {
-            default: string;
-            alias?: string[] | undefined;
-        }>;
-        birthDate: z.ZodOptional<z.ZodObject<{
-            year: z.ZodOptional<z.ZodOptional<z.ZodEffects<z.ZodUnion<[z.ZodNumber, z.ZodString]>, number, string | number>>>;
-            month: z.ZodOptional<z.ZodOptional<z.ZodEffects<z.ZodUnion<[z.ZodNumber, z.ZodString]>, number, string | number>>>;
-            day: z.ZodOptional<z.ZodOptional<z.ZodEffects<z.ZodUnion<[z.ZodNumber, z.ZodString]>, number, string | number>>>;
-            hours: z.ZodOptional<z.ZodOptional<z.ZodEffects<z.ZodUnion<[z.ZodNumber, z.ZodString]>, number, string | number>>>;
-            minutes: z.ZodOptional<z.ZodOptional<z.ZodEffects<z.ZodUnion<[z.ZodNumber, z.ZodString]>, number, string | number>>>;
-            seconds: z.ZodOptional<z.ZodOptional<z.ZodEffects<z.ZodUnion<[z.ZodNumber, z.ZodString]>, number, string | number>>>;
-        }, "strip", z.ZodTypeAny, {
-            year?: number | undefined;
-            month?: number | undefined;
-            day?: number | undefined;
-            hours?: number | undefined;
-            minutes?: number | undefined;
-            seconds?: number | undefined;
-        }, {
-            year?: string | number | undefined;
-            month?: string | number | undefined;
-            day?: string | number | undefined;
-            hours?: string | number | undefined;
-            minutes?: string | number | undefined;
-            seconds?: string | number | undefined;
-        }>>;
-        deathDate: z.ZodOptional<z.ZodObject<{
-            year: z.ZodOptional<z.ZodOptional<z.ZodEffects<z.ZodUnion<[z.ZodNumber, z.ZodString]>, number, string | number>>>;
-            month: z.ZodOptional<z.ZodOptional<z.ZodEffects<z.ZodUnion<[z.ZodNumber, z.ZodString]>, number, string | number>>>;
-            day: z.ZodOptional<z.ZodOptional<z.ZodEffects<z.ZodUnion<[z.ZodNumber, z.ZodString]>, number, string | number>>>;
-            hours: z.ZodOptional<z.ZodOptional<z.ZodEffects<z.ZodUnion<[z.ZodNumber, z.ZodString]>, number, string | number>>>;
-            minutes: z.ZodOptional<z.ZodOptional<z.ZodEffects<z.ZodUnion<[z.ZodNumber, z.ZodString]>, number, string | number>>>;
-            seconds: z.ZodOptional<z.ZodOptional<z.ZodEffects<z.ZodUnion<[z.ZodNumber, z.ZodString]>, number, string | number>>>;
-        }, "strip", z.ZodTypeAny, {
-            year?: number | undefined;
-            month?: number | undefined;
-            day?: number | undefined;
-            hours?: number | undefined;
-            minutes?: number | undefined;
-            seconds?: number | undefined;
-        }, {
-            year?: string | number | undefined;
-            month?: string | number | undefined;
-            day?: string | number | undefined;
-            hours?: string | number | undefined;
-            minutes?: string | number | undefined;
-            seconds?: string | number | undefined;
-        }>>;
-        description: z.ZodOptional<z.ZodString>;
-        avatar: z.ZodOptional<z.ZodObject<{
-            id: z.ZodOptional<z.ZodString>;
-            label: z.ZodOptional<z.ZodEnum<("COVER" | "BANNER" | "AVATAR" | "LOGO")[] & [string, ...string[]]>>;
-            newImage: z.ZodOptional<z.ZodObject<{
-                label: z.ZodEnum<("COVER" | "BANNER" | "AVATAR" | "LOGO")[] & [string, ...string[]]>;
-                value: z.ZodString;
-            }, "strip", z.ZodTypeAny, {
-                value: string;
-                label: "COVER" | "BANNER" | "AVATAR" | "LOGO";
-            }, {
-                value: string;
-                label: "COVER" | "BANNER" | "AVATAR" | "LOGO";
-            }>>;
-        }, "strip", z.ZodTypeAny, {
-            id?: string | undefined;
-            label?: "COVER" | "BANNER" | "AVATAR" | "LOGO" | undefined;
-            newImage?: {
-                value: string;
-                label: "COVER" | "BANNER" | "AVATAR" | "LOGO";
-            } | undefined;
-        }, {
-            id?: string | undefined;
-            label?: "COVER" | "BANNER" | "AVATAR" | "LOGO" | undefined;
-            newImage?: {
-                value: string;
-                label: "COVER" | "BANNER" | "AVATAR" | "LOGO";
-            } | undefined;
-        }>>;
-        links: z.ZodOptional<z.ZodArray<z.ZodObject<{
-            name: z.ZodString;
-            value: z.ZodEffects<z.ZodString, string, string>;
-        }, "strip", z.ZodTypeAny, {
-            value: string;
-            name: string;
-        }, {
-            value: string;
-            name: string;
-        }>, "many">>;
-    }, "strict", z.ZodTypeAny, {
-        name: {
-            default: string;
-            alias?: string[] | undefined;
-        };
-        description?: string | undefined;
-        isGroupe?: boolean | undefined;
-        birthDate?: {
-            year?: number | undefined;
-            month?: number | undefined;
-            day?: number | undefined;
-            hours?: number | undefined;
-            minutes?: number | undefined;
-            seconds?: number | undefined;
-        } | undefined;
-        deathDate?: {
-            year?: number | undefined;
-            month?: number | undefined;
-            day?: number | undefined;
-            hours?: number | undefined;
-            minutes?: number | undefined;
-            seconds?: number | undefined;
-        } | undefined;
-        avatar?: {
-            id?: string | undefined;
-            label?: "COVER" | "BANNER" | "AVATAR" | "LOGO" | undefined;
-            newImage?: {
-                value: string;
-                label: "COVER" | "BANNER" | "AVATAR" | "LOGO";
-            } | undefined;
-        } | undefined;
-        links?: {
-            value: string;
-            name: string;
-        }[] | undefined;
-    }, {
-        name: {
-            default: string;
-            alias?: string[] | undefined;
-        };
-        description?: string | undefined;
-        isGroupe?: boolean | undefined;
-        birthDate?: {
-            year?: string | number | undefined;
-            month?: string | number | undefined;
-            day?: string | number | undefined;
-            hours?: string | number | undefined;
-            minutes?: string | number | undefined;
-            seconds?: string | number | undefined;
-        } | undefined;
-        deathDate?: {
-            year?: string | number | undefined;
-            month?: string | number | undefined;
-            day?: string | number | undefined;
-            hours?: string | number | undefined;
-            minutes?: string | number | undefined;
-            seconds?: string | number | undefined;
-        } | undefined;
-        avatar?: {
-            id?: string | undefined;
-            label?: "COVER" | "BANNER" | "AVATAR" | "LOGO" | undefined;
-            newImage?: {
-                value: string;
-                label: "COVER" | "BANNER" | "AVATAR" | "LOGO";
-            } | undefined;
-        } | undefined;
-        links?: {
-            value: string;
-            name: string;
-        }[] | undefined;
-    }>;
-}, "strip", z.ZodTypeAny, {
-    data: {
-        name: {
-            default: string;
-            alias?: string[] | undefined;
-        };
-        description?: string | undefined;
-        isGroupe?: boolean | undefined;
-        birthDate?: {
-            year?: number | undefined;
-            month?: number | undefined;
-            day?: number | undefined;
-            hours?: number | undefined;
-            minutes?: number | undefined;
-            seconds?: number | undefined;
-        } | undefined;
-        deathDate?: {
-            year?: number | undefined;
-            month?: number | undefined;
-            day?: number | undefined;
-            hours?: number | undefined;
-            minutes?: number | undefined;
-            seconds?: number | undefined;
-        } | undefined;
-        avatar?: {
-            id?: string | undefined;
-            label?: "COVER" | "BANNER" | "AVATAR" | "LOGO" | undefined;
-            newImage?: {
-                value: string;
-                label: "COVER" | "BANNER" | "AVATAR" | "LOGO";
-            } | undefined;
-        } | undefined;
-        links?: {
-            value: string;
-            name: string;
-        }[] | undefined;
-    };
-    note?: string | undefined;
-}, {
-    data: {
-        name: {
-            default: string;
-            alias?: string[] | undefined;
-        };
-        description?: string | undefined;
-        isGroupe?: boolean | undefined;
-        birthDate?: {
-            year?: string | number | undefined;
-            month?: string | number | undefined;
-            day?: string | number | undefined;
-            hours?: string | number | undefined;
-            minutes?: string | number | undefined;
-            seconds?: string | number | undefined;
-        } | undefined;
-        deathDate?: {
-            year?: string | number | undefined;
-            month?: string | number | undefined;
-            day?: string | number | undefined;
-            hours?: string | number | undefined;
-            minutes?: string | number | undefined;
-            seconds?: string | number | undefined;
-        } | undefined;
-        avatar?: {
-            id?: string | undefined;
-            label?: "COVER" | "BANNER" | "AVATAR" | "LOGO" | undefined;
-            newImage?: {
-                value: string;
-                label: "COVER" | "BANNER" | "AVATAR" | "LOGO";
-            } | undefined;
-        } | undefined;
-        links?: {
-            value: string;
-            name: string;
-        }[] | undefined;
-    };
-    note?: string | undefined;
-}>;
-export type ICreate_Person_ZOD_FORM = z.infer<typeof Create_Person_ZOD_FORM>;
 export declare const PersonQueryBody: z.ZodObject<{
     isGroupe: z.ZodBoolean;
     name: z.ZodObject<{
@@ -1276,165 +271,424 @@ export declare const PersonPaginationBody: z.ZodObject<{
     } | undefined;
 }>;
 export type IPersonPaginationBody = z.infer<typeof PersonPaginationBody>;
-export declare const Person_Pagination_ZOD: z.ZodObject<{
-    page: z.ZodNumber;
-    limit: z.ZodNumber;
-    strict: z.ZodBoolean;
-    sort: z.ZodObject<{
-        isGroupe: z.ZodOptional<z.ZodEffects<z.ZodEffects<z.ZodUnion<[z.ZodNumber, z.ZodString]>, number, string | number>, number, string | number>>;
-        birthDate: z.ZodOptional<z.ZodEffects<z.ZodEffects<z.ZodUnion<[z.ZodNumber, z.ZodString]>, number, string | number>, number, string | number>>;
-        deathDate: z.ZodOptional<z.ZodEffects<z.ZodEffects<z.ZodUnion<[z.ZodNumber, z.ZodString]>, number, string | number>, number, string | number>>;
-        createdAt: z.ZodOptional<z.ZodEffects<z.ZodEffects<z.ZodUnion<[z.ZodNumber, z.ZodString]>, number, string | number>, number, string | number>>;
-        updatedAt: z.ZodOptional<z.ZodEffects<z.ZodEffects<z.ZodUnion<[z.ZodNumber, z.ZodString]>, number, string | number>, number, string | number>>;
+export declare const PersonBody: z.ZodObject<{
+    isGroupe: z.ZodOptional<z.ZodBoolean>;
+    name: z.ZodObject<{
+        default: z.ZodString;
+        alias: z.ZodOptional<z.ZodArray<z.ZodString, "many">>;
     }, "strip", z.ZodTypeAny, {
-        createdAt?: number | undefined;
-        updatedAt?: number | undefined;
-        isGroupe?: number | undefined;
-        birthDate?: number | undefined;
-        deathDate?: number | undefined;
+        default: string;
+        alias?: string[] | undefined;
     }, {
-        createdAt?: string | number | undefined;
-        updatedAt?: string | number | undefined;
-        isGroupe?: string | number | undefined;
-        birthDate?: string | number | undefined;
-        deathDate?: string | number | undefined;
+        default: string;
+        alias?: string[] | undefined;
     }>;
-    query: z.ZodObject<{
-        isGroupe: z.ZodOptional<z.ZodBoolean>;
-        name: z.ZodOptional<z.ZodObject<{
-            default: z.ZodOptional<z.ZodString>;
-            alias: z.ZodOptional<z.ZodOptional<z.ZodArray<z.ZodString, "many">>>;
+    birthDate: z.ZodOptional<z.ZodObject<{
+        year: z.ZodOptional<z.ZodOptional<z.ZodEffects<z.ZodUnion<[z.ZodNumber, z.ZodString]>, number, string | number>>>;
+        month: z.ZodOptional<z.ZodOptional<z.ZodEffects<z.ZodUnion<[z.ZodNumber, z.ZodString]>, number, string | number>>>;
+        day: z.ZodOptional<z.ZodOptional<z.ZodEffects<z.ZodUnion<[z.ZodNumber, z.ZodString]>, number, string | number>>>;
+        hours: z.ZodOptional<z.ZodOptional<z.ZodEffects<z.ZodUnion<[z.ZodNumber, z.ZodString]>, number, string | number>>>;
+        minutes: z.ZodOptional<z.ZodOptional<z.ZodEffects<z.ZodUnion<[z.ZodNumber, z.ZodString]>, number, string | number>>>;
+        seconds: z.ZodOptional<z.ZodOptional<z.ZodEffects<z.ZodUnion<[z.ZodNumber, z.ZodString]>, number, string | number>>>;
+    }, "strip", z.ZodTypeAny, {
+        year?: number | undefined;
+        month?: number | undefined;
+        day?: number | undefined;
+        hours?: number | undefined;
+        minutes?: number | undefined;
+        seconds?: number | undefined;
+    }, {
+        year?: string | number | undefined;
+        month?: string | number | undefined;
+        day?: string | number | undefined;
+        hours?: string | number | undefined;
+        minutes?: string | number | undefined;
+        seconds?: string | number | undefined;
+    }>>;
+    deathDate: z.ZodOptional<z.ZodObject<{
+        year: z.ZodOptional<z.ZodOptional<z.ZodEffects<z.ZodUnion<[z.ZodNumber, z.ZodString]>, number, string | number>>>;
+        month: z.ZodOptional<z.ZodOptional<z.ZodEffects<z.ZodUnion<[z.ZodNumber, z.ZodString]>, number, string | number>>>;
+        day: z.ZodOptional<z.ZodOptional<z.ZodEffects<z.ZodUnion<[z.ZodNumber, z.ZodString]>, number, string | number>>>;
+        hours: z.ZodOptional<z.ZodOptional<z.ZodEffects<z.ZodUnion<[z.ZodNumber, z.ZodString]>, number, string | number>>>;
+        minutes: z.ZodOptional<z.ZodOptional<z.ZodEffects<z.ZodUnion<[z.ZodNumber, z.ZodString]>, number, string | number>>>;
+        seconds: z.ZodOptional<z.ZodOptional<z.ZodEffects<z.ZodUnion<[z.ZodNumber, z.ZodString]>, number, string | number>>>;
+    }, "strip", z.ZodTypeAny, {
+        year?: number | undefined;
+        month?: number | undefined;
+        day?: number | undefined;
+        hours?: number | undefined;
+        minutes?: number | undefined;
+        seconds?: number | undefined;
+    }, {
+        year?: string | number | undefined;
+        month?: string | number | undefined;
+        day?: string | number | undefined;
+        hours?: string | number | undefined;
+        minutes?: string | number | undefined;
+        seconds?: string | number | undefined;
+    }>>;
+    description: z.ZodOptional<z.ZodString>;
+    avatar: z.ZodOptional<z.ZodObject<{
+        id: z.ZodOptional<z.ZodString>;
+        label: z.ZodOptional<z.ZodEnum<("COVER" | "BANNER" | "AVATAR" | "LOGO")[] & [string, ...string[]]>>;
+        newImage: z.ZodOptional<z.ZodObject<{
+            label: z.ZodEnum<("COVER" | "BANNER" | "AVATAR" | "LOGO")[] & [string, ...string[]]>;
+            value: z.ZodString;
         }, "strip", z.ZodTypeAny, {
-            default?: string | undefined;
+            value: string;
+            label: "COVER" | "BANNER" | "AVATAR" | "LOGO";
+        }, {
+            value: string;
+            label: "COVER" | "BANNER" | "AVATAR" | "LOGO";
+        }>>;
+    }, "strip", z.ZodTypeAny, {
+        id?: string | undefined;
+        label?: "COVER" | "BANNER" | "AVATAR" | "LOGO" | undefined;
+        newImage?: {
+            value: string;
+            label: "COVER" | "BANNER" | "AVATAR" | "LOGO";
+        } | undefined;
+    }, {
+        id?: string | undefined;
+        label?: "COVER" | "BANNER" | "AVATAR" | "LOGO" | undefined;
+        newImage?: {
+            value: string;
+            label: "COVER" | "BANNER" | "AVATAR" | "LOGO";
+        } | undefined;
+    }>>;
+    links: z.ZodOptional<z.ZodArray<z.ZodObject<{
+        name: z.ZodString;
+        value: z.ZodEffects<z.ZodString, string, string>;
+    }, "strip", z.ZodTypeAny, {
+        value: string;
+        name: string;
+    }, {
+        value: string;
+        name: string;
+    }>, "many">>;
+}, "strict", z.ZodTypeAny, {
+    name: {
+        default: string;
+        alias?: string[] | undefined;
+    };
+    description?: string | undefined;
+    isGroupe?: boolean | undefined;
+    birthDate?: {
+        year?: number | undefined;
+        month?: number | undefined;
+        day?: number | undefined;
+        hours?: number | undefined;
+        minutes?: number | undefined;
+        seconds?: number | undefined;
+    } | undefined;
+    deathDate?: {
+        year?: number | undefined;
+        month?: number | undefined;
+        day?: number | undefined;
+        hours?: number | undefined;
+        minutes?: number | undefined;
+        seconds?: number | undefined;
+    } | undefined;
+    avatar?: {
+        id?: string | undefined;
+        label?: "COVER" | "BANNER" | "AVATAR" | "LOGO" | undefined;
+        newImage?: {
+            value: string;
+            label: "COVER" | "BANNER" | "AVATAR" | "LOGO";
+        } | undefined;
+    } | undefined;
+    links?: {
+        value: string;
+        name: string;
+    }[] | undefined;
+}, {
+    name: {
+        default: string;
+        alias?: string[] | undefined;
+    };
+    description?: string | undefined;
+    isGroupe?: boolean | undefined;
+    birthDate?: {
+        year?: string | number | undefined;
+        month?: string | number | undefined;
+        day?: string | number | undefined;
+        hours?: string | number | undefined;
+        minutes?: string | number | undefined;
+        seconds?: string | number | undefined;
+    } | undefined;
+    deathDate?: {
+        year?: string | number | undefined;
+        month?: string | number | undefined;
+        day?: string | number | undefined;
+        hours?: string | number | undefined;
+        minutes?: string | number | undefined;
+        seconds?: string | number | undefined;
+    } | undefined;
+    avatar?: {
+        id?: string | undefined;
+        label?: "COVER" | "BANNER" | "AVATAR" | "LOGO" | undefined;
+        newImage?: {
+            value: string;
+            label: "COVER" | "BANNER" | "AVATAR" | "LOGO";
+        } | undefined;
+    } | undefined;
+    links?: {
+        value: string;
+        name: string;
+    }[] | undefined;
+}>;
+export type IPersonBody = z.infer<typeof PersonBody>;
+export declare const PersonCreateBody: z.ZodObject<z.objectUtil.extendShape<{
+    description: z.ZodOptional<z.ZodString>;
+    reason: z.ZodOptional<z.ZodString>;
+}, {
+    data: z.ZodObject<{
+        isGroupe: z.ZodOptional<z.ZodBoolean>;
+        name: z.ZodObject<{
+            default: z.ZodString;
+            alias: z.ZodOptional<z.ZodArray<z.ZodString, "many">>;
+        }, "strip", z.ZodTypeAny, {
+            default: string;
             alias?: string[] | undefined;
         }, {
-            default?: string | undefined;
+            default: string;
             alias?: string[] | undefined;
+        }>;
+        birthDate: z.ZodOptional<z.ZodObject<{
+            year: z.ZodOptional<z.ZodOptional<z.ZodEffects<z.ZodUnion<[z.ZodNumber, z.ZodString]>, number, string | number>>>;
+            month: z.ZodOptional<z.ZodOptional<z.ZodEffects<z.ZodUnion<[z.ZodNumber, z.ZodString]>, number, string | number>>>;
+            day: z.ZodOptional<z.ZodOptional<z.ZodEffects<z.ZodUnion<[z.ZodNumber, z.ZodString]>, number, string | number>>>;
+            hours: z.ZodOptional<z.ZodOptional<z.ZodEffects<z.ZodUnion<[z.ZodNumber, z.ZodString]>, number, string | number>>>;
+            minutes: z.ZodOptional<z.ZodOptional<z.ZodEffects<z.ZodUnion<[z.ZodNumber, z.ZodString]>, number, string | number>>>;
+            seconds: z.ZodOptional<z.ZodOptional<z.ZodEffects<z.ZodUnion<[z.ZodNumber, z.ZodString]>, number, string | number>>>;
+        }, "strip", z.ZodTypeAny, {
+            year?: number | undefined;
+            month?: number | undefined;
+            day?: number | undefined;
+            hours?: number | undefined;
+            minutes?: number | undefined;
+            seconds?: number | undefined;
+        }, {
+            year?: string | number | undefined;
+            month?: string | number | undefined;
+            day?: string | number | undefined;
+            hours?: string | number | undefined;
+            minutes?: string | number | undefined;
+            seconds?: string | number | undefined;
         }>>;
-        birthDate: z.ZodOptional<z.ZodString>;
-        deathDate: z.ZodOptional<z.ZodString>;
+        deathDate: z.ZodOptional<z.ZodObject<{
+            year: z.ZodOptional<z.ZodOptional<z.ZodEffects<z.ZodUnion<[z.ZodNumber, z.ZodString]>, number, string | number>>>;
+            month: z.ZodOptional<z.ZodOptional<z.ZodEffects<z.ZodUnion<[z.ZodNumber, z.ZodString]>, number, string | number>>>;
+            day: z.ZodOptional<z.ZodOptional<z.ZodEffects<z.ZodUnion<[z.ZodNumber, z.ZodString]>, number, string | number>>>;
+            hours: z.ZodOptional<z.ZodOptional<z.ZodEffects<z.ZodUnion<[z.ZodNumber, z.ZodString]>, number, string | number>>>;
+            minutes: z.ZodOptional<z.ZodOptional<z.ZodEffects<z.ZodUnion<[z.ZodNumber, z.ZodString]>, number, string | number>>>;
+            seconds: z.ZodOptional<z.ZodOptional<z.ZodEffects<z.ZodUnion<[z.ZodNumber, z.ZodString]>, number, string | number>>>;
+        }, "strip", z.ZodTypeAny, {
+            year?: number | undefined;
+            month?: number | undefined;
+            day?: number | undefined;
+            hours?: number | undefined;
+            minutes?: number | undefined;
+            seconds?: number | undefined;
+        }, {
+            year?: string | number | undefined;
+            month?: string | number | undefined;
+            day?: string | number | undefined;
+            hours?: string | number | undefined;
+            minutes?: string | number | undefined;
+            seconds?: string | number | undefined;
+        }>>;
+        description: z.ZodOptional<z.ZodString>;
         avatar: z.ZodOptional<z.ZodObject<{
             id: z.ZodOptional<z.ZodString>;
             label: z.ZodOptional<z.ZodEnum<("COVER" | "BANNER" | "AVATAR" | "LOGO")[] & [string, ...string[]]>>;
+            newImage: z.ZodOptional<z.ZodObject<{
+                label: z.ZodEnum<("COVER" | "BANNER" | "AVATAR" | "LOGO")[] & [string, ...string[]]>;
+                value: z.ZodString;
+            }, "strip", z.ZodTypeAny, {
+                value: string;
+                label: "COVER" | "BANNER" | "AVATAR" | "LOGO";
+            }, {
+                value: string;
+                label: "COVER" | "BANNER" | "AVATAR" | "LOGO";
+            }>>;
         }, "strip", z.ZodTypeAny, {
             id?: string | undefined;
             label?: "COVER" | "BANNER" | "AVATAR" | "LOGO" | undefined;
+            newImage?: {
+                value: string;
+                label: "COVER" | "BANNER" | "AVATAR" | "LOGO";
+            } | undefined;
         }, {
             id?: string | undefined;
             label?: "COVER" | "BANNER" | "AVATAR" | "LOGO" | undefined;
+            newImage?: {
+                value: string;
+                label: "COVER" | "BANNER" | "AVATAR" | "LOGO";
+            } | undefined;
         }>>;
-        links: z.ZodOptional<z.ZodObject<{
-            name: z.ZodOptional<z.ZodDefault<z.ZodString>>;
-            value: z.ZodOptional<z.ZodDefault<z.ZodString>>;
+        links: z.ZodOptional<z.ZodArray<z.ZodObject<{
+            name: z.ZodString;
+            value: z.ZodEffects<z.ZodString, string, string>;
         }, "strip", z.ZodTypeAny, {
-            value?: string | undefined;
-            name?: string | undefined;
+            value: string;
+            name: string;
         }, {
-            value?: string | undefined;
-            name?: string | undefined;
-        }>>;
-        createdAt: z.ZodOptional<z.ZodString>;
-        updatedAt: z.ZodOptional<z.ZodString>;
-    }, "strip", z.ZodTypeAny, {
-        name?: {
-            default?: string | undefined;
+            value: string;
+            name: string;
+        }>, "many">>;
+    }, "strict", z.ZodTypeAny, {
+        name: {
+            default: string;
             alias?: string[] | undefined;
-        } | undefined;
-        createdAt?: string | undefined;
-        updatedAt?: string | undefined;
+        };
+        description?: string | undefined;
         isGroupe?: boolean | undefined;
-        birthDate?: string | undefined;
-        deathDate?: string | undefined;
+        birthDate?: {
+            year?: number | undefined;
+            month?: number | undefined;
+            day?: number | undefined;
+            hours?: number | undefined;
+            minutes?: number | undefined;
+            seconds?: number | undefined;
+        } | undefined;
+        deathDate?: {
+            year?: number | undefined;
+            month?: number | undefined;
+            day?: number | undefined;
+            hours?: number | undefined;
+            minutes?: number | undefined;
+            seconds?: number | undefined;
+        } | undefined;
         avatar?: {
             id?: string | undefined;
             label?: "COVER" | "BANNER" | "AVATAR" | "LOGO" | undefined;
+            newImage?: {
+                value: string;
+                label: "COVER" | "BANNER" | "AVATAR" | "LOGO";
+            } | undefined;
         } | undefined;
         links?: {
-            value?: string | undefined;
-            name?: string | undefined;
-        } | undefined;
+            value: string;
+            name: string;
+        }[] | undefined;
     }, {
-        name?: {
-            default?: string | undefined;
+        name: {
+            default: string;
             alias?: string[] | undefined;
-        } | undefined;
-        createdAt?: string | undefined;
-        updatedAt?: string | undefined;
+        };
+        description?: string | undefined;
         isGroupe?: boolean | undefined;
-        birthDate?: string | undefined;
-        deathDate?: string | undefined;
+        birthDate?: {
+            year?: string | number | undefined;
+            month?: string | number | undefined;
+            day?: string | number | undefined;
+            hours?: string | number | undefined;
+            minutes?: string | number | undefined;
+            seconds?: string | number | undefined;
+        } | undefined;
+        deathDate?: {
+            year?: string | number | undefined;
+            month?: string | number | undefined;
+            day?: string | number | undefined;
+            hours?: string | number | undefined;
+            minutes?: string | number | undefined;
+            seconds?: string | number | undefined;
+        } | undefined;
         avatar?: {
             id?: string | undefined;
             label?: "COVER" | "BANNER" | "AVATAR" | "LOGO" | undefined;
+            newImage?: {
+                value: string;
+                label: "COVER" | "BANNER" | "AVATAR" | "LOGO";
+            } | undefined;
         } | undefined;
         links?: {
-            value?: string | undefined;
-            name?: string | undefined;
-        } | undefined;
+            value: string;
+            name: string;
+        }[] | undefined;
     }>;
-}, "strip", z.ZodTypeAny, {
-    page: number;
-    limit: number;
-    strict: boolean;
-    sort: {
-        createdAt?: number | undefined;
-        updatedAt?: number | undefined;
-        isGroupe?: number | undefined;
-        birthDate?: number | undefined;
-        deathDate?: number | undefined;
-    };
-    query: {
-        name?: {
-            default?: string | undefined;
+}>, "strip", z.ZodTypeAny, {
+    data: {
+        name: {
+            default: string;
             alias?: string[] | undefined;
-        } | undefined;
-        createdAt?: string | undefined;
-        updatedAt?: string | undefined;
+        };
+        description?: string | undefined;
         isGroupe?: boolean | undefined;
-        birthDate?: string | undefined;
-        deathDate?: string | undefined;
+        birthDate?: {
+            year?: number | undefined;
+            month?: number | undefined;
+            day?: number | undefined;
+            hours?: number | undefined;
+            minutes?: number | undefined;
+            seconds?: number | undefined;
+        } | undefined;
+        deathDate?: {
+            year?: number | undefined;
+            month?: number | undefined;
+            day?: number | undefined;
+            hours?: number | undefined;
+            minutes?: number | undefined;
+            seconds?: number | undefined;
+        } | undefined;
         avatar?: {
             id?: string | undefined;
             label?: "COVER" | "BANNER" | "AVATAR" | "LOGO" | undefined;
+            newImage?: {
+                value: string;
+                label: "COVER" | "BANNER" | "AVATAR" | "LOGO";
+            } | undefined;
         } | undefined;
         links?: {
-            value?: string | undefined;
-            name?: string | undefined;
-        } | undefined;
+            value: string;
+            name: string;
+        }[] | undefined;
     };
+    reason?: string | undefined;
+    description?: string | undefined;
 }, {
-    page: number;
-    limit: number;
-    strict: boolean;
-    sort: {
-        createdAt?: string | number | undefined;
-        updatedAt?: string | number | undefined;
-        isGroupe?: string | number | undefined;
-        birthDate?: string | number | undefined;
-        deathDate?: string | number | undefined;
-    };
-    query: {
-        name?: {
-            default?: string | undefined;
+    data: {
+        name: {
+            default: string;
             alias?: string[] | undefined;
-        } | undefined;
-        createdAt?: string | undefined;
-        updatedAt?: string | undefined;
+        };
+        description?: string | undefined;
         isGroupe?: boolean | undefined;
-        birthDate?: string | undefined;
-        deathDate?: string | undefined;
+        birthDate?: {
+            year?: string | number | undefined;
+            month?: string | number | undefined;
+            day?: string | number | undefined;
+            hours?: string | number | undefined;
+            minutes?: string | number | undefined;
+            seconds?: string | number | undefined;
+        } | undefined;
+        deathDate?: {
+            year?: string | number | undefined;
+            month?: string | number | undefined;
+            day?: string | number | undefined;
+            hours?: string | number | undefined;
+            minutes?: string | number | undefined;
+            seconds?: string | number | undefined;
+        } | undefined;
         avatar?: {
             id?: string | undefined;
             label?: "COVER" | "BANNER" | "AVATAR" | "LOGO" | undefined;
+            newImage?: {
+                value: string;
+                label: "COVER" | "BANNER" | "AVATAR" | "LOGO";
+            } | undefined;
         } | undefined;
         links?: {
-            value?: string | undefined;
-            name?: string | undefined;
-        } | undefined;
+            value: string;
+            name: string;
+        }[] | undefined;
     };
+    reason?: string | undefined;
+    description?: string | undefined;
 }>;
-export type IPerson_Pagination_ZOD = z.infer<typeof Person_Pagination_ZOD>;
-export declare const Add_Person_ZOD: z.ZodObject<{
+export type IPersonCreateBody = z.infer<typeof PersonCreateBody>;
+export declare const PersonAddBody: z.ZodObject<{
     id: z.ZodOptional<z.ZodString>;
     newPerson: z.ZodOptional<z.ZodObject<{
         isGroupe: z.ZodOptional<z.ZodBoolean>;
@@ -1682,14 +936,7 @@ export declare const Add_Person_ZOD: z.ZodObject<{
     } | undefined;
     role?: "DOUBLAGE_SEIYU" | "AUTEUR" | "EDITEUR" | "PRODUCTEUR" | "REALISATEUR" | "REALISATEUR_EPISODES" | "REALISATEUR_MISEENPAGE" | "DIRECTEUR_ARTISTIQUE_CINEMATROGRAPHIQUE" | "DIRECTEUR_ANIMATION" | "CONCEPTEUR" | "ANIMATEUR_PRINCIPAL" | "ANIMATEUR_INTERMEDIAIRE" | "COLORISTES" | "DIRECTEUR_ENREGISTREMENT" | "SCENARISTE" | "ANIMATEUR_3D" | "METTEUR_EN_SCENE" | "SUPERVISEUR" | "MONTEUR" | "RESPONSABLE_DROITS" | "PRODUCTEUR_MUSIQUE" | "RESPONSABLE_MARKETING" | "DIFFUSEUR" | "STORYBOARDER" | "ARTISTE_VFX" | "INGENIEUR_SON" | "DIRECTEUR_DOUBLAGE" | "TRADUCTEUR" | "MANGAKA" | "CHARACTER_DESIGNER" | "DESSINATEUR_DECORS" | "REALISATEUR_MISE_EN_PAGE" | "COMPOSITEUR" | "PAROLIER" | "ARRANGEUR" | "MUSICIEN" | "CHANTEUR_EUSE" | "CHEF_ORCHESTRE" | "PRODUCTEUR_MUSICAL" | "DESIGNER_SONORE" | "MIXEUR" | undefined;
 }>;
-export type IAdd_Person_ZOD = z.infer<typeof Add_Person_ZOD>;
-export declare const PersonBody: z.ZodObject<{
-    id: z.ZodString;
-}, "strip", z.ZodTypeAny, {
-    id: string;
-}, {
-    id: string;
-}>;
+export type IPersonAddBody = z.infer<typeof PersonAddBody>;
 export declare const PersonDataToZOD: (data: IPerson) => {
     name: {
         default: string;

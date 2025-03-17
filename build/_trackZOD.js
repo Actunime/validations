@@ -1,6 +1,6 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.TrackDataToZOD = exports.Add_Track_ZOD = exports.Create_Track_ZOD_FORM = exports.TrackCreateBody = exports.Create_Track_ZOD = exports.Track_Pagination_ZOD = exports.TrackPaginationBody = exports.TrackSortBody = exports.TrackQueryBody = void 0;
+exports.TrackDataToZOD = exports.TrackAddBody = exports.TrackCreateBody = exports.TrackBody = exports.Track_Pagination_ZOD = exports.TrackPaginationBody = exports.TrackSortBody = exports.TrackQueryBody = void 0;
 const types_1 = require("@actunime/types");
 const zod_1 = require("zod");
 const _media_1 = require("./_media");
@@ -9,7 +9,7 @@ const _util_1 = require("./_util");
 const _imageZOD_1 = require("./_imageZOD");
 const _patchZOD_1 = require("./_patchZOD");
 exports.TrackQueryBody = zod_1.z.object({
-    name: zod_1.z.object({ default: zod_1.z.string(), alias: zod_1.z.optional(zod_1.z.array(zod_1.z.string())) }),
+    name: _media_1.MediaTitleBody.partial(),
     type: zod_1.z.enum(types_1.TrackTypeArray),
     pubDate: zod_1.z.optional(_media_1.DateBody.partial()),
     artists: _personZOD_1.PersonBody.partial(),
@@ -39,27 +39,21 @@ exports.Track_Pagination_ZOD = zod_1.z.object({
     sort: exports.TrackSortBody.partial(),
     query: exports.TrackQueryBody.partial()
 });
-exports.Create_Track_ZOD = zod_1.z
-    .object({
-    name: zod_1.z.object({ default: zod_1.z.string(), alias: zod_1.z.optional(zod_1.z.array(zod_1.z.string())) }),
+exports.TrackBody = zod_1.z.object({
+    name: _media_1.MediaTitleBody,
     type: zod_1.z.enum(types_1.TrackTypeArray),
     pubDate: zod_1.z.optional(_media_1.DateBody.partial()),
-    artists: zod_1.z.optional(zod_1.z.array(_personZOD_1.Add_Person_ZOD)),
+    artists: zod_1.z.optional(zod_1.z.array(_personZOD_1.PersonAddBody)),
     cover: zod_1.z.optional(_imageZOD_1.Add_Image_ZOD),
     description: zod_1.z.optional(zod_1.z.string()),
     links: zod_1.z.optional(zod_1.z.array(_media_1.Create_Link_ZOD)),
-})
-    .strict();
+}).strict();
 exports.TrackCreateBody = _patchZOD_1.PatchParamsBody.partial().extend({
-    data: exports.Create_Track_ZOD
+    data: exports.TrackBody
 });
-exports.Create_Track_ZOD_FORM = zod_1.z.object({
-    note: zod_1.z.string().optional(),
-    data: exports.Create_Track_ZOD,
-});
-exports.Add_Track_ZOD = zod_1.z.object({
+exports.TrackAddBody = zod_1.z.object({
     id: zod_1.z.optional(zod_1.z.string()),
-    newTrack: zod_1.z.optional(exports.Create_Track_ZOD),
+    newTrack: zod_1.z.optional(exports.TrackBody),
 });
 const TrackDataToZOD = (data) => {
     if (!data)
@@ -73,7 +67,7 @@ const TrackDataToZOD = (data) => {
         description: data.description,
         links: data.links,
     };
-    const safeParse = exports.Create_Track_ZOD.safeParse(toZOD);
+    const safeParse = exports.TrackBody.safeParse(toZOD);
     if (safeParse.success)
         return safeParse.data;
     return toZOD;

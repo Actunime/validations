@@ -8,10 +8,10 @@ import {
   MediaSourceArray,
 } from "@actunime/types";
 import { z } from "zod";
-import { Add_Character_ZOD } from "./_characterZOD";
-import { Add_Company_ZOD } from "./_companyZOD";
-import { Add_Groupe_ZOD } from "./_groupeZOD";
-import { Add_Manga_ZOD } from "./_mangaZOD";
+import { CharacterAddBody } from "./_characterZOD";
+import { CompanyAddBody } from "./_companyZOD";
+import { GroupeAddBody } from "./_groupeZOD";
+import { MangaAddBody } from "./_mangaZOD";
 import {
   Create_Link_ZOD,
   DateBody,
@@ -20,9 +20,9 @@ import {
   MediaDateSortBody,
   MediaTitleBody,
 } from "./_media";
-import { Add_Person_ZOD } from "./_personZOD";
-import { Add_Track_ZOD } from "./_trackZOD";
-import { PaginationBody, zodBoolean, zodNumber } from "./_util";
+import { PersonAddBody } from "./_personZOD";
+import { TrackAddBody } from "./_trackZOD";
+import { PaginationBody, zodBoolean } from "./_util";
 import { Add_Image_ZOD } from "./_imageZOD";
 import { PatchParamsBody } from "./_patchZOD";
 
@@ -98,166 +98,167 @@ export type IAnime_Pagination_ZOD = z.infer<typeof Anime_Pagination_ZOD>;
 
 export type IAdd_Anime_ZOD = z.infer<typeof Add_Anime_ZOD>;
 
-export const AnimeCreateBody = PatchParamsBody
-  .partial()
-  .extend({
-    data: z.object({
-      groupe: Add_Groupe_ZOD,
-      parent: z.optional(Add_Anime_ZOD.partial()),
-      manga: z.optional(Add_Manga_ZOD.partial()),
-      source: z.enum(MediaSourceArray),
-      title: MediaTitleBody,
-      date: z.optional(MediaDateBody.partial()),
-      cover: z.optional(Add_Image_ZOD.partial()),
-      banner: z.optional(Add_Image_ZOD.partial()),
-      synopsis: z.optional(z.string()),
-      format: z.enum(AnimeFormatArray),
-      vf: z.optional(zodBoolean()),
-      genres: z.optional(z.array(z.enum(MediaGenresArray))),
-      // themes: z.optional(z.array(z.string())),
-      status: z.enum(MediaStatusArray),
-      trailer: z.optional(youtubeUrlSchema),
-      episodes: z.optional(AnimeEpisodeBody.partial()),
-      adult: zodBoolean(),
-      explicit: zodBoolean(),
-      links: z.optional(z.array(Create_Link_ZOD)),
-      companys: z.optional(z.array(Add_Company_ZOD)),
-      staffs: z.optional(z.array(Add_Person_ZOD)),
-      characters: z.optional(z.array(Add_Character_ZOD)),
-      tracks: z.optional(z.array(Add_Track_ZOD)),
-    })
-      .strict()
-      .refine(
-        (data) => {
-          if (data.parent?.id) {
-            if (!data.parent.parentLabel) {
-              return false;
-            }
+export const AnimeBody = z.object({
+  groupe: GroupeAddBody,
+  parent: z.optional(Add_Anime_ZOD.partial()),
+  manga: z.optional(MangaAddBody.partial()),
+  source: z.enum(MediaSourceArray),
+  title: MediaTitleBody,
+  date: z.optional(MediaDateBody.partial()),
+  cover: z.optional(Add_Image_ZOD.partial()),
+  banner: z.optional(Add_Image_ZOD.partial()),
+  synopsis: z.optional(z.string()),
+  format: z.enum(AnimeFormatArray),
+  vf: z.optional(zodBoolean()),
+  genres: z.optional(z.array(z.enum(MediaGenresArray))),
+  // themes: z.optional(z.array(z.string())),
+  status: z.enum(MediaStatusArray),
+  trailer: z.optional(youtubeUrlSchema),
+  episodes: z.optional(AnimeEpisodeBody.partial()),
+  adult: zodBoolean(),
+  explicit: zodBoolean(),
+  links: z.optional(z.array(Create_Link_ZOD)),
+  companys: z.optional(z.array(CompanyAddBody)),
+  staffs: z.optional(z.array(PersonAddBody)),
+  characters: z.optional(z.array(CharacterAddBody)),
+  tracks: z.optional(z.array(TrackAddBody)),
+})
+  .strict()
+  .refine(
+    (data) => {
+      if (data.parent?.id) {
+        if (!data.parent.parentLabel) {
+          return false;
+        }
+      }
+      let status = data.status;
+
+      if (status) {
+        if (["AIRING", "PAUSED"].includes(status)) {
+          if (!data.date?.start) {
+            return false;
           }
-          let status = data.status;
-
-          if (status) {
-            if (["AIRING", "PAUSED"].includes(status)) {
-              if (!data.date?.start) {
-                return false;
-              }
-              if (!data.episodes?.airing) {
-                return false;
-              }
-              if (!data.episodes?.nextAiringDate) {
-                return false;
-              }
-            }
-
-            if (["ENDED", "STOPPED"].includes(status)) {
-              if (!data.episodes?.airing) {
-                return false;
-              }
-              if (!data.episodes?.total) {
-                return false;
-              }
-              if (!data.date?.start) {
-                return false;
-              }
-              if (!data.date?.end) {
-                return false;
-              }
-            }
-
-            if (["POSTPONED"].includes(status)) {
-              if (!data.date?.start) {
-                return false;
-              }
-            }
+          if (!data.episodes?.airing) {
+            return false;
           }
-          return true;
-        },
-        (data) => {
-          if (data.parent?.id) {
-            if (!data.parent?.parentLabel) {
-              return {
-                message:
-                  "Ce champ est obligatoire si vous avez spécifié un parent.",
-                path: ["parentLabel"],
-              };
-            }
+          if (!data.episodes?.nextAiringDate) {
+            return false;
           }
-          let status = data.status;
-          let message = `Le statut spécifié est: "${MediaStatusObj[status].label}", alors remplir ce champ est obligatoire !`;
+        }
 
-          if (status) {
-            if (["AIRING", "PAUSED"].includes(status)) {
-              if (!data.date?.start) {
-                return {
-                  message,
-                  path: ["date.start"],
-                };
-              }
-              if (!data.episodes?.airing) {
-                return {
-                  message,
-                  path: ["episodes.airing"],
-                };
-              }
-              if (!data.episodes?.nextAiringDate) {
-                return {
-                  message,
-                  path: ["episodes.nextAiringDate"],
-                };
-              }
-            }
-
-            if (["ENDED", "STOPPED"].includes(status)) {
-              if (!data.episodes?.airing) {
-                return {
-                  message,
-                  path: ["episodes.airing"],
-                };
-              }
-              if (!data.episodes?.total) {
-                return {
-                  message,
-                  path: ["episodes.total"],
-                };
-              }
-              if (!data.date?.start) {
-                return {
-                  message,
-                  path: ["date.start"],
-                };
-              }
-              if (!data.date?.end) {
-                return {
-                  message,
-                  path: ["date.end"],
-                };
-              }
-            }
-
-            if (["POSTPONED"].includes(status)) {
-              if (!data.date?.start) {
-                return {
-                  message,
-                  path: ["date.start"],
-                };
-              }
-            }
+        if (["ENDED", "STOPPED"].includes(status)) {
+          if (!data.episodes?.airing) {
+            return false;
           }
+          if (!data.episodes?.total) {
+            return false;
+          }
+          if (!data.date?.start) {
+            return false;
+          }
+          if (!data.date?.end) {
+            return false;
+          }
+        }
 
+        if (["POSTPONED"].includes(status)) {
+          if (!data.date?.start) {
+            return false;
+          }
+        }
+      }
+      return true;
+    },
+    (data) => {
+      if (data.parent?.id) {
+        if (!data.parent?.parentLabel) {
           return {
-            message: "Nous avons un problème.",
-            path: ["CreateAnime"],
+            message:
+              "Ce champ est obligatoire si vous avez spécifié un parent.",
+            path: ["parentLabel"],
           };
-        },
-      )
-  })
+        }
+      }
+      let status = data.status;
+      let message = `Le statut spécifié est: "${MediaStatusObj[status].label}", alors remplir ce champ est obligatoire !`;
+
+      if (status) {
+        if (["AIRING", "PAUSED"].includes(status)) {
+          if (!data.date?.start) {
+            return {
+              message,
+              path: ["date.start"],
+            };
+          }
+          if (!data.episodes?.airing) {
+            return {
+              message,
+              path: ["episodes.airing"],
+            };
+          }
+          if (!data.episodes?.nextAiringDate) {
+            return {
+              message,
+              path: ["episodes.nextAiringDate"],
+            };
+          }
+        }
+
+        if (["ENDED", "STOPPED"].includes(status)) {
+          if (!data.episodes?.airing) {
+            return {
+              message,
+              path: ["episodes.airing"],
+            };
+          }
+          if (!data.episodes?.total) {
+            return {
+              message,
+              path: ["episodes.total"],
+            };
+          }
+          if (!data.date?.start) {
+            return {
+              message,
+              path: ["date.start"],
+            };
+          }
+          if (!data.date?.end) {
+            return {
+              message,
+              path: ["date.end"],
+            };
+          }
+        }
+
+        if (["POSTPONED"].includes(status)) {
+          if (!data.date?.start) {
+            return {
+              message,
+              path: ["date.start"],
+            };
+          }
+        }
+      }
+
+      return {
+        message: "Nous avons un problème.",
+        path: ["CreateAnime"],
+      };
+    },
+  );
+
+export type IAnimeBody = z.infer<typeof AnimeBody>;
+
+export const AnimeCreateBody = PatchParamsBody.partial()
+  .extend({ data: AnimeBody })
 
 export type IAnimeCreateBody = z.infer<typeof AnimeCreateBody>;
 
 export const AnimeDataToZOD = (data: IAnime) => {
   if (!data) return;
 
-  let toZOD: IAnimeCreateBody["data"] = {
+  let toZOD: IAnimeBody = {
     groupe: data.groupe,
     parent: data.parent,
     source: data.source,

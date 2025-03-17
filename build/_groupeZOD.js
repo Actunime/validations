@@ -1,11 +1,12 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.GroupeDataToZOD = exports.Create_Groupe_ZOD_FORM = exports.Add_Groupe_ZOD = exports.GroupeCreateBody = exports.Create_Groupe_ZOD = exports.Groupe_Pagination_ZOD = exports.GroupePaginationBody = exports.GroupeSortBody = exports.GroupeQueryBody = void 0;
+exports.GroupeDataToZOD = exports.GroupeAddBody = exports.GroupeCreateBody = exports.GroupeBody = exports.GroupePaginationBody = exports.GroupeSortBody = exports.GroupeQueryBody = void 0;
 const zod_1 = require("zod");
 const _util_1 = require("./_util");
 const _patchZOD_1 = require("./_patchZOD");
+const _media_1 = require("./_media");
 exports.GroupeQueryBody = zod_1.z.object({
-    name: zod_1.z.string(),
+    name: _media_1.MediaTitleBody.partial(),
 });
 const check = (v) => [-1, 1].includes(v);
 const checkErr = "le sort doit être soit -1 ou 1";
@@ -18,48 +19,15 @@ exports.GroupePaginationBody = _util_1.PaginationBody.extend({
     sort: exports.GroupeSortBody.partial(),
     query: exports.GroupeQueryBody.partial()
 });
-exports.Groupe_Pagination_ZOD = zod_1.z
-    .object({
-    page: (0, _util_1.zodNumber)(),
-    limit: (0, _util_1.zodNumber)(),
-    strict: zod_1.z.boolean().optional(),
-    sort: zod_1.z
-        .object({
-        createdAt: zod_1.z.enum(["DESC", "ASC"]).optional(),
-        updatedAt: zod_1.z.enum(["DESC", "ASC"]).optional(),
-    })
-        .partial()
-        .strict(),
-    query: zod_1.z
-        .object({
-        name: zod_1.z.string().optional(),
-        allowUnverified: zod_1.z.boolean().optional(),
-    })
-        .partial()
-        .strict(),
-    with: zod_1.z
-        .object({
-        animes: zod_1.z.boolean().optional(),
-        mangas: zod_1.z.boolean().optional(),
-    })
-        .partial()
-        .strict(),
-})
-    .partial()
-    .strict();
-exports.Create_Groupe_ZOD = zod_1.z.object({
-    name: zod_1.z.string(),
+exports.GroupeBody = zod_1.z.object({
+    name: _media_1.MediaTitleBody.partial(),
 });
 exports.GroupeCreateBody = _patchZOD_1.PatchParamsBody.partial().extend({
-    data: exports.Create_Groupe_ZOD
+    data: exports.GroupeBody
 });
-exports.Add_Groupe_ZOD = zod_1.z.object({
+exports.GroupeAddBody = zod_1.z.object({
     id: zod_1.z.optional(zod_1.z.string()),
-    newGroupe: zod_1.z.optional(exports.Create_Groupe_ZOD),
-});
-exports.Create_Groupe_ZOD_FORM = zod_1.z.object({
-    note: zod_1.z.string().optional(),
-    data: exports.Create_Groupe_ZOD,
+    newGroupe: zod_1.z.optional(exports.GroupeBody),
 });
 const GroupeDataToZOD = (data) => {
     if (!data)
@@ -67,7 +35,7 @@ const GroupeDataToZOD = (data) => {
     const toZOD = {
         name: data.name,
     };
-    const safeParse = exports.Create_Groupe_ZOD.safeParse(toZOD);
+    const safeParse = exports.GroupeBody.safeParse(toZOD);
     if (safeParse.success)
         return safeParse.data;
     return toZOD;

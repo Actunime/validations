@@ -237,13 +237,13 @@ export declare const User_Pagination_ZOD: z.ZodObject<{
     }, "strict", z.ZodTypeAny, {
         name?: string | undefined;
         id?: string | undefined;
-        allowUnverified?: boolean | undefined;
         roles?: ("MEMBER" | "PREMIUM" | "MODERATOR" | "ANIME_MODERATOR" | "MANGA_MODERATOR" | "CHARACTER_MODERATOR" | "PERSON_MODERATOR" | "TRACK_MODERATOR" | "COMPANY_MODERATOR" | "ADMINISTRATOR" | "ACTUNIME")[] | undefined;
+        allowUnverified?: boolean | undefined;
     }, {
         name?: string | undefined;
         id?: string | undefined;
-        allowUnverified?: boolean | undefined;
         roles?: ("MEMBER" | "PREMIUM" | "MODERATOR" | "ANIME_MODERATOR" | "MANGA_MODERATOR" | "CHARACTER_MODERATOR" | "PERSON_MODERATOR" | "TRACK_MODERATOR" | "COMPANY_MODERATOR" | "ADMINISTRATOR" | "ACTUNIME")[] | undefined;
+        allowUnverified?: boolean | undefined;
     }>>;
     strict: z.ZodOptional<z.ZodOptional<z.ZodBoolean>>;
     sort: z.ZodOptional<z.ZodObject<{
@@ -277,8 +277,8 @@ export declare const User_Pagination_ZOD: z.ZodObject<{
     query?: {
         name?: string | undefined;
         id?: string | undefined;
-        allowUnverified?: boolean | undefined;
         roles?: ("MEMBER" | "PREMIUM" | "MODERATOR" | "ANIME_MODERATOR" | "MANGA_MODERATOR" | "CHARACTER_MODERATOR" | "PERSON_MODERATOR" | "TRACK_MODERATOR" | "COMPANY_MODERATOR" | "ADMINISTRATOR" | "ACTUNIME")[] | undefined;
+        allowUnverified?: boolean | undefined;
     } | undefined;
     with?: {
         banner?: boolean | undefined;
@@ -295,8 +295,8 @@ export declare const User_Pagination_ZOD: z.ZodObject<{
     query?: {
         name?: string | undefined;
         id?: string | undefined;
-        allowUnverified?: boolean | undefined;
         roles?: ("MEMBER" | "PREMIUM" | "MODERATOR" | "ANIME_MODERATOR" | "MANGA_MODERATOR" | "CHARACTER_MODERATOR" | "PERSON_MODERATOR" | "TRACK_MODERATOR" | "COMPANY_MODERATOR" | "ADMINISTRATOR" | "ACTUNIME")[] | undefined;
+        allowUnverified?: boolean | undefined;
     } | undefined;
     with?: {
         banner?: boolean | undefined;

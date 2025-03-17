@@ -5,20 +5,14 @@ import {
   ICharacter,
 } from "@actunime/types";
 import { z } from "zod";
-import { Add_Person_ZOD, PersonBody } from "./_personZOD";
+import { PersonAddBody, PersonBody } from "./_personZOD";
 import { PaginationBody, zodNumber } from "./_util";
 import { Add_Image_ZOD, ImageBody } from "./_imageZOD";
 import { PatchParamsBody } from "./_patchZOD";
-import { DateBody, FromBody } from "./_media";
-
-export const Character_Name_ZOD = z.object({
-  default: z.string(),
-  alias: z.optional(z.array(z.string())),
-});
-
+import { DateBody, FromBody, MediaTitleBody } from "./_media";
 
 export const CharacterQueryBody = z.object({
-  name: Character_Name_ZOD.partial(),
+  name: MediaTitleBody.partial(),
   age: zodNumber(),
   birthDate: z.optional(DateBody.partial()),
   avatar: ImageBody.partial(),
@@ -50,60 +44,37 @@ export type ICharacterPaginationBody = z.infer<
   typeof CharacterPaginationBody
 >;
 
-export const Character_Pagination_ZOD = z.object({
-  page: z.number(),
-  limit: z.number(),
-  strict: z.boolean(),
-  sort: CharacterSortBody.partial(),
-  query: CharacterQueryBody.partial()
+export const CharacterBody = z.object({
+  name: MediaTitleBody,
+  age: z.optional(zodNumber()),
+  birthDate: z.optional(DateBody.partial()),
+  gender: z.enum(CharacterGenderArray),
+  species: z.enum(CharacterSpeciesArray),
+  description: z.optional(z.string()),
+  avatar: z.optional(Add_Image_ZOD),
+  actors: z.optional(z.array(PersonAddBody)),
 })
 
-export type ICharacter_Pagination_ZOD = z.infer<
-  typeof Character_Pagination_ZOD
->;
+export type ICharacterBody = z.infer<typeof CharacterBody>;
 
-export const Create_Character_ZOD = z
-  .object({
-    name: Character_Name_ZOD,
-    age: z.optional(zodNumber()),
-    birthDate: z.optional(DateBody.partial()),
-    gender: z.enum(CharacterGenderArray),
-    species: z.enum(CharacterSpeciesArray),
-    description: z.optional(z.string()),
-    avatar: z.optional(Add_Image_ZOD),
-    actors: z.optional(z.array(Add_Person_ZOD)),
-  })
-  .strict();
-
-export type ICreate_Character_ZOD = z.infer<typeof Create_Character_ZOD>;
-
-export const CharacterCreateBody = PatchParamsBody.partial().extend({
-  data: Create_Character_ZOD
-})
+export const CharacterCreateBody = PatchParamsBody.partial().extend({ data: CharacterBody });
 
 export type ICharacterCreateBody = z.infer<typeof CharacterCreateBody>;
 
-export const Create_Character_ZOD_FORM = z.object({
-  note: z.string().optional(),
-  data: Create_Character_ZOD,
-});
-
-export type ICreate_Character_ZOD_FORM = z.infer<typeof Create_Character_ZOD_FORM>;
-
-export const Add_Character_ZOD = z.object({
+export const CharacterAddBody = z.object({
   id: z.optional(z.string()),
-  newCharacter: z.optional(Create_Character_ZOD),
+  newCharacter: z.optional(CharacterBody),
   role: z.optional(z.enum(CharacterRoleArray, { required_error: "Le role est requis" })),
 });
 
-export type IAdd_Character_ZOD = z.infer<typeof Add_Character_ZOD>;
+export type ICharacterAddBody = z.infer<typeof CharacterAddBody>;
 
 export const CharacterDataToZOD = (
   data: ICharacter,
 ) => {
   if (!data) return;
 
-  const toZOD: ICreate_Character_ZOD = {
+  const toZOD: ICharacterBody = {
     name: data.name,
     age: data.age,
     birthDate: data.birthDate,
@@ -114,7 +85,7 @@ export const CharacterDataToZOD = (
     actors: data.actors,
   };
 
-  const safeParse = Create_Character_ZOD.safeParse(toZOD);
+  const safeParse = CharacterBody.safeParse(toZOD);
 
   if (safeParse.success) return safeParse.data;
 

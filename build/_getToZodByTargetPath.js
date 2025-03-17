@@ -19,12 +19,12 @@ exports.TargetPathToZod = {
     ...{},
 };
 exports.TargetPathZodResolver = {
-    Anime: _animeZOD_1.AnimeCreateBody,
-    Manga: _mangaZOD_1.Create_Manga_ZOD,
-    Character: _characterZOD_1.Create_Character_ZOD,
-    Person: _personZOD_1.Create_Person_ZOD,
-    Company: _companyZOD_1.Create_Company_ZOD,
-    Track: _trackZOD_1.Create_Track_ZOD,
+    Anime: _animeZOD_1.AnimeBody,
+    Manga: _mangaZOD_1.MangaBody,
+    Character: _characterZOD_1.CharacterBody,
+    Person: _personZOD_1.PersonBody,
+    Company: _companyZOD_1.CompanyBody,
+    Track: _trackZOD_1.TrackBody,
     ...{},
 };
 //# sourceMappingURL=_getToZodByTargetPath.js.map

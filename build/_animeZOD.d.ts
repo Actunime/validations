@@ -1545,6 +1545,3086 @@ export declare const Anime_Pagination_ZOD: z.ZodObject<{
 }>;
 export type IAnime_Pagination_ZOD = z.infer<typeof Anime_Pagination_ZOD>;
 export type IAdd_Anime_ZOD = z.infer<typeof Add_Anime_ZOD>;
+export declare const AnimeBody: z.ZodEffects<z.ZodObject<{
+    groupe: z.ZodObject<{
+        id: z.ZodOptional<z.ZodString>;
+        newGroupe: z.ZodOptional<z.ZodObject<{
+            name: z.ZodObject<{
+                default: z.ZodOptional<z.ZodString>;
+                alias: z.ZodOptional<z.ZodOptional<z.ZodArray<z.ZodString, "many">>>;
+            }, "strip", z.ZodTypeAny, {
+                default?: string | undefined;
+                alias?: string[] | undefined;
+            }, {
+                default?: string | undefined;
+                alias?: string[] | undefined;
+            }>;
+        }, "strip", z.ZodTypeAny, {
+            name: {
+                default?: string | undefined;
+                alias?: string[] | undefined;
+            };
+        }, {
+            name: {
+                default?: string | undefined;
+                alias?: string[] | undefined;
+            };
+        }>>;
+    }, "strip", z.ZodTypeAny, {
+        id?: string | undefined;
+        newGroupe?: {
+            name: {
+                default?: string | undefined;
+                alias?: string[] | undefined;
+            };
+        } | undefined;
+    }, {
+        id?: string | undefined;
+        newGroupe?: {
+            name: {
+                default?: string | undefined;
+                alias?: string[] | undefined;
+            };
+        } | undefined;
+    }>;
+    parent: z.ZodOptional<z.ZodObject<{
+        id: z.ZodOptional<z.ZodString>;
+        parentLabel: z.ZodOptional<z.ZodOptional<z.ZodEnum<("SEQUEL" | "SPIN_OFF" | "ALTERNATIVE" | "REBOOT" | "FILM")[] & [string, ...string[]]>>>;
+    }, "strip", z.ZodTypeAny, {
+        id?: string | undefined;
+        parentLabel?: "SEQUEL" | "SPIN_OFF" | "ALTERNATIVE" | "REBOOT" | "FILM" | undefined;
+    }, {
+        id?: string | undefined;
+        parentLabel?: "SEQUEL" | "SPIN_OFF" | "ALTERNATIVE" | "REBOOT" | "FILM" | undefined;
+    }>>;
+    manga: z.ZodOptional<z.ZodObject<{
+        id: z.ZodOptional<z.ZodString>;
+        parentLabel: z.ZodOptional<z.ZodOptional<z.ZodEnum<("SEQUEL" | "SPIN_OFF" | "ALTERNATIVE" | "REBOOT" | "FILM")[] & [string, ...string[]]>>>;
+    }, "strip", z.ZodTypeAny, {
+        id?: string | undefined;
+        parentLabel?: "SEQUEL" | "SPIN_OFF" | "ALTERNATIVE" | "REBOOT" | "FILM" | undefined;
+    }, {
+        id?: string | undefined;
+        parentLabel?: "SEQUEL" | "SPIN_OFF" | "ALTERNATIVE" | "REBOOT" | "FILM" | undefined;
+    }>>;
+    source: z.ZodEnum<("MANGA" | "MANHWA" | "MANHUA" | "LIGHT_NOVEL" | "ORIGINAL" | "VISUAL_NOVEL" | "WEB_NOVEL" | "GAME" | "NOVEL" | "ANIME")[] & [string, ...string[]]>;
+    title: z.ZodObject<{
+        default: z.ZodString;
+        alias: z.ZodOptional<z.ZodArray<z.ZodString, "many">>;
+    }, "strip", z.ZodTypeAny, {
+        default: string;
+        alias?: string[] | undefined;
+    }, {
+        default: string;
+        alias?: string[] | undefined;
+    }>;
+    date: z.ZodOptional<z.ZodObject<{
+        start: z.ZodOptional<z.ZodObject<{
+            year: z.ZodOptional<z.ZodEffects<z.ZodUnion<[z.ZodNumber, z.ZodString]>, number, string | number>>;
+            month: z.ZodOptional<z.ZodEffects<z.ZodUnion<[z.ZodNumber, z.ZodString]>, number, string | number>>;
+            day: z.ZodOptional<z.ZodEffects<z.ZodUnion<[z.ZodNumber, z.ZodString]>, number, string | number>>;
+            hours: z.ZodOptional<z.ZodEffects<z.ZodUnion<[z.ZodNumber, z.ZodString]>, number, string | number>>;
+            minutes: z.ZodOptional<z.ZodEffects<z.ZodUnion<[z.ZodNumber, z.ZodString]>, number, string | number>>;
+            seconds: z.ZodOptional<z.ZodEffects<z.ZodUnion<[z.ZodNumber, z.ZodString]>, number, string | number>>;
+        }, "strip", z.ZodTypeAny, {
+            year?: number | undefined;
+            month?: number | undefined;
+            day?: number | undefined;
+            hours?: number | undefined;
+            minutes?: number | undefined;
+            seconds?: number | undefined;
+        }, {
+            year?: string | number | undefined;
+            month?: string | number | undefined;
+            day?: string | number | undefined;
+            hours?: string | number | undefined;
+            minutes?: string | number | undefined;
+            seconds?: string | number | undefined;
+        }>>;
+        end: z.ZodOptional<z.ZodObject<{
+            year: z.ZodOptional<z.ZodEffects<z.ZodUnion<[z.ZodNumber, z.ZodString]>, number, string | number>>;
+            month: z.ZodOptional<z.ZodEffects<z.ZodUnion<[z.ZodNumber, z.ZodString]>, number, string | number>>;
+            day: z.ZodOptional<z.ZodEffects<z.ZodUnion<[z.ZodNumber, z.ZodString]>, number, string | number>>;
+            hours: z.ZodOptional<z.ZodEffects<z.ZodUnion<[z.ZodNumber, z.ZodString]>, number, string | number>>;
+            minutes: z.ZodOptional<z.ZodEffects<z.ZodUnion<[z.ZodNumber, z.ZodString]>, number, string | number>>;
+            seconds: z.ZodOptional<z.ZodEffects<z.ZodUnion<[z.ZodNumber, z.ZodString]>, number, string | number>>;
+        }, "strip", z.ZodTypeAny, {
+            year?: number | undefined;
+            month?: number | undefined;
+            day?: number | undefined;
+            hours?: number | undefined;
+            minutes?: number | undefined;
+            seconds?: number | undefined;
+        }, {
+            year?: string | number | undefined;
+            month?: string | number | undefined;
+            day?: string | number | undefined;
+            hours?: string | number | undefined;
+            minutes?: string | number | undefined;
+            seconds?: string | number | undefined;
+        }>>;
+    }, "strip", z.ZodTypeAny, {
+        start?: {
+            year?: number | undefined;
+            month?: number | undefined;
+            day?: number | undefined;
+            hours?: number | undefined;
+            minutes?: number | undefined;
+            seconds?: number | undefined;
+        } | undefined;
+        end?: {
+            year?: number | undefined;
+            month?: number | undefined;
+            day?: number | undefined;
+            hours?: number | undefined;
+            minutes?: number | undefined;
+            seconds?: number | undefined;
+        } | undefined;
+    }, {
+        start?: {
+            year?: string | number | undefined;
+            month?: string | number | undefined;
+            day?: string | number | undefined;
+            hours?: string | number | undefined;
+            minutes?: string | number | undefined;
+            seconds?: string | number | undefined;
+        } | undefined;
+        end?: {
+            year?: string | number | undefined;
+            month?: string | number | undefined;
+            day?: string | number | undefined;
+            hours?: string | number | undefined;
+            minutes?: string | number | undefined;
+            seconds?: string | number | undefined;
+        } | undefined;
+    }>>;
+    cover: z.ZodOptional<z.ZodObject<{
+        id: z.ZodOptional<z.ZodOptional<z.ZodString>>;
+        label: z.ZodOptional<z.ZodOptional<z.ZodEnum<("COVER" | "BANNER" | "AVATAR" | "LOGO")[] & [string, ...string[]]>>>;
+        newImage: z.ZodOptional<z.ZodOptional<z.ZodObject<{
+            label: z.ZodEnum<("COVER" | "BANNER" | "AVATAR" | "LOGO")[] & [string, ...string[]]>;
+            value: z.ZodString;
+        }, "strip", z.ZodTypeAny, {
+            value: string;
+            label: "COVER" | "BANNER" | "AVATAR" | "LOGO";
+        }, {
+            value: string;
+            label: "COVER" | "BANNER" | "AVATAR" | "LOGO";
+        }>>>;
+    }, "strip", z.ZodTypeAny, {
+        id?: string | undefined;
+        label?: "COVER" | "BANNER" | "AVATAR" | "LOGO" | undefined;
+        newImage?: {
+            value: string;
+            label: "COVER" | "BANNER" | "AVATAR" | "LOGO";
+        } | undefined;
+    }, {
+        id?: string | undefined;
+        label?: "COVER" | "BANNER" | "AVATAR" | "LOGO" | undefined;
+        newImage?: {
+            value: string;
+            label: "COVER" | "BANNER" | "AVATAR" | "LOGO";
+        } | undefined;
+    }>>;
+    banner: z.ZodOptional<z.ZodObject<{
+        id: z.ZodOptional<z.ZodOptional<z.ZodString>>;
+        label: z.ZodOptional<z.ZodOptional<z.ZodEnum<("COVER" | "BANNER" | "AVATAR" | "LOGO")[] & [string, ...string[]]>>>;
+        newImage: z.ZodOptional<z.ZodOptional<z.ZodObject<{
+            label: z.ZodEnum<("COVER" | "BANNER" | "AVATAR" | "LOGO")[] & [string, ...string[]]>;
+            value: z.ZodString;
+        }, "strip", z.ZodTypeAny, {
+            value: string;
+            label: "COVER" | "BANNER" | "AVATAR" | "LOGO";
+        }, {
+            value: string;
+            label: "COVER" | "BANNER" | "AVATAR" | "LOGO";
+        }>>>;
+    }, "strip", z.ZodTypeAny, {
+        id?: string | undefined;
+        label?: "COVER" | "BANNER" | "AVATAR" | "LOGO" | undefined;
+        newImage?: {
+            value: string;
+            label: "COVER" | "BANNER" | "AVATAR" | "LOGO";
+        } | undefined;
+    }, {
+        id?: string | undefined;
+        label?: "COVER" | "BANNER" | "AVATAR" | "LOGO" | undefined;
+        newImage?: {
+            value: string;
+            label: "COVER" | "BANNER" | "AVATAR" | "LOGO";
+        } | undefined;
+    }>>;
+    synopsis: z.ZodOptional<z.ZodString>;
+    format: z.ZodEnum<("FILM" | "SERIE" | "SERIE_COURTE" | "ONA" | "OVA" | "SPECIAL")[] & [string, ...string[]]>;
+    vf: z.ZodOptional<z.ZodEffects<z.ZodUnion<[z.ZodBoolean, z.ZodLiteral<"true">, z.ZodLiteral<"false">]>, boolean, boolean | "true" | "false">>;
+    genres: z.ZodOptional<z.ZodArray<z.ZodEnum<("ACTION" | "AVENTURE" | "COMEDIE" | "DRAME" | "FANTAISIE" | "FANTASTIQUE" | "HORREUR" | "ROMANCE" | "SCI_FI" | "SPORTS" | "THRILLER" | "MECHA" | "MYSTERE" | "PSYCHOLOGIQUE" | "ISEKAI" | "HAREM" | "REVERSE_HAREM" | "ECCHI" | "SLICE_OF_LIFE" | "YAOI" | "YURI" | "SHOUNEN" | "SEINEN" | "SHOJO" | "JOSEI" | "KODOMOMUKE")[] & [string, ...string[]]>, "many">>;
+    status: z.ZodEnum<("AIRING" | "PAUSED" | "ENDED" | "STOPPED" | "POSTONED" | "SOON" | "any")[] & [string, ...string[]]>;
+    trailer: z.ZodOptional<z.ZodString>;
+    episodes: z.ZodOptional<z.ZodObject<{
+        airing: z.ZodOptional<z.ZodNumber>;
+        nextAiringDate: z.ZodOptional<z.ZodOptional<z.ZodObject<{
+            year: z.ZodOptional<z.ZodOptional<z.ZodEffects<z.ZodUnion<[z.ZodNumber, z.ZodString]>, number, string | number>>>;
+            month: z.ZodOptional<z.ZodOptional<z.ZodEffects<z.ZodUnion<[z.ZodNumber, z.ZodString]>, number, string | number>>>;
+            day: z.ZodOptional<z.ZodOptional<z.ZodEffects<z.ZodUnion<[z.ZodNumber, z.ZodString]>, number, string | number>>>;
+            hours: z.ZodOptional<z.ZodOptional<z.ZodEffects<z.ZodUnion<[z.ZodNumber, z.ZodString]>, number, string | number>>>;
+            minutes: z.ZodOptional<z.ZodOptional<z.ZodEffects<z.ZodUnion<[z.ZodNumber, z.ZodString]>, number, string | number>>>;
+            seconds: z.ZodOptional<z.ZodOptional<z.ZodEffects<z.ZodUnion<[z.ZodNumber, z.ZodString]>, number, string | number>>>;
+        }, "strip", z.ZodTypeAny, {
+            year?: number | undefined;
+            month?: number | undefined;
+            day?: number | undefined;
+            hours?: number | undefined;
+            minutes?: number | undefined;
+            seconds?: number | undefined;
+        }, {
+            year?: string | number | undefined;
+            month?: string | number | undefined;
+            day?: string | number | undefined;
+            hours?: string | number | undefined;
+            minutes?: string | number | undefined;
+            seconds?: string | number | undefined;
+        }>>>;
+        total: z.ZodOptional<z.ZodNumber>;
+        durationMinutes: z.ZodOptional<z.ZodNumber>;
+    }, "strip", z.ZodTypeAny, {
+        airing?: number | undefined;
+        nextAiringDate?: {
+            year?: number | undefined;
+            month?: number | undefined;
+            day?: number | undefined;
+            hours?: number | undefined;
+            minutes?: number | undefined;
+            seconds?: number | undefined;
+        } | undefined;
+        total?: number | undefined;
+        durationMinutes?: number | undefined;
+    }, {
+        airing?: number | undefined;
+        nextAiringDate?: {
+            year?: string | number | undefined;
+            month?: string | number | undefined;
+            day?: string | number | undefined;
+            hours?: string | number | undefined;
+            minutes?: string | number | undefined;
+            seconds?: string | number | undefined;
+        } | undefined;
+        total?: number | undefined;
+        durationMinutes?: number | undefined;
+    }>>;
+    adult: z.ZodEffects<z.ZodUnion<[z.ZodBoolean, z.ZodLiteral<"true">, z.ZodLiteral<"false">]>, boolean, boolean | "true" | "false">;
+    explicit: z.ZodEffects<z.ZodUnion<[z.ZodBoolean, z.ZodLiteral<"true">, z.ZodLiteral<"false">]>, boolean, boolean | "true" | "false">;
+    links: z.ZodOptional<z.ZodArray<z.ZodObject<{
+        name: z.ZodString;
+        value: z.ZodEffects<z.ZodString, string, string>;
+    }, "strip", z.ZodTypeAny, {
+        value: string;
+        name: string;
+    }, {
+        value: string;
+        name: string;
+    }>, "many">>;
+    companys: z.ZodOptional<z.ZodArray<z.ZodObject<{
+        id: z.ZodOptional<z.ZodString>;
+        newCompany: z.ZodOptional<z.ZodObject<{
+            type: z.ZodEnum<["STUDIO", "PRODUCER"]>;
+            name: z.ZodObject<{
+                default: z.ZodString;
+                alias: z.ZodOptional<z.ZodArray<z.ZodString, "many">>;
+            }, "strip", z.ZodTypeAny, {
+                default: string;
+                alias?: string[] | undefined;
+            }, {
+                default: string;
+                alias?: string[] | undefined;
+            }>;
+            description: z.ZodOptional<z.ZodString>;
+            links: z.ZodOptional<z.ZodArray<z.ZodObject<{
+                name: z.ZodString;
+                value: z.ZodEffects<z.ZodString, string, string>;
+            }, "strip", z.ZodTypeAny, {
+                value: string;
+                name: string;
+            }, {
+                value: string;
+                name: string;
+            }>, "many">>;
+            logo: z.ZodOptional<z.ZodObject<{
+                id: z.ZodOptional<z.ZodString>;
+                label: z.ZodOptional<z.ZodEnum<("COVER" | "BANNER" | "AVATAR" | "LOGO")[] & [string, ...string[]]>>;
+                newImage: z.ZodOptional<z.ZodObject<{
+                    label: z.ZodEnum<("COVER" | "BANNER" | "AVATAR" | "LOGO")[] & [string, ...string[]]>;
+                    value: z.ZodString;
+                }, "strip", z.ZodTypeAny, {
+                    value: string;
+                    label: "COVER" | "BANNER" | "AVATAR" | "LOGO";
+                }, {
+                    value: string;
+                    label: "COVER" | "BANNER" | "AVATAR" | "LOGO";
+                }>>;
+            }, "strip", z.ZodTypeAny, {
+                id?: string | undefined;
+                label?: "COVER" | "BANNER" | "AVATAR" | "LOGO" | undefined;
+                newImage?: {
+                    value: string;
+                    label: "COVER" | "BANNER" | "AVATAR" | "LOGO";
+                } | undefined;
+            }, {
+                id?: string | undefined;
+                label?: "COVER" | "BANNER" | "AVATAR" | "LOGO" | undefined;
+                newImage?: {
+                    value: string;
+                    label: "COVER" | "BANNER" | "AVATAR" | "LOGO";
+                } | undefined;
+            }>>;
+            createdDate: z.ZodOptional<z.ZodObject<{
+                year: z.ZodOptional<z.ZodOptional<z.ZodEffects<z.ZodUnion<[z.ZodNumber, z.ZodString]>, number, string | number>>>;
+                month: z.ZodOptional<z.ZodOptional<z.ZodEffects<z.ZodUnion<[z.ZodNumber, z.ZodString]>, number, string | number>>>;
+                day: z.ZodOptional<z.ZodOptional<z.ZodEffects<z.ZodUnion<[z.ZodNumber, z.ZodString]>, number, string | number>>>;
+                hours: z.ZodOptional<z.ZodOptional<z.ZodEffects<z.ZodUnion<[z.ZodNumber, z.ZodString]>, number, string | number>>>;
+                minutes: z.ZodOptional<z.ZodOptional<z.ZodEffects<z.ZodUnion<[z.ZodNumber, z.ZodString]>, number, string | number>>>;
+                seconds: z.ZodOptional<z.ZodOptional<z.ZodEffects<z.ZodUnion<[z.ZodNumber, z.ZodString]>, number, string | number>>>;
+            }, "strip", z.ZodTypeAny, {
+                year?: number | undefined;
+                month?: number | undefined;
+                day?: number | undefined;
+                hours?: number | undefined;
+                minutes?: number | undefined;
+                seconds?: number | undefined;
+            }, {
+                year?: string | number | undefined;
+                month?: string | number | undefined;
+                day?: string | number | undefined;
+                hours?: string | number | undefined;
+                minutes?: string | number | undefined;
+                seconds?: string | number | undefined;
+            }>>;
+        }, "strict", z.ZodTypeAny, {
+            type: "STUDIO" | "PRODUCER";
+            name: {
+                default: string;
+                alias?: string[] | undefined;
+            };
+            description?: string | undefined;
+            links?: {
+                value: string;
+                name: string;
+            }[] | undefined;
+            logo?: {
+                id?: string | undefined;
+                label?: "COVER" | "BANNER" | "AVATAR" | "LOGO" | undefined;
+                newImage?: {
+                    value: string;
+                    label: "COVER" | "BANNER" | "AVATAR" | "LOGO";
+                } | undefined;
+            } | undefined;
+            createdDate?: {
+                year?: number | undefined;
+                month?: number | undefined;
+                day?: number | undefined;
+                hours?: number | undefined;
+                minutes?: number | undefined;
+                seconds?: number | undefined;
+            } | undefined;
+        }, {
+            type: "STUDIO" | "PRODUCER";
+            name: {
+                default: string;
+                alias?: string[] | undefined;
+            };
+            description?: string | undefined;
+            links?: {
+                value: string;
+                name: string;
+            }[] | undefined;
+            logo?: {
+                id?: string | undefined;
+                label?: "COVER" | "BANNER" | "AVATAR" | "LOGO" | undefined;
+                newImage?: {
+                    value: string;
+                    label: "COVER" | "BANNER" | "AVATAR" | "LOGO";
+                } | undefined;
+            } | undefined;
+            createdDate?: {
+                year?: string | number | undefined;
+                month?: string | number | undefined;
+                day?: string | number | undefined;
+                hours?: string | number | undefined;
+                minutes?: string | number | undefined;
+                seconds?: string | number | undefined;
+            } | undefined;
+        }>>;
+    }, "strip", z.ZodTypeAny, {
+        id?: string | undefined;
+        newCompany?: {
+            type: "STUDIO" | "PRODUCER";
+            name: {
+                default: string;
+                alias?: string[] | undefined;
+            };
+            description?: string | undefined;
+            links?: {
+                value: string;
+                name: string;
+            }[] | undefined;
+            logo?: {
+                id?: string | undefined;
+                label?: "COVER" | "BANNER" | "AVATAR" | "LOGO" | undefined;
+                newImage?: {
+                    value: string;
+                    label: "COVER" | "BANNER" | "AVATAR" | "LOGO";
+                } | undefined;
+            } | undefined;
+            createdDate?: {
+                year?: number | undefined;
+                month?: number | undefined;
+                day?: number | undefined;
+                hours?: number | undefined;
+                minutes?: number | undefined;
+                seconds?: number | undefined;
+            } | undefined;
+        } | undefined;
+    }, {
+        id?: string | undefined;
+        newCompany?: {
+            type: "STUDIO" | "PRODUCER";
+            name: {
+                default: string;
+                alias?: string[] | undefined;
+            };
+            description?: string | undefined;
+            links?: {
+                value: string;
+                name: string;
+            }[] | undefined;
+            logo?: {
+                id?: string | undefined;
+                label?: "COVER" | "BANNER" | "AVATAR" | "LOGO" | undefined;
+                newImage?: {
+                    value: string;
+                    label: "COVER" | "BANNER" | "AVATAR" | "LOGO";
+                } | undefined;
+            } | undefined;
+            createdDate?: {
+                year?: string | number | undefined;
+                month?: string | number | undefined;
+                day?: string | number | undefined;
+                hours?: string | number | undefined;
+                minutes?: string | number | undefined;
+                seconds?: string | number | undefined;
+            } | undefined;
+        } | undefined;
+    }>, "many">>;
+    staffs: z.ZodOptional<z.ZodArray<z.ZodObject<{
+        id: z.ZodOptional<z.ZodString>;
+        newPerson: z.ZodOptional<z.ZodObject<{
+            isGroupe: z.ZodOptional<z.ZodBoolean>;
+            name: z.ZodObject<{
+                default: z.ZodString;
+                alias: z.ZodOptional<z.ZodArray<z.ZodString, "many">>;
+            }, "strip", z.ZodTypeAny, {
+                default: string;
+                alias?: string[] | undefined;
+            }, {
+                default: string;
+                alias?: string[] | undefined;
+            }>;
+            birthDate: z.ZodOptional<z.ZodObject<{
+                year: z.ZodOptional<z.ZodOptional<z.ZodEffects<z.ZodUnion<[z.ZodNumber, z.ZodString]>, number, string | number>>>;
+                month: z.ZodOptional<z.ZodOptional<z.ZodEffects<z.ZodUnion<[z.ZodNumber, z.ZodString]>, number, string | number>>>;
+                day: z.ZodOptional<z.ZodOptional<z.ZodEffects<z.ZodUnion<[z.ZodNumber, z.ZodString]>, number, string | number>>>;
+                hours: z.ZodOptional<z.ZodOptional<z.ZodEffects<z.ZodUnion<[z.ZodNumber, z.ZodString]>, number, string | number>>>;
+                minutes: z.ZodOptional<z.ZodOptional<z.ZodEffects<z.ZodUnion<[z.ZodNumber, z.ZodString]>, number, string | number>>>;
+                seconds: z.ZodOptional<z.ZodOptional<z.ZodEffects<z.ZodUnion<[z.ZodNumber, z.ZodString]>, number, string | number>>>;
+            }, "strip", z.ZodTypeAny, {
+                year?: number | undefined;
+                month?: number | undefined;
+                day?: number | undefined;
+                hours?: number | undefined;
+                minutes?: number | undefined;
+                seconds?: number | undefined;
+            }, {
+                year?: string | number | undefined;
+                month?: string | number | undefined;
+                day?: string | number | undefined;
+                hours?: string | number | undefined;
+                minutes?: string | number | undefined;
+                seconds?: string | number | undefined;
+            }>>;
+            deathDate: z.ZodOptional<z.ZodObject<{
+                year: z.ZodOptional<z.ZodOptional<z.ZodEffects<z.ZodUnion<[z.ZodNumber, z.ZodString]>, number, string | number>>>;
+                month: z.ZodOptional<z.ZodOptional<z.ZodEffects<z.ZodUnion<[z.ZodNumber, z.ZodString]>, number, string | number>>>;
+                day: z.ZodOptional<z.ZodOptional<z.ZodEffects<z.ZodUnion<[z.ZodNumber, z.ZodString]>, number, string | number>>>;
+                hours: z.ZodOptional<z.ZodOptional<z.ZodEffects<z.ZodUnion<[z.ZodNumber, z.ZodString]>, number, string | number>>>;
+                minutes: z.ZodOptional<z.ZodOptional<z.ZodEffects<z.ZodUnion<[z.ZodNumber, z.ZodString]>, number, string | number>>>;
+                seconds: z.ZodOptional<z.ZodOptional<z.ZodEffects<z.ZodUnion<[z.ZodNumber, z.ZodString]>, number, string | number>>>;
+            }, "strip", z.ZodTypeAny, {
+                year?: number | undefined;
+                month?: number | undefined;
+                day?: number | undefined;
+                hours?: number | undefined;
+                minutes?: number | undefined;
+                seconds?: number | undefined;
+            }, {
+                year?: string | number | undefined;
+                month?: string | number | undefined;
+                day?: string | number | undefined;
+                hours?: string | number | undefined;
+                minutes?: string | number | undefined;
+                seconds?: string | number | undefined;
+            }>>;
+            description: z.ZodOptional<z.ZodString>;
+            avatar: z.ZodOptional<z.ZodObject<{
+                id: z.ZodOptional<z.ZodString>;
+                label: z.ZodOptional<z.ZodEnum<("COVER" | "BANNER" | "AVATAR" | "LOGO")[] & [string, ...string[]]>>;
+                newImage: z.ZodOptional<z.ZodObject<{
+                    label: z.ZodEnum<("COVER" | "BANNER" | "AVATAR" | "LOGO")[] & [string, ...string[]]>;
+                    value: z.ZodString;
+                }, "strip", z.ZodTypeAny, {
+                    value: string;
+                    label: "COVER" | "BANNER" | "AVATAR" | "LOGO";
+                }, {
+                    value: string;
+                    label: "COVER" | "BANNER" | "AVATAR" | "LOGO";
+                }>>;
+            }, "strip", z.ZodTypeAny, {
+                id?: string | undefined;
+                label?: "COVER" | "BANNER" | "AVATAR" | "LOGO" | undefined;
+                newImage?: {
+                    value: string;
+                    label: "COVER" | "BANNER" | "AVATAR" | "LOGO";
+                } | undefined;
+            }, {
+                id?: string | undefined;
+                label?: "COVER" | "BANNER" | "AVATAR" | "LOGO" | undefined;
+                newImage?: {
+                    value: string;
+                    label: "COVER" | "BANNER" | "AVATAR" | "LOGO";
+                } | undefined;
+            }>>;
+            links: z.ZodOptional<z.ZodArray<z.ZodObject<{
+                name: z.ZodString;
+                value: z.ZodEffects<z.ZodString, string, string>;
+            }, "strip", z.ZodTypeAny, {
+                value: string;
+                name: string;
+            }, {
+                value: string;
+                name: string;
+            }>, "many">>;
+        }, "strict", z.ZodTypeAny, {
+            name: {
+                default: string;
+                alias?: string[] | undefined;
+            };
+            description?: string | undefined;
+            isGroupe?: boolean | undefined;
+            birthDate?: {
+                year?: number | undefined;
+                month?: number | undefined;
+                day?: number | undefined;
+                hours?: number | undefined;
+                minutes?: number | undefined;
+                seconds?: number | undefined;
+            } | undefined;
+            deathDate?: {
+                year?: number | undefined;
+                month?: number | undefined;
+                day?: number | undefined;
+                hours?: number | undefined;
+                minutes?: number | undefined;
+                seconds?: number | undefined;
+            } | undefined;
+            avatar?: {
+                id?: string | undefined;
+                label?: "COVER" | "BANNER" | "AVATAR" | "LOGO" | undefined;
+                newImage?: {
+                    value: string;
+                    label: "COVER" | "BANNER" | "AVATAR" | "LOGO";
+                } | undefined;
+            } | undefined;
+            links?: {
+                value: string;
+                name: string;
+            }[] | undefined;
+        }, {
+            name: {
+                default: string;
+                alias?: string[] | undefined;
+            };
+            description?: string | undefined;
+            isGroupe?: boolean | undefined;
+            birthDate?: {
+                year?: string | number | undefined;
+                month?: string | number | undefined;
+                day?: string | number | undefined;
+                hours?: string | number | undefined;
+                minutes?: string | number | undefined;
+                seconds?: string | number | undefined;
+            } | undefined;
+            deathDate?: {
+                year?: string | number | undefined;
+                month?: string | number | undefined;
+                day?: string | number | undefined;
+                hours?: string | number | undefined;
+                minutes?: string | number | undefined;
+                seconds?: string | number | undefined;
+            } | undefined;
+            avatar?: {
+                id?: string | undefined;
+                label?: "COVER" | "BANNER" | "AVATAR" | "LOGO" | undefined;
+                newImage?: {
+                    value: string;
+                    label: "COVER" | "BANNER" | "AVATAR" | "LOGO";
+                } | undefined;
+            } | undefined;
+            links?: {
+                value: string;
+                name: string;
+            }[] | undefined;
+        }>>;
+        role: z.ZodOptional<z.ZodEnum<("DOUBLAGE_SEIYU" | "AUTEUR" | "EDITEUR" | "PRODUCTEUR" | "REALISATEUR" | "REALISATEUR_EPISODES" | "REALISATEUR_MISEENPAGE" | "DIRECTEUR_ARTISTIQUE_CINEMATROGRAPHIQUE" | "DIRECTEUR_ANIMATION" | "CONCEPTEUR" | "ANIMATEUR_PRINCIPAL" | "ANIMATEUR_INTERMEDIAIRE" | "COLORISTES" | "DIRECTEUR_ENREGISTREMENT" | "SCENARISTE" | "ANIMATEUR_3D" | "METTEUR_EN_SCENE" | "SUPERVISEUR" | "MONTEUR" | "RESPONSABLE_DROITS" | "PRODUCTEUR_MUSIQUE" | "RESPONSABLE_MARKETING" | "DIFFUSEUR" | "STORYBOARDER" | "ARTISTE_VFX" | "INGENIEUR_SON" | "DIRECTEUR_DOUBLAGE" | "TRADUCTEUR" | "MANGAKA" | "CHARACTER_DESIGNER" | "DESSINATEUR_DECORS" | "REALISATEUR_MISE_EN_PAGE" | "COMPOSITEUR" | "PAROLIER" | "ARRANGEUR" | "MUSICIEN" | "CHANTEUR_EUSE" | "CHEF_ORCHESTRE" | "PRODUCTEUR_MUSICAL" | "DESIGNER_SONORE" | "MIXEUR")[] & [string, ...string[]]>>;
+    }, "strip", z.ZodTypeAny, {
+        id?: string | undefined;
+        newPerson?: {
+            name: {
+                default: string;
+                alias?: string[] | undefined;
+            };
+            description?: string | undefined;
+            isGroupe?: boolean | undefined;
+            birthDate?: {
+                year?: number | undefined;
+                month?: number | undefined;
+                day?: number | undefined;
+                hours?: number | undefined;
+                minutes?: number | undefined;
+                seconds?: number | undefined;
+            } | undefined;
+            deathDate?: {
+                year?: number | undefined;
+                month?: number | undefined;
+                day?: number | undefined;
+                hours?: number | undefined;
+                minutes?: number | undefined;
+                seconds?: number | undefined;
+            } | undefined;
+            avatar?: {
+                id?: string | undefined;
+                label?: "COVER" | "BANNER" | "AVATAR" | "LOGO" | undefined;
+                newImage?: {
+                    value: string;
+                    label: "COVER" | "BANNER" | "AVATAR" | "LOGO";
+                } | undefined;
+            } | undefined;
+            links?: {
+                value: string;
+                name: string;
+            }[] | undefined;
+        } | undefined;
+        role?: "DOUBLAGE_SEIYU" | "AUTEUR" | "EDITEUR" | "PRODUCTEUR" | "REALISATEUR" | "REALISATEUR_EPISODES" | "REALISATEUR_MISEENPAGE" | "DIRECTEUR_ARTISTIQUE_CINEMATROGRAPHIQUE" | "DIRECTEUR_ANIMATION" | "CONCEPTEUR" | "ANIMATEUR_PRINCIPAL" | "ANIMATEUR_INTERMEDIAIRE" | "COLORISTES" | "DIRECTEUR_ENREGISTREMENT" | "SCENARISTE" | "ANIMATEUR_3D" | "METTEUR_EN_SCENE" | "SUPERVISEUR" | "MONTEUR" | "RESPONSABLE_DROITS" | "PRODUCTEUR_MUSIQUE" | "RESPONSABLE_MARKETING" | "DIFFUSEUR" | "STORYBOARDER" | "ARTISTE_VFX" | "INGENIEUR_SON" | "DIRECTEUR_DOUBLAGE" | "TRADUCTEUR" | "MANGAKA" | "CHARACTER_DESIGNER" | "DESSINATEUR_DECORS" | "REALISATEUR_MISE_EN_PAGE" | "COMPOSITEUR" | "PAROLIER" | "ARRANGEUR" | "MUSICIEN" | "CHANTEUR_EUSE" | "CHEF_ORCHESTRE" | "PRODUCTEUR_MUSICAL" | "DESIGNER_SONORE" | "MIXEUR" | undefined;
+    }, {
+        id?: string | undefined;
+        newPerson?: {
+            name: {
+                default: string;
+                alias?: string[] | undefined;
+            };
+            description?: string | undefined;
+            isGroupe?: boolean | undefined;
+            birthDate?: {
+                year?: string | number | undefined;
+                month?: string | number | undefined;
+                day?: string | number | undefined;
+                hours?: string | number | undefined;
+                minutes?: string | number | undefined;
+                seconds?: string | number | undefined;
+            } | undefined;
+            deathDate?: {
+                year?: string | number | undefined;
+                month?: string | number | undefined;
+                day?: string | number | undefined;
+                hours?: string | number | undefined;
+                minutes?: string | number | undefined;
+                seconds?: string | number | undefined;
+            } | undefined;
+            avatar?: {
+                id?: string | undefined;
+                label?: "COVER" | "BANNER" | "AVATAR" | "LOGO" | undefined;
+                newImage?: {
+                    value: string;
+                    label: "COVER" | "BANNER" | "AVATAR" | "LOGO";
+                } | undefined;
+            } | undefined;
+            links?: {
+                value: string;
+                name: string;
+            }[] | undefined;
+        } | undefined;
+        role?: "DOUBLAGE_SEIYU" | "AUTEUR" | "EDITEUR" | "PRODUCTEUR" | "REALISATEUR" | "REALISATEUR_EPISODES" | "REALISATEUR_MISEENPAGE" | "DIRECTEUR_ARTISTIQUE_CINEMATROGRAPHIQUE" | "DIRECTEUR_ANIMATION" | "CONCEPTEUR" | "ANIMATEUR_PRINCIPAL" | "ANIMATEUR_INTERMEDIAIRE" | "COLORISTES" | "DIRECTEUR_ENREGISTREMENT" | "SCENARISTE" | "ANIMATEUR_3D" | "METTEUR_EN_SCENE" | "SUPERVISEUR" | "MONTEUR" | "RESPONSABLE_DROITS" | "PRODUCTEUR_MUSIQUE" | "RESPONSABLE_MARKETING" | "DIFFUSEUR" | "STORYBOARDER" | "ARTISTE_VFX" | "INGENIEUR_SON" | "DIRECTEUR_DOUBLAGE" | "TRADUCTEUR" | "MANGAKA" | "CHARACTER_DESIGNER" | "DESSINATEUR_DECORS" | "REALISATEUR_MISE_EN_PAGE" | "COMPOSITEUR" | "PAROLIER" | "ARRANGEUR" | "MUSICIEN" | "CHANTEUR_EUSE" | "CHEF_ORCHESTRE" | "PRODUCTEUR_MUSICAL" | "DESIGNER_SONORE" | "MIXEUR" | undefined;
+    }>, "many">>;
+    characters: z.ZodOptional<z.ZodArray<z.ZodObject<{
+        id: z.ZodOptional<z.ZodString>;
+        newCharacter: z.ZodOptional<z.ZodObject<{
+            name: z.ZodObject<{
+                default: z.ZodString;
+                alias: z.ZodOptional<z.ZodArray<z.ZodString, "many">>;
+            }, "strip", z.ZodTypeAny, {
+                default: string;
+                alias?: string[] | undefined;
+            }, {
+                default: string;
+                alias?: string[] | undefined;
+            }>;
+            age: z.ZodOptional<z.ZodEffects<z.ZodUnion<[z.ZodNumber, z.ZodString]>, number, string | number>>;
+            birthDate: z.ZodOptional<z.ZodObject<{
+                year: z.ZodOptional<z.ZodOptional<z.ZodEffects<z.ZodUnion<[z.ZodNumber, z.ZodString]>, number, string | number>>>;
+                month: z.ZodOptional<z.ZodOptional<z.ZodEffects<z.ZodUnion<[z.ZodNumber, z.ZodString]>, number, string | number>>>;
+                day: z.ZodOptional<z.ZodOptional<z.ZodEffects<z.ZodUnion<[z.ZodNumber, z.ZodString]>, number, string | number>>>;
+                hours: z.ZodOptional<z.ZodOptional<z.ZodEffects<z.ZodUnion<[z.ZodNumber, z.ZodString]>, number, string | number>>>;
+                minutes: z.ZodOptional<z.ZodOptional<z.ZodEffects<z.ZodUnion<[z.ZodNumber, z.ZodString]>, number, string | number>>>;
+                seconds: z.ZodOptional<z.ZodOptional<z.ZodEffects<z.ZodUnion<[z.ZodNumber, z.ZodString]>, number, string | number>>>;
+            }, "strip", z.ZodTypeAny, {
+                year?: number | undefined;
+                month?: number | undefined;
+                day?: number | undefined;
+                hours?: number | undefined;
+                minutes?: number | undefined;
+                seconds?: number | undefined;
+            }, {
+                year?: string | number | undefined;
+                month?: string | number | undefined;
+                day?: string | number | undefined;
+                hours?: string | number | undefined;
+                minutes?: string | number | undefined;
+                seconds?: string | number | undefined;
+            }>>;
+            gender: z.ZodEnum<("MASCULIN" | "FEMININ" | "NEUTRE" | "TRANSGENRE" | "NON_BINAIRE" | "GENRE_FLUIDE" | "AUTRE")[] & [string, ...string[]]>;
+            species: z.ZodEnum<("AUTRE" | "HUMAIN" | "ELFE" | "NAIN" | "LEZARD" | "DRAGON" | "ORC")[] & [string, ...string[]]>;
+            description: z.ZodOptional<z.ZodString>;
+            avatar: z.ZodOptional<z.ZodObject<{
+                id: z.ZodOptional<z.ZodString>;
+                label: z.ZodOptional<z.ZodEnum<("COVER" | "BANNER" | "AVATAR" | "LOGO")[] & [string, ...string[]]>>;
+                newImage: z.ZodOptional<z.ZodObject<{
+                    label: z.ZodEnum<("COVER" | "BANNER" | "AVATAR" | "LOGO")[] & [string, ...string[]]>;
+                    value: z.ZodString;
+                }, "strip", z.ZodTypeAny, {
+                    value: string;
+                    label: "COVER" | "BANNER" | "AVATAR" | "LOGO";
+                }, {
+                    value: string;
+                    label: "COVER" | "BANNER" | "AVATAR" | "LOGO";
+                }>>;
+            }, "strip", z.ZodTypeAny, {
+                id?: string | undefined;
+                label?: "COVER" | "BANNER" | "AVATAR" | "LOGO" | undefined;
+                newImage?: {
+                    value: string;
+                    label: "COVER" | "BANNER" | "AVATAR" | "LOGO";
+                } | undefined;
+            }, {
+                id?: string | undefined;
+                label?: "COVER" | "BANNER" | "AVATAR" | "LOGO" | undefined;
+                newImage?: {
+                    value: string;
+                    label: "COVER" | "BANNER" | "AVATAR" | "LOGO";
+                } | undefined;
+            }>>;
+            actors: z.ZodOptional<z.ZodArray<z.ZodObject<{
+                id: z.ZodOptional<z.ZodString>;
+                newPerson: z.ZodOptional<z.ZodObject<{
+                    isGroupe: z.ZodOptional<z.ZodBoolean>;
+                    name: z.ZodObject<{
+                        default: z.ZodString;
+                        alias: z.ZodOptional<z.ZodArray<z.ZodString, "many">>;
+                    }, "strip", z.ZodTypeAny, {
+                        default: string;
+                        alias?: string[] | undefined;
+                    }, {
+                        default: string;
+                        alias?: string[] | undefined;
+                    }>;
+                    birthDate: z.ZodOptional<z.ZodObject<{
+                        year: z.ZodOptional<z.ZodOptional<z.ZodEffects<z.ZodUnion<[z.ZodNumber, z.ZodString]>, number, string | number>>>;
+                        month: z.ZodOptional<z.ZodOptional<z.ZodEffects<z.ZodUnion<[z.ZodNumber, z.ZodString]>, number, string | number>>>;
+                        day: z.ZodOptional<z.ZodOptional<z.ZodEffects<z.ZodUnion<[z.ZodNumber, z.ZodString]>, number, string | number>>>;
+                        hours: z.ZodOptional<z.ZodOptional<z.ZodEffects<z.ZodUnion<[z.ZodNumber, z.ZodString]>, number, string | number>>>;
+                        minutes: z.ZodOptional<z.ZodOptional<z.ZodEffects<z.ZodUnion<[z.ZodNumber, z.ZodString]>, number, string | number>>>;
+                        seconds: z.ZodOptional<z.ZodOptional<z.ZodEffects<z.ZodUnion<[z.ZodNumber, z.ZodString]>, number, string | number>>>;
+                    }, "strip", z.ZodTypeAny, {
+                        year?: number | undefined;
+                        month?: number | undefined;
+                        day?: number | undefined;
+                        hours?: number | undefined;
+                        minutes?: number | undefined;
+                        seconds?: number | undefined;
+                    }, {
+                        year?: string | number | undefined;
+                        month?: string | number | undefined;
+                        day?: string | number | undefined;
+                        hours?: string | number | undefined;
+                        minutes?: string | number | undefined;
+                        seconds?: string | number | undefined;
+                    }>>;
+                    deathDate: z.ZodOptional<z.ZodObject<{
+                        year: z.ZodOptional<z.ZodOptional<z.ZodEffects<z.ZodUnion<[z.ZodNumber, z.ZodString]>, number, string | number>>>;
+                        month: z.ZodOptional<z.ZodOptional<z.ZodEffects<z.ZodUnion<[z.ZodNumber, z.ZodString]>, number, string | number>>>;
+                        day: z.ZodOptional<z.ZodOptional<z.ZodEffects<z.ZodUnion<[z.ZodNumber, z.ZodString]>, number, string | number>>>;
+                        hours: z.ZodOptional<z.ZodOptional<z.ZodEffects<z.ZodUnion<[z.ZodNumber, z.ZodString]>, number, string | number>>>;
+                        minutes: z.ZodOptional<z.ZodOptional<z.ZodEffects<z.ZodUnion<[z.ZodNumber, z.ZodString]>, number, string | number>>>;
+                        seconds: z.ZodOptional<z.ZodOptional<z.ZodEffects<z.ZodUnion<[z.ZodNumber, z.ZodString]>, number, string | number>>>;
+                    }, "strip", z.ZodTypeAny, {
+                        year?: number | undefined;
+                        month?: number | undefined;
+                        day?: number | undefined;
+                        hours?: number | undefined;
+                        minutes?: number | undefined;
+                        seconds?: number | undefined;
+                    }, {
+                        year?: string | number | undefined;
+                        month?: string | number | undefined;
+                        day?: string | number | undefined;
+                        hours?: string | number | undefined;
+                        minutes?: string | number | undefined;
+                        seconds?: string | number | undefined;
+                    }>>;
+                    description: z.ZodOptional<z.ZodString>;
+                    avatar: z.ZodOptional<z.ZodObject<{
+                        id: z.ZodOptional<z.ZodString>;
+                        label: z.ZodOptional<z.ZodEnum<("COVER" | "BANNER" | "AVATAR" | "LOGO")[] & [string, ...string[]]>>;
+                        newImage: z.ZodOptional<z.ZodObject<{
+                            label: z.ZodEnum<("COVER" | "BANNER" | "AVATAR" | "LOGO")[] & [string, ...string[]]>;
+                            value: z.ZodString;
+                        }, "strip", z.ZodTypeAny, {
+                            value: string;
+                            label: "COVER" | "BANNER" | "AVATAR" | "LOGO";
+                        }, {
+                            value: string;
+                            label: "COVER" | "BANNER" | "AVATAR" | "LOGO";
+                        }>>;
+                    }, "strip", z.ZodTypeAny, {
+                        id?: string | undefined;
+                        label?: "COVER" | "BANNER" | "AVATAR" | "LOGO" | undefined;
+                        newImage?: {
+                            value: string;
+                            label: "COVER" | "BANNER" | "AVATAR" | "LOGO";
+                        } | undefined;
+                    }, {
+                        id?: string | undefined;
+                        label?: "COVER" | "BANNER" | "AVATAR" | "LOGO" | undefined;
+                        newImage?: {
+                            value: string;
+                            label: "COVER" | "BANNER" | "AVATAR" | "LOGO";
+                        } | undefined;
+                    }>>;
+                    links: z.ZodOptional<z.ZodArray<z.ZodObject<{
+                        name: z.ZodString;
+                        value: z.ZodEffects<z.ZodString, string, string>;
+                    }, "strip", z.ZodTypeAny, {
+                        value: string;
+                        name: string;
+                    }, {
+                        value: string;
+                        name: string;
+                    }>, "many">>;
+                }, "strict", z.ZodTypeAny, {
+                    name: {
+                        default: string;
+                        alias?: string[] | undefined;
+                    };
+                    description?: string | undefined;
+                    isGroupe?: boolean | undefined;
+                    birthDate?: {
+                        year?: number | undefined;
+                        month?: number | undefined;
+                        day?: number | undefined;
+                        hours?: number | undefined;
+                        minutes?: number | undefined;
+                        seconds?: number | undefined;
+                    } | undefined;
+                    deathDate?: {
+                        year?: number | undefined;
+                        month?: number | undefined;
+                        day?: number | undefined;
+                        hours?: number | undefined;
+                        minutes?: number | undefined;
+                        seconds?: number | undefined;
+                    } | undefined;
+                    avatar?: {
+                        id?: string | undefined;
+                        label?: "COVER" | "BANNER" | "AVATAR" | "LOGO" | undefined;
+                        newImage?: {
+                            value: string;
+                            label: "COVER" | "BANNER" | "AVATAR" | "LOGO";
+                        } | undefined;
+                    } | undefined;
+                    links?: {
+                        value: string;
+                        name: string;
+                    }[] | undefined;
+                }, {
+                    name: {
+                        default: string;
+                        alias?: string[] | undefined;
+                    };
+                    description?: string | undefined;
+                    isGroupe?: boolean | undefined;
+                    birthDate?: {
+                        year?: string | number | undefined;
+                        month?: string | number | undefined;
+                        day?: string | number | undefined;
+                        hours?: string | number | undefined;
+                        minutes?: string | number | undefined;
+                        seconds?: string | number | undefined;
+                    } | undefined;
+                    deathDate?: {
+                        year?: string | number | undefined;
+                        month?: string | number | undefined;
+                        day?: string | number | undefined;
+                        hours?: string | number | undefined;
+                        minutes?: string | number | undefined;
+                        seconds?: string | number | undefined;
+                    } | undefined;
+                    avatar?: {
+                        id?: string | undefined;
+                        label?: "COVER" | "BANNER" | "AVATAR" | "LOGO" | undefined;
+                        newImage?: {
+                            value: string;
+                            label: "COVER" | "BANNER" | "AVATAR" | "LOGO";
+                        } | undefined;
+                    } | undefined;
+                    links?: {
+                        value: string;
+                        name: string;
+                    }[] | undefined;
+                }>>;
+                role: z.ZodOptional<z.ZodEnum<("DOUBLAGE_SEIYU" | "AUTEUR" | "EDITEUR" | "PRODUCTEUR" | "REALISATEUR" | "REALISATEUR_EPISODES" | "REALISATEUR_MISEENPAGE" | "DIRECTEUR_ARTISTIQUE_CINEMATROGRAPHIQUE" | "DIRECTEUR_ANIMATION" | "CONCEPTEUR" | "ANIMATEUR_PRINCIPAL" | "ANIMATEUR_INTERMEDIAIRE" | "COLORISTES" | "DIRECTEUR_ENREGISTREMENT" | "SCENARISTE" | "ANIMATEUR_3D" | "METTEUR_EN_SCENE" | "SUPERVISEUR" | "MONTEUR" | "RESPONSABLE_DROITS" | "PRODUCTEUR_MUSIQUE" | "RESPONSABLE_MARKETING" | "DIFFUSEUR" | "STORYBOARDER" | "ARTISTE_VFX" | "INGENIEUR_SON" | "DIRECTEUR_DOUBLAGE" | "TRADUCTEUR" | "MANGAKA" | "CHARACTER_DESIGNER" | "DESSINATEUR_DECORS" | "REALISATEUR_MISE_EN_PAGE" | "COMPOSITEUR" | "PAROLIER" | "ARRANGEUR" | "MUSICIEN" | "CHANTEUR_EUSE" | "CHEF_ORCHESTRE" | "PRODUCTEUR_MUSICAL" | "DESIGNER_SONORE" | "MIXEUR")[] & [string, ...string[]]>>;
+            }, "strip", z.ZodTypeAny, {
+                id?: string | undefined;
+                newPerson?: {
+                    name: {
+                        default: string;
+                        alias?: string[] | undefined;
+                    };
+                    description?: string | undefined;
+                    isGroupe?: boolean | undefined;
+                    birthDate?: {
+                        year?: number | undefined;
+                        month?: number | undefined;
+                        day?: number | undefined;
+                        hours?: number | undefined;
+                        minutes?: number | undefined;
+                        seconds?: number | undefined;
+                    } | undefined;
+                    deathDate?: {
+                        year?: number | undefined;
+                        month?: number | undefined;
+                        day?: number | undefined;
+                        hours?: number | undefined;
+                        minutes?: number | undefined;
+                        seconds?: number | undefined;
+                    } | undefined;
+                    avatar?: {
+                        id?: string | undefined;
+                        label?: "COVER" | "BANNER" | "AVATAR" | "LOGO" | undefined;
+                        newImage?: {
+                            value: string;
+                            label: "COVER" | "BANNER" | "AVATAR" | "LOGO";
+                        } | undefined;
+                    } | undefined;
+                    links?: {
+                        value: string;
+                        name: string;
+                    }[] | undefined;
+                } | undefined;
+                role?: "DOUBLAGE_SEIYU" | "AUTEUR" | "EDITEUR" | "PRODUCTEUR" | "REALISATEUR" | "REALISATEUR_EPISODES" | "REALISATEUR_MISEENPAGE" | "DIRECTEUR_ARTISTIQUE_CINEMATROGRAPHIQUE" | "DIRECTEUR_ANIMATION" | "CONCEPTEUR" | "ANIMATEUR_PRINCIPAL" | "ANIMATEUR_INTERMEDIAIRE" | "COLORISTES" | "DIRECTEUR_ENREGISTREMENT" | "SCENARISTE" | "ANIMATEUR_3D" | "METTEUR_EN_SCENE" | "SUPERVISEUR" | "MONTEUR" | "RESPONSABLE_DROITS" | "PRODUCTEUR_MUSIQUE" | "RESPONSABLE_MARKETING" | "DIFFUSEUR" | "STORYBOARDER" | "ARTISTE_VFX" | "INGENIEUR_SON" | "DIRECTEUR_DOUBLAGE" | "TRADUCTEUR" | "MANGAKA" | "CHARACTER_DESIGNER" | "DESSINATEUR_DECORS" | "REALISATEUR_MISE_EN_PAGE" | "COMPOSITEUR" | "PAROLIER" | "ARRANGEUR" | "MUSICIEN" | "CHANTEUR_EUSE" | "CHEF_ORCHESTRE" | "PRODUCTEUR_MUSICAL" | "DESIGNER_SONORE" | "MIXEUR" | undefined;
+            }, {
+                id?: string | undefined;
+                newPerson?: {
+                    name: {
+                        default: string;
+                        alias?: string[] | undefined;
+                    };
+                    description?: string | undefined;
+                    isGroupe?: boolean | undefined;
+                    birthDate?: {
+                        year?: string | number | undefined;
+                        month?: string | number | undefined;
+                        day?: string | number | undefined;
+                        hours?: string | number | undefined;
+                        minutes?: string | number | undefined;
+                        seconds?: string | number | undefined;
+                    } | undefined;
+                    deathDate?: {
+                        year?: string | number | undefined;
+                        month?: string | number | undefined;
+                        day?: string | number | undefined;
+                        hours?: string | number | undefined;
+                        minutes?: string | number | undefined;
+                        seconds?: string | number | undefined;
+                    } | undefined;
+                    avatar?: {
+                        id?: string | undefined;
+                        label?: "COVER" | "BANNER" | "AVATAR" | "LOGO" | undefined;
+                        newImage?: {
+                            value: string;
+                            label: "COVER" | "BANNER" | "AVATAR" | "LOGO";
+                        } | undefined;
+                    } | undefined;
+                    links?: {
+                        value: string;
+                        name: string;
+                    }[] | undefined;
+                } | undefined;
+                role?: "DOUBLAGE_SEIYU" | "AUTEUR" | "EDITEUR" | "PRODUCTEUR" | "REALISATEUR" | "REALISATEUR_EPISODES" | "REALISATEUR_MISEENPAGE" | "DIRECTEUR_ARTISTIQUE_CINEMATROGRAPHIQUE" | "DIRECTEUR_ANIMATION" | "CONCEPTEUR" | "ANIMATEUR_PRINCIPAL" | "ANIMATEUR_INTERMEDIAIRE" | "COLORISTES" | "DIRECTEUR_ENREGISTREMENT" | "SCENARISTE" | "ANIMATEUR_3D" | "METTEUR_EN_SCENE" | "SUPERVISEUR" | "MONTEUR" | "RESPONSABLE_DROITS" | "PRODUCTEUR_MUSIQUE" | "RESPONSABLE_MARKETING" | "DIFFUSEUR" | "STORYBOARDER" | "ARTISTE_VFX" | "INGENIEUR_SON" | "DIRECTEUR_DOUBLAGE" | "TRADUCTEUR" | "MANGAKA" | "CHARACTER_DESIGNER" | "DESSINATEUR_DECORS" | "REALISATEUR_MISE_EN_PAGE" | "COMPOSITEUR" | "PAROLIER" | "ARRANGEUR" | "MUSICIEN" | "CHANTEUR_EUSE" | "CHEF_ORCHESTRE" | "PRODUCTEUR_MUSICAL" | "DESIGNER_SONORE" | "MIXEUR" | undefined;
+            }>, "many">>;
+        }, "strip", z.ZodTypeAny, {
+            name: {
+                default: string;
+                alias?: string[] | undefined;
+            };
+            gender: "MASCULIN" | "FEMININ" | "NEUTRE" | "TRANSGENRE" | "NON_BINAIRE" | "GENRE_FLUIDE" | "AUTRE";
+            species: "AUTRE" | "HUMAIN" | "ELFE" | "NAIN" | "LEZARD" | "DRAGON" | "ORC";
+            description?: string | undefined;
+            birthDate?: {
+                year?: number | undefined;
+                month?: number | undefined;
+                day?: number | undefined;
+                hours?: number | undefined;
+                minutes?: number | undefined;
+                seconds?: number | undefined;
+            } | undefined;
+            avatar?: {
+                id?: string | undefined;
+                label?: "COVER" | "BANNER" | "AVATAR" | "LOGO" | undefined;
+                newImage?: {
+                    value: string;
+                    label: "COVER" | "BANNER" | "AVATAR" | "LOGO";
+                } | undefined;
+            } | undefined;
+            age?: number | undefined;
+            actors?: {
+                id?: string | undefined;
+                newPerson?: {
+                    name: {
+                        default: string;
+                        alias?: string[] | undefined;
+                    };
+                    description?: string | undefined;
+                    isGroupe?: boolean | undefined;
+                    birthDate?: {
+                        year?: number | undefined;
+                        month?: number | undefined;
+                        day?: number | undefined;
+                        hours?: number | undefined;
+                        minutes?: number | undefined;
+                        seconds?: number | undefined;
+                    } | undefined;
+                    deathDate?: {
+                        year?: number | undefined;
+                        month?: number | undefined;
+                        day?: number | undefined;
+                        hours?: number | undefined;
+                        minutes?: number | undefined;
+                        seconds?: number | undefined;
+                    } | undefined;
+                    avatar?: {
+                        id?: string | undefined;
+                        label?: "COVER" | "BANNER" | "AVATAR" | "LOGO" | undefined;
+                        newImage?: {
+                            value: string;
+                            label: "COVER" | "BANNER" | "AVATAR" | "LOGO";
+                        } | undefined;
+                    } | undefined;
+                    links?: {
+                        value: string;
+                        name: string;
+                    }[] | undefined;
+                } | undefined;
+                role?: "DOUBLAGE_SEIYU" | "AUTEUR" | "EDITEUR" | "PRODUCTEUR" | "REALISATEUR" | "REALISATEUR_EPISODES" | "REALISATEUR_MISEENPAGE" | "DIRECTEUR_ARTISTIQUE_CINEMATROGRAPHIQUE" | "DIRECTEUR_ANIMATION" | "CONCEPTEUR" | "ANIMATEUR_PRINCIPAL" | "ANIMATEUR_INTERMEDIAIRE" | "COLORISTES" | "DIRECTEUR_ENREGISTREMENT" | "SCENARISTE" | "ANIMATEUR_3D" | "METTEUR_EN_SCENE" | "SUPERVISEUR" | "MONTEUR" | "RESPONSABLE_DROITS" | "PRODUCTEUR_MUSIQUE" | "RESPONSABLE_MARKETING" | "DIFFUSEUR" | "STORYBOARDER" | "ARTISTE_VFX" | "INGENIEUR_SON" | "DIRECTEUR_DOUBLAGE" | "TRADUCTEUR" | "MANGAKA" | "CHARACTER_DESIGNER" | "DESSINATEUR_DECORS" | "REALISATEUR_MISE_EN_PAGE" | "COMPOSITEUR" | "PAROLIER" | "ARRANGEUR" | "MUSICIEN" | "CHANTEUR_EUSE" | "CHEF_ORCHESTRE" | "PRODUCTEUR_MUSICAL" | "DESIGNER_SONORE" | "MIXEUR" | undefined;
+            }[] | undefined;
+        }, {
+            name: {
+                default: string;
+                alias?: string[] | undefined;
+            };
+            gender: "MASCULIN" | "FEMININ" | "NEUTRE" | "TRANSGENRE" | "NON_BINAIRE" | "GENRE_FLUIDE" | "AUTRE";
+            species: "AUTRE" | "HUMAIN" | "ELFE" | "NAIN" | "LEZARD" | "DRAGON" | "ORC";
+            description?: string | undefined;
+            birthDate?: {
+                year?: string | number | undefined;
+                month?: string | number | undefined;
+                day?: string | number | undefined;
+                hours?: string | number | undefined;
+                minutes?: string | number | undefined;
+                seconds?: string | number | undefined;
+            } | undefined;
+            avatar?: {
+                id?: string | undefined;
+                label?: "COVER" | "BANNER" | "AVATAR" | "LOGO" | undefined;
+                newImage?: {
+                    value: string;
+                    label: "COVER" | "BANNER" | "AVATAR" | "LOGO";
+                } | undefined;
+            } | undefined;
+            age?: string | number | undefined;
+            actors?: {
+                id?: string | undefined;
+                newPerson?: {
+                    name: {
+                        default: string;
+                        alias?: string[] | undefined;
+                    };
+                    description?: string | undefined;
+                    isGroupe?: boolean | undefined;
+                    birthDate?: {
+                        year?: string | number | undefined;
+                        month?: string | number | undefined;
+                        day?: string | number | undefined;
+                        hours?: string | number | undefined;
+                        minutes?: string | number | undefined;
+                        seconds?: string | number | undefined;
+                    } | undefined;
+                    deathDate?: {
+                        year?: string | number | undefined;
+                        month?: string | number | undefined;
+                        day?: string | number | undefined;
+                        hours?: string | number | undefined;
+                        minutes?: string | number | undefined;
+                        seconds?: string | number | undefined;
+                    } | undefined;
+                    avatar?: {
+                        id?: string | undefined;
+                        label?: "COVER" | "BANNER" | "AVATAR" | "LOGO" | undefined;
+                        newImage?: {
+                            value: string;
+                            label: "COVER" | "BANNER" | "AVATAR" | "LOGO";
+                        } | undefined;
+                    } | undefined;
+                    links?: {
+                        value: string;
+                        name: string;
+                    }[] | undefined;
+                } | undefined;
+                role?: "DOUBLAGE_SEIYU" | "AUTEUR" | "EDITEUR" | "PRODUCTEUR" | "REALISATEUR" | "REALISATEUR_EPISODES" | "REALISATEUR_MISEENPAGE" | "DIRECTEUR_ARTISTIQUE_CINEMATROGRAPHIQUE" | "DIRECTEUR_ANIMATION" | "CONCEPTEUR" | "ANIMATEUR_PRINCIPAL" | "ANIMATEUR_INTERMEDIAIRE" | "COLORISTES" | "DIRECTEUR_ENREGISTREMENT" | "SCENARISTE" | "ANIMATEUR_3D" | "METTEUR_EN_SCENE" | "SUPERVISEUR" | "MONTEUR" | "RESPONSABLE_DROITS" | "PRODUCTEUR_MUSIQUE" | "RESPONSABLE_MARKETING" | "DIFFUSEUR" | "STORYBOARDER" | "ARTISTE_VFX" | "INGENIEUR_SON" | "DIRECTEUR_DOUBLAGE" | "TRADUCTEUR" | "MANGAKA" | "CHARACTER_DESIGNER" | "DESSINATEUR_DECORS" | "REALISATEUR_MISE_EN_PAGE" | "COMPOSITEUR" | "PAROLIER" | "ARRANGEUR" | "MUSICIEN" | "CHANTEUR_EUSE" | "CHEF_ORCHESTRE" | "PRODUCTEUR_MUSICAL" | "DESIGNER_SONORE" | "MIXEUR" | undefined;
+            }[] | undefined;
+        }>>;
+        role: z.ZodOptional<z.ZodEnum<("PRINCIPAL" | "SECONDAIRE" | "FIGURANT" | "ANTAGONISTE" | "SOUTIEN")[] & [string, ...string[]]>>;
+    }, "strip", z.ZodTypeAny, {
+        id?: string | undefined;
+        role?: "PRINCIPAL" | "SECONDAIRE" | "FIGURANT" | "ANTAGONISTE" | "SOUTIEN" | undefined;
+        newCharacter?: {
+            name: {
+                default: string;
+                alias?: string[] | undefined;
+            };
+            gender: "MASCULIN" | "FEMININ" | "NEUTRE" | "TRANSGENRE" | "NON_BINAIRE" | "GENRE_FLUIDE" | "AUTRE";
+            species: "AUTRE" | "HUMAIN" | "ELFE" | "NAIN" | "LEZARD" | "DRAGON" | "ORC";
+            description?: string | undefined;
+            birthDate?: {
+                year?: number | undefined;
+                month?: number | undefined;
+                day?: number | undefined;
+                hours?: number | undefined;
+                minutes?: number | undefined;
+                seconds?: number | undefined;
+            } | undefined;
+            avatar?: {
+                id?: string | undefined;
+                label?: "COVER" | "BANNER" | "AVATAR" | "LOGO" | undefined;
+                newImage?: {
+                    value: string;
+                    label: "COVER" | "BANNER" | "AVATAR" | "LOGO";
+                } | undefined;
+            } | undefined;
+            age?: number | undefined;
+            actors?: {
+                id?: string | undefined;
+                newPerson?: {
+                    name: {
+                        default: string;
+                        alias?: string[] | undefined;
+                    };
+                    description?: string | undefined;
+                    isGroupe?: boolean | undefined;
+                    birthDate?: {
+                        year?: number | undefined;
+                        month?: number | undefined;
+                        day?: number | undefined;
+                        hours?: number | undefined;
+                        minutes?: number | undefined;
+                        seconds?: number | undefined;
+                    } | undefined;
+                    deathDate?: {
+                        year?: number | undefined;
+                        month?: number | undefined;
+                        day?: number | undefined;
+                        hours?: number | undefined;
+                        minutes?: number | undefined;
+                        seconds?: number | undefined;
+                    } | undefined;
+                    avatar?: {
+                        id?: string | undefined;
+                        label?: "COVER" | "BANNER" | "AVATAR" | "LOGO" | undefined;
+                        newImage?: {
+                            value: string;
+                            label: "COVER" | "BANNER" | "AVATAR" | "LOGO";
+                        } | undefined;
+                    } | undefined;
+                    links?: {
+                        value: string;
+                        name: string;
+                    }[] | undefined;
+                } | undefined;
+                role?: "DOUBLAGE_SEIYU" | "AUTEUR" | "EDITEUR" | "PRODUCTEUR" | "REALISATEUR" | "REALISATEUR_EPISODES" | "REALISATEUR_MISEENPAGE" | "DIRECTEUR_ARTISTIQUE_CINEMATROGRAPHIQUE" | "DIRECTEUR_ANIMATION" | "CONCEPTEUR" | "ANIMATEUR_PRINCIPAL" | "ANIMATEUR_INTERMEDIAIRE" | "COLORISTES" | "DIRECTEUR_ENREGISTREMENT" | "SCENARISTE" | "ANIMATEUR_3D" | "METTEUR_EN_SCENE" | "SUPERVISEUR" | "MONTEUR" | "RESPONSABLE_DROITS" | "PRODUCTEUR_MUSIQUE" | "RESPONSABLE_MARKETING" | "DIFFUSEUR" | "STORYBOARDER" | "ARTISTE_VFX" | "INGENIEUR_SON" | "DIRECTEUR_DOUBLAGE" | "TRADUCTEUR" | "MANGAKA" | "CHARACTER_DESIGNER" | "DESSINATEUR_DECORS" | "REALISATEUR_MISE_EN_PAGE" | "COMPOSITEUR" | "PAROLIER" | "ARRANGEUR" | "MUSICIEN" | "CHANTEUR_EUSE" | "CHEF_ORCHESTRE" | "PRODUCTEUR_MUSICAL" | "DESIGNER_SONORE" | "MIXEUR" | undefined;
+            }[] | undefined;
+        } | undefined;
+    }, {
+        id?: string | undefined;
+        role?: "PRINCIPAL" | "SECONDAIRE" | "FIGURANT" | "ANTAGONISTE" | "SOUTIEN" | undefined;
+        newCharacter?: {
+            name: {
+                default: string;
+                alias?: string[] | undefined;
+            };
+            gender: "MASCULIN" | "FEMININ" | "NEUTRE" | "TRANSGENRE" | "NON_BINAIRE" | "GENRE_FLUIDE" | "AUTRE";
+            species: "AUTRE" | "HUMAIN" | "ELFE" | "NAIN" | "LEZARD" | "DRAGON" | "ORC";
+            description?: string | undefined;
+            birthDate?: {
+                year?: string | number | undefined;
+                month?: string | number | undefined;
+                day?: string | number | undefined;
+                hours?: string | number | undefined;
+                minutes?: string | number | undefined;
+                seconds?: string | number | undefined;
+            } | undefined;
+            avatar?: {
+                id?: string | undefined;
+                label?: "COVER" | "BANNER" | "AVATAR" | "LOGO" | undefined;
+                newImage?: {
+                    value: string;
+                    label: "COVER" | "BANNER" | "AVATAR" | "LOGO";
+                } | undefined;
+            } | undefined;
+            age?: string | number | undefined;
+            actors?: {
+                id?: string | undefined;
+                newPerson?: {
+                    name: {
+                        default: string;
+                        alias?: string[] | undefined;
+                    };
+                    description?: string | undefined;
+                    isGroupe?: boolean | undefined;
+                    birthDate?: {
+                        year?: string | number | undefined;
+                        month?: string | number | undefined;
+                        day?: string | number | undefined;
+                        hours?: string | number | undefined;
+                        minutes?: string | number | undefined;
+                        seconds?: string | number | undefined;
+                    } | undefined;
+                    deathDate?: {
+                        year?: string | number | undefined;
+                        month?: string | number | undefined;
+                        day?: string | number | undefined;
+                        hours?: string | number | undefined;
+                        minutes?: string | number | undefined;
+                        seconds?: string | number | undefined;
+                    } | undefined;
+                    avatar?: {
+                        id?: string | undefined;
+                        label?: "COVER" | "BANNER" | "AVATAR" | "LOGO" | undefined;
+                        newImage?: {
+                            value: string;
+                            label: "COVER" | "BANNER" | "AVATAR" | "LOGO";
+                        } | undefined;
+                    } | undefined;
+                    links?: {
+                        value: string;
+                        name: string;
+                    }[] | undefined;
+                } | undefined;
+                role?: "DOUBLAGE_SEIYU" | "AUTEUR" | "EDITEUR" | "PRODUCTEUR" | "REALISATEUR" | "REALISATEUR_EPISODES" | "REALISATEUR_MISEENPAGE" | "DIRECTEUR_ARTISTIQUE_CINEMATROGRAPHIQUE" | "DIRECTEUR_ANIMATION" | "CONCEPTEUR" | "ANIMATEUR_PRINCIPAL" | "ANIMATEUR_INTERMEDIAIRE" | "COLORISTES" | "DIRECTEUR_ENREGISTREMENT" | "SCENARISTE" | "ANIMATEUR_3D" | "METTEUR_EN_SCENE" | "SUPERVISEUR" | "MONTEUR" | "RESPONSABLE_DROITS" | "PRODUCTEUR_MUSIQUE" | "RESPONSABLE_MARKETING" | "DIFFUSEUR" | "STORYBOARDER" | "ARTISTE_VFX" | "INGENIEUR_SON" | "DIRECTEUR_DOUBLAGE" | "TRADUCTEUR" | "MANGAKA" | "CHARACTER_DESIGNER" | "DESSINATEUR_DECORS" | "REALISATEUR_MISE_EN_PAGE" | "COMPOSITEUR" | "PAROLIER" | "ARRANGEUR" | "MUSICIEN" | "CHANTEUR_EUSE" | "CHEF_ORCHESTRE" | "PRODUCTEUR_MUSICAL" | "DESIGNER_SONORE" | "MIXEUR" | undefined;
+            }[] | undefined;
+        } | undefined;
+    }>, "many">>;
+    tracks: z.ZodOptional<z.ZodArray<z.ZodObject<{
+        id: z.ZodOptional<z.ZodString>;
+        newTrack: z.ZodOptional<z.ZodObject<{
+            name: z.ZodObject<{
+                default: z.ZodString;
+                alias: z.ZodOptional<z.ZodArray<z.ZodString, "many">>;
+            }, "strip", z.ZodTypeAny, {
+                default: string;
+                alias?: string[] | undefined;
+            }, {
+                default: string;
+                alias?: string[] | undefined;
+            }>;
+            type: z.ZodEnum<("OPENING" | "ENDING" | "BGM" | "INSERT")[] & [string, ...string[]]>;
+            pubDate: z.ZodOptional<z.ZodObject<{
+                year: z.ZodOptional<z.ZodOptional<z.ZodEffects<z.ZodUnion<[z.ZodNumber, z.ZodString]>, number, string | number>>>;
+                month: z.ZodOptional<z.ZodOptional<z.ZodEffects<z.ZodUnion<[z.ZodNumber, z.ZodString]>, number, string | number>>>;
+                day: z.ZodOptional<z.ZodOptional<z.ZodEffects<z.ZodUnion<[z.ZodNumber, z.ZodString]>, number, string | number>>>;
+                hours: z.ZodOptional<z.ZodOptional<z.ZodEffects<z.ZodUnion<[z.ZodNumber, z.ZodString]>, number, string | number>>>;
+                minutes: z.ZodOptional<z.ZodOptional<z.ZodEffects<z.ZodUnion<[z.ZodNumber, z.ZodString]>, number, string | number>>>;
+                seconds: z.ZodOptional<z.ZodOptional<z.ZodEffects<z.ZodUnion<[z.ZodNumber, z.ZodString]>, number, string | number>>>;
+            }, "strip", z.ZodTypeAny, {
+                year?: number | undefined;
+                month?: number | undefined;
+                day?: number | undefined;
+                hours?: number | undefined;
+                minutes?: number | undefined;
+                seconds?: number | undefined;
+            }, {
+                year?: string | number | undefined;
+                month?: string | number | undefined;
+                day?: string | number | undefined;
+                hours?: string | number | undefined;
+                minutes?: string | number | undefined;
+                seconds?: string | number | undefined;
+            }>>;
+            artists: z.ZodOptional<z.ZodArray<z.ZodObject<{
+                id: z.ZodOptional<z.ZodString>;
+                newPerson: z.ZodOptional<z.ZodObject<{
+                    isGroupe: z.ZodOptional<z.ZodBoolean>;
+                    name: z.ZodObject<{
+                        default: z.ZodString;
+                        alias: z.ZodOptional<z.ZodArray<z.ZodString, "many">>;
+                    }, "strip", z.ZodTypeAny, {
+                        default: string;
+                        alias?: string[] | undefined;
+                    }, {
+                        default: string;
+                        alias?: string[] | undefined;
+                    }>;
+                    birthDate: z.ZodOptional<z.ZodObject<{
+                        year: z.ZodOptional<z.ZodOptional<z.ZodEffects<z.ZodUnion<[z.ZodNumber, z.ZodString]>, number, string | number>>>;
+                        month: z.ZodOptional<z.ZodOptional<z.ZodEffects<z.ZodUnion<[z.ZodNumber, z.ZodString]>, number, string | number>>>;
+                        day: z.ZodOptional<z.ZodOptional<z.ZodEffects<z.ZodUnion<[z.ZodNumber, z.ZodString]>, number, string | number>>>;
+                        hours: z.ZodOptional<z.ZodOptional<z.ZodEffects<z.ZodUnion<[z.ZodNumber, z.ZodString]>, number, string | number>>>;
+                        minutes: z.ZodOptional<z.ZodOptional<z.ZodEffects<z.ZodUnion<[z.ZodNumber, z.ZodString]>, number, string | number>>>;
+                        seconds: z.ZodOptional<z.ZodOptional<z.ZodEffects<z.ZodUnion<[z.ZodNumber, z.ZodString]>, number, string | number>>>;
+                    }, "strip", z.ZodTypeAny, {
+                        year?: number | undefined;
+                        month?: number | undefined;
+                        day?: number | undefined;
+                        hours?: number | undefined;
+                        minutes?: number | undefined;
+                        seconds?: number | undefined;
+                    }, {
+                        year?: string | number | undefined;
+                        month?: string | number | undefined;
+                        day?: string | number | undefined;
+                        hours?: string | number | undefined;
+                        minutes?: string | number | undefined;
+                        seconds?: string | number | undefined;
+                    }>>;
+                    deathDate: z.ZodOptional<z.ZodObject<{
+                        year: z.ZodOptional<z.ZodOptional<z.ZodEffects<z.ZodUnion<[z.ZodNumber, z.ZodString]>, number, string | number>>>;
+                        month: z.ZodOptional<z.ZodOptional<z.ZodEffects<z.ZodUnion<[z.ZodNumber, z.ZodString]>, number, string | number>>>;
+                        day: z.ZodOptional<z.ZodOptional<z.ZodEffects<z.ZodUnion<[z.ZodNumber, z.ZodString]>, number, string | number>>>;
+                        hours: z.ZodOptional<z.ZodOptional<z.ZodEffects<z.ZodUnion<[z.ZodNumber, z.ZodString]>, number, string | number>>>;
+                        minutes: z.ZodOptional<z.ZodOptional<z.ZodEffects<z.ZodUnion<[z.ZodNumber, z.ZodString]>, number, string | number>>>;
+                        seconds: z.ZodOptional<z.ZodOptional<z.ZodEffects<z.ZodUnion<[z.ZodNumber, z.ZodString]>, number, string | number>>>;
+                    }, "strip", z.ZodTypeAny, {
+                        year?: number | undefined;
+                        month?: number | undefined;
+                        day?: number | undefined;
+                        hours?: number | undefined;
+                        minutes?: number | undefined;
+                        seconds?: number | undefined;
+                    }, {
+                        year?: string | number | undefined;
+                        month?: string | number | undefined;
+                        day?: string | number | undefined;
+                        hours?: string | number | undefined;
+                        minutes?: string | number | undefined;
+                        seconds?: string | number | undefined;
+                    }>>;
+                    description: z.ZodOptional<z.ZodString>;
+                    avatar: z.ZodOptional<z.ZodObject<{
+                        id: z.ZodOptional<z.ZodString>;
+                        label: z.ZodOptional<z.ZodEnum<("COVER" | "BANNER" | "AVATAR" | "LOGO")[] & [string, ...string[]]>>;
+                        newImage: z.ZodOptional<z.ZodObject<{
+                            label: z.ZodEnum<("COVER" | "BANNER" | "AVATAR" | "LOGO")[] & [string, ...string[]]>;
+                            value: z.ZodString;
+                        }, "strip", z.ZodTypeAny, {
+                            value: string;
+                            label: "COVER" | "BANNER" | "AVATAR" | "LOGO";
+                        }, {
+                            value: string;
+                            label: "COVER" | "BANNER" | "AVATAR" | "LOGO";
+                        }>>;
+                    }, "strip", z.ZodTypeAny, {
+                        id?: string | undefined;
+                        label?: "COVER" | "BANNER" | "AVATAR" | "LOGO" | undefined;
+                        newImage?: {
+                            value: string;
+                            label: "COVER" | "BANNER" | "AVATAR" | "LOGO";
+                        } | undefined;
+                    }, {
+                        id?: string | undefined;
+                        label?: "COVER" | "BANNER" | "AVATAR" | "LOGO" | undefined;
+                        newImage?: {
+                            value: string;
+                            label: "COVER" | "BANNER" | "AVATAR" | "LOGO";
+                        } | undefined;
+                    }>>;
+                    links: z.ZodOptional<z.ZodArray<z.ZodObject<{
+                        name: z.ZodString;
+                        value: z.ZodEffects<z.ZodString, string, string>;
+                    }, "strip", z.ZodTypeAny, {
+                        value: string;
+                        name: string;
+                    }, {
+                        value: string;
+                        name: string;
+                    }>, "many">>;
+                }, "strict", z.ZodTypeAny, {
+                    name: {
+                        default: string;
+                        alias?: string[] | undefined;
+                    };
+                    description?: string | undefined;
+                    isGroupe?: boolean | undefined;
+                    birthDate?: {
+                        year?: number | undefined;
+                        month?: number | undefined;
+                        day?: number | undefined;
+                        hours?: number | undefined;
+                        minutes?: number | undefined;
+                        seconds?: number | undefined;
+                    } | undefined;
+                    deathDate?: {
+                        year?: number | undefined;
+                        month?: number | undefined;
+                        day?: number | undefined;
+                        hours?: number | undefined;
+                        minutes?: number | undefined;
+                        seconds?: number | undefined;
+                    } | undefined;
+                    avatar?: {
+                        id?: string | undefined;
+                        label?: "COVER" | "BANNER" | "AVATAR" | "LOGO" | undefined;
+                        newImage?: {
+                            value: string;
+                            label: "COVER" | "BANNER" | "AVATAR" | "LOGO";
+                        } | undefined;
+                    } | undefined;
+                    links?: {
+                        value: string;
+                        name: string;
+                    }[] | undefined;
+                }, {
+                    name: {
+                        default: string;
+                        alias?: string[] | undefined;
+                    };
+                    description?: string | undefined;
+                    isGroupe?: boolean | undefined;
+                    birthDate?: {
+                        year?: string | number | undefined;
+                        month?: string | number | undefined;
+                        day?: string | number | undefined;
+                        hours?: string | number | undefined;
+                        minutes?: string | number | undefined;
+                        seconds?: string | number | undefined;
+                    } | undefined;
+                    deathDate?: {
+                        year?: string | number | undefined;
+                        month?: string | number | undefined;
+                        day?: string | number | undefined;
+                        hours?: string | number | undefined;
+                        minutes?: string | number | undefined;
+                        seconds?: string | number | undefined;
+                    } | undefined;
+                    avatar?: {
+                        id?: string | undefined;
+                        label?: "COVER" | "BANNER" | "AVATAR" | "LOGO" | undefined;
+                        newImage?: {
+                            value: string;
+                            label: "COVER" | "BANNER" | "AVATAR" | "LOGO";
+                        } | undefined;
+                    } | undefined;
+                    links?: {
+                        value: string;
+                        name: string;
+                    }[] | undefined;
+                }>>;
+                role: z.ZodOptional<z.ZodEnum<("DOUBLAGE_SEIYU" | "AUTEUR" | "EDITEUR" | "PRODUCTEUR" | "REALISATEUR" | "REALISATEUR_EPISODES" | "REALISATEUR_MISEENPAGE" | "DIRECTEUR_ARTISTIQUE_CINEMATROGRAPHIQUE" | "DIRECTEUR_ANIMATION" | "CONCEPTEUR" | "ANIMATEUR_PRINCIPAL" | "ANIMATEUR_INTERMEDIAIRE" | "COLORISTES" | "DIRECTEUR_ENREGISTREMENT" | "SCENARISTE" | "ANIMATEUR_3D" | "METTEUR_EN_SCENE" | "SUPERVISEUR" | "MONTEUR" | "RESPONSABLE_DROITS" | "PRODUCTEUR_MUSIQUE" | "RESPONSABLE_MARKETING" | "DIFFUSEUR" | "STORYBOARDER" | "ARTISTE_VFX" | "INGENIEUR_SON" | "DIRECTEUR_DOUBLAGE" | "TRADUCTEUR" | "MANGAKA" | "CHARACTER_DESIGNER" | "DESSINATEUR_DECORS" | "REALISATEUR_MISE_EN_PAGE" | "COMPOSITEUR" | "PAROLIER" | "ARRANGEUR" | "MUSICIEN" | "CHANTEUR_EUSE" | "CHEF_ORCHESTRE" | "PRODUCTEUR_MUSICAL" | "DESIGNER_SONORE" | "MIXEUR")[] & [string, ...string[]]>>;
+            }, "strip", z.ZodTypeAny, {
+                id?: string | undefined;
+                newPerson?: {
+                    name: {
+                        default: string;
+                        alias?: string[] | undefined;
+                    };
+                    description?: string | undefined;
+                    isGroupe?: boolean | undefined;
+                    birthDate?: {
+                        year?: number | undefined;
+                        month?: number | undefined;
+                        day?: number | undefined;
+                        hours?: number | undefined;
+                        minutes?: number | undefined;
+                        seconds?: number | undefined;
+                    } | undefined;
+                    deathDate?: {
+                        year?: number | undefined;
+                        month?: number | undefined;
+                        day?: number | undefined;
+                        hours?: number | undefined;
+                        minutes?: number | undefined;
+                        seconds?: number | undefined;
+                    } | undefined;
+                    avatar?: {
+                        id?: string | undefined;
+                        label?: "COVER" | "BANNER" | "AVATAR" | "LOGO" | undefined;
+                        newImage?: {
+                            value: string;
+                            label: "COVER" | "BANNER" | "AVATAR" | "LOGO";
+                        } | undefined;
+                    } | undefined;
+                    links?: {
+                        value: string;
+                        name: string;
+                    }[] | undefined;
+                } | undefined;
+                role?: "DOUBLAGE_SEIYU" | "AUTEUR" | "EDITEUR" | "PRODUCTEUR" | "REALISATEUR" | "REALISATEUR_EPISODES" | "REALISATEUR_MISEENPAGE" | "DIRECTEUR_ARTISTIQUE_CINEMATROGRAPHIQUE" | "DIRECTEUR_ANIMATION" | "CONCEPTEUR" | "ANIMATEUR_PRINCIPAL" | "ANIMATEUR_INTERMEDIAIRE" | "COLORISTES" | "DIRECTEUR_ENREGISTREMENT" | "SCENARISTE" | "ANIMATEUR_3D" | "METTEUR_EN_SCENE" | "SUPERVISEUR" | "MONTEUR" | "RESPONSABLE_DROITS" | "PRODUCTEUR_MUSIQUE" | "RESPONSABLE_MARKETING" | "DIFFUSEUR" | "STORYBOARDER" | "ARTISTE_VFX" | "INGENIEUR_SON" | "DIRECTEUR_DOUBLAGE" | "TRADUCTEUR" | "MANGAKA" | "CHARACTER_DESIGNER" | "DESSINATEUR_DECORS" | "REALISATEUR_MISE_EN_PAGE" | "COMPOSITEUR" | "PAROLIER" | "ARRANGEUR" | "MUSICIEN" | "CHANTEUR_EUSE" | "CHEF_ORCHESTRE" | "PRODUCTEUR_MUSICAL" | "DESIGNER_SONORE" | "MIXEUR" | undefined;
+            }, {
+                id?: string | undefined;
+                newPerson?: {
+                    name: {
+                        default: string;
+                        alias?: string[] | undefined;
+                    };
+                    description?: string | undefined;
+                    isGroupe?: boolean | undefined;
+                    birthDate?: {
+                        year?: string | number | undefined;
+                        month?: string | number | undefined;
+                        day?: string | number | undefined;
+                        hours?: string | number | undefined;
+                        minutes?: string | number | undefined;
+                        seconds?: string | number | undefined;
+                    } | undefined;
+                    deathDate?: {
+                        year?: string | number | undefined;
+                        month?: string | number | undefined;
+                        day?: string | number | undefined;
+                        hours?: string | number | undefined;
+                        minutes?: string | number | undefined;
+                        seconds?: string | number | undefined;
+                    } | undefined;
+                    avatar?: {
+                        id?: string | undefined;
+                        label?: "COVER" | "BANNER" | "AVATAR" | "LOGO" | undefined;
+                        newImage?: {
+                            value: string;
+                            label: "COVER" | "BANNER" | "AVATAR" | "LOGO";
+                        } | undefined;
+                    } | undefined;
+                    links?: {
+                        value: string;
+                        name: string;
+                    }[] | undefined;
+                } | undefined;
+                role?: "DOUBLAGE_SEIYU" | "AUTEUR" | "EDITEUR" | "PRODUCTEUR" | "REALISATEUR" | "REALISATEUR_EPISODES" | "REALISATEUR_MISEENPAGE" | "DIRECTEUR_ARTISTIQUE_CINEMATROGRAPHIQUE" | "DIRECTEUR_ANIMATION" | "CONCEPTEUR" | "ANIMATEUR_PRINCIPAL" | "ANIMATEUR_INTERMEDIAIRE" | "COLORISTES" | "DIRECTEUR_ENREGISTREMENT" | "SCENARISTE" | "ANIMATEUR_3D" | "METTEUR_EN_SCENE" | "SUPERVISEUR" | "MONTEUR" | "RESPONSABLE_DROITS" | "PRODUCTEUR_MUSIQUE" | "RESPONSABLE_MARKETING" | "DIFFUSEUR" | "STORYBOARDER" | "ARTISTE_VFX" | "INGENIEUR_SON" | "DIRECTEUR_DOUBLAGE" | "TRADUCTEUR" | "MANGAKA" | "CHARACTER_DESIGNER" | "DESSINATEUR_DECORS" | "REALISATEUR_MISE_EN_PAGE" | "COMPOSITEUR" | "PAROLIER" | "ARRANGEUR" | "MUSICIEN" | "CHANTEUR_EUSE" | "CHEF_ORCHESTRE" | "PRODUCTEUR_MUSICAL" | "DESIGNER_SONORE" | "MIXEUR" | undefined;
+            }>, "many">>;
+            cover: z.ZodOptional<z.ZodObject<{
+                id: z.ZodOptional<z.ZodString>;
+                label: z.ZodOptional<z.ZodEnum<("COVER" | "BANNER" | "AVATAR" | "LOGO")[] & [string, ...string[]]>>;
+                newImage: z.ZodOptional<z.ZodObject<{
+                    label: z.ZodEnum<("COVER" | "BANNER" | "AVATAR" | "LOGO")[] & [string, ...string[]]>;
+                    value: z.ZodString;
+                }, "strip", z.ZodTypeAny, {
+                    value: string;
+                    label: "COVER" | "BANNER" | "AVATAR" | "LOGO";
+                }, {
+                    value: string;
+                    label: "COVER" | "BANNER" | "AVATAR" | "LOGO";
+                }>>;
+            }, "strip", z.ZodTypeAny, {
+                id?: string | undefined;
+                label?: "COVER" | "BANNER" | "AVATAR" | "LOGO" | undefined;
+                newImage?: {
+                    value: string;
+                    label: "COVER" | "BANNER" | "AVATAR" | "LOGO";
+                } | undefined;
+            }, {
+                id?: string | undefined;
+                label?: "COVER" | "BANNER" | "AVATAR" | "LOGO" | undefined;
+                newImage?: {
+                    value: string;
+                    label: "COVER" | "BANNER" | "AVATAR" | "LOGO";
+                } | undefined;
+            }>>;
+            description: z.ZodOptional<z.ZodString>;
+            links: z.ZodOptional<z.ZodArray<z.ZodObject<{
+                name: z.ZodString;
+                value: z.ZodEffects<z.ZodString, string, string>;
+            }, "strip", z.ZodTypeAny, {
+                value: string;
+                name: string;
+            }, {
+                value: string;
+                name: string;
+            }>, "many">>;
+        }, "strict", z.ZodTypeAny, {
+            type: "OPENING" | "ENDING" | "BGM" | "INSERT";
+            name: {
+                default: string;
+                alias?: string[] | undefined;
+            };
+            cover?: {
+                id?: string | undefined;
+                label?: "COVER" | "BANNER" | "AVATAR" | "LOGO" | undefined;
+                newImage?: {
+                    value: string;
+                    label: "COVER" | "BANNER" | "AVATAR" | "LOGO";
+                } | undefined;
+            } | undefined;
+            description?: string | undefined;
+            links?: {
+                value: string;
+                name: string;
+            }[] | undefined;
+            pubDate?: {
+                year?: number | undefined;
+                month?: number | undefined;
+                day?: number | undefined;
+                hours?: number | undefined;
+                minutes?: number | undefined;
+                seconds?: number | undefined;
+            } | undefined;
+            artists?: {
+                id?: string | undefined;
+                newPerson?: {
+                    name: {
+                        default: string;
+                        alias?: string[] | undefined;
+                    };
+                    description?: string | undefined;
+                    isGroupe?: boolean | undefined;
+                    birthDate?: {
+                        year?: number | undefined;
+                        month?: number | undefined;
+                        day?: number | undefined;
+                        hours?: number | undefined;
+                        minutes?: number | undefined;
+                        seconds?: number | undefined;
+                    } | undefined;
+                    deathDate?: {
+                        year?: number | undefined;
+                        month?: number | undefined;
+                        day?: number | undefined;
+                        hours?: number | undefined;
+                        minutes?: number | undefined;
+                        seconds?: number | undefined;
+                    } | undefined;
+                    avatar?: {
+                        id?: string | undefined;
+                        label?: "COVER" | "BANNER" | "AVATAR" | "LOGO" | undefined;
+                        newImage?: {
+                            value: string;
+                            label: "COVER" | "BANNER" | "AVATAR" | "LOGO";
+                        } | undefined;
+                    } | undefined;
+                    links?: {
+                        value: string;
+                        name: string;
+                    }[] | undefined;
+                } | undefined;
+                role?: "DOUBLAGE_SEIYU" | "AUTEUR" | "EDITEUR" | "PRODUCTEUR" | "REALISATEUR" | "REALISATEUR_EPISODES" | "REALISATEUR_MISEENPAGE" | "DIRECTEUR_ARTISTIQUE_CINEMATROGRAPHIQUE" | "DIRECTEUR_ANIMATION" | "CONCEPTEUR" | "ANIMATEUR_PRINCIPAL" | "ANIMATEUR_INTERMEDIAIRE" | "COLORISTES" | "DIRECTEUR_ENREGISTREMENT" | "SCENARISTE" | "ANIMATEUR_3D" | "METTEUR_EN_SCENE" | "SUPERVISEUR" | "MONTEUR" | "RESPONSABLE_DROITS" | "PRODUCTEUR_MUSIQUE" | "RESPONSABLE_MARKETING" | "DIFFUSEUR" | "STORYBOARDER" | "ARTISTE_VFX" | "INGENIEUR_SON" | "DIRECTEUR_DOUBLAGE" | "TRADUCTEUR" | "MANGAKA" | "CHARACTER_DESIGNER" | "DESSINATEUR_DECORS" | "REALISATEUR_MISE_EN_PAGE" | "COMPOSITEUR" | "PAROLIER" | "ARRANGEUR" | "MUSICIEN" | "CHANTEUR_EUSE" | "CHEF_ORCHESTRE" | "PRODUCTEUR_MUSICAL" | "DESIGNER_SONORE" | "MIXEUR" | undefined;
+            }[] | undefined;
+        }, {
+            type: "OPENING" | "ENDING" | "BGM" | "INSERT";
+            name: {
+                default: string;
+                alias?: string[] | undefined;
+            };
+            cover?: {
+                id?: string | undefined;
+                label?: "COVER" | "BANNER" | "AVATAR" | "LOGO" | undefined;
+                newImage?: {
+                    value: string;
+                    label: "COVER" | "BANNER" | "AVATAR" | "LOGO";
+                } | undefined;
+            } | undefined;
+            description?: string | undefined;
+            links?: {
+                value: string;
+                name: string;
+            }[] | undefined;
+            pubDate?: {
+                year?: string | number | undefined;
+                month?: string | number | undefined;
+                day?: string | number | undefined;
+                hours?: string | number | undefined;
+                minutes?: string | number | undefined;
+                seconds?: string | number | undefined;
+            } | undefined;
+            artists?: {
+                id?: string | undefined;
+                newPerson?: {
+                    name: {
+                        default: string;
+                        alias?: string[] | undefined;
+                    };
+                    description?: string | undefined;
+                    isGroupe?: boolean | undefined;
+                    birthDate?: {
+                        year?: string | number | undefined;
+                        month?: string | number | undefined;
+                        day?: string | number | undefined;
+                        hours?: string | number | undefined;
+                        minutes?: string | number | undefined;
+                        seconds?: string | number | undefined;
+                    } | undefined;
+                    deathDate?: {
+                        year?: string | number | undefined;
+                        month?: string | number | undefined;
+                        day?: string | number | undefined;
+                        hours?: string | number | undefined;
+                        minutes?: string | number | undefined;
+                        seconds?: string | number | undefined;
+                    } | undefined;
+                    avatar?: {
+                        id?: string | undefined;
+                        label?: "COVER" | "BANNER" | "AVATAR" | "LOGO" | undefined;
+                        newImage?: {
+                            value: string;
+                            label: "COVER" | "BANNER" | "AVATAR" | "LOGO";
+                        } | undefined;
+                    } | undefined;
+                    links?: {
+                        value: string;
+                        name: string;
+                    }[] | undefined;
+                } | undefined;
+                role?: "DOUBLAGE_SEIYU" | "AUTEUR" | "EDITEUR" | "PRODUCTEUR" | "REALISATEUR" | "REALISATEUR_EPISODES" | "REALISATEUR_MISEENPAGE" | "DIRECTEUR_ARTISTIQUE_CINEMATROGRAPHIQUE" | "DIRECTEUR_ANIMATION" | "CONCEPTEUR" | "ANIMATEUR_PRINCIPAL" | "ANIMATEUR_INTERMEDIAIRE" | "COLORISTES" | "DIRECTEUR_ENREGISTREMENT" | "SCENARISTE" | "ANIMATEUR_3D" | "METTEUR_EN_SCENE" | "SUPERVISEUR" | "MONTEUR" | "RESPONSABLE_DROITS" | "PRODUCTEUR_MUSIQUE" | "RESPONSABLE_MARKETING" | "DIFFUSEUR" | "STORYBOARDER" | "ARTISTE_VFX" | "INGENIEUR_SON" | "DIRECTEUR_DOUBLAGE" | "TRADUCTEUR" | "MANGAKA" | "CHARACTER_DESIGNER" | "DESSINATEUR_DECORS" | "REALISATEUR_MISE_EN_PAGE" | "COMPOSITEUR" | "PAROLIER" | "ARRANGEUR" | "MUSICIEN" | "CHANTEUR_EUSE" | "CHEF_ORCHESTRE" | "PRODUCTEUR_MUSICAL" | "DESIGNER_SONORE" | "MIXEUR" | undefined;
+            }[] | undefined;
+        }>>;
+    }, "strip", z.ZodTypeAny, {
+        id?: string | undefined;
+        newTrack?: {
+            type: "OPENING" | "ENDING" | "BGM" | "INSERT";
+            name: {
+                default: string;
+                alias?: string[] | undefined;
+            };
+            cover?: {
+                id?: string | undefined;
+                label?: "COVER" | "BANNER" | "AVATAR" | "LOGO" | undefined;
+                newImage?: {
+                    value: string;
+                    label: "COVER" | "BANNER" | "AVATAR" | "LOGO";
+                } | undefined;
+            } | undefined;
+            description?: string | undefined;
+            links?: {
+                value: string;
+                name: string;
+            }[] | undefined;
+            pubDate?: {
+                year?: number | undefined;
+                month?: number | undefined;
+                day?: number | undefined;
+                hours?: number | undefined;
+                minutes?: number | undefined;
+                seconds?: number | undefined;
+            } | undefined;
+            artists?: {
+                id?: string | undefined;
+                newPerson?: {
+                    name: {
+                        default: string;
+                        alias?: string[] | undefined;
+                    };
+                    description?: string | undefined;
+                    isGroupe?: boolean | undefined;
+                    birthDate?: {
+                        year?: number | undefined;
+                        month?: number | undefined;
+                        day?: number | undefined;
+                        hours?: number | undefined;
+                        minutes?: number | undefined;
+                        seconds?: number | undefined;
+                    } | undefined;
+                    deathDate?: {
+                        year?: number | undefined;
+                        month?: number | undefined;
+                        day?: number | undefined;
+                        hours?: number | undefined;
+                        minutes?: number | undefined;
+                        seconds?: number | undefined;
+                    } | undefined;
+                    avatar?: {
+                        id?: string | undefined;
+                        label?: "COVER" | "BANNER" | "AVATAR" | "LOGO" | undefined;
+                        newImage?: {
+                            value: string;
+                            label: "COVER" | "BANNER" | "AVATAR" | "LOGO";
+                        } | undefined;
+                    } | undefined;
+                    links?: {
+                        value: string;
+                        name: string;
+                    }[] | undefined;
+                } | undefined;
+                role?: "DOUBLAGE_SEIYU" | "AUTEUR" | "EDITEUR" | "PRODUCTEUR" | "REALISATEUR" | "REALISATEUR_EPISODES" | "REALISATEUR_MISEENPAGE" | "DIRECTEUR_ARTISTIQUE_CINEMATROGRAPHIQUE" | "DIRECTEUR_ANIMATION" | "CONCEPTEUR" | "ANIMATEUR_PRINCIPAL" | "ANIMATEUR_INTERMEDIAIRE" | "COLORISTES" | "DIRECTEUR_ENREGISTREMENT" | "SCENARISTE" | "ANIMATEUR_3D" | "METTEUR_EN_SCENE" | "SUPERVISEUR" | "MONTEUR" | "RESPONSABLE_DROITS" | "PRODUCTEUR_MUSIQUE" | "RESPONSABLE_MARKETING" | "DIFFUSEUR" | "STORYBOARDER" | "ARTISTE_VFX" | "INGENIEUR_SON" | "DIRECTEUR_DOUBLAGE" | "TRADUCTEUR" | "MANGAKA" | "CHARACTER_DESIGNER" | "DESSINATEUR_DECORS" | "REALISATEUR_MISE_EN_PAGE" | "COMPOSITEUR" | "PAROLIER" | "ARRANGEUR" | "MUSICIEN" | "CHANTEUR_EUSE" | "CHEF_ORCHESTRE" | "PRODUCTEUR_MUSICAL" | "DESIGNER_SONORE" | "MIXEUR" | undefined;
+            }[] | undefined;
+        } | undefined;
+    }, {
+        id?: string | undefined;
+        newTrack?: {
+            type: "OPENING" | "ENDING" | "BGM" | "INSERT";
+            name: {
+                default: string;
+                alias?: string[] | undefined;
+            };
+            cover?: {
+                id?: string | undefined;
+                label?: "COVER" | "BANNER" | "AVATAR" | "LOGO" | undefined;
+                newImage?: {
+                    value: string;
+                    label: "COVER" | "BANNER" | "AVATAR" | "LOGO";
+                } | undefined;
+            } | undefined;
+            description?: string | undefined;
+            links?: {
+                value: string;
+                name: string;
+            }[] | undefined;
+            pubDate?: {
+                year?: string | number | undefined;
+                month?: string | number | undefined;
+                day?: string | number | undefined;
+                hours?: string | number | undefined;
+                minutes?: string | number | undefined;
+                seconds?: string | number | undefined;
+            } | undefined;
+            artists?: {
+                id?: string | undefined;
+                newPerson?: {
+                    name: {
+                        default: string;
+                        alias?: string[] | undefined;
+                    };
+                    description?: string | undefined;
+                    isGroupe?: boolean | undefined;
+                    birthDate?: {
+                        year?: string | number | undefined;
+                        month?: string | number | undefined;
+                        day?: string | number | undefined;
+                        hours?: string | number | undefined;
+                        minutes?: string | number | undefined;
+                        seconds?: string | number | undefined;
+                    } | undefined;
+                    deathDate?: {
+                        year?: string | number | undefined;
+                        month?: string | number | undefined;
+                        day?: string | number | undefined;
+                        hours?: string | number | undefined;
+                        minutes?: string | number | undefined;
+                        seconds?: string | number | undefined;
+                    } | undefined;
+                    avatar?: {
+                        id?: string | undefined;
+                        label?: "COVER" | "BANNER" | "AVATAR" | "LOGO" | undefined;
+                        newImage?: {
+                            value: string;
+                            label: "COVER" | "BANNER" | "AVATAR" | "LOGO";
+                        } | undefined;
+                    } | undefined;
+                    links?: {
+                        value: string;
+                        name: string;
+                    }[] | undefined;
+                } | undefined;
+                role?: "DOUBLAGE_SEIYU" | "AUTEUR" | "EDITEUR" | "PRODUCTEUR" | "REALISATEUR" | "REALISATEUR_EPISODES" | "REALISATEUR_MISEENPAGE" | "DIRECTEUR_ARTISTIQUE_CINEMATROGRAPHIQUE" | "DIRECTEUR_ANIMATION" | "CONCEPTEUR" | "ANIMATEUR_PRINCIPAL" | "ANIMATEUR_INTERMEDIAIRE" | "COLORISTES" | "DIRECTEUR_ENREGISTREMENT" | "SCENARISTE" | "ANIMATEUR_3D" | "METTEUR_EN_SCENE" | "SUPERVISEUR" | "MONTEUR" | "RESPONSABLE_DROITS" | "PRODUCTEUR_MUSIQUE" | "RESPONSABLE_MARKETING" | "DIFFUSEUR" | "STORYBOARDER" | "ARTISTE_VFX" | "INGENIEUR_SON" | "DIRECTEUR_DOUBLAGE" | "TRADUCTEUR" | "MANGAKA" | "CHARACTER_DESIGNER" | "DESSINATEUR_DECORS" | "REALISATEUR_MISE_EN_PAGE" | "COMPOSITEUR" | "PAROLIER" | "ARRANGEUR" | "MUSICIEN" | "CHANTEUR_EUSE" | "CHEF_ORCHESTRE" | "PRODUCTEUR_MUSICAL" | "DESIGNER_SONORE" | "MIXEUR" | undefined;
+            }[] | undefined;
+        } | undefined;
+    }>, "many">>;
+}, "strict", z.ZodTypeAny, {
+    status: "AIRING" | "PAUSED" | "ENDED" | "STOPPED" | "POSTONED" | "SOON" | "any";
+    title: {
+        default: string;
+        alias?: string[] | undefined;
+    };
+    format: "FILM" | "SERIE" | "SERIE_COURTE" | "ONA" | "OVA" | "SPECIAL";
+    adult: boolean;
+    explicit: boolean;
+    groupe: {
+        id?: string | undefined;
+        newGroupe?: {
+            name: {
+                default?: string | undefined;
+                alias?: string[] | undefined;
+            };
+        } | undefined;
+    };
+    source: "MANGA" | "MANHWA" | "MANHUA" | "LIGHT_NOVEL" | "ORIGINAL" | "VISUAL_NOVEL" | "WEB_NOVEL" | "GAME" | "NOVEL" | "ANIME";
+    date?: {
+        start?: {
+            year?: number | undefined;
+            month?: number | undefined;
+            day?: number | undefined;
+            hours?: number | undefined;
+            minutes?: number | undefined;
+            seconds?: number | undefined;
+        } | undefined;
+        end?: {
+            year?: number | undefined;
+            month?: number | undefined;
+            day?: number | undefined;
+            hours?: number | undefined;
+            minutes?: number | undefined;
+            seconds?: number | undefined;
+        } | undefined;
+    } | undefined;
+    cover?: {
+        id?: string | undefined;
+        label?: "COVER" | "BANNER" | "AVATAR" | "LOGO" | undefined;
+        newImage?: {
+            value: string;
+            label: "COVER" | "BANNER" | "AVATAR" | "LOGO";
+        } | undefined;
+    } | undefined;
+    banner?: {
+        id?: string | undefined;
+        label?: "COVER" | "BANNER" | "AVATAR" | "LOGO" | undefined;
+        newImage?: {
+            value: string;
+            label: "COVER" | "BANNER" | "AVATAR" | "LOGO";
+        } | undefined;
+    } | undefined;
+    links?: {
+        value: string;
+        name: string;
+    }[] | undefined;
+    vf?: boolean | undefined;
+    genres?: ("ACTION" | "AVENTURE" | "COMEDIE" | "DRAME" | "FANTAISIE" | "FANTASTIQUE" | "HORREUR" | "ROMANCE" | "SCI_FI" | "SPORTS" | "THRILLER" | "MECHA" | "MYSTERE" | "PSYCHOLOGIQUE" | "ISEKAI" | "HAREM" | "REVERSE_HAREM" | "ECCHI" | "SLICE_OF_LIFE" | "YAOI" | "YURI" | "SHOUNEN" | "SEINEN" | "SHOJO" | "JOSEI" | "KODOMOMUKE")[] | undefined;
+    trailer?: string | undefined;
+    parent?: {
+        id?: string | undefined;
+        parentLabel?: "SEQUEL" | "SPIN_OFF" | "ALTERNATIVE" | "REBOOT" | "FILM" | undefined;
+    } | undefined;
+    synopsis?: string | undefined;
+    companys?: {
+        id?: string | undefined;
+        newCompany?: {
+            type: "STUDIO" | "PRODUCER";
+            name: {
+                default: string;
+                alias?: string[] | undefined;
+            };
+            description?: string | undefined;
+            links?: {
+                value: string;
+                name: string;
+            }[] | undefined;
+            logo?: {
+                id?: string | undefined;
+                label?: "COVER" | "BANNER" | "AVATAR" | "LOGO" | undefined;
+                newImage?: {
+                    value: string;
+                    label: "COVER" | "BANNER" | "AVATAR" | "LOGO";
+                } | undefined;
+            } | undefined;
+            createdDate?: {
+                year?: number | undefined;
+                month?: number | undefined;
+                day?: number | undefined;
+                hours?: number | undefined;
+                minutes?: number | undefined;
+                seconds?: number | undefined;
+            } | undefined;
+        } | undefined;
+    }[] | undefined;
+    staffs?: {
+        id?: string | undefined;
+        newPerson?: {
+            name: {
+                default: string;
+                alias?: string[] | undefined;
+            };
+            description?: string | undefined;
+            isGroupe?: boolean | undefined;
+            birthDate?: {
+                year?: number | undefined;
+                month?: number | undefined;
+                day?: number | undefined;
+                hours?: number | undefined;
+                minutes?: number | undefined;
+                seconds?: number | undefined;
+            } | undefined;
+            deathDate?: {
+                year?: number | undefined;
+                month?: number | undefined;
+                day?: number | undefined;
+                hours?: number | undefined;
+                minutes?: number | undefined;
+                seconds?: number | undefined;
+            } | undefined;
+            avatar?: {
+                id?: string | undefined;
+                label?: "COVER" | "BANNER" | "AVATAR" | "LOGO" | undefined;
+                newImage?: {
+                    value: string;
+                    label: "COVER" | "BANNER" | "AVATAR" | "LOGO";
+                } | undefined;
+            } | undefined;
+            links?: {
+                value: string;
+                name: string;
+            }[] | undefined;
+        } | undefined;
+        role?: "DOUBLAGE_SEIYU" | "AUTEUR" | "EDITEUR" | "PRODUCTEUR" | "REALISATEUR" | "REALISATEUR_EPISODES" | "REALISATEUR_MISEENPAGE" | "DIRECTEUR_ARTISTIQUE_CINEMATROGRAPHIQUE" | "DIRECTEUR_ANIMATION" | "CONCEPTEUR" | "ANIMATEUR_PRINCIPAL" | "ANIMATEUR_INTERMEDIAIRE" | "COLORISTES" | "DIRECTEUR_ENREGISTREMENT" | "SCENARISTE" | "ANIMATEUR_3D" | "METTEUR_EN_SCENE" | "SUPERVISEUR" | "MONTEUR" | "RESPONSABLE_DROITS" | "PRODUCTEUR_MUSIQUE" | "RESPONSABLE_MARKETING" | "DIFFUSEUR" | "STORYBOARDER" | "ARTISTE_VFX" | "INGENIEUR_SON" | "DIRECTEUR_DOUBLAGE" | "TRADUCTEUR" | "MANGAKA" | "CHARACTER_DESIGNER" | "DESSINATEUR_DECORS" | "REALISATEUR_MISE_EN_PAGE" | "COMPOSITEUR" | "PAROLIER" | "ARRANGEUR" | "MUSICIEN" | "CHANTEUR_EUSE" | "CHEF_ORCHESTRE" | "PRODUCTEUR_MUSICAL" | "DESIGNER_SONORE" | "MIXEUR" | undefined;
+    }[] | undefined;
+    characters?: {
+        id?: string | undefined;
+        role?: "PRINCIPAL" | "SECONDAIRE" | "FIGURANT" | "ANTAGONISTE" | "SOUTIEN" | undefined;
+        newCharacter?: {
+            name: {
+                default: string;
+                alias?: string[] | undefined;
+            };
+            gender: "MASCULIN" | "FEMININ" | "NEUTRE" | "TRANSGENRE" | "NON_BINAIRE" | "GENRE_FLUIDE" | "AUTRE";
+            species: "AUTRE" | "HUMAIN" | "ELFE" | "NAIN" | "LEZARD" | "DRAGON" | "ORC";
+            description?: string | undefined;
+            birthDate?: {
+                year?: number | undefined;
+                month?: number | undefined;
+                day?: number | undefined;
+                hours?: number | undefined;
+                minutes?: number | undefined;
+                seconds?: number | undefined;
+            } | undefined;
+            avatar?: {
+                id?: string | undefined;
+                label?: "COVER" | "BANNER" | "AVATAR" | "LOGO" | undefined;
+                newImage?: {
+                    value: string;
+                    label: "COVER" | "BANNER" | "AVATAR" | "LOGO";
+                } | undefined;
+            } | undefined;
+            age?: number | undefined;
+            actors?: {
+                id?: string | undefined;
+                newPerson?: {
+                    name: {
+                        default: string;
+                        alias?: string[] | undefined;
+                    };
+                    description?: string | undefined;
+                    isGroupe?: boolean | undefined;
+                    birthDate?: {
+                        year?: number | undefined;
+                        month?: number | undefined;
+                        day?: number | undefined;
+                        hours?: number | undefined;
+                        minutes?: number | undefined;
+                        seconds?: number | undefined;
+                    } | undefined;
+                    deathDate?: {
+                        year?: number | undefined;
+                        month?: number | undefined;
+                        day?: number | undefined;
+                        hours?: number | undefined;
+                        minutes?: number | undefined;
+                        seconds?: number | undefined;
+                    } | undefined;
+                    avatar?: {
+                        id?: string | undefined;
+                        label?: "COVER" | "BANNER" | "AVATAR" | "LOGO" | undefined;
+                        newImage?: {
+                            value: string;
+                            label: "COVER" | "BANNER" | "AVATAR" | "LOGO";
+                        } | undefined;
+                    } | undefined;
+                    links?: {
+                        value: string;
+                        name: string;
+                    }[] | undefined;
+                } | undefined;
+                role?: "DOUBLAGE_SEIYU" | "AUTEUR" | "EDITEUR" | "PRODUCTEUR" | "REALISATEUR" | "REALISATEUR_EPISODES" | "REALISATEUR_MISEENPAGE" | "DIRECTEUR_ARTISTIQUE_CINEMATROGRAPHIQUE" | "DIRECTEUR_ANIMATION" | "CONCEPTEUR" | "ANIMATEUR_PRINCIPAL" | "ANIMATEUR_INTERMEDIAIRE" | "COLORISTES" | "DIRECTEUR_ENREGISTREMENT" | "SCENARISTE" | "ANIMATEUR_3D" | "METTEUR_EN_SCENE" | "SUPERVISEUR" | "MONTEUR" | "RESPONSABLE_DROITS" | "PRODUCTEUR_MUSIQUE" | "RESPONSABLE_MARKETING" | "DIFFUSEUR" | "STORYBOARDER" | "ARTISTE_VFX" | "INGENIEUR_SON" | "DIRECTEUR_DOUBLAGE" | "TRADUCTEUR" | "MANGAKA" | "CHARACTER_DESIGNER" | "DESSINATEUR_DECORS" | "REALISATEUR_MISE_EN_PAGE" | "COMPOSITEUR" | "PAROLIER" | "ARRANGEUR" | "MUSICIEN" | "CHANTEUR_EUSE" | "CHEF_ORCHESTRE" | "PRODUCTEUR_MUSICAL" | "DESIGNER_SONORE" | "MIXEUR" | undefined;
+            }[] | undefined;
+        } | undefined;
+    }[] | undefined;
+    episodes?: {
+        airing?: number | undefined;
+        nextAiringDate?: {
+            year?: number | undefined;
+            month?: number | undefined;
+            day?: number | undefined;
+            hours?: number | undefined;
+            minutes?: number | undefined;
+            seconds?: number | undefined;
+        } | undefined;
+        total?: number | undefined;
+        durationMinutes?: number | undefined;
+    } | undefined;
+    manga?: {
+        id?: string | undefined;
+        parentLabel?: "SEQUEL" | "SPIN_OFF" | "ALTERNATIVE" | "REBOOT" | "FILM" | undefined;
+    } | undefined;
+    tracks?: {
+        id?: string | undefined;
+        newTrack?: {
+            type: "OPENING" | "ENDING" | "BGM" | "INSERT";
+            name: {
+                default: string;
+                alias?: string[] | undefined;
+            };
+            cover?: {
+                id?: string | undefined;
+                label?: "COVER" | "BANNER" | "AVATAR" | "LOGO" | undefined;
+                newImage?: {
+                    value: string;
+                    label: "COVER" | "BANNER" | "AVATAR" | "LOGO";
+                } | undefined;
+            } | undefined;
+            description?: string | undefined;
+            links?: {
+                value: string;
+                name: string;
+            }[] | undefined;
+            pubDate?: {
+                year?: number | undefined;
+                month?: number | undefined;
+                day?: number | undefined;
+                hours?: number | undefined;
+                minutes?: number | undefined;
+                seconds?: number | undefined;
+            } | undefined;
+            artists?: {
+                id?: string | undefined;
+                newPerson?: {
+                    name: {
+                        default: string;
+                        alias?: string[] | undefined;
+                    };
+                    description?: string | undefined;
+                    isGroupe?: boolean | undefined;
+                    birthDate?: {
+                        year?: number | undefined;
+                        month?: number | undefined;
+                        day?: number | undefined;
+                        hours?: number | undefined;
+                        minutes?: number | undefined;
+                        seconds?: number | undefined;
+                    } | undefined;
+                    deathDate?: {
+                        year?: number | undefined;
+                        month?: number | undefined;
+                        day?: number | undefined;
+                        hours?: number | undefined;
+                        minutes?: number | undefined;
+                        seconds?: number | undefined;
+                    } | undefined;
+                    avatar?: {
+                        id?: string | undefined;
+                        label?: "COVER" | "BANNER" | "AVATAR" | "LOGO" | undefined;
+                        newImage?: {
+                            value: string;
+                            label: "COVER" | "BANNER" | "AVATAR" | "LOGO";
+                        } | undefined;
+                    } | undefined;
+                    links?: {
+                        value: string;
+                        name: string;
+                    }[] | undefined;
+                } | undefined;
+                role?: "DOUBLAGE_SEIYU" | "AUTEUR" | "EDITEUR" | "PRODUCTEUR" | "REALISATEUR" | "REALISATEUR_EPISODES" | "REALISATEUR_MISEENPAGE" | "DIRECTEUR_ARTISTIQUE_CINEMATROGRAPHIQUE" | "DIRECTEUR_ANIMATION" | "CONCEPTEUR" | "ANIMATEUR_PRINCIPAL" | "ANIMATEUR_INTERMEDIAIRE" | "COLORISTES" | "DIRECTEUR_ENREGISTREMENT" | "SCENARISTE" | "ANIMATEUR_3D" | "METTEUR_EN_SCENE" | "SUPERVISEUR" | "MONTEUR" | "RESPONSABLE_DROITS" | "PRODUCTEUR_MUSIQUE" | "RESPONSABLE_MARKETING" | "DIFFUSEUR" | "STORYBOARDER" | "ARTISTE_VFX" | "INGENIEUR_SON" | "DIRECTEUR_DOUBLAGE" | "TRADUCTEUR" | "MANGAKA" | "CHARACTER_DESIGNER" | "DESSINATEUR_DECORS" | "REALISATEUR_MISE_EN_PAGE" | "COMPOSITEUR" | "PAROLIER" | "ARRANGEUR" | "MUSICIEN" | "CHANTEUR_EUSE" | "CHEF_ORCHESTRE" | "PRODUCTEUR_MUSICAL" | "DESIGNER_SONORE" | "MIXEUR" | undefined;
+            }[] | undefined;
+        } | undefined;
+    }[] | undefined;
+}, {
+    status: "AIRING" | "PAUSED" | "ENDED" | "STOPPED" | "POSTONED" | "SOON" | "any";
+    title: {
+        default: string;
+        alias?: string[] | undefined;
+    };
+    format: "FILM" | "SERIE" | "SERIE_COURTE" | "ONA" | "OVA" | "SPECIAL";
+    adult: boolean | "true" | "false";
+    explicit: boolean | "true" | "false";
+    groupe: {
+        id?: string | undefined;
+        newGroupe?: {
+            name: {
+                default?: string | undefined;
+                alias?: string[] | undefined;
+            };
+        } | undefined;
+    };
+    source: "MANGA" | "MANHWA" | "MANHUA" | "LIGHT_NOVEL" | "ORIGINAL" | "VISUAL_NOVEL" | "WEB_NOVEL" | "GAME" | "NOVEL" | "ANIME";
+    date?: {
+        start?: {
+            year?: string | number | undefined;
+            month?: string | number | undefined;
+            day?: string | number | undefined;
+            hours?: string | number | undefined;
+            minutes?: string | number | undefined;
+            seconds?: string | number | undefined;
+        } | undefined;
+        end?: {
+            year?: string | number | undefined;
+            month?: string | number | undefined;
+            day?: string | number | undefined;
+            hours?: string | number | undefined;
+            minutes?: string | number | undefined;
+            seconds?: string | number | undefined;
+        } | undefined;
+    } | undefined;
+    cover?: {
+        id?: string | undefined;
+        label?: "COVER" | "BANNER" | "AVATAR" | "LOGO" | undefined;
+        newImage?: {
+            value: string;
+            label: "COVER" | "BANNER" | "AVATAR" | "LOGO";
+        } | undefined;
+    } | undefined;
+    banner?: {
+        id?: string | undefined;
+        label?: "COVER" | "BANNER" | "AVATAR" | "LOGO" | undefined;
+        newImage?: {
+            value: string;
+            label: "COVER" | "BANNER" | "AVATAR" | "LOGO";
+        } | undefined;
+    } | undefined;
+    links?: {
+        value: string;
+        name: string;
+    }[] | undefined;
+    vf?: boolean | "true" | "false" | undefined;
+    genres?: ("ACTION" | "AVENTURE" | "COMEDIE" | "DRAME" | "FANTAISIE" | "FANTASTIQUE" | "HORREUR" | "ROMANCE" | "SCI_FI" | "SPORTS" | "THRILLER" | "MECHA" | "MYSTERE" | "PSYCHOLOGIQUE" | "ISEKAI" | "HAREM" | "REVERSE_HAREM" | "ECCHI" | "SLICE_OF_LIFE" | "YAOI" | "YURI" | "SHOUNEN" | "SEINEN" | "SHOJO" | "JOSEI" | "KODOMOMUKE")[] | undefined;
+    trailer?: string | undefined;
+    parent?: {
+        id?: string | undefined;
+        parentLabel?: "SEQUEL" | "SPIN_OFF" | "ALTERNATIVE" | "REBOOT" | "FILM" | undefined;
+    } | undefined;
+    synopsis?: string | undefined;
+    companys?: {
+        id?: string | undefined;
+        newCompany?: {
+            type: "STUDIO" | "PRODUCER";
+            name: {
+                default: string;
+                alias?: string[] | undefined;
+            };
+            description?: string | undefined;
+            links?: {
+                value: string;
+                name: string;
+            }[] | undefined;
+            logo?: {
+                id?: string | undefined;
+                label?: "COVER" | "BANNER" | "AVATAR" | "LOGO" | undefined;
+                newImage?: {
+                    value: string;
+                    label: "COVER" | "BANNER" | "AVATAR" | "LOGO";
+                } | undefined;
+            } | undefined;
+            createdDate?: {
+                year?: string | number | undefined;
+                month?: string | number | undefined;
+                day?: string | number | undefined;
+                hours?: string | number | undefined;
+                minutes?: string | number | undefined;
+                seconds?: string | number | undefined;
+            } | undefined;
+        } | undefined;
+    }[] | undefined;
+    staffs?: {
+        id?: string | undefined;
+        newPerson?: {
+            name: {
+                default: string;
+                alias?: string[] | undefined;
+            };
+            description?: string | undefined;
+            isGroupe?: boolean | undefined;
+            birthDate?: {
+                year?: string | number | undefined;
+                month?: string | number | undefined;
+                day?: string | number | undefined;
+                hours?: string | number | undefined;
+                minutes?: string | number | undefined;
+                seconds?: string | number | undefined;
+            } | undefined;
+            deathDate?: {
+                year?: string | number | undefined;
+                month?: string | number | undefined;
+                day?: string | number | undefined;
+                hours?: string | number | undefined;
+                minutes?: string | number | undefined;
+                seconds?: string | number | undefined;
+            } | undefined;
+            avatar?: {
+                id?: string | undefined;
+                label?: "COVER" | "BANNER" | "AVATAR" | "LOGO" | undefined;
+                newImage?: {
+                    value: string;
+                    label: "COVER" | "BANNER" | "AVATAR" | "LOGO";
+                } | undefined;
+            } | undefined;
+            links?: {
+                value: string;
+                name: string;
+            }[] | undefined;
+        } | undefined;
+        role?: "DOUBLAGE_SEIYU" | "AUTEUR" | "EDITEUR" | "PRODUCTEUR" | "REALISATEUR" | "REALISATEUR_EPISODES" | "REALISATEUR_MISEENPAGE" | "DIRECTEUR_ARTISTIQUE_CINEMATROGRAPHIQUE" | "DIRECTEUR_ANIMATION" | "CONCEPTEUR" | "ANIMATEUR_PRINCIPAL" | "ANIMATEUR_INTERMEDIAIRE" | "COLORISTES" | "DIRECTEUR_ENREGISTREMENT" | "SCENARISTE" | "ANIMATEUR_3D" | "METTEUR_EN_SCENE" | "SUPERVISEUR" | "MONTEUR" | "RESPONSABLE_DROITS" | "PRODUCTEUR_MUSIQUE" | "RESPONSABLE_MARKETING" | "DIFFUSEUR" | "STORYBOARDER" | "ARTISTE_VFX" | "INGENIEUR_SON" | "DIRECTEUR_DOUBLAGE" | "TRADUCTEUR" | "MANGAKA" | "CHARACTER_DESIGNER" | "DESSINATEUR_DECORS" | "REALISATEUR_MISE_EN_PAGE" | "COMPOSITEUR" | "PAROLIER" | "ARRANGEUR" | "MUSICIEN" | "CHANTEUR_EUSE" | "CHEF_ORCHESTRE" | "PRODUCTEUR_MUSICAL" | "DESIGNER_SONORE" | "MIXEUR" | undefined;
+    }[] | undefined;
+    characters?: {
+        id?: string | undefined;
+        role?: "PRINCIPAL" | "SECONDAIRE" | "FIGURANT" | "ANTAGONISTE" | "SOUTIEN" | undefined;
+        newCharacter?: {
+            name: {
+                default: string;
+                alias?: string[] | undefined;
+            };
+            gender: "MASCULIN" | "FEMININ" | "NEUTRE" | "TRANSGENRE" | "NON_BINAIRE" | "GENRE_FLUIDE" | "AUTRE";
+            species: "AUTRE" | "HUMAIN" | "ELFE" | "NAIN" | "LEZARD" | "DRAGON" | "ORC";
+            description?: string | undefined;
+            birthDate?: {
+                year?: string | number | undefined;
+                month?: string | number | undefined;
+                day?: string | number | undefined;
+                hours?: string | number | undefined;
+                minutes?: string | number | undefined;
+                seconds?: string | number | undefined;
+            } | undefined;
+            avatar?: {
+                id?: string | undefined;
+                label?: "COVER" | "BANNER" | "AVATAR" | "LOGO" | undefined;
+                newImage?: {
+                    value: string;
+                    label: "COVER" | "BANNER" | "AVATAR" | "LOGO";
+                } | undefined;
+            } | undefined;
+            age?: string | number | undefined;
+            actors?: {
+                id?: string | undefined;
+                newPerson?: {
+                    name: {
+                        default: string;
+                        alias?: string[] | undefined;
+                    };
+                    description?: string | undefined;
+                    isGroupe?: boolean | undefined;
+                    birthDate?: {
+                        year?: string | number | undefined;
+                        month?: string | number | undefined;
+                        day?: string | number | undefined;
+                        hours?: string | number | undefined;
+                        minutes?: string | number | undefined;
+                        seconds?: string | number | undefined;
+                    } | undefined;
+                    deathDate?: {
+                        year?: string | number | undefined;
+                        month?: string | number | undefined;
+                        day?: string | number | undefined;
+                        hours?: string | number | undefined;
+                        minutes?: string | number | undefined;
+                        seconds?: string | number | undefined;
+                    } | undefined;
+                    avatar?: {
+                        id?: string | undefined;
+                        label?: "COVER" | "BANNER" | "AVATAR" | "LOGO" | undefined;
+                        newImage?: {
+                            value: string;
+                            label: "COVER" | "BANNER" | "AVATAR" | "LOGO";
+                        } | undefined;
+                    } | undefined;
+                    links?: {
+                        value: string;
+                        name: string;
+                    }[] | undefined;
+                } | undefined;
+                role?: "DOUBLAGE_SEIYU" | "AUTEUR" | "EDITEUR" | "PRODUCTEUR" | "REALISATEUR" | "REALISATEUR_EPISODES" | "REALISATEUR_MISEENPAGE" | "DIRECTEUR_ARTISTIQUE_CINEMATROGRAPHIQUE" | "DIRECTEUR_ANIMATION" | "CONCEPTEUR" | "ANIMATEUR_PRINCIPAL" | "ANIMATEUR_INTERMEDIAIRE" | "COLORISTES" | "DIRECTEUR_ENREGISTREMENT" | "SCENARISTE" | "ANIMATEUR_3D" | "METTEUR_EN_SCENE" | "SUPERVISEUR" | "MONTEUR" | "RESPONSABLE_DROITS" | "PRODUCTEUR_MUSIQUE" | "RESPONSABLE_MARKETING" | "DIFFUSEUR" | "STORYBOARDER" | "ARTISTE_VFX" | "INGENIEUR_SON" | "DIRECTEUR_DOUBLAGE" | "TRADUCTEUR" | "MANGAKA" | "CHARACTER_DESIGNER" | "DESSINATEUR_DECORS" | "REALISATEUR_MISE_EN_PAGE" | "COMPOSITEUR" | "PAROLIER" | "ARRANGEUR" | "MUSICIEN" | "CHANTEUR_EUSE" | "CHEF_ORCHESTRE" | "PRODUCTEUR_MUSICAL" | "DESIGNER_SONORE" | "MIXEUR" | undefined;
+            }[] | undefined;
+        } | undefined;
+    }[] | undefined;
+    episodes?: {
+        airing?: number | undefined;
+        nextAiringDate?: {
+            year?: string | number | undefined;
+            month?: string | number | undefined;
+            day?: string | number | undefined;
+            hours?: string | number | undefined;
+            minutes?: string | number | undefined;
+            seconds?: string | number | undefined;
+        } | undefined;
+        total?: number | undefined;
+        durationMinutes?: number | undefined;
+    } | undefined;
+    manga?: {
+        id?: string | undefined;
+        parentLabel?: "SEQUEL" | "SPIN_OFF" | "ALTERNATIVE" | "REBOOT" | "FILM" | undefined;
+    } | undefined;
+    tracks?: {
+        id?: string | undefined;
+        newTrack?: {
+            type: "OPENING" | "ENDING" | "BGM" | "INSERT";
+            name: {
+                default: string;
+                alias?: string[] | undefined;
+            };
+            cover?: {
+                id?: string | undefined;
+                label?: "COVER" | "BANNER" | "AVATAR" | "LOGO" | undefined;
+                newImage?: {
+                    value: string;
+                    label: "COVER" | "BANNER" | "AVATAR" | "LOGO";
+                } | undefined;
+            } | undefined;
+            description?: string | undefined;
+            links?: {
+                value: string;
+                name: string;
+            }[] | undefined;
+            pubDate?: {
+                year?: string | number | undefined;
+                month?: string | number | undefined;
+                day?: string | number | undefined;
+                hours?: string | number | undefined;
+                minutes?: string | number | undefined;
+                seconds?: string | number | undefined;
+            } | undefined;
+            artists?: {
+                id?: string | undefined;
+                newPerson?: {
+                    name: {
+                        default: string;
+                        alias?: string[] | undefined;
+                    };
+                    description?: string | undefined;
+                    isGroupe?: boolean | undefined;
+                    birthDate?: {
+                        year?: string | number | undefined;
+                        month?: string | number | undefined;
+                        day?: string | number | undefined;
+                        hours?: string | number | undefined;
+                        minutes?: string | number | undefined;
+                        seconds?: string | number | undefined;
+                    } | undefined;
+                    deathDate?: {
+                        year?: string | number | undefined;
+                        month?: string | number | undefined;
+                        day?: string | number | undefined;
+                        hours?: string | number | undefined;
+                        minutes?: string | number | undefined;
+                        seconds?: string | number | undefined;
+                    } | undefined;
+                    avatar?: {
+                        id?: string | undefined;
+                        label?: "COVER" | "BANNER" | "AVATAR" | "LOGO" | undefined;
+                        newImage?: {
+                            value: string;
+                            label: "COVER" | "BANNER" | "AVATAR" | "LOGO";
+                        } | undefined;
+                    } | undefined;
+                    links?: {
+                        value: string;
+                        name: string;
+                    }[] | undefined;
+                } | undefined;
+                role?: "DOUBLAGE_SEIYU" | "AUTEUR" | "EDITEUR" | "PRODUCTEUR" | "REALISATEUR" | "REALISATEUR_EPISODES" | "REALISATEUR_MISEENPAGE" | "DIRECTEUR_ARTISTIQUE_CINEMATROGRAPHIQUE" | "DIRECTEUR_ANIMATION" | "CONCEPTEUR" | "ANIMATEUR_PRINCIPAL" | "ANIMATEUR_INTERMEDIAIRE" | "COLORISTES" | "DIRECTEUR_ENREGISTREMENT" | "SCENARISTE" | "ANIMATEUR_3D" | "METTEUR_EN_SCENE" | "SUPERVISEUR" | "MONTEUR" | "RESPONSABLE_DROITS" | "PRODUCTEUR_MUSIQUE" | "RESPONSABLE_MARKETING" | "DIFFUSEUR" | "STORYBOARDER" | "ARTISTE_VFX" | "INGENIEUR_SON" | "DIRECTEUR_DOUBLAGE" | "TRADUCTEUR" | "MANGAKA" | "CHARACTER_DESIGNER" | "DESSINATEUR_DECORS" | "REALISATEUR_MISE_EN_PAGE" | "COMPOSITEUR" | "PAROLIER" | "ARRANGEUR" | "MUSICIEN" | "CHANTEUR_EUSE" | "CHEF_ORCHESTRE" | "PRODUCTEUR_MUSICAL" | "DESIGNER_SONORE" | "MIXEUR" | undefined;
+            }[] | undefined;
+        } | undefined;
+    }[] | undefined;
+}>, {
+    status: "AIRING" | "PAUSED" | "ENDED" | "STOPPED" | "POSTONED" | "SOON" | "any";
+    title: {
+        default: string;
+        alias?: string[] | undefined;
+    };
+    format: "FILM" | "SERIE" | "SERIE_COURTE" | "ONA" | "OVA" | "SPECIAL";
+    adult: boolean;
+    explicit: boolean;
+    groupe: {
+        id?: string | undefined;
+        newGroupe?: {
+            name: {
+                default?: string | undefined;
+                alias?: string[] | undefined;
+            };
+        } | undefined;
+    };
+    source: "MANGA" | "MANHWA" | "MANHUA" | "LIGHT_NOVEL" | "ORIGINAL" | "VISUAL_NOVEL" | "WEB_NOVEL" | "GAME" | "NOVEL" | "ANIME";
+    date?: {
+        start?: {
+            year?: number | undefined;
+            month?: number | undefined;
+            day?: number | undefined;
+            hours?: number | undefined;
+            minutes?: number | undefined;
+            seconds?: number | undefined;
+        } | undefined;
+        end?: {
+            year?: number | undefined;
+            month?: number | undefined;
+            day?: number | undefined;
+            hours?: number | undefined;
+            minutes?: number | undefined;
+            seconds?: number | undefined;
+        } | undefined;
+    } | undefined;
+    cover?: {
+        id?: string | undefined;
+        label?: "COVER" | "BANNER" | "AVATAR" | "LOGO" | undefined;
+        newImage?: {
+            value: string;
+            label: "COVER" | "BANNER" | "AVATAR" | "LOGO";
+        } | undefined;
+    } | undefined;
+    banner?: {
+        id?: string | undefined;
+        label?: "COVER" | "BANNER" | "AVATAR" | "LOGO" | undefined;
+        newImage?: {
+            value: string;
+            label: "COVER" | "BANNER" | "AVATAR" | "LOGO";
+        } | undefined;
+    } | undefined;
+    links?: {
+        value: string;
+        name: string;
+    }[] | undefined;
+    vf?: boolean | undefined;
+    genres?: ("ACTION" | "AVENTURE" | "COMEDIE" | "DRAME" | "FANTAISIE" | "FANTASTIQUE" | "HORREUR" | "ROMANCE" | "SCI_FI" | "SPORTS" | "THRILLER" | "MECHA" | "MYSTERE" | "PSYCHOLOGIQUE" | "ISEKAI" | "HAREM" | "REVERSE_HAREM" | "ECCHI" | "SLICE_OF_LIFE" | "YAOI" | "YURI" | "SHOUNEN" | "SEINEN" | "SHOJO" | "JOSEI" | "KODOMOMUKE")[] | undefined;
+    trailer?: string | undefined;
+    parent?: {
+        id?: string | undefined;
+        parentLabel?: "SEQUEL" | "SPIN_OFF" | "ALTERNATIVE" | "REBOOT" | "FILM" | undefined;
+    } | undefined;
+    synopsis?: string | undefined;
+    companys?: {
+        id?: string | undefined;
+        newCompany?: {
+            type: "STUDIO" | "PRODUCER";
+            name: {
+                default: string;
+                alias?: string[] | undefined;
+            };
+            description?: string | undefined;
+            links?: {
+                value: string;
+                name: string;
+            }[] | undefined;
+            logo?: {
+                id?: string | undefined;
+                label?: "COVER" | "BANNER" | "AVATAR" | "LOGO" | undefined;
+                newImage?: {
+                    value: string;
+                    label: "COVER" | "BANNER" | "AVATAR" | "LOGO";
+                } | undefined;
+            } | undefined;
+            createdDate?: {
+                year?: number | undefined;
+                month?: number | undefined;
+                day?: number | undefined;
+                hours?: number | undefined;
+                minutes?: number | undefined;
+                seconds?: number | undefined;
+            } | undefined;
+        } | undefined;
+    }[] | undefined;
+    staffs?: {
+        id?: string | undefined;
+        newPerson?: {
+            name: {
+                default: string;
+                alias?: string[] | undefined;
+            };
+            description?: string | undefined;
+            isGroupe?: boolean | undefined;
+            birthDate?: {
+                year?: number | undefined;
+                month?: number | undefined;
+                day?: number | undefined;
+                hours?: number | undefined;
+                minutes?: number | undefined;
+                seconds?: number | undefined;
+            } | undefined;
+            deathDate?: {
+                year?: number | undefined;
+                month?: number | undefined;
+                day?: number | undefined;
+                hours?: number | undefined;
+                minutes?: number | undefined;
+                seconds?: number | undefined;
+            } | undefined;
+            avatar?: {
+                id?: string | undefined;
+                label?: "COVER" | "BANNER" | "AVATAR" | "LOGO" | undefined;
+                newImage?: {
+                    value: string;
+                    label: "COVER" | "BANNER" | "AVATAR" | "LOGO";
+                } | undefined;
+            } | undefined;
+            links?: {
+                value: string;
+                name: string;
+            }[] | undefined;
+        } | undefined;
+        role?: "DOUBLAGE_SEIYU" | "AUTEUR" | "EDITEUR" | "PRODUCTEUR" | "REALISATEUR" | "REALISATEUR_EPISODES" | "REALISATEUR_MISEENPAGE" | "DIRECTEUR_ARTISTIQUE_CINEMATROGRAPHIQUE" | "DIRECTEUR_ANIMATION" | "CONCEPTEUR" | "ANIMATEUR_PRINCIPAL" | "ANIMATEUR_INTERMEDIAIRE" | "COLORISTES" | "DIRECTEUR_ENREGISTREMENT" | "SCENARISTE" | "ANIMATEUR_3D" | "METTEUR_EN_SCENE" | "SUPERVISEUR" | "MONTEUR" | "RESPONSABLE_DROITS" | "PRODUCTEUR_MUSIQUE" | "RESPONSABLE_MARKETING" | "DIFFUSEUR" | "STORYBOARDER" | "ARTISTE_VFX" | "INGENIEUR_SON" | "DIRECTEUR_DOUBLAGE" | "TRADUCTEUR" | "MANGAKA" | "CHARACTER_DESIGNER" | "DESSINATEUR_DECORS" | "REALISATEUR_MISE_EN_PAGE" | "COMPOSITEUR" | "PAROLIER" | "ARRANGEUR" | "MUSICIEN" | "CHANTEUR_EUSE" | "CHEF_ORCHESTRE" | "PRODUCTEUR_MUSICAL" | "DESIGNER_SONORE" | "MIXEUR" | undefined;
+    }[] | undefined;
+    characters?: {
+        id?: string | undefined;
+        role?: "PRINCIPAL" | "SECONDAIRE" | "FIGURANT" | "ANTAGONISTE" | "SOUTIEN" | undefined;
+        newCharacter?: {
+            name: {
+                default: string;
+                alias?: string[] | undefined;
+            };
+            gender: "MASCULIN" | "FEMININ" | "NEUTRE" | "TRANSGENRE" | "NON_BINAIRE" | "GENRE_FLUIDE" | "AUTRE";
+            species: "AUTRE" | "HUMAIN" | "ELFE" | "NAIN" | "LEZARD" | "DRAGON" | "ORC";
+            description?: string | undefined;
+            birthDate?: {
+                year?: number | undefined;
+                month?: number | undefined;
+                day?: number | undefined;
+                hours?: number | undefined;
+                minutes?: number | undefined;
+                seconds?: number | undefined;
+            } | undefined;
+            avatar?: {
+                id?: string | undefined;
+                label?: "COVER" | "BANNER" | "AVATAR" | "LOGO" | undefined;
+                newImage?: {
+                    value: string;
+                    label: "COVER" | "BANNER" | "AVATAR" | "LOGO";
+                } | undefined;
+            } | undefined;
+            age?: number | undefined;
+            actors?: {
+                id?: string | undefined;
+                newPerson?: {
+                    name: {
+                        default: string;
+                        alias?: string[] | undefined;
+                    };
+                    description?: string | undefined;
+                    isGroupe?: boolean | undefined;
+                    birthDate?: {
+                        year?: number | undefined;
+                        month?: number | undefined;
+                        day?: number | undefined;
+                        hours?: number | undefined;
+                        minutes?: number | undefined;
+                        seconds?: number | undefined;
+                    } | undefined;
+                    deathDate?: {
+                        year?: number | undefined;
+                        month?: number | undefined;
+                        day?: number | undefined;
+                        hours?: number | undefined;
+                        minutes?: number | undefined;
+                        seconds?: number | undefined;
+                    } | undefined;
+                    avatar?: {
+                        id?: string | undefined;
+                        label?: "COVER" | "BANNER" | "AVATAR" | "LOGO" | undefined;
+                        newImage?: {
+                            value: string;
+                            label: "COVER" | "BANNER" | "AVATAR" | "LOGO";
+                        } | undefined;
+                    } | undefined;
+                    links?: {
+                        value: string;
+                        name: string;
+                    }[] | undefined;
+                } | undefined;
+                role?: "DOUBLAGE_SEIYU" | "AUTEUR" | "EDITEUR" | "PRODUCTEUR" | "REALISATEUR" | "REALISATEUR_EPISODES" | "REALISATEUR_MISEENPAGE" | "DIRECTEUR_ARTISTIQUE_CINEMATROGRAPHIQUE" | "DIRECTEUR_ANIMATION" | "CONCEPTEUR" | "ANIMATEUR_PRINCIPAL" | "ANIMATEUR_INTERMEDIAIRE" | "COLORISTES" | "DIRECTEUR_ENREGISTREMENT" | "SCENARISTE" | "ANIMATEUR_3D" | "METTEUR_EN_SCENE" | "SUPERVISEUR" | "MONTEUR" | "RESPONSABLE_DROITS" | "PRODUCTEUR_MUSIQUE" | "RESPONSABLE_MARKETING" | "DIFFUSEUR" | "STORYBOARDER" | "ARTISTE_VFX" | "INGENIEUR_SON" | "DIRECTEUR_DOUBLAGE" | "TRADUCTEUR" | "MANGAKA" | "CHARACTER_DESIGNER" | "DESSINATEUR_DECORS" | "REALISATEUR_MISE_EN_PAGE" | "COMPOSITEUR" | "PAROLIER" | "ARRANGEUR" | "MUSICIEN" | "CHANTEUR_EUSE" | "CHEF_ORCHESTRE" | "PRODUCTEUR_MUSICAL" | "DESIGNER_SONORE" | "MIXEUR" | undefined;
+            }[] | undefined;
+        } | undefined;
+    }[] | undefined;
+    episodes?: {
+        airing?: number | undefined;
+        nextAiringDate?: {
+            year?: number | undefined;
+            month?: number | undefined;
+            day?: number | undefined;
+            hours?: number | undefined;
+            minutes?: number | undefined;
+            seconds?: number | undefined;
+        } | undefined;
+        total?: number | undefined;
+        durationMinutes?: number | undefined;
+    } | undefined;
+    manga?: {
+        id?: string | undefined;
+        parentLabel?: "SEQUEL" | "SPIN_OFF" | "ALTERNATIVE" | "REBOOT" | "FILM" | undefined;
+    } | undefined;
+    tracks?: {
+        id?: string | undefined;
+        newTrack?: {
+            type: "OPENING" | "ENDING" | "BGM" | "INSERT";
+            name: {
+                default: string;
+                alias?: string[] | undefined;
+            };
+            cover?: {
+                id?: string | undefined;
+                label?: "COVER" | "BANNER" | "AVATAR" | "LOGO" | undefined;
+                newImage?: {
+                    value: string;
+                    label: "COVER" | "BANNER" | "AVATAR" | "LOGO";
+                } | undefined;
+            } | undefined;
+            description?: string | undefined;
+            links?: {
+                value: string;
+                name: string;
+            }[] | undefined;
+            pubDate?: {
+                year?: number | undefined;
+                month?: number | undefined;
+                day?: number | undefined;
+                hours?: number | undefined;
+                minutes?: number | undefined;
+                seconds?: number | undefined;
+            } | undefined;
+            artists?: {
+                id?: string | undefined;
+                newPerson?: {
+                    name: {
+                        default: string;
+                        alias?: string[] | undefined;
+                    };
+                    description?: string | undefined;
+                    isGroupe?: boolean | undefined;
+                    birthDate?: {
+                        year?: number | undefined;
+                        month?: number | undefined;
+                        day?: number | undefined;
+                        hours?: number | undefined;
+                        minutes?: number | undefined;
+                        seconds?: number | undefined;
+                    } | undefined;
+                    deathDate?: {
+                        year?: number | undefined;
+                        month?: number | undefined;
+                        day?: number | undefined;
+                        hours?: number | undefined;
+                        minutes?: number | undefined;
+                        seconds?: number | undefined;
+                    } | undefined;
+                    avatar?: {
+                        id?: string | undefined;
+                        label?: "COVER" | "BANNER" | "AVATAR" | "LOGO" | undefined;
+                        newImage?: {
+                            value: string;
+                            label: "COVER" | "BANNER" | "AVATAR" | "LOGO";
+                        } | undefined;
+                    } | undefined;
+                    links?: {
+                        value: string;
+                        name: string;
+                    }[] | undefined;
+                } | undefined;
+                role?: "DOUBLAGE_SEIYU" | "AUTEUR" | "EDITEUR" | "PRODUCTEUR" | "REALISATEUR" | "REALISATEUR_EPISODES" | "REALISATEUR_MISEENPAGE" | "DIRECTEUR_ARTISTIQUE_CINEMATROGRAPHIQUE" | "DIRECTEUR_ANIMATION" | "CONCEPTEUR" | "ANIMATEUR_PRINCIPAL" | "ANIMATEUR_INTERMEDIAIRE" | "COLORISTES" | "DIRECTEUR_ENREGISTREMENT" | "SCENARISTE" | "ANIMATEUR_3D" | "METTEUR_EN_SCENE" | "SUPERVISEUR" | "MONTEUR" | "RESPONSABLE_DROITS" | "PRODUCTEUR_MUSIQUE" | "RESPONSABLE_MARKETING" | "DIFFUSEUR" | "STORYBOARDER" | "ARTISTE_VFX" | "INGENIEUR_SON" | "DIRECTEUR_DOUBLAGE" | "TRADUCTEUR" | "MANGAKA" | "CHARACTER_DESIGNER" | "DESSINATEUR_DECORS" | "REALISATEUR_MISE_EN_PAGE" | "COMPOSITEUR" | "PAROLIER" | "ARRANGEUR" | "MUSICIEN" | "CHANTEUR_EUSE" | "CHEF_ORCHESTRE" | "PRODUCTEUR_MUSICAL" | "DESIGNER_SONORE" | "MIXEUR" | undefined;
+            }[] | undefined;
+        } | undefined;
+    }[] | undefined;
+}, {
+    status: "AIRING" | "PAUSED" | "ENDED" | "STOPPED" | "POSTONED" | "SOON" | "any";
+    title: {
+        default: string;
+        alias?: string[] | undefined;
+    };
+    format: "FILM" | "SERIE" | "SERIE_COURTE" | "ONA" | "OVA" | "SPECIAL";
+    adult: boolean | "true" | "false";
+    explicit: boolean | "true" | "false";
+    groupe: {
+        id?: string | undefined;
+        newGroupe?: {
+            name: {
+                default?: string | undefined;
+                alias?: string[] | undefined;
+            };
+        } | undefined;
+    };
+    source: "MANGA" | "MANHWA" | "MANHUA" | "LIGHT_NOVEL" | "ORIGINAL" | "VISUAL_NOVEL" | "WEB_NOVEL" | "GAME" | "NOVEL" | "ANIME";
+    date?: {
+        start?: {
+            year?: string | number | undefined;
+            month?: string | number | undefined;
+            day?: string | number | undefined;
+            hours?: string | number | undefined;
+            minutes?: string | number | undefined;
+            seconds?: string | number | undefined;
+        } | undefined;
+        end?: {
+            year?: string | number | undefined;
+            month?: string | number | undefined;
+            day?: string | number | undefined;
+            hours?: string | number | undefined;
+            minutes?: string | number | undefined;
+            seconds?: string | number | undefined;
+        } | undefined;
+    } | undefined;
+    cover?: {
+        id?: string | undefined;
+        label?: "COVER" | "BANNER" | "AVATAR" | "LOGO" | undefined;
+        newImage?: {
+            value: string;
+            label: "COVER" | "BANNER" | "AVATAR" | "LOGO";
+        } | undefined;
+    } | undefined;
+    banner?: {
+        id?: string | undefined;
+        label?: "COVER" | "BANNER" | "AVATAR" | "LOGO" | undefined;
+        newImage?: {
+            value: string;
+            label: "COVER" | "BANNER" | "AVATAR" | "LOGO";
+        } | undefined;
+    } | undefined;
+    links?: {
+        value: string;
+        name: string;
+    }[] | undefined;
+    vf?: boolean | "true" | "false" | undefined;
+    genres?: ("ACTION" | "AVENTURE" | "COMEDIE" | "DRAME" | "FANTAISIE" | "FANTASTIQUE" | "HORREUR" | "ROMANCE" | "SCI_FI" | "SPORTS" | "THRILLER" | "MECHA" | "MYSTERE" | "PSYCHOLOGIQUE" | "ISEKAI" | "HAREM" | "REVERSE_HAREM" | "ECCHI" | "SLICE_OF_LIFE" | "YAOI" | "YURI" | "SHOUNEN" | "SEINEN" | "SHOJO" | "JOSEI" | "KODOMOMUKE")[] | undefined;
+    trailer?: string | undefined;
+    parent?: {
+        id?: string | undefined;
+        parentLabel?: "SEQUEL" | "SPIN_OFF" | "ALTERNATIVE" | "REBOOT" | "FILM" | undefined;
+    } | undefined;
+    synopsis?: string | undefined;
+    companys?: {
+        id?: string | undefined;
+        newCompany?: {
+            type: "STUDIO" | "PRODUCER";
+            name: {
+                default: string;
+                alias?: string[] | undefined;
+            };
+            description?: string | undefined;
+            links?: {
+                value: string;
+                name: string;
+            }[] | undefined;
+            logo?: {
+                id?: string | undefined;
+                label?: "COVER" | "BANNER" | "AVATAR" | "LOGO" | undefined;
+                newImage?: {
+                    value: string;
+                    label: "COVER" | "BANNER" | "AVATAR" | "LOGO";
+                } | undefined;
+            } | undefined;
+            createdDate?: {
+                year?: string | number | undefined;
+                month?: string | number | undefined;
+                day?: string | number | undefined;
+                hours?: string | number | undefined;
+                minutes?: string | number | undefined;
+                seconds?: string | number | undefined;
+            } | undefined;
+        } | undefined;
+    }[] | undefined;
+    staffs?: {
+        id?: string | undefined;
+        newPerson?: {
+            name: {
+                default: string;
+                alias?: string[] | undefined;
+            };
+            description?: string | undefined;
+            isGroupe?: boolean | undefined;
+            birthDate?: {
+                year?: string | number | undefined;
+                month?: string | number | undefined;
+                day?: string | number | undefined;
+                hours?: string | number | undefined;
+                minutes?: string | number | undefined;
+                seconds?: string | number | undefined;
+            } | undefined;
+            deathDate?: {
+                year?: string | number | undefined;
+                month?: string | number | undefined;
+                day?: string | number | undefined;
+                hours?: string | number | undefined;
+                minutes?: string | number | undefined;
+                seconds?: string | number | undefined;
+            } | undefined;
+            avatar?: {
+                id?: string | undefined;
+                label?: "COVER" | "BANNER" | "AVATAR" | "LOGO" | undefined;
+                newImage?: {
+                    value: string;
+                    label: "COVER" | "BANNER" | "AVATAR" | "LOGO";
+                } | undefined;
+            } | undefined;
+            links?: {
+                value: string;
+                name: string;
+            }[] | undefined;
+        } | undefined;
+        role?: "DOUBLAGE_SEIYU" | "AUTEUR" | "EDITEUR" | "PRODUCTEUR" | "REALISATEUR" | "REALISATEUR_EPISODES" | "REALISATEUR_MISEENPAGE" | "DIRECTEUR_ARTISTIQUE_CINEMATROGRAPHIQUE" | "DIRECTEUR_ANIMATION" | "CONCEPTEUR" | "ANIMATEUR_PRINCIPAL" | "ANIMATEUR_INTERMEDIAIRE" | "COLORISTES" | "DIRECTEUR_ENREGISTREMENT" | "SCENARISTE" | "ANIMATEUR_3D" | "METTEUR_EN_SCENE" | "SUPERVISEUR" | "MONTEUR" | "RESPONSABLE_DROITS" | "PRODUCTEUR_MUSIQUE" | "RESPONSABLE_MARKETING" | "DIFFUSEUR" | "STORYBOARDER" | "ARTISTE_VFX" | "INGENIEUR_SON" | "DIRECTEUR_DOUBLAGE" | "TRADUCTEUR" | "MANGAKA" | "CHARACTER_DESIGNER" | "DESSINATEUR_DECORS" | "REALISATEUR_MISE_EN_PAGE" | "COMPOSITEUR" | "PAROLIER" | "ARRANGEUR" | "MUSICIEN" | "CHANTEUR_EUSE" | "CHEF_ORCHESTRE" | "PRODUCTEUR_MUSICAL" | "DESIGNER_SONORE" | "MIXEUR" | undefined;
+    }[] | undefined;
+    characters?: {
+        id?: string | undefined;
+        role?: "PRINCIPAL" | "SECONDAIRE" | "FIGURANT" | "ANTAGONISTE" | "SOUTIEN" | undefined;
+        newCharacter?: {
+            name: {
+                default: string;
+                alias?: string[] | undefined;
+            };
+            gender: "MASCULIN" | "FEMININ" | "NEUTRE" | "TRANSGENRE" | "NON_BINAIRE" | "GENRE_FLUIDE" | "AUTRE";
+            species: "AUTRE" | "HUMAIN" | "ELFE" | "NAIN" | "LEZARD" | "DRAGON" | "ORC";
+            description?: string | undefined;
+            birthDate?: {
+                year?: string | number | undefined;
+                month?: string | number | undefined;
+                day?: string | number | undefined;
+                hours?: string | number | undefined;
+                minutes?: string | number | undefined;
+                seconds?: string | number | undefined;
+            } | undefined;
+            avatar?: {
+                id?: string | undefined;
+                label?: "COVER" | "BANNER" | "AVATAR" | "LOGO" | undefined;
+                newImage?: {
+                    value: string;
+                    label: "COVER" | "BANNER" | "AVATAR" | "LOGO";
+                } | undefined;
+            } | undefined;
+            age?: string | number | undefined;
+            actors?: {
+                id?: string | undefined;
+                newPerson?: {
+                    name: {
+                        default: string;
+                        alias?: string[] | undefined;
+                    };
+                    description?: string | undefined;
+                    isGroupe?: boolean | undefined;
+                    birthDate?: {
+                        year?: string | number | undefined;
+                        month?: string | number | undefined;
+                        day?: string | number | undefined;
+                        hours?: string | number | undefined;
+                        minutes?: string | number | undefined;
+                        seconds?: string | number | undefined;
+                    } | undefined;
+                    deathDate?: {
+                        year?: string | number | undefined;
+                        month?: string | number | undefined;
+                        day?: string | number | undefined;
+                        hours?: string | number | undefined;
+                        minutes?: string | number | undefined;
+                        seconds?: string | number | undefined;
+                    } | undefined;
+                    avatar?: {
+                        id?: string | undefined;
+                        label?: "COVER" | "BANNER" | "AVATAR" | "LOGO" | undefined;
+                        newImage?: {
+                            value: string;
+                            label: "COVER" | "BANNER" | "AVATAR" | "LOGO";
+                        } | undefined;
+                    } | undefined;
+                    links?: {
+                        value: string;
+                        name: string;
+                    }[] | undefined;
+                } | undefined;
+                role?: "DOUBLAGE_SEIYU" | "AUTEUR" | "EDITEUR" | "PRODUCTEUR" | "REALISATEUR" | "REALISATEUR_EPISODES" | "REALISATEUR_MISEENPAGE" | "DIRECTEUR_ARTISTIQUE_CINEMATROGRAPHIQUE" | "DIRECTEUR_ANIMATION" | "CONCEPTEUR" | "ANIMATEUR_PRINCIPAL" | "ANIMATEUR_INTERMEDIAIRE" | "COLORISTES" | "DIRECTEUR_ENREGISTREMENT" | "SCENARISTE" | "ANIMATEUR_3D" | "METTEUR_EN_SCENE" | "SUPERVISEUR" | "MONTEUR" | "RESPONSABLE_DROITS" | "PRODUCTEUR_MUSIQUE" | "RESPONSABLE_MARKETING" | "DIFFUSEUR" | "STORYBOARDER" | "ARTISTE_VFX" | "INGENIEUR_SON" | "DIRECTEUR_DOUBLAGE" | "TRADUCTEUR" | "MANGAKA" | "CHARACTER_DESIGNER" | "DESSINATEUR_DECORS" | "REALISATEUR_MISE_EN_PAGE" | "COMPOSITEUR" | "PAROLIER" | "ARRANGEUR" | "MUSICIEN" | "CHANTEUR_EUSE" | "CHEF_ORCHESTRE" | "PRODUCTEUR_MUSICAL" | "DESIGNER_SONORE" | "MIXEUR" | undefined;
+            }[] | undefined;
+        } | undefined;
+    }[] | undefined;
+    episodes?: {
+        airing?: number | undefined;
+        nextAiringDate?: {
+            year?: string | number | undefined;
+            month?: string | number | undefined;
+            day?: string | number | undefined;
+            hours?: string | number | undefined;
+            minutes?: string | number | undefined;
+            seconds?: string | number | undefined;
+        } | undefined;
+        total?: number | undefined;
+        durationMinutes?: number | undefined;
+    } | undefined;
+    manga?: {
+        id?: string | undefined;
+        parentLabel?: "SEQUEL" | "SPIN_OFF" | "ALTERNATIVE" | "REBOOT" | "FILM" | undefined;
+    } | undefined;
+    tracks?: {
+        id?: string | undefined;
+        newTrack?: {
+            type: "OPENING" | "ENDING" | "BGM" | "INSERT";
+            name: {
+                default: string;
+                alias?: string[] | undefined;
+            };
+            cover?: {
+                id?: string | undefined;
+                label?: "COVER" | "BANNER" | "AVATAR" | "LOGO" | undefined;
+                newImage?: {
+                    value: string;
+                    label: "COVER" | "BANNER" | "AVATAR" | "LOGO";
+                } | undefined;
+            } | undefined;
+            description?: string | undefined;
+            links?: {
+                value: string;
+                name: string;
+            }[] | undefined;
+            pubDate?: {
+                year?: string | number | undefined;
+                month?: string | number | undefined;
+                day?: string | number | undefined;
+                hours?: string | number | undefined;
+                minutes?: string | number | undefined;
+                seconds?: string | number | undefined;
+            } | undefined;
+            artists?: {
+                id?: string | undefined;
+                newPerson?: {
+                    name: {
+                        default: string;
+                        alias?: string[] | undefined;
+                    };
+                    description?: string | undefined;
+                    isGroupe?: boolean | undefined;
+                    birthDate?: {
+                        year?: string | number | undefined;
+                        month?: string | number | undefined;
+                        day?: string | number | undefined;
+                        hours?: string | number | undefined;
+                        minutes?: string | number | undefined;
+                        seconds?: string | number | undefined;
+                    } | undefined;
+                    deathDate?: {
+                        year?: string | number | undefined;
+                        month?: string | number | undefined;
+                        day?: string | number | undefined;
+                        hours?: string | number | undefined;
+                        minutes?: string | number | undefined;
+                        seconds?: string | number | undefined;
+                    } | undefined;
+                    avatar?: {
+                        id?: string | undefined;
+                        label?: "COVER" | "BANNER" | "AVATAR" | "LOGO" | undefined;
+                        newImage?: {
+                            value: string;
+                            label: "COVER" | "BANNER" | "AVATAR" | "LOGO";
+                        } | undefined;
+                    } | undefined;
+                    links?: {
+                        value: string;
+                        name: string;
+                    }[] | undefined;
+                } | undefined;
+                role?: "DOUBLAGE_SEIYU" | "AUTEUR" | "EDITEUR" | "PRODUCTEUR" | "REALISATEUR" | "REALISATEUR_EPISODES" | "REALISATEUR_MISEENPAGE" | "DIRECTEUR_ARTISTIQUE_CINEMATROGRAPHIQUE" | "DIRECTEUR_ANIMATION" | "CONCEPTEUR" | "ANIMATEUR_PRINCIPAL" | "ANIMATEUR_INTERMEDIAIRE" | "COLORISTES" | "DIRECTEUR_ENREGISTREMENT" | "SCENARISTE" | "ANIMATEUR_3D" | "METTEUR_EN_SCENE" | "SUPERVISEUR" | "MONTEUR" | "RESPONSABLE_DROITS" | "PRODUCTEUR_MUSIQUE" | "RESPONSABLE_MARKETING" | "DIFFUSEUR" | "STORYBOARDER" | "ARTISTE_VFX" | "INGENIEUR_SON" | "DIRECTEUR_DOUBLAGE" | "TRADUCTEUR" | "MANGAKA" | "CHARACTER_DESIGNER" | "DESSINATEUR_DECORS" | "REALISATEUR_MISE_EN_PAGE" | "COMPOSITEUR" | "PAROLIER" | "ARRANGEUR" | "MUSICIEN" | "CHANTEUR_EUSE" | "CHEF_ORCHESTRE" | "PRODUCTEUR_MUSICAL" | "DESIGNER_SONORE" | "MIXEUR" | undefined;
+            }[] | undefined;
+        } | undefined;
+    }[] | undefined;
+}>;
+export type IAnimeBody = z.infer<typeof AnimeBody>;
 export declare const AnimeCreateBody: z.ZodObject<z.objectUtil.extendShape<{
     description: z.ZodOptional<z.ZodString>;
     reason: z.ZodOptional<z.ZodString>;
@@ -1553,21 +4633,42 @@ export declare const AnimeCreateBody: z.ZodObject<z.objectUtil.extendShape<{
         groupe: z.ZodObject<{
             id: z.ZodOptional<z.ZodString>;
             newGroupe: z.ZodOptional<z.ZodObject<{
-                name: z.ZodString;
+                name: z.ZodObject<{
+                    default: z.ZodOptional<z.ZodString>;
+                    alias: z.ZodOptional<z.ZodOptional<z.ZodArray<z.ZodString, "many">>>;
+                }, "strip", z.ZodTypeAny, {
+                    default?: string | undefined;
+                    alias?: string[] | undefined;
+                }, {
+                    default?: string | undefined;
+                    alias?: string[] | undefined;
+                }>;
             }, "strip", z.ZodTypeAny, {
-                name: string;
+                name: {
+                    default?: string | undefined;
+                    alias?: string[] | undefined;
+                };
             }, {
-                name: string;
+                name: {
+                    default?: string | undefined;
+                    alias?: string[] | undefined;
+                };
             }>>;
         }, "strip", z.ZodTypeAny, {
             id?: string | undefined;
             newGroupe?: {
-                name: string;
+                name: {
+                    default?: string | undefined;
+                    alias?: string[] | undefined;
+                };
             } | undefined;
         }, {
             id?: string | undefined;
             newGroupe?: {
-                name: string;
+                name: {
+                    default?: string | undefined;
+                    alias?: string[] | undefined;
+                };
             } | undefined;
         }>;
         parent: z.ZodOptional<z.ZodObject<{
@@ -1810,7 +4911,16 @@ export declare const AnimeCreateBody: z.ZodObject<z.objectUtil.extendShape<{
             id: z.ZodOptional<z.ZodString>;
             newCompany: z.ZodOptional<z.ZodObject<{
                 type: z.ZodEnum<["STUDIO", "PRODUCER"]>;
-                name: z.ZodString;
+                name: z.ZodObject<{
+                    default: z.ZodString;
+                    alias: z.ZodOptional<z.ZodArray<z.ZodString, "many">>;
+                }, "strip", z.ZodTypeAny, {
+                    default: string;
+                    alias?: string[] | undefined;
+                }, {
+                    default: string;
+                    alias?: string[] | undefined;
+                }>;
                 description: z.ZodOptional<z.ZodString>;
                 links: z.ZodOptional<z.ZodArray<z.ZodObject<{
                     name: z.ZodString;
@@ -1874,7 +4984,10 @@ export declare const AnimeCreateBody: z.ZodObject<z.objectUtil.extendShape<{
                 }>>;
             }, "strict", z.ZodTypeAny, {
                 type: "STUDIO" | "PRODUCER";
-                name: string;
+                name: {
+                    default: string;
+                    alias?: string[] | undefined;
+                };
                 description?: string | undefined;
                 links?: {
                     value: string;
@@ -1898,7 +5011,10 @@ export declare const AnimeCreateBody: z.ZodObject<z.objectUtil.extendShape<{
                 } | undefined;
             }, {
                 type: "STUDIO" | "PRODUCER";
-                name: string;
+                name: {
+                    default: string;
+                    alias?: string[] | undefined;
+                };
                 description?: string | undefined;
                 links?: {
                     value: string;
@@ -1925,7 +5041,10 @@ export declare const AnimeCreateBody: z.ZodObject<z.objectUtil.extendShape<{
             id?: string | undefined;
             newCompany?: {
                 type: "STUDIO" | "PRODUCER";
-                name: string;
+                name: {
+                    default: string;
+                    alias?: string[] | undefined;
+                };
                 description?: string | undefined;
                 links?: {
                     value: string;
@@ -1952,7 +5071,10 @@ export declare const AnimeCreateBody: z.ZodObject<z.objectUtil.extendShape<{
             id?: string | undefined;
             newCompany?: {
                 type: "STUDIO" | "PRODUCER";
-                name: string;
+                name: {
+                    default: string;
+                    alias?: string[] | undefined;
+                };
                 description?: string | undefined;
                 links?: {
                     value: string;
@@ -2539,7 +5661,7 @@ export declare const AnimeCreateBody: z.ZodObject<z.objectUtil.extendShape<{
                     } | undefined;
                     role?: "DOUBLAGE_SEIYU" | "AUTEUR" | "EDITEUR" | "PRODUCTEUR" | "REALISATEUR" | "REALISATEUR_EPISODES" | "REALISATEUR_MISEENPAGE" | "DIRECTEUR_ARTISTIQUE_CINEMATROGRAPHIQUE" | "DIRECTEUR_ANIMATION" | "CONCEPTEUR" | "ANIMATEUR_PRINCIPAL" | "ANIMATEUR_INTERMEDIAIRE" | "COLORISTES" | "DIRECTEUR_ENREGISTREMENT" | "SCENARISTE" | "ANIMATEUR_3D" | "METTEUR_EN_SCENE" | "SUPERVISEUR" | "MONTEUR" | "RESPONSABLE_DROITS" | "PRODUCTEUR_MUSIQUE" | "RESPONSABLE_MARKETING" | "DIFFUSEUR" | "STORYBOARDER" | "ARTISTE_VFX" | "INGENIEUR_SON" | "DIRECTEUR_DOUBLAGE" | "TRADUCTEUR" | "MANGAKA" | "CHARACTER_DESIGNER" | "DESSINATEUR_DECORS" | "REALISATEUR_MISE_EN_PAGE" | "COMPOSITEUR" | "PAROLIER" | "ARRANGEUR" | "MUSICIEN" | "CHANTEUR_EUSE" | "CHEF_ORCHESTRE" | "PRODUCTEUR_MUSICAL" | "DESIGNER_SONORE" | "MIXEUR" | undefined;
                 }>, "many">>;
-            }, "strict", z.ZodTypeAny, {
+            }, "strip", z.ZodTypeAny, {
                 name: {
                     default: string;
                     alias?: string[] | undefined;
@@ -3421,7 +6543,10 @@ export declare const AnimeCreateBody: z.ZodObject<z.objectUtil.extendShape<{
         groupe: {
             id?: string | undefined;
             newGroupe?: {
-                name: string;
+                name: {
+                    default?: string | undefined;
+                    alias?: string[] | undefined;
+                };
             } | undefined;
         };
         source: "MANGA" | "MANHWA" | "MANHUA" | "LIGHT_NOVEL" | "ORIGINAL" | "VISUAL_NOVEL" | "WEB_NOVEL" | "GAME" | "NOVEL" | "ANIME";
@@ -3470,6 +6595,38 @@ export declare const AnimeCreateBody: z.ZodObject<z.objectUtil.extendShape<{
             id?: string | undefined;
             parentLabel?: "SEQUEL" | "SPIN_OFF" | "ALTERNATIVE" | "REBOOT" | "FILM" | undefined;
         } | undefined;
+        synopsis?: string | undefined;
+        companys?: {
+            id?: string | undefined;
+            newCompany?: {
+                type: "STUDIO" | "PRODUCER";
+                name: {
+                    default: string;
+                    alias?: string[] | undefined;
+                };
+                description?: string | undefined;
+                links?: {
+                    value: string;
+                    name: string;
+                }[] | undefined;
+                logo?: {
+                    id?: string | undefined;
+                    label?: "COVER" | "BANNER" | "AVATAR" | "LOGO" | undefined;
+                    newImage?: {
+                        value: string;
+                        label: "COVER" | "BANNER" | "AVATAR" | "LOGO";
+                    } | undefined;
+                } | undefined;
+                createdDate?: {
+                    year?: number | undefined;
+                    month?: number | undefined;
+                    day?: number | undefined;
+                    hours?: number | undefined;
+                    minutes?: number | undefined;
+                    seconds?: number | undefined;
+                } | undefined;
+            } | undefined;
+        }[] | undefined;
         staffs?: {
             id?: string | undefined;
             newPerson?: {
@@ -3509,34 +6666,6 @@ export declare const AnimeCreateBody: z.ZodObject<z.objectUtil.extendShape<{
                 }[] | undefined;
             } | undefined;
             role?: "DOUBLAGE_SEIYU" | "AUTEUR" | "EDITEUR" | "PRODUCTEUR" | "REALISATEUR" | "REALISATEUR_EPISODES" | "REALISATEUR_MISEENPAGE" | "DIRECTEUR_ARTISTIQUE_CINEMATROGRAPHIQUE" | "DIRECTEUR_ANIMATION" | "CONCEPTEUR" | "ANIMATEUR_PRINCIPAL" | "ANIMATEUR_INTERMEDIAIRE" | "COLORISTES" | "DIRECTEUR_ENREGISTREMENT" | "SCENARISTE" | "ANIMATEUR_3D" | "METTEUR_EN_SCENE" | "SUPERVISEUR" | "MONTEUR" | "RESPONSABLE_DROITS" | "PRODUCTEUR_MUSIQUE" | "RESPONSABLE_MARKETING" | "DIFFUSEUR" | "STORYBOARDER" | "ARTISTE_VFX" | "INGENIEUR_SON" | "DIRECTEUR_DOUBLAGE" | "TRADUCTEUR" | "MANGAKA" | "CHARACTER_DESIGNER" | "DESSINATEUR_DECORS" | "REALISATEUR_MISE_EN_PAGE" | "COMPOSITEUR" | "PAROLIER" | "ARRANGEUR" | "MUSICIEN" | "CHANTEUR_EUSE" | "CHEF_ORCHESTRE" | "PRODUCTEUR_MUSICAL" | "DESIGNER_SONORE" | "MIXEUR" | undefined;
-        }[] | undefined;
-        companys?: {
-            id?: string | undefined;
-            newCompany?: {
-                type: "STUDIO" | "PRODUCER";
-                name: string;
-                description?: string | undefined;
-                links?: {
-                    value: string;
-                    name: string;
-                }[] | undefined;
-                logo?: {
-                    id?: string | undefined;
-                    label?: "COVER" | "BANNER" | "AVATAR" | "LOGO" | undefined;
-                    newImage?: {
-                        value: string;
-                        label: "COVER" | "BANNER" | "AVATAR" | "LOGO";
-                    } | undefined;
-                } | undefined;
-                createdDate?: {
-                    year?: number | undefined;
-                    month?: number | undefined;
-                    day?: number | undefined;
-                    hours?: number | undefined;
-                    minutes?: number | undefined;
-                    seconds?: number | undefined;
-                } | undefined;
-            } | undefined;
         }[] | undefined;
         characters?: {
             id?: string | undefined;
@@ -3608,7 +6737,6 @@ export declare const AnimeCreateBody: z.ZodObject<z.objectUtil.extendShape<{
                 }[] | undefined;
             } | undefined;
         }[] | undefined;
-        synopsis?: string | undefined;
         episodes?: {
             airing?: number | undefined;
             nextAiringDate?: {
@@ -3709,7 +6837,10 @@ export declare const AnimeCreateBody: z.ZodObject<z.objectUtil.extendShape<{
         groupe: {
             id?: string | undefined;
             newGroupe?: {
-                name: string;
+                name: {
+                    default?: string | undefined;
+                    alias?: string[] | undefined;
+                };
             } | undefined;
         };
         source: "MANGA" | "MANHWA" | "MANHUA" | "LIGHT_NOVEL" | "ORIGINAL" | "VISUAL_NOVEL" | "WEB_NOVEL" | "GAME" | "NOVEL" | "ANIME";
@@ -3758,6 +6889,38 @@ export declare const AnimeCreateBody: z.ZodObject<z.objectUtil.extendShape<{
             id?: string | undefined;
             parentLabel?: "SEQUEL" | "SPIN_OFF" | "ALTERNATIVE" | "REBOOT" | "FILM" | undefined;
         } | undefined;
+        synopsis?: string | undefined;
+        companys?: {
+            id?: string | undefined;
+            newCompany?: {
+                type: "STUDIO" | "PRODUCER";
+                name: {
+                    default: string;
+                    alias?: string[] | undefined;
+                };
+                description?: string | undefined;
+                links?: {
+                    value: string;
+                    name: string;
+                }[] | undefined;
+                logo?: {
+                    id?: string | undefined;
+                    label?: "COVER" | "BANNER" | "AVATAR" | "LOGO" | undefined;
+                    newImage?: {
+                        value: string;
+                        label: "COVER" | "BANNER" | "AVATAR" | "LOGO";
+                    } | undefined;
+                } | undefined;
+                createdDate?: {
+                    year?: string | number | undefined;
+                    month?: string | number | undefined;
+                    day?: string | number | undefined;
+                    hours?: string | number | undefined;
+                    minutes?: string | number | undefined;
+                    seconds?: string | number | undefined;
+                } | undefined;
+            } | undefined;
+        }[] | undefined;
         staffs?: {
             id?: string | undefined;
             newPerson?: {
@@ -3797,34 +6960,6 @@ export declare const AnimeCreateBody: z.ZodObject<z.objectUtil.extendShape<{
                 }[] | undefined;
             } | undefined;
             role?: "DOUBLAGE_SEIYU" | "AUTEUR" | "EDITEUR" | "PRODUCTEUR" | "REALISATEUR" | "REALISATEUR_EPISODES" | "REALISATEUR_MISEENPAGE" | "DIRECTEUR_ARTISTIQUE_CINEMATROGRAPHIQUE" | "DIRECTEUR_ANIMATION" | "CONCEPTEUR" | "ANIMATEUR_PRINCIPAL" | "ANIMATEUR_INTERMEDIAIRE" | "COLORISTES" | "DIRECTEUR_ENREGISTREMENT" | "SCENARISTE" | "ANIMATEUR_3D" | "METTEUR_EN_SCENE" | "SUPERVISEUR" | "MONTEUR" | "RESPONSABLE_DROITS" | "PRODUCTEUR_MUSIQUE" | "RESPONSABLE_MARKETING" | "DIFFUSEUR" | "STORYBOARDER" | "ARTISTE_VFX" | "INGENIEUR_SON" | "DIRECTEUR_DOUBLAGE" | "TRADUCTEUR" | "MANGAKA" | "CHARACTER_DESIGNER" | "DESSINATEUR_DECORS" | "REALISATEUR_MISE_EN_PAGE" | "COMPOSITEUR" | "PAROLIER" | "ARRANGEUR" | "MUSICIEN" | "CHANTEUR_EUSE" | "CHEF_ORCHESTRE" | "PRODUCTEUR_MUSICAL" | "DESIGNER_SONORE" | "MIXEUR" | undefined;
-        }[] | undefined;
-        companys?: {
-            id?: string | undefined;
-            newCompany?: {
-                type: "STUDIO" | "PRODUCER";
-                name: string;
-                description?: string | undefined;
-                links?: {
-                    value: string;
-                    name: string;
-                }[] | undefined;
-                logo?: {
-                    id?: string | undefined;
-                    label?: "COVER" | "BANNER" | "AVATAR" | "LOGO" | undefined;
-                    newImage?: {
-                        value: string;
-                        label: "COVER" | "BANNER" | "AVATAR" | "LOGO";
-                    } | undefined;
-                } | undefined;
-                createdDate?: {
-                    year?: string | number | undefined;
-                    month?: string | number | undefined;
-                    day?: string | number | undefined;
-                    hours?: string | number | undefined;
-                    minutes?: string | number | undefined;
-                    seconds?: string | number | undefined;
-                } | undefined;
-            } | undefined;
         }[] | undefined;
         characters?: {
             id?: string | undefined;
@@ -3896,7 +7031,6 @@ export declare const AnimeCreateBody: z.ZodObject<z.objectUtil.extendShape<{
                 }[] | undefined;
             } | undefined;
         }[] | undefined;
-        synopsis?: string | undefined;
         episodes?: {
             airing?: number | undefined;
             nextAiringDate?: {
@@ -3997,7 +7131,10 @@ export declare const AnimeCreateBody: z.ZodObject<z.objectUtil.extendShape<{
         groupe: {
             id?: string | undefined;
             newGroupe?: {
-                name: string;
+                name: {
+                    default?: string | undefined;
+                    alias?: string[] | undefined;
+                };
             } | undefined;
         };
         source: "MANGA" | "MANHWA" | "MANHUA" | "LIGHT_NOVEL" | "ORIGINAL" | "VISUAL_NOVEL" | "WEB_NOVEL" | "GAME" | "NOVEL" | "ANIME";
@@ -4046,6 +7183,38 @@ export declare const AnimeCreateBody: z.ZodObject<z.objectUtil.extendShape<{
             id?: string | undefined;
             parentLabel?: "SEQUEL" | "SPIN_OFF" | "ALTERNATIVE" | "REBOOT" | "FILM" | undefined;
         } | undefined;
+        synopsis?: string | undefined;
+        companys?: {
+            id?: string | undefined;
+            newCompany?: {
+                type: "STUDIO" | "PRODUCER";
+                name: {
+                    default: string;
+                    alias?: string[] | undefined;
+                };
+                description?: string | undefined;
+                links?: {
+                    value: string;
+                    name: string;
+                }[] | undefined;
+                logo?: {
+                    id?: string | undefined;
+                    label?: "COVER" | "BANNER" | "AVATAR" | "LOGO" | undefined;
+                    newImage?: {
+                        value: string;
+                        label: "COVER" | "BANNER" | "AVATAR" | "LOGO";
+                    } | undefined;
+                } | undefined;
+                createdDate?: {
+                    year?: number | undefined;
+                    month?: number | undefined;
+                    day?: number | undefined;
+                    hours?: number | undefined;
+                    minutes?: number | undefined;
+                    seconds?: number | undefined;
+                } | undefined;
+            } | undefined;
+        }[] | undefined;
         staffs?: {
             id?: string | undefined;
             newPerson?: {
@@ -4085,34 +7254,6 @@ export declare const AnimeCreateBody: z.ZodObject<z.objectUtil.extendShape<{
                 }[] | undefined;
             } | undefined;
             role?: "DOUBLAGE_SEIYU" | "AUTEUR" | "EDITEUR" | "PRODUCTEUR" | "REALISATEUR" | "REALISATEUR_EPISODES" | "REALISATEUR_MISEENPAGE" | "DIRECTEUR_ARTISTIQUE_CINEMATROGRAPHIQUE" | "DIRECTEUR_ANIMATION" | "CONCEPTEUR" | "ANIMATEUR_PRINCIPAL" | "ANIMATEUR_INTERMEDIAIRE" | "COLORISTES" | "DIRECTEUR_ENREGISTREMENT" | "SCENARISTE" | "ANIMATEUR_3D" | "METTEUR_EN_SCENE" | "SUPERVISEUR" | "MONTEUR" | "RESPONSABLE_DROITS" | "PRODUCTEUR_MUSIQUE" | "RESPONSABLE_MARKETING" | "DIFFUSEUR" | "STORYBOARDER" | "ARTISTE_VFX" | "INGENIEUR_SON" | "DIRECTEUR_DOUBLAGE" | "TRADUCTEUR" | "MANGAKA" | "CHARACTER_DESIGNER" | "DESSINATEUR_DECORS" | "REALISATEUR_MISE_EN_PAGE" | "COMPOSITEUR" | "PAROLIER" | "ARRANGEUR" | "MUSICIEN" | "CHANTEUR_EUSE" | "CHEF_ORCHESTRE" | "PRODUCTEUR_MUSICAL" | "DESIGNER_SONORE" | "MIXEUR" | undefined;
-        }[] | undefined;
-        companys?: {
-            id?: string | undefined;
-            newCompany?: {
-                type: "STUDIO" | "PRODUCER";
-                name: string;
-                description?: string | undefined;
-                links?: {
-                    value: string;
-                    name: string;
-                }[] | undefined;
-                logo?: {
-                    id?: string | undefined;
-                    label?: "COVER" | "BANNER" | "AVATAR" | "LOGO" | undefined;
-                    newImage?: {
-                        value: string;
-                        label: "COVER" | "BANNER" | "AVATAR" | "LOGO";
-                    } | undefined;
-                } | undefined;
-                createdDate?: {
-                    year?: number | undefined;
-                    month?: number | undefined;
-                    day?: number | undefined;
-                    hours?: number | undefined;
-                    minutes?: number | undefined;
-                    seconds?: number | undefined;
-                } | undefined;
-            } | undefined;
         }[] | undefined;
         characters?: {
             id?: string | undefined;
@@ -4184,7 +7325,6 @@ export declare const AnimeCreateBody: z.ZodObject<z.objectUtil.extendShape<{
                 }[] | undefined;
             } | undefined;
         }[] | undefined;
-        synopsis?: string | undefined;
         episodes?: {
             airing?: number | undefined;
             nextAiringDate?: {
@@ -4285,7 +7425,10 @@ export declare const AnimeCreateBody: z.ZodObject<z.objectUtil.extendShape<{
         groupe: {
             id?: string | undefined;
             newGroupe?: {
-                name: string;
+                name: {
+                    default?: string | undefined;
+                    alias?: string[] | undefined;
+                };
             } | undefined;
         };
         source: "MANGA" | "MANHWA" | "MANHUA" | "LIGHT_NOVEL" | "ORIGINAL" | "VISUAL_NOVEL" | "WEB_NOVEL" | "GAME" | "NOVEL" | "ANIME";
@@ -4334,6 +7477,38 @@ export declare const AnimeCreateBody: z.ZodObject<z.objectUtil.extendShape<{
             id?: string | undefined;
             parentLabel?: "SEQUEL" | "SPIN_OFF" | "ALTERNATIVE" | "REBOOT" | "FILM" | undefined;
         } | undefined;
+        synopsis?: string | undefined;
+        companys?: {
+            id?: string | undefined;
+            newCompany?: {
+                type: "STUDIO" | "PRODUCER";
+                name: {
+                    default: string;
+                    alias?: string[] | undefined;
+                };
+                description?: string | undefined;
+                links?: {
+                    value: string;
+                    name: string;
+                }[] | undefined;
+                logo?: {
+                    id?: string | undefined;
+                    label?: "COVER" | "BANNER" | "AVATAR" | "LOGO" | undefined;
+                    newImage?: {
+                        value: string;
+                        label: "COVER" | "BANNER" | "AVATAR" | "LOGO";
+                    } | undefined;
+                } | undefined;
+                createdDate?: {
+                    year?: string | number | undefined;
+                    month?: string | number | undefined;
+                    day?: string | number | undefined;
+                    hours?: string | number | undefined;
+                    minutes?: string | number | undefined;
+                    seconds?: string | number | undefined;
+                } | undefined;
+            } | undefined;
+        }[] | undefined;
         staffs?: {
             id?: string | undefined;
             newPerson?: {
@@ -4373,34 +7548,6 @@ export declare const AnimeCreateBody: z.ZodObject<z.objectUtil.extendShape<{
                 }[] | undefined;
             } | undefined;
             role?: "DOUBLAGE_SEIYU" | "AUTEUR" | "EDITEUR" | "PRODUCTEUR" | "REALISATEUR" | "REALISATEUR_EPISODES" | "REALISATEUR_MISEENPAGE" | "DIRECTEUR_ARTISTIQUE_CINEMATROGRAPHIQUE" | "DIRECTEUR_ANIMATION" | "CONCEPTEUR" | "ANIMATEUR_PRINCIPAL" | "ANIMATEUR_INTERMEDIAIRE" | "COLORISTES" | "DIRECTEUR_ENREGISTREMENT" | "SCENARISTE" | "ANIMATEUR_3D" | "METTEUR_EN_SCENE" | "SUPERVISEUR" | "MONTEUR" | "RESPONSABLE_DROITS" | "PRODUCTEUR_MUSIQUE" | "RESPONSABLE_MARKETING" | "DIFFUSEUR" | "STORYBOARDER" | "ARTISTE_VFX" | "INGENIEUR_SON" | "DIRECTEUR_DOUBLAGE" | "TRADUCTEUR" | "MANGAKA" | "CHARACTER_DESIGNER" | "DESSINATEUR_DECORS" | "REALISATEUR_MISE_EN_PAGE" | "COMPOSITEUR" | "PAROLIER" | "ARRANGEUR" | "MUSICIEN" | "CHANTEUR_EUSE" | "CHEF_ORCHESTRE" | "PRODUCTEUR_MUSICAL" | "DESIGNER_SONORE" | "MIXEUR" | undefined;
-        }[] | undefined;
-        companys?: {
-            id?: string | undefined;
-            newCompany?: {
-                type: "STUDIO" | "PRODUCER";
-                name: string;
-                description?: string | undefined;
-                links?: {
-                    value: string;
-                    name: string;
-                }[] | undefined;
-                logo?: {
-                    id?: string | undefined;
-                    label?: "COVER" | "BANNER" | "AVATAR" | "LOGO" | undefined;
-                    newImage?: {
-                        value: string;
-                        label: "COVER" | "BANNER" | "AVATAR" | "LOGO";
-                    } | undefined;
-                } | undefined;
-                createdDate?: {
-                    year?: string | number | undefined;
-                    month?: string | number | undefined;
-                    day?: string | number | undefined;
-                    hours?: string | number | undefined;
-                    minutes?: string | number | undefined;
-                    seconds?: string | number | undefined;
-                } | undefined;
-            } | undefined;
         }[] | undefined;
         characters?: {
             id?: string | undefined;
@@ -4472,7 +7619,6 @@ export declare const AnimeCreateBody: z.ZodObject<z.objectUtil.extendShape<{
                 }[] | undefined;
             } | undefined;
         }[] | undefined;
-        synopsis?: string | undefined;
         episodes?: {
             airing?: number | undefined;
             nextAiringDate?: {
@@ -4575,7 +7721,10 @@ export declare const AnimeCreateBody: z.ZodObject<z.objectUtil.extendShape<{
         groupe: {
             id?: string | undefined;
             newGroupe?: {
-                name: string;
+                name: {
+                    default?: string | undefined;
+                    alias?: string[] | undefined;
+                };
             } | undefined;
         };
         source: "MANGA" | "MANHWA" | "MANHUA" | "LIGHT_NOVEL" | "ORIGINAL" | "VISUAL_NOVEL" | "WEB_NOVEL" | "GAME" | "NOVEL" | "ANIME";
@@ -4624,6 +7773,38 @@ export declare const AnimeCreateBody: z.ZodObject<z.objectUtil.extendShape<{
             id?: string | undefined;
             parentLabel?: "SEQUEL" | "SPIN_OFF" | "ALTERNATIVE" | "REBOOT" | "FILM" | undefined;
         } | undefined;
+        synopsis?: string | undefined;
+        companys?: {
+            id?: string | undefined;
+            newCompany?: {
+                type: "STUDIO" | "PRODUCER";
+                name: {
+                    default: string;
+                    alias?: string[] | undefined;
+                };
+                description?: string | undefined;
+                links?: {
+                    value: string;
+                    name: string;
+                }[] | undefined;
+                logo?: {
+                    id?: string | undefined;
+                    label?: "COVER" | "BANNER" | "AVATAR" | "LOGO" | undefined;
+                    newImage?: {
+                        value: string;
+                        label: "COVER" | "BANNER" | "AVATAR" | "LOGO";
+                    } | undefined;
+                } | undefined;
+                createdDate?: {
+                    year?: number | undefined;
+                    month?: number | undefined;
+                    day?: number | undefined;
+                    hours?: number | undefined;
+                    minutes?: number | undefined;
+                    seconds?: number | undefined;
+                } | undefined;
+            } | undefined;
+        }[] | undefined;
         staffs?: {
             id?: string | undefined;
             newPerson?: {
@@ -4663,34 +7844,6 @@ export declare const AnimeCreateBody: z.ZodObject<z.objectUtil.extendShape<{
                 }[] | undefined;
             } | undefined;
             role?: "DOUBLAGE_SEIYU" | "AUTEUR" | "EDITEUR" | "PRODUCTEUR" | "REALISATEUR" | "REALISATEUR_EPISODES" | "REALISATEUR_MISEENPAGE" | "DIRECTEUR_ARTISTIQUE_CINEMATROGRAPHIQUE" | "DIRECTEUR_ANIMATION" | "CONCEPTEUR" | "ANIMATEUR_PRINCIPAL" | "ANIMATEUR_INTERMEDIAIRE" | "COLORISTES" | "DIRECTEUR_ENREGISTREMENT" | "SCENARISTE" | "ANIMATEUR_3D" | "METTEUR_EN_SCENE" | "SUPERVISEUR" | "MONTEUR" | "RESPONSABLE_DROITS" | "PRODUCTEUR_MUSIQUE" | "RESPONSABLE_MARKETING" | "DIFFUSEUR" | "STORYBOARDER" | "ARTISTE_VFX" | "INGENIEUR_SON" | "DIRECTEUR_DOUBLAGE" | "TRADUCTEUR" | "MANGAKA" | "CHARACTER_DESIGNER" | "DESSINATEUR_DECORS" | "REALISATEUR_MISE_EN_PAGE" | "COMPOSITEUR" | "PAROLIER" | "ARRANGEUR" | "MUSICIEN" | "CHANTEUR_EUSE" | "CHEF_ORCHESTRE" | "PRODUCTEUR_MUSICAL" | "DESIGNER_SONORE" | "MIXEUR" | undefined;
-        }[] | undefined;
-        companys?: {
-            id?: string | undefined;
-            newCompany?: {
-                type: "STUDIO" | "PRODUCER";
-                name: string;
-                description?: string | undefined;
-                links?: {
-                    value: string;
-                    name: string;
-                }[] | undefined;
-                logo?: {
-                    id?: string | undefined;
-                    label?: "COVER" | "BANNER" | "AVATAR" | "LOGO" | undefined;
-                    newImage?: {
-                        value: string;
-                        label: "COVER" | "BANNER" | "AVATAR" | "LOGO";
-                    } | undefined;
-                } | undefined;
-                createdDate?: {
-                    year?: number | undefined;
-                    month?: number | undefined;
-                    day?: number | undefined;
-                    hours?: number | undefined;
-                    minutes?: number | undefined;
-                    seconds?: number | undefined;
-                } | undefined;
-            } | undefined;
         }[] | undefined;
         characters?: {
             id?: string | undefined;
@@ -4762,7 +7915,6 @@ export declare const AnimeCreateBody: z.ZodObject<z.objectUtil.extendShape<{
                 }[] | undefined;
             } | undefined;
         }[] | undefined;
-        synopsis?: string | undefined;
         episodes?: {
             airing?: number | undefined;
             nextAiringDate?: {
@@ -4867,7 +8019,10 @@ export declare const AnimeCreateBody: z.ZodObject<z.objectUtil.extendShape<{
         groupe: {
             id?: string | undefined;
             newGroupe?: {
-                name: string;
+                name: {
+                    default?: string | undefined;
+                    alias?: string[] | undefined;
+                };
             } | undefined;
         };
         source: "MANGA" | "MANHWA" | "MANHUA" | "LIGHT_NOVEL" | "ORIGINAL" | "VISUAL_NOVEL" | "WEB_NOVEL" | "GAME" | "NOVEL" | "ANIME";
@@ -4916,6 +8071,38 @@ export declare const AnimeCreateBody: z.ZodObject<z.objectUtil.extendShape<{
             id?: string | undefined;
             parentLabel?: "SEQUEL" | "SPIN_OFF" | "ALTERNATIVE" | "REBOOT" | "FILM" | undefined;
         } | undefined;
+        synopsis?: string | undefined;
+        companys?: {
+            id?: string | undefined;
+            newCompany?: {
+                type: "STUDIO" | "PRODUCER";
+                name: {
+                    default: string;
+                    alias?: string[] | undefined;
+                };
+                description?: string | undefined;
+                links?: {
+                    value: string;
+                    name: string;
+                }[] | undefined;
+                logo?: {
+                    id?: string | undefined;
+                    label?: "COVER" | "BANNER" | "AVATAR" | "LOGO" | undefined;
+                    newImage?: {
+                        value: string;
+                        label: "COVER" | "BANNER" | "AVATAR" | "LOGO";
+                    } | undefined;
+                } | undefined;
+                createdDate?: {
+                    year?: string | number | undefined;
+                    month?: string | number | undefined;
+                    day?: string | number | undefined;
+                    hours?: string | number | undefined;
+                    minutes?: string | number | undefined;
+                    seconds?: string | number | undefined;
+                } | undefined;
+            } | undefined;
+        }[] | undefined;
         staffs?: {
             id?: string | undefined;
             newPerson?: {
@@ -4955,34 +8142,6 @@ export declare const AnimeCreateBody: z.ZodObject<z.objectUtil.extendShape<{
                 }[] | undefined;
             } | undefined;
             role?: "DOUBLAGE_SEIYU" | "AUTEUR" | "EDITEUR" | "PRODUCTEUR" | "REALISATEUR" | "REALISATEUR_EPISODES" | "REALISATEUR_MISEENPAGE" | "DIRECTEUR_ARTISTIQUE_CINEMATROGRAPHIQUE" | "DIRECTEUR_ANIMATION" | "CONCEPTEUR" | "ANIMATEUR_PRINCIPAL" | "ANIMATEUR_INTERMEDIAIRE" | "COLORISTES" | "DIRECTEUR_ENREGISTREMENT" | "SCENARISTE" | "ANIMATEUR_3D" | "METTEUR_EN_SCENE" | "SUPERVISEUR" | "MONTEUR" | "RESPONSABLE_DROITS" | "PRODUCTEUR_MUSIQUE" | "RESPONSABLE_MARKETING" | "DIFFUSEUR" | "STORYBOARDER" | "ARTISTE_VFX" | "INGENIEUR_SON" | "DIRECTEUR_DOUBLAGE" | "TRADUCTEUR" | "MANGAKA" | "CHARACTER_DESIGNER" | "DESSINATEUR_DECORS" | "REALISATEUR_MISE_EN_PAGE" | "COMPOSITEUR" | "PAROLIER" | "ARRANGEUR" | "MUSICIEN" | "CHANTEUR_EUSE" | "CHEF_ORCHESTRE" | "PRODUCTEUR_MUSICAL" | "DESIGNER_SONORE" | "MIXEUR" | undefined;
-        }[] | undefined;
-        companys?: {
-            id?: string | undefined;
-            newCompany?: {
-                type: "STUDIO" | "PRODUCER";
-                name: string;
-                description?: string | undefined;
-                links?: {
-                    value: string;
-                    name: string;
-                }[] | undefined;
-                logo?: {
-                    id?: string | undefined;
-                    label?: "COVER" | "BANNER" | "AVATAR" | "LOGO" | undefined;
-                    newImage?: {
-                        value: string;
-                        label: "COVER" | "BANNER" | "AVATAR" | "LOGO";
-                    } | undefined;
-                } | undefined;
-                createdDate?: {
-                    year?: string | number | undefined;
-                    month?: string | number | undefined;
-                    day?: string | number | undefined;
-                    hours?: string | number | undefined;
-                    minutes?: string | number | undefined;
-                    seconds?: string | number | undefined;
-                } | undefined;
-            } | undefined;
         }[] | undefined;
         characters?: {
             id?: string | undefined;
@@ -5054,7 +8213,6 @@ export declare const AnimeCreateBody: z.ZodObject<z.objectUtil.extendShape<{
                 }[] | undefined;
             } | undefined;
         }[] | undefined;
-        synopsis?: string | undefined;
         episodes?: {
             airing?: number | undefined;
             nextAiringDate?: {
@@ -5160,7 +8318,10 @@ export declare const AnimeDataToZOD: (data: IAnime) => {
     groupe: {
         id?: string | undefined;
         newGroupe?: {
-            name: string;
+            name: {
+                default?: string | undefined;
+                alias?: string[] | undefined;
+            };
         } | undefined;
     };
     source: "MANGA" | "MANHWA" | "MANHUA" | "LIGHT_NOVEL" | "ORIGINAL" | "VISUAL_NOVEL" | "WEB_NOVEL" | "GAME" | "NOVEL" | "ANIME";
@@ -5209,6 +8370,38 @@ export declare const AnimeDataToZOD: (data: IAnime) => {
         id?: string | undefined;
         parentLabel?: "SEQUEL" | "SPIN_OFF" | "ALTERNATIVE" | "REBOOT" | "FILM" | undefined;
     } | undefined;
+    synopsis?: string | undefined;
+    companys?: {
+        id?: string | undefined;
+        newCompany?: {
+            type: "STUDIO" | "PRODUCER";
+            name: {
+                default: string;
+                alias?: string[] | undefined;
+            };
+            description?: string | undefined;
+            links?: {
+                value: string;
+                name: string;
+            }[] | undefined;
+            logo?: {
+                id?: string | undefined;
+                label?: "COVER" | "BANNER" | "AVATAR" | "LOGO" | undefined;
+                newImage?: {
+                    value: string;
+                    label: "COVER" | "BANNER" | "AVATAR" | "LOGO";
+                } | undefined;
+            } | undefined;
+            createdDate?: {
+                year?: number | undefined;
+                month?: number | undefined;
+                day?: number | undefined;
+                hours?: number | undefined;
+                minutes?: number | undefined;
+                seconds?: number | undefined;
+            } | undefined;
+        } | undefined;
+    }[] | undefined;
     staffs?: {
         id?: string | undefined;
         newPerson?: {
@@ -5248,34 +8441,6 @@ export declare const AnimeDataToZOD: (data: IAnime) => {
             }[] | undefined;
         } | undefined;
         role?: "DOUBLAGE_SEIYU" | "AUTEUR" | "EDITEUR" | "PRODUCTEUR" | "REALISATEUR" | "REALISATEUR_EPISODES" | "REALISATEUR_MISEENPAGE" | "DIRECTEUR_ARTISTIQUE_CINEMATROGRAPHIQUE" | "DIRECTEUR_ANIMATION" | "CONCEPTEUR" | "ANIMATEUR_PRINCIPAL" | "ANIMATEUR_INTERMEDIAIRE" | "COLORISTES" | "DIRECTEUR_ENREGISTREMENT" | "SCENARISTE" | "ANIMATEUR_3D" | "METTEUR_EN_SCENE" | "SUPERVISEUR" | "MONTEUR" | "RESPONSABLE_DROITS" | "PRODUCTEUR_MUSIQUE" | "RESPONSABLE_MARKETING" | "DIFFUSEUR" | "STORYBOARDER" | "ARTISTE_VFX" | "INGENIEUR_SON" | "DIRECTEUR_DOUBLAGE" | "TRADUCTEUR" | "MANGAKA" | "CHARACTER_DESIGNER" | "DESSINATEUR_DECORS" | "REALISATEUR_MISE_EN_PAGE" | "COMPOSITEUR" | "PAROLIER" | "ARRANGEUR" | "MUSICIEN" | "CHANTEUR_EUSE" | "CHEF_ORCHESTRE" | "PRODUCTEUR_MUSICAL" | "DESIGNER_SONORE" | "MIXEUR" | undefined;
-    }[] | undefined;
-    companys?: {
-        id?: string | undefined;
-        newCompany?: {
-            type: "STUDIO" | "PRODUCER";
-            name: string;
-            description?: string | undefined;
-            links?: {
-                value: string;
-                name: string;
-            }[] | undefined;
-            logo?: {
-                id?: string | undefined;
-                label?: "COVER" | "BANNER" | "AVATAR" | "LOGO" | undefined;
-                newImage?: {
-                    value: string;
-                    label: "COVER" | "BANNER" | "AVATAR" | "LOGO";
-                } | undefined;
-            } | undefined;
-            createdDate?: {
-                year?: number | undefined;
-                month?: number | undefined;
-                day?: number | undefined;
-                hours?: number | undefined;
-                minutes?: number | undefined;
-                seconds?: number | undefined;
-            } | undefined;
-        } | undefined;
     }[] | undefined;
     characters?: {
         id?: string | undefined;
@@ -5347,7 +8512,6 @@ export declare const AnimeDataToZOD: (data: IAnime) => {
             }[] | undefined;
         } | undefined;
     }[] | undefined;
-    synopsis?: string | undefined;
     episodes?: {
         airing?: number | undefined;
         nextAiringDate?: {
@@ -5449,7 +8613,10 @@ export declare const AnimeDataToZOD: (data: IAnime) => {
         groupe: {
             id?: string | undefined;
             newGroupe?: {
-                name: string;
+                name: {
+                    default?: string | undefined;
+                    alias?: string[] | undefined;
+                };
             } | undefined;
         };
         source: "MANGA" | "MANHWA" | "MANHUA" | "LIGHT_NOVEL" | "ORIGINAL" | "VISUAL_NOVEL" | "WEB_NOVEL" | "GAME" | "NOVEL" | "ANIME";
@@ -5498,6 +8665,38 @@ export declare const AnimeDataToZOD: (data: IAnime) => {
             id?: string | undefined;
             parentLabel?: "SEQUEL" | "SPIN_OFF" | "ALTERNATIVE" | "REBOOT" | "FILM" | undefined;
         } | undefined;
+        synopsis?: string | undefined;
+        companys?: {
+            id?: string | undefined;
+            newCompany?: {
+                type: "STUDIO" | "PRODUCER";
+                name: {
+                    default: string;
+                    alias?: string[] | undefined;
+                };
+                description?: string | undefined;
+                links?: {
+                    value: string;
+                    name: string;
+                }[] | undefined;
+                logo?: {
+                    id?: string | undefined;
+                    label?: "COVER" | "BANNER" | "AVATAR" | "LOGO" | undefined;
+                    newImage?: {
+                        value: string;
+                        label: "COVER" | "BANNER" | "AVATAR" | "LOGO";
+                    } | undefined;
+                } | undefined;
+                createdDate?: {
+                    year?: number | undefined;
+                    month?: number | undefined;
+                    day?: number | undefined;
+                    hours?: number | undefined;
+                    minutes?: number | undefined;
+                    seconds?: number | undefined;
+                } | undefined;
+            } | undefined;
+        }[] | undefined;
         staffs?: {
             id?: string | undefined;
             newPerson?: {
@@ -5537,34 +8736,6 @@ export declare const AnimeDataToZOD: (data: IAnime) => {
                 }[] | undefined;
             } | undefined;
             role?: "DOUBLAGE_SEIYU" | "AUTEUR" | "EDITEUR" | "PRODUCTEUR" | "REALISATEUR" | "REALISATEUR_EPISODES" | "REALISATEUR_MISEENPAGE" | "DIRECTEUR_ARTISTIQUE_CINEMATROGRAPHIQUE" | "DIRECTEUR_ANIMATION" | "CONCEPTEUR" | "ANIMATEUR_PRINCIPAL" | "ANIMATEUR_INTERMEDIAIRE" | "COLORISTES" | "DIRECTEUR_ENREGISTREMENT" | "SCENARISTE" | "ANIMATEUR_3D" | "METTEUR_EN_SCENE" | "SUPERVISEUR" | "MONTEUR" | "RESPONSABLE_DROITS" | "PRODUCTEUR_MUSIQUE" | "RESPONSABLE_MARKETING" | "DIFFUSEUR" | "STORYBOARDER" | "ARTISTE_VFX" | "INGENIEUR_SON" | "DIRECTEUR_DOUBLAGE" | "TRADUCTEUR" | "MANGAKA" | "CHARACTER_DESIGNER" | "DESSINATEUR_DECORS" | "REALISATEUR_MISE_EN_PAGE" | "COMPOSITEUR" | "PAROLIER" | "ARRANGEUR" | "MUSICIEN" | "CHANTEUR_EUSE" | "CHEF_ORCHESTRE" | "PRODUCTEUR_MUSICAL" | "DESIGNER_SONORE" | "MIXEUR" | undefined;
-        }[] | undefined;
-        companys?: {
-            id?: string | undefined;
-            newCompany?: {
-                type: "STUDIO" | "PRODUCER";
-                name: string;
-                description?: string | undefined;
-                links?: {
-                    value: string;
-                    name: string;
-                }[] | undefined;
-                logo?: {
-                    id?: string | undefined;
-                    label?: "COVER" | "BANNER" | "AVATAR" | "LOGO" | undefined;
-                    newImage?: {
-                        value: string;
-                        label: "COVER" | "BANNER" | "AVATAR" | "LOGO";
-                    } | undefined;
-                } | undefined;
-                createdDate?: {
-                    year?: number | undefined;
-                    month?: number | undefined;
-                    day?: number | undefined;
-                    hours?: number | undefined;
-                    minutes?: number | undefined;
-                    seconds?: number | undefined;
-                } | undefined;
-            } | undefined;
         }[] | undefined;
         characters?: {
             id?: string | undefined;
@@ -5636,7 +8807,6 @@ export declare const AnimeDataToZOD: (data: IAnime) => {
                 }[] | undefined;
             } | undefined;
         }[] | undefined;
-        synopsis?: string | undefined;
         episodes?: {
             airing?: number | undefined;
             nextAiringDate?: {

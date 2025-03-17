@@ -1,42 +1,15 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.PersonDataToZOD = exports.PersonBody = exports.Add_Person_ZOD = exports.Person_Pagination_ZOD = exports.PersonPaginationBody = exports.PersonSortBody = exports.PersonQueryBody = exports.Create_Person_ZOD_FORM = exports.PersonCreateBody = exports.Partial_Create_Person_ZOD = exports.Create_Person_ZOD = exports.Base_Create_Person_ZOD = exports.PersonName_validation = void 0;
+exports.PersonDataToZOD = exports.PersonAddBody = exports.PersonCreateBody = exports.PersonBody = exports.PersonPaginationBody = exports.PersonSortBody = exports.PersonQueryBody = void 0;
 const zod_1 = require("zod");
 const _media_1 = require("./_media");
 const _util_1 = require("./_util");
 const _imageZOD_1 = require("./_imageZOD");
 const types_1 = require("@actunime/types");
 const _patchZOD_1 = require("./_patchZOD");
-exports.PersonName_validation = zod_1.z.object({
-    default: zod_1.z.string(),
-    alias: zod_1.z.optional(zod_1.z.array(zod_1.z.string())),
-});
-exports.Base_Create_Person_ZOD = zod_1.z
-    .object({
-    isGroupe: zod_1.z.optional(zod_1.z.boolean()),
-    name: exports.PersonName_validation,
-    birthDate: zod_1.z.optional(_media_1.DateBody.partial()),
-    deathDate: zod_1.z.optional(_media_1.DateBody.partial()),
-    description: zod_1.z.optional(zod_1.z.string()),
-    avatar: zod_1.z.optional(_imageZOD_1.Add_Image_ZOD),
-    links: zod_1.z.optional(zod_1.z.array(_media_1.Create_Link_ZOD)),
-})
-    .strict();
-exports.Create_Person_ZOD = exports.Base_Create_Person_ZOD
-    .strict();
-exports.Partial_Create_Person_ZOD = exports.Base_Create_Person_ZOD
-    .strict()
-    .partial();
-exports.PersonCreateBody = _patchZOD_1.PatchParamsBody.partial().extend({
-    data: exports.Create_Person_ZOD
-});
-exports.Create_Person_ZOD_FORM = zod_1.z.object({
-    note: zod_1.z.string().optional(),
-    data: exports.Create_Person_ZOD,
-});
 exports.PersonQueryBody = zod_1.z.object({
     isGroupe: zod_1.z.boolean(),
-    name: exports.PersonName_validation.partial(),
+    name: _media_1.MediaTitleBody.partial(),
     birthDate: zod_1.z.string(),
     deathDate: zod_1.z.string(),
     avatar: _imageZOD_1.ImageBody.partial(),
@@ -58,20 +31,22 @@ exports.PersonPaginationBody = _util_1.PaginationBody.extend({
     query: exports.PersonQueryBody.partial(),
     from: _media_1.FromBody,
 }).partial();
-exports.Person_Pagination_ZOD = zod_1.z.object({
-    page: zod_1.z.number(),
-    limit: zod_1.z.number(),
-    strict: zod_1.z.boolean(),
-    sort: exports.PersonSortBody.partial(),
-    query: exports.PersonQueryBody.partial()
-});
-exports.Add_Person_ZOD = zod_1.z.object({
-    id: zod_1.z.optional(zod_1.z.string()),
-    newPerson: zod_1.z.optional(exports.Create_Person_ZOD),
-    role: zod_1.z.optional(zod_1.z.enum(types_1.PersonRoleArray)),
-});
 exports.PersonBody = zod_1.z.object({
-    id: zod_1.z.string()
+    isGroupe: zod_1.z.optional(zod_1.z.boolean()),
+    name: _media_1.MediaTitleBody,
+    birthDate: zod_1.z.optional(_media_1.DateBody.partial()),
+    deathDate: zod_1.z.optional(_media_1.DateBody.partial()),
+    description: zod_1.z.optional(zod_1.z.string()),
+    avatar: zod_1.z.optional(_imageZOD_1.Add_Image_ZOD),
+    links: zod_1.z.optional(zod_1.z.array(_media_1.Create_Link_ZOD)),
+}).strict();
+exports.PersonCreateBody = _patchZOD_1.PatchParamsBody.partial().extend({
+    data: exports.PersonBody
+});
+exports.PersonAddBody = zod_1.z.object({
+    id: zod_1.z.optional(zod_1.z.string()),
+    newPerson: zod_1.z.optional(exports.PersonBody),
+    role: zod_1.z.optional(zod_1.z.enum(types_1.PersonRoleArray)),
 });
 const PersonDataToZOD = (data) => {
     if (!data)
@@ -85,7 +60,7 @@ const PersonDataToZOD = (data) => {
         avatar: data.avatar,
         links: data.links,
     };
-    const safeParse = exports.Create_Person_ZOD.safeParse(toZOD);
+    const safeParse = exports.PersonBody.safeParse(toZOD);
     if (safeParse.success)
         return safeParse.data;
     return toZOD;
