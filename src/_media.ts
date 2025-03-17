@@ -9,8 +9,9 @@ export const DateBody = z.object({
   year: z.optional(zodNumber()),
   month: z.optional(zodNumber()),
   day: z.optional(zodNumber()),
-  hour: z.optional(zodNumber()),
-  minute: z.optional(zodNumber())
+  hours: z.optional(zodNumber()),
+  minutes: z.optional(zodNumber()),
+  seconds: z.optional(zodNumber()),
 })
 
 const check = (v: number) => [-1, 1].includes(v);
@@ -20,8 +21,9 @@ export const DateSortBody = z.object({
   year: z.optional(zodNumber().refine(check, checkErr)),
   month: z.optional(zodNumber().refine(check, checkErr)),
   day: z.optional(zodNumber().refine(check, checkErr)),
-  hour: z.optional(zodNumber().refine(check, checkErr)),
-  minute: z.optional(zodNumber().refine(check, checkErr)),
+  hours: z.optional(zodNumber().refine(check, checkErr)),
+  minutes: z.optional(zodNumber().refine(check, checkErr)),
+  seconds: z.optional(zodNumber().refine(check, checkErr)),
 })
 
 export const MediaDateBody = z.object({

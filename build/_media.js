@@ -8,8 +8,9 @@ exports.DateBody = zod_1.z.object({
     year: zod_1.z.optional((0, _util_1.zodNumber)()),
     month: zod_1.z.optional((0, _util_1.zodNumber)()),
     day: zod_1.z.optional((0, _util_1.zodNumber)()),
-    hour: zod_1.z.optional((0, _util_1.zodNumber)()),
-    minute: zod_1.z.optional((0, _util_1.zodNumber)())
+    hours: zod_1.z.optional((0, _util_1.zodNumber)()),
+    minutes: zod_1.z.optional((0, _util_1.zodNumber)()),
+    seconds: zod_1.z.optional((0, _util_1.zodNumber)()),
 });
 const check = (v) => [-1, 1].includes(v);
 const checkErr = "le sort doit être soit -1 ou 1";
@@ -17,8 +18,9 @@ exports.DateSortBody = zod_1.z.object({
     year: zod_1.z.optional((0, _util_1.zodNumber)().refine(check, checkErr)),
     month: zod_1.z.optional((0, _util_1.zodNumber)().refine(check, checkErr)),
     day: zod_1.z.optional((0, _util_1.zodNumber)().refine(check, checkErr)),
-    hour: zod_1.z.optional((0, _util_1.zodNumber)().refine(check, checkErr)),
-    minute: zod_1.z.optional((0, _util_1.zodNumber)().refine(check, checkErr)),
+    hours: zod_1.z.optional((0, _util_1.zodNumber)().refine(check, checkErr)),
+    minutes: zod_1.z.optional((0, _util_1.zodNumber)().refine(check, checkErr)),
+    seconds: zod_1.z.optional((0, _util_1.zodNumber)().refine(check, checkErr)),
 });
 exports.MediaDateBody = zod_1.z.object({
     start: exports.DateBody,

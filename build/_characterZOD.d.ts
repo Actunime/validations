@@ -26,20 +26,23 @@ export declare const CharacterQueryBody: z.ZodObject<{
         year: z.ZodOptional<z.ZodOptional<z.ZodEffects<z.ZodUnion<[z.ZodNumber, z.ZodString]>, number, string | number>>>;
         month: z.ZodOptional<z.ZodOptional<z.ZodEffects<z.ZodUnion<[z.ZodNumber, z.ZodString]>, number, string | number>>>;
         day: z.ZodOptional<z.ZodOptional<z.ZodEffects<z.ZodUnion<[z.ZodNumber, z.ZodString]>, number, string | number>>>;
-        hour: z.ZodOptional<z.ZodOptional<z.ZodEffects<z.ZodUnion<[z.ZodNumber, z.ZodString]>, number, string | number>>>;
-        minute: z.ZodOptional<z.ZodOptional<z.ZodEffects<z.ZodUnion<[z.ZodNumber, z.ZodString]>, number, string | number>>>;
+        hours: z.ZodOptional<z.ZodOptional<z.ZodEffects<z.ZodUnion<[z.ZodNumber, z.ZodString]>, number, string | number>>>;
+        minutes: z.ZodOptional<z.ZodOptional<z.ZodEffects<z.ZodUnion<[z.ZodNumber, z.ZodString]>, number, string | number>>>;
+        seconds: z.ZodOptional<z.ZodOptional<z.ZodEffects<z.ZodUnion<[z.ZodNumber, z.ZodString]>, number, string | number>>>;
     }, "strip", z.ZodTypeAny, {
         year?: number | undefined;
         month?: number | undefined;
         day?: number | undefined;
-        hour?: number | undefined;
-        minute?: number | undefined;
+        hours?: number | undefined;
+        minutes?: number | undefined;
+        seconds?: number | undefined;
     }, {
         year?: string | number | undefined;
         month?: string | number | undefined;
         day?: string | number | undefined;
-        hour?: string | number | undefined;
-        minute?: string | number | undefined;
+        hours?: string | number | undefined;
+        minutes?: string | number | undefined;
+        seconds?: string | number | undefined;
     }>>;
     avatar: z.ZodObject<{
         id: z.ZodOptional<z.ZodString>;
@@ -83,8 +86,9 @@ export declare const CharacterQueryBody: z.ZodObject<{
         year?: number | undefined;
         month?: number | undefined;
         day?: number | undefined;
-        hour?: number | undefined;
-        minute?: number | undefined;
+        hours?: number | undefined;
+        minutes?: number | undefined;
+        seconds?: number | undefined;
     } | undefined;
 }, {
     name: {
@@ -107,8 +111,9 @@ export declare const CharacterQueryBody: z.ZodObject<{
         year?: string | number | undefined;
         month?: string | number | undefined;
         day?: string | number | undefined;
-        hour?: string | number | undefined;
-        minute?: string | number | undefined;
+        hours?: string | number | undefined;
+        minutes?: string | number | undefined;
+        seconds?: string | number | undefined;
     } | undefined;
 }>;
 export declare const CharacterSortBody: z.ZodObject<{
@@ -176,20 +181,23 @@ export declare const CharacterPaginationBody: z.ZodObject<{
             year: z.ZodOptional<z.ZodOptional<z.ZodEffects<z.ZodUnion<[z.ZodNumber, z.ZodString]>, number, string | number>>>;
             month: z.ZodOptional<z.ZodOptional<z.ZodEffects<z.ZodUnion<[z.ZodNumber, z.ZodString]>, number, string | number>>>;
             day: z.ZodOptional<z.ZodOptional<z.ZodEffects<z.ZodUnion<[z.ZodNumber, z.ZodString]>, number, string | number>>>;
-            hour: z.ZodOptional<z.ZodOptional<z.ZodEffects<z.ZodUnion<[z.ZodNumber, z.ZodString]>, number, string | number>>>;
-            minute: z.ZodOptional<z.ZodOptional<z.ZodEffects<z.ZodUnion<[z.ZodNumber, z.ZodString]>, number, string | number>>>;
+            hours: z.ZodOptional<z.ZodOptional<z.ZodEffects<z.ZodUnion<[z.ZodNumber, z.ZodString]>, number, string | number>>>;
+            minutes: z.ZodOptional<z.ZodOptional<z.ZodEffects<z.ZodUnion<[z.ZodNumber, z.ZodString]>, number, string | number>>>;
+            seconds: z.ZodOptional<z.ZodOptional<z.ZodEffects<z.ZodUnion<[z.ZodNumber, z.ZodString]>, number, string | number>>>;
         }, "strip", z.ZodTypeAny, {
             year?: number | undefined;
             month?: number | undefined;
             day?: number | undefined;
-            hour?: number | undefined;
-            minute?: number | undefined;
+            hours?: number | undefined;
+            minutes?: number | undefined;
+            seconds?: number | undefined;
         }, {
             year?: string | number | undefined;
             month?: string | number | undefined;
             day?: string | number | undefined;
-            hour?: string | number | undefined;
-            minute?: string | number | undefined;
+            hours?: string | number | undefined;
+            minutes?: string | number | undefined;
+            seconds?: string | number | undefined;
         }>>>;
         avatar: z.ZodOptional<z.ZodObject<{
             id: z.ZodOptional<z.ZodString>;
@@ -223,8 +231,9 @@ export declare const CharacterPaginationBody: z.ZodObject<{
             year?: number | undefined;
             month?: number | undefined;
             day?: number | undefined;
-            hour?: number | undefined;
-            minute?: number | undefined;
+            hours?: number | undefined;
+            minutes?: number | undefined;
+            seconds?: number | undefined;
         } | undefined;
         avatar?: {
             id?: string | undefined;
@@ -247,8 +256,9 @@ export declare const CharacterPaginationBody: z.ZodObject<{
             year?: string | number | undefined;
             month?: string | number | undefined;
             day?: string | number | undefined;
-            hour?: string | number | undefined;
-            minute?: string | number | undefined;
+            hours?: string | number | undefined;
+            minutes?: string | number | undefined;
+            seconds?: string | number | undefined;
         } | undefined;
         avatar?: {
             id?: string | undefined;
@@ -295,8 +305,9 @@ export declare const CharacterPaginationBody: z.ZodObject<{
             year?: number | undefined;
             month?: number | undefined;
             day?: number | undefined;
-            hour?: number | undefined;
-            minute?: number | undefined;
+            hours?: number | undefined;
+            minutes?: number | undefined;
+            seconds?: number | undefined;
         } | undefined;
         avatar?: {
             id?: string | undefined;
@@ -337,8 +348,9 @@ export declare const CharacterPaginationBody: z.ZodObject<{
             year?: string | number | undefined;
             month?: string | number | undefined;
             day?: string | number | undefined;
-            hour?: string | number | undefined;
-            minute?: string | number | undefined;
+            hours?: string | number | undefined;
+            minutes?: string | number | undefined;
+            seconds?: string | number | undefined;
         } | undefined;
         avatar?: {
             id?: string | undefined;
@@ -399,20 +411,23 @@ export declare const Character_Pagination_ZOD: z.ZodObject<{
             year: z.ZodOptional<z.ZodOptional<z.ZodEffects<z.ZodUnion<[z.ZodNumber, z.ZodString]>, number, string | number>>>;
             month: z.ZodOptional<z.ZodOptional<z.ZodEffects<z.ZodUnion<[z.ZodNumber, z.ZodString]>, number, string | number>>>;
             day: z.ZodOptional<z.ZodOptional<z.ZodEffects<z.ZodUnion<[z.ZodNumber, z.ZodString]>, number, string | number>>>;
-            hour: z.ZodOptional<z.ZodOptional<z.ZodEffects<z.ZodUnion<[z.ZodNumber, z.ZodString]>, number, string | number>>>;
-            minute: z.ZodOptional<z.ZodOptional<z.ZodEffects<z.ZodUnion<[z.ZodNumber, z.ZodString]>, number, string | number>>>;
+            hours: z.ZodOptional<z.ZodOptional<z.ZodEffects<z.ZodUnion<[z.ZodNumber, z.ZodString]>, number, string | number>>>;
+            minutes: z.ZodOptional<z.ZodOptional<z.ZodEffects<z.ZodUnion<[z.ZodNumber, z.ZodString]>, number, string | number>>>;
+            seconds: z.ZodOptional<z.ZodOptional<z.ZodEffects<z.ZodUnion<[z.ZodNumber, z.ZodString]>, number, string | number>>>;
         }, "strip", z.ZodTypeAny, {
             year?: number | undefined;
             month?: number | undefined;
             day?: number | undefined;
-            hour?: number | undefined;
-            minute?: number | undefined;
+            hours?: number | undefined;
+            minutes?: number | undefined;
+            seconds?: number | undefined;
         }, {
             year?: string | number | undefined;
             month?: string | number | undefined;
             day?: string | number | undefined;
-            hour?: string | number | undefined;
-            minute?: string | number | undefined;
+            hours?: string | number | undefined;
+            minutes?: string | number | undefined;
+            seconds?: string | number | undefined;
         }>>>;
         avatar: z.ZodOptional<z.ZodObject<{
             id: z.ZodOptional<z.ZodString>;
@@ -446,8 +461,9 @@ export declare const Character_Pagination_ZOD: z.ZodObject<{
             year?: number | undefined;
             month?: number | undefined;
             day?: number | undefined;
-            hour?: number | undefined;
-            minute?: number | undefined;
+            hours?: number | undefined;
+            minutes?: number | undefined;
+            seconds?: number | undefined;
         } | undefined;
         avatar?: {
             id?: string | undefined;
@@ -470,8 +486,9 @@ export declare const Character_Pagination_ZOD: z.ZodObject<{
             year?: string | number | undefined;
             month?: string | number | undefined;
             day?: string | number | undefined;
-            hour?: string | number | undefined;
-            minute?: string | number | undefined;
+            hours?: string | number | undefined;
+            minutes?: string | number | undefined;
+            seconds?: string | number | undefined;
         } | undefined;
         avatar?: {
             id?: string | undefined;
@@ -507,8 +524,9 @@ export declare const Character_Pagination_ZOD: z.ZodObject<{
             year?: number | undefined;
             month?: number | undefined;
             day?: number | undefined;
-            hour?: number | undefined;
-            minute?: number | undefined;
+            hours?: number | undefined;
+            minutes?: number | undefined;
+            seconds?: number | undefined;
         } | undefined;
         avatar?: {
             id?: string | undefined;
@@ -544,8 +562,9 @@ export declare const Character_Pagination_ZOD: z.ZodObject<{
             year?: string | number | undefined;
             month?: string | number | undefined;
             day?: string | number | undefined;
-            hour?: string | number | undefined;
-            minute?: string | number | undefined;
+            hours?: string | number | undefined;
+            minutes?: string | number | undefined;
+            seconds?: string | number | undefined;
         } | undefined;
         avatar?: {
             id?: string | undefined;
@@ -576,20 +595,23 @@ export declare const Create_Character_ZOD: z.ZodObject<{
         year: z.ZodOptional<z.ZodOptional<z.ZodEffects<z.ZodUnion<[z.ZodNumber, z.ZodString]>, number, string | number>>>;
         month: z.ZodOptional<z.ZodOptional<z.ZodEffects<z.ZodUnion<[z.ZodNumber, z.ZodString]>, number, string | number>>>;
         day: z.ZodOptional<z.ZodOptional<z.ZodEffects<z.ZodUnion<[z.ZodNumber, z.ZodString]>, number, string | number>>>;
-        hour: z.ZodOptional<z.ZodOptional<z.ZodEffects<z.ZodUnion<[z.ZodNumber, z.ZodString]>, number, string | number>>>;
-        minute: z.ZodOptional<z.ZodOptional<z.ZodEffects<z.ZodUnion<[z.ZodNumber, z.ZodString]>, number, string | number>>>;
+        hours: z.ZodOptional<z.ZodOptional<z.ZodEffects<z.ZodUnion<[z.ZodNumber, z.ZodString]>, number, string | number>>>;
+        minutes: z.ZodOptional<z.ZodOptional<z.ZodEffects<z.ZodUnion<[z.ZodNumber, z.ZodString]>, number, string | number>>>;
+        seconds: z.ZodOptional<z.ZodOptional<z.ZodEffects<z.ZodUnion<[z.ZodNumber, z.ZodString]>, number, string | number>>>;
     }, "strip", z.ZodTypeAny, {
         year?: number | undefined;
         month?: number | undefined;
         day?: number | undefined;
-        hour?: number | undefined;
-        minute?: number | undefined;
+        hours?: number | undefined;
+        minutes?: number | undefined;
+        seconds?: number | undefined;
     }, {
         year?: string | number | undefined;
         month?: string | number | undefined;
         day?: string | number | undefined;
-        hour?: string | number | undefined;
-        minute?: string | number | undefined;
+        hours?: string | number | undefined;
+        minutes?: string | number | undefined;
+        seconds?: string | number | undefined;
     }>>;
     gender: z.ZodEnum<("MASCULIN" | "FEMININ" | "NEUTRE" | "TRANSGENRE" | "NON_BINAIRE" | "GENRE_FLUIDE" | "AUTRE")[] & [string, ...string[]]>;
     species: z.ZodEnum<("AUTRE" | "HUMAIN" | "ELFE" | "NAIN" | "LEZARD" | "DRAGON" | "ORC")[] & [string, ...string[]]>;
@@ -640,39 +662,45 @@ export declare const Create_Character_ZOD: z.ZodObject<{
                 year: z.ZodOptional<z.ZodOptional<z.ZodEffects<z.ZodUnion<[z.ZodNumber, z.ZodString]>, number, string | number>>>;
                 month: z.ZodOptional<z.ZodOptional<z.ZodEffects<z.ZodUnion<[z.ZodNumber, z.ZodString]>, number, string | number>>>;
                 day: z.ZodOptional<z.ZodOptional<z.ZodEffects<z.ZodUnion<[z.ZodNumber, z.ZodString]>, number, string | number>>>;
-                hour: z.ZodOptional<z.ZodOptional<z.ZodEffects<z.ZodUnion<[z.ZodNumber, z.ZodString]>, number, string | number>>>;
-                minute: z.ZodOptional<z.ZodOptional<z.ZodEffects<z.ZodUnion<[z.ZodNumber, z.ZodString]>, number, string | number>>>;
+                hours: z.ZodOptional<z.ZodOptional<z.ZodEffects<z.ZodUnion<[z.ZodNumber, z.ZodString]>, number, string | number>>>;
+                minutes: z.ZodOptional<z.ZodOptional<z.ZodEffects<z.ZodUnion<[z.ZodNumber, z.ZodString]>, number, string | number>>>;
+                seconds: z.ZodOptional<z.ZodOptional<z.ZodEffects<z.ZodUnion<[z.ZodNumber, z.ZodString]>, number, string | number>>>;
             }, "strip", z.ZodTypeAny, {
                 year?: number | undefined;
                 month?: number | undefined;
                 day?: number | undefined;
-                hour?: number | undefined;
-                minute?: number | undefined;
+                hours?: number | undefined;
+                minutes?: number | undefined;
+                seconds?: number | undefined;
             }, {
                 year?: string | number | undefined;
                 month?: string | number | undefined;
                 day?: string | number | undefined;
-                hour?: string | number | undefined;
-                minute?: string | number | undefined;
+                hours?: string | number | undefined;
+                minutes?: string | number | undefined;
+                seconds?: string | number | undefined;
             }>>;
             deathDate: z.ZodOptional<z.ZodObject<{
                 year: z.ZodOptional<z.ZodOptional<z.ZodEffects<z.ZodUnion<[z.ZodNumber, z.ZodString]>, number, string | number>>>;
                 month: z.ZodOptional<z.ZodOptional<z.ZodEffects<z.ZodUnion<[z.ZodNumber, z.ZodString]>, number, string | number>>>;
                 day: z.ZodOptional<z.ZodOptional<z.ZodEffects<z.ZodUnion<[z.ZodNumber, z.ZodString]>, number, string | number>>>;
-                hour: z.ZodOptional<z.ZodOptional<z.ZodEffects<z.ZodUnion<[z.ZodNumber, z.ZodString]>, number, string | number>>>;
-                minute: z.ZodOptional<z.ZodOptional<z.ZodEffects<z.ZodUnion<[z.ZodNumber, z.ZodString]>, number, string | number>>>;
+                hours: z.ZodOptional<z.ZodOptional<z.ZodEffects<z.ZodUnion<[z.ZodNumber, z.ZodString]>, number, string | number>>>;
+                minutes: z.ZodOptional<z.ZodOptional<z.ZodEffects<z.ZodUnion<[z.ZodNumber, z.ZodString]>, number, string | number>>>;
+                seconds: z.ZodOptional<z.ZodOptional<z.ZodEffects<z.ZodUnion<[z.ZodNumber, z.ZodString]>, number, string | number>>>;
             }, "strip", z.ZodTypeAny, {
                 year?: number | undefined;
                 month?: number | undefined;
                 day?: number | undefined;
-                hour?: number | undefined;
-                minute?: number | undefined;
+                hours?: number | undefined;
+                minutes?: number | undefined;
+                seconds?: number | undefined;
             }, {
                 year?: string | number | undefined;
                 month?: string | number | undefined;
                 day?: string | number | undefined;
-                hour?: string | number | undefined;
-                minute?: string | number | undefined;
+                hours?: string | number | undefined;
+                minutes?: string | number | undefined;
+                seconds?: string | number | undefined;
             }>>;
             description: z.ZodOptional<z.ZodString>;
             avatar: z.ZodOptional<z.ZodObject<{
@@ -724,15 +752,17 @@ export declare const Create_Character_ZOD: z.ZodObject<{
                 year?: number | undefined;
                 month?: number | undefined;
                 day?: number | undefined;
-                hour?: number | undefined;
-                minute?: number | undefined;
+                hours?: number | undefined;
+                minutes?: number | undefined;
+                seconds?: number | undefined;
             } | undefined;
             deathDate?: {
                 year?: number | undefined;
                 month?: number | undefined;
                 day?: number | undefined;
-                hour?: number | undefined;
-                minute?: number | undefined;
+                hours?: number | undefined;
+                minutes?: number | undefined;
+                seconds?: number | undefined;
             } | undefined;
             avatar?: {
                 id?: string | undefined;
@@ -757,15 +787,17 @@ export declare const Create_Character_ZOD: z.ZodObject<{
                 year?: string | number | undefined;
                 month?: string | number | undefined;
                 day?: string | number | undefined;
-                hour?: string | number | undefined;
-                minute?: string | number | undefined;
+                hours?: string | number | undefined;
+                minutes?: string | number | undefined;
+                seconds?: string | number | undefined;
             } | undefined;
             deathDate?: {
                 year?: string | number | undefined;
                 month?: string | number | undefined;
                 day?: string | number | undefined;
-                hour?: string | number | undefined;
-                minute?: string | number | undefined;
+                hours?: string | number | undefined;
+                minutes?: string | number | undefined;
+                seconds?: string | number | undefined;
             } | undefined;
             avatar?: {
                 id?: string | undefined;
@@ -794,15 +826,17 @@ export declare const Create_Character_ZOD: z.ZodObject<{
                 year?: number | undefined;
                 month?: number | undefined;
                 day?: number | undefined;
-                hour?: number | undefined;
-                minute?: number | undefined;
+                hours?: number | undefined;
+                minutes?: number | undefined;
+                seconds?: number | undefined;
             } | undefined;
             deathDate?: {
                 year?: number | undefined;
                 month?: number | undefined;
                 day?: number | undefined;
-                hour?: number | undefined;
-                minute?: number | undefined;
+                hours?: number | undefined;
+                minutes?: number | undefined;
+                seconds?: number | undefined;
             } | undefined;
             avatar?: {
                 id?: string | undefined;
@@ -831,15 +865,17 @@ export declare const Create_Character_ZOD: z.ZodObject<{
                 year?: string | number | undefined;
                 month?: string | number | undefined;
                 day?: string | number | undefined;
-                hour?: string | number | undefined;
-                minute?: string | number | undefined;
+                hours?: string | number | undefined;
+                minutes?: string | number | undefined;
+                seconds?: string | number | undefined;
             } | undefined;
             deathDate?: {
                 year?: string | number | undefined;
                 month?: string | number | undefined;
                 day?: string | number | undefined;
-                hour?: string | number | undefined;
-                minute?: string | number | undefined;
+                hours?: string | number | undefined;
+                minutes?: string | number | undefined;
+                seconds?: string | number | undefined;
             } | undefined;
             avatar?: {
                 id?: string | undefined;
@@ -868,8 +904,9 @@ export declare const Create_Character_ZOD: z.ZodObject<{
         year?: number | undefined;
         month?: number | undefined;
         day?: number | undefined;
-        hour?: number | undefined;
-        minute?: number | undefined;
+        hours?: number | undefined;
+        minutes?: number | undefined;
+        seconds?: number | undefined;
     } | undefined;
     avatar?: {
         id?: string | undefined;
@@ -893,15 +930,17 @@ export declare const Create_Character_ZOD: z.ZodObject<{
                 year?: number | undefined;
                 month?: number | undefined;
                 day?: number | undefined;
-                hour?: number | undefined;
-                minute?: number | undefined;
+                hours?: number | undefined;
+                minutes?: number | undefined;
+                seconds?: number | undefined;
             } | undefined;
             deathDate?: {
                 year?: number | undefined;
                 month?: number | undefined;
                 day?: number | undefined;
-                hour?: number | undefined;
-                minute?: number | undefined;
+                hours?: number | undefined;
+                minutes?: number | undefined;
+                seconds?: number | undefined;
             } | undefined;
             avatar?: {
                 id?: string | undefined;
@@ -930,8 +969,9 @@ export declare const Create_Character_ZOD: z.ZodObject<{
         year?: string | number | undefined;
         month?: string | number | undefined;
         day?: string | number | undefined;
-        hour?: string | number | undefined;
-        minute?: string | number | undefined;
+        hours?: string | number | undefined;
+        minutes?: string | number | undefined;
+        seconds?: string | number | undefined;
     } | undefined;
     avatar?: {
         id?: string | undefined;
@@ -955,15 +995,17 @@ export declare const Create_Character_ZOD: z.ZodObject<{
                 year?: string | number | undefined;
                 month?: string | number | undefined;
                 day?: string | number | undefined;
-                hour?: string | number | undefined;
-                minute?: string | number | undefined;
+                hours?: string | number | undefined;
+                minutes?: string | number | undefined;
+                seconds?: string | number | undefined;
             } | undefined;
             deathDate?: {
                 year?: string | number | undefined;
                 month?: string | number | undefined;
                 day?: string | number | undefined;
-                hour?: string | number | undefined;
-                minute?: string | number | undefined;
+                hours?: string | number | undefined;
+                minutes?: string | number | undefined;
+                seconds?: string | number | undefined;
             } | undefined;
             avatar?: {
                 id?: string | undefined;
@@ -1002,20 +1044,23 @@ export declare const CharacterCreateBody: z.ZodObject<z.objectUtil.extendShape<{
             year: z.ZodOptional<z.ZodOptional<z.ZodEffects<z.ZodUnion<[z.ZodNumber, z.ZodString]>, number, string | number>>>;
             month: z.ZodOptional<z.ZodOptional<z.ZodEffects<z.ZodUnion<[z.ZodNumber, z.ZodString]>, number, string | number>>>;
             day: z.ZodOptional<z.ZodOptional<z.ZodEffects<z.ZodUnion<[z.ZodNumber, z.ZodString]>, number, string | number>>>;
-            hour: z.ZodOptional<z.ZodOptional<z.ZodEffects<z.ZodUnion<[z.ZodNumber, z.ZodString]>, number, string | number>>>;
-            minute: z.ZodOptional<z.ZodOptional<z.ZodEffects<z.ZodUnion<[z.ZodNumber, z.ZodString]>, number, string | number>>>;
+            hours: z.ZodOptional<z.ZodOptional<z.ZodEffects<z.ZodUnion<[z.ZodNumber, z.ZodString]>, number, string | number>>>;
+            minutes: z.ZodOptional<z.ZodOptional<z.ZodEffects<z.ZodUnion<[z.ZodNumber, z.ZodString]>, number, string | number>>>;
+            seconds: z.ZodOptional<z.ZodOptional<z.ZodEffects<z.ZodUnion<[z.ZodNumber, z.ZodString]>, number, string | number>>>;
         }, "strip", z.ZodTypeAny, {
             year?: number | undefined;
             month?: number | undefined;
             day?: number | undefined;
-            hour?: number | undefined;
-            minute?: number | undefined;
+            hours?: number | undefined;
+            minutes?: number | undefined;
+            seconds?: number | undefined;
         }, {
             year?: string | number | undefined;
             month?: string | number | undefined;
             day?: string | number | undefined;
-            hour?: string | number | undefined;
-            minute?: string | number | undefined;
+            hours?: string | number | undefined;
+            minutes?: string | number | undefined;
+            seconds?: string | number | undefined;
         }>>;
         gender: z.ZodEnum<("MASCULIN" | "FEMININ" | "NEUTRE" | "TRANSGENRE" | "NON_BINAIRE" | "GENRE_FLUIDE" | "AUTRE")[] & [string, ...string[]]>;
         species: z.ZodEnum<("AUTRE" | "HUMAIN" | "ELFE" | "NAIN" | "LEZARD" | "DRAGON" | "ORC")[] & [string, ...string[]]>;
@@ -1066,39 +1111,45 @@ export declare const CharacterCreateBody: z.ZodObject<z.objectUtil.extendShape<{
                     year: z.ZodOptional<z.ZodOptional<z.ZodEffects<z.ZodUnion<[z.ZodNumber, z.ZodString]>, number, string | number>>>;
                     month: z.ZodOptional<z.ZodOptional<z.ZodEffects<z.ZodUnion<[z.ZodNumber, z.ZodString]>, number, string | number>>>;
                     day: z.ZodOptional<z.ZodOptional<z.ZodEffects<z.ZodUnion<[z.ZodNumber, z.ZodString]>, number, string | number>>>;
-                    hour: z.ZodOptional<z.ZodOptional<z.ZodEffects<z.ZodUnion<[z.ZodNumber, z.ZodString]>, number, string | number>>>;
-                    minute: z.ZodOptional<z.ZodOptional<z.ZodEffects<z.ZodUnion<[z.ZodNumber, z.ZodString]>, number, string | number>>>;
+                    hours: z.ZodOptional<z.ZodOptional<z.ZodEffects<z.ZodUnion<[z.ZodNumber, z.ZodString]>, number, string | number>>>;
+                    minutes: z.ZodOptional<z.ZodOptional<z.ZodEffects<z.ZodUnion<[z.ZodNumber, z.ZodString]>, number, string | number>>>;
+                    seconds: z.ZodOptional<z.ZodOptional<z.ZodEffects<z.ZodUnion<[z.ZodNumber, z.ZodString]>, number, string | number>>>;
                 }, "strip", z.ZodTypeAny, {
                     year?: number | undefined;
                     month?: number | undefined;
                     day?: number | undefined;
-                    hour?: number | undefined;
-                    minute?: number | undefined;
+                    hours?: number | undefined;
+                    minutes?: number | undefined;
+                    seconds?: number | undefined;
                 }, {
                     year?: string | number | undefined;
                     month?: string | number | undefined;
                     day?: string | number | undefined;
-                    hour?: string | number | undefined;
-                    minute?: string | number | undefined;
+                    hours?: string | number | undefined;
+                    minutes?: string | number | undefined;
+                    seconds?: string | number | undefined;
                 }>>;
                 deathDate: z.ZodOptional<z.ZodObject<{
                     year: z.ZodOptional<z.ZodOptional<z.ZodEffects<z.ZodUnion<[z.ZodNumber, z.ZodString]>, number, string | number>>>;
                     month: z.ZodOptional<z.ZodOptional<z.ZodEffects<z.ZodUnion<[z.ZodNumber, z.ZodString]>, number, string | number>>>;
                     day: z.ZodOptional<z.ZodOptional<z.ZodEffects<z.ZodUnion<[z.ZodNumber, z.ZodString]>, number, string | number>>>;
-                    hour: z.ZodOptional<z.ZodOptional<z.ZodEffects<z.ZodUnion<[z.ZodNumber, z.ZodString]>, number, string | number>>>;
-                    minute: z.ZodOptional<z.ZodOptional<z.ZodEffects<z.ZodUnion<[z.ZodNumber, z.ZodString]>, number, string | number>>>;
+                    hours: z.ZodOptional<z.ZodOptional<z.ZodEffects<z.ZodUnion<[z.ZodNumber, z.ZodString]>, number, string | number>>>;
+                    minutes: z.ZodOptional<z.ZodOptional<z.ZodEffects<z.ZodUnion<[z.ZodNumber, z.ZodString]>, number, string | number>>>;
+                    seconds: z.ZodOptional<z.ZodOptional<z.ZodEffects<z.ZodUnion<[z.ZodNumber, z.ZodString]>, number, string | number>>>;
                 }, "strip", z.ZodTypeAny, {
                     year?: number | undefined;
                     month?: number | undefined;
                     day?: number | undefined;
-                    hour?: number | undefined;
-                    minute?: number | undefined;
+                    hours?: number | undefined;
+                    minutes?: number | undefined;
+                    seconds?: number | undefined;
                 }, {
                     year?: string | number | undefined;
                     month?: string | number | undefined;
                     day?: string | number | undefined;
-                    hour?: string | number | undefined;
-                    minute?: string | number | undefined;
+                    hours?: string | number | undefined;
+                    minutes?: string | number | undefined;
+                    seconds?: string | number | undefined;
                 }>>;
                 description: z.ZodOptional<z.ZodString>;
                 avatar: z.ZodOptional<z.ZodObject<{
@@ -1150,15 +1201,17 @@ export declare const CharacterCreateBody: z.ZodObject<z.objectUtil.extendShape<{
                     year?: number | undefined;
                     month?: number | undefined;
                     day?: number | undefined;
-                    hour?: number | undefined;
-                    minute?: number | undefined;
+                    hours?: number | undefined;
+                    minutes?: number | undefined;
+                    seconds?: number | undefined;
                 } | undefined;
                 deathDate?: {
                     year?: number | undefined;
                     month?: number | undefined;
                     day?: number | undefined;
-                    hour?: number | undefined;
-                    minute?: number | undefined;
+                    hours?: number | undefined;
+                    minutes?: number | undefined;
+                    seconds?: number | undefined;
                 } | undefined;
                 avatar?: {
                     id?: string | undefined;
@@ -1183,15 +1236,17 @@ export declare const CharacterCreateBody: z.ZodObject<z.objectUtil.extendShape<{
                     year?: string | number | undefined;
                     month?: string | number | undefined;
                     day?: string | number | undefined;
-                    hour?: string | number | undefined;
-                    minute?: string | number | undefined;
+                    hours?: string | number | undefined;
+                    minutes?: string | number | undefined;
+                    seconds?: string | number | undefined;
                 } | undefined;
                 deathDate?: {
                     year?: string | number | undefined;
                     month?: string | number | undefined;
                     day?: string | number | undefined;
-                    hour?: string | number | undefined;
-                    minute?: string | number | undefined;
+                    hours?: string | number | undefined;
+                    minutes?: string | number | undefined;
+                    seconds?: string | number | undefined;
                 } | undefined;
                 avatar?: {
                     id?: string | undefined;
@@ -1220,15 +1275,17 @@ export declare const CharacterCreateBody: z.ZodObject<z.objectUtil.extendShape<{
                     year?: number | undefined;
                     month?: number | undefined;
                     day?: number | undefined;
-                    hour?: number | undefined;
-                    minute?: number | undefined;
+                    hours?: number | undefined;
+                    minutes?: number | undefined;
+                    seconds?: number | undefined;
                 } | undefined;
                 deathDate?: {
                     year?: number | undefined;
                     month?: number | undefined;
                     day?: number | undefined;
-                    hour?: number | undefined;
-                    minute?: number | undefined;
+                    hours?: number | undefined;
+                    minutes?: number | undefined;
+                    seconds?: number | undefined;
                 } | undefined;
                 avatar?: {
                     id?: string | undefined;
@@ -1257,15 +1314,17 @@ export declare const CharacterCreateBody: z.ZodObject<z.objectUtil.extendShape<{
                     year?: string | number | undefined;
                     month?: string | number | undefined;
                     day?: string | number | undefined;
-                    hour?: string | number | undefined;
-                    minute?: string | number | undefined;
+                    hours?: string | number | undefined;
+                    minutes?: string | number | undefined;
+                    seconds?: string | number | undefined;
                 } | undefined;
                 deathDate?: {
                     year?: string | number | undefined;
                     month?: string | number | undefined;
                     day?: string | number | undefined;
-                    hour?: string | number | undefined;
-                    minute?: string | number | undefined;
+                    hours?: string | number | undefined;
+                    minutes?: string | number | undefined;
+                    seconds?: string | number | undefined;
                 } | undefined;
                 avatar?: {
                     id?: string | undefined;
@@ -1294,8 +1353,9 @@ export declare const CharacterCreateBody: z.ZodObject<z.objectUtil.extendShape<{
             year?: number | undefined;
             month?: number | undefined;
             day?: number | undefined;
-            hour?: number | undefined;
-            minute?: number | undefined;
+            hours?: number | undefined;
+            minutes?: number | undefined;
+            seconds?: number | undefined;
         } | undefined;
         avatar?: {
             id?: string | undefined;
@@ -1319,15 +1379,17 @@ export declare const CharacterCreateBody: z.ZodObject<z.objectUtil.extendShape<{
                     year?: number | undefined;
                     month?: number | undefined;
                     day?: number | undefined;
-                    hour?: number | undefined;
-                    minute?: number | undefined;
+                    hours?: number | undefined;
+                    minutes?: number | undefined;
+                    seconds?: number | undefined;
                 } | undefined;
                 deathDate?: {
                     year?: number | undefined;
                     month?: number | undefined;
                     day?: number | undefined;
-                    hour?: number | undefined;
-                    minute?: number | undefined;
+                    hours?: number | undefined;
+                    minutes?: number | undefined;
+                    seconds?: number | undefined;
                 } | undefined;
                 avatar?: {
                     id?: string | undefined;
@@ -1356,8 +1418,9 @@ export declare const CharacterCreateBody: z.ZodObject<z.objectUtil.extendShape<{
             year?: string | number | undefined;
             month?: string | number | undefined;
             day?: string | number | undefined;
-            hour?: string | number | undefined;
-            minute?: string | number | undefined;
+            hours?: string | number | undefined;
+            minutes?: string | number | undefined;
+            seconds?: string | number | undefined;
         } | undefined;
         avatar?: {
             id?: string | undefined;
@@ -1381,15 +1444,17 @@ export declare const CharacterCreateBody: z.ZodObject<z.objectUtil.extendShape<{
                     year?: string | number | undefined;
                     month?: string | number | undefined;
                     day?: string | number | undefined;
-                    hour?: string | number | undefined;
-                    minute?: string | number | undefined;
+                    hours?: string | number | undefined;
+                    minutes?: string | number | undefined;
+                    seconds?: string | number | undefined;
                 } | undefined;
                 deathDate?: {
                     year?: string | number | undefined;
                     month?: string | number | undefined;
                     day?: string | number | undefined;
-                    hour?: string | number | undefined;
-                    minute?: string | number | undefined;
+                    hours?: string | number | undefined;
+                    minutes?: string | number | undefined;
+                    seconds?: string | number | undefined;
                 } | undefined;
                 avatar?: {
                     id?: string | undefined;
@@ -1420,8 +1485,9 @@ export declare const CharacterCreateBody: z.ZodObject<z.objectUtil.extendShape<{
             year?: number | undefined;
             month?: number | undefined;
             day?: number | undefined;
-            hour?: number | undefined;
-            minute?: number | undefined;
+            hours?: number | undefined;
+            minutes?: number | undefined;
+            seconds?: number | undefined;
         } | undefined;
         avatar?: {
             id?: string | undefined;
@@ -1445,15 +1511,17 @@ export declare const CharacterCreateBody: z.ZodObject<z.objectUtil.extendShape<{
                     year?: number | undefined;
                     month?: number | undefined;
                     day?: number | undefined;
-                    hour?: number | undefined;
-                    minute?: number | undefined;
+                    hours?: number | undefined;
+                    minutes?: number | undefined;
+                    seconds?: number | undefined;
                 } | undefined;
                 deathDate?: {
                     year?: number | undefined;
                     month?: number | undefined;
                     day?: number | undefined;
-                    hour?: number | undefined;
-                    minute?: number | undefined;
+                    hours?: number | undefined;
+                    minutes?: number | undefined;
+                    seconds?: number | undefined;
                 } | undefined;
                 avatar?: {
                     id?: string | undefined;
@@ -1486,8 +1554,9 @@ export declare const CharacterCreateBody: z.ZodObject<z.objectUtil.extendShape<{
             year?: string | number | undefined;
             month?: string | number | undefined;
             day?: string | number | undefined;
-            hour?: string | number | undefined;
-            minute?: string | number | undefined;
+            hours?: string | number | undefined;
+            minutes?: string | number | undefined;
+            seconds?: string | number | undefined;
         } | undefined;
         avatar?: {
             id?: string | undefined;
@@ -1511,15 +1580,17 @@ export declare const CharacterCreateBody: z.ZodObject<z.objectUtil.extendShape<{
                     year?: string | number | undefined;
                     month?: string | number | undefined;
                     day?: string | number | undefined;
-                    hour?: string | number | undefined;
-                    minute?: string | number | undefined;
+                    hours?: string | number | undefined;
+                    minutes?: string | number | undefined;
+                    seconds?: string | number | undefined;
                 } | undefined;
                 deathDate?: {
                     year?: string | number | undefined;
                     month?: string | number | undefined;
                     day?: string | number | undefined;
-                    hour?: string | number | undefined;
-                    minute?: string | number | undefined;
+                    hours?: string | number | undefined;
+                    minutes?: string | number | undefined;
+                    seconds?: string | number | undefined;
                 } | undefined;
                 avatar?: {
                     id?: string | undefined;
@@ -1559,20 +1630,23 @@ export declare const Create_Character_ZOD_FORM: z.ZodObject<{
             year: z.ZodOptional<z.ZodOptional<z.ZodEffects<z.ZodUnion<[z.ZodNumber, z.ZodString]>, number, string | number>>>;
             month: z.ZodOptional<z.ZodOptional<z.ZodEffects<z.ZodUnion<[z.ZodNumber, z.ZodString]>, number, string | number>>>;
             day: z.ZodOptional<z.ZodOptional<z.ZodEffects<z.ZodUnion<[z.ZodNumber, z.ZodString]>, number, string | number>>>;
-            hour: z.ZodOptional<z.ZodOptional<z.ZodEffects<z.ZodUnion<[z.ZodNumber, z.ZodString]>, number, string | number>>>;
-            minute: z.ZodOptional<z.ZodOptional<z.ZodEffects<z.ZodUnion<[z.ZodNumber, z.ZodString]>, number, string | number>>>;
+            hours: z.ZodOptional<z.ZodOptional<z.ZodEffects<z.ZodUnion<[z.ZodNumber, z.ZodString]>, number, string | number>>>;
+            minutes: z.ZodOptional<z.ZodOptional<z.ZodEffects<z.ZodUnion<[z.ZodNumber, z.ZodString]>, number, string | number>>>;
+            seconds: z.ZodOptional<z.ZodOptional<z.ZodEffects<z.ZodUnion<[z.ZodNumber, z.ZodString]>, number, string | number>>>;
         }, "strip", z.ZodTypeAny, {
             year?: number | undefined;
             month?: number | undefined;
             day?: number | undefined;
-            hour?: number | undefined;
-            minute?: number | undefined;
+            hours?: number | undefined;
+            minutes?: number | undefined;
+            seconds?: number | undefined;
         }, {
             year?: string | number | undefined;
             month?: string | number | undefined;
             day?: string | number | undefined;
-            hour?: string | number | undefined;
-            minute?: string | number | undefined;
+            hours?: string | number | undefined;
+            minutes?: string | number | undefined;
+            seconds?: string | number | undefined;
         }>>;
         gender: z.ZodEnum<("MASCULIN" | "FEMININ" | "NEUTRE" | "TRANSGENRE" | "NON_BINAIRE" | "GENRE_FLUIDE" | "AUTRE")[] & [string, ...string[]]>;
         species: z.ZodEnum<("AUTRE" | "HUMAIN" | "ELFE" | "NAIN" | "LEZARD" | "DRAGON" | "ORC")[] & [string, ...string[]]>;
@@ -1623,39 +1697,45 @@ export declare const Create_Character_ZOD_FORM: z.ZodObject<{
                     year: z.ZodOptional<z.ZodOptional<z.ZodEffects<z.ZodUnion<[z.ZodNumber, z.ZodString]>, number, string | number>>>;
                     month: z.ZodOptional<z.ZodOptional<z.ZodEffects<z.ZodUnion<[z.ZodNumber, z.ZodString]>, number, string | number>>>;
                     day: z.ZodOptional<z.ZodOptional<z.ZodEffects<z.ZodUnion<[z.ZodNumber, z.ZodString]>, number, string | number>>>;
-                    hour: z.ZodOptional<z.ZodOptional<z.ZodEffects<z.ZodUnion<[z.ZodNumber, z.ZodString]>, number, string | number>>>;
-                    minute: z.ZodOptional<z.ZodOptional<z.ZodEffects<z.ZodUnion<[z.ZodNumber, z.ZodString]>, number, string | number>>>;
+                    hours: z.ZodOptional<z.ZodOptional<z.ZodEffects<z.ZodUnion<[z.ZodNumber, z.ZodString]>, number, string | number>>>;
+                    minutes: z.ZodOptional<z.ZodOptional<z.ZodEffects<z.ZodUnion<[z.ZodNumber, z.ZodString]>, number, string | number>>>;
+                    seconds: z.ZodOptional<z.ZodOptional<z.ZodEffects<z.ZodUnion<[z.ZodNumber, z.ZodString]>, number, string | number>>>;
                 }, "strip", z.ZodTypeAny, {
                     year?: number | undefined;
                     month?: number | undefined;
                     day?: number | undefined;
-                    hour?: number | undefined;
-                    minute?: number | undefined;
+                    hours?: number | undefined;
+                    minutes?: number | undefined;
+                    seconds?: number | undefined;
                 }, {
                     year?: string | number | undefined;
                     month?: string | number | undefined;
                     day?: string | number | undefined;
-                    hour?: string | number | undefined;
-                    minute?: string | number | undefined;
+                    hours?: string | number | undefined;
+                    minutes?: string | number | undefined;
+                    seconds?: string | number | undefined;
                 }>>;
                 deathDate: z.ZodOptional<z.ZodObject<{
                     year: z.ZodOptional<z.ZodOptional<z.ZodEffects<z.ZodUnion<[z.ZodNumber, z.ZodString]>, number, string | number>>>;
                     month: z.ZodOptional<z.ZodOptional<z.ZodEffects<z.ZodUnion<[z.ZodNumber, z.ZodString]>, number, string | number>>>;
                     day: z.ZodOptional<z.ZodOptional<z.ZodEffects<z.ZodUnion<[z.ZodNumber, z.ZodString]>, number, string | number>>>;
-                    hour: z.ZodOptional<z.ZodOptional<z.ZodEffects<z.ZodUnion<[z.ZodNumber, z.ZodString]>, number, string | number>>>;
-                    minute: z.ZodOptional<z.ZodOptional<z.ZodEffects<z.ZodUnion<[z.ZodNumber, z.ZodString]>, number, string | number>>>;
+                    hours: z.ZodOptional<z.ZodOptional<z.ZodEffects<z.ZodUnion<[z.ZodNumber, z.ZodString]>, number, string | number>>>;
+                    minutes: z.ZodOptional<z.ZodOptional<z.ZodEffects<z.ZodUnion<[z.ZodNumber, z.ZodString]>, number, string | number>>>;
+                    seconds: z.ZodOptional<z.ZodOptional<z.ZodEffects<z.ZodUnion<[z.ZodNumber, z.ZodString]>, number, string | number>>>;
                 }, "strip", z.ZodTypeAny, {
                     year?: number | undefined;
                     month?: number | undefined;
                     day?: number | undefined;
-                    hour?: number | undefined;
-                    minute?: number | undefined;
+                    hours?: number | undefined;
+                    minutes?: number | undefined;
+                    seconds?: number | undefined;
                 }, {
                     year?: string | number | undefined;
                     month?: string | number | undefined;
                     day?: string | number | undefined;
-                    hour?: string | number | undefined;
-                    minute?: string | number | undefined;
+                    hours?: string | number | undefined;
+                    minutes?: string | number | undefined;
+                    seconds?: string | number | undefined;
                 }>>;
                 description: z.ZodOptional<z.ZodString>;
                 avatar: z.ZodOptional<z.ZodObject<{
@@ -1707,15 +1787,17 @@ export declare const Create_Character_ZOD_FORM: z.ZodObject<{
                     year?: number | undefined;
                     month?: number | undefined;
                     day?: number | undefined;
-                    hour?: number | undefined;
-                    minute?: number | undefined;
+                    hours?: number | undefined;
+                    minutes?: number | undefined;
+                    seconds?: number | undefined;
                 } | undefined;
                 deathDate?: {
                     year?: number | undefined;
                     month?: number | undefined;
                     day?: number | undefined;
-                    hour?: number | undefined;
-                    minute?: number | undefined;
+                    hours?: number | undefined;
+                    minutes?: number | undefined;
+                    seconds?: number | undefined;
                 } | undefined;
                 avatar?: {
                     id?: string | undefined;
@@ -1740,15 +1822,17 @@ export declare const Create_Character_ZOD_FORM: z.ZodObject<{
                     year?: string | number | undefined;
                     month?: string | number | undefined;
                     day?: string | number | undefined;
-                    hour?: string | number | undefined;
-                    minute?: string | number | undefined;
+                    hours?: string | number | undefined;
+                    minutes?: string | number | undefined;
+                    seconds?: string | number | undefined;
                 } | undefined;
                 deathDate?: {
                     year?: string | number | undefined;
                     month?: string | number | undefined;
                     day?: string | number | undefined;
-                    hour?: string | number | undefined;
-                    minute?: string | number | undefined;
+                    hours?: string | number | undefined;
+                    minutes?: string | number | undefined;
+                    seconds?: string | number | undefined;
                 } | undefined;
                 avatar?: {
                     id?: string | undefined;
@@ -1777,15 +1861,17 @@ export declare const Create_Character_ZOD_FORM: z.ZodObject<{
                     year?: number | undefined;
                     month?: number | undefined;
                     day?: number | undefined;
-                    hour?: number | undefined;
-                    minute?: number | undefined;
+                    hours?: number | undefined;
+                    minutes?: number | undefined;
+                    seconds?: number | undefined;
                 } | undefined;
                 deathDate?: {
                     year?: number | undefined;
                     month?: number | undefined;
                     day?: number | undefined;
-                    hour?: number | undefined;
-                    minute?: number | undefined;
+                    hours?: number | undefined;
+                    minutes?: number | undefined;
+                    seconds?: number | undefined;
                 } | undefined;
                 avatar?: {
                     id?: string | undefined;
@@ -1814,15 +1900,17 @@ export declare const Create_Character_ZOD_FORM: z.ZodObject<{
                     year?: string | number | undefined;
                     month?: string | number | undefined;
                     day?: string | number | undefined;
-                    hour?: string | number | undefined;
-                    minute?: string | number | undefined;
+                    hours?: string | number | undefined;
+                    minutes?: string | number | undefined;
+                    seconds?: string | number | undefined;
                 } | undefined;
                 deathDate?: {
                     year?: string | number | undefined;
                     month?: string | number | undefined;
                     day?: string | number | undefined;
-                    hour?: string | number | undefined;
-                    minute?: string | number | undefined;
+                    hours?: string | number | undefined;
+                    minutes?: string | number | undefined;
+                    seconds?: string | number | undefined;
                 } | undefined;
                 avatar?: {
                     id?: string | undefined;
@@ -1851,8 +1939,9 @@ export declare const Create_Character_ZOD_FORM: z.ZodObject<{
             year?: number | undefined;
             month?: number | undefined;
             day?: number | undefined;
-            hour?: number | undefined;
-            minute?: number | undefined;
+            hours?: number | undefined;
+            minutes?: number | undefined;
+            seconds?: number | undefined;
         } | undefined;
         avatar?: {
             id?: string | undefined;
@@ -1876,15 +1965,17 @@ export declare const Create_Character_ZOD_FORM: z.ZodObject<{
                     year?: number | undefined;
                     month?: number | undefined;
                     day?: number | undefined;
-                    hour?: number | undefined;
-                    minute?: number | undefined;
+                    hours?: number | undefined;
+                    minutes?: number | undefined;
+                    seconds?: number | undefined;
                 } | undefined;
                 deathDate?: {
                     year?: number | undefined;
                     month?: number | undefined;
                     day?: number | undefined;
-                    hour?: number | undefined;
-                    minute?: number | undefined;
+                    hours?: number | undefined;
+                    minutes?: number | undefined;
+                    seconds?: number | undefined;
                 } | undefined;
                 avatar?: {
                     id?: string | undefined;
@@ -1913,8 +2004,9 @@ export declare const Create_Character_ZOD_FORM: z.ZodObject<{
             year?: string | number | undefined;
             month?: string | number | undefined;
             day?: string | number | undefined;
-            hour?: string | number | undefined;
-            minute?: string | number | undefined;
+            hours?: string | number | undefined;
+            minutes?: string | number | undefined;
+            seconds?: string | number | undefined;
         } | undefined;
         avatar?: {
             id?: string | undefined;
@@ -1938,15 +2030,17 @@ export declare const Create_Character_ZOD_FORM: z.ZodObject<{
                     year?: string | number | undefined;
                     month?: string | number | undefined;
                     day?: string | number | undefined;
-                    hour?: string | number | undefined;
-                    minute?: string | number | undefined;
+                    hours?: string | number | undefined;
+                    minutes?: string | number | undefined;
+                    seconds?: string | number | undefined;
                 } | undefined;
                 deathDate?: {
                     year?: string | number | undefined;
                     month?: string | number | undefined;
                     day?: string | number | undefined;
-                    hour?: string | number | undefined;
-                    minute?: string | number | undefined;
+                    hours?: string | number | undefined;
+                    minutes?: string | number | undefined;
+                    seconds?: string | number | undefined;
                 } | undefined;
                 avatar?: {
                     id?: string | undefined;
@@ -1977,8 +2071,9 @@ export declare const Create_Character_ZOD_FORM: z.ZodObject<{
             year?: number | undefined;
             month?: number | undefined;
             day?: number | undefined;
-            hour?: number | undefined;
-            minute?: number | undefined;
+            hours?: number | undefined;
+            minutes?: number | undefined;
+            seconds?: number | undefined;
         } | undefined;
         avatar?: {
             id?: string | undefined;
@@ -2002,15 +2097,17 @@ export declare const Create_Character_ZOD_FORM: z.ZodObject<{
                     year?: number | undefined;
                     month?: number | undefined;
                     day?: number | undefined;
-                    hour?: number | undefined;
-                    minute?: number | undefined;
+                    hours?: number | undefined;
+                    minutes?: number | undefined;
+                    seconds?: number | undefined;
                 } | undefined;
                 deathDate?: {
                     year?: number | undefined;
                     month?: number | undefined;
                     day?: number | undefined;
-                    hour?: number | undefined;
-                    minute?: number | undefined;
+                    hours?: number | undefined;
+                    minutes?: number | undefined;
+                    seconds?: number | undefined;
                 } | undefined;
                 avatar?: {
                     id?: string | undefined;
@@ -2042,8 +2139,9 @@ export declare const Create_Character_ZOD_FORM: z.ZodObject<{
             year?: string | number | undefined;
             month?: string | number | undefined;
             day?: string | number | undefined;
-            hour?: string | number | undefined;
-            minute?: string | number | undefined;
+            hours?: string | number | undefined;
+            minutes?: string | number | undefined;
+            seconds?: string | number | undefined;
         } | undefined;
         avatar?: {
             id?: string | undefined;
@@ -2067,15 +2165,17 @@ export declare const Create_Character_ZOD_FORM: z.ZodObject<{
                     year?: string | number | undefined;
                     month?: string | number | undefined;
                     day?: string | number | undefined;
-                    hour?: string | number | undefined;
-                    minute?: string | number | undefined;
+                    hours?: string | number | undefined;
+                    minutes?: string | number | undefined;
+                    seconds?: string | number | undefined;
                 } | undefined;
                 deathDate?: {
                     year?: string | number | undefined;
                     month?: string | number | undefined;
                     day?: string | number | undefined;
-                    hour?: string | number | undefined;
-                    minute?: string | number | undefined;
+                    hours?: string | number | undefined;
+                    minutes?: string | number | undefined;
+                    seconds?: string | number | undefined;
                 } | undefined;
                 avatar?: {
                     id?: string | undefined;
@@ -2114,20 +2214,23 @@ export declare const Add_Character_ZOD: z.ZodObject<{
             year: z.ZodOptional<z.ZodOptional<z.ZodEffects<z.ZodUnion<[z.ZodNumber, z.ZodString]>, number, string | number>>>;
             month: z.ZodOptional<z.ZodOptional<z.ZodEffects<z.ZodUnion<[z.ZodNumber, z.ZodString]>, number, string | number>>>;
             day: z.ZodOptional<z.ZodOptional<z.ZodEffects<z.ZodUnion<[z.ZodNumber, z.ZodString]>, number, string | number>>>;
-            hour: z.ZodOptional<z.ZodOptional<z.ZodEffects<z.ZodUnion<[z.ZodNumber, z.ZodString]>, number, string | number>>>;
-            minute: z.ZodOptional<z.ZodOptional<z.ZodEffects<z.ZodUnion<[z.ZodNumber, z.ZodString]>, number, string | number>>>;
+            hours: z.ZodOptional<z.ZodOptional<z.ZodEffects<z.ZodUnion<[z.ZodNumber, z.ZodString]>, number, string | number>>>;
+            minutes: z.ZodOptional<z.ZodOptional<z.ZodEffects<z.ZodUnion<[z.ZodNumber, z.ZodString]>, number, string | number>>>;
+            seconds: z.ZodOptional<z.ZodOptional<z.ZodEffects<z.ZodUnion<[z.ZodNumber, z.ZodString]>, number, string | number>>>;
         }, "strip", z.ZodTypeAny, {
             year?: number | undefined;
             month?: number | undefined;
             day?: number | undefined;
-            hour?: number | undefined;
-            minute?: number | undefined;
+            hours?: number | undefined;
+            minutes?: number | undefined;
+            seconds?: number | undefined;
         }, {
             year?: string | number | undefined;
             month?: string | number | undefined;
             day?: string | number | undefined;
-            hour?: string | number | undefined;
-            minute?: string | number | undefined;
+            hours?: string | number | undefined;
+            minutes?: string | number | undefined;
+            seconds?: string | number | undefined;
         }>>;
         gender: z.ZodEnum<("MASCULIN" | "FEMININ" | "NEUTRE" | "TRANSGENRE" | "NON_BINAIRE" | "GENRE_FLUIDE" | "AUTRE")[] & [string, ...string[]]>;
         species: z.ZodEnum<("AUTRE" | "HUMAIN" | "ELFE" | "NAIN" | "LEZARD" | "DRAGON" | "ORC")[] & [string, ...string[]]>;
@@ -2178,39 +2281,45 @@ export declare const Add_Character_ZOD: z.ZodObject<{
                     year: z.ZodOptional<z.ZodOptional<z.ZodEffects<z.ZodUnion<[z.ZodNumber, z.ZodString]>, number, string | number>>>;
                     month: z.ZodOptional<z.ZodOptional<z.ZodEffects<z.ZodUnion<[z.ZodNumber, z.ZodString]>, number, string | number>>>;
                     day: z.ZodOptional<z.ZodOptional<z.ZodEffects<z.ZodUnion<[z.ZodNumber, z.ZodString]>, number, string | number>>>;
-                    hour: z.ZodOptional<z.ZodOptional<z.ZodEffects<z.ZodUnion<[z.ZodNumber, z.ZodString]>, number, string | number>>>;
-                    minute: z.ZodOptional<z.ZodOptional<z.ZodEffects<z.ZodUnion<[z.ZodNumber, z.ZodString]>, number, string | number>>>;
+                    hours: z.ZodOptional<z.ZodOptional<z.ZodEffects<z.ZodUnion<[z.ZodNumber, z.ZodString]>, number, string | number>>>;
+                    minutes: z.ZodOptional<z.ZodOptional<z.ZodEffects<z.ZodUnion<[z.ZodNumber, z.ZodString]>, number, string | number>>>;
+                    seconds: z.ZodOptional<z.ZodOptional<z.ZodEffects<z.ZodUnion<[z.ZodNumber, z.ZodString]>, number, string | number>>>;
                 }, "strip", z.ZodTypeAny, {
                     year?: number | undefined;
                     month?: number | undefined;
                     day?: number | undefined;
-                    hour?: number | undefined;
-                    minute?: number | undefined;
+                    hours?: number | undefined;
+                    minutes?: number | undefined;
+                    seconds?: number | undefined;
                 }, {
                     year?: string | number | undefined;
                     month?: string | number | undefined;
                     day?: string | number | undefined;
-                    hour?: string | number | undefined;
-                    minute?: string | number | undefined;
+                    hours?: string | number | undefined;
+                    minutes?: string | number | undefined;
+                    seconds?: string | number | undefined;
                 }>>;
                 deathDate: z.ZodOptional<z.ZodObject<{
                     year: z.ZodOptional<z.ZodOptional<z.ZodEffects<z.ZodUnion<[z.ZodNumber, z.ZodString]>, number, string | number>>>;
                     month: z.ZodOptional<z.ZodOptional<z.ZodEffects<z.ZodUnion<[z.ZodNumber, z.ZodString]>, number, string | number>>>;
                     day: z.ZodOptional<z.ZodOptional<z.ZodEffects<z.ZodUnion<[z.ZodNumber, z.ZodString]>, number, string | number>>>;
-                    hour: z.ZodOptional<z.ZodOptional<z.ZodEffects<z.ZodUnion<[z.ZodNumber, z.ZodString]>, number, string | number>>>;
-                    minute: z.ZodOptional<z.ZodOptional<z.ZodEffects<z.ZodUnion<[z.ZodNumber, z.ZodString]>, number, string | number>>>;
+                    hours: z.ZodOptional<z.ZodOptional<z.ZodEffects<z.ZodUnion<[z.ZodNumber, z.ZodString]>, number, string | number>>>;
+                    minutes: z.ZodOptional<z.ZodOptional<z.ZodEffects<z.ZodUnion<[z.ZodNumber, z.ZodString]>, number, string | number>>>;
+                    seconds: z.ZodOptional<z.ZodOptional<z.ZodEffects<z.ZodUnion<[z.ZodNumber, z.ZodString]>, number, string | number>>>;
                 }, "strip", z.ZodTypeAny, {
                     year?: number | undefined;
                     month?: number | undefined;
                     day?: number | undefined;
-                    hour?: number | undefined;
-                    minute?: number | undefined;
+                    hours?: number | undefined;
+                    minutes?: number | undefined;
+                    seconds?: number | undefined;
                 }, {
                     year?: string | number | undefined;
                     month?: string | number | undefined;
                     day?: string | number | undefined;
-                    hour?: string | number | undefined;
-                    minute?: string | number | undefined;
+                    hours?: string | number | undefined;
+                    minutes?: string | number | undefined;
+                    seconds?: string | number | undefined;
                 }>>;
                 description: z.ZodOptional<z.ZodString>;
                 avatar: z.ZodOptional<z.ZodObject<{
@@ -2262,15 +2371,17 @@ export declare const Add_Character_ZOD: z.ZodObject<{
                     year?: number | undefined;
                     month?: number | undefined;
                     day?: number | undefined;
-                    hour?: number | undefined;
-                    minute?: number | undefined;
+                    hours?: number | undefined;
+                    minutes?: number | undefined;
+                    seconds?: number | undefined;
                 } | undefined;
                 deathDate?: {
                     year?: number | undefined;
                     month?: number | undefined;
                     day?: number | undefined;
-                    hour?: number | undefined;
-                    minute?: number | undefined;
+                    hours?: number | undefined;
+                    minutes?: number | undefined;
+                    seconds?: number | undefined;
                 } | undefined;
                 avatar?: {
                     id?: string | undefined;
@@ -2295,15 +2406,17 @@ export declare const Add_Character_ZOD: z.ZodObject<{
                     year?: string | number | undefined;
                     month?: string | number | undefined;
                     day?: string | number | undefined;
-                    hour?: string | number | undefined;
-                    minute?: string | number | undefined;
+                    hours?: string | number | undefined;
+                    minutes?: string | number | undefined;
+                    seconds?: string | number | undefined;
                 } | undefined;
                 deathDate?: {
                     year?: string | number | undefined;
                     month?: string | number | undefined;
                     day?: string | number | undefined;
-                    hour?: string | number | undefined;
-                    minute?: string | number | undefined;
+                    hours?: string | number | undefined;
+                    minutes?: string | number | undefined;
+                    seconds?: string | number | undefined;
                 } | undefined;
                 avatar?: {
                     id?: string | undefined;
@@ -2332,15 +2445,17 @@ export declare const Add_Character_ZOD: z.ZodObject<{
                     year?: number | undefined;
                     month?: number | undefined;
                     day?: number | undefined;
-                    hour?: number | undefined;
-                    minute?: number | undefined;
+                    hours?: number | undefined;
+                    minutes?: number | undefined;
+                    seconds?: number | undefined;
                 } | undefined;
                 deathDate?: {
                     year?: number | undefined;
                     month?: number | undefined;
                     day?: number | undefined;
-                    hour?: number | undefined;
-                    minute?: number | undefined;
+                    hours?: number | undefined;
+                    minutes?: number | undefined;
+                    seconds?: number | undefined;
                 } | undefined;
                 avatar?: {
                     id?: string | undefined;
@@ -2369,15 +2484,17 @@ export declare const Add_Character_ZOD: z.ZodObject<{
                     year?: string | number | undefined;
                     month?: string | number | undefined;
                     day?: string | number | undefined;
-                    hour?: string | number | undefined;
-                    minute?: string | number | undefined;
+                    hours?: string | number | undefined;
+                    minutes?: string | number | undefined;
+                    seconds?: string | number | undefined;
                 } | undefined;
                 deathDate?: {
                     year?: string | number | undefined;
                     month?: string | number | undefined;
                     day?: string | number | undefined;
-                    hour?: string | number | undefined;
-                    minute?: string | number | undefined;
+                    hours?: string | number | undefined;
+                    minutes?: string | number | undefined;
+                    seconds?: string | number | undefined;
                 } | undefined;
                 avatar?: {
                     id?: string | undefined;
@@ -2406,8 +2523,9 @@ export declare const Add_Character_ZOD: z.ZodObject<{
             year?: number | undefined;
             month?: number | undefined;
             day?: number | undefined;
-            hour?: number | undefined;
-            minute?: number | undefined;
+            hours?: number | undefined;
+            minutes?: number | undefined;
+            seconds?: number | undefined;
         } | undefined;
         avatar?: {
             id?: string | undefined;
@@ -2431,15 +2549,17 @@ export declare const Add_Character_ZOD: z.ZodObject<{
                     year?: number | undefined;
                     month?: number | undefined;
                     day?: number | undefined;
-                    hour?: number | undefined;
-                    minute?: number | undefined;
+                    hours?: number | undefined;
+                    minutes?: number | undefined;
+                    seconds?: number | undefined;
                 } | undefined;
                 deathDate?: {
                     year?: number | undefined;
                     month?: number | undefined;
                     day?: number | undefined;
-                    hour?: number | undefined;
-                    minute?: number | undefined;
+                    hours?: number | undefined;
+                    minutes?: number | undefined;
+                    seconds?: number | undefined;
                 } | undefined;
                 avatar?: {
                     id?: string | undefined;
@@ -2468,8 +2588,9 @@ export declare const Add_Character_ZOD: z.ZodObject<{
             year?: string | number | undefined;
             month?: string | number | undefined;
             day?: string | number | undefined;
-            hour?: string | number | undefined;
-            minute?: string | number | undefined;
+            hours?: string | number | undefined;
+            minutes?: string | number | undefined;
+            seconds?: string | number | undefined;
         } | undefined;
         avatar?: {
             id?: string | undefined;
@@ -2493,15 +2614,17 @@ export declare const Add_Character_ZOD: z.ZodObject<{
                     year?: string | number | undefined;
                     month?: string | number | undefined;
                     day?: string | number | undefined;
-                    hour?: string | number | undefined;
-                    minute?: string | number | undefined;
+                    hours?: string | number | undefined;
+                    minutes?: string | number | undefined;
+                    seconds?: string | number | undefined;
                 } | undefined;
                 deathDate?: {
                     year?: string | number | undefined;
                     month?: string | number | undefined;
                     day?: string | number | undefined;
-                    hour?: string | number | undefined;
-                    minute?: string | number | undefined;
+                    hours?: string | number | undefined;
+                    minutes?: string | number | undefined;
+                    seconds?: string | number | undefined;
                 } | undefined;
                 avatar?: {
                     id?: string | undefined;
@@ -2535,8 +2658,9 @@ export declare const Add_Character_ZOD: z.ZodObject<{
             year?: number | undefined;
             month?: number | undefined;
             day?: number | undefined;
-            hour?: number | undefined;
-            minute?: number | undefined;
+            hours?: number | undefined;
+            minutes?: number | undefined;
+            seconds?: number | undefined;
         } | undefined;
         avatar?: {
             id?: string | undefined;
@@ -2560,15 +2684,17 @@ export declare const Add_Character_ZOD: z.ZodObject<{
                     year?: number | undefined;
                     month?: number | undefined;
                     day?: number | undefined;
-                    hour?: number | undefined;
-                    minute?: number | undefined;
+                    hours?: number | undefined;
+                    minutes?: number | undefined;
+                    seconds?: number | undefined;
                 } | undefined;
                 deathDate?: {
                     year?: number | undefined;
                     month?: number | undefined;
                     day?: number | undefined;
-                    hour?: number | undefined;
-                    minute?: number | undefined;
+                    hours?: number | undefined;
+                    minutes?: number | undefined;
+                    seconds?: number | undefined;
                 } | undefined;
                 avatar?: {
                     id?: string | undefined;
@@ -2601,8 +2727,9 @@ export declare const Add_Character_ZOD: z.ZodObject<{
             year?: string | number | undefined;
             month?: string | number | undefined;
             day?: string | number | undefined;
-            hour?: string | number | undefined;
-            minute?: string | number | undefined;
+            hours?: string | number | undefined;
+            minutes?: string | number | undefined;
+            seconds?: string | number | undefined;
         } | undefined;
         avatar?: {
             id?: string | undefined;
@@ -2626,15 +2753,17 @@ export declare const Add_Character_ZOD: z.ZodObject<{
                     year?: string | number | undefined;
                     month?: string | number | undefined;
                     day?: string | number | undefined;
-                    hour?: string | number | undefined;
-                    minute?: string | number | undefined;
+                    hours?: string | number | undefined;
+                    minutes?: string | number | undefined;
+                    seconds?: string | number | undefined;
                 } | undefined;
                 deathDate?: {
                     year?: string | number | undefined;
                     month?: string | number | undefined;
                     day?: string | number | undefined;
-                    hour?: string | number | undefined;
-                    minute?: string | number | undefined;
+                    hours?: string | number | undefined;
+                    minutes?: string | number | undefined;
+                    seconds?: string | number | undefined;
                 } | undefined;
                 avatar?: {
                     id?: string | undefined;
@@ -2666,8 +2795,9 @@ export declare const CharacterDataToZOD: (data: ICharacter) => {
         year?: number | undefined;
         month?: number | undefined;
         day?: number | undefined;
-        hour?: number | undefined;
-        minute?: number | undefined;
+        hours?: number | undefined;
+        minutes?: number | undefined;
+        seconds?: number | undefined;
     } | undefined;
     avatar?: {
         id?: string | undefined;
@@ -2691,15 +2821,17 @@ export declare const CharacterDataToZOD: (data: ICharacter) => {
                 year?: number | undefined;
                 month?: number | undefined;
                 day?: number | undefined;
-                hour?: number | undefined;
-                minute?: number | undefined;
+                hours?: number | undefined;
+                minutes?: number | undefined;
+                seconds?: number | undefined;
             } | undefined;
             deathDate?: {
                 year?: number | undefined;
                 month?: number | undefined;
                 day?: number | undefined;
-                hour?: number | undefined;
-                minute?: number | undefined;
+                hours?: number | undefined;
+                minutes?: number | undefined;
+                seconds?: number | undefined;
             } | undefined;
             avatar?: {
                 id?: string | undefined;

@@ -11,25 +11,28 @@ export declare const TrackQueryBody: z.ZodObject<{
         default: string;
         alias?: string[] | undefined;
     }>;
-    type: z.ZodEnum<("OPENING" | "ENDING" | "OST" | "INSERT")[] & [string, ...string[]]>;
+    type: z.ZodEnum<("OPENING" | "ENDING" | "BGM" | "INSERT")[] & [string, ...string[]]>;
     pubDate: z.ZodOptional<z.ZodObject<{
         year: z.ZodOptional<z.ZodOptional<z.ZodEffects<z.ZodUnion<[z.ZodNumber, z.ZodString]>, number, string | number>>>;
         month: z.ZodOptional<z.ZodOptional<z.ZodEffects<z.ZodUnion<[z.ZodNumber, z.ZodString]>, number, string | number>>>;
         day: z.ZodOptional<z.ZodOptional<z.ZodEffects<z.ZodUnion<[z.ZodNumber, z.ZodString]>, number, string | number>>>;
-        hour: z.ZodOptional<z.ZodOptional<z.ZodEffects<z.ZodUnion<[z.ZodNumber, z.ZodString]>, number, string | number>>>;
-        minute: z.ZodOptional<z.ZodOptional<z.ZodEffects<z.ZodUnion<[z.ZodNumber, z.ZodString]>, number, string | number>>>;
+        hours: z.ZodOptional<z.ZodOptional<z.ZodEffects<z.ZodUnion<[z.ZodNumber, z.ZodString]>, number, string | number>>>;
+        minutes: z.ZodOptional<z.ZodOptional<z.ZodEffects<z.ZodUnion<[z.ZodNumber, z.ZodString]>, number, string | number>>>;
+        seconds: z.ZodOptional<z.ZodOptional<z.ZodEffects<z.ZodUnion<[z.ZodNumber, z.ZodString]>, number, string | number>>>;
     }, "strip", z.ZodTypeAny, {
         year?: number | undefined;
         month?: number | undefined;
         day?: number | undefined;
-        hour?: number | undefined;
-        minute?: number | undefined;
+        hours?: number | undefined;
+        minutes?: number | undefined;
+        seconds?: number | undefined;
     }, {
         year?: string | number | undefined;
         month?: string | number | undefined;
         day?: string | number | undefined;
-        hour?: string | number | undefined;
-        minute?: string | number | undefined;
+        hours?: string | number | undefined;
+        minutes?: string | number | undefined;
+        seconds?: string | number | undefined;
     }>>;
     artists: z.ZodObject<{
         id: z.ZodOptional<z.ZodString>;
@@ -62,7 +65,7 @@ export declare const TrackQueryBody: z.ZodObject<{
     createdAt: z.ZodString;
     updatedAt: z.ZodString;
 }, "strip", z.ZodTypeAny, {
-    type: "OPENING" | "ENDING" | "OST" | "INSERT";
+    type: "OPENING" | "ENDING" | "BGM" | "INSERT";
     cover: {
         id?: string | undefined;
         label?: "COVER" | "BANNER" | "AVATAR" | "LOGO" | undefined;
@@ -85,11 +88,12 @@ export declare const TrackQueryBody: z.ZodObject<{
         year?: number | undefined;
         month?: number | undefined;
         day?: number | undefined;
-        hour?: number | undefined;
-        minute?: number | undefined;
+        hours?: number | undefined;
+        minutes?: number | undefined;
+        seconds?: number | undefined;
     } | undefined;
 }, {
-    type: "OPENING" | "ENDING" | "OST" | "INSERT";
+    type: "OPENING" | "ENDING" | "BGM" | "INSERT";
     cover: {
         id?: string | undefined;
         label?: "COVER" | "BANNER" | "AVATAR" | "LOGO" | undefined;
@@ -112,8 +116,9 @@ export declare const TrackQueryBody: z.ZodObject<{
         year?: string | number | undefined;
         month?: string | number | undefined;
         day?: string | number | undefined;
-        hour?: string | number | undefined;
-        minute?: string | number | undefined;
+        hours?: string | number | undefined;
+        minutes?: string | number | undefined;
+        seconds?: string | number | undefined;
     } | undefined;
 }>;
 export declare const TrackSortBody: z.ZodObject<{
@@ -164,25 +169,28 @@ export declare const TrackPaginationBody: z.ZodObject<{
             default: string;
             alias?: string[] | undefined;
         }>>;
-        type: z.ZodOptional<z.ZodEnum<("OPENING" | "ENDING" | "OST" | "INSERT")[] & [string, ...string[]]>>;
+        type: z.ZodOptional<z.ZodEnum<("OPENING" | "ENDING" | "BGM" | "INSERT")[] & [string, ...string[]]>>;
         pubDate: z.ZodOptional<z.ZodOptional<z.ZodObject<{
             year: z.ZodOptional<z.ZodOptional<z.ZodEffects<z.ZodUnion<[z.ZodNumber, z.ZodString]>, number, string | number>>>;
             month: z.ZodOptional<z.ZodOptional<z.ZodEffects<z.ZodUnion<[z.ZodNumber, z.ZodString]>, number, string | number>>>;
             day: z.ZodOptional<z.ZodOptional<z.ZodEffects<z.ZodUnion<[z.ZodNumber, z.ZodString]>, number, string | number>>>;
-            hour: z.ZodOptional<z.ZodOptional<z.ZodEffects<z.ZodUnion<[z.ZodNumber, z.ZodString]>, number, string | number>>>;
-            minute: z.ZodOptional<z.ZodOptional<z.ZodEffects<z.ZodUnion<[z.ZodNumber, z.ZodString]>, number, string | number>>>;
+            hours: z.ZodOptional<z.ZodOptional<z.ZodEffects<z.ZodUnion<[z.ZodNumber, z.ZodString]>, number, string | number>>>;
+            minutes: z.ZodOptional<z.ZodOptional<z.ZodEffects<z.ZodUnion<[z.ZodNumber, z.ZodString]>, number, string | number>>>;
+            seconds: z.ZodOptional<z.ZodOptional<z.ZodEffects<z.ZodUnion<[z.ZodNumber, z.ZodString]>, number, string | number>>>;
         }, "strip", z.ZodTypeAny, {
             year?: number | undefined;
             month?: number | undefined;
             day?: number | undefined;
-            hour?: number | undefined;
-            minute?: number | undefined;
+            hours?: number | undefined;
+            minutes?: number | undefined;
+            seconds?: number | undefined;
         }, {
             year?: string | number | undefined;
             month?: string | number | undefined;
             day?: string | number | undefined;
-            hour?: string | number | undefined;
-            minute?: string | number | undefined;
+            hours?: string | number | undefined;
+            minutes?: string | number | undefined;
+            seconds?: string | number | undefined;
         }>>>;
         artists: z.ZodOptional<z.ZodObject<{
             id: z.ZodOptional<z.ZodString>;
@@ -215,7 +223,7 @@ export declare const TrackPaginationBody: z.ZodObject<{
         createdAt: z.ZodOptional<z.ZodString>;
         updatedAt: z.ZodOptional<z.ZodString>;
     }, "strip", z.ZodTypeAny, {
-        type?: "OPENING" | "ENDING" | "OST" | "INSERT" | undefined;
+        type?: "OPENING" | "ENDING" | "BGM" | "INSERT" | undefined;
         cover?: {
             id?: string | undefined;
             label?: "COVER" | "BANNER" | "AVATAR" | "LOGO" | undefined;
@@ -235,14 +243,15 @@ export declare const TrackPaginationBody: z.ZodObject<{
             year?: number | undefined;
             month?: number | undefined;
             day?: number | undefined;
-            hour?: number | undefined;
-            minute?: number | undefined;
+            hours?: number | undefined;
+            minutes?: number | undefined;
+            seconds?: number | undefined;
         } | undefined;
         artists?: {
             id?: string | undefined;
         } | undefined;
     }, {
-        type?: "OPENING" | "ENDING" | "OST" | "INSERT" | undefined;
+        type?: "OPENING" | "ENDING" | "BGM" | "INSERT" | undefined;
         cover?: {
             id?: string | undefined;
             label?: "COVER" | "BANNER" | "AVATAR" | "LOGO" | undefined;
@@ -262,8 +271,9 @@ export declare const TrackPaginationBody: z.ZodObject<{
             year?: string | number | undefined;
             month?: string | number | undefined;
             day?: string | number | undefined;
-            hour?: string | number | undefined;
-            minute?: string | number | undefined;
+            hours?: string | number | undefined;
+            minutes?: string | number | undefined;
+            seconds?: string | number | undefined;
         } | undefined;
         artists?: {
             id?: string | undefined;
@@ -291,7 +301,7 @@ export declare const TrackPaginationBody: z.ZodObject<{
         pubDate?: number | undefined;
     } | undefined;
     query?: {
-        type?: "OPENING" | "ENDING" | "OST" | "INSERT" | undefined;
+        type?: "OPENING" | "ENDING" | "BGM" | "INSERT" | undefined;
         cover?: {
             id?: string | undefined;
             label?: "COVER" | "BANNER" | "AVATAR" | "LOGO" | undefined;
@@ -311,8 +321,9 @@ export declare const TrackPaginationBody: z.ZodObject<{
             year?: number | undefined;
             month?: number | undefined;
             day?: number | undefined;
-            hour?: number | undefined;
-            minute?: number | undefined;
+            hours?: number | undefined;
+            minutes?: number | undefined;
+            seconds?: number | undefined;
         } | undefined;
         artists?: {
             id?: string | undefined;
@@ -334,7 +345,7 @@ export declare const TrackPaginationBody: z.ZodObject<{
         pubDate?: string | number | undefined;
     } | undefined;
     query?: {
-        type?: "OPENING" | "ENDING" | "OST" | "INSERT" | undefined;
+        type?: "OPENING" | "ENDING" | "BGM" | "INSERT" | undefined;
         cover?: {
             id?: string | undefined;
             label?: "COVER" | "BANNER" | "AVATAR" | "LOGO" | undefined;
@@ -354,8 +365,9 @@ export declare const TrackPaginationBody: z.ZodObject<{
             year?: string | number | undefined;
             month?: string | number | undefined;
             day?: string | number | undefined;
-            hour?: string | number | undefined;
-            minute?: string | number | undefined;
+            hours?: string | number | undefined;
+            minutes?: string | number | undefined;
+            seconds?: string | number | undefined;
         } | undefined;
         artists?: {
             id?: string | undefined;
@@ -398,25 +410,28 @@ export declare const Track_Pagination_ZOD: z.ZodObject<{
             default: string;
             alias?: string[] | undefined;
         }>>;
-        type: z.ZodOptional<z.ZodEnum<("OPENING" | "ENDING" | "OST" | "INSERT")[] & [string, ...string[]]>>;
+        type: z.ZodOptional<z.ZodEnum<("OPENING" | "ENDING" | "BGM" | "INSERT")[] & [string, ...string[]]>>;
         pubDate: z.ZodOptional<z.ZodOptional<z.ZodObject<{
             year: z.ZodOptional<z.ZodOptional<z.ZodEffects<z.ZodUnion<[z.ZodNumber, z.ZodString]>, number, string | number>>>;
             month: z.ZodOptional<z.ZodOptional<z.ZodEffects<z.ZodUnion<[z.ZodNumber, z.ZodString]>, number, string | number>>>;
             day: z.ZodOptional<z.ZodOptional<z.ZodEffects<z.ZodUnion<[z.ZodNumber, z.ZodString]>, number, string | number>>>;
-            hour: z.ZodOptional<z.ZodOptional<z.ZodEffects<z.ZodUnion<[z.ZodNumber, z.ZodString]>, number, string | number>>>;
-            minute: z.ZodOptional<z.ZodOptional<z.ZodEffects<z.ZodUnion<[z.ZodNumber, z.ZodString]>, number, string | number>>>;
+            hours: z.ZodOptional<z.ZodOptional<z.ZodEffects<z.ZodUnion<[z.ZodNumber, z.ZodString]>, number, string | number>>>;
+            minutes: z.ZodOptional<z.ZodOptional<z.ZodEffects<z.ZodUnion<[z.ZodNumber, z.ZodString]>, number, string | number>>>;
+            seconds: z.ZodOptional<z.ZodOptional<z.ZodEffects<z.ZodUnion<[z.ZodNumber, z.ZodString]>, number, string | number>>>;
         }, "strip", z.ZodTypeAny, {
             year?: number | undefined;
             month?: number | undefined;
             day?: number | undefined;
-            hour?: number | undefined;
-            minute?: number | undefined;
+            hours?: number | undefined;
+            minutes?: number | undefined;
+            seconds?: number | undefined;
         }, {
             year?: string | number | undefined;
             month?: string | number | undefined;
             day?: string | number | undefined;
-            hour?: string | number | undefined;
-            minute?: string | number | undefined;
+            hours?: string | number | undefined;
+            minutes?: string | number | undefined;
+            seconds?: string | number | undefined;
         }>>>;
         artists: z.ZodOptional<z.ZodObject<{
             id: z.ZodOptional<z.ZodString>;
@@ -449,7 +464,7 @@ export declare const Track_Pagination_ZOD: z.ZodObject<{
         createdAt: z.ZodOptional<z.ZodString>;
         updatedAt: z.ZodOptional<z.ZodString>;
     }, "strip", z.ZodTypeAny, {
-        type?: "OPENING" | "ENDING" | "OST" | "INSERT" | undefined;
+        type?: "OPENING" | "ENDING" | "BGM" | "INSERT" | undefined;
         cover?: {
             id?: string | undefined;
             label?: "COVER" | "BANNER" | "AVATAR" | "LOGO" | undefined;
@@ -469,14 +484,15 @@ export declare const Track_Pagination_ZOD: z.ZodObject<{
             year?: number | undefined;
             month?: number | undefined;
             day?: number | undefined;
-            hour?: number | undefined;
-            minute?: number | undefined;
+            hours?: number | undefined;
+            minutes?: number | undefined;
+            seconds?: number | undefined;
         } | undefined;
         artists?: {
             id?: string | undefined;
         } | undefined;
     }, {
-        type?: "OPENING" | "ENDING" | "OST" | "INSERT" | undefined;
+        type?: "OPENING" | "ENDING" | "BGM" | "INSERT" | undefined;
         cover?: {
             id?: string | undefined;
             label?: "COVER" | "BANNER" | "AVATAR" | "LOGO" | undefined;
@@ -496,8 +512,9 @@ export declare const Track_Pagination_ZOD: z.ZodObject<{
             year?: string | number | undefined;
             month?: string | number | undefined;
             day?: string | number | undefined;
-            hour?: string | number | undefined;
-            minute?: string | number | undefined;
+            hours?: string | number | undefined;
+            minutes?: string | number | undefined;
+            seconds?: string | number | undefined;
         } | undefined;
         artists?: {
             id?: string | undefined;
@@ -514,7 +531,7 @@ export declare const Track_Pagination_ZOD: z.ZodObject<{
         pubDate?: number | undefined;
     };
     query: {
-        type?: "OPENING" | "ENDING" | "OST" | "INSERT" | undefined;
+        type?: "OPENING" | "ENDING" | "BGM" | "INSERT" | undefined;
         cover?: {
             id?: string | undefined;
             label?: "COVER" | "BANNER" | "AVATAR" | "LOGO" | undefined;
@@ -534,8 +551,9 @@ export declare const Track_Pagination_ZOD: z.ZodObject<{
             year?: number | undefined;
             month?: number | undefined;
             day?: number | undefined;
-            hour?: number | undefined;
-            minute?: number | undefined;
+            hours?: number | undefined;
+            minutes?: number | undefined;
+            seconds?: number | undefined;
         } | undefined;
         artists?: {
             id?: string | undefined;
@@ -552,7 +570,7 @@ export declare const Track_Pagination_ZOD: z.ZodObject<{
         pubDate?: string | number | undefined;
     };
     query: {
-        type?: "OPENING" | "ENDING" | "OST" | "INSERT" | undefined;
+        type?: "OPENING" | "ENDING" | "BGM" | "INSERT" | undefined;
         cover?: {
             id?: string | undefined;
             label?: "COVER" | "BANNER" | "AVATAR" | "LOGO" | undefined;
@@ -572,8 +590,9 @@ export declare const Track_Pagination_ZOD: z.ZodObject<{
             year?: string | number | undefined;
             month?: string | number | undefined;
             day?: string | number | undefined;
-            hour?: string | number | undefined;
-            minute?: string | number | undefined;
+            hours?: string | number | undefined;
+            minutes?: string | number | undefined;
+            seconds?: string | number | undefined;
         } | undefined;
         artists?: {
             id?: string | undefined;
@@ -592,25 +611,28 @@ export declare const Create_Track_ZOD: z.ZodObject<{
         default: string;
         alias?: string[] | undefined;
     }>;
-    type: z.ZodEnum<("OPENING" | "ENDING" | "OST" | "INSERT")[] & [string, ...string[]]>;
+    type: z.ZodEnum<("OPENING" | "ENDING" | "BGM" | "INSERT")[] & [string, ...string[]]>;
     pubDate: z.ZodOptional<z.ZodObject<{
         year: z.ZodOptional<z.ZodOptional<z.ZodEffects<z.ZodUnion<[z.ZodNumber, z.ZodString]>, number, string | number>>>;
         month: z.ZodOptional<z.ZodOptional<z.ZodEffects<z.ZodUnion<[z.ZodNumber, z.ZodString]>, number, string | number>>>;
         day: z.ZodOptional<z.ZodOptional<z.ZodEffects<z.ZodUnion<[z.ZodNumber, z.ZodString]>, number, string | number>>>;
-        hour: z.ZodOptional<z.ZodOptional<z.ZodEffects<z.ZodUnion<[z.ZodNumber, z.ZodString]>, number, string | number>>>;
-        minute: z.ZodOptional<z.ZodOptional<z.ZodEffects<z.ZodUnion<[z.ZodNumber, z.ZodString]>, number, string | number>>>;
+        hours: z.ZodOptional<z.ZodOptional<z.ZodEffects<z.ZodUnion<[z.ZodNumber, z.ZodString]>, number, string | number>>>;
+        minutes: z.ZodOptional<z.ZodOptional<z.ZodEffects<z.ZodUnion<[z.ZodNumber, z.ZodString]>, number, string | number>>>;
+        seconds: z.ZodOptional<z.ZodOptional<z.ZodEffects<z.ZodUnion<[z.ZodNumber, z.ZodString]>, number, string | number>>>;
     }, "strip", z.ZodTypeAny, {
         year?: number | undefined;
         month?: number | undefined;
         day?: number | undefined;
-        hour?: number | undefined;
-        minute?: number | undefined;
+        hours?: number | undefined;
+        minutes?: number | undefined;
+        seconds?: number | undefined;
     }, {
         year?: string | number | undefined;
         month?: string | number | undefined;
         day?: string | number | undefined;
-        hour?: string | number | undefined;
-        minute?: string | number | undefined;
+        hours?: string | number | undefined;
+        minutes?: string | number | undefined;
+        seconds?: string | number | undefined;
     }>>;
     artists: z.ZodOptional<z.ZodArray<z.ZodObject<{
         id: z.ZodOptional<z.ZodString>;
@@ -630,39 +652,45 @@ export declare const Create_Track_ZOD: z.ZodObject<{
                 year: z.ZodOptional<z.ZodOptional<z.ZodEffects<z.ZodUnion<[z.ZodNumber, z.ZodString]>, number, string | number>>>;
                 month: z.ZodOptional<z.ZodOptional<z.ZodEffects<z.ZodUnion<[z.ZodNumber, z.ZodString]>, number, string | number>>>;
                 day: z.ZodOptional<z.ZodOptional<z.ZodEffects<z.ZodUnion<[z.ZodNumber, z.ZodString]>, number, string | number>>>;
-                hour: z.ZodOptional<z.ZodOptional<z.ZodEffects<z.ZodUnion<[z.ZodNumber, z.ZodString]>, number, string | number>>>;
-                minute: z.ZodOptional<z.ZodOptional<z.ZodEffects<z.ZodUnion<[z.ZodNumber, z.ZodString]>, number, string | number>>>;
+                hours: z.ZodOptional<z.ZodOptional<z.ZodEffects<z.ZodUnion<[z.ZodNumber, z.ZodString]>, number, string | number>>>;
+                minutes: z.ZodOptional<z.ZodOptional<z.ZodEffects<z.ZodUnion<[z.ZodNumber, z.ZodString]>, number, string | number>>>;
+                seconds: z.ZodOptional<z.ZodOptional<z.ZodEffects<z.ZodUnion<[z.ZodNumber, z.ZodString]>, number, string | number>>>;
             }, "strip", z.ZodTypeAny, {
                 year?: number | undefined;
                 month?: number | undefined;
                 day?: number | undefined;
-                hour?: number | undefined;
-                minute?: number | undefined;
+                hours?: number | undefined;
+                minutes?: number | undefined;
+                seconds?: number | undefined;
             }, {
                 year?: string | number | undefined;
                 month?: string | number | undefined;
                 day?: string | number | undefined;
-                hour?: string | number | undefined;
-                minute?: string | number | undefined;
+                hours?: string | number | undefined;
+                minutes?: string | number | undefined;
+                seconds?: string | number | undefined;
             }>>;
             deathDate: z.ZodOptional<z.ZodObject<{
                 year: z.ZodOptional<z.ZodOptional<z.ZodEffects<z.ZodUnion<[z.ZodNumber, z.ZodString]>, number, string | number>>>;
                 month: z.ZodOptional<z.ZodOptional<z.ZodEffects<z.ZodUnion<[z.ZodNumber, z.ZodString]>, number, string | number>>>;
                 day: z.ZodOptional<z.ZodOptional<z.ZodEffects<z.ZodUnion<[z.ZodNumber, z.ZodString]>, number, string | number>>>;
-                hour: z.ZodOptional<z.ZodOptional<z.ZodEffects<z.ZodUnion<[z.ZodNumber, z.ZodString]>, number, string | number>>>;
-                minute: z.ZodOptional<z.ZodOptional<z.ZodEffects<z.ZodUnion<[z.ZodNumber, z.ZodString]>, number, string | number>>>;
+                hours: z.ZodOptional<z.ZodOptional<z.ZodEffects<z.ZodUnion<[z.ZodNumber, z.ZodString]>, number, string | number>>>;
+                minutes: z.ZodOptional<z.ZodOptional<z.ZodEffects<z.ZodUnion<[z.ZodNumber, z.ZodString]>, number, string | number>>>;
+                seconds: z.ZodOptional<z.ZodOptional<z.ZodEffects<z.ZodUnion<[z.ZodNumber, z.ZodString]>, number, string | number>>>;
             }, "strip", z.ZodTypeAny, {
                 year?: number | undefined;
                 month?: number | undefined;
                 day?: number | undefined;
-                hour?: number | undefined;
-                minute?: number | undefined;
+                hours?: number | undefined;
+                minutes?: number | undefined;
+                seconds?: number | undefined;
             }, {
                 year?: string | number | undefined;
                 month?: string | number | undefined;
                 day?: string | number | undefined;
-                hour?: string | number | undefined;
-                minute?: string | number | undefined;
+                hours?: string | number | undefined;
+                minutes?: string | number | undefined;
+                seconds?: string | number | undefined;
             }>>;
             description: z.ZodOptional<z.ZodString>;
             avatar: z.ZodOptional<z.ZodObject<{
@@ -714,15 +742,17 @@ export declare const Create_Track_ZOD: z.ZodObject<{
                 year?: number | undefined;
                 month?: number | undefined;
                 day?: number | undefined;
-                hour?: number | undefined;
-                minute?: number | undefined;
+                hours?: number | undefined;
+                minutes?: number | undefined;
+                seconds?: number | undefined;
             } | undefined;
             deathDate?: {
                 year?: number | undefined;
                 month?: number | undefined;
                 day?: number | undefined;
-                hour?: number | undefined;
-                minute?: number | undefined;
+                hours?: number | undefined;
+                minutes?: number | undefined;
+                seconds?: number | undefined;
             } | undefined;
             avatar?: {
                 id?: string | undefined;
@@ -747,15 +777,17 @@ export declare const Create_Track_ZOD: z.ZodObject<{
                 year?: string | number | undefined;
                 month?: string | number | undefined;
                 day?: string | number | undefined;
-                hour?: string | number | undefined;
-                minute?: string | number | undefined;
+                hours?: string | number | undefined;
+                minutes?: string | number | undefined;
+                seconds?: string | number | undefined;
             } | undefined;
             deathDate?: {
                 year?: string | number | undefined;
                 month?: string | number | undefined;
                 day?: string | number | undefined;
-                hour?: string | number | undefined;
-                minute?: string | number | undefined;
+                hours?: string | number | undefined;
+                minutes?: string | number | undefined;
+                seconds?: string | number | undefined;
             } | undefined;
             avatar?: {
                 id?: string | undefined;
@@ -784,15 +816,17 @@ export declare const Create_Track_ZOD: z.ZodObject<{
                 year?: number | undefined;
                 month?: number | undefined;
                 day?: number | undefined;
-                hour?: number | undefined;
-                minute?: number | undefined;
+                hours?: number | undefined;
+                minutes?: number | undefined;
+                seconds?: number | undefined;
             } | undefined;
             deathDate?: {
                 year?: number | undefined;
                 month?: number | undefined;
                 day?: number | undefined;
-                hour?: number | undefined;
-                minute?: number | undefined;
+                hours?: number | undefined;
+                minutes?: number | undefined;
+                seconds?: number | undefined;
             } | undefined;
             avatar?: {
                 id?: string | undefined;
@@ -821,15 +855,17 @@ export declare const Create_Track_ZOD: z.ZodObject<{
                 year?: string | number | undefined;
                 month?: string | number | undefined;
                 day?: string | number | undefined;
-                hour?: string | number | undefined;
-                minute?: string | number | undefined;
+                hours?: string | number | undefined;
+                minutes?: string | number | undefined;
+                seconds?: string | number | undefined;
             } | undefined;
             deathDate?: {
                 year?: string | number | undefined;
                 month?: string | number | undefined;
                 day?: string | number | undefined;
-                hour?: string | number | undefined;
-                minute?: string | number | undefined;
+                hours?: string | number | undefined;
+                minutes?: string | number | undefined;
+                seconds?: string | number | undefined;
             } | undefined;
             avatar?: {
                 id?: string | undefined;
@@ -886,7 +922,7 @@ export declare const Create_Track_ZOD: z.ZodObject<{
         name: string;
     }>, "many">>;
 }, "strict", z.ZodTypeAny, {
-    type: "OPENING" | "ENDING" | "OST" | "INSERT";
+    type: "OPENING" | "ENDING" | "BGM" | "INSERT";
     name: {
         default: string;
         alias?: string[] | undefined;
@@ -908,8 +944,9 @@ export declare const Create_Track_ZOD: z.ZodObject<{
         year?: number | undefined;
         month?: number | undefined;
         day?: number | undefined;
-        hour?: number | undefined;
-        minute?: number | undefined;
+        hours?: number | undefined;
+        minutes?: number | undefined;
+        seconds?: number | undefined;
     } | undefined;
     artists?: {
         id?: string | undefined;
@@ -924,15 +961,17 @@ export declare const Create_Track_ZOD: z.ZodObject<{
                 year?: number | undefined;
                 month?: number | undefined;
                 day?: number | undefined;
-                hour?: number | undefined;
-                minute?: number | undefined;
+                hours?: number | undefined;
+                minutes?: number | undefined;
+                seconds?: number | undefined;
             } | undefined;
             deathDate?: {
                 year?: number | undefined;
                 month?: number | undefined;
                 day?: number | undefined;
-                hour?: number | undefined;
-                minute?: number | undefined;
+                hours?: number | undefined;
+                minutes?: number | undefined;
+                seconds?: number | undefined;
             } | undefined;
             avatar?: {
                 id?: string | undefined;
@@ -950,7 +989,7 @@ export declare const Create_Track_ZOD: z.ZodObject<{
         role?: "DOUBLAGE_SEIYU" | "AUTEUR" | "EDITEUR" | "PRODUCTEUR" | "REALISATEUR" | "REALISATEUR_EPISODES" | "REALISATEUR_MISEENPAGE" | "DIRECTEUR_ARTISTIQUE_CINEMATROGRAPHIQUE" | "DIRECTEUR_ANIMATION" | "CONCEPTEUR" | "ANIMATEUR_PRINCIPAL" | "ANIMATEUR_INTERMEDIAIRE" | "COLORISTES" | "DIRECTEUR_ENREGISTREMENT" | "SCENARISTE" | "ANIMATEUR_3D" | "METTEUR_EN_SCENE" | "SUPERVISEUR" | "MONTEUR" | "RESPONSABLE_DROITS" | "PRODUCTEUR_MUSIQUE" | "RESPONSABLE_MARKETING" | "DIFFUSEUR" | "STORYBOARDER" | "ARTISTE_VFX" | "INGENIEUR_SON" | "DIRECTEUR_DOUBLAGE" | "TRADUCTEUR" | "MANGAKA" | "CHARACTER_DESIGNER" | "DESSINATEUR_DECORS" | "REALISATEUR_MISE_EN_PAGE" | "COMPOSITEUR" | "PAROLIER" | "ARRANGEUR" | "MUSICIEN" | "CHANTEUR_EUSE" | "CHEF_ORCHESTRE" | "PRODUCTEUR_MUSICAL" | "DESIGNER_SONORE" | "MIXEUR" | undefined;
     }[] | undefined;
 }, {
-    type: "OPENING" | "ENDING" | "OST" | "INSERT";
+    type: "OPENING" | "ENDING" | "BGM" | "INSERT";
     name: {
         default: string;
         alias?: string[] | undefined;
@@ -972,8 +1011,9 @@ export declare const Create_Track_ZOD: z.ZodObject<{
         year?: string | number | undefined;
         month?: string | number | undefined;
         day?: string | number | undefined;
-        hour?: string | number | undefined;
-        minute?: string | number | undefined;
+        hours?: string | number | undefined;
+        minutes?: string | number | undefined;
+        seconds?: string | number | undefined;
     } | undefined;
     artists?: {
         id?: string | undefined;
@@ -988,15 +1028,17 @@ export declare const Create_Track_ZOD: z.ZodObject<{
                 year?: string | number | undefined;
                 month?: string | number | undefined;
                 day?: string | number | undefined;
-                hour?: string | number | undefined;
-                minute?: string | number | undefined;
+                hours?: string | number | undefined;
+                minutes?: string | number | undefined;
+                seconds?: string | number | undefined;
             } | undefined;
             deathDate?: {
                 year?: string | number | undefined;
                 month?: string | number | undefined;
                 day?: string | number | undefined;
-                hour?: string | number | undefined;
-                minute?: string | number | undefined;
+                hours?: string | number | undefined;
+                minutes?: string | number | undefined;
+                seconds?: string | number | undefined;
             } | undefined;
             avatar?: {
                 id?: string | undefined;
@@ -1030,25 +1072,28 @@ export declare const TrackCreateBody: z.ZodObject<z.objectUtil.extendShape<{
             default: string;
             alias?: string[] | undefined;
         }>;
-        type: z.ZodEnum<("OPENING" | "ENDING" | "OST" | "INSERT")[] & [string, ...string[]]>;
+        type: z.ZodEnum<("OPENING" | "ENDING" | "BGM" | "INSERT")[] & [string, ...string[]]>;
         pubDate: z.ZodOptional<z.ZodObject<{
             year: z.ZodOptional<z.ZodOptional<z.ZodEffects<z.ZodUnion<[z.ZodNumber, z.ZodString]>, number, string | number>>>;
             month: z.ZodOptional<z.ZodOptional<z.ZodEffects<z.ZodUnion<[z.ZodNumber, z.ZodString]>, number, string | number>>>;
             day: z.ZodOptional<z.ZodOptional<z.ZodEffects<z.ZodUnion<[z.ZodNumber, z.ZodString]>, number, string | number>>>;
-            hour: z.ZodOptional<z.ZodOptional<z.ZodEffects<z.ZodUnion<[z.ZodNumber, z.ZodString]>, number, string | number>>>;
-            minute: z.ZodOptional<z.ZodOptional<z.ZodEffects<z.ZodUnion<[z.ZodNumber, z.ZodString]>, number, string | number>>>;
+            hours: z.ZodOptional<z.ZodOptional<z.ZodEffects<z.ZodUnion<[z.ZodNumber, z.ZodString]>, number, string | number>>>;
+            minutes: z.ZodOptional<z.ZodOptional<z.ZodEffects<z.ZodUnion<[z.ZodNumber, z.ZodString]>, number, string | number>>>;
+            seconds: z.ZodOptional<z.ZodOptional<z.ZodEffects<z.ZodUnion<[z.ZodNumber, z.ZodString]>, number, string | number>>>;
         }, "strip", z.ZodTypeAny, {
             year?: number | undefined;
             month?: number | undefined;
             day?: number | undefined;
-            hour?: number | undefined;
-            minute?: number | undefined;
+            hours?: number | undefined;
+            minutes?: number | undefined;
+            seconds?: number | undefined;
         }, {
             year?: string | number | undefined;
             month?: string | number | undefined;
             day?: string | number | undefined;
-            hour?: string | number | undefined;
-            minute?: string | number | undefined;
+            hours?: string | number | undefined;
+            minutes?: string | number | undefined;
+            seconds?: string | number | undefined;
         }>>;
         artists: z.ZodOptional<z.ZodArray<z.ZodObject<{
             id: z.ZodOptional<z.ZodString>;
@@ -1068,39 +1113,45 @@ export declare const TrackCreateBody: z.ZodObject<z.objectUtil.extendShape<{
                     year: z.ZodOptional<z.ZodOptional<z.ZodEffects<z.ZodUnion<[z.ZodNumber, z.ZodString]>, number, string | number>>>;
                     month: z.ZodOptional<z.ZodOptional<z.ZodEffects<z.ZodUnion<[z.ZodNumber, z.ZodString]>, number, string | number>>>;
                     day: z.ZodOptional<z.ZodOptional<z.ZodEffects<z.ZodUnion<[z.ZodNumber, z.ZodString]>, number, string | number>>>;
-                    hour: z.ZodOptional<z.ZodOptional<z.ZodEffects<z.ZodUnion<[z.ZodNumber, z.ZodString]>, number, string | number>>>;
-                    minute: z.ZodOptional<z.ZodOptional<z.ZodEffects<z.ZodUnion<[z.ZodNumber, z.ZodString]>, number, string | number>>>;
+                    hours: z.ZodOptional<z.ZodOptional<z.ZodEffects<z.ZodUnion<[z.ZodNumber, z.ZodString]>, number, string | number>>>;
+                    minutes: z.ZodOptional<z.ZodOptional<z.ZodEffects<z.ZodUnion<[z.ZodNumber, z.ZodString]>, number, string | number>>>;
+                    seconds: z.ZodOptional<z.ZodOptional<z.ZodEffects<z.ZodUnion<[z.ZodNumber, z.ZodString]>, number, string | number>>>;
                 }, "strip", z.ZodTypeAny, {
                     year?: number | undefined;
                     month?: number | undefined;
                     day?: number | undefined;
-                    hour?: number | undefined;
-                    minute?: number | undefined;
+                    hours?: number | undefined;
+                    minutes?: number | undefined;
+                    seconds?: number | undefined;
                 }, {
                     year?: string | number | undefined;
                     month?: string | number | undefined;
                     day?: string | number | undefined;
-                    hour?: string | number | undefined;
-                    minute?: string | number | undefined;
+                    hours?: string | number | undefined;
+                    minutes?: string | number | undefined;
+                    seconds?: string | number | undefined;
                 }>>;
                 deathDate: z.ZodOptional<z.ZodObject<{
                     year: z.ZodOptional<z.ZodOptional<z.ZodEffects<z.ZodUnion<[z.ZodNumber, z.ZodString]>, number, string | number>>>;
                     month: z.ZodOptional<z.ZodOptional<z.ZodEffects<z.ZodUnion<[z.ZodNumber, z.ZodString]>, number, string | number>>>;
                     day: z.ZodOptional<z.ZodOptional<z.ZodEffects<z.ZodUnion<[z.ZodNumber, z.ZodString]>, number, string | number>>>;
-                    hour: z.ZodOptional<z.ZodOptional<z.ZodEffects<z.ZodUnion<[z.ZodNumber, z.ZodString]>, number, string | number>>>;
-                    minute: z.ZodOptional<z.ZodOptional<z.ZodEffects<z.ZodUnion<[z.ZodNumber, z.ZodString]>, number, string | number>>>;
+                    hours: z.ZodOptional<z.ZodOptional<z.ZodEffects<z.ZodUnion<[z.ZodNumber, z.ZodString]>, number, string | number>>>;
+                    minutes: z.ZodOptional<z.ZodOptional<z.ZodEffects<z.ZodUnion<[z.ZodNumber, z.ZodString]>, number, string | number>>>;
+                    seconds: z.ZodOptional<z.ZodOptional<z.ZodEffects<z.ZodUnion<[z.ZodNumber, z.ZodString]>, number, string | number>>>;
                 }, "strip", z.ZodTypeAny, {
                     year?: number | undefined;
                     month?: number | undefined;
                     day?: number | undefined;
-                    hour?: number | undefined;
-                    minute?: number | undefined;
+                    hours?: number | undefined;
+                    minutes?: number | undefined;
+                    seconds?: number | undefined;
                 }, {
                     year?: string | number | undefined;
                     month?: string | number | undefined;
                     day?: string | number | undefined;
-                    hour?: string | number | undefined;
-                    minute?: string | number | undefined;
+                    hours?: string | number | undefined;
+                    minutes?: string | number | undefined;
+                    seconds?: string | number | undefined;
                 }>>;
                 description: z.ZodOptional<z.ZodString>;
                 avatar: z.ZodOptional<z.ZodObject<{
@@ -1152,15 +1203,17 @@ export declare const TrackCreateBody: z.ZodObject<z.objectUtil.extendShape<{
                     year?: number | undefined;
                     month?: number | undefined;
                     day?: number | undefined;
-                    hour?: number | undefined;
-                    minute?: number | undefined;
+                    hours?: number | undefined;
+                    minutes?: number | undefined;
+                    seconds?: number | undefined;
                 } | undefined;
                 deathDate?: {
                     year?: number | undefined;
                     month?: number | undefined;
                     day?: number | undefined;
-                    hour?: number | undefined;
-                    minute?: number | undefined;
+                    hours?: number | undefined;
+                    minutes?: number | undefined;
+                    seconds?: number | undefined;
                 } | undefined;
                 avatar?: {
                     id?: string | undefined;
@@ -1185,15 +1238,17 @@ export declare const TrackCreateBody: z.ZodObject<z.objectUtil.extendShape<{
                     year?: string | number | undefined;
                     month?: string | number | undefined;
                     day?: string | number | undefined;
-                    hour?: string | number | undefined;
-                    minute?: string | number | undefined;
+                    hours?: string | number | undefined;
+                    minutes?: string | number | undefined;
+                    seconds?: string | number | undefined;
                 } | undefined;
                 deathDate?: {
                     year?: string | number | undefined;
                     month?: string | number | undefined;
                     day?: string | number | undefined;
-                    hour?: string | number | undefined;
-                    minute?: string | number | undefined;
+                    hours?: string | number | undefined;
+                    minutes?: string | number | undefined;
+                    seconds?: string | number | undefined;
                 } | undefined;
                 avatar?: {
                     id?: string | undefined;
@@ -1222,15 +1277,17 @@ export declare const TrackCreateBody: z.ZodObject<z.objectUtil.extendShape<{
                     year?: number | undefined;
                     month?: number | undefined;
                     day?: number | undefined;
-                    hour?: number | undefined;
-                    minute?: number | undefined;
+                    hours?: number | undefined;
+                    minutes?: number | undefined;
+                    seconds?: number | undefined;
                 } | undefined;
                 deathDate?: {
                     year?: number | undefined;
                     month?: number | undefined;
                     day?: number | undefined;
-                    hour?: number | undefined;
-                    minute?: number | undefined;
+                    hours?: number | undefined;
+                    minutes?: number | undefined;
+                    seconds?: number | undefined;
                 } | undefined;
                 avatar?: {
                     id?: string | undefined;
@@ -1259,15 +1316,17 @@ export declare const TrackCreateBody: z.ZodObject<z.objectUtil.extendShape<{
                     year?: string | number | undefined;
                     month?: string | number | undefined;
                     day?: string | number | undefined;
-                    hour?: string | number | undefined;
-                    minute?: string | number | undefined;
+                    hours?: string | number | undefined;
+                    minutes?: string | number | undefined;
+                    seconds?: string | number | undefined;
                 } | undefined;
                 deathDate?: {
                     year?: string | number | undefined;
                     month?: string | number | undefined;
                     day?: string | number | undefined;
-                    hour?: string | number | undefined;
-                    minute?: string | number | undefined;
+                    hours?: string | number | undefined;
+                    minutes?: string | number | undefined;
+                    seconds?: string | number | undefined;
                 } | undefined;
                 avatar?: {
                     id?: string | undefined;
@@ -1324,7 +1383,7 @@ export declare const TrackCreateBody: z.ZodObject<z.objectUtil.extendShape<{
             name: string;
         }>, "many">>;
     }, "strict", z.ZodTypeAny, {
-        type: "OPENING" | "ENDING" | "OST" | "INSERT";
+        type: "OPENING" | "ENDING" | "BGM" | "INSERT";
         name: {
             default: string;
             alias?: string[] | undefined;
@@ -1346,8 +1405,9 @@ export declare const TrackCreateBody: z.ZodObject<z.objectUtil.extendShape<{
             year?: number | undefined;
             month?: number | undefined;
             day?: number | undefined;
-            hour?: number | undefined;
-            minute?: number | undefined;
+            hours?: number | undefined;
+            minutes?: number | undefined;
+            seconds?: number | undefined;
         } | undefined;
         artists?: {
             id?: string | undefined;
@@ -1362,15 +1422,17 @@ export declare const TrackCreateBody: z.ZodObject<z.objectUtil.extendShape<{
                     year?: number | undefined;
                     month?: number | undefined;
                     day?: number | undefined;
-                    hour?: number | undefined;
-                    minute?: number | undefined;
+                    hours?: number | undefined;
+                    minutes?: number | undefined;
+                    seconds?: number | undefined;
                 } | undefined;
                 deathDate?: {
                     year?: number | undefined;
                     month?: number | undefined;
                     day?: number | undefined;
-                    hour?: number | undefined;
-                    minute?: number | undefined;
+                    hours?: number | undefined;
+                    minutes?: number | undefined;
+                    seconds?: number | undefined;
                 } | undefined;
                 avatar?: {
                     id?: string | undefined;
@@ -1388,7 +1450,7 @@ export declare const TrackCreateBody: z.ZodObject<z.objectUtil.extendShape<{
             role?: "DOUBLAGE_SEIYU" | "AUTEUR" | "EDITEUR" | "PRODUCTEUR" | "REALISATEUR" | "REALISATEUR_EPISODES" | "REALISATEUR_MISEENPAGE" | "DIRECTEUR_ARTISTIQUE_CINEMATROGRAPHIQUE" | "DIRECTEUR_ANIMATION" | "CONCEPTEUR" | "ANIMATEUR_PRINCIPAL" | "ANIMATEUR_INTERMEDIAIRE" | "COLORISTES" | "DIRECTEUR_ENREGISTREMENT" | "SCENARISTE" | "ANIMATEUR_3D" | "METTEUR_EN_SCENE" | "SUPERVISEUR" | "MONTEUR" | "RESPONSABLE_DROITS" | "PRODUCTEUR_MUSIQUE" | "RESPONSABLE_MARKETING" | "DIFFUSEUR" | "STORYBOARDER" | "ARTISTE_VFX" | "INGENIEUR_SON" | "DIRECTEUR_DOUBLAGE" | "TRADUCTEUR" | "MANGAKA" | "CHARACTER_DESIGNER" | "DESSINATEUR_DECORS" | "REALISATEUR_MISE_EN_PAGE" | "COMPOSITEUR" | "PAROLIER" | "ARRANGEUR" | "MUSICIEN" | "CHANTEUR_EUSE" | "CHEF_ORCHESTRE" | "PRODUCTEUR_MUSICAL" | "DESIGNER_SONORE" | "MIXEUR" | undefined;
         }[] | undefined;
     }, {
-        type: "OPENING" | "ENDING" | "OST" | "INSERT";
+        type: "OPENING" | "ENDING" | "BGM" | "INSERT";
         name: {
             default: string;
             alias?: string[] | undefined;
@@ -1410,8 +1472,9 @@ export declare const TrackCreateBody: z.ZodObject<z.objectUtil.extendShape<{
             year?: string | number | undefined;
             month?: string | number | undefined;
             day?: string | number | undefined;
-            hour?: string | number | undefined;
-            minute?: string | number | undefined;
+            hours?: string | number | undefined;
+            minutes?: string | number | undefined;
+            seconds?: string | number | undefined;
         } | undefined;
         artists?: {
             id?: string | undefined;
@@ -1426,15 +1489,17 @@ export declare const TrackCreateBody: z.ZodObject<z.objectUtil.extendShape<{
                     year?: string | number | undefined;
                     month?: string | number | undefined;
                     day?: string | number | undefined;
-                    hour?: string | number | undefined;
-                    minute?: string | number | undefined;
+                    hours?: string | number | undefined;
+                    minutes?: string | number | undefined;
+                    seconds?: string | number | undefined;
                 } | undefined;
                 deathDate?: {
                     year?: string | number | undefined;
                     month?: string | number | undefined;
                     day?: string | number | undefined;
-                    hour?: string | number | undefined;
-                    minute?: string | number | undefined;
+                    hours?: string | number | undefined;
+                    minutes?: string | number | undefined;
+                    seconds?: string | number | undefined;
                 } | undefined;
                 avatar?: {
                     id?: string | undefined;
@@ -1454,7 +1519,7 @@ export declare const TrackCreateBody: z.ZodObject<z.objectUtil.extendShape<{
     }>;
 }>, "strip", z.ZodTypeAny, {
     data: {
-        type: "OPENING" | "ENDING" | "OST" | "INSERT";
+        type: "OPENING" | "ENDING" | "BGM" | "INSERT";
         name: {
             default: string;
             alias?: string[] | undefined;
@@ -1476,8 +1541,9 @@ export declare const TrackCreateBody: z.ZodObject<z.objectUtil.extendShape<{
             year?: number | undefined;
             month?: number | undefined;
             day?: number | undefined;
-            hour?: number | undefined;
-            minute?: number | undefined;
+            hours?: number | undefined;
+            minutes?: number | undefined;
+            seconds?: number | undefined;
         } | undefined;
         artists?: {
             id?: string | undefined;
@@ -1492,15 +1558,17 @@ export declare const TrackCreateBody: z.ZodObject<z.objectUtil.extendShape<{
                     year?: number | undefined;
                     month?: number | undefined;
                     day?: number | undefined;
-                    hour?: number | undefined;
-                    minute?: number | undefined;
+                    hours?: number | undefined;
+                    minutes?: number | undefined;
+                    seconds?: number | undefined;
                 } | undefined;
                 deathDate?: {
                     year?: number | undefined;
                     month?: number | undefined;
                     day?: number | undefined;
-                    hour?: number | undefined;
-                    minute?: number | undefined;
+                    hours?: number | undefined;
+                    minutes?: number | undefined;
+                    seconds?: number | undefined;
                 } | undefined;
                 avatar?: {
                     id?: string | undefined;
@@ -1522,7 +1590,7 @@ export declare const TrackCreateBody: z.ZodObject<z.objectUtil.extendShape<{
     description?: string | undefined;
 }, {
     data: {
-        type: "OPENING" | "ENDING" | "OST" | "INSERT";
+        type: "OPENING" | "ENDING" | "BGM" | "INSERT";
         name: {
             default: string;
             alias?: string[] | undefined;
@@ -1544,8 +1612,9 @@ export declare const TrackCreateBody: z.ZodObject<z.objectUtil.extendShape<{
             year?: string | number | undefined;
             month?: string | number | undefined;
             day?: string | number | undefined;
-            hour?: string | number | undefined;
-            minute?: string | number | undefined;
+            hours?: string | number | undefined;
+            minutes?: string | number | undefined;
+            seconds?: string | number | undefined;
         } | undefined;
         artists?: {
             id?: string | undefined;
@@ -1560,15 +1629,17 @@ export declare const TrackCreateBody: z.ZodObject<z.objectUtil.extendShape<{
                     year?: string | number | undefined;
                     month?: string | number | undefined;
                     day?: string | number | undefined;
-                    hour?: string | number | undefined;
-                    minute?: string | number | undefined;
+                    hours?: string | number | undefined;
+                    minutes?: string | number | undefined;
+                    seconds?: string | number | undefined;
                 } | undefined;
                 deathDate?: {
                     year?: string | number | undefined;
                     month?: string | number | undefined;
                     day?: string | number | undefined;
-                    hour?: string | number | undefined;
-                    minute?: string | number | undefined;
+                    hours?: string | number | undefined;
+                    minutes?: string | number | undefined;
+                    seconds?: string | number | undefined;
                 } | undefined;
                 avatar?: {
                     id?: string | undefined;
@@ -1603,25 +1674,28 @@ export declare const Create_Track_ZOD_FORM: z.ZodObject<{
             default: string;
             alias?: string[] | undefined;
         }>;
-        type: z.ZodEnum<("OPENING" | "ENDING" | "OST" | "INSERT")[] & [string, ...string[]]>;
+        type: z.ZodEnum<("OPENING" | "ENDING" | "BGM" | "INSERT")[] & [string, ...string[]]>;
         pubDate: z.ZodOptional<z.ZodObject<{
             year: z.ZodOptional<z.ZodOptional<z.ZodEffects<z.ZodUnion<[z.ZodNumber, z.ZodString]>, number, string | number>>>;
             month: z.ZodOptional<z.ZodOptional<z.ZodEffects<z.ZodUnion<[z.ZodNumber, z.ZodString]>, number, string | number>>>;
             day: z.ZodOptional<z.ZodOptional<z.ZodEffects<z.ZodUnion<[z.ZodNumber, z.ZodString]>, number, string | number>>>;
-            hour: z.ZodOptional<z.ZodOptional<z.ZodEffects<z.ZodUnion<[z.ZodNumber, z.ZodString]>, number, string | number>>>;
-            minute: z.ZodOptional<z.ZodOptional<z.ZodEffects<z.ZodUnion<[z.ZodNumber, z.ZodString]>, number, string | number>>>;
+            hours: z.ZodOptional<z.ZodOptional<z.ZodEffects<z.ZodUnion<[z.ZodNumber, z.ZodString]>, number, string | number>>>;
+            minutes: z.ZodOptional<z.ZodOptional<z.ZodEffects<z.ZodUnion<[z.ZodNumber, z.ZodString]>, number, string | number>>>;
+            seconds: z.ZodOptional<z.ZodOptional<z.ZodEffects<z.ZodUnion<[z.ZodNumber, z.ZodString]>, number, string | number>>>;
         }, "strip", z.ZodTypeAny, {
             year?: number | undefined;
             month?: number | undefined;
             day?: number | undefined;
-            hour?: number | undefined;
-            minute?: number | undefined;
+            hours?: number | undefined;
+            minutes?: number | undefined;
+            seconds?: number | undefined;
         }, {
             year?: string | number | undefined;
             month?: string | number | undefined;
             day?: string | number | undefined;
-            hour?: string | number | undefined;
-            minute?: string | number | undefined;
+            hours?: string | number | undefined;
+            minutes?: string | number | undefined;
+            seconds?: string | number | undefined;
         }>>;
         artists: z.ZodOptional<z.ZodArray<z.ZodObject<{
             id: z.ZodOptional<z.ZodString>;
@@ -1641,39 +1715,45 @@ export declare const Create_Track_ZOD_FORM: z.ZodObject<{
                     year: z.ZodOptional<z.ZodOptional<z.ZodEffects<z.ZodUnion<[z.ZodNumber, z.ZodString]>, number, string | number>>>;
                     month: z.ZodOptional<z.ZodOptional<z.ZodEffects<z.ZodUnion<[z.ZodNumber, z.ZodString]>, number, string | number>>>;
                     day: z.ZodOptional<z.ZodOptional<z.ZodEffects<z.ZodUnion<[z.ZodNumber, z.ZodString]>, number, string | number>>>;
-                    hour: z.ZodOptional<z.ZodOptional<z.ZodEffects<z.ZodUnion<[z.ZodNumber, z.ZodString]>, number, string | number>>>;
-                    minute: z.ZodOptional<z.ZodOptional<z.ZodEffects<z.ZodUnion<[z.ZodNumber, z.ZodString]>, number, string | number>>>;
+                    hours: z.ZodOptional<z.ZodOptional<z.ZodEffects<z.ZodUnion<[z.ZodNumber, z.ZodString]>, number, string | number>>>;
+                    minutes: z.ZodOptional<z.ZodOptional<z.ZodEffects<z.ZodUnion<[z.ZodNumber, z.ZodString]>, number, string | number>>>;
+                    seconds: z.ZodOptional<z.ZodOptional<z.ZodEffects<z.ZodUnion<[z.ZodNumber, z.ZodString]>, number, string | number>>>;
                 }, "strip", z.ZodTypeAny, {
                     year?: number | undefined;
                     month?: number | undefined;
                     day?: number | undefined;
-                    hour?: number | undefined;
-                    minute?: number | undefined;
+                    hours?: number | undefined;
+                    minutes?: number | undefined;
+                    seconds?: number | undefined;
                 }, {
                     year?: string | number | undefined;
                     month?: string | number | undefined;
                     day?: string | number | undefined;
-                    hour?: string | number | undefined;
-                    minute?: string | number | undefined;
+                    hours?: string | number | undefined;
+                    minutes?: string | number | undefined;
+                    seconds?: string | number | undefined;
                 }>>;
                 deathDate: z.ZodOptional<z.ZodObject<{
                     year: z.ZodOptional<z.ZodOptional<z.ZodEffects<z.ZodUnion<[z.ZodNumber, z.ZodString]>, number, string | number>>>;
                     month: z.ZodOptional<z.ZodOptional<z.ZodEffects<z.ZodUnion<[z.ZodNumber, z.ZodString]>, number, string | number>>>;
                     day: z.ZodOptional<z.ZodOptional<z.ZodEffects<z.ZodUnion<[z.ZodNumber, z.ZodString]>, number, string | number>>>;
-                    hour: z.ZodOptional<z.ZodOptional<z.ZodEffects<z.ZodUnion<[z.ZodNumber, z.ZodString]>, number, string | number>>>;
-                    minute: z.ZodOptional<z.ZodOptional<z.ZodEffects<z.ZodUnion<[z.ZodNumber, z.ZodString]>, number, string | number>>>;
+                    hours: z.ZodOptional<z.ZodOptional<z.ZodEffects<z.ZodUnion<[z.ZodNumber, z.ZodString]>, number, string | number>>>;
+                    minutes: z.ZodOptional<z.ZodOptional<z.ZodEffects<z.ZodUnion<[z.ZodNumber, z.ZodString]>, number, string | number>>>;
+                    seconds: z.ZodOptional<z.ZodOptional<z.ZodEffects<z.ZodUnion<[z.ZodNumber, z.ZodString]>, number, string | number>>>;
                 }, "strip", z.ZodTypeAny, {
                     year?: number | undefined;
                     month?: number | undefined;
                     day?: number | undefined;
-                    hour?: number | undefined;
-                    minute?: number | undefined;
+                    hours?: number | undefined;
+                    minutes?: number | undefined;
+                    seconds?: number | undefined;
                 }, {
                     year?: string | number | undefined;
                     month?: string | number | undefined;
                     day?: string | number | undefined;
-                    hour?: string | number | undefined;
-                    minute?: string | number | undefined;
+                    hours?: string | number | undefined;
+                    minutes?: string | number | undefined;
+                    seconds?: string | number | undefined;
                 }>>;
                 description: z.ZodOptional<z.ZodString>;
                 avatar: z.ZodOptional<z.ZodObject<{
@@ -1725,15 +1805,17 @@ export declare const Create_Track_ZOD_FORM: z.ZodObject<{
                     year?: number | undefined;
                     month?: number | undefined;
                     day?: number | undefined;
-                    hour?: number | undefined;
-                    minute?: number | undefined;
+                    hours?: number | undefined;
+                    minutes?: number | undefined;
+                    seconds?: number | undefined;
                 } | undefined;
                 deathDate?: {
                     year?: number | undefined;
                     month?: number | undefined;
                     day?: number | undefined;
-                    hour?: number | undefined;
-                    minute?: number | undefined;
+                    hours?: number | undefined;
+                    minutes?: number | undefined;
+                    seconds?: number | undefined;
                 } | undefined;
                 avatar?: {
                     id?: string | undefined;
@@ -1758,15 +1840,17 @@ export declare const Create_Track_ZOD_FORM: z.ZodObject<{
                     year?: string | number | undefined;
                     month?: string | number | undefined;
                     day?: string | number | undefined;
-                    hour?: string | number | undefined;
-                    minute?: string | number | undefined;
+                    hours?: string | number | undefined;
+                    minutes?: string | number | undefined;
+                    seconds?: string | number | undefined;
                 } | undefined;
                 deathDate?: {
                     year?: string | number | undefined;
                     month?: string | number | undefined;
                     day?: string | number | undefined;
-                    hour?: string | number | undefined;
-                    minute?: string | number | undefined;
+                    hours?: string | number | undefined;
+                    minutes?: string | number | undefined;
+                    seconds?: string | number | undefined;
                 } | undefined;
                 avatar?: {
                     id?: string | undefined;
@@ -1795,15 +1879,17 @@ export declare const Create_Track_ZOD_FORM: z.ZodObject<{
                     year?: number | undefined;
                     month?: number | undefined;
                     day?: number | undefined;
-                    hour?: number | undefined;
-                    minute?: number | undefined;
+                    hours?: number | undefined;
+                    minutes?: number | undefined;
+                    seconds?: number | undefined;
                 } | undefined;
                 deathDate?: {
                     year?: number | undefined;
                     month?: number | undefined;
                     day?: number | undefined;
-                    hour?: number | undefined;
-                    minute?: number | undefined;
+                    hours?: number | undefined;
+                    minutes?: number | undefined;
+                    seconds?: number | undefined;
                 } | undefined;
                 avatar?: {
                     id?: string | undefined;
@@ -1832,15 +1918,17 @@ export declare const Create_Track_ZOD_FORM: z.ZodObject<{
                     year?: string | number | undefined;
                     month?: string | number | undefined;
                     day?: string | number | undefined;
-                    hour?: string | number | undefined;
-                    minute?: string | number | undefined;
+                    hours?: string | number | undefined;
+                    minutes?: string | number | undefined;
+                    seconds?: string | number | undefined;
                 } | undefined;
                 deathDate?: {
                     year?: string | number | undefined;
                     month?: string | number | undefined;
                     day?: string | number | undefined;
-                    hour?: string | number | undefined;
-                    minute?: string | number | undefined;
+                    hours?: string | number | undefined;
+                    minutes?: string | number | undefined;
+                    seconds?: string | number | undefined;
                 } | undefined;
                 avatar?: {
                     id?: string | undefined;
@@ -1897,7 +1985,7 @@ export declare const Create_Track_ZOD_FORM: z.ZodObject<{
             name: string;
         }>, "many">>;
     }, "strict", z.ZodTypeAny, {
-        type: "OPENING" | "ENDING" | "OST" | "INSERT";
+        type: "OPENING" | "ENDING" | "BGM" | "INSERT";
         name: {
             default: string;
             alias?: string[] | undefined;
@@ -1919,8 +2007,9 @@ export declare const Create_Track_ZOD_FORM: z.ZodObject<{
             year?: number | undefined;
             month?: number | undefined;
             day?: number | undefined;
-            hour?: number | undefined;
-            minute?: number | undefined;
+            hours?: number | undefined;
+            minutes?: number | undefined;
+            seconds?: number | undefined;
         } | undefined;
         artists?: {
             id?: string | undefined;
@@ -1935,15 +2024,17 @@ export declare const Create_Track_ZOD_FORM: z.ZodObject<{
                     year?: number | undefined;
                     month?: number | undefined;
                     day?: number | undefined;
-                    hour?: number | undefined;
-                    minute?: number | undefined;
+                    hours?: number | undefined;
+                    minutes?: number | undefined;
+                    seconds?: number | undefined;
                 } | undefined;
                 deathDate?: {
                     year?: number | undefined;
                     month?: number | undefined;
                     day?: number | undefined;
-                    hour?: number | undefined;
-                    minute?: number | undefined;
+                    hours?: number | undefined;
+                    minutes?: number | undefined;
+                    seconds?: number | undefined;
                 } | undefined;
                 avatar?: {
                     id?: string | undefined;
@@ -1961,7 +2052,7 @@ export declare const Create_Track_ZOD_FORM: z.ZodObject<{
             role?: "DOUBLAGE_SEIYU" | "AUTEUR" | "EDITEUR" | "PRODUCTEUR" | "REALISATEUR" | "REALISATEUR_EPISODES" | "REALISATEUR_MISEENPAGE" | "DIRECTEUR_ARTISTIQUE_CINEMATROGRAPHIQUE" | "DIRECTEUR_ANIMATION" | "CONCEPTEUR" | "ANIMATEUR_PRINCIPAL" | "ANIMATEUR_INTERMEDIAIRE" | "COLORISTES" | "DIRECTEUR_ENREGISTREMENT" | "SCENARISTE" | "ANIMATEUR_3D" | "METTEUR_EN_SCENE" | "SUPERVISEUR" | "MONTEUR" | "RESPONSABLE_DROITS" | "PRODUCTEUR_MUSIQUE" | "RESPONSABLE_MARKETING" | "DIFFUSEUR" | "STORYBOARDER" | "ARTISTE_VFX" | "INGENIEUR_SON" | "DIRECTEUR_DOUBLAGE" | "TRADUCTEUR" | "MANGAKA" | "CHARACTER_DESIGNER" | "DESSINATEUR_DECORS" | "REALISATEUR_MISE_EN_PAGE" | "COMPOSITEUR" | "PAROLIER" | "ARRANGEUR" | "MUSICIEN" | "CHANTEUR_EUSE" | "CHEF_ORCHESTRE" | "PRODUCTEUR_MUSICAL" | "DESIGNER_SONORE" | "MIXEUR" | undefined;
         }[] | undefined;
     }, {
-        type: "OPENING" | "ENDING" | "OST" | "INSERT";
+        type: "OPENING" | "ENDING" | "BGM" | "INSERT";
         name: {
             default: string;
             alias?: string[] | undefined;
@@ -1983,8 +2074,9 @@ export declare const Create_Track_ZOD_FORM: z.ZodObject<{
             year?: string | number | undefined;
             month?: string | number | undefined;
             day?: string | number | undefined;
-            hour?: string | number | undefined;
-            minute?: string | number | undefined;
+            hours?: string | number | undefined;
+            minutes?: string | number | undefined;
+            seconds?: string | number | undefined;
         } | undefined;
         artists?: {
             id?: string | undefined;
@@ -1999,15 +2091,17 @@ export declare const Create_Track_ZOD_FORM: z.ZodObject<{
                     year?: string | number | undefined;
                     month?: string | number | undefined;
                     day?: string | number | undefined;
-                    hour?: string | number | undefined;
-                    minute?: string | number | undefined;
+                    hours?: string | number | undefined;
+                    minutes?: string | number | undefined;
+                    seconds?: string | number | undefined;
                 } | undefined;
                 deathDate?: {
                     year?: string | number | undefined;
                     month?: string | number | undefined;
                     day?: string | number | undefined;
-                    hour?: string | number | undefined;
-                    minute?: string | number | undefined;
+                    hours?: string | number | undefined;
+                    minutes?: string | number | undefined;
+                    seconds?: string | number | undefined;
                 } | undefined;
                 avatar?: {
                     id?: string | undefined;
@@ -2027,7 +2121,7 @@ export declare const Create_Track_ZOD_FORM: z.ZodObject<{
     }>;
 }, "strip", z.ZodTypeAny, {
     data: {
-        type: "OPENING" | "ENDING" | "OST" | "INSERT";
+        type: "OPENING" | "ENDING" | "BGM" | "INSERT";
         name: {
             default: string;
             alias?: string[] | undefined;
@@ -2049,8 +2143,9 @@ export declare const Create_Track_ZOD_FORM: z.ZodObject<{
             year?: number | undefined;
             month?: number | undefined;
             day?: number | undefined;
-            hour?: number | undefined;
-            minute?: number | undefined;
+            hours?: number | undefined;
+            minutes?: number | undefined;
+            seconds?: number | undefined;
         } | undefined;
         artists?: {
             id?: string | undefined;
@@ -2065,15 +2160,17 @@ export declare const Create_Track_ZOD_FORM: z.ZodObject<{
                     year?: number | undefined;
                     month?: number | undefined;
                     day?: number | undefined;
-                    hour?: number | undefined;
-                    minute?: number | undefined;
+                    hours?: number | undefined;
+                    minutes?: number | undefined;
+                    seconds?: number | undefined;
                 } | undefined;
                 deathDate?: {
                     year?: number | undefined;
                     month?: number | undefined;
                     day?: number | undefined;
-                    hour?: number | undefined;
-                    minute?: number | undefined;
+                    hours?: number | undefined;
+                    minutes?: number | undefined;
+                    seconds?: number | undefined;
                 } | undefined;
                 avatar?: {
                     id?: string | undefined;
@@ -2094,7 +2191,7 @@ export declare const Create_Track_ZOD_FORM: z.ZodObject<{
     note?: string | undefined;
 }, {
     data: {
-        type: "OPENING" | "ENDING" | "OST" | "INSERT";
+        type: "OPENING" | "ENDING" | "BGM" | "INSERT";
         name: {
             default: string;
             alias?: string[] | undefined;
@@ -2116,8 +2213,9 @@ export declare const Create_Track_ZOD_FORM: z.ZodObject<{
             year?: string | number | undefined;
             month?: string | number | undefined;
             day?: string | number | undefined;
-            hour?: string | number | undefined;
-            minute?: string | number | undefined;
+            hours?: string | number | undefined;
+            minutes?: string | number | undefined;
+            seconds?: string | number | undefined;
         } | undefined;
         artists?: {
             id?: string | undefined;
@@ -2132,15 +2230,17 @@ export declare const Create_Track_ZOD_FORM: z.ZodObject<{
                     year?: string | number | undefined;
                     month?: string | number | undefined;
                     day?: string | number | undefined;
-                    hour?: string | number | undefined;
-                    minute?: string | number | undefined;
+                    hours?: string | number | undefined;
+                    minutes?: string | number | undefined;
+                    seconds?: string | number | undefined;
                 } | undefined;
                 deathDate?: {
                     year?: string | number | undefined;
                     month?: string | number | undefined;
                     day?: string | number | undefined;
-                    hour?: string | number | undefined;
-                    minute?: string | number | undefined;
+                    hours?: string | number | undefined;
+                    minutes?: string | number | undefined;
+                    seconds?: string | number | undefined;
                 } | undefined;
                 avatar?: {
                     id?: string | undefined;
@@ -2174,25 +2274,28 @@ export declare const Add_Track_ZOD: z.ZodObject<{
             default: string;
             alias?: string[] | undefined;
         }>;
-        type: z.ZodEnum<("OPENING" | "ENDING" | "OST" | "INSERT")[] & [string, ...string[]]>;
+        type: z.ZodEnum<("OPENING" | "ENDING" | "BGM" | "INSERT")[] & [string, ...string[]]>;
         pubDate: z.ZodOptional<z.ZodObject<{
             year: z.ZodOptional<z.ZodOptional<z.ZodEffects<z.ZodUnion<[z.ZodNumber, z.ZodString]>, number, string | number>>>;
             month: z.ZodOptional<z.ZodOptional<z.ZodEffects<z.ZodUnion<[z.ZodNumber, z.ZodString]>, number, string | number>>>;
             day: z.ZodOptional<z.ZodOptional<z.ZodEffects<z.ZodUnion<[z.ZodNumber, z.ZodString]>, number, string | number>>>;
-            hour: z.ZodOptional<z.ZodOptional<z.ZodEffects<z.ZodUnion<[z.ZodNumber, z.ZodString]>, number, string | number>>>;
-            minute: z.ZodOptional<z.ZodOptional<z.ZodEffects<z.ZodUnion<[z.ZodNumber, z.ZodString]>, number, string | number>>>;
+            hours: z.ZodOptional<z.ZodOptional<z.ZodEffects<z.ZodUnion<[z.ZodNumber, z.ZodString]>, number, string | number>>>;
+            minutes: z.ZodOptional<z.ZodOptional<z.ZodEffects<z.ZodUnion<[z.ZodNumber, z.ZodString]>, number, string | number>>>;
+            seconds: z.ZodOptional<z.ZodOptional<z.ZodEffects<z.ZodUnion<[z.ZodNumber, z.ZodString]>, number, string | number>>>;
         }, "strip", z.ZodTypeAny, {
             year?: number | undefined;
             month?: number | undefined;
             day?: number | undefined;
-            hour?: number | undefined;
-            minute?: number | undefined;
+            hours?: number | undefined;
+            minutes?: number | undefined;
+            seconds?: number | undefined;
         }, {
             year?: string | number | undefined;
             month?: string | number | undefined;
             day?: string | number | undefined;
-            hour?: string | number | undefined;
-            minute?: string | number | undefined;
+            hours?: string | number | undefined;
+            minutes?: string | number | undefined;
+            seconds?: string | number | undefined;
         }>>;
         artists: z.ZodOptional<z.ZodArray<z.ZodObject<{
             id: z.ZodOptional<z.ZodString>;
@@ -2212,39 +2315,45 @@ export declare const Add_Track_ZOD: z.ZodObject<{
                     year: z.ZodOptional<z.ZodOptional<z.ZodEffects<z.ZodUnion<[z.ZodNumber, z.ZodString]>, number, string | number>>>;
                     month: z.ZodOptional<z.ZodOptional<z.ZodEffects<z.ZodUnion<[z.ZodNumber, z.ZodString]>, number, string | number>>>;
                     day: z.ZodOptional<z.ZodOptional<z.ZodEffects<z.ZodUnion<[z.ZodNumber, z.ZodString]>, number, string | number>>>;
-                    hour: z.ZodOptional<z.ZodOptional<z.ZodEffects<z.ZodUnion<[z.ZodNumber, z.ZodString]>, number, string | number>>>;
-                    minute: z.ZodOptional<z.ZodOptional<z.ZodEffects<z.ZodUnion<[z.ZodNumber, z.ZodString]>, number, string | number>>>;
+                    hours: z.ZodOptional<z.ZodOptional<z.ZodEffects<z.ZodUnion<[z.ZodNumber, z.ZodString]>, number, string | number>>>;
+                    minutes: z.ZodOptional<z.ZodOptional<z.ZodEffects<z.ZodUnion<[z.ZodNumber, z.ZodString]>, number, string | number>>>;
+                    seconds: z.ZodOptional<z.ZodOptional<z.ZodEffects<z.ZodUnion<[z.ZodNumber, z.ZodString]>, number, string | number>>>;
                 }, "strip", z.ZodTypeAny, {
                     year?: number | undefined;
                     month?: number | undefined;
                     day?: number | undefined;
-                    hour?: number | undefined;
-                    minute?: number | undefined;
+                    hours?: number | undefined;
+                    minutes?: number | undefined;
+                    seconds?: number | undefined;
                 }, {
                     year?: string | number | undefined;
                     month?: string | number | undefined;
                     day?: string | number | undefined;
-                    hour?: string | number | undefined;
-                    minute?: string | number | undefined;
+                    hours?: string | number | undefined;
+                    minutes?: string | number | undefined;
+                    seconds?: string | number | undefined;
                 }>>;
                 deathDate: z.ZodOptional<z.ZodObject<{
                     year: z.ZodOptional<z.ZodOptional<z.ZodEffects<z.ZodUnion<[z.ZodNumber, z.ZodString]>, number, string | number>>>;
                     month: z.ZodOptional<z.ZodOptional<z.ZodEffects<z.ZodUnion<[z.ZodNumber, z.ZodString]>, number, string | number>>>;
                     day: z.ZodOptional<z.ZodOptional<z.ZodEffects<z.ZodUnion<[z.ZodNumber, z.ZodString]>, number, string | number>>>;
-                    hour: z.ZodOptional<z.ZodOptional<z.ZodEffects<z.ZodUnion<[z.ZodNumber, z.ZodString]>, number, string | number>>>;
-                    minute: z.ZodOptional<z.ZodOptional<z.ZodEffects<z.ZodUnion<[z.ZodNumber, z.ZodString]>, number, string | number>>>;
+                    hours: z.ZodOptional<z.ZodOptional<z.ZodEffects<z.ZodUnion<[z.ZodNumber, z.ZodString]>, number, string | number>>>;
+                    minutes: z.ZodOptional<z.ZodOptional<z.ZodEffects<z.ZodUnion<[z.ZodNumber, z.ZodString]>, number, string | number>>>;
+                    seconds: z.ZodOptional<z.ZodOptional<z.ZodEffects<z.ZodUnion<[z.ZodNumber, z.ZodString]>, number, string | number>>>;
                 }, "strip", z.ZodTypeAny, {
                     year?: number | undefined;
                     month?: number | undefined;
                     day?: number | undefined;
-                    hour?: number | undefined;
-                    minute?: number | undefined;
+                    hours?: number | undefined;
+                    minutes?: number | undefined;
+                    seconds?: number | undefined;
                 }, {
                     year?: string | number | undefined;
                     month?: string | number | undefined;
                     day?: string | number | undefined;
-                    hour?: string | number | undefined;
-                    minute?: string | number | undefined;
+                    hours?: string | number | undefined;
+                    minutes?: string | number | undefined;
+                    seconds?: string | number | undefined;
                 }>>;
                 description: z.ZodOptional<z.ZodString>;
                 avatar: z.ZodOptional<z.ZodObject<{
@@ -2296,15 +2405,17 @@ export declare const Add_Track_ZOD: z.ZodObject<{
                     year?: number | undefined;
                     month?: number | undefined;
                     day?: number | undefined;
-                    hour?: number | undefined;
-                    minute?: number | undefined;
+                    hours?: number | undefined;
+                    minutes?: number | undefined;
+                    seconds?: number | undefined;
                 } | undefined;
                 deathDate?: {
                     year?: number | undefined;
                     month?: number | undefined;
                     day?: number | undefined;
-                    hour?: number | undefined;
-                    minute?: number | undefined;
+                    hours?: number | undefined;
+                    minutes?: number | undefined;
+                    seconds?: number | undefined;
                 } | undefined;
                 avatar?: {
                     id?: string | undefined;
@@ -2329,15 +2440,17 @@ export declare const Add_Track_ZOD: z.ZodObject<{
                     year?: string | number | undefined;
                     month?: string | number | undefined;
                     day?: string | number | undefined;
-                    hour?: string | number | undefined;
-                    minute?: string | number | undefined;
+                    hours?: string | number | undefined;
+                    minutes?: string | number | undefined;
+                    seconds?: string | number | undefined;
                 } | undefined;
                 deathDate?: {
                     year?: string | number | undefined;
                     month?: string | number | undefined;
                     day?: string | number | undefined;
-                    hour?: string | number | undefined;
-                    minute?: string | number | undefined;
+                    hours?: string | number | undefined;
+                    minutes?: string | number | undefined;
+                    seconds?: string | number | undefined;
                 } | undefined;
                 avatar?: {
                     id?: string | undefined;
@@ -2366,15 +2479,17 @@ export declare const Add_Track_ZOD: z.ZodObject<{
                     year?: number | undefined;
                     month?: number | undefined;
                     day?: number | undefined;
-                    hour?: number | undefined;
-                    minute?: number | undefined;
+                    hours?: number | undefined;
+                    minutes?: number | undefined;
+                    seconds?: number | undefined;
                 } | undefined;
                 deathDate?: {
                     year?: number | undefined;
                     month?: number | undefined;
                     day?: number | undefined;
-                    hour?: number | undefined;
-                    minute?: number | undefined;
+                    hours?: number | undefined;
+                    minutes?: number | undefined;
+                    seconds?: number | undefined;
                 } | undefined;
                 avatar?: {
                     id?: string | undefined;
@@ -2403,15 +2518,17 @@ export declare const Add_Track_ZOD: z.ZodObject<{
                     year?: string | number | undefined;
                     month?: string | number | undefined;
                     day?: string | number | undefined;
-                    hour?: string | number | undefined;
-                    minute?: string | number | undefined;
+                    hours?: string | number | undefined;
+                    minutes?: string | number | undefined;
+                    seconds?: string | number | undefined;
                 } | undefined;
                 deathDate?: {
                     year?: string | number | undefined;
                     month?: string | number | undefined;
                     day?: string | number | undefined;
-                    hour?: string | number | undefined;
-                    minute?: string | number | undefined;
+                    hours?: string | number | undefined;
+                    minutes?: string | number | undefined;
+                    seconds?: string | number | undefined;
                 } | undefined;
                 avatar?: {
                     id?: string | undefined;
@@ -2468,7 +2585,7 @@ export declare const Add_Track_ZOD: z.ZodObject<{
             name: string;
         }>, "many">>;
     }, "strict", z.ZodTypeAny, {
-        type: "OPENING" | "ENDING" | "OST" | "INSERT";
+        type: "OPENING" | "ENDING" | "BGM" | "INSERT";
         name: {
             default: string;
             alias?: string[] | undefined;
@@ -2490,8 +2607,9 @@ export declare const Add_Track_ZOD: z.ZodObject<{
             year?: number | undefined;
             month?: number | undefined;
             day?: number | undefined;
-            hour?: number | undefined;
-            minute?: number | undefined;
+            hours?: number | undefined;
+            minutes?: number | undefined;
+            seconds?: number | undefined;
         } | undefined;
         artists?: {
             id?: string | undefined;
@@ -2506,15 +2624,17 @@ export declare const Add_Track_ZOD: z.ZodObject<{
                     year?: number | undefined;
                     month?: number | undefined;
                     day?: number | undefined;
-                    hour?: number | undefined;
-                    minute?: number | undefined;
+                    hours?: number | undefined;
+                    minutes?: number | undefined;
+                    seconds?: number | undefined;
                 } | undefined;
                 deathDate?: {
                     year?: number | undefined;
                     month?: number | undefined;
                     day?: number | undefined;
-                    hour?: number | undefined;
-                    minute?: number | undefined;
+                    hours?: number | undefined;
+                    minutes?: number | undefined;
+                    seconds?: number | undefined;
                 } | undefined;
                 avatar?: {
                     id?: string | undefined;
@@ -2532,7 +2652,7 @@ export declare const Add_Track_ZOD: z.ZodObject<{
             role?: "DOUBLAGE_SEIYU" | "AUTEUR" | "EDITEUR" | "PRODUCTEUR" | "REALISATEUR" | "REALISATEUR_EPISODES" | "REALISATEUR_MISEENPAGE" | "DIRECTEUR_ARTISTIQUE_CINEMATROGRAPHIQUE" | "DIRECTEUR_ANIMATION" | "CONCEPTEUR" | "ANIMATEUR_PRINCIPAL" | "ANIMATEUR_INTERMEDIAIRE" | "COLORISTES" | "DIRECTEUR_ENREGISTREMENT" | "SCENARISTE" | "ANIMATEUR_3D" | "METTEUR_EN_SCENE" | "SUPERVISEUR" | "MONTEUR" | "RESPONSABLE_DROITS" | "PRODUCTEUR_MUSIQUE" | "RESPONSABLE_MARKETING" | "DIFFUSEUR" | "STORYBOARDER" | "ARTISTE_VFX" | "INGENIEUR_SON" | "DIRECTEUR_DOUBLAGE" | "TRADUCTEUR" | "MANGAKA" | "CHARACTER_DESIGNER" | "DESSINATEUR_DECORS" | "REALISATEUR_MISE_EN_PAGE" | "COMPOSITEUR" | "PAROLIER" | "ARRANGEUR" | "MUSICIEN" | "CHANTEUR_EUSE" | "CHEF_ORCHESTRE" | "PRODUCTEUR_MUSICAL" | "DESIGNER_SONORE" | "MIXEUR" | undefined;
         }[] | undefined;
     }, {
-        type: "OPENING" | "ENDING" | "OST" | "INSERT";
+        type: "OPENING" | "ENDING" | "BGM" | "INSERT";
         name: {
             default: string;
             alias?: string[] | undefined;
@@ -2554,8 +2674,9 @@ export declare const Add_Track_ZOD: z.ZodObject<{
             year?: string | number | undefined;
             month?: string | number | undefined;
             day?: string | number | undefined;
-            hour?: string | number | undefined;
-            minute?: string | number | undefined;
+            hours?: string | number | undefined;
+            minutes?: string | number | undefined;
+            seconds?: string | number | undefined;
         } | undefined;
         artists?: {
             id?: string | undefined;
@@ -2570,15 +2691,17 @@ export declare const Add_Track_ZOD: z.ZodObject<{
                     year?: string | number | undefined;
                     month?: string | number | undefined;
                     day?: string | number | undefined;
-                    hour?: string | number | undefined;
-                    minute?: string | number | undefined;
+                    hours?: string | number | undefined;
+                    minutes?: string | number | undefined;
+                    seconds?: string | number | undefined;
                 } | undefined;
                 deathDate?: {
                     year?: string | number | undefined;
                     month?: string | number | undefined;
                     day?: string | number | undefined;
-                    hour?: string | number | undefined;
-                    minute?: string | number | undefined;
+                    hours?: string | number | undefined;
+                    minutes?: string | number | undefined;
+                    seconds?: string | number | undefined;
                 } | undefined;
                 avatar?: {
                     id?: string | undefined;
@@ -2599,7 +2722,7 @@ export declare const Add_Track_ZOD: z.ZodObject<{
 }, "strip", z.ZodTypeAny, {
     id?: string | undefined;
     newTrack?: {
-        type: "OPENING" | "ENDING" | "OST" | "INSERT";
+        type: "OPENING" | "ENDING" | "BGM" | "INSERT";
         name: {
             default: string;
             alias?: string[] | undefined;
@@ -2621,8 +2744,9 @@ export declare const Add_Track_ZOD: z.ZodObject<{
             year?: number | undefined;
             month?: number | undefined;
             day?: number | undefined;
-            hour?: number | undefined;
-            minute?: number | undefined;
+            hours?: number | undefined;
+            minutes?: number | undefined;
+            seconds?: number | undefined;
         } | undefined;
         artists?: {
             id?: string | undefined;
@@ -2637,15 +2761,17 @@ export declare const Add_Track_ZOD: z.ZodObject<{
                     year?: number | undefined;
                     month?: number | undefined;
                     day?: number | undefined;
-                    hour?: number | undefined;
-                    minute?: number | undefined;
+                    hours?: number | undefined;
+                    minutes?: number | undefined;
+                    seconds?: number | undefined;
                 } | undefined;
                 deathDate?: {
                     year?: number | undefined;
                     month?: number | undefined;
                     day?: number | undefined;
-                    hour?: number | undefined;
-                    minute?: number | undefined;
+                    hours?: number | undefined;
+                    minutes?: number | undefined;
+                    seconds?: number | undefined;
                 } | undefined;
                 avatar?: {
                     id?: string | undefined;
@@ -2666,7 +2792,7 @@ export declare const Add_Track_ZOD: z.ZodObject<{
 }, {
     id?: string | undefined;
     newTrack?: {
-        type: "OPENING" | "ENDING" | "OST" | "INSERT";
+        type: "OPENING" | "ENDING" | "BGM" | "INSERT";
         name: {
             default: string;
             alias?: string[] | undefined;
@@ -2688,8 +2814,9 @@ export declare const Add_Track_ZOD: z.ZodObject<{
             year?: string | number | undefined;
             month?: string | number | undefined;
             day?: string | number | undefined;
-            hour?: string | number | undefined;
-            minute?: string | number | undefined;
+            hours?: string | number | undefined;
+            minutes?: string | number | undefined;
+            seconds?: string | number | undefined;
         } | undefined;
         artists?: {
             id?: string | undefined;
@@ -2704,15 +2831,17 @@ export declare const Add_Track_ZOD: z.ZodObject<{
                     year?: string | number | undefined;
                     month?: string | number | undefined;
                     day?: string | number | undefined;
-                    hour?: string | number | undefined;
-                    minute?: string | number | undefined;
+                    hours?: string | number | undefined;
+                    minutes?: string | number | undefined;
+                    seconds?: string | number | undefined;
                 } | undefined;
                 deathDate?: {
                     year?: string | number | undefined;
                     month?: string | number | undefined;
                     day?: string | number | undefined;
-                    hour?: string | number | undefined;
-                    minute?: string | number | undefined;
+                    hours?: string | number | undefined;
+                    minutes?: string | number | undefined;
+                    seconds?: string | number | undefined;
                 } | undefined;
                 avatar?: {
                     id?: string | undefined;
@@ -2733,7 +2862,7 @@ export declare const Add_Track_ZOD: z.ZodObject<{
 }>;
 export type IAdd_Track_ZOD = z.infer<typeof Add_Track_ZOD>;
 export declare const TrackDataToZOD: (data: ITrack) => {
-    type: "OPENING" | "ENDING" | "OST" | "INSERT";
+    type: "OPENING" | "ENDING" | "BGM" | "INSERT";
     name: {
         default: string;
         alias?: string[] | undefined;
@@ -2755,8 +2884,9 @@ export declare const TrackDataToZOD: (data: ITrack) => {
         year?: number | undefined;
         month?: number | undefined;
         day?: number | undefined;
-        hour?: number | undefined;
-        minute?: number | undefined;
+        hours?: number | undefined;
+        minutes?: number | undefined;
+        seconds?: number | undefined;
     } | undefined;
     artists?: {
         id?: string | undefined;
@@ -2771,15 +2901,17 @@ export declare const TrackDataToZOD: (data: ITrack) => {
                 year?: number | undefined;
                 month?: number | undefined;
                 day?: number | undefined;
-                hour?: number | undefined;
-                minute?: number | undefined;
+                hours?: number | undefined;
+                minutes?: number | undefined;
+                seconds?: number | undefined;
             } | undefined;
             deathDate?: {
                 year?: number | undefined;
                 month?: number | undefined;
                 day?: number | undefined;
-                hour?: number | undefined;
-                minute?: number | undefined;
+                hours?: number | undefined;
+                minutes?: number | undefined;
+                seconds?: number | undefined;
             } | undefined;
             avatar?: {
                 id?: string | undefined;

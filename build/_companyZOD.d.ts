@@ -27,20 +27,23 @@ export declare const CompanyQueryBody: z.ZodObject<{
         year: z.ZodOptional<z.ZodOptional<z.ZodEffects<z.ZodUnion<[z.ZodNumber, z.ZodString]>, number, string | number>>>;
         month: z.ZodOptional<z.ZodOptional<z.ZodEffects<z.ZodUnion<[z.ZodNumber, z.ZodString]>, number, string | number>>>;
         day: z.ZodOptional<z.ZodOptional<z.ZodEffects<z.ZodUnion<[z.ZodNumber, z.ZodString]>, number, string | number>>>;
-        hour: z.ZodOptional<z.ZodOptional<z.ZodEffects<z.ZodUnion<[z.ZodNumber, z.ZodString]>, number, string | number>>>;
-        minute: z.ZodOptional<z.ZodOptional<z.ZodEffects<z.ZodUnion<[z.ZodNumber, z.ZodString]>, number, string | number>>>;
+        hours: z.ZodOptional<z.ZodOptional<z.ZodEffects<z.ZodUnion<[z.ZodNumber, z.ZodString]>, number, string | number>>>;
+        minutes: z.ZodOptional<z.ZodOptional<z.ZodEffects<z.ZodUnion<[z.ZodNumber, z.ZodString]>, number, string | number>>>;
+        seconds: z.ZodOptional<z.ZodOptional<z.ZodEffects<z.ZodUnion<[z.ZodNumber, z.ZodString]>, number, string | number>>>;
     }, "strip", z.ZodTypeAny, {
         year?: number | undefined;
         month?: number | undefined;
         day?: number | undefined;
-        hour?: number | undefined;
-        minute?: number | undefined;
+        hours?: number | undefined;
+        minutes?: number | undefined;
+        seconds?: number | undefined;
     }, {
         year?: string | number | undefined;
         month?: string | number | undefined;
         day?: string | number | undefined;
-        hour?: string | number | undefined;
-        minute?: string | number | undefined;
+        hours?: string | number | undefined;
+        minutes?: string | number | undefined;
+        seconds?: string | number | undefined;
     }>>;
     createdAt: z.ZodString;
     updatedAt: z.ZodString;
@@ -61,8 +64,9 @@ export declare const CompanyQueryBody: z.ZodObject<{
         year?: number | undefined;
         month?: number | undefined;
         day?: number | undefined;
-        hour?: number | undefined;
-        minute?: number | undefined;
+        hours?: number | undefined;
+        minutes?: number | undefined;
+        seconds?: number | undefined;
     } | undefined;
 }, {
     type: "STUDIO" | "PRODUCER";
@@ -81,8 +85,9 @@ export declare const CompanyQueryBody: z.ZodObject<{
         year?: string | number | undefined;
         month?: string | number | undefined;
         day?: string | number | undefined;
-        hour?: string | number | undefined;
-        minute?: string | number | undefined;
+        hours?: string | number | undefined;
+        minutes?: string | number | undefined;
+        seconds?: string | number | undefined;
     } | undefined;
 }>;
 export declare const CompanySortBody: z.ZodObject<{
@@ -195,20 +200,23 @@ export declare const CompanyPaginationBody: z.ZodObject<{
             year: z.ZodOptional<z.ZodOptional<z.ZodEffects<z.ZodUnion<[z.ZodNumber, z.ZodString]>, number, string | number>>>;
             month: z.ZodOptional<z.ZodOptional<z.ZodEffects<z.ZodUnion<[z.ZodNumber, z.ZodString]>, number, string | number>>>;
             day: z.ZodOptional<z.ZodOptional<z.ZodEffects<z.ZodUnion<[z.ZodNumber, z.ZodString]>, number, string | number>>>;
-            hour: z.ZodOptional<z.ZodOptional<z.ZodEffects<z.ZodUnion<[z.ZodNumber, z.ZodString]>, number, string | number>>>;
-            minute: z.ZodOptional<z.ZodOptional<z.ZodEffects<z.ZodUnion<[z.ZodNumber, z.ZodString]>, number, string | number>>>;
+            hours: z.ZodOptional<z.ZodOptional<z.ZodEffects<z.ZodUnion<[z.ZodNumber, z.ZodString]>, number, string | number>>>;
+            minutes: z.ZodOptional<z.ZodOptional<z.ZodEffects<z.ZodUnion<[z.ZodNumber, z.ZodString]>, number, string | number>>>;
+            seconds: z.ZodOptional<z.ZodOptional<z.ZodEffects<z.ZodUnion<[z.ZodNumber, z.ZodString]>, number, string | number>>>;
         }, "strip", z.ZodTypeAny, {
             year?: number | undefined;
             month?: number | undefined;
             day?: number | undefined;
-            hour?: number | undefined;
-            minute?: number | undefined;
+            hours?: number | undefined;
+            minutes?: number | undefined;
+            seconds?: number | undefined;
         }, {
             year?: string | number | undefined;
             month?: string | number | undefined;
             day?: string | number | undefined;
-            hour?: string | number | undefined;
-            minute?: string | number | undefined;
+            hours?: string | number | undefined;
+            minutes?: string | number | undefined;
+            seconds?: string | number | undefined;
         }>>>;
         createdAt: z.ZodOptional<z.ZodString>;
         updatedAt: z.ZodOptional<z.ZodString>;
@@ -229,8 +237,9 @@ export declare const CompanyPaginationBody: z.ZodObject<{
             year?: number | undefined;
             month?: number | undefined;
             day?: number | undefined;
-            hour?: number | undefined;
-            minute?: number | undefined;
+            hours?: number | undefined;
+            minutes?: number | undefined;
+            seconds?: number | undefined;
         } | undefined;
     }, {
         type?: "STUDIO" | "PRODUCER" | undefined;
@@ -249,8 +258,9 @@ export declare const CompanyPaginationBody: z.ZodObject<{
             year?: string | number | undefined;
             month?: string | number | undefined;
             day?: string | number | undefined;
-            hour?: string | number | undefined;
-            minute?: string | number | undefined;
+            hours?: string | number | undefined;
+            minutes?: string | number | undefined;
+            seconds?: string | number | undefined;
         } | undefined;
     }>>;
     from: z.ZodOptional<z.ZodObject<{
@@ -296,8 +306,9 @@ export declare const CompanyPaginationBody: z.ZodObject<{
             year?: number | undefined;
             month?: number | undefined;
             day?: number | undefined;
-            hour?: number | undefined;
-            minute?: number | undefined;
+            hours?: number | undefined;
+            minutes?: number | undefined;
+            seconds?: number | undefined;
         } | undefined;
     } | undefined;
     from?: {
@@ -337,8 +348,9 @@ export declare const CompanyPaginationBody: z.ZodObject<{
             year?: string | number | undefined;
             month?: string | number | undefined;
             day?: string | number | undefined;
-            hour?: string | number | undefined;
-            minute?: string | number | undefined;
+            hours?: string | number | undefined;
+            minutes?: string | number | undefined;
+            seconds?: string | number | undefined;
         } | undefined;
     } | undefined;
     from?: {
@@ -417,20 +429,23 @@ export declare const Company_Pagination_ZOD: z.ZodObject<{
             year: z.ZodOptional<z.ZodOptional<z.ZodEffects<z.ZodUnion<[z.ZodNumber, z.ZodString]>, number, string | number>>>;
             month: z.ZodOptional<z.ZodOptional<z.ZodEffects<z.ZodUnion<[z.ZodNumber, z.ZodString]>, number, string | number>>>;
             day: z.ZodOptional<z.ZodOptional<z.ZodEffects<z.ZodUnion<[z.ZodNumber, z.ZodString]>, number, string | number>>>;
-            hour: z.ZodOptional<z.ZodOptional<z.ZodEffects<z.ZodUnion<[z.ZodNumber, z.ZodString]>, number, string | number>>>;
-            minute: z.ZodOptional<z.ZodOptional<z.ZodEffects<z.ZodUnion<[z.ZodNumber, z.ZodString]>, number, string | number>>>;
+            hours: z.ZodOptional<z.ZodOptional<z.ZodEffects<z.ZodUnion<[z.ZodNumber, z.ZodString]>, number, string | number>>>;
+            minutes: z.ZodOptional<z.ZodOptional<z.ZodEffects<z.ZodUnion<[z.ZodNumber, z.ZodString]>, number, string | number>>>;
+            seconds: z.ZodOptional<z.ZodOptional<z.ZodEffects<z.ZodUnion<[z.ZodNumber, z.ZodString]>, number, string | number>>>;
         }, "strip", z.ZodTypeAny, {
             year?: number | undefined;
             month?: number | undefined;
             day?: number | undefined;
-            hour?: number | undefined;
-            minute?: number | undefined;
+            hours?: number | undefined;
+            minutes?: number | undefined;
+            seconds?: number | undefined;
         }, {
             year?: string | number | undefined;
             month?: string | number | undefined;
             day?: string | number | undefined;
-            hour?: string | number | undefined;
-            minute?: string | number | undefined;
+            hours?: string | number | undefined;
+            minutes?: string | number | undefined;
+            seconds?: string | number | undefined;
         }>>>;
         createdAt: z.ZodOptional<z.ZodString>;
         updatedAt: z.ZodOptional<z.ZodString>;
@@ -451,8 +466,9 @@ export declare const Company_Pagination_ZOD: z.ZodObject<{
             year?: number | undefined;
             month?: number | undefined;
             day?: number | undefined;
-            hour?: number | undefined;
-            minute?: number | undefined;
+            hours?: number | undefined;
+            minutes?: number | undefined;
+            seconds?: number | undefined;
         } | undefined;
     }, {
         type?: "STUDIO" | "PRODUCER" | undefined;
@@ -471,8 +487,9 @@ export declare const Company_Pagination_ZOD: z.ZodObject<{
             year?: string | number | undefined;
             month?: string | number | undefined;
             day?: string | number | undefined;
-            hour?: string | number | undefined;
-            minute?: string | number | undefined;
+            hours?: string | number | undefined;
+            minutes?: string | number | undefined;
+            seconds?: string | number | undefined;
         } | undefined;
     }>;
 }, "strip", z.ZodTypeAny, {
@@ -507,8 +524,9 @@ export declare const Company_Pagination_ZOD: z.ZodObject<{
             year?: number | undefined;
             month?: number | undefined;
             day?: number | undefined;
-            hour?: number | undefined;
-            minute?: number | undefined;
+            hours?: number | undefined;
+            minutes?: number | undefined;
+            seconds?: number | undefined;
         } | undefined;
     };
 }, {
@@ -543,8 +561,9 @@ export declare const Company_Pagination_ZOD: z.ZodObject<{
             year?: string | number | undefined;
             month?: string | number | undefined;
             day?: string | number | undefined;
-            hour?: string | number | undefined;
-            minute?: string | number | undefined;
+            hours?: string | number | undefined;
+            minutes?: string | number | undefined;
+            seconds?: string | number | undefined;
         } | undefined;
     };
 }>;
@@ -595,20 +614,23 @@ export declare const Create_Company_ZOD: z.ZodObject<{
         year: z.ZodOptional<z.ZodOptional<z.ZodEffects<z.ZodUnion<[z.ZodNumber, z.ZodString]>, number, string | number>>>;
         month: z.ZodOptional<z.ZodOptional<z.ZodEffects<z.ZodUnion<[z.ZodNumber, z.ZodString]>, number, string | number>>>;
         day: z.ZodOptional<z.ZodOptional<z.ZodEffects<z.ZodUnion<[z.ZodNumber, z.ZodString]>, number, string | number>>>;
-        hour: z.ZodOptional<z.ZodOptional<z.ZodEffects<z.ZodUnion<[z.ZodNumber, z.ZodString]>, number, string | number>>>;
-        minute: z.ZodOptional<z.ZodOptional<z.ZodEffects<z.ZodUnion<[z.ZodNumber, z.ZodString]>, number, string | number>>>;
+        hours: z.ZodOptional<z.ZodOptional<z.ZodEffects<z.ZodUnion<[z.ZodNumber, z.ZodString]>, number, string | number>>>;
+        minutes: z.ZodOptional<z.ZodOptional<z.ZodEffects<z.ZodUnion<[z.ZodNumber, z.ZodString]>, number, string | number>>>;
+        seconds: z.ZodOptional<z.ZodOptional<z.ZodEffects<z.ZodUnion<[z.ZodNumber, z.ZodString]>, number, string | number>>>;
     }, "strip", z.ZodTypeAny, {
         year?: number | undefined;
         month?: number | undefined;
         day?: number | undefined;
-        hour?: number | undefined;
-        minute?: number | undefined;
+        hours?: number | undefined;
+        minutes?: number | undefined;
+        seconds?: number | undefined;
     }, {
         year?: string | number | undefined;
         month?: string | number | undefined;
         day?: string | number | undefined;
-        hour?: string | number | undefined;
-        minute?: string | number | undefined;
+        hours?: string | number | undefined;
+        minutes?: string | number | undefined;
+        seconds?: string | number | undefined;
     }>>;
 }, "strict", z.ZodTypeAny, {
     type: "STUDIO" | "PRODUCER";
@@ -630,8 +652,9 @@ export declare const Create_Company_ZOD: z.ZodObject<{
         year?: number | undefined;
         month?: number | undefined;
         day?: number | undefined;
-        hour?: number | undefined;
-        minute?: number | undefined;
+        hours?: number | undefined;
+        minutes?: number | undefined;
+        seconds?: number | undefined;
     } | undefined;
 }, {
     type: "STUDIO" | "PRODUCER";
@@ -653,8 +676,9 @@ export declare const Create_Company_ZOD: z.ZodObject<{
         year?: string | number | undefined;
         month?: string | number | undefined;
         day?: string | number | undefined;
-        hour?: string | number | undefined;
-        minute?: string | number | undefined;
+        hours?: string | number | undefined;
+        minutes?: string | number | undefined;
+        seconds?: string | number | undefined;
     } | undefined;
 }>;
 export type ICreate_Company_ZOD = z.infer<typeof Create_Company_ZOD>;
@@ -708,20 +732,23 @@ export declare const CompanyCreateBody: z.ZodObject<z.objectUtil.extendShape<{
             year: z.ZodOptional<z.ZodOptional<z.ZodEffects<z.ZodUnion<[z.ZodNumber, z.ZodString]>, number, string | number>>>;
             month: z.ZodOptional<z.ZodOptional<z.ZodEffects<z.ZodUnion<[z.ZodNumber, z.ZodString]>, number, string | number>>>;
             day: z.ZodOptional<z.ZodOptional<z.ZodEffects<z.ZodUnion<[z.ZodNumber, z.ZodString]>, number, string | number>>>;
-            hour: z.ZodOptional<z.ZodOptional<z.ZodEffects<z.ZodUnion<[z.ZodNumber, z.ZodString]>, number, string | number>>>;
-            minute: z.ZodOptional<z.ZodOptional<z.ZodEffects<z.ZodUnion<[z.ZodNumber, z.ZodString]>, number, string | number>>>;
+            hours: z.ZodOptional<z.ZodOptional<z.ZodEffects<z.ZodUnion<[z.ZodNumber, z.ZodString]>, number, string | number>>>;
+            minutes: z.ZodOptional<z.ZodOptional<z.ZodEffects<z.ZodUnion<[z.ZodNumber, z.ZodString]>, number, string | number>>>;
+            seconds: z.ZodOptional<z.ZodOptional<z.ZodEffects<z.ZodUnion<[z.ZodNumber, z.ZodString]>, number, string | number>>>;
         }, "strip", z.ZodTypeAny, {
             year?: number | undefined;
             month?: number | undefined;
             day?: number | undefined;
-            hour?: number | undefined;
-            minute?: number | undefined;
+            hours?: number | undefined;
+            minutes?: number | undefined;
+            seconds?: number | undefined;
         }, {
             year?: string | number | undefined;
             month?: string | number | undefined;
             day?: string | number | undefined;
-            hour?: string | number | undefined;
-            minute?: string | number | undefined;
+            hours?: string | number | undefined;
+            minutes?: string | number | undefined;
+            seconds?: string | number | undefined;
         }>>;
     }, "strict", z.ZodTypeAny, {
         type: "STUDIO" | "PRODUCER";
@@ -743,8 +770,9 @@ export declare const CompanyCreateBody: z.ZodObject<z.objectUtil.extendShape<{
             year?: number | undefined;
             month?: number | undefined;
             day?: number | undefined;
-            hour?: number | undefined;
-            minute?: number | undefined;
+            hours?: number | undefined;
+            minutes?: number | undefined;
+            seconds?: number | undefined;
         } | undefined;
     }, {
         type: "STUDIO" | "PRODUCER";
@@ -766,8 +794,9 @@ export declare const CompanyCreateBody: z.ZodObject<z.objectUtil.extendShape<{
             year?: string | number | undefined;
             month?: string | number | undefined;
             day?: string | number | undefined;
-            hour?: string | number | undefined;
-            minute?: string | number | undefined;
+            hours?: string | number | undefined;
+            minutes?: string | number | undefined;
+            seconds?: string | number | undefined;
         } | undefined;
     }>;
 }>, "strip", z.ZodTypeAny, {
@@ -791,8 +820,9 @@ export declare const CompanyCreateBody: z.ZodObject<z.objectUtil.extendShape<{
             year?: number | undefined;
             month?: number | undefined;
             day?: number | undefined;
-            hour?: number | undefined;
-            minute?: number | undefined;
+            hours?: number | undefined;
+            minutes?: number | undefined;
+            seconds?: number | undefined;
         } | undefined;
     };
     reason?: string | undefined;
@@ -818,8 +848,9 @@ export declare const CompanyCreateBody: z.ZodObject<z.objectUtil.extendShape<{
             year?: string | number | undefined;
             month?: string | number | undefined;
             day?: string | number | undefined;
-            hour?: string | number | undefined;
-            minute?: string | number | undefined;
+            hours?: string | number | undefined;
+            minutes?: string | number | undefined;
+            seconds?: string | number | undefined;
         } | undefined;
     };
     reason?: string | undefined;
@@ -874,20 +905,23 @@ export declare const Create_Company_ZOD_FORM: z.ZodObject<{
             year: z.ZodOptional<z.ZodOptional<z.ZodEffects<z.ZodUnion<[z.ZodNumber, z.ZodString]>, number, string | number>>>;
             month: z.ZodOptional<z.ZodOptional<z.ZodEffects<z.ZodUnion<[z.ZodNumber, z.ZodString]>, number, string | number>>>;
             day: z.ZodOptional<z.ZodOptional<z.ZodEffects<z.ZodUnion<[z.ZodNumber, z.ZodString]>, number, string | number>>>;
-            hour: z.ZodOptional<z.ZodOptional<z.ZodEffects<z.ZodUnion<[z.ZodNumber, z.ZodString]>, number, string | number>>>;
-            minute: z.ZodOptional<z.ZodOptional<z.ZodEffects<z.ZodUnion<[z.ZodNumber, z.ZodString]>, number, string | number>>>;
+            hours: z.ZodOptional<z.ZodOptional<z.ZodEffects<z.ZodUnion<[z.ZodNumber, z.ZodString]>, number, string | number>>>;
+            minutes: z.ZodOptional<z.ZodOptional<z.ZodEffects<z.ZodUnion<[z.ZodNumber, z.ZodString]>, number, string | number>>>;
+            seconds: z.ZodOptional<z.ZodOptional<z.ZodEffects<z.ZodUnion<[z.ZodNumber, z.ZodString]>, number, string | number>>>;
         }, "strip", z.ZodTypeAny, {
             year?: number | undefined;
             month?: number | undefined;
             day?: number | undefined;
-            hour?: number | undefined;
-            minute?: number | undefined;
+            hours?: number | undefined;
+            minutes?: number | undefined;
+            seconds?: number | undefined;
         }, {
             year?: string | number | undefined;
             month?: string | number | undefined;
             day?: string | number | undefined;
-            hour?: string | number | undefined;
-            minute?: string | number | undefined;
+            hours?: string | number | undefined;
+            minutes?: string | number | undefined;
+            seconds?: string | number | undefined;
         }>>;
     }, "strict", z.ZodTypeAny, {
         type: "STUDIO" | "PRODUCER";
@@ -909,8 +943,9 @@ export declare const Create_Company_ZOD_FORM: z.ZodObject<{
             year?: number | undefined;
             month?: number | undefined;
             day?: number | undefined;
-            hour?: number | undefined;
-            minute?: number | undefined;
+            hours?: number | undefined;
+            minutes?: number | undefined;
+            seconds?: number | undefined;
         } | undefined;
     }, {
         type: "STUDIO" | "PRODUCER";
@@ -932,8 +967,9 @@ export declare const Create_Company_ZOD_FORM: z.ZodObject<{
             year?: string | number | undefined;
             month?: string | number | undefined;
             day?: string | number | undefined;
-            hour?: string | number | undefined;
-            minute?: string | number | undefined;
+            hours?: string | number | undefined;
+            minutes?: string | number | undefined;
+            seconds?: string | number | undefined;
         } | undefined;
     }>;
 }, "strip", z.ZodTypeAny, {
@@ -957,8 +993,9 @@ export declare const Create_Company_ZOD_FORM: z.ZodObject<{
             year?: number | undefined;
             month?: number | undefined;
             day?: number | undefined;
-            hour?: number | undefined;
-            minute?: number | undefined;
+            hours?: number | undefined;
+            minutes?: number | undefined;
+            seconds?: number | undefined;
         } | undefined;
     };
     note?: string | undefined;
@@ -983,8 +1020,9 @@ export declare const Create_Company_ZOD_FORM: z.ZodObject<{
             year?: string | number | undefined;
             month?: string | number | undefined;
             day?: string | number | undefined;
-            hour?: string | number | undefined;
-            minute?: string | number | undefined;
+            hours?: string | number | undefined;
+            minutes?: string | number | undefined;
+            seconds?: string | number | undefined;
         } | undefined;
     };
     note?: string | undefined;
@@ -1038,20 +1076,23 @@ export declare const Add_Company_ZOD: z.ZodObject<{
             year: z.ZodOptional<z.ZodOptional<z.ZodEffects<z.ZodUnion<[z.ZodNumber, z.ZodString]>, number, string | number>>>;
             month: z.ZodOptional<z.ZodOptional<z.ZodEffects<z.ZodUnion<[z.ZodNumber, z.ZodString]>, number, string | number>>>;
             day: z.ZodOptional<z.ZodOptional<z.ZodEffects<z.ZodUnion<[z.ZodNumber, z.ZodString]>, number, string | number>>>;
-            hour: z.ZodOptional<z.ZodOptional<z.ZodEffects<z.ZodUnion<[z.ZodNumber, z.ZodString]>, number, string | number>>>;
-            minute: z.ZodOptional<z.ZodOptional<z.ZodEffects<z.ZodUnion<[z.ZodNumber, z.ZodString]>, number, string | number>>>;
+            hours: z.ZodOptional<z.ZodOptional<z.ZodEffects<z.ZodUnion<[z.ZodNumber, z.ZodString]>, number, string | number>>>;
+            minutes: z.ZodOptional<z.ZodOptional<z.ZodEffects<z.ZodUnion<[z.ZodNumber, z.ZodString]>, number, string | number>>>;
+            seconds: z.ZodOptional<z.ZodOptional<z.ZodEffects<z.ZodUnion<[z.ZodNumber, z.ZodString]>, number, string | number>>>;
         }, "strip", z.ZodTypeAny, {
             year?: number | undefined;
             month?: number | undefined;
             day?: number | undefined;
-            hour?: number | undefined;
-            minute?: number | undefined;
+            hours?: number | undefined;
+            minutes?: number | undefined;
+            seconds?: number | undefined;
         }, {
             year?: string | number | undefined;
             month?: string | number | undefined;
             day?: string | number | undefined;
-            hour?: string | number | undefined;
-            minute?: string | number | undefined;
+            hours?: string | number | undefined;
+            minutes?: string | number | undefined;
+            seconds?: string | number | undefined;
         }>>;
     }, "strict", z.ZodTypeAny, {
         type: "STUDIO" | "PRODUCER";
@@ -1073,8 +1114,9 @@ export declare const Add_Company_ZOD: z.ZodObject<{
             year?: number | undefined;
             month?: number | undefined;
             day?: number | undefined;
-            hour?: number | undefined;
-            minute?: number | undefined;
+            hours?: number | undefined;
+            minutes?: number | undefined;
+            seconds?: number | undefined;
         } | undefined;
     }, {
         type: "STUDIO" | "PRODUCER";
@@ -1096,8 +1138,9 @@ export declare const Add_Company_ZOD: z.ZodObject<{
             year?: string | number | undefined;
             month?: string | number | undefined;
             day?: string | number | undefined;
-            hour?: string | number | undefined;
-            minute?: string | number | undefined;
+            hours?: string | number | undefined;
+            minutes?: string | number | undefined;
+            seconds?: string | number | undefined;
         } | undefined;
     }>>;
 }, "strip", z.ZodTypeAny, {
@@ -1122,8 +1165,9 @@ export declare const Add_Company_ZOD: z.ZodObject<{
             year?: number | undefined;
             month?: number | undefined;
             day?: number | undefined;
-            hour?: number | undefined;
-            minute?: number | undefined;
+            hours?: number | undefined;
+            minutes?: number | undefined;
+            seconds?: number | undefined;
         } | undefined;
     } | undefined;
 }, {
@@ -1148,8 +1192,9 @@ export declare const Add_Company_ZOD: z.ZodObject<{
             year?: string | number | undefined;
             month?: string | number | undefined;
             day?: string | number | undefined;
-            hour?: string | number | undefined;
-            minute?: string | number | undefined;
+            hours?: string | number | undefined;
+            minutes?: string | number | undefined;
+            seconds?: string | number | undefined;
         } | undefined;
     } | undefined;
 }>;
@@ -1174,7 +1219,8 @@ export declare const CompanyDataToZOD: (data: ICompany) => {
         year?: number | undefined;
         month?: number | undefined;
         day?: number | undefined;
-        hour?: number | undefined;
-        minute?: number | undefined;
+        hours?: number | undefined;
+        minutes?: number | undefined;
+        seconds?: number | undefined;
     } | undefined;
 } | undefined;
