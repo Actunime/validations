@@ -1,3 +1,10 @@
+## [1.0.26](https://github.com/Actunime/validations/compare/v1.0.25...v1.0.26) (2025-03-17)
+
+
+### Bug Fixes
+
+* **types:** fix global des types ([e6e3b58](https://github.com/Actunime/validations/commit/e6e3b58351655db0e655968ae61eca77dd358604))
+
 ## [1.0.25](https://github.com/Actunime/validations/compare/v1.0.24...v1.0.25) (2025-03-17)
 
 
