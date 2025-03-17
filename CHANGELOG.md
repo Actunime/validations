@@ -1,3 +1,11 @@
+## [1.0.29](https://github.com/Actunime/validations/compare/v1.0.28...v1.0.29) (2025-03-17)
+
+
+### Bug Fixes
+
+* merge branches ([f83d216](https://github.com/Actunime/validations/commit/f83d2168787b76bd1c46a2fef791c8321fee087b))
+* up types clean code ([96811f7](https://github.com/Actunime/validations/commit/96811f734c1439ac7d33ea1656e0a87ee5cb4c71))
+
 ## [1.0.28](https://github.com/Actunime/validations/compare/v1.0.27...v1.0.28) (2025-03-17)
 
 
