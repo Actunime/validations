@@ -28,7 +28,7 @@ exports.UserPaginationBody = _util_1.PaginationBody.extend({
 exports.UserMutationBody = zod_1.z.object({
     username: zod_1.z.string(),
     displayName: zod_1.z.string().min(3, "Le pseudonyme doit contenir au moins 3 caractères").max(18, "Le pseudonyme doit contenir au maximum 18 caractères"),
-    bio: zod_1.z.optional(zod_1.z.string()),
+    description: zod_1.z.optional(zod_1.z.string()),
     avatar: zod_1.z.optional(_imageZOD_1.Add_Image_ZOD),
     banner: zod_1.z.optional(_imageZOD_1.Add_Image_ZOD),
 });
@@ -64,7 +64,7 @@ exports.Patch_User_ZOD = zod_1.z
     .object({
     username: zod_1.z.string().optional(),
     displayName: zod_1.z.string().optional(),
-    bio: zod_1.z.string().optional(),
+    description: zod_1.z.string().optional(),
     roles: zod_1.z.array(zod_1.z.enum(types_1.UserRolesArray)).optional(),
     avatar: zod_1.z.optional(_imageZOD_1.Add_Image_ZOD),
     banner: zod_1.z.optional(_imageZOD_1.Add_Image_ZOD),
@@ -88,7 +88,7 @@ const UserDataToZOD = (data) => {
     let toZOD = {
         username: data.username,
         displayName: data.displayName,
-        bio: data.bio,
+        description: data.description,
         roles: data.roles,
         avatar: data.avatar,
         banner: data.banner,

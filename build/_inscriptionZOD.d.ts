@@ -13,7 +13,7 @@ export declare const Inscription_Zod_Schema: z.ZodObject<{
     user: z.ZodObject<{
         username: z.ZodEffects<z.ZodString, string, string>;
         displayName: z.ZodEffects<z.ZodString, string, string>;
-        bio: z.ZodOptional<z.ZodEffects<z.ZodString, string, string>>;
+        description: z.ZodOptional<z.ZodEffects<z.ZodString, string, string>>;
         avatar: z.ZodOptional<z.ZodObject<{
             id: z.ZodOptional<z.ZodString>;
             label: z.ZodOptional<z.ZodEnum<("COVER" | "BANNER" | "AVATAR" | "LOGO")[] & [string, ...string[]]>>;
@@ -81,7 +81,7 @@ export declare const Inscription_Zod_Schema: z.ZodObject<{
                 label: "COVER" | "BANNER" | "AVATAR" | "LOGO";
             } | undefined;
         } | undefined;
-        bio?: string | undefined;
+        description?: string | undefined;
         avatar?: {
             id?: string | undefined;
             label?: "COVER" | "BANNER" | "AVATAR" | "LOGO" | undefined;
@@ -101,7 +101,7 @@ export declare const Inscription_Zod_Schema: z.ZodObject<{
                 label: "COVER" | "BANNER" | "AVATAR" | "LOGO";
             } | undefined;
         } | undefined;
-        bio?: string | undefined;
+        description?: string | undefined;
         avatar?: {
             id?: string | undefined;
             label?: "COVER" | "BANNER" | "AVATAR" | "LOGO" | undefined;
@@ -129,7 +129,7 @@ export declare const Inscription_Zod_Schema: z.ZodObject<{
                 label: "COVER" | "BANNER" | "AVATAR" | "LOGO";
             } | undefined;
         } | undefined;
-        bio?: string | undefined;
+        description?: string | undefined;
         avatar?: {
             id?: string | undefined;
             label?: "COVER" | "BANNER" | "AVATAR" | "LOGO" | undefined;
@@ -156,7 +156,7 @@ export declare const Inscription_Zod_Schema: z.ZodObject<{
                 label: "COVER" | "BANNER" | "AVATAR" | "LOGO";
             } | undefined;
         } | undefined;
-        bio?: string | undefined;
+        description?: string | undefined;
         avatar?: {
             id?: string | undefined;
             label?: "COVER" | "BANNER" | "AVATAR" | "LOGO" | undefined;

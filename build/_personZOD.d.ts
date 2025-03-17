@@ -24,7 +24,7 @@ export declare const Base_Create_Person_ZOD: z.ZodObject<{
     }>;
     birthDate: z.ZodOptional<z.ZodString>;
     deathDate: z.ZodOptional<z.ZodString>;
-    bio: z.ZodOptional<z.ZodString>;
+    description: z.ZodOptional<z.ZodString>;
     avatar: z.ZodOptional<z.ZodObject<{
         id: z.ZodOptional<z.ZodString>;
         label: z.ZodOptional<z.ZodEnum<("COVER" | "BANNER" | "AVATAR" | "LOGO")[] & [string, ...string[]]>>;
@@ -68,10 +68,10 @@ export declare const Base_Create_Person_ZOD: z.ZodObject<{
         default: string;
         alias?: string[] | undefined;
     };
+    description?: string | undefined;
     isGroupe?: boolean | undefined;
     birthDate?: string | undefined;
     deathDate?: string | undefined;
-    bio?: string | undefined;
     avatar?: {
         id?: string | undefined;
         label?: "COVER" | "BANNER" | "AVATAR" | "LOGO" | undefined;
@@ -89,10 +89,10 @@ export declare const Base_Create_Person_ZOD: z.ZodObject<{
         default: string;
         alias?: string[] | undefined;
     };
+    description?: string | undefined;
     isGroupe?: boolean | undefined;
     birthDate?: string | undefined;
     deathDate?: string | undefined;
-    bio?: string | undefined;
     avatar?: {
         id?: string | undefined;
         label?: "COVER" | "BANNER" | "AVATAR" | "LOGO" | undefined;
@@ -120,7 +120,7 @@ export declare const Create_Person_ZOD: z.ZodObject<{
     }>;
     birthDate: z.ZodOptional<z.ZodString>;
     deathDate: z.ZodOptional<z.ZodString>;
-    bio: z.ZodOptional<z.ZodString>;
+    description: z.ZodOptional<z.ZodString>;
     avatar: z.ZodOptional<z.ZodObject<{
         id: z.ZodOptional<z.ZodString>;
         label: z.ZodOptional<z.ZodEnum<("COVER" | "BANNER" | "AVATAR" | "LOGO")[] & [string, ...string[]]>>;
@@ -164,10 +164,10 @@ export declare const Create_Person_ZOD: z.ZodObject<{
         default: string;
         alias?: string[] | undefined;
     };
+    description?: string | undefined;
     isGroupe?: boolean | undefined;
     birthDate?: string | undefined;
     deathDate?: string | undefined;
-    bio?: string | undefined;
     avatar?: {
         id?: string | undefined;
         label?: "COVER" | "BANNER" | "AVATAR" | "LOGO" | undefined;
@@ -185,10 +185,10 @@ export declare const Create_Person_ZOD: z.ZodObject<{
         default: string;
         alias?: string[] | undefined;
     };
+    description?: string | undefined;
     isGroupe?: boolean | undefined;
     birthDate?: string | undefined;
     deathDate?: string | undefined;
-    bio?: string | undefined;
     avatar?: {
         id?: string | undefined;
         label?: "COVER" | "BANNER" | "AVATAR" | "LOGO" | undefined;
@@ -216,7 +216,7 @@ export declare const Partial_Create_Person_ZOD: z.ZodObject<{
     }>>;
     birthDate: z.ZodOptional<z.ZodOptional<z.ZodString>>;
     deathDate: z.ZodOptional<z.ZodOptional<z.ZodString>>;
-    bio: z.ZodOptional<z.ZodOptional<z.ZodString>>;
+    description: z.ZodOptional<z.ZodOptional<z.ZodString>>;
     avatar: z.ZodOptional<z.ZodOptional<z.ZodObject<{
         id: z.ZodOptional<z.ZodString>;
         label: z.ZodOptional<z.ZodEnum<("COVER" | "BANNER" | "AVATAR" | "LOGO")[] & [string, ...string[]]>>;
@@ -260,10 +260,10 @@ export declare const Partial_Create_Person_ZOD: z.ZodObject<{
         default: string;
         alias?: string[] | undefined;
     } | undefined;
+    description?: string | undefined;
     isGroupe?: boolean | undefined;
     birthDate?: string | undefined;
     deathDate?: string | undefined;
-    bio?: string | undefined;
     avatar?: {
         id?: string | undefined;
         label?: "COVER" | "BANNER" | "AVATAR" | "LOGO" | undefined;
@@ -281,10 +281,10 @@ export declare const Partial_Create_Person_ZOD: z.ZodObject<{
         default: string;
         alias?: string[] | undefined;
     } | undefined;
+    description?: string | undefined;
     isGroupe?: boolean | undefined;
     birthDate?: string | undefined;
     deathDate?: string | undefined;
-    bio?: string | undefined;
     avatar?: {
         id?: string | undefined;
         label?: "COVER" | "BANNER" | "AVATAR" | "LOGO" | undefined;
@@ -317,7 +317,7 @@ export declare const PersonCreateBody: z.ZodObject<z.objectUtil.extendShape<{
         }>;
         birthDate: z.ZodOptional<z.ZodString>;
         deathDate: z.ZodOptional<z.ZodString>;
-        bio: z.ZodOptional<z.ZodString>;
+        description: z.ZodOptional<z.ZodString>;
         avatar: z.ZodOptional<z.ZodObject<{
             id: z.ZodOptional<z.ZodString>;
             label: z.ZodOptional<z.ZodEnum<("COVER" | "BANNER" | "AVATAR" | "LOGO")[] & [string, ...string[]]>>;
@@ -361,10 +361,10 @@ export declare const PersonCreateBody: z.ZodObject<z.objectUtil.extendShape<{
             default: string;
             alias?: string[] | undefined;
         };
+        description?: string | undefined;
         isGroupe?: boolean | undefined;
         birthDate?: string | undefined;
         deathDate?: string | undefined;
-        bio?: string | undefined;
         avatar?: {
             id?: string | undefined;
             label?: "COVER" | "BANNER" | "AVATAR" | "LOGO" | undefined;
@@ -382,10 +382,10 @@ export declare const PersonCreateBody: z.ZodObject<z.objectUtil.extendShape<{
             default: string;
             alias?: string[] | undefined;
         };
+        description?: string | undefined;
         isGroupe?: boolean | undefined;
         birthDate?: string | undefined;
         deathDate?: string | undefined;
-        bio?: string | undefined;
         avatar?: {
             id?: string | undefined;
             label?: "COVER" | "BANNER" | "AVATAR" | "LOGO" | undefined;
@@ -405,10 +405,10 @@ export declare const PersonCreateBody: z.ZodObject<z.objectUtil.extendShape<{
             default: string;
             alias?: string[] | undefined;
         };
+        description?: string | undefined;
         isGroupe?: boolean | undefined;
         birthDate?: string | undefined;
         deathDate?: string | undefined;
-        bio?: string | undefined;
         avatar?: {
             id?: string | undefined;
             label?: "COVER" | "BANNER" | "AVATAR" | "LOGO" | undefined;
@@ -430,10 +430,10 @@ export declare const PersonCreateBody: z.ZodObject<z.objectUtil.extendShape<{
             default: string;
             alias?: string[] | undefined;
         };
+        description?: string | undefined;
         isGroupe?: boolean | undefined;
         birthDate?: string | undefined;
         deathDate?: string | undefined;
-        bio?: string | undefined;
         avatar?: {
             id?: string | undefined;
             label?: "COVER" | "BANNER" | "AVATAR" | "LOGO" | undefined;
@@ -467,7 +467,7 @@ export declare const Create_Person_ZOD_FORM: z.ZodObject<{
         }>;
         birthDate: z.ZodOptional<z.ZodString>;
         deathDate: z.ZodOptional<z.ZodString>;
-        bio: z.ZodOptional<z.ZodString>;
+        description: z.ZodOptional<z.ZodString>;
         avatar: z.ZodOptional<z.ZodObject<{
             id: z.ZodOptional<z.ZodString>;
             label: z.ZodOptional<z.ZodEnum<("COVER" | "BANNER" | "AVATAR" | "LOGO")[] & [string, ...string[]]>>;
@@ -511,10 +511,10 @@ export declare const Create_Person_ZOD_FORM: z.ZodObject<{
             default: string;
             alias?: string[] | undefined;
         };
+        description?: string | undefined;
         isGroupe?: boolean | undefined;
         birthDate?: string | undefined;
         deathDate?: string | undefined;
-        bio?: string | undefined;
         avatar?: {
             id?: string | undefined;
             label?: "COVER" | "BANNER" | "AVATAR" | "LOGO" | undefined;
@@ -532,10 +532,10 @@ export declare const Create_Person_ZOD_FORM: z.ZodObject<{
             default: string;
             alias?: string[] | undefined;
         };
+        description?: string | undefined;
         isGroupe?: boolean | undefined;
         birthDate?: string | undefined;
         deathDate?: string | undefined;
-        bio?: string | undefined;
         avatar?: {
             id?: string | undefined;
             label?: "COVER" | "BANNER" | "AVATAR" | "LOGO" | undefined;
@@ -555,10 +555,10 @@ export declare const Create_Person_ZOD_FORM: z.ZodObject<{
             default: string;
             alias?: string[] | undefined;
         };
+        description?: string | undefined;
         isGroupe?: boolean | undefined;
         birthDate?: string | undefined;
         deathDate?: string | undefined;
-        bio?: string | undefined;
         avatar?: {
             id?: string | undefined;
             label?: "COVER" | "BANNER" | "AVATAR" | "LOGO" | undefined;
@@ -579,10 +579,10 @@ export declare const Create_Person_ZOD_FORM: z.ZodObject<{
             default: string;
             alias?: string[] | undefined;
         };
+        description?: string | undefined;
         isGroupe?: boolean | undefined;
         birthDate?: string | undefined;
         deathDate?: string | undefined;
-        bio?: string | undefined;
         avatar?: {
             id?: string | undefined;
             label?: "COVER" | "BANNER" | "AVATAR" | "LOGO" | undefined;
@@ -1044,7 +1044,7 @@ export declare const Add_Person_ZOD: z.ZodObject<{
         }>;
         birthDate: z.ZodOptional<z.ZodString>;
         deathDate: z.ZodOptional<z.ZodString>;
-        bio: z.ZodOptional<z.ZodString>;
+        description: z.ZodOptional<z.ZodString>;
         avatar: z.ZodOptional<z.ZodObject<{
             id: z.ZodOptional<z.ZodString>;
             label: z.ZodOptional<z.ZodEnum<("COVER" | "BANNER" | "AVATAR" | "LOGO")[] & [string, ...string[]]>>;
@@ -1088,10 +1088,10 @@ export declare const Add_Person_ZOD: z.ZodObject<{
             default: string;
             alias?: string[] | undefined;
         };
+        description?: string | undefined;
         isGroupe?: boolean | undefined;
         birthDate?: string | undefined;
         deathDate?: string | undefined;
-        bio?: string | undefined;
         avatar?: {
             id?: string | undefined;
             label?: "COVER" | "BANNER" | "AVATAR" | "LOGO" | undefined;
@@ -1109,10 +1109,10 @@ export declare const Add_Person_ZOD: z.ZodObject<{
             default: string;
             alias?: string[] | undefined;
         };
+        description?: string | undefined;
         isGroupe?: boolean | undefined;
         birthDate?: string | undefined;
         deathDate?: string | undefined;
-        bio?: string | undefined;
         avatar?: {
             id?: string | undefined;
             label?: "COVER" | "BANNER" | "AVATAR" | "LOGO" | undefined;
@@ -1134,10 +1134,10 @@ export declare const Add_Person_ZOD: z.ZodObject<{
             default: string;
             alias?: string[] | undefined;
         };
+        description?: string | undefined;
         isGroupe?: boolean | undefined;
         birthDate?: string | undefined;
         deathDate?: string | undefined;
-        bio?: string | undefined;
         avatar?: {
             id?: string | undefined;
             label?: "COVER" | "BANNER" | "AVATAR" | "LOGO" | undefined;
@@ -1159,10 +1159,10 @@ export declare const Add_Person_ZOD: z.ZodObject<{
             default: string;
             alias?: string[] | undefined;
         };
+        description?: string | undefined;
         isGroupe?: boolean | undefined;
         birthDate?: string | undefined;
         deathDate?: string | undefined;
-        bio?: string | undefined;
         avatar?: {
             id?: string | undefined;
             label?: "COVER" | "BANNER" | "AVATAR" | "LOGO" | undefined;
@@ -1191,10 +1191,10 @@ export declare const PersonDataToZOD: (data: IPerson) => {
         default: string;
         alias?: string[] | undefined;
     };
+    description?: string | undefined;
     isGroupe?: boolean | undefined;
     birthDate?: string | undefined;
     deathDate?: string | undefined;
-    bio?: string | undefined;
     avatar?: {
         id?: string | undefined;
         label?: "COVER" | "BANNER" | "AVATAR" | "LOGO" | undefined;

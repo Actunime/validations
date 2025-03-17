@@ -362,7 +362,7 @@ export type ICompany_Pagination_ZOD = z.infer<typeof Company_Pagination_ZOD>;
 export declare const Create_Company_ZOD: z.ZodObject<{
     type: z.ZodEnum<["STUDIO", "PRODUCER"]>;
     name: z.ZodString;
-    bio: z.ZodOptional<z.ZodString>;
+    description: z.ZodOptional<z.ZodString>;
     links: z.ZodOptional<z.ZodArray<z.ZodObject<{
         name: z.ZodString;
         value: z.ZodEffects<z.ZodString, string, string>;
@@ -405,7 +405,7 @@ export declare const Create_Company_ZOD: z.ZodObject<{
 }, "strict", z.ZodTypeAny, {
     type: "STUDIO" | "PRODUCER";
     name: string;
-    bio?: string | undefined;
+    description?: string | undefined;
     links?: {
         value: string;
         name: string;
@@ -422,7 +422,7 @@ export declare const Create_Company_ZOD: z.ZodObject<{
 }, {
     type: "STUDIO" | "PRODUCER";
     name: string;
-    bio?: string | undefined;
+    description?: string | undefined;
     links?: {
         value: string;
         name: string;
@@ -445,7 +445,7 @@ export declare const CompanyCreateBody: z.ZodObject<z.objectUtil.extendShape<{
     data: z.ZodObject<{
         type: z.ZodEnum<["STUDIO", "PRODUCER"]>;
         name: z.ZodString;
-        bio: z.ZodOptional<z.ZodString>;
+        description: z.ZodOptional<z.ZodString>;
         links: z.ZodOptional<z.ZodArray<z.ZodObject<{
             name: z.ZodString;
             value: z.ZodEffects<z.ZodString, string, string>;
@@ -488,7 +488,7 @@ export declare const CompanyCreateBody: z.ZodObject<z.objectUtil.extendShape<{
     }, "strict", z.ZodTypeAny, {
         type: "STUDIO" | "PRODUCER";
         name: string;
-        bio?: string | undefined;
+        description?: string | undefined;
         links?: {
             value: string;
             name: string;
@@ -505,7 +505,7 @@ export declare const CompanyCreateBody: z.ZodObject<z.objectUtil.extendShape<{
     }, {
         type: "STUDIO" | "PRODUCER";
         name: string;
-        bio?: string | undefined;
+        description?: string | undefined;
         links?: {
             value: string;
             name: string;
@@ -524,7 +524,7 @@ export declare const CompanyCreateBody: z.ZodObject<z.objectUtil.extendShape<{
     data: {
         type: "STUDIO" | "PRODUCER";
         name: string;
-        bio?: string | undefined;
+        description?: string | undefined;
         links?: {
             value: string;
             name: string;
@@ -545,7 +545,7 @@ export declare const CompanyCreateBody: z.ZodObject<z.objectUtil.extendShape<{
     data: {
         type: "STUDIO" | "PRODUCER";
         name: string;
-        bio?: string | undefined;
+        description?: string | undefined;
         links?: {
             value: string;
             name: string;
@@ -569,7 +569,7 @@ export declare const Create_Company_ZOD_FORM: z.ZodObject<{
     data: z.ZodObject<{
         type: z.ZodEnum<["STUDIO", "PRODUCER"]>;
         name: z.ZodString;
-        bio: z.ZodOptional<z.ZodString>;
+        description: z.ZodOptional<z.ZodString>;
         links: z.ZodOptional<z.ZodArray<z.ZodObject<{
             name: z.ZodString;
             value: z.ZodEffects<z.ZodString, string, string>;
@@ -612,7 +612,7 @@ export declare const Create_Company_ZOD_FORM: z.ZodObject<{
     }, "strict", z.ZodTypeAny, {
         type: "STUDIO" | "PRODUCER";
         name: string;
-        bio?: string | undefined;
+        description?: string | undefined;
         links?: {
             value: string;
             name: string;
@@ -629,7 +629,7 @@ export declare const Create_Company_ZOD_FORM: z.ZodObject<{
     }, {
         type: "STUDIO" | "PRODUCER";
         name: string;
-        bio?: string | undefined;
+        description?: string | undefined;
         links?: {
             value: string;
             name: string;
@@ -648,7 +648,7 @@ export declare const Create_Company_ZOD_FORM: z.ZodObject<{
     data: {
         type: "STUDIO" | "PRODUCER";
         name: string;
-        bio?: string | undefined;
+        description?: string | undefined;
         links?: {
             value: string;
             name: string;
@@ -668,7 +668,7 @@ export declare const Create_Company_ZOD_FORM: z.ZodObject<{
     data: {
         type: "STUDIO" | "PRODUCER";
         name: string;
-        bio?: string | undefined;
+        description?: string | undefined;
         links?: {
             value: string;
             name: string;
@@ -691,7 +691,7 @@ export declare const Add_Company_ZOD: z.ZodObject<{
     newCompany: z.ZodOptional<z.ZodObject<{
         type: z.ZodEnum<["STUDIO", "PRODUCER"]>;
         name: z.ZodString;
-        bio: z.ZodOptional<z.ZodString>;
+        description: z.ZodOptional<z.ZodString>;
         links: z.ZodOptional<z.ZodArray<z.ZodObject<{
             name: z.ZodString;
             value: z.ZodEffects<z.ZodString, string, string>;
@@ -734,7 +734,7 @@ export declare const Add_Company_ZOD: z.ZodObject<{
     }, "strict", z.ZodTypeAny, {
         type: "STUDIO" | "PRODUCER";
         name: string;
-        bio?: string | undefined;
+        description?: string | undefined;
         links?: {
             value: string;
             name: string;
@@ -751,7 +751,7 @@ export declare const Add_Company_ZOD: z.ZodObject<{
     }, {
         type: "STUDIO" | "PRODUCER";
         name: string;
-        bio?: string | undefined;
+        description?: string | undefined;
         links?: {
             value: string;
             name: string;
@@ -771,7 +771,7 @@ export declare const Add_Company_ZOD: z.ZodObject<{
     newCompany?: {
         type: "STUDIO" | "PRODUCER";
         name: string;
-        bio?: string | undefined;
+        description?: string | undefined;
         links?: {
             value: string;
             name: string;
@@ -791,7 +791,7 @@ export declare const Add_Company_ZOD: z.ZodObject<{
     newCompany?: {
         type: "STUDIO" | "PRODUCER";
         name: string;
-        bio?: string | undefined;
+        description?: string | undefined;
         links?: {
             value: string;
             name: string;
@@ -811,7 +811,7 @@ export type IAdd_Company_ZOD = z.infer<typeof Add_Company_ZOD>;
 export declare const CompanyDataToZOD: (data: ICompany) => {
     type: "STUDIO" | "PRODUCER";
     name: string;
-    bio?: string | undefined;
+    description?: string | undefined;
     links?: {
         value: string;
         name: string;

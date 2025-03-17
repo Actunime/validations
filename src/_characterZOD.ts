@@ -70,7 +70,7 @@ export const Create_Character_ZOD = z
     birthDate: z.optional(z.string()),
     gender: z.enum(CharacterGenderArray),
     species: z.enum(CharacterSpeciesArray),
-    bio: z.optional(z.string()),
+    description: z.optional(z.string()),
     avatar: z.optional(Add_Image_ZOD),
     actors: z.optional(z.array(Add_Person_ZOD)),
   })
@@ -110,7 +110,7 @@ export const CharacterDataToZOD = (
     birthDate: dateToZod(data.birthDate),
     gender: data.gender as any,
     species: data.species as any,
-    bio: data.bio,
+    description: data.description,
     avatar: data.avatar,
     actors: data.actors,
   };

@@ -757,7 +757,7 @@ export declare const Create_Anime_ZOD: z.ZodEffects<z.ZodObject<{
         newCompany: z.ZodOptional<z.ZodObject<{
             type: z.ZodEnum<["STUDIO", "PRODUCER"]>;
             name: z.ZodString;
-            bio: z.ZodOptional<z.ZodString>;
+            description: z.ZodOptional<z.ZodString>;
             links: z.ZodOptional<z.ZodArray<z.ZodObject<{
                 name: z.ZodString;
                 value: z.ZodEffects<z.ZodString, string, string>;
@@ -800,7 +800,7 @@ export declare const Create_Anime_ZOD: z.ZodEffects<z.ZodObject<{
         }, "strict", z.ZodTypeAny, {
             type: "STUDIO" | "PRODUCER";
             name: string;
-            bio?: string | undefined;
+            description?: string | undefined;
             links?: {
                 value: string;
                 name: string;
@@ -817,7 +817,7 @@ export declare const Create_Anime_ZOD: z.ZodEffects<z.ZodObject<{
         }, {
             type: "STUDIO" | "PRODUCER";
             name: string;
-            bio?: string | undefined;
+            description?: string | undefined;
             links?: {
                 value: string;
                 name: string;
@@ -837,7 +837,7 @@ export declare const Create_Anime_ZOD: z.ZodEffects<z.ZodObject<{
         newCompany?: {
             type: "STUDIO" | "PRODUCER";
             name: string;
-            bio?: string | undefined;
+            description?: string | undefined;
             links?: {
                 value: string;
                 name: string;
@@ -857,7 +857,7 @@ export declare const Create_Anime_ZOD: z.ZodEffects<z.ZodObject<{
         newCompany?: {
             type: "STUDIO" | "PRODUCER";
             name: string;
-            bio?: string | undefined;
+            description?: string | undefined;
             links?: {
                 value: string;
                 name: string;
@@ -889,7 +889,7 @@ export declare const Create_Anime_ZOD: z.ZodEffects<z.ZodObject<{
             }>;
             birthDate: z.ZodOptional<z.ZodString>;
             deathDate: z.ZodOptional<z.ZodString>;
-            bio: z.ZodOptional<z.ZodString>;
+            description: z.ZodOptional<z.ZodString>;
             avatar: z.ZodOptional<z.ZodObject<{
                 id: z.ZodOptional<z.ZodString>;
                 label: z.ZodOptional<z.ZodEnum<("COVER" | "BANNER" | "AVATAR" | "LOGO")[] & [string, ...string[]]>>;
@@ -933,10 +933,10 @@ export declare const Create_Anime_ZOD: z.ZodEffects<z.ZodObject<{
                 default: string;
                 alias?: string[] | undefined;
             };
+            description?: string | undefined;
             isGroupe?: boolean | undefined;
             birthDate?: string | undefined;
             deathDate?: string | undefined;
-            bio?: string | undefined;
             avatar?: {
                 id?: string | undefined;
                 label?: "COVER" | "BANNER" | "AVATAR" | "LOGO" | undefined;
@@ -954,10 +954,10 @@ export declare const Create_Anime_ZOD: z.ZodEffects<z.ZodObject<{
                 default: string;
                 alias?: string[] | undefined;
             };
+            description?: string | undefined;
             isGroupe?: boolean | undefined;
             birthDate?: string | undefined;
             deathDate?: string | undefined;
-            bio?: string | undefined;
             avatar?: {
                 id?: string | undefined;
                 label?: "COVER" | "BANNER" | "AVATAR" | "LOGO" | undefined;
@@ -979,10 +979,10 @@ export declare const Create_Anime_ZOD: z.ZodEffects<z.ZodObject<{
                 default: string;
                 alias?: string[] | undefined;
             };
+            description?: string | undefined;
             isGroupe?: boolean | undefined;
             birthDate?: string | undefined;
             deathDate?: string | undefined;
-            bio?: string | undefined;
             avatar?: {
                 id?: string | undefined;
                 label?: "COVER" | "BANNER" | "AVATAR" | "LOGO" | undefined;
@@ -1004,10 +1004,10 @@ export declare const Create_Anime_ZOD: z.ZodEffects<z.ZodObject<{
                 default: string;
                 alias?: string[] | undefined;
             };
+            description?: string | undefined;
             isGroupe?: boolean | undefined;
             birthDate?: string | undefined;
             deathDate?: string | undefined;
-            bio?: string | undefined;
             avatar?: {
                 id?: string | undefined;
                 label?: "COVER" | "BANNER" | "AVATAR" | "LOGO" | undefined;
@@ -1040,7 +1040,7 @@ export declare const Create_Anime_ZOD: z.ZodEffects<z.ZodObject<{
             birthDate: z.ZodOptional<z.ZodString>;
             gender: z.ZodEnum<("MASCULIN" | "FEMININ" | "NEUTRE" | "TRANSGENRE" | "NON_BINAIRE" | "GENRE_FLUIDE" | "AUTRE")[] & [string, ...string[]]>;
             species: z.ZodEnum<("AUTRE" | "HUMAIN" | "ELFE" | "NAIN" | "LEZARD" | "DRAGON" | "ORC")[] & [string, ...string[]]>;
-            bio: z.ZodOptional<z.ZodString>;
+            description: z.ZodOptional<z.ZodString>;
             avatar: z.ZodOptional<z.ZodObject<{
                 id: z.ZodOptional<z.ZodString>;
                 label: z.ZodOptional<z.ZodEnum<("COVER" | "BANNER" | "AVATAR" | "LOGO")[] & [string, ...string[]]>>;
@@ -1085,7 +1085,7 @@ export declare const Create_Anime_ZOD: z.ZodEffects<z.ZodObject<{
                     }>;
                     birthDate: z.ZodOptional<z.ZodString>;
                     deathDate: z.ZodOptional<z.ZodString>;
-                    bio: z.ZodOptional<z.ZodString>;
+                    description: z.ZodOptional<z.ZodString>;
                     avatar: z.ZodOptional<z.ZodObject<{
                         id: z.ZodOptional<z.ZodString>;
                         label: z.ZodOptional<z.ZodEnum<("COVER" | "BANNER" | "AVATAR" | "LOGO")[] & [string, ...string[]]>>;
@@ -1129,10 +1129,10 @@ export declare const Create_Anime_ZOD: z.ZodEffects<z.ZodObject<{
                         default: string;
                         alias?: string[] | undefined;
                     };
+                    description?: string | undefined;
                     isGroupe?: boolean | undefined;
                     birthDate?: string | undefined;
                     deathDate?: string | undefined;
-                    bio?: string | undefined;
                     avatar?: {
                         id?: string | undefined;
                         label?: "COVER" | "BANNER" | "AVATAR" | "LOGO" | undefined;
@@ -1150,10 +1150,10 @@ export declare const Create_Anime_ZOD: z.ZodEffects<z.ZodObject<{
                         default: string;
                         alias?: string[] | undefined;
                     };
+                    description?: string | undefined;
                     isGroupe?: boolean | undefined;
                     birthDate?: string | undefined;
                     deathDate?: string | undefined;
-                    bio?: string | undefined;
                     avatar?: {
                         id?: string | undefined;
                         label?: "COVER" | "BANNER" | "AVATAR" | "LOGO" | undefined;
@@ -1175,10 +1175,10 @@ export declare const Create_Anime_ZOD: z.ZodEffects<z.ZodObject<{
                         default: string;
                         alias?: string[] | undefined;
                     };
+                    description?: string | undefined;
                     isGroupe?: boolean | undefined;
                     birthDate?: string | undefined;
                     deathDate?: string | undefined;
-                    bio?: string | undefined;
                     avatar?: {
                         id?: string | undefined;
                         label?: "COVER" | "BANNER" | "AVATAR" | "LOGO" | undefined;
@@ -1200,10 +1200,10 @@ export declare const Create_Anime_ZOD: z.ZodEffects<z.ZodObject<{
                         default: string;
                         alias?: string[] | undefined;
                     };
+                    description?: string | undefined;
                     isGroupe?: boolean | undefined;
                     birthDate?: string | undefined;
                     deathDate?: string | undefined;
-                    bio?: string | undefined;
                     avatar?: {
                         id?: string | undefined;
                         label?: "COVER" | "BANNER" | "AVATAR" | "LOGO" | undefined;
@@ -1226,8 +1226,8 @@ export declare const Create_Anime_ZOD: z.ZodEffects<z.ZodObject<{
             };
             gender: "MASCULIN" | "FEMININ" | "NEUTRE" | "TRANSGENRE" | "NON_BINAIRE" | "GENRE_FLUIDE" | "AUTRE";
             species: "AUTRE" | "HUMAIN" | "ELFE" | "NAIN" | "LEZARD" | "DRAGON" | "ORC";
+            description?: string | undefined;
             birthDate?: string | undefined;
-            bio?: string | undefined;
             avatar?: {
                 id?: string | undefined;
                 label?: "COVER" | "BANNER" | "AVATAR" | "LOGO" | undefined;
@@ -1244,10 +1244,10 @@ export declare const Create_Anime_ZOD: z.ZodEffects<z.ZodObject<{
                         default: string;
                         alias?: string[] | undefined;
                     };
+                    description?: string | undefined;
                     isGroupe?: boolean | undefined;
                     birthDate?: string | undefined;
                     deathDate?: string | undefined;
-                    bio?: string | undefined;
                     avatar?: {
                         id?: string | undefined;
                         label?: "COVER" | "BANNER" | "AVATAR" | "LOGO" | undefined;
@@ -1270,8 +1270,8 @@ export declare const Create_Anime_ZOD: z.ZodEffects<z.ZodObject<{
             };
             gender: "MASCULIN" | "FEMININ" | "NEUTRE" | "TRANSGENRE" | "NON_BINAIRE" | "GENRE_FLUIDE" | "AUTRE";
             species: "AUTRE" | "HUMAIN" | "ELFE" | "NAIN" | "LEZARD" | "DRAGON" | "ORC";
+            description?: string | undefined;
             birthDate?: string | undefined;
-            bio?: string | undefined;
             avatar?: {
                 id?: string | undefined;
                 label?: "COVER" | "BANNER" | "AVATAR" | "LOGO" | undefined;
@@ -1288,10 +1288,10 @@ export declare const Create_Anime_ZOD: z.ZodEffects<z.ZodObject<{
                         default: string;
                         alias?: string[] | undefined;
                     };
+                    description?: string | undefined;
                     isGroupe?: boolean | undefined;
                     birthDate?: string | undefined;
                     deathDate?: string | undefined;
-                    bio?: string | undefined;
                     avatar?: {
                         id?: string | undefined;
                         label?: "COVER" | "BANNER" | "AVATAR" | "LOGO" | undefined;
@@ -1319,8 +1319,8 @@ export declare const Create_Anime_ZOD: z.ZodEffects<z.ZodObject<{
             };
             gender: "MASCULIN" | "FEMININ" | "NEUTRE" | "TRANSGENRE" | "NON_BINAIRE" | "GENRE_FLUIDE" | "AUTRE";
             species: "AUTRE" | "HUMAIN" | "ELFE" | "NAIN" | "LEZARD" | "DRAGON" | "ORC";
+            description?: string | undefined;
             birthDate?: string | undefined;
-            bio?: string | undefined;
             avatar?: {
                 id?: string | undefined;
                 label?: "COVER" | "BANNER" | "AVATAR" | "LOGO" | undefined;
@@ -1337,10 +1337,10 @@ export declare const Create_Anime_ZOD: z.ZodEffects<z.ZodObject<{
                         default: string;
                         alias?: string[] | undefined;
                     };
+                    description?: string | undefined;
                     isGroupe?: boolean | undefined;
                     birthDate?: string | undefined;
                     deathDate?: string | undefined;
-                    bio?: string | undefined;
                     avatar?: {
                         id?: string | undefined;
                         label?: "COVER" | "BANNER" | "AVATAR" | "LOGO" | undefined;
@@ -1367,8 +1367,8 @@ export declare const Create_Anime_ZOD: z.ZodEffects<z.ZodObject<{
             };
             gender: "MASCULIN" | "FEMININ" | "NEUTRE" | "TRANSGENRE" | "NON_BINAIRE" | "GENRE_FLUIDE" | "AUTRE";
             species: "AUTRE" | "HUMAIN" | "ELFE" | "NAIN" | "LEZARD" | "DRAGON" | "ORC";
+            description?: string | undefined;
             birthDate?: string | undefined;
-            bio?: string | undefined;
             avatar?: {
                 id?: string | undefined;
                 label?: "COVER" | "BANNER" | "AVATAR" | "LOGO" | undefined;
@@ -1385,10 +1385,10 @@ export declare const Create_Anime_ZOD: z.ZodEffects<z.ZodObject<{
                         default: string;
                         alias?: string[] | undefined;
                     };
+                    description?: string | undefined;
                     isGroupe?: boolean | undefined;
                     birthDate?: string | undefined;
                     deathDate?: string | undefined;
-                    bio?: string | undefined;
                     avatar?: {
                         id?: string | undefined;
                         label?: "COVER" | "BANNER" | "AVATAR" | "LOGO" | undefined;
@@ -1437,7 +1437,7 @@ export declare const Create_Anime_ZOD: z.ZodEffects<z.ZodObject<{
                     }>;
                     birthDate: z.ZodOptional<z.ZodString>;
                     deathDate: z.ZodOptional<z.ZodString>;
-                    bio: z.ZodOptional<z.ZodString>;
+                    description: z.ZodOptional<z.ZodString>;
                     avatar: z.ZodOptional<z.ZodObject<{
                         id: z.ZodOptional<z.ZodString>;
                         label: z.ZodOptional<z.ZodEnum<("COVER" | "BANNER" | "AVATAR" | "LOGO")[] & [string, ...string[]]>>;
@@ -1481,10 +1481,10 @@ export declare const Create_Anime_ZOD: z.ZodEffects<z.ZodObject<{
                         default: string;
                         alias?: string[] | undefined;
                     };
+                    description?: string | undefined;
                     isGroupe?: boolean | undefined;
                     birthDate?: string | undefined;
                     deathDate?: string | undefined;
-                    bio?: string | undefined;
                     avatar?: {
                         id?: string | undefined;
                         label?: "COVER" | "BANNER" | "AVATAR" | "LOGO" | undefined;
@@ -1502,10 +1502,10 @@ export declare const Create_Anime_ZOD: z.ZodEffects<z.ZodObject<{
                         default: string;
                         alias?: string[] | undefined;
                     };
+                    description?: string | undefined;
                     isGroupe?: boolean | undefined;
                     birthDate?: string | undefined;
                     deathDate?: string | undefined;
-                    bio?: string | undefined;
                     avatar?: {
                         id?: string | undefined;
                         label?: "COVER" | "BANNER" | "AVATAR" | "LOGO" | undefined;
@@ -1527,10 +1527,10 @@ export declare const Create_Anime_ZOD: z.ZodEffects<z.ZodObject<{
                         default: string;
                         alias?: string[] | undefined;
                     };
+                    description?: string | undefined;
                     isGroupe?: boolean | undefined;
                     birthDate?: string | undefined;
                     deathDate?: string | undefined;
-                    bio?: string | undefined;
                     avatar?: {
                         id?: string | undefined;
                         label?: "COVER" | "BANNER" | "AVATAR" | "LOGO" | undefined;
@@ -1552,10 +1552,10 @@ export declare const Create_Anime_ZOD: z.ZodEffects<z.ZodObject<{
                         default: string;
                         alias?: string[] | undefined;
                     };
+                    description?: string | undefined;
                     isGroupe?: boolean | undefined;
                     birthDate?: string | undefined;
                     deathDate?: string | undefined;
-                    bio?: string | undefined;
                     avatar?: {
                         id?: string | undefined;
                         label?: "COVER" | "BANNER" | "AVATAR" | "LOGO" | undefined;
@@ -1637,10 +1637,10 @@ export declare const Create_Anime_ZOD: z.ZodEffects<z.ZodObject<{
                         default: string;
                         alias?: string[] | undefined;
                     };
+                    description?: string | undefined;
                     isGroupe?: boolean | undefined;
                     birthDate?: string | undefined;
                     deathDate?: string | undefined;
-                    bio?: string | undefined;
                     avatar?: {
                         id?: string | undefined;
                         label?: "COVER" | "BANNER" | "AVATAR" | "LOGO" | undefined;
@@ -1683,10 +1683,10 @@ export declare const Create_Anime_ZOD: z.ZodEffects<z.ZodObject<{
                         default: string;
                         alias?: string[] | undefined;
                     };
+                    description?: string | undefined;
                     isGroupe?: boolean | undefined;
                     birthDate?: string | undefined;
                     deathDate?: string | undefined;
-                    bio?: string | undefined;
                     avatar?: {
                         id?: string | undefined;
                         label?: "COVER" | "BANNER" | "AVATAR" | "LOGO" | undefined;
@@ -1732,10 +1732,10 @@ export declare const Create_Anime_ZOD: z.ZodEffects<z.ZodObject<{
                         default: string;
                         alias?: string[] | undefined;
                     };
+                    description?: string | undefined;
                     isGroupe?: boolean | undefined;
                     birthDate?: string | undefined;
                     deathDate?: string | undefined;
-                    bio?: string | undefined;
                     avatar?: {
                         id?: string | undefined;
                         label?: "COVER" | "BANNER" | "AVATAR" | "LOGO" | undefined;
@@ -1781,10 +1781,10 @@ export declare const Create_Anime_ZOD: z.ZodEffects<z.ZodObject<{
                         default: string;
                         alias?: string[] | undefined;
                     };
+                    description?: string | undefined;
                     isGroupe?: boolean | undefined;
                     birthDate?: string | undefined;
                     deathDate?: string | undefined;
-                    bio?: string | undefined;
                     avatar?: {
                         id?: string | undefined;
                         label?: "COVER" | "BANNER" | "AVATAR" | "LOGO" | undefined;
@@ -1856,10 +1856,10 @@ export declare const Create_Anime_ZOD: z.ZodEffects<z.ZodObject<{
                 default: string;
                 alias?: string[] | undefined;
             };
+            description?: string | undefined;
             isGroupe?: boolean | undefined;
             birthDate?: string | undefined;
             deathDate?: string | undefined;
-            bio?: string | undefined;
             avatar?: {
                 id?: string | undefined;
                 label?: "COVER" | "BANNER" | "AVATAR" | "LOGO" | undefined;
@@ -1880,7 +1880,7 @@ export declare const Create_Anime_ZOD: z.ZodEffects<z.ZodObject<{
         newCompany?: {
             type: "STUDIO" | "PRODUCER";
             name: string;
-            bio?: string | undefined;
+            description?: string | undefined;
             links?: {
                 value: string;
                 name: string;
@@ -1906,8 +1906,8 @@ export declare const Create_Anime_ZOD: z.ZodEffects<z.ZodObject<{
             };
             gender: "MASCULIN" | "FEMININ" | "NEUTRE" | "TRANSGENRE" | "NON_BINAIRE" | "GENRE_FLUIDE" | "AUTRE";
             species: "AUTRE" | "HUMAIN" | "ELFE" | "NAIN" | "LEZARD" | "DRAGON" | "ORC";
+            description?: string | undefined;
             birthDate?: string | undefined;
-            bio?: string | undefined;
             avatar?: {
                 id?: string | undefined;
                 label?: "COVER" | "BANNER" | "AVATAR" | "LOGO" | undefined;
@@ -1924,10 +1924,10 @@ export declare const Create_Anime_ZOD: z.ZodEffects<z.ZodObject<{
                         default: string;
                         alias?: string[] | undefined;
                     };
+                    description?: string | undefined;
                     isGroupe?: boolean | undefined;
                     birthDate?: string | undefined;
                     deathDate?: string | undefined;
-                    bio?: string | undefined;
                     avatar?: {
                         id?: string | undefined;
                         label?: "COVER" | "BANNER" | "AVATAR" | "LOGO" | undefined;
@@ -1985,10 +1985,10 @@ export declare const Create_Anime_ZOD: z.ZodEffects<z.ZodObject<{
                         default: string;
                         alias?: string[] | undefined;
                     };
+                    description?: string | undefined;
                     isGroupe?: boolean | undefined;
                     birthDate?: string | undefined;
                     deathDate?: string | undefined;
-                    bio?: string | undefined;
                     avatar?: {
                         id?: string | undefined;
                         label?: "COVER" | "BANNER" | "AVATAR" | "LOGO" | undefined;
@@ -2060,10 +2060,10 @@ export declare const Create_Anime_ZOD: z.ZodEffects<z.ZodObject<{
                 default: string;
                 alias?: string[] | undefined;
             };
+            description?: string | undefined;
             isGroupe?: boolean | undefined;
             birthDate?: string | undefined;
             deathDate?: string | undefined;
-            bio?: string | undefined;
             avatar?: {
                 id?: string | undefined;
                 label?: "COVER" | "BANNER" | "AVATAR" | "LOGO" | undefined;
@@ -2084,7 +2084,7 @@ export declare const Create_Anime_ZOD: z.ZodEffects<z.ZodObject<{
         newCompany?: {
             type: "STUDIO" | "PRODUCER";
             name: string;
-            bio?: string | undefined;
+            description?: string | undefined;
             links?: {
                 value: string;
                 name: string;
@@ -2110,8 +2110,8 @@ export declare const Create_Anime_ZOD: z.ZodEffects<z.ZodObject<{
             };
             gender: "MASCULIN" | "FEMININ" | "NEUTRE" | "TRANSGENRE" | "NON_BINAIRE" | "GENRE_FLUIDE" | "AUTRE";
             species: "AUTRE" | "HUMAIN" | "ELFE" | "NAIN" | "LEZARD" | "DRAGON" | "ORC";
+            description?: string | undefined;
             birthDate?: string | undefined;
-            bio?: string | undefined;
             avatar?: {
                 id?: string | undefined;
                 label?: "COVER" | "BANNER" | "AVATAR" | "LOGO" | undefined;
@@ -2128,10 +2128,10 @@ export declare const Create_Anime_ZOD: z.ZodEffects<z.ZodObject<{
                         default: string;
                         alias?: string[] | undefined;
                     };
+                    description?: string | undefined;
                     isGroupe?: boolean | undefined;
                     birthDate?: string | undefined;
                     deathDate?: string | undefined;
-                    bio?: string | undefined;
                     avatar?: {
                         id?: string | undefined;
                         label?: "COVER" | "BANNER" | "AVATAR" | "LOGO" | undefined;
@@ -2189,10 +2189,10 @@ export declare const Create_Anime_ZOD: z.ZodEffects<z.ZodObject<{
                         default: string;
                         alias?: string[] | undefined;
                     };
+                    description?: string | undefined;
                     isGroupe?: boolean | undefined;
                     birthDate?: string | undefined;
                     deathDate?: string | undefined;
-                    bio?: string | undefined;
                     avatar?: {
                         id?: string | undefined;
                         label?: "COVER" | "BANNER" | "AVATAR" | "LOGO" | undefined;
@@ -2264,10 +2264,10 @@ export declare const Create_Anime_ZOD: z.ZodEffects<z.ZodObject<{
                 default: string;
                 alias?: string[] | undefined;
             };
+            description?: string | undefined;
             isGroupe?: boolean | undefined;
             birthDate?: string | undefined;
             deathDate?: string | undefined;
-            bio?: string | undefined;
             avatar?: {
                 id?: string | undefined;
                 label?: "COVER" | "BANNER" | "AVATAR" | "LOGO" | undefined;
@@ -2288,7 +2288,7 @@ export declare const Create_Anime_ZOD: z.ZodEffects<z.ZodObject<{
         newCompany?: {
             type: "STUDIO" | "PRODUCER";
             name: string;
-            bio?: string | undefined;
+            description?: string | undefined;
             links?: {
                 value: string;
                 name: string;
@@ -2314,8 +2314,8 @@ export declare const Create_Anime_ZOD: z.ZodEffects<z.ZodObject<{
             };
             gender: "MASCULIN" | "FEMININ" | "NEUTRE" | "TRANSGENRE" | "NON_BINAIRE" | "GENRE_FLUIDE" | "AUTRE";
             species: "AUTRE" | "HUMAIN" | "ELFE" | "NAIN" | "LEZARD" | "DRAGON" | "ORC";
+            description?: string | undefined;
             birthDate?: string | undefined;
-            bio?: string | undefined;
             avatar?: {
                 id?: string | undefined;
                 label?: "COVER" | "BANNER" | "AVATAR" | "LOGO" | undefined;
@@ -2332,10 +2332,10 @@ export declare const Create_Anime_ZOD: z.ZodEffects<z.ZodObject<{
                         default: string;
                         alias?: string[] | undefined;
                     };
+                    description?: string | undefined;
                     isGroupe?: boolean | undefined;
                     birthDate?: string | undefined;
                     deathDate?: string | undefined;
-                    bio?: string | undefined;
                     avatar?: {
                         id?: string | undefined;
                         label?: "COVER" | "BANNER" | "AVATAR" | "LOGO" | undefined;
@@ -2393,10 +2393,10 @@ export declare const Create_Anime_ZOD: z.ZodEffects<z.ZodObject<{
                         default: string;
                         alias?: string[] | undefined;
                     };
+                    description?: string | undefined;
                     isGroupe?: boolean | undefined;
                     birthDate?: string | undefined;
                     deathDate?: string | undefined;
-                    bio?: string | undefined;
                     avatar?: {
                         id?: string | undefined;
                         label?: "COVER" | "BANNER" | "AVATAR" | "LOGO" | undefined;
@@ -2468,10 +2468,10 @@ export declare const Create_Anime_ZOD: z.ZodEffects<z.ZodObject<{
                 default: string;
                 alias?: string[] | undefined;
             };
+            description?: string | undefined;
             isGroupe?: boolean | undefined;
             birthDate?: string | undefined;
             deathDate?: string | undefined;
-            bio?: string | undefined;
             avatar?: {
                 id?: string | undefined;
                 label?: "COVER" | "BANNER" | "AVATAR" | "LOGO" | undefined;
@@ -2492,7 +2492,7 @@ export declare const Create_Anime_ZOD: z.ZodEffects<z.ZodObject<{
         newCompany?: {
             type: "STUDIO" | "PRODUCER";
             name: string;
-            bio?: string | undefined;
+            description?: string | undefined;
             links?: {
                 value: string;
                 name: string;
@@ -2518,8 +2518,8 @@ export declare const Create_Anime_ZOD: z.ZodEffects<z.ZodObject<{
             };
             gender: "MASCULIN" | "FEMININ" | "NEUTRE" | "TRANSGENRE" | "NON_BINAIRE" | "GENRE_FLUIDE" | "AUTRE";
             species: "AUTRE" | "HUMAIN" | "ELFE" | "NAIN" | "LEZARD" | "DRAGON" | "ORC";
+            description?: string | undefined;
             birthDate?: string | undefined;
-            bio?: string | undefined;
             avatar?: {
                 id?: string | undefined;
                 label?: "COVER" | "BANNER" | "AVATAR" | "LOGO" | undefined;
@@ -2536,10 +2536,10 @@ export declare const Create_Anime_ZOD: z.ZodEffects<z.ZodObject<{
                         default: string;
                         alias?: string[] | undefined;
                     };
+                    description?: string | undefined;
                     isGroupe?: boolean | undefined;
                     birthDate?: string | undefined;
                     deathDate?: string | undefined;
-                    bio?: string | undefined;
                     avatar?: {
                         id?: string | undefined;
                         label?: "COVER" | "BANNER" | "AVATAR" | "LOGO" | undefined;
@@ -2597,10 +2597,10 @@ export declare const Create_Anime_ZOD: z.ZodEffects<z.ZodObject<{
                         default: string;
                         alias?: string[] | undefined;
                     };
+                    description?: string | undefined;
                     isGroupe?: boolean | undefined;
                     birthDate?: string | undefined;
                     deathDate?: string | undefined;
-                    bio?: string | undefined;
                     avatar?: {
                         id?: string | undefined;
                         label?: "COVER" | "BANNER" | "AVATAR" | "LOGO" | undefined;
@@ -2781,7 +2781,7 @@ export declare const AnimeCreateBody: z.ZodObject<z.objectUtil.extendShape<{
             newCompany: z.ZodOptional<z.ZodObject<{
                 type: z.ZodEnum<["STUDIO", "PRODUCER"]>;
                 name: z.ZodString;
-                bio: z.ZodOptional<z.ZodString>;
+                description: z.ZodOptional<z.ZodString>;
                 links: z.ZodOptional<z.ZodArray<z.ZodObject<{
                     name: z.ZodString;
                     value: z.ZodEffects<z.ZodString, string, string>;
@@ -2824,7 +2824,7 @@ export declare const AnimeCreateBody: z.ZodObject<z.objectUtil.extendShape<{
             }, "strict", z.ZodTypeAny, {
                 type: "STUDIO" | "PRODUCER";
                 name: string;
-                bio?: string | undefined;
+                description?: string | undefined;
                 links?: {
                     value: string;
                     name: string;
@@ -2841,7 +2841,7 @@ export declare const AnimeCreateBody: z.ZodObject<z.objectUtil.extendShape<{
             }, {
                 type: "STUDIO" | "PRODUCER";
                 name: string;
-                bio?: string | undefined;
+                description?: string | undefined;
                 links?: {
                     value: string;
                     name: string;
@@ -2861,7 +2861,7 @@ export declare const AnimeCreateBody: z.ZodObject<z.objectUtil.extendShape<{
             newCompany?: {
                 type: "STUDIO" | "PRODUCER";
                 name: string;
-                bio?: string | undefined;
+                description?: string | undefined;
                 links?: {
                     value: string;
                     name: string;
@@ -2881,7 +2881,7 @@ export declare const AnimeCreateBody: z.ZodObject<z.objectUtil.extendShape<{
             newCompany?: {
                 type: "STUDIO" | "PRODUCER";
                 name: string;
-                bio?: string | undefined;
+                description?: string | undefined;
                 links?: {
                     value: string;
                     name: string;
@@ -2913,7 +2913,7 @@ export declare const AnimeCreateBody: z.ZodObject<z.objectUtil.extendShape<{
                 }>;
                 birthDate: z.ZodOptional<z.ZodString>;
                 deathDate: z.ZodOptional<z.ZodString>;
-                bio: z.ZodOptional<z.ZodString>;
+                description: z.ZodOptional<z.ZodString>;
                 avatar: z.ZodOptional<z.ZodObject<{
                     id: z.ZodOptional<z.ZodString>;
                     label: z.ZodOptional<z.ZodEnum<("COVER" | "BANNER" | "AVATAR" | "LOGO")[] & [string, ...string[]]>>;
@@ -2957,10 +2957,10 @@ export declare const AnimeCreateBody: z.ZodObject<z.objectUtil.extendShape<{
                     default: string;
                     alias?: string[] | undefined;
                 };
+                description?: string | undefined;
                 isGroupe?: boolean | undefined;
                 birthDate?: string | undefined;
                 deathDate?: string | undefined;
-                bio?: string | undefined;
                 avatar?: {
                     id?: string | undefined;
                     label?: "COVER" | "BANNER" | "AVATAR" | "LOGO" | undefined;
@@ -2978,10 +2978,10 @@ export declare const AnimeCreateBody: z.ZodObject<z.objectUtil.extendShape<{
                     default: string;
                     alias?: string[] | undefined;
                 };
+                description?: string | undefined;
                 isGroupe?: boolean | undefined;
                 birthDate?: string | undefined;
                 deathDate?: string | undefined;
-                bio?: string | undefined;
                 avatar?: {
                     id?: string | undefined;
                     label?: "COVER" | "BANNER" | "AVATAR" | "LOGO" | undefined;
@@ -3003,10 +3003,10 @@ export declare const AnimeCreateBody: z.ZodObject<z.objectUtil.extendShape<{
                     default: string;
                     alias?: string[] | undefined;
                 };
+                description?: string | undefined;
                 isGroupe?: boolean | undefined;
                 birthDate?: string | undefined;
                 deathDate?: string | undefined;
-                bio?: string | undefined;
                 avatar?: {
                     id?: string | undefined;
                     label?: "COVER" | "BANNER" | "AVATAR" | "LOGO" | undefined;
@@ -3028,10 +3028,10 @@ export declare const AnimeCreateBody: z.ZodObject<z.objectUtil.extendShape<{
                     default: string;
                     alias?: string[] | undefined;
                 };
+                description?: string | undefined;
                 isGroupe?: boolean | undefined;
                 birthDate?: string | undefined;
                 deathDate?: string | undefined;
-                bio?: string | undefined;
                 avatar?: {
                     id?: string | undefined;
                     label?: "COVER" | "BANNER" | "AVATAR" | "LOGO" | undefined;
@@ -3064,7 +3064,7 @@ export declare const AnimeCreateBody: z.ZodObject<z.objectUtil.extendShape<{
                 birthDate: z.ZodOptional<z.ZodString>;
                 gender: z.ZodEnum<("MASCULIN" | "FEMININ" | "NEUTRE" | "TRANSGENRE" | "NON_BINAIRE" | "GENRE_FLUIDE" | "AUTRE")[] & [string, ...string[]]>;
                 species: z.ZodEnum<("AUTRE" | "HUMAIN" | "ELFE" | "NAIN" | "LEZARD" | "DRAGON" | "ORC")[] & [string, ...string[]]>;
-                bio: z.ZodOptional<z.ZodString>;
+                description: z.ZodOptional<z.ZodString>;
                 avatar: z.ZodOptional<z.ZodObject<{
                     id: z.ZodOptional<z.ZodString>;
                     label: z.ZodOptional<z.ZodEnum<("COVER" | "BANNER" | "AVATAR" | "LOGO")[] & [string, ...string[]]>>;
@@ -3109,7 +3109,7 @@ export declare const AnimeCreateBody: z.ZodObject<z.objectUtil.extendShape<{
                         }>;
                         birthDate: z.ZodOptional<z.ZodString>;
                         deathDate: z.ZodOptional<z.ZodString>;
-                        bio: z.ZodOptional<z.ZodString>;
+                        description: z.ZodOptional<z.ZodString>;
                         avatar: z.ZodOptional<z.ZodObject<{
                             id: z.ZodOptional<z.ZodString>;
                             label: z.ZodOptional<z.ZodEnum<("COVER" | "BANNER" | "AVATAR" | "LOGO")[] & [string, ...string[]]>>;
@@ -3153,10 +3153,10 @@ export declare const AnimeCreateBody: z.ZodObject<z.objectUtil.extendShape<{
                             default: string;
                             alias?: string[] | undefined;
                         };
+                        description?: string | undefined;
                         isGroupe?: boolean | undefined;
                         birthDate?: string | undefined;
                         deathDate?: string | undefined;
-                        bio?: string | undefined;
                         avatar?: {
                             id?: string | undefined;
                             label?: "COVER" | "BANNER" | "AVATAR" | "LOGO" | undefined;
@@ -3174,10 +3174,10 @@ export declare const AnimeCreateBody: z.ZodObject<z.objectUtil.extendShape<{
                             default: string;
                             alias?: string[] | undefined;
                         };
+                        description?: string | undefined;
                         isGroupe?: boolean | undefined;
                         birthDate?: string | undefined;
                         deathDate?: string | undefined;
-                        bio?: string | undefined;
                         avatar?: {
                             id?: string | undefined;
                             label?: "COVER" | "BANNER" | "AVATAR" | "LOGO" | undefined;
@@ -3199,10 +3199,10 @@ export declare const AnimeCreateBody: z.ZodObject<z.objectUtil.extendShape<{
                             default: string;
                             alias?: string[] | undefined;
                         };
+                        description?: string | undefined;
                         isGroupe?: boolean | undefined;
                         birthDate?: string | undefined;
                         deathDate?: string | undefined;
-                        bio?: string | undefined;
                         avatar?: {
                             id?: string | undefined;
                             label?: "COVER" | "BANNER" | "AVATAR" | "LOGO" | undefined;
@@ -3224,10 +3224,10 @@ export declare const AnimeCreateBody: z.ZodObject<z.objectUtil.extendShape<{
                             default: string;
                             alias?: string[] | undefined;
                         };
+                        description?: string | undefined;
                         isGroupe?: boolean | undefined;
                         birthDate?: string | undefined;
                         deathDate?: string | undefined;
-                        bio?: string | undefined;
                         avatar?: {
                             id?: string | undefined;
                             label?: "COVER" | "BANNER" | "AVATAR" | "LOGO" | undefined;
@@ -3250,8 +3250,8 @@ export declare const AnimeCreateBody: z.ZodObject<z.objectUtil.extendShape<{
                 };
                 gender: "MASCULIN" | "FEMININ" | "NEUTRE" | "TRANSGENRE" | "NON_BINAIRE" | "GENRE_FLUIDE" | "AUTRE";
                 species: "AUTRE" | "HUMAIN" | "ELFE" | "NAIN" | "LEZARD" | "DRAGON" | "ORC";
+                description?: string | undefined;
                 birthDate?: string | undefined;
-                bio?: string | undefined;
                 avatar?: {
                     id?: string | undefined;
                     label?: "COVER" | "BANNER" | "AVATAR" | "LOGO" | undefined;
@@ -3268,10 +3268,10 @@ export declare const AnimeCreateBody: z.ZodObject<z.objectUtil.extendShape<{
                             default: string;
                             alias?: string[] | undefined;
                         };
+                        description?: string | undefined;
                         isGroupe?: boolean | undefined;
                         birthDate?: string | undefined;
                         deathDate?: string | undefined;
-                        bio?: string | undefined;
                         avatar?: {
                             id?: string | undefined;
                             label?: "COVER" | "BANNER" | "AVATAR" | "LOGO" | undefined;
@@ -3294,8 +3294,8 @@ export declare const AnimeCreateBody: z.ZodObject<z.objectUtil.extendShape<{
                 };
                 gender: "MASCULIN" | "FEMININ" | "NEUTRE" | "TRANSGENRE" | "NON_BINAIRE" | "GENRE_FLUIDE" | "AUTRE";
                 species: "AUTRE" | "HUMAIN" | "ELFE" | "NAIN" | "LEZARD" | "DRAGON" | "ORC";
+                description?: string | undefined;
                 birthDate?: string | undefined;
-                bio?: string | undefined;
                 avatar?: {
                     id?: string | undefined;
                     label?: "COVER" | "BANNER" | "AVATAR" | "LOGO" | undefined;
@@ -3312,10 +3312,10 @@ export declare const AnimeCreateBody: z.ZodObject<z.objectUtil.extendShape<{
                             default: string;
                             alias?: string[] | undefined;
                         };
+                        description?: string | undefined;
                         isGroupe?: boolean | undefined;
                         birthDate?: string | undefined;
                         deathDate?: string | undefined;
-                        bio?: string | undefined;
                         avatar?: {
                             id?: string | undefined;
                             label?: "COVER" | "BANNER" | "AVATAR" | "LOGO" | undefined;
@@ -3343,8 +3343,8 @@ export declare const AnimeCreateBody: z.ZodObject<z.objectUtil.extendShape<{
                 };
                 gender: "MASCULIN" | "FEMININ" | "NEUTRE" | "TRANSGENRE" | "NON_BINAIRE" | "GENRE_FLUIDE" | "AUTRE";
                 species: "AUTRE" | "HUMAIN" | "ELFE" | "NAIN" | "LEZARD" | "DRAGON" | "ORC";
+                description?: string | undefined;
                 birthDate?: string | undefined;
-                bio?: string | undefined;
                 avatar?: {
                     id?: string | undefined;
                     label?: "COVER" | "BANNER" | "AVATAR" | "LOGO" | undefined;
@@ -3361,10 +3361,10 @@ export declare const AnimeCreateBody: z.ZodObject<z.objectUtil.extendShape<{
                             default: string;
                             alias?: string[] | undefined;
                         };
+                        description?: string | undefined;
                         isGroupe?: boolean | undefined;
                         birthDate?: string | undefined;
                         deathDate?: string | undefined;
-                        bio?: string | undefined;
                         avatar?: {
                             id?: string | undefined;
                             label?: "COVER" | "BANNER" | "AVATAR" | "LOGO" | undefined;
@@ -3391,8 +3391,8 @@ export declare const AnimeCreateBody: z.ZodObject<z.objectUtil.extendShape<{
                 };
                 gender: "MASCULIN" | "FEMININ" | "NEUTRE" | "TRANSGENRE" | "NON_BINAIRE" | "GENRE_FLUIDE" | "AUTRE";
                 species: "AUTRE" | "HUMAIN" | "ELFE" | "NAIN" | "LEZARD" | "DRAGON" | "ORC";
+                description?: string | undefined;
                 birthDate?: string | undefined;
-                bio?: string | undefined;
                 avatar?: {
                     id?: string | undefined;
                     label?: "COVER" | "BANNER" | "AVATAR" | "LOGO" | undefined;
@@ -3409,10 +3409,10 @@ export declare const AnimeCreateBody: z.ZodObject<z.objectUtil.extendShape<{
                             default: string;
                             alias?: string[] | undefined;
                         };
+                        description?: string | undefined;
                         isGroupe?: boolean | undefined;
                         birthDate?: string | undefined;
                         deathDate?: string | undefined;
-                        bio?: string | undefined;
                         avatar?: {
                             id?: string | undefined;
                             label?: "COVER" | "BANNER" | "AVATAR" | "LOGO" | undefined;
@@ -3461,7 +3461,7 @@ export declare const AnimeCreateBody: z.ZodObject<z.objectUtil.extendShape<{
                         }>;
                         birthDate: z.ZodOptional<z.ZodString>;
                         deathDate: z.ZodOptional<z.ZodString>;
-                        bio: z.ZodOptional<z.ZodString>;
+                        description: z.ZodOptional<z.ZodString>;
                         avatar: z.ZodOptional<z.ZodObject<{
                             id: z.ZodOptional<z.ZodString>;
                             label: z.ZodOptional<z.ZodEnum<("COVER" | "BANNER" | "AVATAR" | "LOGO")[] & [string, ...string[]]>>;
@@ -3505,10 +3505,10 @@ export declare const AnimeCreateBody: z.ZodObject<z.objectUtil.extendShape<{
                             default: string;
                             alias?: string[] | undefined;
                         };
+                        description?: string | undefined;
                         isGroupe?: boolean | undefined;
                         birthDate?: string | undefined;
                         deathDate?: string | undefined;
-                        bio?: string | undefined;
                         avatar?: {
                             id?: string | undefined;
                             label?: "COVER" | "BANNER" | "AVATAR" | "LOGO" | undefined;
@@ -3526,10 +3526,10 @@ export declare const AnimeCreateBody: z.ZodObject<z.objectUtil.extendShape<{
                             default: string;
                             alias?: string[] | undefined;
                         };
+                        description?: string | undefined;
                         isGroupe?: boolean | undefined;
                         birthDate?: string | undefined;
                         deathDate?: string | undefined;
-                        bio?: string | undefined;
                         avatar?: {
                             id?: string | undefined;
                             label?: "COVER" | "BANNER" | "AVATAR" | "LOGO" | undefined;
@@ -3551,10 +3551,10 @@ export declare const AnimeCreateBody: z.ZodObject<z.objectUtil.extendShape<{
                             default: string;
                             alias?: string[] | undefined;
                         };
+                        description?: string | undefined;
                         isGroupe?: boolean | undefined;
                         birthDate?: string | undefined;
                         deathDate?: string | undefined;
-                        bio?: string | undefined;
                         avatar?: {
                             id?: string | undefined;
                             label?: "COVER" | "BANNER" | "AVATAR" | "LOGO" | undefined;
@@ -3576,10 +3576,10 @@ export declare const AnimeCreateBody: z.ZodObject<z.objectUtil.extendShape<{
                             default: string;
                             alias?: string[] | undefined;
                         };
+                        description?: string | undefined;
                         isGroupe?: boolean | undefined;
                         birthDate?: string | undefined;
                         deathDate?: string | undefined;
-                        bio?: string | undefined;
                         avatar?: {
                             id?: string | undefined;
                             label?: "COVER" | "BANNER" | "AVATAR" | "LOGO" | undefined;
@@ -3661,10 +3661,10 @@ export declare const AnimeCreateBody: z.ZodObject<z.objectUtil.extendShape<{
                             default: string;
                             alias?: string[] | undefined;
                         };
+                        description?: string | undefined;
                         isGroupe?: boolean | undefined;
                         birthDate?: string | undefined;
                         deathDate?: string | undefined;
-                        bio?: string | undefined;
                         avatar?: {
                             id?: string | undefined;
                             label?: "COVER" | "BANNER" | "AVATAR" | "LOGO" | undefined;
@@ -3707,10 +3707,10 @@ export declare const AnimeCreateBody: z.ZodObject<z.objectUtil.extendShape<{
                             default: string;
                             alias?: string[] | undefined;
                         };
+                        description?: string | undefined;
                         isGroupe?: boolean | undefined;
                         birthDate?: string | undefined;
                         deathDate?: string | undefined;
-                        bio?: string | undefined;
                         avatar?: {
                             id?: string | undefined;
                             label?: "COVER" | "BANNER" | "AVATAR" | "LOGO" | undefined;
@@ -3756,10 +3756,10 @@ export declare const AnimeCreateBody: z.ZodObject<z.objectUtil.extendShape<{
                             default: string;
                             alias?: string[] | undefined;
                         };
+                        description?: string | undefined;
                         isGroupe?: boolean | undefined;
                         birthDate?: string | undefined;
                         deathDate?: string | undefined;
-                        bio?: string | undefined;
                         avatar?: {
                             id?: string | undefined;
                             label?: "COVER" | "BANNER" | "AVATAR" | "LOGO" | undefined;
@@ -3805,10 +3805,10 @@ export declare const AnimeCreateBody: z.ZodObject<z.objectUtil.extendShape<{
                             default: string;
                             alias?: string[] | undefined;
                         };
+                        description?: string | undefined;
                         isGroupe?: boolean | undefined;
                         birthDate?: string | undefined;
                         deathDate?: string | undefined;
-                        bio?: string | undefined;
                         avatar?: {
                             id?: string | undefined;
                             label?: "COVER" | "BANNER" | "AVATAR" | "LOGO" | undefined;
@@ -3880,10 +3880,10 @@ export declare const AnimeCreateBody: z.ZodObject<z.objectUtil.extendShape<{
                     default: string;
                     alias?: string[] | undefined;
                 };
+                description?: string | undefined;
                 isGroupe?: boolean | undefined;
                 birthDate?: string | undefined;
                 deathDate?: string | undefined;
-                bio?: string | undefined;
                 avatar?: {
                     id?: string | undefined;
                     label?: "COVER" | "BANNER" | "AVATAR" | "LOGO" | undefined;
@@ -3904,7 +3904,7 @@ export declare const AnimeCreateBody: z.ZodObject<z.objectUtil.extendShape<{
             newCompany?: {
                 type: "STUDIO" | "PRODUCER";
                 name: string;
-                bio?: string | undefined;
+                description?: string | undefined;
                 links?: {
                     value: string;
                     name: string;
@@ -3930,8 +3930,8 @@ export declare const AnimeCreateBody: z.ZodObject<z.objectUtil.extendShape<{
                 };
                 gender: "MASCULIN" | "FEMININ" | "NEUTRE" | "TRANSGENRE" | "NON_BINAIRE" | "GENRE_FLUIDE" | "AUTRE";
                 species: "AUTRE" | "HUMAIN" | "ELFE" | "NAIN" | "LEZARD" | "DRAGON" | "ORC";
+                description?: string | undefined;
                 birthDate?: string | undefined;
-                bio?: string | undefined;
                 avatar?: {
                     id?: string | undefined;
                     label?: "COVER" | "BANNER" | "AVATAR" | "LOGO" | undefined;
@@ -3948,10 +3948,10 @@ export declare const AnimeCreateBody: z.ZodObject<z.objectUtil.extendShape<{
                             default: string;
                             alias?: string[] | undefined;
                         };
+                        description?: string | undefined;
                         isGroupe?: boolean | undefined;
                         birthDate?: string | undefined;
                         deathDate?: string | undefined;
-                        bio?: string | undefined;
                         avatar?: {
                             id?: string | undefined;
                             label?: "COVER" | "BANNER" | "AVATAR" | "LOGO" | undefined;
@@ -4009,10 +4009,10 @@ export declare const AnimeCreateBody: z.ZodObject<z.objectUtil.extendShape<{
                             default: string;
                             alias?: string[] | undefined;
                         };
+                        description?: string | undefined;
                         isGroupe?: boolean | undefined;
                         birthDate?: string | undefined;
                         deathDate?: string | undefined;
-                        bio?: string | undefined;
                         avatar?: {
                             id?: string | undefined;
                             label?: "COVER" | "BANNER" | "AVATAR" | "LOGO" | undefined;
@@ -4084,10 +4084,10 @@ export declare const AnimeCreateBody: z.ZodObject<z.objectUtil.extendShape<{
                     default: string;
                     alias?: string[] | undefined;
                 };
+                description?: string | undefined;
                 isGroupe?: boolean | undefined;
                 birthDate?: string | undefined;
                 deathDate?: string | undefined;
-                bio?: string | undefined;
                 avatar?: {
                     id?: string | undefined;
                     label?: "COVER" | "BANNER" | "AVATAR" | "LOGO" | undefined;
@@ -4108,7 +4108,7 @@ export declare const AnimeCreateBody: z.ZodObject<z.objectUtil.extendShape<{
             newCompany?: {
                 type: "STUDIO" | "PRODUCER";
                 name: string;
-                bio?: string | undefined;
+                description?: string | undefined;
                 links?: {
                     value: string;
                     name: string;
@@ -4134,8 +4134,8 @@ export declare const AnimeCreateBody: z.ZodObject<z.objectUtil.extendShape<{
                 };
                 gender: "MASCULIN" | "FEMININ" | "NEUTRE" | "TRANSGENRE" | "NON_BINAIRE" | "GENRE_FLUIDE" | "AUTRE";
                 species: "AUTRE" | "HUMAIN" | "ELFE" | "NAIN" | "LEZARD" | "DRAGON" | "ORC";
+                description?: string | undefined;
                 birthDate?: string | undefined;
-                bio?: string | undefined;
                 avatar?: {
                     id?: string | undefined;
                     label?: "COVER" | "BANNER" | "AVATAR" | "LOGO" | undefined;
@@ -4152,10 +4152,10 @@ export declare const AnimeCreateBody: z.ZodObject<z.objectUtil.extendShape<{
                             default: string;
                             alias?: string[] | undefined;
                         };
+                        description?: string | undefined;
                         isGroupe?: boolean | undefined;
                         birthDate?: string | undefined;
                         deathDate?: string | undefined;
-                        bio?: string | undefined;
                         avatar?: {
                             id?: string | undefined;
                             label?: "COVER" | "BANNER" | "AVATAR" | "LOGO" | undefined;
@@ -4213,10 +4213,10 @@ export declare const AnimeCreateBody: z.ZodObject<z.objectUtil.extendShape<{
                             default: string;
                             alias?: string[] | undefined;
                         };
+                        description?: string | undefined;
                         isGroupe?: boolean | undefined;
                         birthDate?: string | undefined;
                         deathDate?: string | undefined;
-                        bio?: string | undefined;
                         avatar?: {
                             id?: string | undefined;
                             label?: "COVER" | "BANNER" | "AVATAR" | "LOGO" | undefined;
@@ -4288,10 +4288,10 @@ export declare const AnimeCreateBody: z.ZodObject<z.objectUtil.extendShape<{
                     default: string;
                     alias?: string[] | undefined;
                 };
+                description?: string | undefined;
                 isGroupe?: boolean | undefined;
                 birthDate?: string | undefined;
                 deathDate?: string | undefined;
-                bio?: string | undefined;
                 avatar?: {
                     id?: string | undefined;
                     label?: "COVER" | "BANNER" | "AVATAR" | "LOGO" | undefined;
@@ -4312,7 +4312,7 @@ export declare const AnimeCreateBody: z.ZodObject<z.objectUtil.extendShape<{
             newCompany?: {
                 type: "STUDIO" | "PRODUCER";
                 name: string;
-                bio?: string | undefined;
+                description?: string | undefined;
                 links?: {
                     value: string;
                     name: string;
@@ -4338,8 +4338,8 @@ export declare const AnimeCreateBody: z.ZodObject<z.objectUtil.extendShape<{
                 };
                 gender: "MASCULIN" | "FEMININ" | "NEUTRE" | "TRANSGENRE" | "NON_BINAIRE" | "GENRE_FLUIDE" | "AUTRE";
                 species: "AUTRE" | "HUMAIN" | "ELFE" | "NAIN" | "LEZARD" | "DRAGON" | "ORC";
+                description?: string | undefined;
                 birthDate?: string | undefined;
-                bio?: string | undefined;
                 avatar?: {
                     id?: string | undefined;
                     label?: "COVER" | "BANNER" | "AVATAR" | "LOGO" | undefined;
@@ -4356,10 +4356,10 @@ export declare const AnimeCreateBody: z.ZodObject<z.objectUtil.extendShape<{
                             default: string;
                             alias?: string[] | undefined;
                         };
+                        description?: string | undefined;
                         isGroupe?: boolean | undefined;
                         birthDate?: string | undefined;
                         deathDate?: string | undefined;
-                        bio?: string | undefined;
                         avatar?: {
                             id?: string | undefined;
                             label?: "COVER" | "BANNER" | "AVATAR" | "LOGO" | undefined;
@@ -4417,10 +4417,10 @@ export declare const AnimeCreateBody: z.ZodObject<z.objectUtil.extendShape<{
                             default: string;
                             alias?: string[] | undefined;
                         };
+                        description?: string | undefined;
                         isGroupe?: boolean | undefined;
                         birthDate?: string | undefined;
                         deathDate?: string | undefined;
-                        bio?: string | undefined;
                         avatar?: {
                             id?: string | undefined;
                             label?: "COVER" | "BANNER" | "AVATAR" | "LOGO" | undefined;
@@ -4492,10 +4492,10 @@ export declare const AnimeCreateBody: z.ZodObject<z.objectUtil.extendShape<{
                     default: string;
                     alias?: string[] | undefined;
                 };
+                description?: string | undefined;
                 isGroupe?: boolean | undefined;
                 birthDate?: string | undefined;
                 deathDate?: string | undefined;
-                bio?: string | undefined;
                 avatar?: {
                     id?: string | undefined;
                     label?: "COVER" | "BANNER" | "AVATAR" | "LOGO" | undefined;
@@ -4516,7 +4516,7 @@ export declare const AnimeCreateBody: z.ZodObject<z.objectUtil.extendShape<{
             newCompany?: {
                 type: "STUDIO" | "PRODUCER";
                 name: string;
-                bio?: string | undefined;
+                description?: string | undefined;
                 links?: {
                     value: string;
                     name: string;
@@ -4542,8 +4542,8 @@ export declare const AnimeCreateBody: z.ZodObject<z.objectUtil.extendShape<{
                 };
                 gender: "MASCULIN" | "FEMININ" | "NEUTRE" | "TRANSGENRE" | "NON_BINAIRE" | "GENRE_FLUIDE" | "AUTRE";
                 species: "AUTRE" | "HUMAIN" | "ELFE" | "NAIN" | "LEZARD" | "DRAGON" | "ORC";
+                description?: string | undefined;
                 birthDate?: string | undefined;
-                bio?: string | undefined;
                 avatar?: {
                     id?: string | undefined;
                     label?: "COVER" | "BANNER" | "AVATAR" | "LOGO" | undefined;
@@ -4560,10 +4560,10 @@ export declare const AnimeCreateBody: z.ZodObject<z.objectUtil.extendShape<{
                             default: string;
                             alias?: string[] | undefined;
                         };
+                        description?: string | undefined;
                         isGroupe?: boolean | undefined;
                         birthDate?: string | undefined;
                         deathDate?: string | undefined;
-                        bio?: string | undefined;
                         avatar?: {
                             id?: string | undefined;
                             label?: "COVER" | "BANNER" | "AVATAR" | "LOGO" | undefined;
@@ -4621,10 +4621,10 @@ export declare const AnimeCreateBody: z.ZodObject<z.objectUtil.extendShape<{
                             default: string;
                             alias?: string[] | undefined;
                         };
+                        description?: string | undefined;
                         isGroupe?: boolean | undefined;
                         birthDate?: string | undefined;
                         deathDate?: string | undefined;
-                        bio?: string | undefined;
                         avatar?: {
                             id?: string | undefined;
                             label?: "COVER" | "BANNER" | "AVATAR" | "LOGO" | undefined;
@@ -4698,10 +4698,10 @@ export declare const AnimeCreateBody: z.ZodObject<z.objectUtil.extendShape<{
                     default: string;
                     alias?: string[] | undefined;
                 };
+                description?: string | undefined;
                 isGroupe?: boolean | undefined;
                 birthDate?: string | undefined;
                 deathDate?: string | undefined;
-                bio?: string | undefined;
                 avatar?: {
                     id?: string | undefined;
                     label?: "COVER" | "BANNER" | "AVATAR" | "LOGO" | undefined;
@@ -4722,7 +4722,7 @@ export declare const AnimeCreateBody: z.ZodObject<z.objectUtil.extendShape<{
             newCompany?: {
                 type: "STUDIO" | "PRODUCER";
                 name: string;
-                bio?: string | undefined;
+                description?: string | undefined;
                 links?: {
                     value: string;
                     name: string;
@@ -4748,8 +4748,8 @@ export declare const AnimeCreateBody: z.ZodObject<z.objectUtil.extendShape<{
                 };
                 gender: "MASCULIN" | "FEMININ" | "NEUTRE" | "TRANSGENRE" | "NON_BINAIRE" | "GENRE_FLUIDE" | "AUTRE";
                 species: "AUTRE" | "HUMAIN" | "ELFE" | "NAIN" | "LEZARD" | "DRAGON" | "ORC";
+                description?: string | undefined;
                 birthDate?: string | undefined;
-                bio?: string | undefined;
                 avatar?: {
                     id?: string | undefined;
                     label?: "COVER" | "BANNER" | "AVATAR" | "LOGO" | undefined;
@@ -4766,10 +4766,10 @@ export declare const AnimeCreateBody: z.ZodObject<z.objectUtil.extendShape<{
                             default: string;
                             alias?: string[] | undefined;
                         };
+                        description?: string | undefined;
                         isGroupe?: boolean | undefined;
                         birthDate?: string | undefined;
                         deathDate?: string | undefined;
-                        bio?: string | undefined;
                         avatar?: {
                             id?: string | undefined;
                             label?: "COVER" | "BANNER" | "AVATAR" | "LOGO" | undefined;
@@ -4827,10 +4827,10 @@ export declare const AnimeCreateBody: z.ZodObject<z.objectUtil.extendShape<{
                             default: string;
                             alias?: string[] | undefined;
                         };
+                        description?: string | undefined;
                         isGroupe?: boolean | undefined;
                         birthDate?: string | undefined;
                         deathDate?: string | undefined;
-                        bio?: string | undefined;
                         avatar?: {
                             id?: string | undefined;
                             label?: "COVER" | "BANNER" | "AVATAR" | "LOGO" | undefined;
@@ -4906,10 +4906,10 @@ export declare const AnimeCreateBody: z.ZodObject<z.objectUtil.extendShape<{
                     default: string;
                     alias?: string[] | undefined;
                 };
+                description?: string | undefined;
                 isGroupe?: boolean | undefined;
                 birthDate?: string | undefined;
                 deathDate?: string | undefined;
-                bio?: string | undefined;
                 avatar?: {
                     id?: string | undefined;
                     label?: "COVER" | "BANNER" | "AVATAR" | "LOGO" | undefined;
@@ -4930,7 +4930,7 @@ export declare const AnimeCreateBody: z.ZodObject<z.objectUtil.extendShape<{
             newCompany?: {
                 type: "STUDIO" | "PRODUCER";
                 name: string;
-                bio?: string | undefined;
+                description?: string | undefined;
                 links?: {
                     value: string;
                     name: string;
@@ -4956,8 +4956,8 @@ export declare const AnimeCreateBody: z.ZodObject<z.objectUtil.extendShape<{
                 };
                 gender: "MASCULIN" | "FEMININ" | "NEUTRE" | "TRANSGENRE" | "NON_BINAIRE" | "GENRE_FLUIDE" | "AUTRE";
                 species: "AUTRE" | "HUMAIN" | "ELFE" | "NAIN" | "LEZARD" | "DRAGON" | "ORC";
+                description?: string | undefined;
                 birthDate?: string | undefined;
-                bio?: string | undefined;
                 avatar?: {
                     id?: string | undefined;
                     label?: "COVER" | "BANNER" | "AVATAR" | "LOGO" | undefined;
@@ -4974,10 +4974,10 @@ export declare const AnimeCreateBody: z.ZodObject<z.objectUtil.extendShape<{
                             default: string;
                             alias?: string[] | undefined;
                         };
+                        description?: string | undefined;
                         isGroupe?: boolean | undefined;
                         birthDate?: string | undefined;
                         deathDate?: string | undefined;
-                        bio?: string | undefined;
                         avatar?: {
                             id?: string | undefined;
                             label?: "COVER" | "BANNER" | "AVATAR" | "LOGO" | undefined;
@@ -5035,10 +5035,10 @@ export declare const AnimeCreateBody: z.ZodObject<z.objectUtil.extendShape<{
                             default: string;
                             alias?: string[] | undefined;
                         };
+                        description?: string | undefined;
                         isGroupe?: boolean | undefined;
                         birthDate?: string | undefined;
                         deathDate?: string | undefined;
-                        bio?: string | undefined;
                         avatar?: {
                             id?: string | undefined;
                             label?: "COVER" | "BANNER" | "AVATAR" | "LOGO" | undefined;
@@ -5220,7 +5220,7 @@ export declare const Create_Anime_ZOD_FORM: z.ZodObject<{
             newCompany: z.ZodOptional<z.ZodObject<{
                 type: z.ZodEnum<["STUDIO", "PRODUCER"]>;
                 name: z.ZodString;
-                bio: z.ZodOptional<z.ZodString>;
+                description: z.ZodOptional<z.ZodString>;
                 links: z.ZodOptional<z.ZodArray<z.ZodObject<{
                     name: z.ZodString;
                     value: z.ZodEffects<z.ZodString, string, string>;
@@ -5263,7 +5263,7 @@ export declare const Create_Anime_ZOD_FORM: z.ZodObject<{
             }, "strict", z.ZodTypeAny, {
                 type: "STUDIO" | "PRODUCER";
                 name: string;
-                bio?: string | undefined;
+                description?: string | undefined;
                 links?: {
                     value: string;
                     name: string;
@@ -5280,7 +5280,7 @@ export declare const Create_Anime_ZOD_FORM: z.ZodObject<{
             }, {
                 type: "STUDIO" | "PRODUCER";
                 name: string;
-                bio?: string | undefined;
+                description?: string | undefined;
                 links?: {
                     value: string;
                     name: string;
@@ -5300,7 +5300,7 @@ export declare const Create_Anime_ZOD_FORM: z.ZodObject<{
             newCompany?: {
                 type: "STUDIO" | "PRODUCER";
                 name: string;
-                bio?: string | undefined;
+                description?: string | undefined;
                 links?: {
                     value: string;
                     name: string;
@@ -5320,7 +5320,7 @@ export declare const Create_Anime_ZOD_FORM: z.ZodObject<{
             newCompany?: {
                 type: "STUDIO" | "PRODUCER";
                 name: string;
-                bio?: string | undefined;
+                description?: string | undefined;
                 links?: {
                     value: string;
                     name: string;
@@ -5352,7 +5352,7 @@ export declare const Create_Anime_ZOD_FORM: z.ZodObject<{
                 }>;
                 birthDate: z.ZodOptional<z.ZodString>;
                 deathDate: z.ZodOptional<z.ZodString>;
-                bio: z.ZodOptional<z.ZodString>;
+                description: z.ZodOptional<z.ZodString>;
                 avatar: z.ZodOptional<z.ZodObject<{
                     id: z.ZodOptional<z.ZodString>;
                     label: z.ZodOptional<z.ZodEnum<("COVER" | "BANNER" | "AVATAR" | "LOGO")[] & [string, ...string[]]>>;
@@ -5396,10 +5396,10 @@ export declare const Create_Anime_ZOD_FORM: z.ZodObject<{
                     default: string;
                     alias?: string[] | undefined;
                 };
+                description?: string | undefined;
                 isGroupe?: boolean | undefined;
                 birthDate?: string | undefined;
                 deathDate?: string | undefined;
-                bio?: string | undefined;
                 avatar?: {
                     id?: string | undefined;
                     label?: "COVER" | "BANNER" | "AVATAR" | "LOGO" | undefined;
@@ -5417,10 +5417,10 @@ export declare const Create_Anime_ZOD_FORM: z.ZodObject<{
                     default: string;
                     alias?: string[] | undefined;
                 };
+                description?: string | undefined;
                 isGroupe?: boolean | undefined;
                 birthDate?: string | undefined;
                 deathDate?: string | undefined;
-                bio?: string | undefined;
                 avatar?: {
                     id?: string | undefined;
                     label?: "COVER" | "BANNER" | "AVATAR" | "LOGO" | undefined;
@@ -5442,10 +5442,10 @@ export declare const Create_Anime_ZOD_FORM: z.ZodObject<{
                     default: string;
                     alias?: string[] | undefined;
                 };
+                description?: string | undefined;
                 isGroupe?: boolean | undefined;
                 birthDate?: string | undefined;
                 deathDate?: string | undefined;
-                bio?: string | undefined;
                 avatar?: {
                     id?: string | undefined;
                     label?: "COVER" | "BANNER" | "AVATAR" | "LOGO" | undefined;
@@ -5467,10 +5467,10 @@ export declare const Create_Anime_ZOD_FORM: z.ZodObject<{
                     default: string;
                     alias?: string[] | undefined;
                 };
+                description?: string | undefined;
                 isGroupe?: boolean | undefined;
                 birthDate?: string | undefined;
                 deathDate?: string | undefined;
-                bio?: string | undefined;
                 avatar?: {
                     id?: string | undefined;
                     label?: "COVER" | "BANNER" | "AVATAR" | "LOGO" | undefined;
@@ -5503,7 +5503,7 @@ export declare const Create_Anime_ZOD_FORM: z.ZodObject<{
                 birthDate: z.ZodOptional<z.ZodString>;
                 gender: z.ZodEnum<("MASCULIN" | "FEMININ" | "NEUTRE" | "TRANSGENRE" | "NON_BINAIRE" | "GENRE_FLUIDE" | "AUTRE")[] & [string, ...string[]]>;
                 species: z.ZodEnum<("AUTRE" | "HUMAIN" | "ELFE" | "NAIN" | "LEZARD" | "DRAGON" | "ORC")[] & [string, ...string[]]>;
-                bio: z.ZodOptional<z.ZodString>;
+                description: z.ZodOptional<z.ZodString>;
                 avatar: z.ZodOptional<z.ZodObject<{
                     id: z.ZodOptional<z.ZodString>;
                     label: z.ZodOptional<z.ZodEnum<("COVER" | "BANNER" | "AVATAR" | "LOGO")[] & [string, ...string[]]>>;
@@ -5548,7 +5548,7 @@ export declare const Create_Anime_ZOD_FORM: z.ZodObject<{
                         }>;
                         birthDate: z.ZodOptional<z.ZodString>;
                         deathDate: z.ZodOptional<z.ZodString>;
-                        bio: z.ZodOptional<z.ZodString>;
+                        description: z.ZodOptional<z.ZodString>;
                         avatar: z.ZodOptional<z.ZodObject<{
                             id: z.ZodOptional<z.ZodString>;
                             label: z.ZodOptional<z.ZodEnum<("COVER" | "BANNER" | "AVATAR" | "LOGO")[] & [string, ...string[]]>>;
@@ -5592,10 +5592,10 @@ export declare const Create_Anime_ZOD_FORM: z.ZodObject<{
                             default: string;
                             alias?: string[] | undefined;
                         };
+                        description?: string | undefined;
                         isGroupe?: boolean | undefined;
                         birthDate?: string | undefined;
                         deathDate?: string | undefined;
-                        bio?: string | undefined;
                         avatar?: {
                             id?: string | undefined;
                             label?: "COVER" | "BANNER" | "AVATAR" | "LOGO" | undefined;
@@ -5613,10 +5613,10 @@ export declare const Create_Anime_ZOD_FORM: z.ZodObject<{
                             default: string;
                             alias?: string[] | undefined;
                         };
+                        description?: string | undefined;
                         isGroupe?: boolean | undefined;
                         birthDate?: string | undefined;
                         deathDate?: string | undefined;
-                        bio?: string | undefined;
                         avatar?: {
                             id?: string | undefined;
                             label?: "COVER" | "BANNER" | "AVATAR" | "LOGO" | undefined;
@@ -5638,10 +5638,10 @@ export declare const Create_Anime_ZOD_FORM: z.ZodObject<{
                             default: string;
                             alias?: string[] | undefined;
                         };
+                        description?: string | undefined;
                         isGroupe?: boolean | undefined;
                         birthDate?: string | undefined;
                         deathDate?: string | undefined;
-                        bio?: string | undefined;
                         avatar?: {
                             id?: string | undefined;
                             label?: "COVER" | "BANNER" | "AVATAR" | "LOGO" | undefined;
@@ -5663,10 +5663,10 @@ export declare const Create_Anime_ZOD_FORM: z.ZodObject<{
                             default: string;
                             alias?: string[] | undefined;
                         };
+                        description?: string | undefined;
                         isGroupe?: boolean | undefined;
                         birthDate?: string | undefined;
                         deathDate?: string | undefined;
-                        bio?: string | undefined;
                         avatar?: {
                             id?: string | undefined;
                             label?: "COVER" | "BANNER" | "AVATAR" | "LOGO" | undefined;
@@ -5689,8 +5689,8 @@ export declare const Create_Anime_ZOD_FORM: z.ZodObject<{
                 };
                 gender: "MASCULIN" | "FEMININ" | "NEUTRE" | "TRANSGENRE" | "NON_BINAIRE" | "GENRE_FLUIDE" | "AUTRE";
                 species: "AUTRE" | "HUMAIN" | "ELFE" | "NAIN" | "LEZARD" | "DRAGON" | "ORC";
+                description?: string | undefined;
                 birthDate?: string | undefined;
-                bio?: string | undefined;
                 avatar?: {
                     id?: string | undefined;
                     label?: "COVER" | "BANNER" | "AVATAR" | "LOGO" | undefined;
@@ -5707,10 +5707,10 @@ export declare const Create_Anime_ZOD_FORM: z.ZodObject<{
                             default: string;
                             alias?: string[] | undefined;
                         };
+                        description?: string | undefined;
                         isGroupe?: boolean | undefined;
                         birthDate?: string | undefined;
                         deathDate?: string | undefined;
-                        bio?: string | undefined;
                         avatar?: {
                             id?: string | undefined;
                             label?: "COVER" | "BANNER" | "AVATAR" | "LOGO" | undefined;
@@ -5733,8 +5733,8 @@ export declare const Create_Anime_ZOD_FORM: z.ZodObject<{
                 };
                 gender: "MASCULIN" | "FEMININ" | "NEUTRE" | "TRANSGENRE" | "NON_BINAIRE" | "GENRE_FLUIDE" | "AUTRE";
                 species: "AUTRE" | "HUMAIN" | "ELFE" | "NAIN" | "LEZARD" | "DRAGON" | "ORC";
+                description?: string | undefined;
                 birthDate?: string | undefined;
-                bio?: string | undefined;
                 avatar?: {
                     id?: string | undefined;
                     label?: "COVER" | "BANNER" | "AVATAR" | "LOGO" | undefined;
@@ -5751,10 +5751,10 @@ export declare const Create_Anime_ZOD_FORM: z.ZodObject<{
                             default: string;
                             alias?: string[] | undefined;
                         };
+                        description?: string | undefined;
                         isGroupe?: boolean | undefined;
                         birthDate?: string | undefined;
                         deathDate?: string | undefined;
-                        bio?: string | undefined;
                         avatar?: {
                             id?: string | undefined;
                             label?: "COVER" | "BANNER" | "AVATAR" | "LOGO" | undefined;
@@ -5782,8 +5782,8 @@ export declare const Create_Anime_ZOD_FORM: z.ZodObject<{
                 };
                 gender: "MASCULIN" | "FEMININ" | "NEUTRE" | "TRANSGENRE" | "NON_BINAIRE" | "GENRE_FLUIDE" | "AUTRE";
                 species: "AUTRE" | "HUMAIN" | "ELFE" | "NAIN" | "LEZARD" | "DRAGON" | "ORC";
+                description?: string | undefined;
                 birthDate?: string | undefined;
-                bio?: string | undefined;
                 avatar?: {
                     id?: string | undefined;
                     label?: "COVER" | "BANNER" | "AVATAR" | "LOGO" | undefined;
@@ -5800,10 +5800,10 @@ export declare const Create_Anime_ZOD_FORM: z.ZodObject<{
                             default: string;
                             alias?: string[] | undefined;
                         };
+                        description?: string | undefined;
                         isGroupe?: boolean | undefined;
                         birthDate?: string | undefined;
                         deathDate?: string | undefined;
-                        bio?: string | undefined;
                         avatar?: {
                             id?: string | undefined;
                             label?: "COVER" | "BANNER" | "AVATAR" | "LOGO" | undefined;
@@ -5830,8 +5830,8 @@ export declare const Create_Anime_ZOD_FORM: z.ZodObject<{
                 };
                 gender: "MASCULIN" | "FEMININ" | "NEUTRE" | "TRANSGENRE" | "NON_BINAIRE" | "GENRE_FLUIDE" | "AUTRE";
                 species: "AUTRE" | "HUMAIN" | "ELFE" | "NAIN" | "LEZARD" | "DRAGON" | "ORC";
+                description?: string | undefined;
                 birthDate?: string | undefined;
-                bio?: string | undefined;
                 avatar?: {
                     id?: string | undefined;
                     label?: "COVER" | "BANNER" | "AVATAR" | "LOGO" | undefined;
@@ -5848,10 +5848,10 @@ export declare const Create_Anime_ZOD_FORM: z.ZodObject<{
                             default: string;
                             alias?: string[] | undefined;
                         };
+                        description?: string | undefined;
                         isGroupe?: boolean | undefined;
                         birthDate?: string | undefined;
                         deathDate?: string | undefined;
-                        bio?: string | undefined;
                         avatar?: {
                             id?: string | undefined;
                             label?: "COVER" | "BANNER" | "AVATAR" | "LOGO" | undefined;
@@ -5900,7 +5900,7 @@ export declare const Create_Anime_ZOD_FORM: z.ZodObject<{
                         }>;
                         birthDate: z.ZodOptional<z.ZodString>;
                         deathDate: z.ZodOptional<z.ZodString>;
-                        bio: z.ZodOptional<z.ZodString>;
+                        description: z.ZodOptional<z.ZodString>;
                         avatar: z.ZodOptional<z.ZodObject<{
                             id: z.ZodOptional<z.ZodString>;
                             label: z.ZodOptional<z.ZodEnum<("COVER" | "BANNER" | "AVATAR" | "LOGO")[] & [string, ...string[]]>>;
@@ -5944,10 +5944,10 @@ export declare const Create_Anime_ZOD_FORM: z.ZodObject<{
                             default: string;
                             alias?: string[] | undefined;
                         };
+                        description?: string | undefined;
                         isGroupe?: boolean | undefined;
                         birthDate?: string | undefined;
                         deathDate?: string | undefined;
-                        bio?: string | undefined;
                         avatar?: {
                             id?: string | undefined;
                             label?: "COVER" | "BANNER" | "AVATAR" | "LOGO" | undefined;
@@ -5965,10 +5965,10 @@ export declare const Create_Anime_ZOD_FORM: z.ZodObject<{
                             default: string;
                             alias?: string[] | undefined;
                         };
+                        description?: string | undefined;
                         isGroupe?: boolean | undefined;
                         birthDate?: string | undefined;
                         deathDate?: string | undefined;
-                        bio?: string | undefined;
                         avatar?: {
                             id?: string | undefined;
                             label?: "COVER" | "BANNER" | "AVATAR" | "LOGO" | undefined;
@@ -5990,10 +5990,10 @@ export declare const Create_Anime_ZOD_FORM: z.ZodObject<{
                             default: string;
                             alias?: string[] | undefined;
                         };
+                        description?: string | undefined;
                         isGroupe?: boolean | undefined;
                         birthDate?: string | undefined;
                         deathDate?: string | undefined;
-                        bio?: string | undefined;
                         avatar?: {
                             id?: string | undefined;
                             label?: "COVER" | "BANNER" | "AVATAR" | "LOGO" | undefined;
@@ -6015,10 +6015,10 @@ export declare const Create_Anime_ZOD_FORM: z.ZodObject<{
                             default: string;
                             alias?: string[] | undefined;
                         };
+                        description?: string | undefined;
                         isGroupe?: boolean | undefined;
                         birthDate?: string | undefined;
                         deathDate?: string | undefined;
-                        bio?: string | undefined;
                         avatar?: {
                             id?: string | undefined;
                             label?: "COVER" | "BANNER" | "AVATAR" | "LOGO" | undefined;
@@ -6100,10 +6100,10 @@ export declare const Create_Anime_ZOD_FORM: z.ZodObject<{
                             default: string;
                             alias?: string[] | undefined;
                         };
+                        description?: string | undefined;
                         isGroupe?: boolean | undefined;
                         birthDate?: string | undefined;
                         deathDate?: string | undefined;
-                        bio?: string | undefined;
                         avatar?: {
                             id?: string | undefined;
                             label?: "COVER" | "BANNER" | "AVATAR" | "LOGO" | undefined;
@@ -6146,10 +6146,10 @@ export declare const Create_Anime_ZOD_FORM: z.ZodObject<{
                             default: string;
                             alias?: string[] | undefined;
                         };
+                        description?: string | undefined;
                         isGroupe?: boolean | undefined;
                         birthDate?: string | undefined;
                         deathDate?: string | undefined;
-                        bio?: string | undefined;
                         avatar?: {
                             id?: string | undefined;
                             label?: "COVER" | "BANNER" | "AVATAR" | "LOGO" | undefined;
@@ -6195,10 +6195,10 @@ export declare const Create_Anime_ZOD_FORM: z.ZodObject<{
                             default: string;
                             alias?: string[] | undefined;
                         };
+                        description?: string | undefined;
                         isGroupe?: boolean | undefined;
                         birthDate?: string | undefined;
                         deathDate?: string | undefined;
-                        bio?: string | undefined;
                         avatar?: {
                             id?: string | undefined;
                             label?: "COVER" | "BANNER" | "AVATAR" | "LOGO" | undefined;
@@ -6244,10 +6244,10 @@ export declare const Create_Anime_ZOD_FORM: z.ZodObject<{
                             default: string;
                             alias?: string[] | undefined;
                         };
+                        description?: string | undefined;
                         isGroupe?: boolean | undefined;
                         birthDate?: string | undefined;
                         deathDate?: string | undefined;
-                        bio?: string | undefined;
                         avatar?: {
                             id?: string | undefined;
                             label?: "COVER" | "BANNER" | "AVATAR" | "LOGO" | undefined;
@@ -6319,10 +6319,10 @@ export declare const Create_Anime_ZOD_FORM: z.ZodObject<{
                     default: string;
                     alias?: string[] | undefined;
                 };
+                description?: string | undefined;
                 isGroupe?: boolean | undefined;
                 birthDate?: string | undefined;
                 deathDate?: string | undefined;
-                bio?: string | undefined;
                 avatar?: {
                     id?: string | undefined;
                     label?: "COVER" | "BANNER" | "AVATAR" | "LOGO" | undefined;
@@ -6343,7 +6343,7 @@ export declare const Create_Anime_ZOD_FORM: z.ZodObject<{
             newCompany?: {
                 type: "STUDIO" | "PRODUCER";
                 name: string;
-                bio?: string | undefined;
+                description?: string | undefined;
                 links?: {
                     value: string;
                     name: string;
@@ -6369,8 +6369,8 @@ export declare const Create_Anime_ZOD_FORM: z.ZodObject<{
                 };
                 gender: "MASCULIN" | "FEMININ" | "NEUTRE" | "TRANSGENRE" | "NON_BINAIRE" | "GENRE_FLUIDE" | "AUTRE";
                 species: "AUTRE" | "HUMAIN" | "ELFE" | "NAIN" | "LEZARD" | "DRAGON" | "ORC";
+                description?: string | undefined;
                 birthDate?: string | undefined;
-                bio?: string | undefined;
                 avatar?: {
                     id?: string | undefined;
                     label?: "COVER" | "BANNER" | "AVATAR" | "LOGO" | undefined;
@@ -6387,10 +6387,10 @@ export declare const Create_Anime_ZOD_FORM: z.ZodObject<{
                             default: string;
                             alias?: string[] | undefined;
                         };
+                        description?: string | undefined;
                         isGroupe?: boolean | undefined;
                         birthDate?: string | undefined;
                         deathDate?: string | undefined;
-                        bio?: string | undefined;
                         avatar?: {
                             id?: string | undefined;
                             label?: "COVER" | "BANNER" | "AVATAR" | "LOGO" | undefined;
@@ -6448,10 +6448,10 @@ export declare const Create_Anime_ZOD_FORM: z.ZodObject<{
                             default: string;
                             alias?: string[] | undefined;
                         };
+                        description?: string | undefined;
                         isGroupe?: boolean | undefined;
                         birthDate?: string | undefined;
                         deathDate?: string | undefined;
-                        bio?: string | undefined;
                         avatar?: {
                             id?: string | undefined;
                             label?: "COVER" | "BANNER" | "AVATAR" | "LOGO" | undefined;
@@ -6523,10 +6523,10 @@ export declare const Create_Anime_ZOD_FORM: z.ZodObject<{
                     default: string;
                     alias?: string[] | undefined;
                 };
+                description?: string | undefined;
                 isGroupe?: boolean | undefined;
                 birthDate?: string | undefined;
                 deathDate?: string | undefined;
-                bio?: string | undefined;
                 avatar?: {
                     id?: string | undefined;
                     label?: "COVER" | "BANNER" | "AVATAR" | "LOGO" | undefined;
@@ -6547,7 +6547,7 @@ export declare const Create_Anime_ZOD_FORM: z.ZodObject<{
             newCompany?: {
                 type: "STUDIO" | "PRODUCER";
                 name: string;
-                bio?: string | undefined;
+                description?: string | undefined;
                 links?: {
                     value: string;
                     name: string;
@@ -6573,8 +6573,8 @@ export declare const Create_Anime_ZOD_FORM: z.ZodObject<{
                 };
                 gender: "MASCULIN" | "FEMININ" | "NEUTRE" | "TRANSGENRE" | "NON_BINAIRE" | "GENRE_FLUIDE" | "AUTRE";
                 species: "AUTRE" | "HUMAIN" | "ELFE" | "NAIN" | "LEZARD" | "DRAGON" | "ORC";
+                description?: string | undefined;
                 birthDate?: string | undefined;
-                bio?: string | undefined;
                 avatar?: {
                     id?: string | undefined;
                     label?: "COVER" | "BANNER" | "AVATAR" | "LOGO" | undefined;
@@ -6591,10 +6591,10 @@ export declare const Create_Anime_ZOD_FORM: z.ZodObject<{
                             default: string;
                             alias?: string[] | undefined;
                         };
+                        description?: string | undefined;
                         isGroupe?: boolean | undefined;
                         birthDate?: string | undefined;
                         deathDate?: string | undefined;
-                        bio?: string | undefined;
                         avatar?: {
                             id?: string | undefined;
                             label?: "COVER" | "BANNER" | "AVATAR" | "LOGO" | undefined;
@@ -6652,10 +6652,10 @@ export declare const Create_Anime_ZOD_FORM: z.ZodObject<{
                             default: string;
                             alias?: string[] | undefined;
                         };
+                        description?: string | undefined;
                         isGroupe?: boolean | undefined;
                         birthDate?: string | undefined;
                         deathDate?: string | undefined;
-                        bio?: string | undefined;
                         avatar?: {
                             id?: string | undefined;
                             label?: "COVER" | "BANNER" | "AVATAR" | "LOGO" | undefined;
@@ -6727,10 +6727,10 @@ export declare const Create_Anime_ZOD_FORM: z.ZodObject<{
                     default: string;
                     alias?: string[] | undefined;
                 };
+                description?: string | undefined;
                 isGroupe?: boolean | undefined;
                 birthDate?: string | undefined;
                 deathDate?: string | undefined;
-                bio?: string | undefined;
                 avatar?: {
                     id?: string | undefined;
                     label?: "COVER" | "BANNER" | "AVATAR" | "LOGO" | undefined;
@@ -6751,7 +6751,7 @@ export declare const Create_Anime_ZOD_FORM: z.ZodObject<{
             newCompany?: {
                 type: "STUDIO" | "PRODUCER";
                 name: string;
-                bio?: string | undefined;
+                description?: string | undefined;
                 links?: {
                     value: string;
                     name: string;
@@ -6777,8 +6777,8 @@ export declare const Create_Anime_ZOD_FORM: z.ZodObject<{
                 };
                 gender: "MASCULIN" | "FEMININ" | "NEUTRE" | "TRANSGENRE" | "NON_BINAIRE" | "GENRE_FLUIDE" | "AUTRE";
                 species: "AUTRE" | "HUMAIN" | "ELFE" | "NAIN" | "LEZARD" | "DRAGON" | "ORC";
+                description?: string | undefined;
                 birthDate?: string | undefined;
-                bio?: string | undefined;
                 avatar?: {
                     id?: string | undefined;
                     label?: "COVER" | "BANNER" | "AVATAR" | "LOGO" | undefined;
@@ -6795,10 +6795,10 @@ export declare const Create_Anime_ZOD_FORM: z.ZodObject<{
                             default: string;
                             alias?: string[] | undefined;
                         };
+                        description?: string | undefined;
                         isGroupe?: boolean | undefined;
                         birthDate?: string | undefined;
                         deathDate?: string | undefined;
-                        bio?: string | undefined;
                         avatar?: {
                             id?: string | undefined;
                             label?: "COVER" | "BANNER" | "AVATAR" | "LOGO" | undefined;
@@ -6856,10 +6856,10 @@ export declare const Create_Anime_ZOD_FORM: z.ZodObject<{
                             default: string;
                             alias?: string[] | undefined;
                         };
+                        description?: string | undefined;
                         isGroupe?: boolean | undefined;
                         birthDate?: string | undefined;
                         deathDate?: string | undefined;
-                        bio?: string | undefined;
                         avatar?: {
                             id?: string | undefined;
                             label?: "COVER" | "BANNER" | "AVATAR" | "LOGO" | undefined;
@@ -6931,10 +6931,10 @@ export declare const Create_Anime_ZOD_FORM: z.ZodObject<{
                     default: string;
                     alias?: string[] | undefined;
                 };
+                description?: string | undefined;
                 isGroupe?: boolean | undefined;
                 birthDate?: string | undefined;
                 deathDate?: string | undefined;
-                bio?: string | undefined;
                 avatar?: {
                     id?: string | undefined;
                     label?: "COVER" | "BANNER" | "AVATAR" | "LOGO" | undefined;
@@ -6955,7 +6955,7 @@ export declare const Create_Anime_ZOD_FORM: z.ZodObject<{
             newCompany?: {
                 type: "STUDIO" | "PRODUCER";
                 name: string;
-                bio?: string | undefined;
+                description?: string | undefined;
                 links?: {
                     value: string;
                     name: string;
@@ -6981,8 +6981,8 @@ export declare const Create_Anime_ZOD_FORM: z.ZodObject<{
                 };
                 gender: "MASCULIN" | "FEMININ" | "NEUTRE" | "TRANSGENRE" | "NON_BINAIRE" | "GENRE_FLUIDE" | "AUTRE";
                 species: "AUTRE" | "HUMAIN" | "ELFE" | "NAIN" | "LEZARD" | "DRAGON" | "ORC";
+                description?: string | undefined;
                 birthDate?: string | undefined;
-                bio?: string | undefined;
                 avatar?: {
                     id?: string | undefined;
                     label?: "COVER" | "BANNER" | "AVATAR" | "LOGO" | undefined;
@@ -6999,10 +6999,10 @@ export declare const Create_Anime_ZOD_FORM: z.ZodObject<{
                             default: string;
                             alias?: string[] | undefined;
                         };
+                        description?: string | undefined;
                         isGroupe?: boolean | undefined;
                         birthDate?: string | undefined;
                         deathDate?: string | undefined;
-                        bio?: string | undefined;
                         avatar?: {
                             id?: string | undefined;
                             label?: "COVER" | "BANNER" | "AVATAR" | "LOGO" | undefined;
@@ -7060,10 +7060,10 @@ export declare const Create_Anime_ZOD_FORM: z.ZodObject<{
                             default: string;
                             alias?: string[] | undefined;
                         };
+                        description?: string | undefined;
                         isGroupe?: boolean | undefined;
                         birthDate?: string | undefined;
                         deathDate?: string | undefined;
-                        bio?: string | undefined;
                         avatar?: {
                             id?: string | undefined;
                             label?: "COVER" | "BANNER" | "AVATAR" | "LOGO" | undefined;
@@ -7137,10 +7137,10 @@ export declare const Create_Anime_ZOD_FORM: z.ZodObject<{
                     default: string;
                     alias?: string[] | undefined;
                 };
+                description?: string | undefined;
                 isGroupe?: boolean | undefined;
                 birthDate?: string | undefined;
                 deathDate?: string | undefined;
-                bio?: string | undefined;
                 avatar?: {
                     id?: string | undefined;
                     label?: "COVER" | "BANNER" | "AVATAR" | "LOGO" | undefined;
@@ -7161,7 +7161,7 @@ export declare const Create_Anime_ZOD_FORM: z.ZodObject<{
             newCompany?: {
                 type: "STUDIO" | "PRODUCER";
                 name: string;
-                bio?: string | undefined;
+                description?: string | undefined;
                 links?: {
                     value: string;
                     name: string;
@@ -7187,8 +7187,8 @@ export declare const Create_Anime_ZOD_FORM: z.ZodObject<{
                 };
                 gender: "MASCULIN" | "FEMININ" | "NEUTRE" | "TRANSGENRE" | "NON_BINAIRE" | "GENRE_FLUIDE" | "AUTRE";
                 species: "AUTRE" | "HUMAIN" | "ELFE" | "NAIN" | "LEZARD" | "DRAGON" | "ORC";
+                description?: string | undefined;
                 birthDate?: string | undefined;
-                bio?: string | undefined;
                 avatar?: {
                     id?: string | undefined;
                     label?: "COVER" | "BANNER" | "AVATAR" | "LOGO" | undefined;
@@ -7205,10 +7205,10 @@ export declare const Create_Anime_ZOD_FORM: z.ZodObject<{
                             default: string;
                             alias?: string[] | undefined;
                         };
+                        description?: string | undefined;
                         isGroupe?: boolean | undefined;
                         birthDate?: string | undefined;
                         deathDate?: string | undefined;
-                        bio?: string | undefined;
                         avatar?: {
                             id?: string | undefined;
                             label?: "COVER" | "BANNER" | "AVATAR" | "LOGO" | undefined;
@@ -7266,10 +7266,10 @@ export declare const Create_Anime_ZOD_FORM: z.ZodObject<{
                             default: string;
                             alias?: string[] | undefined;
                         };
+                        description?: string | undefined;
                         isGroupe?: boolean | undefined;
                         birthDate?: string | undefined;
                         deathDate?: string | undefined;
-                        bio?: string | undefined;
                         avatar?: {
                             id?: string | undefined;
                             label?: "COVER" | "BANNER" | "AVATAR" | "LOGO" | undefined;
@@ -7344,10 +7344,10 @@ export declare const Create_Anime_ZOD_FORM: z.ZodObject<{
                     default: string;
                     alias?: string[] | undefined;
                 };
+                description?: string | undefined;
                 isGroupe?: boolean | undefined;
                 birthDate?: string | undefined;
                 deathDate?: string | undefined;
-                bio?: string | undefined;
                 avatar?: {
                     id?: string | undefined;
                     label?: "COVER" | "BANNER" | "AVATAR" | "LOGO" | undefined;
@@ -7368,7 +7368,7 @@ export declare const Create_Anime_ZOD_FORM: z.ZodObject<{
             newCompany?: {
                 type: "STUDIO" | "PRODUCER";
                 name: string;
-                bio?: string | undefined;
+                description?: string | undefined;
                 links?: {
                     value: string;
                     name: string;
@@ -7394,8 +7394,8 @@ export declare const Create_Anime_ZOD_FORM: z.ZodObject<{
                 };
                 gender: "MASCULIN" | "FEMININ" | "NEUTRE" | "TRANSGENRE" | "NON_BINAIRE" | "GENRE_FLUIDE" | "AUTRE";
                 species: "AUTRE" | "HUMAIN" | "ELFE" | "NAIN" | "LEZARD" | "DRAGON" | "ORC";
+                description?: string | undefined;
                 birthDate?: string | undefined;
-                bio?: string | undefined;
                 avatar?: {
                     id?: string | undefined;
                     label?: "COVER" | "BANNER" | "AVATAR" | "LOGO" | undefined;
@@ -7412,10 +7412,10 @@ export declare const Create_Anime_ZOD_FORM: z.ZodObject<{
                             default: string;
                             alias?: string[] | undefined;
                         };
+                        description?: string | undefined;
                         isGroupe?: boolean | undefined;
                         birthDate?: string | undefined;
                         deathDate?: string | undefined;
-                        bio?: string | undefined;
                         avatar?: {
                             id?: string | undefined;
                             label?: "COVER" | "BANNER" | "AVATAR" | "LOGO" | undefined;
@@ -7473,10 +7473,10 @@ export declare const Create_Anime_ZOD_FORM: z.ZodObject<{
                             default: string;
                             alias?: string[] | undefined;
                         };
+                        description?: string | undefined;
                         isGroupe?: boolean | undefined;
                         birthDate?: string | undefined;
                         deathDate?: string | undefined;
-                        bio?: string | undefined;
                         avatar?: {
                             id?: string | undefined;
                             label?: "COVER" | "BANNER" | "AVATAR" | "LOGO" | undefined;
@@ -7668,7 +7668,7 @@ export declare const Create_Anime_Update_ZOD: z.ZodObject<{
         newCompany: z.ZodOptional<z.ZodObject<{
             type: z.ZodEnum<["STUDIO", "PRODUCER"]>;
             name: z.ZodString;
-            bio: z.ZodOptional<z.ZodString>;
+            description: z.ZodOptional<z.ZodString>;
             links: z.ZodOptional<z.ZodArray<z.ZodObject<{
                 name: z.ZodString;
                 value: z.ZodEffects<z.ZodString, string, string>;
@@ -7711,7 +7711,7 @@ export declare const Create_Anime_Update_ZOD: z.ZodObject<{
         }, "strict", z.ZodTypeAny, {
             type: "STUDIO" | "PRODUCER";
             name: string;
-            bio?: string | undefined;
+            description?: string | undefined;
             links?: {
                 value: string;
                 name: string;
@@ -7728,7 +7728,7 @@ export declare const Create_Anime_Update_ZOD: z.ZodObject<{
         }, {
             type: "STUDIO" | "PRODUCER";
             name: string;
-            bio?: string | undefined;
+            description?: string | undefined;
             links?: {
                 value: string;
                 name: string;
@@ -7748,7 +7748,7 @@ export declare const Create_Anime_Update_ZOD: z.ZodObject<{
         newCompany?: {
             type: "STUDIO" | "PRODUCER";
             name: string;
-            bio?: string | undefined;
+            description?: string | undefined;
             links?: {
                 value: string;
                 name: string;
@@ -7768,7 +7768,7 @@ export declare const Create_Anime_Update_ZOD: z.ZodObject<{
         newCompany?: {
             type: "STUDIO" | "PRODUCER";
             name: string;
-            bio?: string | undefined;
+            description?: string | undefined;
             links?: {
                 value: string;
                 name: string;
@@ -7800,7 +7800,7 @@ export declare const Create_Anime_Update_ZOD: z.ZodObject<{
             }>;
             birthDate: z.ZodOptional<z.ZodString>;
             deathDate: z.ZodOptional<z.ZodString>;
-            bio: z.ZodOptional<z.ZodString>;
+            description: z.ZodOptional<z.ZodString>;
             avatar: z.ZodOptional<z.ZodObject<{
                 id: z.ZodOptional<z.ZodString>;
                 label: z.ZodOptional<z.ZodEnum<("COVER" | "BANNER" | "AVATAR" | "LOGO")[] & [string, ...string[]]>>;
@@ -7844,10 +7844,10 @@ export declare const Create_Anime_Update_ZOD: z.ZodObject<{
                 default: string;
                 alias?: string[] | undefined;
             };
+            description?: string | undefined;
             isGroupe?: boolean | undefined;
             birthDate?: string | undefined;
             deathDate?: string | undefined;
-            bio?: string | undefined;
             avatar?: {
                 id?: string | undefined;
                 label?: "COVER" | "BANNER" | "AVATAR" | "LOGO" | undefined;
@@ -7865,10 +7865,10 @@ export declare const Create_Anime_Update_ZOD: z.ZodObject<{
                 default: string;
                 alias?: string[] | undefined;
             };
+            description?: string | undefined;
             isGroupe?: boolean | undefined;
             birthDate?: string | undefined;
             deathDate?: string | undefined;
-            bio?: string | undefined;
             avatar?: {
                 id?: string | undefined;
                 label?: "COVER" | "BANNER" | "AVATAR" | "LOGO" | undefined;
@@ -7890,10 +7890,10 @@ export declare const Create_Anime_Update_ZOD: z.ZodObject<{
                 default: string;
                 alias?: string[] | undefined;
             };
+            description?: string | undefined;
             isGroupe?: boolean | undefined;
             birthDate?: string | undefined;
             deathDate?: string | undefined;
-            bio?: string | undefined;
             avatar?: {
                 id?: string | undefined;
                 label?: "COVER" | "BANNER" | "AVATAR" | "LOGO" | undefined;
@@ -7915,10 +7915,10 @@ export declare const Create_Anime_Update_ZOD: z.ZodObject<{
                 default: string;
                 alias?: string[] | undefined;
             };
+            description?: string | undefined;
             isGroupe?: boolean | undefined;
             birthDate?: string | undefined;
             deathDate?: string | undefined;
-            bio?: string | undefined;
             avatar?: {
                 id?: string | undefined;
                 label?: "COVER" | "BANNER" | "AVATAR" | "LOGO" | undefined;
@@ -7951,7 +7951,7 @@ export declare const Create_Anime_Update_ZOD: z.ZodObject<{
             birthDate: z.ZodOptional<z.ZodString>;
             gender: z.ZodEnum<("MASCULIN" | "FEMININ" | "NEUTRE" | "TRANSGENRE" | "NON_BINAIRE" | "GENRE_FLUIDE" | "AUTRE")[] & [string, ...string[]]>;
             species: z.ZodEnum<("AUTRE" | "HUMAIN" | "ELFE" | "NAIN" | "LEZARD" | "DRAGON" | "ORC")[] & [string, ...string[]]>;
-            bio: z.ZodOptional<z.ZodString>;
+            description: z.ZodOptional<z.ZodString>;
             avatar: z.ZodOptional<z.ZodObject<{
                 id: z.ZodOptional<z.ZodString>;
                 label: z.ZodOptional<z.ZodEnum<("COVER" | "BANNER" | "AVATAR" | "LOGO")[] & [string, ...string[]]>>;
@@ -7996,7 +7996,7 @@ export declare const Create_Anime_Update_ZOD: z.ZodObject<{
                     }>;
                     birthDate: z.ZodOptional<z.ZodString>;
                     deathDate: z.ZodOptional<z.ZodString>;
-                    bio: z.ZodOptional<z.ZodString>;
+                    description: z.ZodOptional<z.ZodString>;
                     avatar: z.ZodOptional<z.ZodObject<{
                         id: z.ZodOptional<z.ZodString>;
                         label: z.ZodOptional<z.ZodEnum<("COVER" | "BANNER" | "AVATAR" | "LOGO")[] & [string, ...string[]]>>;
@@ -8040,10 +8040,10 @@ export declare const Create_Anime_Update_ZOD: z.ZodObject<{
                         default: string;
                         alias?: string[] | undefined;
                     };
+                    description?: string | undefined;
                     isGroupe?: boolean | undefined;
                     birthDate?: string | undefined;
                     deathDate?: string | undefined;
-                    bio?: string | undefined;
                     avatar?: {
                         id?: string | undefined;
                         label?: "COVER" | "BANNER" | "AVATAR" | "LOGO" | undefined;
@@ -8061,10 +8061,10 @@ export declare const Create_Anime_Update_ZOD: z.ZodObject<{
                         default: string;
                         alias?: string[] | undefined;
                     };
+                    description?: string | undefined;
                     isGroupe?: boolean | undefined;
                     birthDate?: string | undefined;
                     deathDate?: string | undefined;
-                    bio?: string | undefined;
                     avatar?: {
                         id?: string | undefined;
                         label?: "COVER" | "BANNER" | "AVATAR" | "LOGO" | undefined;
@@ -8086,10 +8086,10 @@ export declare const Create_Anime_Update_ZOD: z.ZodObject<{
                         default: string;
                         alias?: string[] | undefined;
                     };
+                    description?: string | undefined;
                     isGroupe?: boolean | undefined;
                     birthDate?: string | undefined;
                     deathDate?: string | undefined;
-                    bio?: string | undefined;
                     avatar?: {
                         id?: string | undefined;
                         label?: "COVER" | "BANNER" | "AVATAR" | "LOGO" | undefined;
@@ -8111,10 +8111,10 @@ export declare const Create_Anime_Update_ZOD: z.ZodObject<{
                         default: string;
                         alias?: string[] | undefined;
                     };
+                    description?: string | undefined;
                     isGroupe?: boolean | undefined;
                     birthDate?: string | undefined;
                     deathDate?: string | undefined;
-                    bio?: string | undefined;
                     avatar?: {
                         id?: string | undefined;
                         label?: "COVER" | "BANNER" | "AVATAR" | "LOGO" | undefined;
@@ -8137,8 +8137,8 @@ export declare const Create_Anime_Update_ZOD: z.ZodObject<{
             };
             gender: "MASCULIN" | "FEMININ" | "NEUTRE" | "TRANSGENRE" | "NON_BINAIRE" | "GENRE_FLUIDE" | "AUTRE";
             species: "AUTRE" | "HUMAIN" | "ELFE" | "NAIN" | "LEZARD" | "DRAGON" | "ORC";
+            description?: string | undefined;
             birthDate?: string | undefined;
-            bio?: string | undefined;
             avatar?: {
                 id?: string | undefined;
                 label?: "COVER" | "BANNER" | "AVATAR" | "LOGO" | undefined;
@@ -8155,10 +8155,10 @@ export declare const Create_Anime_Update_ZOD: z.ZodObject<{
                         default: string;
                         alias?: string[] | undefined;
                     };
+                    description?: string | undefined;
                     isGroupe?: boolean | undefined;
                     birthDate?: string | undefined;
                     deathDate?: string | undefined;
-                    bio?: string | undefined;
                     avatar?: {
                         id?: string | undefined;
                         label?: "COVER" | "BANNER" | "AVATAR" | "LOGO" | undefined;
@@ -8181,8 +8181,8 @@ export declare const Create_Anime_Update_ZOD: z.ZodObject<{
             };
             gender: "MASCULIN" | "FEMININ" | "NEUTRE" | "TRANSGENRE" | "NON_BINAIRE" | "GENRE_FLUIDE" | "AUTRE";
             species: "AUTRE" | "HUMAIN" | "ELFE" | "NAIN" | "LEZARD" | "DRAGON" | "ORC";
+            description?: string | undefined;
             birthDate?: string | undefined;
-            bio?: string | undefined;
             avatar?: {
                 id?: string | undefined;
                 label?: "COVER" | "BANNER" | "AVATAR" | "LOGO" | undefined;
@@ -8199,10 +8199,10 @@ export declare const Create_Anime_Update_ZOD: z.ZodObject<{
                         default: string;
                         alias?: string[] | undefined;
                     };
+                    description?: string | undefined;
                     isGroupe?: boolean | undefined;
                     birthDate?: string | undefined;
                     deathDate?: string | undefined;
-                    bio?: string | undefined;
                     avatar?: {
                         id?: string | undefined;
                         label?: "COVER" | "BANNER" | "AVATAR" | "LOGO" | undefined;
@@ -8230,8 +8230,8 @@ export declare const Create_Anime_Update_ZOD: z.ZodObject<{
             };
             gender: "MASCULIN" | "FEMININ" | "NEUTRE" | "TRANSGENRE" | "NON_BINAIRE" | "GENRE_FLUIDE" | "AUTRE";
             species: "AUTRE" | "HUMAIN" | "ELFE" | "NAIN" | "LEZARD" | "DRAGON" | "ORC";
+            description?: string | undefined;
             birthDate?: string | undefined;
-            bio?: string | undefined;
             avatar?: {
                 id?: string | undefined;
                 label?: "COVER" | "BANNER" | "AVATAR" | "LOGO" | undefined;
@@ -8248,10 +8248,10 @@ export declare const Create_Anime_Update_ZOD: z.ZodObject<{
                         default: string;
                         alias?: string[] | undefined;
                     };
+                    description?: string | undefined;
                     isGroupe?: boolean | undefined;
                     birthDate?: string | undefined;
                     deathDate?: string | undefined;
-                    bio?: string | undefined;
                     avatar?: {
                         id?: string | undefined;
                         label?: "COVER" | "BANNER" | "AVATAR" | "LOGO" | undefined;
@@ -8278,8 +8278,8 @@ export declare const Create_Anime_Update_ZOD: z.ZodObject<{
             };
             gender: "MASCULIN" | "FEMININ" | "NEUTRE" | "TRANSGENRE" | "NON_BINAIRE" | "GENRE_FLUIDE" | "AUTRE";
             species: "AUTRE" | "HUMAIN" | "ELFE" | "NAIN" | "LEZARD" | "DRAGON" | "ORC";
+            description?: string | undefined;
             birthDate?: string | undefined;
-            bio?: string | undefined;
             avatar?: {
                 id?: string | undefined;
                 label?: "COVER" | "BANNER" | "AVATAR" | "LOGO" | undefined;
@@ -8296,10 +8296,10 @@ export declare const Create_Anime_Update_ZOD: z.ZodObject<{
                         default: string;
                         alias?: string[] | undefined;
                     };
+                    description?: string | undefined;
                     isGroupe?: boolean | undefined;
                     birthDate?: string | undefined;
                     deathDate?: string | undefined;
-                    bio?: string | undefined;
                     avatar?: {
                         id?: string | undefined;
                         label?: "COVER" | "BANNER" | "AVATAR" | "LOGO" | undefined;
@@ -8348,7 +8348,7 @@ export declare const Create_Anime_Update_ZOD: z.ZodObject<{
                     }>;
                     birthDate: z.ZodOptional<z.ZodString>;
                     deathDate: z.ZodOptional<z.ZodString>;
-                    bio: z.ZodOptional<z.ZodString>;
+                    description: z.ZodOptional<z.ZodString>;
                     avatar: z.ZodOptional<z.ZodObject<{
                         id: z.ZodOptional<z.ZodString>;
                         label: z.ZodOptional<z.ZodEnum<("COVER" | "BANNER" | "AVATAR" | "LOGO")[] & [string, ...string[]]>>;
@@ -8392,10 +8392,10 @@ export declare const Create_Anime_Update_ZOD: z.ZodObject<{
                         default: string;
                         alias?: string[] | undefined;
                     };
+                    description?: string | undefined;
                     isGroupe?: boolean | undefined;
                     birthDate?: string | undefined;
                     deathDate?: string | undefined;
-                    bio?: string | undefined;
                     avatar?: {
                         id?: string | undefined;
                         label?: "COVER" | "BANNER" | "AVATAR" | "LOGO" | undefined;
@@ -8413,10 +8413,10 @@ export declare const Create_Anime_Update_ZOD: z.ZodObject<{
                         default: string;
                         alias?: string[] | undefined;
                     };
+                    description?: string | undefined;
                     isGroupe?: boolean | undefined;
                     birthDate?: string | undefined;
                     deathDate?: string | undefined;
-                    bio?: string | undefined;
                     avatar?: {
                         id?: string | undefined;
                         label?: "COVER" | "BANNER" | "AVATAR" | "LOGO" | undefined;
@@ -8438,10 +8438,10 @@ export declare const Create_Anime_Update_ZOD: z.ZodObject<{
                         default: string;
                         alias?: string[] | undefined;
                     };
+                    description?: string | undefined;
                     isGroupe?: boolean | undefined;
                     birthDate?: string | undefined;
                     deathDate?: string | undefined;
-                    bio?: string | undefined;
                     avatar?: {
                         id?: string | undefined;
                         label?: "COVER" | "BANNER" | "AVATAR" | "LOGO" | undefined;
@@ -8463,10 +8463,10 @@ export declare const Create_Anime_Update_ZOD: z.ZodObject<{
                         default: string;
                         alias?: string[] | undefined;
                     };
+                    description?: string | undefined;
                     isGroupe?: boolean | undefined;
                     birthDate?: string | undefined;
                     deathDate?: string | undefined;
-                    bio?: string | undefined;
                     avatar?: {
                         id?: string | undefined;
                         label?: "COVER" | "BANNER" | "AVATAR" | "LOGO" | undefined;
@@ -8548,10 +8548,10 @@ export declare const Create_Anime_Update_ZOD: z.ZodObject<{
                         default: string;
                         alias?: string[] | undefined;
                     };
+                    description?: string | undefined;
                     isGroupe?: boolean | undefined;
                     birthDate?: string | undefined;
                     deathDate?: string | undefined;
-                    bio?: string | undefined;
                     avatar?: {
                         id?: string | undefined;
                         label?: "COVER" | "BANNER" | "AVATAR" | "LOGO" | undefined;
@@ -8594,10 +8594,10 @@ export declare const Create_Anime_Update_ZOD: z.ZodObject<{
                         default: string;
                         alias?: string[] | undefined;
                     };
+                    description?: string | undefined;
                     isGroupe?: boolean | undefined;
                     birthDate?: string | undefined;
                     deathDate?: string | undefined;
-                    bio?: string | undefined;
                     avatar?: {
                         id?: string | undefined;
                         label?: "COVER" | "BANNER" | "AVATAR" | "LOGO" | undefined;
@@ -8643,10 +8643,10 @@ export declare const Create_Anime_Update_ZOD: z.ZodObject<{
                         default: string;
                         alias?: string[] | undefined;
                     };
+                    description?: string | undefined;
                     isGroupe?: boolean | undefined;
                     birthDate?: string | undefined;
                     deathDate?: string | undefined;
-                    bio?: string | undefined;
                     avatar?: {
                         id?: string | undefined;
                         label?: "COVER" | "BANNER" | "AVATAR" | "LOGO" | undefined;
@@ -8692,10 +8692,10 @@ export declare const Create_Anime_Update_ZOD: z.ZodObject<{
                         default: string;
                         alias?: string[] | undefined;
                     };
+                    description?: string | undefined;
                     isGroupe?: boolean | undefined;
                     birthDate?: string | undefined;
                     deathDate?: string | undefined;
-                    bio?: string | undefined;
                     avatar?: {
                         id?: string | undefined;
                         label?: "COVER" | "BANNER" | "AVATAR" | "LOGO" | undefined;
@@ -8753,10 +8753,10 @@ export declare const Create_Anime_Update_ZOD: z.ZodObject<{
                 default: string;
                 alias?: string[] | undefined;
             };
+            description?: string | undefined;
             isGroupe?: boolean | undefined;
             birthDate?: string | undefined;
             deathDate?: string | undefined;
-            bio?: string | undefined;
             avatar?: {
                 id?: string | undefined;
                 label?: "COVER" | "BANNER" | "AVATAR" | "LOGO" | undefined;
@@ -8777,7 +8777,7 @@ export declare const Create_Anime_Update_ZOD: z.ZodObject<{
         newCompany?: {
             type: "STUDIO" | "PRODUCER";
             name: string;
-            bio?: string | undefined;
+            description?: string | undefined;
             links?: {
                 value: string;
                 name: string;
@@ -8803,8 +8803,8 @@ export declare const Create_Anime_Update_ZOD: z.ZodObject<{
             };
             gender: "MASCULIN" | "FEMININ" | "NEUTRE" | "TRANSGENRE" | "NON_BINAIRE" | "GENRE_FLUIDE" | "AUTRE";
             species: "AUTRE" | "HUMAIN" | "ELFE" | "NAIN" | "LEZARD" | "DRAGON" | "ORC";
+            description?: string | undefined;
             birthDate?: string | undefined;
-            bio?: string | undefined;
             avatar?: {
                 id?: string | undefined;
                 label?: "COVER" | "BANNER" | "AVATAR" | "LOGO" | undefined;
@@ -8821,10 +8821,10 @@ export declare const Create_Anime_Update_ZOD: z.ZodObject<{
                         default: string;
                         alias?: string[] | undefined;
                     };
+                    description?: string | undefined;
                     isGroupe?: boolean | undefined;
                     birthDate?: string | undefined;
                     deathDate?: string | undefined;
-                    bio?: string | undefined;
                     avatar?: {
                         id?: string | undefined;
                         label?: "COVER" | "BANNER" | "AVATAR" | "LOGO" | undefined;
@@ -8878,10 +8878,10 @@ export declare const Create_Anime_Update_ZOD: z.ZodObject<{
                         default: string;
                         alias?: string[] | undefined;
                     };
+                    description?: string | undefined;
                     isGroupe?: boolean | undefined;
                     birthDate?: string | undefined;
                     deathDate?: string | undefined;
-                    bio?: string | undefined;
                     avatar?: {
                         id?: string | undefined;
                         label?: "COVER" | "BANNER" | "AVATAR" | "LOGO" | undefined;
@@ -8946,10 +8946,10 @@ export declare const Create_Anime_Update_ZOD: z.ZodObject<{
                 default: string;
                 alias?: string[] | undefined;
             };
+            description?: string | undefined;
             isGroupe?: boolean | undefined;
             birthDate?: string | undefined;
             deathDate?: string | undefined;
-            bio?: string | undefined;
             avatar?: {
                 id?: string | undefined;
                 label?: "COVER" | "BANNER" | "AVATAR" | "LOGO" | undefined;
@@ -8970,7 +8970,7 @@ export declare const Create_Anime_Update_ZOD: z.ZodObject<{
         newCompany?: {
             type: "STUDIO" | "PRODUCER";
             name: string;
-            bio?: string | undefined;
+            description?: string | undefined;
             links?: {
                 value: string;
                 name: string;
@@ -8996,8 +8996,8 @@ export declare const Create_Anime_Update_ZOD: z.ZodObject<{
             };
             gender: "MASCULIN" | "FEMININ" | "NEUTRE" | "TRANSGENRE" | "NON_BINAIRE" | "GENRE_FLUIDE" | "AUTRE";
             species: "AUTRE" | "HUMAIN" | "ELFE" | "NAIN" | "LEZARD" | "DRAGON" | "ORC";
+            description?: string | undefined;
             birthDate?: string | undefined;
-            bio?: string | undefined;
             avatar?: {
                 id?: string | undefined;
                 label?: "COVER" | "BANNER" | "AVATAR" | "LOGO" | undefined;
@@ -9014,10 +9014,10 @@ export declare const Create_Anime_Update_ZOD: z.ZodObject<{
                         default: string;
                         alias?: string[] | undefined;
                     };
+                    description?: string | undefined;
                     isGroupe?: boolean | undefined;
                     birthDate?: string | undefined;
                     deathDate?: string | undefined;
-                    bio?: string | undefined;
                     avatar?: {
                         id?: string | undefined;
                         label?: "COVER" | "BANNER" | "AVATAR" | "LOGO" | undefined;
@@ -9071,10 +9071,10 @@ export declare const Create_Anime_Update_ZOD: z.ZodObject<{
                         default: string;
                         alias?: string[] | undefined;
                     };
+                    description?: string | undefined;
                     isGroupe?: boolean | undefined;
                     birthDate?: string | undefined;
                     deathDate?: string | undefined;
-                    bio?: string | undefined;
                     avatar?: {
                         id?: string | undefined;
                         label?: "COVER" | "BANNER" | "AVATAR" | "LOGO" | undefined;
@@ -9154,10 +9154,10 @@ export declare const AnimeDataToZOD: (data: IAnime) => {
                 default: string;
                 alias?: string[] | undefined;
             };
+            description?: string | undefined;
             isGroupe?: boolean | undefined;
             birthDate?: string | undefined;
             deathDate?: string | undefined;
-            bio?: string | undefined;
             avatar?: {
                 id?: string | undefined;
                 label?: "COVER" | "BANNER" | "AVATAR" | "LOGO" | undefined;
@@ -9178,7 +9178,7 @@ export declare const AnimeDataToZOD: (data: IAnime) => {
         newCompany?: {
             type: "STUDIO" | "PRODUCER";
             name: string;
-            bio?: string | undefined;
+            description?: string | undefined;
             links?: {
                 value: string;
                 name: string;
@@ -9204,8 +9204,8 @@ export declare const AnimeDataToZOD: (data: IAnime) => {
             };
             gender: "MASCULIN" | "FEMININ" | "NEUTRE" | "TRANSGENRE" | "NON_BINAIRE" | "GENRE_FLUIDE" | "AUTRE";
             species: "AUTRE" | "HUMAIN" | "ELFE" | "NAIN" | "LEZARD" | "DRAGON" | "ORC";
+            description?: string | undefined;
             birthDate?: string | undefined;
-            bio?: string | undefined;
             avatar?: {
                 id?: string | undefined;
                 label?: "COVER" | "BANNER" | "AVATAR" | "LOGO" | undefined;
@@ -9222,10 +9222,10 @@ export declare const AnimeDataToZOD: (data: IAnime) => {
                         default: string;
                         alias?: string[] | undefined;
                     };
+                    description?: string | undefined;
                     isGroupe?: boolean | undefined;
                     birthDate?: string | undefined;
                     deathDate?: string | undefined;
-                    bio?: string | undefined;
                     avatar?: {
                         id?: string | undefined;
                         label?: "COVER" | "BANNER" | "AVATAR" | "LOGO" | undefined;
@@ -9283,10 +9283,10 @@ export declare const AnimeDataToZOD: (data: IAnime) => {
                         default: string;
                         alias?: string[] | undefined;
                     };
+                    description?: string | undefined;
                     isGroupe?: boolean | undefined;
                     birthDate?: string | undefined;
                     deathDate?: string | undefined;
-                    bio?: string | undefined;
                     avatar?: {
                         id?: string | undefined;
                         label?: "COVER" | "BANNER" | "AVATAR" | "LOGO" | undefined;

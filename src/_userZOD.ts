@@ -29,7 +29,7 @@ export const UserPaginationBody = PaginationBody.extend({
 export const UserMutationBody = z.object({
   username: z.string(),
   displayName: z.string().min(3, "Le pseudonyme doit contenir au moins 3 caractères").max(18, "Le pseudonyme doit contenir au maximum 18 caractères"),
-  bio: z.optional(z.string()),
+  description: z.optional(z.string()),
   avatar: z.optional(Add_Image_ZOD),
   banner: z.optional(Add_Image_ZOD),
 })
@@ -73,7 +73,7 @@ export const Patch_User_ZOD = z
   .object({
     username: z.string().optional(),
     displayName: z.string().optional(),
-    bio: z.string().optional(),
+    description: z.string().optional(),
     roles: z.array(z.enum(UserRolesArray)).optional(),
     avatar: z.optional(Add_Image_ZOD),
     banner: z.optional(Add_Image_ZOD),
@@ -107,7 +107,7 @@ export const UserDataToZOD = (data: IUser): Partial<IPatch_User_ZOD> => {
   let toZOD: Partial<IPatch_User_ZOD> = {
     username: data.username,
     displayName: data.displayName,
-    bio: data.bio,
+    description: data.description,
     roles: data.roles,
     avatar: data.avatar,
     banner: data.banner,

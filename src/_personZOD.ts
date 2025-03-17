@@ -16,7 +16,7 @@ export const Base_Create_Person_ZOD = z
     name: PersonName_validation,
     birthDate: z.optional(z.string()),
     deathDate: z.optional(z.string()),
-    bio: z.optional(z.string()),
+    description: z.optional(z.string()),
     avatar: z.optional(Add_Image_ZOD),
     links: z.optional(z.array(Create_Link_ZOD)),
   })
@@ -105,7 +105,7 @@ export const PersonDataToZOD = (data: IPerson) => {
     name: data.name,
     birthDate: dateToZod(data.birthDate),
     deathDate: dateToZod(data.deathDate),
-    bio: data.bio,
+    description: data.description,
     avatar: data.avatar,
     links: data.links,
   };

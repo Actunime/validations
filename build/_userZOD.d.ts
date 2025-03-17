@@ -126,7 +126,7 @@ export declare const UserPaginationBody: z.ZodObject<z.objectUtil.extendShape<{
 export declare const UserMutationBody: z.ZodObject<{
     username: z.ZodString;
     displayName: z.ZodString;
-    bio: z.ZodOptional<z.ZodString>;
+    description: z.ZodOptional<z.ZodString>;
     avatar: z.ZodOptional<z.ZodObject<{
         id: z.ZodOptional<z.ZodString>;
         label: z.ZodOptional<z.ZodEnum<("COVER" | "BANNER" | "AVATAR" | "LOGO")[] & [string, ...string[]]>>;
@@ -194,7 +194,7 @@ export declare const UserMutationBody: z.ZodObject<{
             label: "COVER" | "BANNER" | "AVATAR" | "LOGO";
         } | undefined;
     } | undefined;
-    bio?: string | undefined;
+    description?: string | undefined;
     avatar?: {
         id?: string | undefined;
         label?: "COVER" | "BANNER" | "AVATAR" | "LOGO" | undefined;
@@ -214,7 +214,7 @@ export declare const UserMutationBody: z.ZodObject<{
             label: "COVER" | "BANNER" | "AVATAR" | "LOGO";
         } | undefined;
     } | undefined;
-    bio?: string | undefined;
+    description?: string | undefined;
     avatar?: {
         id?: string | undefined;
         label?: "COVER" | "BANNER" | "AVATAR" | "LOGO" | undefined;
@@ -307,7 +307,7 @@ export type IUser_Pagination_ZOD = z.infer<typeof User_Pagination_ZOD>;
 export declare const Patch_User_ZOD: z.ZodObject<{
     username: z.ZodOptional<z.ZodOptional<z.ZodString>>;
     displayName: z.ZodOptional<z.ZodOptional<z.ZodString>>;
-    bio: z.ZodOptional<z.ZodOptional<z.ZodString>>;
+    description: z.ZodOptional<z.ZodOptional<z.ZodString>>;
     roles: z.ZodOptional<z.ZodOptional<z.ZodArray<z.ZodEnum<("MEMBER" | "PREMIUM" | "MODERATOR" | "ANIME_MODERATOR" | "MANGA_MODERATOR" | "CHARACTER_MODERATOR" | "PERSON_MODERATOR" | "TRACK_MODERATOR" | "COMPANY_MODERATOR" | "ADMINISTRATOR" | "ACTUNIME")[] & [string, ...string[]]>, "many">>>;
     avatar: z.ZodOptional<z.ZodOptional<z.ZodObject<{
         id: z.ZodOptional<z.ZodString>;
@@ -374,7 +374,7 @@ export declare const Patch_User_ZOD: z.ZodObject<{
             label: "COVER" | "BANNER" | "AVATAR" | "LOGO";
         } | undefined;
     } | undefined;
-    bio?: string | undefined;
+    description?: string | undefined;
     avatar?: {
         id?: string | undefined;
         label?: "COVER" | "BANNER" | "AVATAR" | "LOGO" | undefined;
@@ -395,7 +395,7 @@ export declare const Patch_User_ZOD: z.ZodObject<{
             label: "COVER" | "BANNER" | "AVATAR" | "LOGO";
         } | undefined;
     } | undefined;
-    bio?: string | undefined;
+    description?: string | undefined;
     avatar?: {
         id?: string | undefined;
         label?: "COVER" | "BANNER" | "AVATAR" | "LOGO" | undefined;
@@ -413,7 +413,7 @@ export declare const Patch_User_ZOD_FORM: z.ZodObject<{
     data: z.ZodObject<{
         username: z.ZodOptional<z.ZodOptional<z.ZodString>>;
         displayName: z.ZodOptional<z.ZodOptional<z.ZodString>>;
-        bio: z.ZodOptional<z.ZodOptional<z.ZodString>>;
+        description: z.ZodOptional<z.ZodOptional<z.ZodString>>;
         roles: z.ZodOptional<z.ZodOptional<z.ZodArray<z.ZodEnum<("MEMBER" | "PREMIUM" | "MODERATOR" | "ANIME_MODERATOR" | "MANGA_MODERATOR" | "CHARACTER_MODERATOR" | "PERSON_MODERATOR" | "TRACK_MODERATOR" | "COMPANY_MODERATOR" | "ADMINISTRATOR" | "ACTUNIME")[] & [string, ...string[]]>, "many">>>;
         avatar: z.ZodOptional<z.ZodOptional<z.ZodObject<{
             id: z.ZodOptional<z.ZodString>;
@@ -480,7 +480,7 @@ export declare const Patch_User_ZOD_FORM: z.ZodObject<{
                 label: "COVER" | "BANNER" | "AVATAR" | "LOGO";
             } | undefined;
         } | undefined;
-        bio?: string | undefined;
+        description?: string | undefined;
         avatar?: {
             id?: string | undefined;
             label?: "COVER" | "BANNER" | "AVATAR" | "LOGO" | undefined;
@@ -501,7 +501,7 @@ export declare const Patch_User_ZOD_FORM: z.ZodObject<{
                 label: "COVER" | "BANNER" | "AVATAR" | "LOGO";
             } | undefined;
         } | undefined;
-        bio?: string | undefined;
+        description?: string | undefined;
         avatar?: {
             id?: string | undefined;
             label?: "COVER" | "BANNER" | "AVATAR" | "LOGO" | undefined;
@@ -525,7 +525,7 @@ export declare const Patch_User_ZOD_FORM: z.ZodObject<{
                 label: "COVER" | "BANNER" | "AVATAR" | "LOGO";
             } | undefined;
         } | undefined;
-        bio?: string | undefined;
+        description?: string | undefined;
         avatar?: {
             id?: string | undefined;
             label?: "COVER" | "BANNER" | "AVATAR" | "LOGO" | undefined;
@@ -549,7 +549,7 @@ export declare const Patch_User_ZOD_FORM: z.ZodObject<{
                 label: "COVER" | "BANNER" | "AVATAR" | "LOGO";
             } | undefined;
         } | undefined;
-        bio?: string | undefined;
+        description?: string | undefined;
         avatar?: {
             id?: string | undefined;
             label?: "COVER" | "BANNER" | "AVATAR" | "LOGO" | undefined;

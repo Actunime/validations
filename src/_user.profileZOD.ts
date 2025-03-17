@@ -7,7 +7,7 @@ export const Patch_UserProfile_ZOD = z
   .object({
     username: z.string().optional(),
     displayName: z.string().optional(),
-    bio: z.string().optional(),
+    description: z.string().optional(),
     roles: z.array(z.enum(UserRolesArray)).optional(),
     avatar: z.optional(Add_Image_ZOD),
     banner: z.optional(Add_Image_ZOD),
@@ -29,7 +29,7 @@ export const UserDataToPatchProfileZOD = (data: IUser): Partial<IPatch_UserProfi
   let toZOD: Partial<IPatch_UserProfile_ZOD> = {
     username: data.username,
     displayName: data.displayName,
-    bio: data.bio,
+    description: data.description,
     roles: data.roles,
     avatar: data.avatar,
     banner: data.banner,

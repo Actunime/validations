@@ -496,7 +496,7 @@ export declare const Create_Track_ZOD: z.ZodObject<{
             }>;
             birthDate: z.ZodOptional<z.ZodString>;
             deathDate: z.ZodOptional<z.ZodString>;
-            bio: z.ZodOptional<z.ZodString>;
+            description: z.ZodOptional<z.ZodString>;
             avatar: z.ZodOptional<z.ZodObject<{
                 id: z.ZodOptional<z.ZodString>;
                 label: z.ZodOptional<z.ZodEnum<("COVER" | "BANNER" | "AVATAR" | "LOGO")[] & [string, ...string[]]>>;
@@ -540,10 +540,10 @@ export declare const Create_Track_ZOD: z.ZodObject<{
                 default: string;
                 alias?: string[] | undefined;
             };
+            description?: string | undefined;
             isGroupe?: boolean | undefined;
             birthDate?: string | undefined;
             deathDate?: string | undefined;
-            bio?: string | undefined;
             avatar?: {
                 id?: string | undefined;
                 label?: "COVER" | "BANNER" | "AVATAR" | "LOGO" | undefined;
@@ -561,10 +561,10 @@ export declare const Create_Track_ZOD: z.ZodObject<{
                 default: string;
                 alias?: string[] | undefined;
             };
+            description?: string | undefined;
             isGroupe?: boolean | undefined;
             birthDate?: string | undefined;
             deathDate?: string | undefined;
-            bio?: string | undefined;
             avatar?: {
                 id?: string | undefined;
                 label?: "COVER" | "BANNER" | "AVATAR" | "LOGO" | undefined;
@@ -586,10 +586,10 @@ export declare const Create_Track_ZOD: z.ZodObject<{
                 default: string;
                 alias?: string[] | undefined;
             };
+            description?: string | undefined;
             isGroupe?: boolean | undefined;
             birthDate?: string | undefined;
             deathDate?: string | undefined;
-            bio?: string | undefined;
             avatar?: {
                 id?: string | undefined;
                 label?: "COVER" | "BANNER" | "AVATAR" | "LOGO" | undefined;
@@ -611,10 +611,10 @@ export declare const Create_Track_ZOD: z.ZodObject<{
                 default: string;
                 alias?: string[] | undefined;
             };
+            description?: string | undefined;
             isGroupe?: boolean | undefined;
             birthDate?: string | undefined;
             deathDate?: string | undefined;
-            bio?: string | undefined;
             avatar?: {
                 id?: string | undefined;
                 label?: "COVER" | "BANNER" | "AVATAR" | "LOGO" | undefined;
@@ -696,10 +696,10 @@ export declare const Create_Track_ZOD: z.ZodObject<{
                 default: string;
                 alias?: string[] | undefined;
             };
+            description?: string | undefined;
             isGroupe?: boolean | undefined;
             birthDate?: string | undefined;
             deathDate?: string | undefined;
-            bio?: string | undefined;
             avatar?: {
                 id?: string | undefined;
                 label?: "COVER" | "BANNER" | "AVATAR" | "LOGO" | undefined;
@@ -742,10 +742,10 @@ export declare const Create_Track_ZOD: z.ZodObject<{
                 default: string;
                 alias?: string[] | undefined;
             };
+            description?: string | undefined;
             isGroupe?: boolean | undefined;
             birthDate?: string | undefined;
             deathDate?: string | undefined;
-            bio?: string | undefined;
             avatar?: {
                 id?: string | undefined;
                 label?: "COVER" | "BANNER" | "AVATAR" | "LOGO" | undefined;
@@ -796,7 +796,7 @@ export declare const TrackCreateBody: z.ZodObject<z.objectUtil.extendShape<{
                 }>;
                 birthDate: z.ZodOptional<z.ZodString>;
                 deathDate: z.ZodOptional<z.ZodString>;
-                bio: z.ZodOptional<z.ZodString>;
+                description: z.ZodOptional<z.ZodString>;
                 avatar: z.ZodOptional<z.ZodObject<{
                     id: z.ZodOptional<z.ZodString>;
                     label: z.ZodOptional<z.ZodEnum<("COVER" | "BANNER" | "AVATAR" | "LOGO")[] & [string, ...string[]]>>;
@@ -840,10 +840,10 @@ export declare const TrackCreateBody: z.ZodObject<z.objectUtil.extendShape<{
                     default: string;
                     alias?: string[] | undefined;
                 };
+                description?: string | undefined;
                 isGroupe?: boolean | undefined;
                 birthDate?: string | undefined;
                 deathDate?: string | undefined;
-                bio?: string | undefined;
                 avatar?: {
                     id?: string | undefined;
                     label?: "COVER" | "BANNER" | "AVATAR" | "LOGO" | undefined;
@@ -861,10 +861,10 @@ export declare const TrackCreateBody: z.ZodObject<z.objectUtil.extendShape<{
                     default: string;
                     alias?: string[] | undefined;
                 };
+                description?: string | undefined;
                 isGroupe?: boolean | undefined;
                 birthDate?: string | undefined;
                 deathDate?: string | undefined;
-                bio?: string | undefined;
                 avatar?: {
                     id?: string | undefined;
                     label?: "COVER" | "BANNER" | "AVATAR" | "LOGO" | undefined;
@@ -886,10 +886,10 @@ export declare const TrackCreateBody: z.ZodObject<z.objectUtil.extendShape<{
                     default: string;
                     alias?: string[] | undefined;
                 };
+                description?: string | undefined;
                 isGroupe?: boolean | undefined;
                 birthDate?: string | undefined;
                 deathDate?: string | undefined;
-                bio?: string | undefined;
                 avatar?: {
                     id?: string | undefined;
                     label?: "COVER" | "BANNER" | "AVATAR" | "LOGO" | undefined;
@@ -911,10 +911,10 @@ export declare const TrackCreateBody: z.ZodObject<z.objectUtil.extendShape<{
                     default: string;
                     alias?: string[] | undefined;
                 };
+                description?: string | undefined;
                 isGroupe?: boolean | undefined;
                 birthDate?: string | undefined;
                 deathDate?: string | undefined;
-                bio?: string | undefined;
                 avatar?: {
                     id?: string | undefined;
                     label?: "COVER" | "BANNER" | "AVATAR" | "LOGO" | undefined;
@@ -996,10 +996,10 @@ export declare const TrackCreateBody: z.ZodObject<z.objectUtil.extendShape<{
                     default: string;
                     alias?: string[] | undefined;
                 };
+                description?: string | undefined;
                 isGroupe?: boolean | undefined;
                 birthDate?: string | undefined;
                 deathDate?: string | undefined;
-                bio?: string | undefined;
                 avatar?: {
                     id?: string | undefined;
                     label?: "COVER" | "BANNER" | "AVATAR" | "LOGO" | undefined;
@@ -1042,10 +1042,10 @@ export declare const TrackCreateBody: z.ZodObject<z.objectUtil.extendShape<{
                     default: string;
                     alias?: string[] | undefined;
                 };
+                description?: string | undefined;
                 isGroupe?: boolean | undefined;
                 birthDate?: string | undefined;
                 deathDate?: string | undefined;
-                bio?: string | undefined;
                 avatar?: {
                     id?: string | undefined;
                     label?: "COVER" | "BANNER" | "AVATAR" | "LOGO" | undefined;
@@ -1090,10 +1090,10 @@ export declare const TrackCreateBody: z.ZodObject<z.objectUtil.extendShape<{
                     default: string;
                     alias?: string[] | undefined;
                 };
+                description?: string | undefined;
                 isGroupe?: boolean | undefined;
                 birthDate?: string | undefined;
                 deathDate?: string | undefined;
-                bio?: string | undefined;
                 avatar?: {
                     id?: string | undefined;
                     label?: "COVER" | "BANNER" | "AVATAR" | "LOGO" | undefined;
@@ -1140,10 +1140,10 @@ export declare const TrackCreateBody: z.ZodObject<z.objectUtil.extendShape<{
                     default: string;
                     alias?: string[] | undefined;
                 };
+                description?: string | undefined;
                 isGroupe?: boolean | undefined;
                 birthDate?: string | undefined;
                 deathDate?: string | undefined;
-                bio?: string | undefined;
                 avatar?: {
                     id?: string | undefined;
                     label?: "COVER" | "BANNER" | "AVATAR" | "LOGO" | undefined;
@@ -1195,7 +1195,7 @@ export declare const Create_Track_ZOD_FORM: z.ZodObject<{
                 }>;
                 birthDate: z.ZodOptional<z.ZodString>;
                 deathDate: z.ZodOptional<z.ZodString>;
-                bio: z.ZodOptional<z.ZodString>;
+                description: z.ZodOptional<z.ZodString>;
                 avatar: z.ZodOptional<z.ZodObject<{
                     id: z.ZodOptional<z.ZodString>;
                     label: z.ZodOptional<z.ZodEnum<("COVER" | "BANNER" | "AVATAR" | "LOGO")[] & [string, ...string[]]>>;
@@ -1239,10 +1239,10 @@ export declare const Create_Track_ZOD_FORM: z.ZodObject<{
                     default: string;
                     alias?: string[] | undefined;
                 };
+                description?: string | undefined;
                 isGroupe?: boolean | undefined;
                 birthDate?: string | undefined;
                 deathDate?: string | undefined;
-                bio?: string | undefined;
                 avatar?: {
                     id?: string | undefined;
                     label?: "COVER" | "BANNER" | "AVATAR" | "LOGO" | undefined;
@@ -1260,10 +1260,10 @@ export declare const Create_Track_ZOD_FORM: z.ZodObject<{
                     default: string;
                     alias?: string[] | undefined;
                 };
+                description?: string | undefined;
                 isGroupe?: boolean | undefined;
                 birthDate?: string | undefined;
                 deathDate?: string | undefined;
-                bio?: string | undefined;
                 avatar?: {
                     id?: string | undefined;
                     label?: "COVER" | "BANNER" | "AVATAR" | "LOGO" | undefined;
@@ -1285,10 +1285,10 @@ export declare const Create_Track_ZOD_FORM: z.ZodObject<{
                     default: string;
                     alias?: string[] | undefined;
                 };
+                description?: string | undefined;
                 isGroupe?: boolean | undefined;
                 birthDate?: string | undefined;
                 deathDate?: string | undefined;
-                bio?: string | undefined;
                 avatar?: {
                     id?: string | undefined;
                     label?: "COVER" | "BANNER" | "AVATAR" | "LOGO" | undefined;
@@ -1310,10 +1310,10 @@ export declare const Create_Track_ZOD_FORM: z.ZodObject<{
                     default: string;
                     alias?: string[] | undefined;
                 };
+                description?: string | undefined;
                 isGroupe?: boolean | undefined;
                 birthDate?: string | undefined;
                 deathDate?: string | undefined;
-                bio?: string | undefined;
                 avatar?: {
                     id?: string | undefined;
                     label?: "COVER" | "BANNER" | "AVATAR" | "LOGO" | undefined;
@@ -1395,10 +1395,10 @@ export declare const Create_Track_ZOD_FORM: z.ZodObject<{
                     default: string;
                     alias?: string[] | undefined;
                 };
+                description?: string | undefined;
                 isGroupe?: boolean | undefined;
                 birthDate?: string | undefined;
                 deathDate?: string | undefined;
-                bio?: string | undefined;
                 avatar?: {
                     id?: string | undefined;
                     label?: "COVER" | "BANNER" | "AVATAR" | "LOGO" | undefined;
@@ -1441,10 +1441,10 @@ export declare const Create_Track_ZOD_FORM: z.ZodObject<{
                     default: string;
                     alias?: string[] | undefined;
                 };
+                description?: string | undefined;
                 isGroupe?: boolean | undefined;
                 birthDate?: string | undefined;
                 deathDate?: string | undefined;
-                bio?: string | undefined;
                 avatar?: {
                     id?: string | undefined;
                     label?: "COVER" | "BANNER" | "AVATAR" | "LOGO" | undefined;
@@ -1489,10 +1489,10 @@ export declare const Create_Track_ZOD_FORM: z.ZodObject<{
                     default: string;
                     alias?: string[] | undefined;
                 };
+                description?: string | undefined;
                 isGroupe?: boolean | undefined;
                 birthDate?: string | undefined;
                 deathDate?: string | undefined;
-                bio?: string | undefined;
                 avatar?: {
                     id?: string | undefined;
                     label?: "COVER" | "BANNER" | "AVATAR" | "LOGO" | undefined;
@@ -1538,10 +1538,10 @@ export declare const Create_Track_ZOD_FORM: z.ZodObject<{
                     default: string;
                     alias?: string[] | undefined;
                 };
+                description?: string | undefined;
                 isGroupe?: boolean | undefined;
                 birthDate?: string | undefined;
                 deathDate?: string | undefined;
-                bio?: string | undefined;
                 avatar?: {
                     id?: string | undefined;
                     label?: "COVER" | "BANNER" | "AVATAR" | "LOGO" | undefined;
@@ -1592,7 +1592,7 @@ export declare const Add_Track_ZOD: z.ZodObject<{
                 }>;
                 birthDate: z.ZodOptional<z.ZodString>;
                 deathDate: z.ZodOptional<z.ZodString>;
-                bio: z.ZodOptional<z.ZodString>;
+                description: z.ZodOptional<z.ZodString>;
                 avatar: z.ZodOptional<z.ZodObject<{
                     id: z.ZodOptional<z.ZodString>;
                     label: z.ZodOptional<z.ZodEnum<("COVER" | "BANNER" | "AVATAR" | "LOGO")[] & [string, ...string[]]>>;
@@ -1636,10 +1636,10 @@ export declare const Add_Track_ZOD: z.ZodObject<{
                     default: string;
                     alias?: string[] | undefined;
                 };
+                description?: string | undefined;
                 isGroupe?: boolean | undefined;
                 birthDate?: string | undefined;
                 deathDate?: string | undefined;
-                bio?: string | undefined;
                 avatar?: {
                     id?: string | undefined;
                     label?: "COVER" | "BANNER" | "AVATAR" | "LOGO" | undefined;
@@ -1657,10 +1657,10 @@ export declare const Add_Track_ZOD: z.ZodObject<{
                     default: string;
                     alias?: string[] | undefined;
                 };
+                description?: string | undefined;
                 isGroupe?: boolean | undefined;
                 birthDate?: string | undefined;
                 deathDate?: string | undefined;
-                bio?: string | undefined;
                 avatar?: {
                     id?: string | undefined;
                     label?: "COVER" | "BANNER" | "AVATAR" | "LOGO" | undefined;
@@ -1682,10 +1682,10 @@ export declare const Add_Track_ZOD: z.ZodObject<{
                     default: string;
                     alias?: string[] | undefined;
                 };
+                description?: string | undefined;
                 isGroupe?: boolean | undefined;
                 birthDate?: string | undefined;
                 deathDate?: string | undefined;
-                bio?: string | undefined;
                 avatar?: {
                     id?: string | undefined;
                     label?: "COVER" | "BANNER" | "AVATAR" | "LOGO" | undefined;
@@ -1707,10 +1707,10 @@ export declare const Add_Track_ZOD: z.ZodObject<{
                     default: string;
                     alias?: string[] | undefined;
                 };
+                description?: string | undefined;
                 isGroupe?: boolean | undefined;
                 birthDate?: string | undefined;
                 deathDate?: string | undefined;
-                bio?: string | undefined;
                 avatar?: {
                     id?: string | undefined;
                     label?: "COVER" | "BANNER" | "AVATAR" | "LOGO" | undefined;
@@ -1792,10 +1792,10 @@ export declare const Add_Track_ZOD: z.ZodObject<{
                     default: string;
                     alias?: string[] | undefined;
                 };
+                description?: string | undefined;
                 isGroupe?: boolean | undefined;
                 birthDate?: string | undefined;
                 deathDate?: string | undefined;
-                bio?: string | undefined;
                 avatar?: {
                     id?: string | undefined;
                     label?: "COVER" | "BANNER" | "AVATAR" | "LOGO" | undefined;
@@ -1838,10 +1838,10 @@ export declare const Add_Track_ZOD: z.ZodObject<{
                     default: string;
                     alias?: string[] | undefined;
                 };
+                description?: string | undefined;
                 isGroupe?: boolean | undefined;
                 birthDate?: string | undefined;
                 deathDate?: string | undefined;
-                bio?: string | undefined;
                 avatar?: {
                     id?: string | undefined;
                     label?: "COVER" | "BANNER" | "AVATAR" | "LOGO" | undefined;
@@ -1887,10 +1887,10 @@ export declare const Add_Track_ZOD: z.ZodObject<{
                     default: string;
                     alias?: string[] | undefined;
                 };
+                description?: string | undefined;
                 isGroupe?: boolean | undefined;
                 birthDate?: string | undefined;
                 deathDate?: string | undefined;
-                bio?: string | undefined;
                 avatar?: {
                     id?: string | undefined;
                     label?: "COVER" | "BANNER" | "AVATAR" | "LOGO" | undefined;
@@ -1936,10 +1936,10 @@ export declare const Add_Track_ZOD: z.ZodObject<{
                     default: string;
                     alias?: string[] | undefined;
                 };
+                description?: string | undefined;
                 isGroupe?: boolean | undefined;
                 birthDate?: string | undefined;
                 deathDate?: string | undefined;
-                bio?: string | undefined;
                 avatar?: {
                     id?: string | undefined;
                     label?: "COVER" | "BANNER" | "AVATAR" | "LOGO" | undefined;
@@ -1985,10 +1985,10 @@ export declare const TrackDataToZOD: (data: ITrack) => {
                 default: string;
                 alias?: string[] | undefined;
             };
+            description?: string | undefined;
             isGroupe?: boolean | undefined;
             birthDate?: string | undefined;
             deathDate?: string | undefined;
-            bio?: string | undefined;
             avatar?: {
                 id?: string | undefined;
                 label?: "COVER" | "BANNER" | "AVATAR" | "LOGO" | undefined;

@@ -23,7 +23,7 @@ export const Inscription_Zod_Schema = z.object({
         .min(2, "Le pseudonyme doit contenir au moins 2 caractères")
         .max(32, "Le pseudonyme doit contenir au maximum 32 caractères")
         .refine((v) => !z.string().url().safeParse(v).success, "Votre pseudonyme ne doit pas contenir de lien"),
-      bio: z.optional(z.string()
+      description: z.optional(z.string()
         .max(200, "Maximum de 200 caractères")
         .refine((v) => !z.string().url().safeParse(v).success, "La biographie ne doit pas contenir de lien")
       ),

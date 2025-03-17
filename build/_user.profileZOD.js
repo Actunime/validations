@@ -8,7 +8,7 @@ exports.Patch_UserProfile_ZOD = zod_1.z
     .object({
     username: zod_1.z.string().optional(),
     displayName: zod_1.z.string().optional(),
-    bio: zod_1.z.string().optional(),
+    description: zod_1.z.string().optional(),
     roles: zod_1.z.array(zod_1.z.enum(types_1.UserRolesArray)).optional(),
     avatar: zod_1.z.optional(_imageZOD_1.Add_Image_ZOD),
     banner: zod_1.z.optional(_imageZOD_1.Add_Image_ZOD),
@@ -24,7 +24,7 @@ const UserDataToPatchProfileZOD = (data) => {
     let toZOD = {
         username: data.username,
         displayName: data.displayName,
-        bio: data.bio,
+        description: data.description,
         roles: data.roles,
         avatar: data.avatar,
         banner: data.banner,

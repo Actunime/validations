@@ -52,7 +52,7 @@ exports.Create_Character_ZOD = zod_1.z
     birthDate: zod_1.z.optional(zod_1.z.string()),
     gender: zod_1.z.enum(types_1.CharacterGenderArray),
     species: zod_1.z.enum(types_1.CharacterSpeciesArray),
-    bio: zod_1.z.optional(zod_1.z.string()),
+    description: zod_1.z.optional(zod_1.z.string()),
     avatar: zod_1.z.optional(_imageZOD_1.Add_Image_ZOD),
     actors: zod_1.z.optional(zod_1.z.array(_personZOD_1.Add_Person_ZOD)),
 })
@@ -78,7 +78,7 @@ const CharacterDataToZOD = (data) => {
         birthDate: (0, types_1.dateToZod)(data.birthDate),
         gender: data.gender,
         species: data.species,
-        bio: data.bio,
+        description: data.description,
         avatar: data.avatar,
         actors: data.actors,
     };

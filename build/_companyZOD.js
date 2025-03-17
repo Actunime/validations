@@ -40,7 +40,7 @@ exports.Company_Pagination_ZOD = zod_1.z.object({
 exports.Create_Company_ZOD = zod_1.z.object({
     type: zod_1.z.enum(["STUDIO", "PRODUCER"]),
     name: zod_1.z.string(),
-    bio: zod_1.z.optional(zod_1.z.string()),
+    description: zod_1.z.optional(zod_1.z.string()),
     links: zod_1.z.optional(zod_1.z.array(_media_1.Create_Link_ZOD)),
     logo: zod_1.z.optional(_imageZOD_1.Add_Image_ZOD),
     createdDate: zod_1.z.optional(zod_1.z.string()),
@@ -63,7 +63,7 @@ const CompanyDataToZOD = (data) => {
     const toZOD = {
         type: data.type,
         name: data.name,
-        bio: data.bio,
+        description: data.description,
         links: data.links,
         logo: data.logo,
         createdDate: (0, types_1.dateToZod)(data.createdDate),

@@ -17,7 +17,7 @@ exports.Base_Create_Person_ZOD = zod_1.z
     name: exports.PersonName_validation,
     birthDate: zod_1.z.optional(zod_1.z.string()),
     deathDate: zod_1.z.optional(zod_1.z.string()),
-    bio: zod_1.z.optional(zod_1.z.string()),
+    description: zod_1.z.optional(zod_1.z.string()),
     avatar: zod_1.z.optional(_imageZOD_1.Add_Image_ZOD),
     links: zod_1.z.optional(zod_1.z.array(_media_1.Create_Link_ZOD)),
 })
@@ -81,7 +81,7 @@ const PersonDataToZOD = (data) => {
         name: data.name,
         birthDate: (0, types_1.dateToZod)(data.birthDate),
         deathDate: (0, types_1.dateToZod)(data.deathDate),
-        bio: data.bio,
+        description: data.description,
         avatar: data.avatar,
         links: data.links,
     };

@@ -46,7 +46,7 @@ export type ICompany_Pagination_ZOD = z.infer<typeof Company_Pagination_ZOD>;
 export const Create_Company_ZOD = z.object({
   type: z.enum(["STUDIO", "PRODUCER"]),
   name: z.string(),
-  bio: z.optional(z.string()),
+  description: z.optional(z.string()),
   links: z.optional(z.array(Create_Link_ZOD)),
   logo: z.optional(Add_Image_ZOD),
   createdDate: z.optional(z.string()),
@@ -84,7 +84,7 @@ export const CompanyDataToZOD = (
   const toZOD: ICreate_Company_ZOD = {
     type: data.type,
     name: data.name,
-    bio: data.bio,
+    description: data.description,
     links: data.links,
     logo: data.logo,
     createdDate: dateToZod(data.createdDate),
