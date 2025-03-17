@@ -67,6 +67,7 @@ exports.Anime_Pagination_ZOD = zod_1.z.object({
     query: exports.AnimeQueryBody.partial()
 });
 exports.AnimeCreateBody = _patchZOD_1.PatchParamsBody
+    .partial()
     .extend({
     data: zod_1.z.object({
         groupe: _groupeZOD_1.Add_Groupe_ZOD,

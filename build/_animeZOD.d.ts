@@ -1421,8 +1421,8 @@ export declare const Anime_Pagination_ZOD: z.ZodObject<{
 export type IAnime_Pagination_ZOD = z.infer<typeof Anime_Pagination_ZOD>;
 export type IAdd_Anime_ZOD = z.infer<typeof Add_Anime_ZOD>;
 export declare const AnimeCreateBody: z.ZodObject<z.objectUtil.extendShape<{
-    description: z.ZodString;
-    reason: z.ZodString;
+    description: z.ZodOptional<z.ZodString>;
+    reason: z.ZodOptional<z.ZodString>;
 }, {
     data: z.ZodEffects<z.ZodObject<{
         groupe: z.ZodObject<{
@@ -4296,8 +4296,6 @@ export declare const AnimeCreateBody: z.ZodObject<z.objectUtil.extendShape<{
         }[] | undefined;
     }>;
 }>, "strip", z.ZodTypeAny, {
-    reason: string;
-    description: string;
     data: {
         status: "AIRING" | "PAUSED" | "ENDED" | "STOPPED" | "POSTONED" | "SOON" | "any";
         title: {
@@ -4575,9 +4573,9 @@ export declare const AnimeCreateBody: z.ZodObject<z.objectUtil.extendShape<{
             } | undefined;
         }[] | undefined;
     };
+    reason?: string | undefined;
+    description?: string | undefined;
 }, {
-    reason: string;
-    description: string;
     data: {
         status: "AIRING" | "PAUSED" | "ENDED" | "STOPPED" | "POSTONED" | "SOON" | "any";
         title: {
@@ -4855,6 +4853,8 @@ export declare const AnimeCreateBody: z.ZodObject<z.objectUtil.extendShape<{
             } | undefined;
         }[] | undefined;
     };
+    reason?: string | undefined;
+    description?: string | undefined;
 }>;
 export type IAnimeCreateBody = z.infer<typeof AnimeCreateBody>;
 export declare const AnimeDataToZOD: (data: IAnime) => {
@@ -5134,8 +5134,6 @@ export declare const AnimeDataToZOD: (data: IAnime) => {
         } | undefined;
     }[] | undefined;
 } | {
-    reason: string;
-    description: string;
     data: {
         status: "AIRING" | "PAUSED" | "ENDED" | "STOPPED" | "POSTONED" | "SOON" | "any";
         title: {
@@ -5413,4 +5411,6 @@ export declare const AnimeDataToZOD: (data: IAnime) => {
             } | undefined;
         }[] | undefined;
     };
+    reason?: string | undefined;
+    description?: string | undefined;
 } | undefined;

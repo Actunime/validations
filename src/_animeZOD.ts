@@ -99,6 +99,7 @@ export type IAnime_Pagination_ZOD = z.infer<typeof Anime_Pagination_ZOD>;
 export type IAdd_Anime_ZOD = z.infer<typeof Add_Anime_ZOD>;
 
 export const AnimeCreateBody = PatchParamsBody
+  .partial()
   .extend({
     data: z.object({
       groupe: Add_Groupe_ZOD,
