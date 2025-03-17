@@ -113,7 +113,7 @@ export const Create_Anime_ZOD = z
     parent: z.optional(Add_Anime_ZOD.partial()),
     manga: z.optional(Add_Manga_ZOD.partial()),
     source: z.enum(MediaSourceArray),
-    title: MediaTitleZodSchema,
+    title: MediaTitleBody,
     date: z.optional(MediaDateZodSchema),
     cover: z.optional(Add_Image_ZOD.partial()),
     banner: z.optional(Add_Image_ZOD.partial()),

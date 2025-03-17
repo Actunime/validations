@@ -9,7 +9,7 @@ const _util_1 = require("./_util");
 const _imageZOD_1 = require("./_imageZOD");
 const _patchZOD_1 = require("./_patchZOD");
 exports.TrackQueryBody = zod_1.z.object({
-    name: zod_1.z.object({ default: zod_1.z.string(), alias: zod_1.z.optional(zod_1.z.array(zod_1.z.object({ content: zod_1.z.string() }))) }),
+    name: zod_1.z.object({ default: zod_1.z.string(), alias: zod_1.z.optional(zod_1.z.array(zod_1.z.string())) }),
     type: zod_1.z.enum(types_1.TrackTypeArray),
     pubDate: zod_1.z.string(),
     artists: _personZOD_1.PersonBody.partial(),
@@ -41,7 +41,7 @@ exports.Track_Pagination_ZOD = zod_1.z.object({
 });
 exports.Create_Track_ZOD = zod_1.z
     .object({
-    name: zod_1.z.object({ default: zod_1.z.string(), alias: zod_1.z.optional(zod_1.z.array(zod_1.z.object({ content: zod_1.z.string() }))) }),
+    name: zod_1.z.object({ default: zod_1.z.string(), alias: zod_1.z.optional(zod_1.z.array(zod_1.z.string())) }),
     type: zod_1.z.enum(types_1.TrackTypeArray),
     pubDate: zod_1.z.optional(zod_1.z.string()),
     artists: zod_1.z.optional(zod_1.z.array(_personZOD_1.Add_Person_ZOD)),

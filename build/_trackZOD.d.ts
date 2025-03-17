@@ -3,23 +3,13 @@ import { z } from "zod";
 export declare const TrackQueryBody: z.ZodObject<{
     name: z.ZodObject<{
         default: z.ZodString;
-        alias: z.ZodOptional<z.ZodArray<z.ZodObject<{
-            content: z.ZodString;
-        }, "strip", z.ZodTypeAny, {
-            content: string;
-        }, {
-            content: string;
-        }>, "many">>;
+        alias: z.ZodOptional<z.ZodArray<z.ZodString, "many">>;
     }, "strip", z.ZodTypeAny, {
         default: string;
-        alias?: {
-            content: string;
-        }[] | undefined;
+        alias?: string[] | undefined;
     }, {
         default: string;
-        alias?: {
-            content: string;
-        }[] | undefined;
+        alias?: string[] | undefined;
     }>;
     type: z.ZodEnum<("OPENING" | "ENDING" | "OST" | "INSERT")[] & [string, ...string[]]>;
     pubDate: z.ZodString;
@@ -61,9 +51,7 @@ export declare const TrackQueryBody: z.ZodObject<{
     };
     name: {
         default: string;
-        alias?: {
-            content: string;
-        }[] | undefined;
+        alias?: string[] | undefined;
     };
     createdAt: string;
     updatedAt: string;
@@ -84,9 +72,7 @@ export declare const TrackQueryBody: z.ZodObject<{
     };
     name: {
         default: string;
-        alias?: {
-            content: string;
-        }[] | undefined;
+        alias?: string[] | undefined;
     };
     createdAt: string;
     updatedAt: string;
@@ -140,23 +126,13 @@ export declare const TrackPaginationBody: z.ZodObject<{
     query: z.ZodOptional<z.ZodObject<{
         name: z.ZodOptional<z.ZodObject<{
             default: z.ZodString;
-            alias: z.ZodOptional<z.ZodArray<z.ZodObject<{
-                content: z.ZodString;
-            }, "strip", z.ZodTypeAny, {
-                content: string;
-            }, {
-                content: string;
-            }>, "many">>;
+            alias: z.ZodOptional<z.ZodArray<z.ZodString, "many">>;
         }, "strip", z.ZodTypeAny, {
             default: string;
-            alias?: {
-                content: string;
-            }[] | undefined;
+            alias?: string[] | undefined;
         }, {
             default: string;
-            alias?: {
-                content: string;
-            }[] | undefined;
+            alias?: string[] | undefined;
         }>>;
         type: z.ZodOptional<z.ZodEnum<("OPENING" | "ENDING" | "OST" | "INSERT")[] & [string, ...string[]]>>;
         pubDate: z.ZodOptional<z.ZodString>;
@@ -198,9 +174,7 @@ export declare const TrackPaginationBody: z.ZodObject<{
         } | undefined;
         name?: {
             default: string;
-            alias?: {
-                content: string;
-            }[] | undefined;
+            alias?: string[] | undefined;
         } | undefined;
         createdAt?: string | undefined;
         updatedAt?: string | undefined;
@@ -221,9 +195,7 @@ export declare const TrackPaginationBody: z.ZodObject<{
         } | undefined;
         name?: {
             default: string;
-            alias?: {
-                content: string;
-            }[] | undefined;
+            alias?: string[] | undefined;
         } | undefined;
         createdAt?: string | undefined;
         updatedAt?: string | undefined;
@@ -266,9 +238,7 @@ export declare const TrackPaginationBody: z.ZodObject<{
         } | undefined;
         name?: {
             default: string;
-            alias?: {
-                content: string;
-            }[] | undefined;
+            alias?: string[] | undefined;
         } | undefined;
         createdAt?: string | undefined;
         updatedAt?: string | undefined;
@@ -305,9 +275,7 @@ export declare const TrackPaginationBody: z.ZodObject<{
         } | undefined;
         name?: {
             default: string;
-            alias?: {
-                content: string;
-            }[] | undefined;
+            alias?: string[] | undefined;
         } | undefined;
         createdAt?: string | undefined;
         updatedAt?: string | undefined;
@@ -350,23 +318,13 @@ export declare const Track_Pagination_ZOD: z.ZodObject<{
     query: z.ZodObject<{
         name: z.ZodOptional<z.ZodObject<{
             default: z.ZodString;
-            alias: z.ZodOptional<z.ZodArray<z.ZodObject<{
-                content: z.ZodString;
-            }, "strip", z.ZodTypeAny, {
-                content: string;
-            }, {
-                content: string;
-            }>, "many">>;
+            alias: z.ZodOptional<z.ZodArray<z.ZodString, "many">>;
         }, "strip", z.ZodTypeAny, {
             default: string;
-            alias?: {
-                content: string;
-            }[] | undefined;
+            alias?: string[] | undefined;
         }, {
             default: string;
-            alias?: {
-                content: string;
-            }[] | undefined;
+            alias?: string[] | undefined;
         }>>;
         type: z.ZodOptional<z.ZodEnum<("OPENING" | "ENDING" | "OST" | "INSERT")[] & [string, ...string[]]>>;
         pubDate: z.ZodOptional<z.ZodString>;
@@ -408,9 +366,7 @@ export declare const Track_Pagination_ZOD: z.ZodObject<{
         } | undefined;
         name?: {
             default: string;
-            alias?: {
-                content: string;
-            }[] | undefined;
+            alias?: string[] | undefined;
         } | undefined;
         createdAt?: string | undefined;
         updatedAt?: string | undefined;
@@ -431,9 +387,7 @@ export declare const Track_Pagination_ZOD: z.ZodObject<{
         } | undefined;
         name?: {
             default: string;
-            alias?: {
-                content: string;
-            }[] | undefined;
+            alias?: string[] | undefined;
         } | undefined;
         createdAt?: string | undefined;
         updatedAt?: string | undefined;
@@ -465,9 +419,7 @@ export declare const Track_Pagination_ZOD: z.ZodObject<{
         } | undefined;
         name?: {
             default: string;
-            alias?: {
-                content: string;
-            }[] | undefined;
+            alias?: string[] | undefined;
         } | undefined;
         createdAt?: string | undefined;
         updatedAt?: string | undefined;
@@ -499,9 +451,7 @@ export declare const Track_Pagination_ZOD: z.ZodObject<{
         } | undefined;
         name?: {
             default: string;
-            alias?: {
-                content: string;
-            }[] | undefined;
+            alias?: string[] | undefined;
         } | undefined;
         createdAt?: string | undefined;
         updatedAt?: string | undefined;
@@ -520,23 +470,13 @@ export type ITrack_Pagination_ZOD = z.infer<typeof Track_Pagination_ZOD>;
 export declare const Create_Track_ZOD: z.ZodObject<{
     name: z.ZodObject<{
         default: z.ZodString;
-        alias: z.ZodOptional<z.ZodArray<z.ZodObject<{
-            content: z.ZodString;
-        }, "strip", z.ZodTypeAny, {
-            content: string;
-        }, {
-            content: string;
-        }>, "many">>;
+        alias: z.ZodOptional<z.ZodArray<z.ZodString, "many">>;
     }, "strip", z.ZodTypeAny, {
         default: string;
-        alias?: {
-            content: string;
-        }[] | undefined;
+        alias?: string[] | undefined;
     }, {
         default: string;
-        alias?: {
-            content: string;
-        }[] | undefined;
+        alias?: string[] | undefined;
     }>;
     type: z.ZodEnum<("OPENING" | "ENDING" | "OST" | "INSERT")[] & [string, ...string[]]>;
     pubDate: z.ZodOptional<z.ZodString>;
@@ -546,23 +486,13 @@ export declare const Create_Track_ZOD: z.ZodObject<{
             isGroupe: z.ZodOptional<z.ZodBoolean>;
             name: z.ZodObject<{
                 default: z.ZodString;
-                alias: z.ZodOptional<z.ZodArray<z.ZodObject<{
-                    content: z.ZodString;
-                }, "strip", z.ZodTypeAny, {
-                    content: string;
-                }, {
-                    content: string;
-                }>, "many">>;
+                alias: z.ZodOptional<z.ZodArray<z.ZodString, "many">>;
             }, "strip", z.ZodTypeAny, {
                 default: string;
-                alias?: {
-                    content: string;
-                }[] | undefined;
+                alias?: string[] | undefined;
             }, {
                 default: string;
-                alias?: {
-                    content: string;
-                }[] | undefined;
+                alias?: string[] | undefined;
             }>;
             birthDate: z.ZodOptional<z.ZodString>;
             deathDate: z.ZodOptional<z.ZodString>;
@@ -608,9 +538,7 @@ export declare const Create_Track_ZOD: z.ZodObject<{
         }, "strict", z.ZodTypeAny, {
             name: {
                 default: string;
-                alias?: {
-                    content: string;
-                }[] | undefined;
+                alias?: string[] | undefined;
             };
             isGroupe?: boolean | undefined;
             birthDate?: string | undefined;
@@ -631,9 +559,7 @@ export declare const Create_Track_ZOD: z.ZodObject<{
         }, {
             name: {
                 default: string;
-                alias?: {
-                    content: string;
-                }[] | undefined;
+                alias?: string[] | undefined;
             };
             isGroupe?: boolean | undefined;
             birthDate?: string | undefined;
@@ -658,9 +584,7 @@ export declare const Create_Track_ZOD: z.ZodObject<{
         newPerson?: {
             name: {
                 default: string;
-                alias?: {
-                    content: string;
-                }[] | undefined;
+                alias?: string[] | undefined;
             };
             isGroupe?: boolean | undefined;
             birthDate?: string | undefined;
@@ -685,9 +609,7 @@ export declare const Create_Track_ZOD: z.ZodObject<{
         newPerson?: {
             name: {
                 default: string;
-                alias?: {
-                    content: string;
-                }[] | undefined;
+                alias?: string[] | undefined;
             };
             isGroupe?: boolean | undefined;
             birthDate?: string | undefined;
@@ -751,9 +673,7 @@ export declare const Create_Track_ZOD: z.ZodObject<{
     type: "OPENING" | "ENDING" | "OST" | "INSERT";
     name: {
         default: string;
-        alias?: {
-            content: string;
-        }[] | undefined;
+        alias?: string[] | undefined;
     };
     cover?: {
         id?: string | undefined;
@@ -774,9 +694,7 @@ export declare const Create_Track_ZOD: z.ZodObject<{
         newPerson?: {
             name: {
                 default: string;
-                alias?: {
-                    content: string;
-                }[] | undefined;
+                alias?: string[] | undefined;
             };
             isGroupe?: boolean | undefined;
             birthDate?: string | undefined;
@@ -801,9 +719,7 @@ export declare const Create_Track_ZOD: z.ZodObject<{
     type: "OPENING" | "ENDING" | "OST" | "INSERT";
     name: {
         default: string;
-        alias?: {
-            content: string;
-        }[] | undefined;
+        alias?: string[] | undefined;
     };
     cover?: {
         id?: string | undefined;
@@ -824,9 +740,7 @@ export declare const Create_Track_ZOD: z.ZodObject<{
         newPerson?: {
             name: {
                 default: string;
-                alias?: {
-                    content: string;
-                }[] | undefined;
+                alias?: string[] | undefined;
             };
             isGroupe?: boolean | undefined;
             birthDate?: string | undefined;
@@ -856,23 +770,13 @@ export declare const TrackCreateBody: z.ZodObject<z.objectUtil.extendShape<{
     data: z.ZodObject<{
         name: z.ZodObject<{
             default: z.ZodString;
-            alias: z.ZodOptional<z.ZodArray<z.ZodObject<{
-                content: z.ZodString;
-            }, "strip", z.ZodTypeAny, {
-                content: string;
-            }, {
-                content: string;
-            }>, "many">>;
+            alias: z.ZodOptional<z.ZodArray<z.ZodString, "many">>;
         }, "strip", z.ZodTypeAny, {
             default: string;
-            alias?: {
-                content: string;
-            }[] | undefined;
+            alias?: string[] | undefined;
         }, {
             default: string;
-            alias?: {
-                content: string;
-            }[] | undefined;
+            alias?: string[] | undefined;
         }>;
         type: z.ZodEnum<("OPENING" | "ENDING" | "OST" | "INSERT")[] & [string, ...string[]]>;
         pubDate: z.ZodOptional<z.ZodString>;
@@ -882,23 +786,13 @@ export declare const TrackCreateBody: z.ZodObject<z.objectUtil.extendShape<{
                 isGroupe: z.ZodOptional<z.ZodBoolean>;
                 name: z.ZodObject<{
                     default: z.ZodString;
-                    alias: z.ZodOptional<z.ZodArray<z.ZodObject<{
-                        content: z.ZodString;
-                    }, "strip", z.ZodTypeAny, {
-                        content: string;
-                    }, {
-                        content: string;
-                    }>, "many">>;
+                    alias: z.ZodOptional<z.ZodArray<z.ZodString, "many">>;
                 }, "strip", z.ZodTypeAny, {
                     default: string;
-                    alias?: {
-                        content: string;
-                    }[] | undefined;
+                    alias?: string[] | undefined;
                 }, {
                     default: string;
-                    alias?: {
-                        content: string;
-                    }[] | undefined;
+                    alias?: string[] | undefined;
                 }>;
                 birthDate: z.ZodOptional<z.ZodString>;
                 deathDate: z.ZodOptional<z.ZodString>;
@@ -944,9 +838,7 @@ export declare const TrackCreateBody: z.ZodObject<z.objectUtil.extendShape<{
             }, "strict", z.ZodTypeAny, {
                 name: {
                     default: string;
-                    alias?: {
-                        content: string;
-                    }[] | undefined;
+                    alias?: string[] | undefined;
                 };
                 isGroupe?: boolean | undefined;
                 birthDate?: string | undefined;
@@ -967,9 +859,7 @@ export declare const TrackCreateBody: z.ZodObject<z.objectUtil.extendShape<{
             }, {
                 name: {
                     default: string;
-                    alias?: {
-                        content: string;
-                    }[] | undefined;
+                    alias?: string[] | undefined;
                 };
                 isGroupe?: boolean | undefined;
                 birthDate?: string | undefined;
@@ -994,9 +884,7 @@ export declare const TrackCreateBody: z.ZodObject<z.objectUtil.extendShape<{
             newPerson?: {
                 name: {
                     default: string;
-                    alias?: {
-                        content: string;
-                    }[] | undefined;
+                    alias?: string[] | undefined;
                 };
                 isGroupe?: boolean | undefined;
                 birthDate?: string | undefined;
@@ -1021,9 +909,7 @@ export declare const TrackCreateBody: z.ZodObject<z.objectUtil.extendShape<{
             newPerson?: {
                 name: {
                     default: string;
-                    alias?: {
-                        content: string;
-                    }[] | undefined;
+                    alias?: string[] | undefined;
                 };
                 isGroupe?: boolean | undefined;
                 birthDate?: string | undefined;
@@ -1087,9 +973,7 @@ export declare const TrackCreateBody: z.ZodObject<z.objectUtil.extendShape<{
         type: "OPENING" | "ENDING" | "OST" | "INSERT";
         name: {
             default: string;
-            alias?: {
-                content: string;
-            }[] | undefined;
+            alias?: string[] | undefined;
         };
         cover?: {
             id?: string | undefined;
@@ -1110,9 +994,7 @@ export declare const TrackCreateBody: z.ZodObject<z.objectUtil.extendShape<{
             newPerson?: {
                 name: {
                     default: string;
-                    alias?: {
-                        content: string;
-                    }[] | undefined;
+                    alias?: string[] | undefined;
                 };
                 isGroupe?: boolean | undefined;
                 birthDate?: string | undefined;
@@ -1137,9 +1019,7 @@ export declare const TrackCreateBody: z.ZodObject<z.objectUtil.extendShape<{
         type: "OPENING" | "ENDING" | "OST" | "INSERT";
         name: {
             default: string;
-            alias?: {
-                content: string;
-            }[] | undefined;
+            alias?: string[] | undefined;
         };
         cover?: {
             id?: string | undefined;
@@ -1160,9 +1040,7 @@ export declare const TrackCreateBody: z.ZodObject<z.objectUtil.extendShape<{
             newPerson?: {
                 name: {
                     default: string;
-                    alias?: {
-                        content: string;
-                    }[] | undefined;
+                    alias?: string[] | undefined;
                 };
                 isGroupe?: boolean | undefined;
                 birthDate?: string | undefined;
@@ -1189,9 +1067,7 @@ export declare const TrackCreateBody: z.ZodObject<z.objectUtil.extendShape<{
         type: "OPENING" | "ENDING" | "OST" | "INSERT";
         name: {
             default: string;
-            alias?: {
-                content: string;
-            }[] | undefined;
+            alias?: string[] | undefined;
         };
         cover?: {
             id?: string | undefined;
@@ -1212,9 +1088,7 @@ export declare const TrackCreateBody: z.ZodObject<z.objectUtil.extendShape<{
             newPerson?: {
                 name: {
                     default: string;
-                    alias?: {
-                        content: string;
-                    }[] | undefined;
+                    alias?: string[] | undefined;
                 };
                 isGroupe?: boolean | undefined;
                 birthDate?: string | undefined;
@@ -1243,9 +1117,7 @@ export declare const TrackCreateBody: z.ZodObject<z.objectUtil.extendShape<{
         type: "OPENING" | "ENDING" | "OST" | "INSERT";
         name: {
             default: string;
-            alias?: {
-                content: string;
-            }[] | undefined;
+            alias?: string[] | undefined;
         };
         cover?: {
             id?: string | undefined;
@@ -1266,9 +1138,7 @@ export declare const TrackCreateBody: z.ZodObject<z.objectUtil.extendShape<{
             newPerson?: {
                 name: {
                     default: string;
-                    alias?: {
-                        content: string;
-                    }[] | undefined;
+                    alias?: string[] | undefined;
                 };
                 isGroupe?: boolean | undefined;
                 birthDate?: string | undefined;
@@ -1299,23 +1169,13 @@ export declare const Create_Track_ZOD_FORM: z.ZodObject<{
     data: z.ZodObject<{
         name: z.ZodObject<{
             default: z.ZodString;
-            alias: z.ZodOptional<z.ZodArray<z.ZodObject<{
-                content: z.ZodString;
-            }, "strip", z.ZodTypeAny, {
-                content: string;
-            }, {
-                content: string;
-            }>, "many">>;
+            alias: z.ZodOptional<z.ZodArray<z.ZodString, "many">>;
         }, "strip", z.ZodTypeAny, {
             default: string;
-            alias?: {
-                content: string;
-            }[] | undefined;
+            alias?: string[] | undefined;
         }, {
             default: string;
-            alias?: {
-                content: string;
-            }[] | undefined;
+            alias?: string[] | undefined;
         }>;
         type: z.ZodEnum<("OPENING" | "ENDING" | "OST" | "INSERT")[] & [string, ...string[]]>;
         pubDate: z.ZodOptional<z.ZodString>;
@@ -1325,23 +1185,13 @@ export declare const Create_Track_ZOD_FORM: z.ZodObject<{
                 isGroupe: z.ZodOptional<z.ZodBoolean>;
                 name: z.ZodObject<{
                     default: z.ZodString;
-                    alias: z.ZodOptional<z.ZodArray<z.ZodObject<{
-                        content: z.ZodString;
-                    }, "strip", z.ZodTypeAny, {
-                        content: string;
-                    }, {
-                        content: string;
-                    }>, "many">>;
+                    alias: z.ZodOptional<z.ZodArray<z.ZodString, "many">>;
                 }, "strip", z.ZodTypeAny, {
                     default: string;
-                    alias?: {
-                        content: string;
-                    }[] | undefined;
+                    alias?: string[] | undefined;
                 }, {
                     default: string;
-                    alias?: {
-                        content: string;
-                    }[] | undefined;
+                    alias?: string[] | undefined;
                 }>;
                 birthDate: z.ZodOptional<z.ZodString>;
                 deathDate: z.ZodOptional<z.ZodString>;
@@ -1387,9 +1237,7 @@ export declare const Create_Track_ZOD_FORM: z.ZodObject<{
             }, "strict", z.ZodTypeAny, {
                 name: {
                     default: string;
-                    alias?: {
-                        content: string;
-                    }[] | undefined;
+                    alias?: string[] | undefined;
                 };
                 isGroupe?: boolean | undefined;
                 birthDate?: string | undefined;
@@ -1410,9 +1258,7 @@ export declare const Create_Track_ZOD_FORM: z.ZodObject<{
             }, {
                 name: {
                     default: string;
-                    alias?: {
-                        content: string;
-                    }[] | undefined;
+                    alias?: string[] | undefined;
                 };
                 isGroupe?: boolean | undefined;
                 birthDate?: string | undefined;
@@ -1437,9 +1283,7 @@ export declare const Create_Track_ZOD_FORM: z.ZodObject<{
             newPerson?: {
                 name: {
                     default: string;
-                    alias?: {
-                        content: string;
-                    }[] | undefined;
+                    alias?: string[] | undefined;
                 };
                 isGroupe?: boolean | undefined;
                 birthDate?: string | undefined;
@@ -1464,9 +1308,7 @@ export declare const Create_Track_ZOD_FORM: z.ZodObject<{
             newPerson?: {
                 name: {
                     default: string;
-                    alias?: {
-                        content: string;
-                    }[] | undefined;
+                    alias?: string[] | undefined;
                 };
                 isGroupe?: boolean | undefined;
                 birthDate?: string | undefined;
@@ -1530,9 +1372,7 @@ export declare const Create_Track_ZOD_FORM: z.ZodObject<{
         type: "OPENING" | "ENDING" | "OST" | "INSERT";
         name: {
             default: string;
-            alias?: {
-                content: string;
-            }[] | undefined;
+            alias?: string[] | undefined;
         };
         cover?: {
             id?: string | undefined;
@@ -1553,9 +1393,7 @@ export declare const Create_Track_ZOD_FORM: z.ZodObject<{
             newPerson?: {
                 name: {
                     default: string;
-                    alias?: {
-                        content: string;
-                    }[] | undefined;
+                    alias?: string[] | undefined;
                 };
                 isGroupe?: boolean | undefined;
                 birthDate?: string | undefined;
@@ -1580,9 +1418,7 @@ export declare const Create_Track_ZOD_FORM: z.ZodObject<{
         type: "OPENING" | "ENDING" | "OST" | "INSERT";
         name: {
             default: string;
-            alias?: {
-                content: string;
-            }[] | undefined;
+            alias?: string[] | undefined;
         };
         cover?: {
             id?: string | undefined;
@@ -1603,9 +1439,7 @@ export declare const Create_Track_ZOD_FORM: z.ZodObject<{
             newPerson?: {
                 name: {
                     default: string;
-                    alias?: {
-                        content: string;
-                    }[] | undefined;
+                    alias?: string[] | undefined;
                 };
                 isGroupe?: boolean | undefined;
                 birthDate?: string | undefined;
@@ -1632,9 +1466,7 @@ export declare const Create_Track_ZOD_FORM: z.ZodObject<{
         type: "OPENING" | "ENDING" | "OST" | "INSERT";
         name: {
             default: string;
-            alias?: {
-                content: string;
-            }[] | undefined;
+            alias?: string[] | undefined;
         };
         cover?: {
             id?: string | undefined;
@@ -1655,9 +1487,7 @@ export declare const Create_Track_ZOD_FORM: z.ZodObject<{
             newPerson?: {
                 name: {
                     default: string;
-                    alias?: {
-                        content: string;
-                    }[] | undefined;
+                    alias?: string[] | undefined;
                 };
                 isGroupe?: boolean | undefined;
                 birthDate?: string | undefined;
@@ -1685,9 +1515,7 @@ export declare const Create_Track_ZOD_FORM: z.ZodObject<{
         type: "OPENING" | "ENDING" | "OST" | "INSERT";
         name: {
             default: string;
-            alias?: {
-                content: string;
-            }[] | undefined;
+            alias?: string[] | undefined;
         };
         cover?: {
             id?: string | undefined;
@@ -1708,9 +1536,7 @@ export declare const Create_Track_ZOD_FORM: z.ZodObject<{
             newPerson?: {
                 name: {
                     default: string;
-                    alias?: {
-                        content: string;
-                    }[] | undefined;
+                    alias?: string[] | undefined;
                 };
                 isGroupe?: boolean | undefined;
                 birthDate?: string | undefined;
@@ -1740,23 +1566,13 @@ export declare const Add_Track_ZOD: z.ZodObject<{
     newTrack: z.ZodOptional<z.ZodObject<{
         name: z.ZodObject<{
             default: z.ZodString;
-            alias: z.ZodOptional<z.ZodArray<z.ZodObject<{
-                content: z.ZodString;
-            }, "strip", z.ZodTypeAny, {
-                content: string;
-            }, {
-                content: string;
-            }>, "many">>;
+            alias: z.ZodOptional<z.ZodArray<z.ZodString, "many">>;
         }, "strip", z.ZodTypeAny, {
             default: string;
-            alias?: {
-                content: string;
-            }[] | undefined;
+            alias?: string[] | undefined;
         }, {
             default: string;
-            alias?: {
-                content: string;
-            }[] | undefined;
+            alias?: string[] | undefined;
         }>;
         type: z.ZodEnum<("OPENING" | "ENDING" | "OST" | "INSERT")[] & [string, ...string[]]>;
         pubDate: z.ZodOptional<z.ZodString>;
@@ -1766,23 +1582,13 @@ export declare const Add_Track_ZOD: z.ZodObject<{
                 isGroupe: z.ZodOptional<z.ZodBoolean>;
                 name: z.ZodObject<{
                     default: z.ZodString;
-                    alias: z.ZodOptional<z.ZodArray<z.ZodObject<{
-                        content: z.ZodString;
-                    }, "strip", z.ZodTypeAny, {
-                        content: string;
-                    }, {
-                        content: string;
-                    }>, "many">>;
+                    alias: z.ZodOptional<z.ZodArray<z.ZodString, "many">>;
                 }, "strip", z.ZodTypeAny, {
                     default: string;
-                    alias?: {
-                        content: string;
-                    }[] | undefined;
+                    alias?: string[] | undefined;
                 }, {
                     default: string;
-                    alias?: {
-                        content: string;
-                    }[] | undefined;
+                    alias?: string[] | undefined;
                 }>;
                 birthDate: z.ZodOptional<z.ZodString>;
                 deathDate: z.ZodOptional<z.ZodString>;
@@ -1828,9 +1634,7 @@ export declare const Add_Track_ZOD: z.ZodObject<{
             }, "strict", z.ZodTypeAny, {
                 name: {
                     default: string;
-                    alias?: {
-                        content: string;
-                    }[] | undefined;
+                    alias?: string[] | undefined;
                 };
                 isGroupe?: boolean | undefined;
                 birthDate?: string | undefined;
@@ -1851,9 +1655,7 @@ export declare const Add_Track_ZOD: z.ZodObject<{
             }, {
                 name: {
                     default: string;
-                    alias?: {
-                        content: string;
-                    }[] | undefined;
+                    alias?: string[] | undefined;
                 };
                 isGroupe?: boolean | undefined;
                 birthDate?: string | undefined;
@@ -1878,9 +1680,7 @@ export declare const Add_Track_ZOD: z.ZodObject<{
             newPerson?: {
                 name: {
                     default: string;
-                    alias?: {
-                        content: string;
-                    }[] | undefined;
+                    alias?: string[] | undefined;
                 };
                 isGroupe?: boolean | undefined;
                 birthDate?: string | undefined;
@@ -1905,9 +1705,7 @@ export declare const Add_Track_ZOD: z.ZodObject<{
             newPerson?: {
                 name: {
                     default: string;
-                    alias?: {
-                        content: string;
-                    }[] | undefined;
+                    alias?: string[] | undefined;
                 };
                 isGroupe?: boolean | undefined;
                 birthDate?: string | undefined;
@@ -1971,9 +1769,7 @@ export declare const Add_Track_ZOD: z.ZodObject<{
         type: "OPENING" | "ENDING" | "OST" | "INSERT";
         name: {
             default: string;
-            alias?: {
-                content: string;
-            }[] | undefined;
+            alias?: string[] | undefined;
         };
         cover?: {
             id?: string | undefined;
@@ -1994,9 +1790,7 @@ export declare const Add_Track_ZOD: z.ZodObject<{
             newPerson?: {
                 name: {
                     default: string;
-                    alias?: {
-                        content: string;
-                    }[] | undefined;
+                    alias?: string[] | undefined;
                 };
                 isGroupe?: boolean | undefined;
                 birthDate?: string | undefined;
@@ -2021,9 +1815,7 @@ export declare const Add_Track_ZOD: z.ZodObject<{
         type: "OPENING" | "ENDING" | "OST" | "INSERT";
         name: {
             default: string;
-            alias?: {
-                content: string;
-            }[] | undefined;
+            alias?: string[] | undefined;
         };
         cover?: {
             id?: string | undefined;
@@ -2044,9 +1836,7 @@ export declare const Add_Track_ZOD: z.ZodObject<{
             newPerson?: {
                 name: {
                     default: string;
-                    alias?: {
-                        content: string;
-                    }[] | undefined;
+                    alias?: string[] | undefined;
                 };
                 isGroupe?: boolean | undefined;
                 birthDate?: string | undefined;
@@ -2074,9 +1864,7 @@ export declare const Add_Track_ZOD: z.ZodObject<{
         type: "OPENING" | "ENDING" | "OST" | "INSERT";
         name: {
             default: string;
-            alias?: {
-                content: string;
-            }[] | undefined;
+            alias?: string[] | undefined;
         };
         cover?: {
             id?: string | undefined;
@@ -2097,9 +1885,7 @@ export declare const Add_Track_ZOD: z.ZodObject<{
             newPerson?: {
                 name: {
                     default: string;
-                    alias?: {
-                        content: string;
-                    }[] | undefined;
+                    alias?: string[] | undefined;
                 };
                 isGroupe?: boolean | undefined;
                 birthDate?: string | undefined;
@@ -2127,9 +1913,7 @@ export declare const Add_Track_ZOD: z.ZodObject<{
         type: "OPENING" | "ENDING" | "OST" | "INSERT";
         name: {
             default: string;
-            alias?: {
-                content: string;
-            }[] | undefined;
+            alias?: string[] | undefined;
         };
         cover?: {
             id?: string | undefined;
@@ -2150,9 +1934,7 @@ export declare const Add_Track_ZOD: z.ZodObject<{
             newPerson?: {
                 name: {
                     default: string;
-                    alias?: {
-                        content: string;
-                    }[] | undefined;
+                    alias?: string[] | undefined;
                 };
                 isGroupe?: boolean | undefined;
                 birthDate?: string | undefined;
@@ -2180,9 +1962,7 @@ export declare const TrackDataToZOD: (data: ITrack) => {
     type: "OPENING" | "ENDING" | "OST" | "INSERT";
     name: {
         default: string;
-        alias?: {
-            content: string;
-        }[] | undefined;
+        alias?: string[] | undefined;
     };
     cover?: {
         id?: string | undefined;
@@ -2203,9 +1983,7 @@ export declare const TrackDataToZOD: (data: ITrack) => {
         newPerson?: {
             name: {
                 default: string;
-                alias?: {
-                    content: string;
-                }[] | undefined;
+                alias?: string[] | undefined;
             };
             isGroupe?: boolean | undefined;
             birthDate?: string | undefined;

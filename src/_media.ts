@@ -69,7 +69,7 @@ export const MediaTitleZodSchema = z
 
 export const MediaTitleBody = z.object({
   default: z.string(),
-  alias: z.array(z.object({ content: z.string() }))
+  alias: z.optional(z.array(z.string()))
 })
 
 

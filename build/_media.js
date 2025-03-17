@@ -51,7 +51,7 @@ exports.MediaTitleZodSchema = zod_1.z
     `La valeur de alias ne doit pas contenir la valeur par défaut`);
 exports.MediaTitleBody = zod_1.z.object({
     default: zod_1.z.string(),
-    alias: zod_1.z.array(zod_1.z.object({ content: zod_1.z.string() }))
+    alias: zod_1.z.optional(zod_1.z.array(zod_1.z.string()))
 });
 // Définir une regex pour les URL de vidéos YouTube
 const youtubeUrlRegex = /^(https?:\/\/)?(www\.)?(youtube\.com|youtu\.?be)\/.+$/;

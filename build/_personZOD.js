@@ -9,11 +9,7 @@ const types_1 = require("@actunime/types");
 const _patchZOD_1 = require("./_patchZOD");
 exports.PersonName_validation = zod_1.z.object({
     default: zod_1.z.string(),
-    alias: zod_1.z.optional(zod_1.z.array(zod_1.z.object({
-        content: zod_1.z
-            .string()
-            .min(2, "le nom dois contenir au moins 2 caractères"),
-    }))),
+    alias: zod_1.z.optional(zod_1.z.array(zod_1.z.string())),
 });
 exports.Base_Create_Person_ZOD = zod_1.z
     .object({

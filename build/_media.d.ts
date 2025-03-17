@@ -82,23 +82,13 @@ export declare const MediaTitleZodSchema: z.ZodEffects<z.ZodObject<{
 }>;
 export declare const MediaTitleBody: z.ZodObject<{
     default: z.ZodString;
-    alias: z.ZodArray<z.ZodObject<{
-        content: z.ZodString;
-    }, "strip", z.ZodTypeAny, {
-        content: string;
-    }, {
-        content: string;
-    }>, "many">;
+    alias: z.ZodOptional<z.ZodArray<z.ZodString, "many">>;
 }, "strip", z.ZodTypeAny, {
     default: string;
-    alias: {
-        content: string;
-    }[];
+    alias?: string[] | undefined;
 }, {
     default: string;
-    alias: {
-        content: string;
-    }[];
+    alias?: string[] | undefined;
 }>;
 export declare const MediaTrailerZod: z.ZodString;
 export declare const FromBody: z.ZodObject<{

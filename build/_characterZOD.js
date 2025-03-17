@@ -10,7 +10,7 @@ const _patchZOD_1 = require("./_patchZOD");
 const _media_1 = require("./_media");
 exports.Character_Name_ZOD = zod_1.z.object({
     default: zod_1.z.string(),
-    alias: zod_1.z.optional(zod_1.z.array(zod_1.z.object({ content: zod_1.z.string() }))),
+    alias: zod_1.z.optional(zod_1.z.array(zod_1.z.string())),
 });
 exports.CharacterQueryBody = zod_1.z.object({
     name: exports.Character_Name_ZOD.partial(),

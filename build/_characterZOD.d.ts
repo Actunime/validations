@@ -2,44 +2,24 @@ import { ICharacter } from "@actunime/types";
 import { z } from "zod";
 export declare const Character_Name_ZOD: z.ZodObject<{
     default: z.ZodString;
-    alias: z.ZodOptional<z.ZodArray<z.ZodObject<{
-        content: z.ZodString;
-    }, "strip", z.ZodTypeAny, {
-        content: string;
-    }, {
-        content: string;
-    }>, "many">>;
+    alias: z.ZodOptional<z.ZodArray<z.ZodString, "many">>;
 }, "strip", z.ZodTypeAny, {
     default: string;
-    alias?: {
-        content: string;
-    }[] | undefined;
+    alias?: string[] | undefined;
 }, {
     default: string;
-    alias?: {
-        content: string;
-    }[] | undefined;
+    alias?: string[] | undefined;
 }>;
 export declare const CharacterQueryBody: z.ZodObject<{
     name: z.ZodObject<{
         default: z.ZodOptional<z.ZodString>;
-        alias: z.ZodOptional<z.ZodOptional<z.ZodArray<z.ZodObject<{
-            content: z.ZodString;
-        }, "strip", z.ZodTypeAny, {
-            content: string;
-        }, {
-            content: string;
-        }>, "many">>>;
+        alias: z.ZodOptional<z.ZodOptional<z.ZodArray<z.ZodString, "many">>>;
     }, "strip", z.ZodTypeAny, {
         default?: string | undefined;
-        alias?: {
-            content: string;
-        }[] | undefined;
+        alias?: string[] | undefined;
     }, {
         default?: string | undefined;
-        alias?: {
-            content: string;
-        }[] | undefined;
+        alias?: string[] | undefined;
     }>;
     age: z.ZodEffects<z.ZodUnion<[z.ZodNumber, z.ZodString]>, number, string | number>;
     birthDate: z.ZodString;
@@ -67,9 +47,7 @@ export declare const CharacterQueryBody: z.ZodObject<{
 }, "strip", z.ZodTypeAny, {
     name: {
         default?: string | undefined;
-        alias?: {
-            content: string;
-        }[] | undefined;
+        alias?: string[] | undefined;
     };
     createdAt: string;
     updatedAt: string;
@@ -87,9 +65,7 @@ export declare const CharacterQueryBody: z.ZodObject<{
 }, {
     name: {
         default?: string | undefined;
-        alias?: {
-            content: string;
-        }[] | undefined;
+        alias?: string[] | undefined;
     };
     createdAt: string;
     updatedAt: string;
@@ -157,23 +133,13 @@ export declare const CharacterPaginationBody: z.ZodObject<{
     query: z.ZodOptional<z.ZodObject<{
         name: z.ZodOptional<z.ZodObject<{
             default: z.ZodOptional<z.ZodString>;
-            alias: z.ZodOptional<z.ZodOptional<z.ZodArray<z.ZodObject<{
-                content: z.ZodString;
-            }, "strip", z.ZodTypeAny, {
-                content: string;
-            }, {
-                content: string;
-            }>, "many">>>;
+            alias: z.ZodOptional<z.ZodOptional<z.ZodArray<z.ZodString, "many">>>;
         }, "strip", z.ZodTypeAny, {
             default?: string | undefined;
-            alias?: {
-                content: string;
-            }[] | undefined;
+            alias?: string[] | undefined;
         }, {
             default?: string | undefined;
-            alias?: {
-                content: string;
-            }[] | undefined;
+            alias?: string[] | undefined;
         }>>;
         age: z.ZodOptional<z.ZodEffects<z.ZodUnion<[z.ZodNumber, z.ZodString]>, number, string | number>>;
         birthDate: z.ZodOptional<z.ZodString>;
@@ -201,9 +167,7 @@ export declare const CharacterPaginationBody: z.ZodObject<{
     }, "strip", z.ZodTypeAny, {
         name?: {
             default?: string | undefined;
-            alias?: {
-                content: string;
-            }[] | undefined;
+            alias?: string[] | undefined;
         } | undefined;
         createdAt?: string | undefined;
         updatedAt?: string | undefined;
@@ -221,9 +185,7 @@ export declare const CharacterPaginationBody: z.ZodObject<{
     }, {
         name?: {
             default?: string | undefined;
-            alias?: {
-                content: string;
-            }[] | undefined;
+            alias?: string[] | undefined;
         } | undefined;
         createdAt?: string | undefined;
         updatedAt?: string | undefined;
@@ -265,9 +227,7 @@ export declare const CharacterPaginationBody: z.ZodObject<{
     query?: {
         name?: {
             default?: string | undefined;
-            alias?: {
-                content: string;
-            }[] | undefined;
+            alias?: string[] | undefined;
         } | undefined;
         createdAt?: string | undefined;
         updatedAt?: string | undefined;
@@ -303,9 +263,7 @@ export declare const CharacterPaginationBody: z.ZodObject<{
     query?: {
         name?: {
             default?: string | undefined;
-            alias?: {
-                content: string;
-            }[] | undefined;
+            alias?: string[] | undefined;
         } | undefined;
         createdAt?: string | undefined;
         updatedAt?: string | undefined;
@@ -356,23 +314,13 @@ export declare const Character_Pagination_ZOD: z.ZodObject<{
     query: z.ZodObject<{
         name: z.ZodOptional<z.ZodObject<{
             default: z.ZodOptional<z.ZodString>;
-            alias: z.ZodOptional<z.ZodOptional<z.ZodArray<z.ZodObject<{
-                content: z.ZodString;
-            }, "strip", z.ZodTypeAny, {
-                content: string;
-            }, {
-                content: string;
-            }>, "many">>>;
+            alias: z.ZodOptional<z.ZodOptional<z.ZodArray<z.ZodString, "many">>>;
         }, "strip", z.ZodTypeAny, {
             default?: string | undefined;
-            alias?: {
-                content: string;
-            }[] | undefined;
+            alias?: string[] | undefined;
         }, {
             default?: string | undefined;
-            alias?: {
-                content: string;
-            }[] | undefined;
+            alias?: string[] | undefined;
         }>>;
         age: z.ZodOptional<z.ZodEffects<z.ZodUnion<[z.ZodNumber, z.ZodString]>, number, string | number>>;
         birthDate: z.ZodOptional<z.ZodString>;
@@ -400,9 +348,7 @@ export declare const Character_Pagination_ZOD: z.ZodObject<{
     }, "strip", z.ZodTypeAny, {
         name?: {
             default?: string | undefined;
-            alias?: {
-                content: string;
-            }[] | undefined;
+            alias?: string[] | undefined;
         } | undefined;
         createdAt?: string | undefined;
         updatedAt?: string | undefined;
@@ -420,9 +366,7 @@ export declare const Character_Pagination_ZOD: z.ZodObject<{
     }, {
         name?: {
             default?: string | undefined;
-            alias?: {
-                content: string;
-            }[] | undefined;
+            alias?: string[] | undefined;
         } | undefined;
         createdAt?: string | undefined;
         updatedAt?: string | undefined;
@@ -453,9 +397,7 @@ export declare const Character_Pagination_ZOD: z.ZodObject<{
     query: {
         name?: {
             default?: string | undefined;
-            alias?: {
-                content: string;
-            }[] | undefined;
+            alias?: string[] | undefined;
         } | undefined;
         createdAt?: string | undefined;
         updatedAt?: string | undefined;
@@ -486,9 +428,7 @@ export declare const Character_Pagination_ZOD: z.ZodObject<{
     query: {
         name?: {
             default?: string | undefined;
-            alias?: {
-                content: string;
-            }[] | undefined;
+            alias?: string[] | undefined;
         } | undefined;
         createdAt?: string | undefined;
         updatedAt?: string | undefined;
@@ -509,23 +449,13 @@ export type ICharacter_Pagination_ZOD = z.infer<typeof Character_Pagination_ZOD>
 export declare const Create_Character_ZOD: z.ZodObject<{
     name: z.ZodObject<{
         default: z.ZodString;
-        alias: z.ZodOptional<z.ZodArray<z.ZodObject<{
-            content: z.ZodString;
-        }, "strip", z.ZodTypeAny, {
-            content: string;
-        }, {
-            content: string;
-        }>, "many">>;
+        alias: z.ZodOptional<z.ZodArray<z.ZodString, "many">>;
     }, "strip", z.ZodTypeAny, {
         default: string;
-        alias?: {
-            content: string;
-        }[] | undefined;
+        alias?: string[] | undefined;
     }, {
         default: string;
-        alias?: {
-            content: string;
-        }[] | undefined;
+        alias?: string[] | undefined;
     }>;
     age: z.ZodOptional<z.ZodEffects<z.ZodUnion<[z.ZodNumber, z.ZodString]>, number, string | number>>;
     birthDate: z.ZodOptional<z.ZodString>;
@@ -566,23 +496,13 @@ export declare const Create_Character_ZOD: z.ZodObject<{
             isGroupe: z.ZodOptional<z.ZodBoolean>;
             name: z.ZodObject<{
                 default: z.ZodString;
-                alias: z.ZodOptional<z.ZodArray<z.ZodObject<{
-                    content: z.ZodString;
-                }, "strip", z.ZodTypeAny, {
-                    content: string;
-                }, {
-                    content: string;
-                }>, "many">>;
+                alias: z.ZodOptional<z.ZodArray<z.ZodString, "many">>;
             }, "strip", z.ZodTypeAny, {
                 default: string;
-                alias?: {
-                    content: string;
-                }[] | undefined;
+                alias?: string[] | undefined;
             }, {
                 default: string;
-                alias?: {
-                    content: string;
-                }[] | undefined;
+                alias?: string[] | undefined;
             }>;
             birthDate: z.ZodOptional<z.ZodString>;
             deathDate: z.ZodOptional<z.ZodString>;
@@ -628,9 +548,7 @@ export declare const Create_Character_ZOD: z.ZodObject<{
         }, "strict", z.ZodTypeAny, {
             name: {
                 default: string;
-                alias?: {
-                    content: string;
-                }[] | undefined;
+                alias?: string[] | undefined;
             };
             isGroupe?: boolean | undefined;
             birthDate?: string | undefined;
@@ -651,9 +569,7 @@ export declare const Create_Character_ZOD: z.ZodObject<{
         }, {
             name: {
                 default: string;
-                alias?: {
-                    content: string;
-                }[] | undefined;
+                alias?: string[] | undefined;
             };
             isGroupe?: boolean | undefined;
             birthDate?: string | undefined;
@@ -678,9 +594,7 @@ export declare const Create_Character_ZOD: z.ZodObject<{
         newPerson?: {
             name: {
                 default: string;
-                alias?: {
-                    content: string;
-                }[] | undefined;
+                alias?: string[] | undefined;
             };
             isGroupe?: boolean | undefined;
             birthDate?: string | undefined;
@@ -705,9 +619,7 @@ export declare const Create_Character_ZOD: z.ZodObject<{
         newPerson?: {
             name: {
                 default: string;
-                alias?: {
-                    content: string;
-                }[] | undefined;
+                alias?: string[] | undefined;
             };
             isGroupe?: boolean | undefined;
             birthDate?: string | undefined;
@@ -731,9 +643,7 @@ export declare const Create_Character_ZOD: z.ZodObject<{
 }, "strict", z.ZodTypeAny, {
     name: {
         default: string;
-        alias?: {
-            content: string;
-        }[] | undefined;
+        alias?: string[] | undefined;
     };
     gender: "MASCULIN" | "FEMININ" | "NEUTRE" | "TRANSGENRE" | "NON_BINAIRE" | "GENRE_FLUIDE" | "AUTRE";
     species: "AUTRE" | "HUMAIN" | "ELFE" | "NAIN" | "LEZARD" | "DRAGON" | "ORC";
@@ -753,9 +663,7 @@ export declare const Create_Character_ZOD: z.ZodObject<{
         newPerson?: {
             name: {
                 default: string;
-                alias?: {
-                    content: string;
-                }[] | undefined;
+                alias?: string[] | undefined;
             };
             isGroupe?: boolean | undefined;
             birthDate?: string | undefined;
@@ -779,9 +687,7 @@ export declare const Create_Character_ZOD: z.ZodObject<{
 }, {
     name: {
         default: string;
-        alias?: {
-            content: string;
-        }[] | undefined;
+        alias?: string[] | undefined;
     };
     gender: "MASCULIN" | "FEMININ" | "NEUTRE" | "TRANSGENRE" | "NON_BINAIRE" | "GENRE_FLUIDE" | "AUTRE";
     species: "AUTRE" | "HUMAIN" | "ELFE" | "NAIN" | "LEZARD" | "DRAGON" | "ORC";
@@ -801,9 +707,7 @@ export declare const Create_Character_ZOD: z.ZodObject<{
         newPerson?: {
             name: {
                 default: string;
-                alias?: {
-                    content: string;
-                }[] | undefined;
+                alias?: string[] | undefined;
             };
             isGroupe?: boolean | undefined;
             birthDate?: string | undefined;
@@ -833,23 +737,13 @@ export declare const CharacterCreateBody: z.ZodObject<z.objectUtil.extendShape<{
     data: z.ZodObject<{
         name: z.ZodObject<{
             default: z.ZodString;
-            alias: z.ZodOptional<z.ZodArray<z.ZodObject<{
-                content: z.ZodString;
-            }, "strip", z.ZodTypeAny, {
-                content: string;
-            }, {
-                content: string;
-            }>, "many">>;
+            alias: z.ZodOptional<z.ZodArray<z.ZodString, "many">>;
         }, "strip", z.ZodTypeAny, {
             default: string;
-            alias?: {
-                content: string;
-            }[] | undefined;
+            alias?: string[] | undefined;
         }, {
             default: string;
-            alias?: {
-                content: string;
-            }[] | undefined;
+            alias?: string[] | undefined;
         }>;
         age: z.ZodOptional<z.ZodEffects<z.ZodUnion<[z.ZodNumber, z.ZodString]>, number, string | number>>;
         birthDate: z.ZodOptional<z.ZodString>;
@@ -890,23 +784,13 @@ export declare const CharacterCreateBody: z.ZodObject<z.objectUtil.extendShape<{
                 isGroupe: z.ZodOptional<z.ZodBoolean>;
                 name: z.ZodObject<{
                     default: z.ZodString;
-                    alias: z.ZodOptional<z.ZodArray<z.ZodObject<{
-                        content: z.ZodString;
-                    }, "strip", z.ZodTypeAny, {
-                        content: string;
-                    }, {
-                        content: string;
-                    }>, "many">>;
+                    alias: z.ZodOptional<z.ZodArray<z.ZodString, "many">>;
                 }, "strip", z.ZodTypeAny, {
                     default: string;
-                    alias?: {
-                        content: string;
-                    }[] | undefined;
+                    alias?: string[] | undefined;
                 }, {
                     default: string;
-                    alias?: {
-                        content: string;
-                    }[] | undefined;
+                    alias?: string[] | undefined;
                 }>;
                 birthDate: z.ZodOptional<z.ZodString>;
                 deathDate: z.ZodOptional<z.ZodString>;
@@ -952,9 +836,7 @@ export declare const CharacterCreateBody: z.ZodObject<z.objectUtil.extendShape<{
             }, "strict", z.ZodTypeAny, {
                 name: {
                     default: string;
-                    alias?: {
-                        content: string;
-                    }[] | undefined;
+                    alias?: string[] | undefined;
                 };
                 isGroupe?: boolean | undefined;
                 birthDate?: string | undefined;
@@ -975,9 +857,7 @@ export declare const CharacterCreateBody: z.ZodObject<z.objectUtil.extendShape<{
             }, {
                 name: {
                     default: string;
-                    alias?: {
-                        content: string;
-                    }[] | undefined;
+                    alias?: string[] | undefined;
                 };
                 isGroupe?: boolean | undefined;
                 birthDate?: string | undefined;
@@ -1002,9 +882,7 @@ export declare const CharacterCreateBody: z.ZodObject<z.objectUtil.extendShape<{
             newPerson?: {
                 name: {
                     default: string;
-                    alias?: {
-                        content: string;
-                    }[] | undefined;
+                    alias?: string[] | undefined;
                 };
                 isGroupe?: boolean | undefined;
                 birthDate?: string | undefined;
@@ -1029,9 +907,7 @@ export declare const CharacterCreateBody: z.ZodObject<z.objectUtil.extendShape<{
             newPerson?: {
                 name: {
                     default: string;
-                    alias?: {
-                        content: string;
-                    }[] | undefined;
+                    alias?: string[] | undefined;
                 };
                 isGroupe?: boolean | undefined;
                 birthDate?: string | undefined;
@@ -1055,9 +931,7 @@ export declare const CharacterCreateBody: z.ZodObject<z.objectUtil.extendShape<{
     }, "strict", z.ZodTypeAny, {
         name: {
             default: string;
-            alias?: {
-                content: string;
-            }[] | undefined;
+            alias?: string[] | undefined;
         };
         gender: "MASCULIN" | "FEMININ" | "NEUTRE" | "TRANSGENRE" | "NON_BINAIRE" | "GENRE_FLUIDE" | "AUTRE";
         species: "AUTRE" | "HUMAIN" | "ELFE" | "NAIN" | "LEZARD" | "DRAGON" | "ORC";
@@ -1077,9 +951,7 @@ export declare const CharacterCreateBody: z.ZodObject<z.objectUtil.extendShape<{
             newPerson?: {
                 name: {
                     default: string;
-                    alias?: {
-                        content: string;
-                    }[] | undefined;
+                    alias?: string[] | undefined;
                 };
                 isGroupe?: boolean | undefined;
                 birthDate?: string | undefined;
@@ -1103,9 +975,7 @@ export declare const CharacterCreateBody: z.ZodObject<z.objectUtil.extendShape<{
     }, {
         name: {
             default: string;
-            alias?: {
-                content: string;
-            }[] | undefined;
+            alias?: string[] | undefined;
         };
         gender: "MASCULIN" | "FEMININ" | "NEUTRE" | "TRANSGENRE" | "NON_BINAIRE" | "GENRE_FLUIDE" | "AUTRE";
         species: "AUTRE" | "HUMAIN" | "ELFE" | "NAIN" | "LEZARD" | "DRAGON" | "ORC";
@@ -1125,9 +995,7 @@ export declare const CharacterCreateBody: z.ZodObject<z.objectUtil.extendShape<{
             newPerson?: {
                 name: {
                     default: string;
-                    alias?: {
-                        content: string;
-                    }[] | undefined;
+                    alias?: string[] | undefined;
                 };
                 isGroupe?: boolean | undefined;
                 birthDate?: string | undefined;
@@ -1153,9 +1021,7 @@ export declare const CharacterCreateBody: z.ZodObject<z.objectUtil.extendShape<{
     data: {
         name: {
             default: string;
-            alias?: {
-                content: string;
-            }[] | undefined;
+            alias?: string[] | undefined;
         };
         gender: "MASCULIN" | "FEMININ" | "NEUTRE" | "TRANSGENRE" | "NON_BINAIRE" | "GENRE_FLUIDE" | "AUTRE";
         species: "AUTRE" | "HUMAIN" | "ELFE" | "NAIN" | "LEZARD" | "DRAGON" | "ORC";
@@ -1175,9 +1041,7 @@ export declare const CharacterCreateBody: z.ZodObject<z.objectUtil.extendShape<{
             newPerson?: {
                 name: {
                     default: string;
-                    alias?: {
-                        content: string;
-                    }[] | undefined;
+                    alias?: string[] | undefined;
                 };
                 isGroupe?: boolean | undefined;
                 birthDate?: string | undefined;
@@ -1205,9 +1069,7 @@ export declare const CharacterCreateBody: z.ZodObject<z.objectUtil.extendShape<{
     data: {
         name: {
             default: string;
-            alias?: {
-                content: string;
-            }[] | undefined;
+            alias?: string[] | undefined;
         };
         gender: "MASCULIN" | "FEMININ" | "NEUTRE" | "TRANSGENRE" | "NON_BINAIRE" | "GENRE_FLUIDE" | "AUTRE";
         species: "AUTRE" | "HUMAIN" | "ELFE" | "NAIN" | "LEZARD" | "DRAGON" | "ORC";
@@ -1227,9 +1089,7 @@ export declare const CharacterCreateBody: z.ZodObject<z.objectUtil.extendShape<{
             newPerson?: {
                 name: {
                     default: string;
-                    alias?: {
-                        content: string;
-                    }[] | undefined;
+                    alias?: string[] | undefined;
                 };
                 isGroupe?: boolean | undefined;
                 birthDate?: string | undefined;
@@ -1260,23 +1120,13 @@ export declare const Create_Character_ZOD_FORM: z.ZodObject<{
     data: z.ZodObject<{
         name: z.ZodObject<{
             default: z.ZodString;
-            alias: z.ZodOptional<z.ZodArray<z.ZodObject<{
-                content: z.ZodString;
-            }, "strip", z.ZodTypeAny, {
-                content: string;
-            }, {
-                content: string;
-            }>, "many">>;
+            alias: z.ZodOptional<z.ZodArray<z.ZodString, "many">>;
         }, "strip", z.ZodTypeAny, {
             default: string;
-            alias?: {
-                content: string;
-            }[] | undefined;
+            alias?: string[] | undefined;
         }, {
             default: string;
-            alias?: {
-                content: string;
-            }[] | undefined;
+            alias?: string[] | undefined;
         }>;
         age: z.ZodOptional<z.ZodEffects<z.ZodUnion<[z.ZodNumber, z.ZodString]>, number, string | number>>;
         birthDate: z.ZodOptional<z.ZodString>;
@@ -1317,23 +1167,13 @@ export declare const Create_Character_ZOD_FORM: z.ZodObject<{
                 isGroupe: z.ZodOptional<z.ZodBoolean>;
                 name: z.ZodObject<{
                     default: z.ZodString;
-                    alias: z.ZodOptional<z.ZodArray<z.ZodObject<{
-                        content: z.ZodString;
-                    }, "strip", z.ZodTypeAny, {
-                        content: string;
-                    }, {
-                        content: string;
-                    }>, "many">>;
+                    alias: z.ZodOptional<z.ZodArray<z.ZodString, "many">>;
                 }, "strip", z.ZodTypeAny, {
                     default: string;
-                    alias?: {
-                        content: string;
-                    }[] | undefined;
+                    alias?: string[] | undefined;
                 }, {
                     default: string;
-                    alias?: {
-                        content: string;
-                    }[] | undefined;
+                    alias?: string[] | undefined;
                 }>;
                 birthDate: z.ZodOptional<z.ZodString>;
                 deathDate: z.ZodOptional<z.ZodString>;
@@ -1379,9 +1219,7 @@ export declare const Create_Character_ZOD_FORM: z.ZodObject<{
             }, "strict", z.ZodTypeAny, {
                 name: {
                     default: string;
-                    alias?: {
-                        content: string;
-                    }[] | undefined;
+                    alias?: string[] | undefined;
                 };
                 isGroupe?: boolean | undefined;
                 birthDate?: string | undefined;
@@ -1402,9 +1240,7 @@ export declare const Create_Character_ZOD_FORM: z.ZodObject<{
             }, {
                 name: {
                     default: string;
-                    alias?: {
-                        content: string;
-                    }[] | undefined;
+                    alias?: string[] | undefined;
                 };
                 isGroupe?: boolean | undefined;
                 birthDate?: string | undefined;
@@ -1429,9 +1265,7 @@ export declare const Create_Character_ZOD_FORM: z.ZodObject<{
             newPerson?: {
                 name: {
                     default: string;
-                    alias?: {
-                        content: string;
-                    }[] | undefined;
+                    alias?: string[] | undefined;
                 };
                 isGroupe?: boolean | undefined;
                 birthDate?: string | undefined;
@@ -1456,9 +1290,7 @@ export declare const Create_Character_ZOD_FORM: z.ZodObject<{
             newPerson?: {
                 name: {
                     default: string;
-                    alias?: {
-                        content: string;
-                    }[] | undefined;
+                    alias?: string[] | undefined;
                 };
                 isGroupe?: boolean | undefined;
                 birthDate?: string | undefined;
@@ -1482,9 +1314,7 @@ export declare const Create_Character_ZOD_FORM: z.ZodObject<{
     }, "strict", z.ZodTypeAny, {
         name: {
             default: string;
-            alias?: {
-                content: string;
-            }[] | undefined;
+            alias?: string[] | undefined;
         };
         gender: "MASCULIN" | "FEMININ" | "NEUTRE" | "TRANSGENRE" | "NON_BINAIRE" | "GENRE_FLUIDE" | "AUTRE";
         species: "AUTRE" | "HUMAIN" | "ELFE" | "NAIN" | "LEZARD" | "DRAGON" | "ORC";
@@ -1504,9 +1334,7 @@ export declare const Create_Character_ZOD_FORM: z.ZodObject<{
             newPerson?: {
                 name: {
                     default: string;
-                    alias?: {
-                        content: string;
-                    }[] | undefined;
+                    alias?: string[] | undefined;
                 };
                 isGroupe?: boolean | undefined;
                 birthDate?: string | undefined;
@@ -1530,9 +1358,7 @@ export declare const Create_Character_ZOD_FORM: z.ZodObject<{
     }, {
         name: {
             default: string;
-            alias?: {
-                content: string;
-            }[] | undefined;
+            alias?: string[] | undefined;
         };
         gender: "MASCULIN" | "FEMININ" | "NEUTRE" | "TRANSGENRE" | "NON_BINAIRE" | "GENRE_FLUIDE" | "AUTRE";
         species: "AUTRE" | "HUMAIN" | "ELFE" | "NAIN" | "LEZARD" | "DRAGON" | "ORC";
@@ -1552,9 +1378,7 @@ export declare const Create_Character_ZOD_FORM: z.ZodObject<{
             newPerson?: {
                 name: {
                     default: string;
-                    alias?: {
-                        content: string;
-                    }[] | undefined;
+                    alias?: string[] | undefined;
                 };
                 isGroupe?: boolean | undefined;
                 birthDate?: string | undefined;
@@ -1580,9 +1404,7 @@ export declare const Create_Character_ZOD_FORM: z.ZodObject<{
     data: {
         name: {
             default: string;
-            alias?: {
-                content: string;
-            }[] | undefined;
+            alias?: string[] | undefined;
         };
         gender: "MASCULIN" | "FEMININ" | "NEUTRE" | "TRANSGENRE" | "NON_BINAIRE" | "GENRE_FLUIDE" | "AUTRE";
         species: "AUTRE" | "HUMAIN" | "ELFE" | "NAIN" | "LEZARD" | "DRAGON" | "ORC";
@@ -1602,9 +1424,7 @@ export declare const Create_Character_ZOD_FORM: z.ZodObject<{
             newPerson?: {
                 name: {
                     default: string;
-                    alias?: {
-                        content: string;
-                    }[] | undefined;
+                    alias?: string[] | undefined;
                 };
                 isGroupe?: boolean | undefined;
                 birthDate?: string | undefined;
@@ -1631,9 +1451,7 @@ export declare const Create_Character_ZOD_FORM: z.ZodObject<{
     data: {
         name: {
             default: string;
-            alias?: {
-                content: string;
-            }[] | undefined;
+            alias?: string[] | undefined;
         };
         gender: "MASCULIN" | "FEMININ" | "NEUTRE" | "TRANSGENRE" | "NON_BINAIRE" | "GENRE_FLUIDE" | "AUTRE";
         species: "AUTRE" | "HUMAIN" | "ELFE" | "NAIN" | "LEZARD" | "DRAGON" | "ORC";
@@ -1653,9 +1471,7 @@ export declare const Create_Character_ZOD_FORM: z.ZodObject<{
             newPerson?: {
                 name: {
                     default: string;
-                    alias?: {
-                        content: string;
-                    }[] | undefined;
+                    alias?: string[] | undefined;
                 };
                 isGroupe?: boolean | undefined;
                 birthDate?: string | undefined;
@@ -1685,23 +1501,13 @@ export declare const Add_Character_ZOD: z.ZodObject<{
     newCharacter: z.ZodOptional<z.ZodObject<{
         name: z.ZodObject<{
             default: z.ZodString;
-            alias: z.ZodOptional<z.ZodArray<z.ZodObject<{
-                content: z.ZodString;
-            }, "strip", z.ZodTypeAny, {
-                content: string;
-            }, {
-                content: string;
-            }>, "many">>;
+            alias: z.ZodOptional<z.ZodArray<z.ZodString, "many">>;
         }, "strip", z.ZodTypeAny, {
             default: string;
-            alias?: {
-                content: string;
-            }[] | undefined;
+            alias?: string[] | undefined;
         }, {
             default: string;
-            alias?: {
-                content: string;
-            }[] | undefined;
+            alias?: string[] | undefined;
         }>;
         age: z.ZodOptional<z.ZodEffects<z.ZodUnion<[z.ZodNumber, z.ZodString]>, number, string | number>>;
         birthDate: z.ZodOptional<z.ZodString>;
@@ -1742,23 +1548,13 @@ export declare const Add_Character_ZOD: z.ZodObject<{
                 isGroupe: z.ZodOptional<z.ZodBoolean>;
                 name: z.ZodObject<{
                     default: z.ZodString;
-                    alias: z.ZodOptional<z.ZodArray<z.ZodObject<{
-                        content: z.ZodString;
-                    }, "strip", z.ZodTypeAny, {
-                        content: string;
-                    }, {
-                        content: string;
-                    }>, "many">>;
+                    alias: z.ZodOptional<z.ZodArray<z.ZodString, "many">>;
                 }, "strip", z.ZodTypeAny, {
                     default: string;
-                    alias?: {
-                        content: string;
-                    }[] | undefined;
+                    alias?: string[] | undefined;
                 }, {
                     default: string;
-                    alias?: {
-                        content: string;
-                    }[] | undefined;
+                    alias?: string[] | undefined;
                 }>;
                 birthDate: z.ZodOptional<z.ZodString>;
                 deathDate: z.ZodOptional<z.ZodString>;
@@ -1804,9 +1600,7 @@ export declare const Add_Character_ZOD: z.ZodObject<{
             }, "strict", z.ZodTypeAny, {
                 name: {
                     default: string;
-                    alias?: {
-                        content: string;
-                    }[] | undefined;
+                    alias?: string[] | undefined;
                 };
                 isGroupe?: boolean | undefined;
                 birthDate?: string | undefined;
@@ -1827,9 +1621,7 @@ export declare const Add_Character_ZOD: z.ZodObject<{
             }, {
                 name: {
                     default: string;
-                    alias?: {
-                        content: string;
-                    }[] | undefined;
+                    alias?: string[] | undefined;
                 };
                 isGroupe?: boolean | undefined;
                 birthDate?: string | undefined;
@@ -1854,9 +1646,7 @@ export declare const Add_Character_ZOD: z.ZodObject<{
             newPerson?: {
                 name: {
                     default: string;
-                    alias?: {
-                        content: string;
-                    }[] | undefined;
+                    alias?: string[] | undefined;
                 };
                 isGroupe?: boolean | undefined;
                 birthDate?: string | undefined;
@@ -1881,9 +1671,7 @@ export declare const Add_Character_ZOD: z.ZodObject<{
             newPerson?: {
                 name: {
                     default: string;
-                    alias?: {
-                        content: string;
-                    }[] | undefined;
+                    alias?: string[] | undefined;
                 };
                 isGroupe?: boolean | undefined;
                 birthDate?: string | undefined;
@@ -1907,9 +1695,7 @@ export declare const Add_Character_ZOD: z.ZodObject<{
     }, "strict", z.ZodTypeAny, {
         name: {
             default: string;
-            alias?: {
-                content: string;
-            }[] | undefined;
+            alias?: string[] | undefined;
         };
         gender: "MASCULIN" | "FEMININ" | "NEUTRE" | "TRANSGENRE" | "NON_BINAIRE" | "GENRE_FLUIDE" | "AUTRE";
         species: "AUTRE" | "HUMAIN" | "ELFE" | "NAIN" | "LEZARD" | "DRAGON" | "ORC";
@@ -1929,9 +1715,7 @@ export declare const Add_Character_ZOD: z.ZodObject<{
             newPerson?: {
                 name: {
                     default: string;
-                    alias?: {
-                        content: string;
-                    }[] | undefined;
+                    alias?: string[] | undefined;
                 };
                 isGroupe?: boolean | undefined;
                 birthDate?: string | undefined;
@@ -1955,9 +1739,7 @@ export declare const Add_Character_ZOD: z.ZodObject<{
     }, {
         name: {
             default: string;
-            alias?: {
-                content: string;
-            }[] | undefined;
+            alias?: string[] | undefined;
         };
         gender: "MASCULIN" | "FEMININ" | "NEUTRE" | "TRANSGENRE" | "NON_BINAIRE" | "GENRE_FLUIDE" | "AUTRE";
         species: "AUTRE" | "HUMAIN" | "ELFE" | "NAIN" | "LEZARD" | "DRAGON" | "ORC";
@@ -1977,9 +1759,7 @@ export declare const Add_Character_ZOD: z.ZodObject<{
             newPerson?: {
                 name: {
                     default: string;
-                    alias?: {
-                        content: string;
-                    }[] | undefined;
+                    alias?: string[] | undefined;
                 };
                 isGroupe?: boolean | undefined;
                 birthDate?: string | undefined;
@@ -2008,9 +1788,7 @@ export declare const Add_Character_ZOD: z.ZodObject<{
     newCharacter?: {
         name: {
             default: string;
-            alias?: {
-                content: string;
-            }[] | undefined;
+            alias?: string[] | undefined;
         };
         gender: "MASCULIN" | "FEMININ" | "NEUTRE" | "TRANSGENRE" | "NON_BINAIRE" | "GENRE_FLUIDE" | "AUTRE";
         species: "AUTRE" | "HUMAIN" | "ELFE" | "NAIN" | "LEZARD" | "DRAGON" | "ORC";
@@ -2030,9 +1808,7 @@ export declare const Add_Character_ZOD: z.ZodObject<{
             newPerson?: {
                 name: {
                     default: string;
-                    alias?: {
-                        content: string;
-                    }[] | undefined;
+                    alias?: string[] | undefined;
                 };
                 isGroupe?: boolean | undefined;
                 birthDate?: string | undefined;
@@ -2060,9 +1836,7 @@ export declare const Add_Character_ZOD: z.ZodObject<{
     newCharacter?: {
         name: {
             default: string;
-            alias?: {
-                content: string;
-            }[] | undefined;
+            alias?: string[] | undefined;
         };
         gender: "MASCULIN" | "FEMININ" | "NEUTRE" | "TRANSGENRE" | "NON_BINAIRE" | "GENRE_FLUIDE" | "AUTRE";
         species: "AUTRE" | "HUMAIN" | "ELFE" | "NAIN" | "LEZARD" | "DRAGON" | "ORC";
@@ -2082,9 +1856,7 @@ export declare const Add_Character_ZOD: z.ZodObject<{
             newPerson?: {
                 name: {
                     default: string;
-                    alias?: {
-                        content: string;
-                    }[] | undefined;
+                    alias?: string[] | undefined;
                 };
                 isGroupe?: boolean | undefined;
                 birthDate?: string | undefined;
@@ -2111,9 +1883,7 @@ export type IAdd_Character_ZOD = z.infer<typeof Add_Character_ZOD>;
 export declare const CharacterDataToZOD: (data: ICharacter) => {
     name: {
         default: string;
-        alias?: {
-            content: string;
-        }[] | undefined;
+        alias?: string[] | undefined;
     };
     gender: "MASCULIN" | "FEMININ" | "NEUTRE" | "TRANSGENRE" | "NON_BINAIRE" | "GENRE_FLUIDE" | "AUTRE";
     species: "AUTRE" | "HUMAIN" | "ELFE" | "NAIN" | "LEZARD" | "DRAGON" | "ORC";
@@ -2133,9 +1903,7 @@ export declare const CharacterDataToZOD: (data: ICharacter) => {
         newPerson?: {
             name: {
                 default: string;
-                alias?: {
-                    content: string;
-                }[] | undefined;
+                alias?: string[] | undefined;
             };
             isGroupe?: boolean | undefined;
             birthDate?: string | undefined;

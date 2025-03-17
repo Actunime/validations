@@ -14,7 +14,7 @@ import { FromBody } from "./_media";
 
 export const Character_Name_ZOD = z.object({
   default: z.string(),
-  alias: z.optional(z.array(z.object({ content: z.string() }))),
+  alias: z.optional(z.array(z.string())),
 });
 
 

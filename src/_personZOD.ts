@@ -7,15 +7,7 @@ import { PatchParamsBody } from "./_patchZOD";
 
 export const PersonName_validation = z.object({
   default: z.string(),
-  alias: z.optional(
-    z.array(
-      z.object({
-        content: z
-          .string()
-          .min(2, "le nom dois contenir au moins 2 caractères"),
-      }),
-    ),
-  ),
+  alias: z.optional(z.array(z.string())),
 });
 
 export const Base_Create_Person_ZOD = z
