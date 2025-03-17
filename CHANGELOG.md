@@ -1,3 +1,10 @@
+## [1.0.27](https://github.com/Actunime/validations/compare/v1.0.26...v1.0.27) (2025-03-17)
+
+
+### Bug Fixes
+
+* **types:** partial ([17e4cbb](https://github.com/Actunime/validations/commit/17e4cbb1b2e1548f6ffb832c5b47d34a40f83507))
+
 ## [1.0.26](https://github.com/Actunime/validations/compare/v1.0.25...v1.0.26) (2025-03-17)
 
 
