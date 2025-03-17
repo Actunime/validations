@@ -1,5 +1,5 @@
 import { z } from "zod";
-import { Create_Link_ZOD, FromBody, LinkBody } from "./_media";
+import { Create_Link_ZOD, DateBody, FromBody, LinkBody } from "./_media";
 import { PaginationBody, zodNumber } from "./_util";
 import { Add_Image_ZOD, ImageBody } from "./_imageZOD";
 import { IPerson, PersonRoleArray, dateToZod } from "@actunime/types";
@@ -14,8 +14,8 @@ export const Base_Create_Person_ZOD = z
   .object({
     isGroupe: z.optional(z.boolean()),
     name: PersonName_validation,
-    birthDate: z.optional(z.string()),
-    deathDate: z.optional(z.string()),
+    birthDate: z.optional(DateBody.partial()),
+    deathDate: z.optional(DateBody.partial()),
     description: z.optional(z.string()),
     avatar: z.optional(Add_Image_ZOD),
     links: z.optional(z.array(Create_Link_ZOD)),
@@ -103,8 +103,8 @@ export const PersonDataToZOD = (data: IPerson) => {
   const toZOD: ICreate_Person_ZOD = {
     isGroupe: data.isGroupe,
     name: data.name,
-    birthDate: dateToZod(data.birthDate),
-    deathDate: dateToZod(data.deathDate),
+    birthDate: data.birthDate,
+    deathDate: data.deathDate,
     description: data.description,
     avatar: data.avatar,
     links: data.links,

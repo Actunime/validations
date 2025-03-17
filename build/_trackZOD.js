@@ -11,7 +11,7 @@ const _patchZOD_1 = require("./_patchZOD");
 exports.TrackQueryBody = zod_1.z.object({
     name: zod_1.z.object({ default: zod_1.z.string(), alias: zod_1.z.optional(zod_1.z.array(zod_1.z.string())) }),
     type: zod_1.z.enum(types_1.TrackTypeArray),
-    pubDate: zod_1.z.string(),
+    pubDate: zod_1.z.optional(_media_1.DateBody.partial()),
     artists: _personZOD_1.PersonBody.partial(),
     cover: _imageZOD_1.ImageBody.partial(),
     links: _media_1.LinkBody.partial(),
@@ -43,7 +43,7 @@ exports.Create_Track_ZOD = zod_1.z
     .object({
     name: zod_1.z.object({ default: zod_1.z.string(), alias: zod_1.z.optional(zod_1.z.array(zod_1.z.string())) }),
     type: zod_1.z.enum(types_1.TrackTypeArray),
-    pubDate: zod_1.z.optional(zod_1.z.string()),
+    pubDate: zod_1.z.optional(_media_1.DateBody.partial()),
     artists: zod_1.z.optional(zod_1.z.array(_personZOD_1.Add_Person_ZOD)),
     cover: zod_1.z.optional(_imageZOD_1.Add_Image_ZOD),
     description: zod_1.z.optional(zod_1.z.string()),
@@ -67,7 +67,7 @@ const TrackDataToZOD = (data) => {
     const toZOD = {
         name: data.name,
         type: data.type,
-        pubDate: (0, types_1.dateToZod)(data.pubDate),
+        pubDate: data.pubDate,
         cover: data.cover,
         artists: data.artists,
         description: data.description,

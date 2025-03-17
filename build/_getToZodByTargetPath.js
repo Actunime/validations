@@ -19,7 +19,7 @@ exports.TargetPathToZod = {
     ...{},
 };
 exports.TargetPathZodResolver = {
-    Anime: _animeZOD_1.Create_Anime_ZOD,
+    Anime: _animeZOD_1.AnimeCreateBody,
     Manga: _mangaZOD_1.Create_Manga_ZOD,
     Character: _characterZOD_1.Create_Character_ZOD,
     Person: _personZOD_1.Create_Person_ZOD,

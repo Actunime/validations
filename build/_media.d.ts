@@ -1,23 +1,184 @@
 import { z } from "zod";
-export declare const MediaDateZodSchema: z.ZodObject<{
-    start: z.ZodOptional<z.ZodEffects<z.ZodString, string, string>>;
-    end: z.ZodOptional<z.ZodEffects<z.ZodString, string, string>>;
+import { IMediaDate, IMediaLink, IMediaTitle } from "@actunime/types";
+export type EqualType<T, Expected extends T> = T extends Expected ? Expected extends T ? T : never : never;
+export declare const DateBody: z.ZodObject<{
+    year: z.ZodOptional<z.ZodEffects<z.ZodUnion<[z.ZodNumber, z.ZodString]>, number, string | number>>;
+    month: z.ZodOptional<z.ZodEffects<z.ZodUnion<[z.ZodNumber, z.ZodString]>, number, string | number>>;
+    day: z.ZodOptional<z.ZodEffects<z.ZodUnion<[z.ZodNumber, z.ZodString]>, number, string | number>>;
+    hour: z.ZodOptional<z.ZodEffects<z.ZodUnion<[z.ZodNumber, z.ZodString]>, number, string | number>>;
+    minute: z.ZodOptional<z.ZodEffects<z.ZodUnion<[z.ZodNumber, z.ZodString]>, number, string | number>>;
 }, "strip", z.ZodTypeAny, {
-    start?: string | undefined;
-    end?: string | undefined;
+    year?: number | undefined;
+    month?: number | undefined;
+    day?: number | undefined;
+    hour?: number | undefined;
+    minute?: number | undefined;
 }, {
-    start?: string | undefined;
-    end?: string | undefined;
+    year?: string | number | undefined;
+    month?: string | number | undefined;
+    day?: string | number | undefined;
+    hour?: string | number | undefined;
+    minute?: string | number | undefined;
+}>;
+export declare const DateSortBody: z.ZodObject<{
+    year: z.ZodOptional<z.ZodEffects<z.ZodEffects<z.ZodUnion<[z.ZodNumber, z.ZodString]>, number, string | number>, number, string | number>>;
+    month: z.ZodOptional<z.ZodEffects<z.ZodEffects<z.ZodUnion<[z.ZodNumber, z.ZodString]>, number, string | number>, number, string | number>>;
+    day: z.ZodOptional<z.ZodEffects<z.ZodEffects<z.ZodUnion<[z.ZodNumber, z.ZodString]>, number, string | number>, number, string | number>>;
+    hour: z.ZodOptional<z.ZodEffects<z.ZodEffects<z.ZodUnion<[z.ZodNumber, z.ZodString]>, number, string | number>, number, string | number>>;
+    minute: z.ZodOptional<z.ZodEffects<z.ZodEffects<z.ZodUnion<[z.ZodNumber, z.ZodString]>, number, string | number>, number, string | number>>;
+}, "strip", z.ZodTypeAny, {
+    year?: number | undefined;
+    month?: number | undefined;
+    day?: number | undefined;
+    hour?: number | undefined;
+    minute?: number | undefined;
+}, {
+    year?: string | number | undefined;
+    month?: string | number | undefined;
+    day?: string | number | undefined;
+    hour?: string | number | undefined;
+    minute?: string | number | undefined;
 }>;
 export declare const MediaDateBody: z.ZodObject<{
-    start: z.ZodString;
-    end: z.ZodString;
+    start: z.ZodObject<{
+        year: z.ZodOptional<z.ZodEffects<z.ZodUnion<[z.ZodNumber, z.ZodString]>, number, string | number>>;
+        month: z.ZodOptional<z.ZodEffects<z.ZodUnion<[z.ZodNumber, z.ZodString]>, number, string | number>>;
+        day: z.ZodOptional<z.ZodEffects<z.ZodUnion<[z.ZodNumber, z.ZodString]>, number, string | number>>;
+        hour: z.ZodOptional<z.ZodEffects<z.ZodUnion<[z.ZodNumber, z.ZodString]>, number, string | number>>;
+        minute: z.ZodOptional<z.ZodEffects<z.ZodUnion<[z.ZodNumber, z.ZodString]>, number, string | number>>;
+    }, "strip", z.ZodTypeAny, {
+        year?: number | undefined;
+        month?: number | undefined;
+        day?: number | undefined;
+        hour?: number | undefined;
+        minute?: number | undefined;
+    }, {
+        year?: string | number | undefined;
+        month?: string | number | undefined;
+        day?: string | number | undefined;
+        hour?: string | number | undefined;
+        minute?: string | number | undefined;
+    }>;
+    end: z.ZodObject<{
+        year: z.ZodOptional<z.ZodEffects<z.ZodUnion<[z.ZodNumber, z.ZodString]>, number, string | number>>;
+        month: z.ZodOptional<z.ZodEffects<z.ZodUnion<[z.ZodNumber, z.ZodString]>, number, string | number>>;
+        day: z.ZodOptional<z.ZodEffects<z.ZodUnion<[z.ZodNumber, z.ZodString]>, number, string | number>>;
+        hour: z.ZodOptional<z.ZodEffects<z.ZodUnion<[z.ZodNumber, z.ZodString]>, number, string | number>>;
+        minute: z.ZodOptional<z.ZodEffects<z.ZodUnion<[z.ZodNumber, z.ZodString]>, number, string | number>>;
+    }, "strip", z.ZodTypeAny, {
+        year?: number | undefined;
+        month?: number | undefined;
+        day?: number | undefined;
+        hour?: number | undefined;
+        minute?: number | undefined;
+    }, {
+        year?: string | number | undefined;
+        month?: string | number | undefined;
+        day?: string | number | undefined;
+        hour?: string | number | undefined;
+        minute?: string | number | undefined;
+    }>;
 }, "strip", z.ZodTypeAny, {
-    start: string;
-    end: string;
+    start: {
+        year?: number | undefined;
+        month?: number | undefined;
+        day?: number | undefined;
+        hour?: number | undefined;
+        minute?: number | undefined;
+    };
+    end: {
+        year?: number | undefined;
+        month?: number | undefined;
+        day?: number | undefined;
+        hour?: number | undefined;
+        minute?: number | undefined;
+    };
 }, {
-    start: string;
-    end: string;
+    start: {
+        year?: string | number | undefined;
+        month?: string | number | undefined;
+        day?: string | number | undefined;
+        hour?: string | number | undefined;
+        minute?: string | number | undefined;
+    };
+    end: {
+        year?: string | number | undefined;
+        month?: string | number | undefined;
+        day?: string | number | undefined;
+        hour?: string | number | undefined;
+        minute?: string | number | undefined;
+    };
+}>;
+export type IMediaDateBody = EqualType<IMediaDate, z.infer<typeof MediaDateBody>>;
+export declare const MediaDateSortBody: z.ZodObject<{
+    start: z.ZodOptional<z.ZodObject<{
+        year: z.ZodOptional<z.ZodEffects<z.ZodEffects<z.ZodUnion<[z.ZodNumber, z.ZodString]>, number, string | number>, number, string | number>>;
+        month: z.ZodOptional<z.ZodEffects<z.ZodEffects<z.ZodUnion<[z.ZodNumber, z.ZodString]>, number, string | number>, number, string | number>>;
+        day: z.ZodOptional<z.ZodEffects<z.ZodEffects<z.ZodUnion<[z.ZodNumber, z.ZodString]>, number, string | number>, number, string | number>>;
+        hour: z.ZodOptional<z.ZodEffects<z.ZodEffects<z.ZodUnion<[z.ZodNumber, z.ZodString]>, number, string | number>, number, string | number>>;
+        minute: z.ZodOptional<z.ZodEffects<z.ZodEffects<z.ZodUnion<[z.ZodNumber, z.ZodString]>, number, string | number>, number, string | number>>;
+    }, "strip", z.ZodTypeAny, {
+        year?: number | undefined;
+        month?: number | undefined;
+        day?: number | undefined;
+        hour?: number | undefined;
+        minute?: number | undefined;
+    }, {
+        year?: string | number | undefined;
+        month?: string | number | undefined;
+        day?: string | number | undefined;
+        hour?: string | number | undefined;
+        minute?: string | number | undefined;
+    }>>;
+    end: z.ZodOptional<z.ZodObject<{
+        year: z.ZodOptional<z.ZodEffects<z.ZodEffects<z.ZodUnion<[z.ZodNumber, z.ZodString]>, number, string | number>, number, string | number>>;
+        month: z.ZodOptional<z.ZodEffects<z.ZodEffects<z.ZodUnion<[z.ZodNumber, z.ZodString]>, number, string | number>, number, string | number>>;
+        day: z.ZodOptional<z.ZodEffects<z.ZodEffects<z.ZodUnion<[z.ZodNumber, z.ZodString]>, number, string | number>, number, string | number>>;
+        hour: z.ZodOptional<z.ZodEffects<z.ZodEffects<z.ZodUnion<[z.ZodNumber, z.ZodString]>, number, string | number>, number, string | number>>;
+        minute: z.ZodOptional<z.ZodEffects<z.ZodEffects<z.ZodUnion<[z.ZodNumber, z.ZodString]>, number, string | number>, number, string | number>>;
+    }, "strip", z.ZodTypeAny, {
+        year?: number | undefined;
+        month?: number | undefined;
+        day?: number | undefined;
+        hour?: number | undefined;
+        minute?: number | undefined;
+    }, {
+        year?: string | number | undefined;
+        month?: string | number | undefined;
+        day?: string | number | undefined;
+        hour?: string | number | undefined;
+        minute?: string | number | undefined;
+    }>>;
+}, "strip", z.ZodTypeAny, {
+    start?: {
+        year?: number | undefined;
+        month?: number | undefined;
+        day?: number | undefined;
+        hour?: number | undefined;
+        minute?: number | undefined;
+    } | undefined;
+    end?: {
+        year?: number | undefined;
+        month?: number | undefined;
+        day?: number | undefined;
+        hour?: number | undefined;
+        minute?: number | undefined;
+    } | undefined;
+}, {
+    start?: {
+        year?: string | number | undefined;
+        month?: string | number | undefined;
+        day?: string | number | undefined;
+        hour?: string | number | undefined;
+        minute?: string | number | undefined;
+    } | undefined;
+    end?: {
+        year?: string | number | undefined;
+        month?: string | number | undefined;
+        day?: string | number | undefined;
+        hour?: string | number | undefined;
+        minute?: string | number | undefined;
+    } | undefined;
 }>;
 export declare const MediaImageZodSchema: z.ZodObject<{
     cover: z.ZodOptional<z.ZodString>;
@@ -49,37 +210,25 @@ export declare const LinkBody: z.ZodObject<{
     value?: string | undefined;
     name?: string | undefined;
 }>;
+export type IMediaLinkBody = EqualType<IMediaLink, z.infer<typeof LinkBody>>;
 export type ICreate_Link_ZOD = z.infer<typeof Create_Link_ZOD>;
 export declare const MediaTitleZodSchema: z.ZodEffects<z.ZodObject<{
     default: z.ZodString;
-    alias: z.ZodOptional<z.ZodArray<z.ZodObject<{
-        content: z.ZodString;
-    }, "strip", z.ZodTypeAny, {
-        content: string;
-    }, {
-        content: string;
-    }>, "many">>;
+    alias: z.ZodOptional<z.ZodArray<z.ZodString, "many">>;
 }, "strip", z.ZodTypeAny, {
     default: string;
-    alias?: {
-        content: string;
-    }[] | undefined;
+    alias?: string[] | undefined;
 }, {
     default: string;
-    alias?: {
-        content: string;
-    }[] | undefined;
+    alias?: string[] | undefined;
 }>, {
     default: string;
-    alias?: {
-        content: string;
-    }[] | undefined;
+    alias?: string[] | undefined;
 }, {
     default: string;
-    alias?: {
-        content: string;
-    }[] | undefined;
+    alias?: string[] | undefined;
 }>;
+export type IMediaTitleZodSchema = EqualType<IMediaTitle, z.infer<typeof MediaTitleZodSchema>>;
 export declare const MediaTitleBody: z.ZodObject<{
     default: z.ZodString;
     alias: z.ZodOptional<z.ZodArray<z.ZodString, "many">>;
@@ -90,6 +239,7 @@ export declare const MediaTitleBody: z.ZodObject<{
     default: string;
     alias?: string[] | undefined;
 }>;
+export type IMediaTitleBody = EqualType<IMediaTitle, z.infer<typeof MediaTitleBody>>;
 export declare const MediaTrailerZod: z.ZodString;
 export declare const FromBody: z.ZodObject<{
     id: z.ZodString;

@@ -1,10 +1,7 @@
 import {
   MediaGenresArray,
   MediaParentLabelArray,
-  MediaSourceArray,
   MediaStatusArray,
-  dateTimeToZod,
-  dateToZod,
   IManga,
   MangaFormatArray,
 } from "@actunime/types";
@@ -14,23 +11,22 @@ import { Add_Company_ZOD } from "./_companyZOD";
 import { Add_Groupe_ZOD } from "./_groupeZOD";
 import {
   Create_Link_ZOD,
+  DateBody,
   FromBody,
   LinkBody,
   MediaDateBody,
-  MediaDateZodSchema,
   MediaTitleBody,
   MediaTitleZodSchema,
   MediaTrailerZod,
 } from "./_media";
 import { Add_Person_ZOD } from "./_personZOD";
-import { Add_Track_ZOD } from "./_trackZOD";
 import { PaginationBody, zodBoolean, zodNumber } from "./_util";
 import { Add_Image_ZOD } from "./_imageZOD";
 import { PatchParamsBody } from "./_patchZOD";
 
 const Manga_ChapterVolume_ZOD = z.object({
   airing: z.optional(zodNumber()),
-  nextAiringDate: z.optional(z.string()),
+  nextAiringDate: z.optional(DateBody.partial()),
   total: z.optional(zodNumber()),
 });
 
@@ -115,7 +111,7 @@ export const Create_Manga_ZOD = z
     parent: z.optional(Add_Manga_ZOD),
     source: z.optional(Add_Manga_ZOD),
     title: MediaTitleZodSchema,
-    date: z.optional(MediaDateZodSchema),
+    date: z.optional(MediaDateBody.partial()),
     cover: z.optional(Add_Image_ZOD),
     banner: z.optional(Add_Image_ZOD),
     synopsis: z.optional(z.string()),
@@ -163,33 +159,12 @@ export const MangaDataToZOD = (data: IManga) => {
     synopsis: data.synopsis,
     cover: data.cover,
     banner: data.banner,
-    ...(data.date
-      ? {
-        date: {
-          start: dateToZod(data.date.start),
-          end: dateToZod(data.date.end),
-        } as any,
-      }
-      : {}),
+    date: data.date,
     status: data.status as any,
     format: data.format as any,
     vf: data.vf || ("false" as any),
-    ...(data.chapters
-      ? {
-        chapters: {
-          ...data.chapters,
-          nextAiringDate: dateTimeToZod(data.chapters.nextAiringDate),
-        },
-      }
-      : {}),
-    ...(data.volumes
-      ? {
-        volumes: {
-          ...data.volumes,
-          nextAiringDate: dateTimeToZod(data.volumes.nextAiringDate),
-        },
-      }
-      : {}),
+    chapters: data.chapters,
+    volumes: data.volumes,
     adult: data.adult || ("false" as any),
     explicit: data.explicit || ("false" as any),
     genres: (data.genres || []) as any,

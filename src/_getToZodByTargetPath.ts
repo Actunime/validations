@@ -1,5 +1,5 @@
 import { Create_Manga_ZOD, MangaDataToZOD } from "./_mangaZOD";
-import { AnimeDataToZOD, Create_Anime_ZOD } from "./_animeZOD";
+import { AnimeDataToZOD, AnimeCreateBody } from "./_animeZOD";
 import { Create_Person_ZOD, PersonDataToZOD } from "./_personZOD";
 import { CharacterDataToZOD, Create_Character_ZOD } from "./_characterZOD";
 import { Create_Track_ZOD, TrackDataToZOD } from "./_trackZOD";
@@ -32,7 +32,7 @@ export const TargetPathToZod: Record<ITargetPath, (data: any) => any> = {
 };
 
 export const TargetPathZodResolver: Record<ITargetPath, ZodObject<any> | ZodEffects<ZodObject<any>>> = {
-  Anime: Create_Anime_ZOD,
+  Anime: AnimeCreateBody,
   Manga: Create_Manga_ZOD,
   Character: Create_Character_ZOD,
   Person: Create_Person_ZOD,

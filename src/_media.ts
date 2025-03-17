@@ -1,27 +1,39 @@
 import { z } from "zod";
-import { zodDate } from "./_util";
-import { TargetPathArray } from "@actunime/types";
+import { zodNumber } from "./_util";
+import { IMediaDate, IMediaLink, IMediaTitle, TargetPathArray } from "@actunime/types";
 
-export const MediaDateZodSchema = z.object({
-  start: z.optional(
-    z
-      .string()
-      .refine((v) => zodDate().safeParse(v).success, {
-        message: "date invalide",
-      }),
-  ),
-  end: z.optional(
-    z
-      .string()
-      .refine((v) => zodDate().safeParse(v).success, {
-        message: "date invalide",
-      }),
-  ),
-});
+export type EqualType<T, Expected extends T> = T extends Expected ? Expected extends T ? T : never : never;
+
+
+export const DateBody = z.object({
+  year: z.optional(zodNumber()),
+  month: z.optional(zodNumber()),
+  day: z.optional(zodNumber()),
+  hour: z.optional(zodNumber()),
+  minute: z.optional(zodNumber())
+})
+
+const check = (v: number) => [-1, 1].includes(v);
+const checkErr = "le sort doit être soit -1 ou 1";
+
+export const DateSortBody = z.object({
+  year: z.optional(zodNumber().refine(check, checkErr)),
+  month: z.optional(zodNumber().refine(check, checkErr)),
+  day: z.optional(zodNumber().refine(check, checkErr)),
+  hour: z.optional(zodNumber().refine(check, checkErr)),
+  minute: z.optional(zodNumber().refine(check, checkErr)),
+})
 
 export const MediaDateBody = z.object({
-  start: z.string(),
-  end: z.string(),
+  start: DateBody,
+  end: DateBody
+})
+
+export type IMediaDateBody = EqualType<IMediaDate, z.infer<typeof MediaDateBody>>;
+
+export const MediaDateSortBody = z.object({
+  start: z.optional(DateSortBody),
+  end: z.optional(DateSortBody)
 })
 
 export const MediaImageZodSchema = z.object({
@@ -43,6 +55,8 @@ export const LinkBody = z.object({
   value: z.string().regex(urlRegex, "Lien HTTPS invalide").default("https://actunime.fr/")
 })
 
+export type IMediaLinkBody = EqualType<IMediaLink, z.infer<typeof LinkBody>>;
+
 export type ICreate_Link_ZOD = z.infer<typeof Create_Link_ZOD>;
 
 export const MediaTitleZodSchema = z
@@ -53,24 +67,24 @@ export const MediaTitleZodSchema = z
     // }),
     alias: z.optional(
       z.array(
-        z.object({
-          content: z
-            .string()
-            .min(2, "le nom doit contenir au moins 2 caractères"),
-        }),
+        z.string().min(2, "le nom doit contenir au moins 2 caractères")
       ),
     ),
   })
   .refine(
     (v) =>
-      !v.alias?.find(({ content }) => content === v.default) ||
+      !v.alias?.find((content) => content === v.default) ||
       `La valeur de alias ne doit pas contenir la valeur par défaut`,
   );
+
+export type IMediaTitleZodSchema = EqualType<IMediaTitle, z.infer<typeof MediaTitleZodSchema>>;
 
 export const MediaTitleBody = z.object({
   default: z.string(),
   alias: z.optional(z.array(z.string()))
 })
+
+export type IMediaTitleBody = EqualType<IMediaTitle, z.infer<typeof MediaTitleBody>>
 
 
 // Définir une regex pour les URL de vidéos YouTube

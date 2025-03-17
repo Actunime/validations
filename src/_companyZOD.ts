@@ -1,6 +1,6 @@
-import {  ICompany, dateToZod } from "@actunime/types";
+import { ICompany } from "@actunime/types";
 import { z } from "zod";
-import { Create_Link_ZOD, FromBody, LinkBody } from "./_media";
+import { Create_Link_ZOD, DateBody, FromBody, LinkBody } from "./_media";
 import { PaginationBody, zodNumber } from "./_util";
 import { Add_Image_ZOD, ImageBody } from "./_imageZOD";
 import { PatchParamsBody } from "./_patchZOD";
@@ -10,7 +10,7 @@ export const CompanyQueryBody = z.object({
   name: z.string(),
   links: LinkBody.partial(),
   logo: ImageBody.partial(),
-  createdDate: z.optional(z.string()),
+  createdDate: z.optional(DateBody.partial()),
   createdAt: z.string(),
   updatedAt: z.string(),
 });
@@ -20,7 +20,11 @@ const checkErr = "le sort doit être soit -1 ou 1";
 export const CompanySortBody = z.object({
   type: zodNumber().refine(check, checkErr),
   name: zodNumber().refine(check, checkErr),
-  createdDate: zodNumber().refine(check, checkErr),
+  createdDate: z.object({
+    year: zodNumber().refine(check, checkErr),
+    month: zodNumber().refine(check, checkErr),
+    day: zodNumber().refine(check, checkErr),
+  }),
   createdAt: zodNumber().refine(check, checkErr),
   updatedAt: zodNumber().refine(check, checkErr),
 })
@@ -49,7 +53,7 @@ export const Create_Company_ZOD = z.object({
   description: z.optional(z.string()),
   links: z.optional(z.array(Create_Link_ZOD)),
   logo: z.optional(Add_Image_ZOD),
-  createdDate: z.optional(z.string()),
+  createdDate: z.optional(DateBody.partial()),
 })
   .strict();
 
@@ -87,7 +91,7 @@ export const CompanyDataToZOD = (
     description: data.description,
     links: data.links,
     logo: data.logo,
-    createdDate: dateToZod(data.createdDate),
+    createdDate: data.createdDate,
   };
 
   const safeParse = Create_Company_ZOD.safeParse(toZOD);

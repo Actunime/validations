@@ -13,7 +13,7 @@ const _imageZOD_1 = require("./_imageZOD");
 const _patchZOD_1 = require("./_patchZOD");
 const Manga_ChapterVolume_ZOD = zod_1.z.object({
     airing: zod_1.z.optional((0, _util_1.zodNumber)()),
-    nextAiringDate: zod_1.z.optional(zod_1.z.string()),
+    nextAiringDate: zod_1.z.optional(_media_1.DateBody.partial()),
     total: zod_1.z.optional((0, _util_1.zodNumber)()),
 });
 exports.MangaQueryBody = zod_1.z.object({
@@ -86,7 +86,7 @@ exports.Create_Manga_ZOD = zod_1.z
     parent: zod_1.z.optional(exports.Add_Manga_ZOD),
     source: zod_1.z.optional(exports.Add_Manga_ZOD),
     title: _media_1.MediaTitleZodSchema,
-    date: zod_1.z.optional(_media_1.MediaDateZodSchema),
+    date: zod_1.z.optional(_media_1.MediaDateBody.partial()),
     cover: zod_1.z.optional(_imageZOD_1.Add_Image_ZOD),
     banner: zod_1.z.optional(_imageZOD_1.Add_Image_ZOD),
     synopsis: zod_1.z.optional(zod_1.z.string()),
@@ -123,33 +123,12 @@ const MangaDataToZOD = (data) => {
         synopsis: data.synopsis,
         cover: data.cover,
         banner: data.banner,
-        ...(data.date
-            ? {
-                date: {
-                    start: (0, types_1.dateToZod)(data.date.start),
-                    end: (0, types_1.dateToZod)(data.date.end),
-                },
-            }
-            : {}),
+        date: data.date,
         status: data.status,
         format: data.format,
         vf: data.vf || "false",
-        ...(data.chapters
-            ? {
-                chapters: {
-                    ...data.chapters,
-                    nextAiringDate: (0, types_1.dateTimeToZod)(data.chapters.nextAiringDate),
-                },
-            }
-            : {}),
-        ...(data.volumes
-            ? {
-                volumes: {
-                    ...data.volumes,
-                    nextAiringDate: (0, types_1.dateTimeToZod)(data.volumes.nextAiringDate),
-                },
-            }
-            : {}),
+        chapters: data.chapters,
+        volumes: data.volumes,
         adult: data.adult || "false",
         explicit: data.explicit || "false",
         genres: (data.genres || []),

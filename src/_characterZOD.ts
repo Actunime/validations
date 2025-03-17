@@ -3,14 +3,13 @@ import {
   CharacterRoleArray,
   CharacterSpeciesArray,
   ICharacter,
-  dateToZod,
 } from "@actunime/types";
 import { z } from "zod";
 import { Add_Person_ZOD, PersonBody } from "./_personZOD";
 import { PaginationBody, zodNumber } from "./_util";
 import { Add_Image_ZOD, ImageBody } from "./_imageZOD";
 import { PatchParamsBody } from "./_patchZOD";
-import { FromBody } from "./_media";
+import { DateBody, FromBody } from "./_media";
 
 export const Character_Name_ZOD = z.object({
   default: z.string(),
@@ -21,7 +20,7 @@ export const Character_Name_ZOD = z.object({
 export const CharacterQueryBody = z.object({
   name: Character_Name_ZOD.partial(),
   age: zodNumber(),
-  birthDate: z.string(),
+  birthDate: z.optional(DateBody.partial()),
   avatar: ImageBody.partial(),
   gender: z.enum(CharacterGenderArray),
   species: z.enum(CharacterSpeciesArray),
@@ -67,7 +66,7 @@ export const Create_Character_ZOD = z
   .object({
     name: Character_Name_ZOD,
     age: z.optional(zodNumber()),
-    birthDate: z.optional(z.string()),
+    birthDate: z.optional(DateBody.partial()),
     gender: z.enum(CharacterGenderArray),
     species: z.enum(CharacterSpeciesArray),
     description: z.optional(z.string()),
@@ -94,7 +93,7 @@ export type ICreate_Character_ZOD_FORM = z.infer<typeof Create_Character_ZOD_FOR
 export const Add_Character_ZOD = z.object({
   id: z.optional(z.string()),
   newCharacter: z.optional(Create_Character_ZOD),
-  role: z.enum(CharacterRoleArray, { required_error: "Le role est requis" }),
+  role: z.optional(z.enum(CharacterRoleArray, { required_error: "Le role est requis" })),
 });
 
 export type IAdd_Character_ZOD = z.infer<typeof Add_Character_ZOD>;
@@ -107,9 +106,9 @@ export const CharacterDataToZOD = (
   const toZOD: ICreate_Character_ZOD = {
     name: data.name,
     age: data.age,
-    birthDate: dateToZod(data.birthDate),
-    gender: data.gender as any,
-    species: data.species as any,
+    birthDate: data.birthDate,
+    gender: data.gender,
+    species: data.species,
     description: data.description,
     avatar: data.avatar,
     actors: data.actors,

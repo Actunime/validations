@@ -12,14 +12,74 @@ export declare const MangaQueryBody: z.ZodObject<{
         alias?: string[] | undefined;
     }>;
     date: z.ZodObject<{
-        start: z.ZodOptional<z.ZodString>;
-        end: z.ZodOptional<z.ZodString>;
+        start: z.ZodOptional<z.ZodObject<{
+            year: z.ZodOptional<z.ZodEffects<z.ZodUnion<[z.ZodNumber, z.ZodString]>, number, string | number>>;
+            month: z.ZodOptional<z.ZodEffects<z.ZodUnion<[z.ZodNumber, z.ZodString]>, number, string | number>>;
+            day: z.ZodOptional<z.ZodEffects<z.ZodUnion<[z.ZodNumber, z.ZodString]>, number, string | number>>;
+            hour: z.ZodOptional<z.ZodEffects<z.ZodUnion<[z.ZodNumber, z.ZodString]>, number, string | number>>;
+            minute: z.ZodOptional<z.ZodEffects<z.ZodUnion<[z.ZodNumber, z.ZodString]>, number, string | number>>;
+        }, "strip", z.ZodTypeAny, {
+            year?: number | undefined;
+            month?: number | undefined;
+            day?: number | undefined;
+            hour?: number | undefined;
+            minute?: number | undefined;
+        }, {
+            year?: string | number | undefined;
+            month?: string | number | undefined;
+            day?: string | number | undefined;
+            hour?: string | number | undefined;
+            minute?: string | number | undefined;
+        }>>;
+        end: z.ZodOptional<z.ZodObject<{
+            year: z.ZodOptional<z.ZodEffects<z.ZodUnion<[z.ZodNumber, z.ZodString]>, number, string | number>>;
+            month: z.ZodOptional<z.ZodEffects<z.ZodUnion<[z.ZodNumber, z.ZodString]>, number, string | number>>;
+            day: z.ZodOptional<z.ZodEffects<z.ZodUnion<[z.ZodNumber, z.ZodString]>, number, string | number>>;
+            hour: z.ZodOptional<z.ZodEffects<z.ZodUnion<[z.ZodNumber, z.ZodString]>, number, string | number>>;
+            minute: z.ZodOptional<z.ZodEffects<z.ZodUnion<[z.ZodNumber, z.ZodString]>, number, string | number>>;
+        }, "strip", z.ZodTypeAny, {
+            year?: number | undefined;
+            month?: number | undefined;
+            day?: number | undefined;
+            hour?: number | undefined;
+            minute?: number | undefined;
+        }, {
+            year?: string | number | undefined;
+            month?: string | number | undefined;
+            day?: string | number | undefined;
+            hour?: string | number | undefined;
+            minute?: string | number | undefined;
+        }>>;
     }, "strip", z.ZodTypeAny, {
-        start?: string | undefined;
-        end?: string | undefined;
+        start?: {
+            year?: number | undefined;
+            month?: number | undefined;
+            day?: number | undefined;
+            hour?: number | undefined;
+            minute?: number | undefined;
+        } | undefined;
+        end?: {
+            year?: number | undefined;
+            month?: number | undefined;
+            day?: number | undefined;
+            hour?: number | undefined;
+            minute?: number | undefined;
+        } | undefined;
     }, {
-        start?: string | undefined;
-        end?: string | undefined;
+        start?: {
+            year?: string | number | undefined;
+            month?: string | number | undefined;
+            day?: string | number | undefined;
+            hour?: string | number | undefined;
+            minute?: string | number | undefined;
+        } | undefined;
+        end?: {
+            year?: string | number | undefined;
+            month?: string | number | undefined;
+            day?: string | number | undefined;
+            hour?: string | number | undefined;
+            minute?: string | number | undefined;
+        } | undefined;
     }>;
     format: z.ZodEnum<("MANGA" | "MANHWA" | "MANHUA" | "LIGHT_NOVEL" | "WEB_LOVEL" | "GRAPHIC_NOVEL" | "DOUJINSHI" | "ONE_SHOT" | "OTHER")[] & [string, ...string[]]>;
     vf: z.ZodBoolean;
@@ -28,28 +88,88 @@ export declare const MangaQueryBody: z.ZodObject<{
     trailer: z.ZodString;
     chapters: z.ZodObject<{
         airing: z.ZodOptional<z.ZodOptional<z.ZodEffects<z.ZodUnion<[z.ZodNumber, z.ZodString]>, number, string | number>>>;
-        nextAiringDate: z.ZodOptional<z.ZodOptional<z.ZodString>>;
+        nextAiringDate: z.ZodOptional<z.ZodOptional<z.ZodObject<{
+            year: z.ZodOptional<z.ZodOptional<z.ZodEffects<z.ZodUnion<[z.ZodNumber, z.ZodString]>, number, string | number>>>;
+            month: z.ZodOptional<z.ZodOptional<z.ZodEffects<z.ZodUnion<[z.ZodNumber, z.ZodString]>, number, string | number>>>;
+            day: z.ZodOptional<z.ZodOptional<z.ZodEffects<z.ZodUnion<[z.ZodNumber, z.ZodString]>, number, string | number>>>;
+            hour: z.ZodOptional<z.ZodOptional<z.ZodEffects<z.ZodUnion<[z.ZodNumber, z.ZodString]>, number, string | number>>>;
+            minute: z.ZodOptional<z.ZodOptional<z.ZodEffects<z.ZodUnion<[z.ZodNumber, z.ZodString]>, number, string | number>>>;
+        }, "strip", z.ZodTypeAny, {
+            year?: number | undefined;
+            month?: number | undefined;
+            day?: number | undefined;
+            hour?: number | undefined;
+            minute?: number | undefined;
+        }, {
+            year?: string | number | undefined;
+            month?: string | number | undefined;
+            day?: string | number | undefined;
+            hour?: string | number | undefined;
+            minute?: string | number | undefined;
+        }>>>;
         total: z.ZodOptional<z.ZodOptional<z.ZodEffects<z.ZodUnion<[z.ZodNumber, z.ZodString]>, number, string | number>>>;
     }, "strip", z.ZodTypeAny, {
         airing?: number | undefined;
-        nextAiringDate?: string | undefined;
+        nextAiringDate?: {
+            year?: number | undefined;
+            month?: number | undefined;
+            day?: number | undefined;
+            hour?: number | undefined;
+            minute?: number | undefined;
+        } | undefined;
         total?: number | undefined;
     }, {
         airing?: string | number | undefined;
-        nextAiringDate?: string | undefined;
+        nextAiringDate?: {
+            year?: string | number | undefined;
+            month?: string | number | undefined;
+            day?: string | number | undefined;
+            hour?: string | number | undefined;
+            minute?: string | number | undefined;
+        } | undefined;
         total?: string | number | undefined;
     }>;
     volumes: z.ZodObject<{
         airing: z.ZodOptional<z.ZodOptional<z.ZodEffects<z.ZodUnion<[z.ZodNumber, z.ZodString]>, number, string | number>>>;
-        nextAiringDate: z.ZodOptional<z.ZodOptional<z.ZodString>>;
+        nextAiringDate: z.ZodOptional<z.ZodOptional<z.ZodObject<{
+            year: z.ZodOptional<z.ZodOptional<z.ZodEffects<z.ZodUnion<[z.ZodNumber, z.ZodString]>, number, string | number>>>;
+            month: z.ZodOptional<z.ZodOptional<z.ZodEffects<z.ZodUnion<[z.ZodNumber, z.ZodString]>, number, string | number>>>;
+            day: z.ZodOptional<z.ZodOptional<z.ZodEffects<z.ZodUnion<[z.ZodNumber, z.ZodString]>, number, string | number>>>;
+            hour: z.ZodOptional<z.ZodOptional<z.ZodEffects<z.ZodUnion<[z.ZodNumber, z.ZodString]>, number, string | number>>>;
+            minute: z.ZodOptional<z.ZodOptional<z.ZodEffects<z.ZodUnion<[z.ZodNumber, z.ZodString]>, number, string | number>>>;
+        }, "strip", z.ZodTypeAny, {
+            year?: number | undefined;
+            month?: number | undefined;
+            day?: number | undefined;
+            hour?: number | undefined;
+            minute?: number | undefined;
+        }, {
+            year?: string | number | undefined;
+            month?: string | number | undefined;
+            day?: string | number | undefined;
+            hour?: string | number | undefined;
+            minute?: string | number | undefined;
+        }>>>;
         total: z.ZodOptional<z.ZodOptional<z.ZodEffects<z.ZodUnion<[z.ZodNumber, z.ZodString]>, number, string | number>>>;
     }, "strip", z.ZodTypeAny, {
         airing?: number | undefined;
-        nextAiringDate?: string | undefined;
+        nextAiringDate?: {
+            year?: number | undefined;
+            month?: number | undefined;
+            day?: number | undefined;
+            hour?: number | undefined;
+            minute?: number | undefined;
+        } | undefined;
         total?: number | undefined;
     }, {
         airing?: string | number | undefined;
-        nextAiringDate?: string | undefined;
+        nextAiringDate?: {
+            year?: string | number | undefined;
+            month?: string | number | undefined;
+            day?: string | number | undefined;
+            hour?: string | number | undefined;
+            minute?: string | number | undefined;
+        } | undefined;
         total?: string | number | undefined;
     }>;
     adult: z.ZodBoolean;
@@ -67,8 +187,20 @@ export declare const MangaQueryBody: z.ZodObject<{
 }, "strip", z.ZodTypeAny, {
     status: "AIRING" | "PAUSED" | "ENDED" | "STOPPED" | "POSTONED" | "SOON" | "any";
     date: {
-        start?: string | undefined;
-        end?: string | undefined;
+        start?: {
+            year?: number | undefined;
+            month?: number | undefined;
+            day?: number | undefined;
+            hour?: number | undefined;
+            minute?: number | undefined;
+        } | undefined;
+        end?: {
+            year?: number | undefined;
+            month?: number | undefined;
+            day?: number | undefined;
+            hour?: number | undefined;
+            minute?: number | undefined;
+        } | undefined;
     };
     links: {
         value?: string | undefined;
@@ -84,12 +216,24 @@ export declare const MangaQueryBody: z.ZodObject<{
     trailer: string;
     chapters: {
         airing?: number | undefined;
-        nextAiringDate?: string | undefined;
+        nextAiringDate?: {
+            year?: number | undefined;
+            month?: number | undefined;
+            day?: number | undefined;
+            hour?: number | undefined;
+            minute?: number | undefined;
+        } | undefined;
         total?: number | undefined;
     };
     volumes: {
         airing?: number | undefined;
-        nextAiringDate?: string | undefined;
+        nextAiringDate?: {
+            year?: number | undefined;
+            month?: number | undefined;
+            day?: number | undefined;
+            hour?: number | undefined;
+            minute?: number | undefined;
+        } | undefined;
         total?: number | undefined;
     };
     adult: boolean;
@@ -97,8 +241,20 @@ export declare const MangaQueryBody: z.ZodObject<{
 }, {
     status: "AIRING" | "PAUSED" | "ENDED" | "STOPPED" | "POSTONED" | "SOON" | "any";
     date: {
-        start?: string | undefined;
-        end?: string | undefined;
+        start?: {
+            year?: string | number | undefined;
+            month?: string | number | undefined;
+            day?: string | number | undefined;
+            hour?: string | number | undefined;
+            minute?: string | number | undefined;
+        } | undefined;
+        end?: {
+            year?: string | number | undefined;
+            month?: string | number | undefined;
+            day?: string | number | undefined;
+            hour?: string | number | undefined;
+            minute?: string | number | undefined;
+        } | undefined;
     };
     links: {
         value?: string | undefined;
@@ -114,12 +270,24 @@ export declare const MangaQueryBody: z.ZodObject<{
     trailer: string;
     chapters: {
         airing?: string | number | undefined;
-        nextAiringDate?: string | undefined;
+        nextAiringDate?: {
+            year?: string | number | undefined;
+            month?: string | number | undefined;
+            day?: string | number | undefined;
+            hour?: string | number | undefined;
+            minute?: string | number | undefined;
+        } | undefined;
         total?: string | number | undefined;
     };
     volumes: {
         airing?: string | number | undefined;
-        nextAiringDate?: string | undefined;
+        nextAiringDate?: {
+            year?: string | number | undefined;
+            month?: string | number | undefined;
+            day?: string | number | undefined;
+            hour?: string | number | undefined;
+            minute?: string | number | undefined;
+        } | undefined;
         total?: string | number | undefined;
     };
     adult: boolean;
@@ -186,14 +354,74 @@ export declare const MangaPaginationBody: z.ZodObject<{
             alias?: string[] | undefined;
         }>>;
         date: z.ZodOptional<z.ZodObject<{
-            start: z.ZodOptional<z.ZodString>;
-            end: z.ZodOptional<z.ZodString>;
+            start: z.ZodOptional<z.ZodObject<{
+                year: z.ZodOptional<z.ZodEffects<z.ZodUnion<[z.ZodNumber, z.ZodString]>, number, string | number>>;
+                month: z.ZodOptional<z.ZodEffects<z.ZodUnion<[z.ZodNumber, z.ZodString]>, number, string | number>>;
+                day: z.ZodOptional<z.ZodEffects<z.ZodUnion<[z.ZodNumber, z.ZodString]>, number, string | number>>;
+                hour: z.ZodOptional<z.ZodEffects<z.ZodUnion<[z.ZodNumber, z.ZodString]>, number, string | number>>;
+                minute: z.ZodOptional<z.ZodEffects<z.ZodUnion<[z.ZodNumber, z.ZodString]>, number, string | number>>;
+            }, "strip", z.ZodTypeAny, {
+                year?: number | undefined;
+                month?: number | undefined;
+                day?: number | undefined;
+                hour?: number | undefined;
+                minute?: number | undefined;
+            }, {
+                year?: string | number | undefined;
+                month?: string | number | undefined;
+                day?: string | number | undefined;
+                hour?: string | number | undefined;
+                minute?: string | number | undefined;
+            }>>;
+            end: z.ZodOptional<z.ZodObject<{
+                year: z.ZodOptional<z.ZodEffects<z.ZodUnion<[z.ZodNumber, z.ZodString]>, number, string | number>>;
+                month: z.ZodOptional<z.ZodEffects<z.ZodUnion<[z.ZodNumber, z.ZodString]>, number, string | number>>;
+                day: z.ZodOptional<z.ZodEffects<z.ZodUnion<[z.ZodNumber, z.ZodString]>, number, string | number>>;
+                hour: z.ZodOptional<z.ZodEffects<z.ZodUnion<[z.ZodNumber, z.ZodString]>, number, string | number>>;
+                minute: z.ZodOptional<z.ZodEffects<z.ZodUnion<[z.ZodNumber, z.ZodString]>, number, string | number>>;
+            }, "strip", z.ZodTypeAny, {
+                year?: number | undefined;
+                month?: number | undefined;
+                day?: number | undefined;
+                hour?: number | undefined;
+                minute?: number | undefined;
+            }, {
+                year?: string | number | undefined;
+                month?: string | number | undefined;
+                day?: string | number | undefined;
+                hour?: string | number | undefined;
+                minute?: string | number | undefined;
+            }>>;
         }, "strip", z.ZodTypeAny, {
-            start?: string | undefined;
-            end?: string | undefined;
+            start?: {
+                year?: number | undefined;
+                month?: number | undefined;
+                day?: number | undefined;
+                hour?: number | undefined;
+                minute?: number | undefined;
+            } | undefined;
+            end?: {
+                year?: number | undefined;
+                month?: number | undefined;
+                day?: number | undefined;
+                hour?: number | undefined;
+                minute?: number | undefined;
+            } | undefined;
         }, {
-            start?: string | undefined;
-            end?: string | undefined;
+            start?: {
+                year?: string | number | undefined;
+                month?: string | number | undefined;
+                day?: string | number | undefined;
+                hour?: string | number | undefined;
+                minute?: string | number | undefined;
+            } | undefined;
+            end?: {
+                year?: string | number | undefined;
+                month?: string | number | undefined;
+                day?: string | number | undefined;
+                hour?: string | number | undefined;
+                minute?: string | number | undefined;
+            } | undefined;
         }>>;
         format: z.ZodOptional<z.ZodEnum<("MANGA" | "MANHWA" | "MANHUA" | "LIGHT_NOVEL" | "WEB_LOVEL" | "GRAPHIC_NOVEL" | "DOUJINSHI" | "ONE_SHOT" | "OTHER")[] & [string, ...string[]]>>;
         vf: z.ZodOptional<z.ZodBoolean>;
@@ -202,28 +430,88 @@ export declare const MangaPaginationBody: z.ZodObject<{
         trailer: z.ZodOptional<z.ZodString>;
         chapters: z.ZodOptional<z.ZodObject<{
             airing: z.ZodOptional<z.ZodOptional<z.ZodEffects<z.ZodUnion<[z.ZodNumber, z.ZodString]>, number, string | number>>>;
-            nextAiringDate: z.ZodOptional<z.ZodOptional<z.ZodString>>;
+            nextAiringDate: z.ZodOptional<z.ZodOptional<z.ZodObject<{
+                year: z.ZodOptional<z.ZodOptional<z.ZodEffects<z.ZodUnion<[z.ZodNumber, z.ZodString]>, number, string | number>>>;
+                month: z.ZodOptional<z.ZodOptional<z.ZodEffects<z.ZodUnion<[z.ZodNumber, z.ZodString]>, number, string | number>>>;
+                day: z.ZodOptional<z.ZodOptional<z.ZodEffects<z.ZodUnion<[z.ZodNumber, z.ZodString]>, number, string | number>>>;
+                hour: z.ZodOptional<z.ZodOptional<z.ZodEffects<z.ZodUnion<[z.ZodNumber, z.ZodString]>, number, string | number>>>;
+                minute: z.ZodOptional<z.ZodOptional<z.ZodEffects<z.ZodUnion<[z.ZodNumber, z.ZodString]>, number, string | number>>>;
+            }, "strip", z.ZodTypeAny, {
+                year?: number | undefined;
+                month?: number | undefined;
+                day?: number | undefined;
+                hour?: number | undefined;
+                minute?: number | undefined;
+            }, {
+                year?: string | number | undefined;
+                month?: string | number | undefined;
+                day?: string | number | undefined;
+                hour?: string | number | undefined;
+                minute?: string | number | undefined;
+            }>>>;
             total: z.ZodOptional<z.ZodOptional<z.ZodEffects<z.ZodUnion<[z.ZodNumber, z.ZodString]>, number, string | number>>>;
         }, "strip", z.ZodTypeAny, {
             airing?: number | undefined;
-            nextAiringDate?: string | undefined;
+            nextAiringDate?: {
+                year?: number | undefined;
+                month?: number | undefined;
+                day?: number | undefined;
+                hour?: number | undefined;
+                minute?: number | undefined;
+            } | undefined;
             total?: number | undefined;
         }, {
             airing?: string | number | undefined;
-            nextAiringDate?: string | undefined;
+            nextAiringDate?: {
+                year?: string | number | undefined;
+                month?: string | number | undefined;
+                day?: string | number | undefined;
+                hour?: string | number | undefined;
+                minute?: string | number | undefined;
+            } | undefined;
             total?: string | number | undefined;
         }>>;
         volumes: z.ZodOptional<z.ZodObject<{
             airing: z.ZodOptional<z.ZodOptional<z.ZodEffects<z.ZodUnion<[z.ZodNumber, z.ZodString]>, number, string | number>>>;
-            nextAiringDate: z.ZodOptional<z.ZodOptional<z.ZodString>>;
+            nextAiringDate: z.ZodOptional<z.ZodOptional<z.ZodObject<{
+                year: z.ZodOptional<z.ZodOptional<z.ZodEffects<z.ZodUnion<[z.ZodNumber, z.ZodString]>, number, string | number>>>;
+                month: z.ZodOptional<z.ZodOptional<z.ZodEffects<z.ZodUnion<[z.ZodNumber, z.ZodString]>, number, string | number>>>;
+                day: z.ZodOptional<z.ZodOptional<z.ZodEffects<z.ZodUnion<[z.ZodNumber, z.ZodString]>, number, string | number>>>;
+                hour: z.ZodOptional<z.ZodOptional<z.ZodEffects<z.ZodUnion<[z.ZodNumber, z.ZodString]>, number, string | number>>>;
+                minute: z.ZodOptional<z.ZodOptional<z.ZodEffects<z.ZodUnion<[z.ZodNumber, z.ZodString]>, number, string | number>>>;
+            }, "strip", z.ZodTypeAny, {
+                year?: number | undefined;
+                month?: number | undefined;
+                day?: number | undefined;
+                hour?: number | undefined;
+                minute?: number | undefined;
+            }, {
+                year?: string | number | undefined;
+                month?: string | number | undefined;
+                day?: string | number | undefined;
+                hour?: string | number | undefined;
+                minute?: string | number | undefined;
+            }>>>;
             total: z.ZodOptional<z.ZodOptional<z.ZodEffects<z.ZodUnion<[z.ZodNumber, z.ZodString]>, number, string | number>>>;
         }, "strip", z.ZodTypeAny, {
             airing?: number | undefined;
-            nextAiringDate?: string | undefined;
+            nextAiringDate?: {
+                year?: number | undefined;
+                month?: number | undefined;
+                day?: number | undefined;
+                hour?: number | undefined;
+                minute?: number | undefined;
+            } | undefined;
             total?: number | undefined;
         }, {
             airing?: string | number | undefined;
-            nextAiringDate?: string | undefined;
+            nextAiringDate?: {
+                year?: string | number | undefined;
+                month?: string | number | undefined;
+                day?: string | number | undefined;
+                hour?: string | number | undefined;
+                minute?: string | number | undefined;
+            } | undefined;
             total?: string | number | undefined;
         }>>;
         adult: z.ZodOptional<z.ZodBoolean>;
@@ -241,8 +529,20 @@ export declare const MangaPaginationBody: z.ZodObject<{
     }, "strip", z.ZodTypeAny, {
         status?: "AIRING" | "PAUSED" | "ENDED" | "STOPPED" | "POSTONED" | "SOON" | "any" | undefined;
         date?: {
-            start?: string | undefined;
-            end?: string | undefined;
+            start?: {
+                year?: number | undefined;
+                month?: number | undefined;
+                day?: number | undefined;
+                hour?: number | undefined;
+                minute?: number | undefined;
+            } | undefined;
+            end?: {
+                year?: number | undefined;
+                month?: number | undefined;
+                day?: number | undefined;
+                hour?: number | undefined;
+                minute?: number | undefined;
+            } | undefined;
         } | undefined;
         links?: {
             value?: string | undefined;
@@ -258,12 +558,24 @@ export declare const MangaPaginationBody: z.ZodObject<{
         trailer?: string | undefined;
         chapters?: {
             airing?: number | undefined;
-            nextAiringDate?: string | undefined;
+            nextAiringDate?: {
+                year?: number | undefined;
+                month?: number | undefined;
+                day?: number | undefined;
+                hour?: number | undefined;
+                minute?: number | undefined;
+            } | undefined;
             total?: number | undefined;
         } | undefined;
         volumes?: {
             airing?: number | undefined;
-            nextAiringDate?: string | undefined;
+            nextAiringDate?: {
+                year?: number | undefined;
+                month?: number | undefined;
+                day?: number | undefined;
+                hour?: number | undefined;
+                minute?: number | undefined;
+            } | undefined;
             total?: number | undefined;
         } | undefined;
         adult?: boolean | undefined;
@@ -271,8 +583,20 @@ export declare const MangaPaginationBody: z.ZodObject<{
     }, {
         status?: "AIRING" | "PAUSED" | "ENDED" | "STOPPED" | "POSTONED" | "SOON" | "any" | undefined;
         date?: {
-            start?: string | undefined;
-            end?: string | undefined;
+            start?: {
+                year?: string | number | undefined;
+                month?: string | number | undefined;
+                day?: string | number | undefined;
+                hour?: string | number | undefined;
+                minute?: string | number | undefined;
+            } | undefined;
+            end?: {
+                year?: string | number | undefined;
+                month?: string | number | undefined;
+                day?: string | number | undefined;
+                hour?: string | number | undefined;
+                minute?: string | number | undefined;
+            } | undefined;
         } | undefined;
         links?: {
             value?: string | undefined;
@@ -288,12 +612,24 @@ export declare const MangaPaginationBody: z.ZodObject<{
         trailer?: string | undefined;
         chapters?: {
             airing?: string | number | undefined;
-            nextAiringDate?: string | undefined;
+            nextAiringDate?: {
+                year?: string | number | undefined;
+                month?: string | number | undefined;
+                day?: string | number | undefined;
+                hour?: string | number | undefined;
+                minute?: string | number | undefined;
+            } | undefined;
             total?: string | number | undefined;
         } | undefined;
         volumes?: {
             airing?: string | number | undefined;
-            nextAiringDate?: string | undefined;
+            nextAiringDate?: {
+                year?: string | number | undefined;
+                month?: string | number | undefined;
+                day?: string | number | undefined;
+                hour?: string | number | undefined;
+                minute?: string | number | undefined;
+            } | undefined;
             total?: string | number | undefined;
         } | undefined;
         adult?: boolean | undefined;
@@ -325,8 +661,20 @@ export declare const MangaPaginationBody: z.ZodObject<{
     query?: {
         status?: "AIRING" | "PAUSED" | "ENDED" | "STOPPED" | "POSTONED" | "SOON" | "any" | undefined;
         date?: {
-            start?: string | undefined;
-            end?: string | undefined;
+            start?: {
+                year?: number | undefined;
+                month?: number | undefined;
+                day?: number | undefined;
+                hour?: number | undefined;
+                minute?: number | undefined;
+            } | undefined;
+            end?: {
+                year?: number | undefined;
+                month?: number | undefined;
+                day?: number | undefined;
+                hour?: number | undefined;
+                minute?: number | undefined;
+            } | undefined;
         } | undefined;
         links?: {
             value?: string | undefined;
@@ -342,12 +690,24 @@ export declare const MangaPaginationBody: z.ZodObject<{
         trailer?: string | undefined;
         chapters?: {
             airing?: number | undefined;
-            nextAiringDate?: string | undefined;
+            nextAiringDate?: {
+                year?: number | undefined;
+                month?: number | undefined;
+                day?: number | undefined;
+                hour?: number | undefined;
+                minute?: number | undefined;
+            } | undefined;
             total?: number | undefined;
         } | undefined;
         volumes?: {
             airing?: number | undefined;
-            nextAiringDate?: string | undefined;
+            nextAiringDate?: {
+                year?: number | undefined;
+                month?: number | undefined;
+                day?: number | undefined;
+                hour?: number | undefined;
+                minute?: number | undefined;
+            } | undefined;
             total?: number | undefined;
         } | undefined;
         adult?: boolean | undefined;
@@ -373,8 +733,20 @@ export declare const MangaPaginationBody: z.ZodObject<{
     query?: {
         status?: "AIRING" | "PAUSED" | "ENDED" | "STOPPED" | "POSTONED" | "SOON" | "any" | undefined;
         date?: {
-            start?: string | undefined;
-            end?: string | undefined;
+            start?: {
+                year?: string | number | undefined;
+                month?: string | number | undefined;
+                day?: string | number | undefined;
+                hour?: string | number | undefined;
+                minute?: string | number | undefined;
+            } | undefined;
+            end?: {
+                year?: string | number | undefined;
+                month?: string | number | undefined;
+                day?: string | number | undefined;
+                hour?: string | number | undefined;
+                minute?: string | number | undefined;
+            } | undefined;
         } | undefined;
         links?: {
             value?: string | undefined;
@@ -390,12 +762,24 @@ export declare const MangaPaginationBody: z.ZodObject<{
         trailer?: string | undefined;
         chapters?: {
             airing?: string | number | undefined;
-            nextAiringDate?: string | undefined;
+            nextAiringDate?: {
+                year?: string | number | undefined;
+                month?: string | number | undefined;
+                day?: string | number | undefined;
+                hour?: string | number | undefined;
+                minute?: string | number | undefined;
+            } | undefined;
             total?: string | number | undefined;
         } | undefined;
         volumes?: {
             airing?: string | number | undefined;
-            nextAiringDate?: string | undefined;
+            nextAiringDate?: {
+                year?: string | number | undefined;
+                month?: string | number | undefined;
+                day?: string | number | undefined;
+                hour?: string | number | undefined;
+                minute?: string | number | undefined;
+            } | undefined;
             total?: string | number | undefined;
         } | undefined;
         adult?: boolean | undefined;
@@ -549,43 +933,89 @@ export declare const Create_Manga_ZOD: z.ZodObject<{
     }>>;
     title: z.ZodEffects<z.ZodObject<{
         default: z.ZodString;
-        alias: z.ZodOptional<z.ZodArray<z.ZodObject<{
-            content: z.ZodString;
-        }, "strip", z.ZodTypeAny, {
-            content: string;
-        }, {
-            content: string;
-        }>, "many">>;
+        alias: z.ZodOptional<z.ZodArray<z.ZodString, "many">>;
     }, "strip", z.ZodTypeAny, {
         default: string;
-        alias?: {
-            content: string;
-        }[] | undefined;
+        alias?: string[] | undefined;
     }, {
         default: string;
-        alias?: {
-            content: string;
-        }[] | undefined;
+        alias?: string[] | undefined;
     }>, {
         default: string;
-        alias?: {
-            content: string;
-        }[] | undefined;
+        alias?: string[] | undefined;
     }, {
         default: string;
-        alias?: {
-            content: string;
-        }[] | undefined;
+        alias?: string[] | undefined;
     }>;
     date: z.ZodOptional<z.ZodObject<{
-        start: z.ZodOptional<z.ZodEffects<z.ZodString, string, string>>;
-        end: z.ZodOptional<z.ZodEffects<z.ZodString, string, string>>;
+        start: z.ZodOptional<z.ZodObject<{
+            year: z.ZodOptional<z.ZodEffects<z.ZodUnion<[z.ZodNumber, z.ZodString]>, number, string | number>>;
+            month: z.ZodOptional<z.ZodEffects<z.ZodUnion<[z.ZodNumber, z.ZodString]>, number, string | number>>;
+            day: z.ZodOptional<z.ZodEffects<z.ZodUnion<[z.ZodNumber, z.ZodString]>, number, string | number>>;
+            hour: z.ZodOptional<z.ZodEffects<z.ZodUnion<[z.ZodNumber, z.ZodString]>, number, string | number>>;
+            minute: z.ZodOptional<z.ZodEffects<z.ZodUnion<[z.ZodNumber, z.ZodString]>, number, string | number>>;
+        }, "strip", z.ZodTypeAny, {
+            year?: number | undefined;
+            month?: number | undefined;
+            day?: number | undefined;
+            hour?: number | undefined;
+            minute?: number | undefined;
+        }, {
+            year?: string | number | undefined;
+            month?: string | number | undefined;
+            day?: string | number | undefined;
+            hour?: string | number | undefined;
+            minute?: string | number | undefined;
+        }>>;
+        end: z.ZodOptional<z.ZodObject<{
+            year: z.ZodOptional<z.ZodEffects<z.ZodUnion<[z.ZodNumber, z.ZodString]>, number, string | number>>;
+            month: z.ZodOptional<z.ZodEffects<z.ZodUnion<[z.ZodNumber, z.ZodString]>, number, string | number>>;
+            day: z.ZodOptional<z.ZodEffects<z.ZodUnion<[z.ZodNumber, z.ZodString]>, number, string | number>>;
+            hour: z.ZodOptional<z.ZodEffects<z.ZodUnion<[z.ZodNumber, z.ZodString]>, number, string | number>>;
+            minute: z.ZodOptional<z.ZodEffects<z.ZodUnion<[z.ZodNumber, z.ZodString]>, number, string | number>>;
+        }, "strip", z.ZodTypeAny, {
+            year?: number | undefined;
+            month?: number | undefined;
+            day?: number | undefined;
+            hour?: number | undefined;
+            minute?: number | undefined;
+        }, {
+            year?: string | number | undefined;
+            month?: string | number | undefined;
+            day?: string | number | undefined;
+            hour?: string | number | undefined;
+            minute?: string | number | undefined;
+        }>>;
     }, "strip", z.ZodTypeAny, {
-        start?: string | undefined;
-        end?: string | undefined;
+        start?: {
+            year?: number | undefined;
+            month?: number | undefined;
+            day?: number | undefined;
+            hour?: number | undefined;
+            minute?: number | undefined;
+        } | undefined;
+        end?: {
+            year?: number | undefined;
+            month?: number | undefined;
+            day?: number | undefined;
+            hour?: number | undefined;
+            minute?: number | undefined;
+        } | undefined;
     }, {
-        start?: string | undefined;
-        end?: string | undefined;
+        start?: {
+            year?: string | number | undefined;
+            month?: string | number | undefined;
+            day?: string | number | undefined;
+            hour?: string | number | undefined;
+            minute?: string | number | undefined;
+        } | undefined;
+        end?: {
+            year?: string | number | undefined;
+            month?: string | number | undefined;
+            day?: string | number | undefined;
+            hour?: string | number | undefined;
+            minute?: string | number | undefined;
+        } | undefined;
     }>>;
     cover: z.ZodOptional<z.ZodObject<{
         id: z.ZodOptional<z.ZodString>;
@@ -650,28 +1080,88 @@ export declare const Create_Manga_ZOD: z.ZodObject<{
     status: z.ZodEnum<("AIRING" | "PAUSED" | "ENDED" | "STOPPED" | "POSTONED" | "SOON" | "any")[] & [string, ...string[]]>;
     chapters: z.ZodOptional<z.ZodObject<{
         airing: z.ZodOptional<z.ZodEffects<z.ZodUnion<[z.ZodNumber, z.ZodString]>, number, string | number>>;
-        nextAiringDate: z.ZodOptional<z.ZodString>;
+        nextAiringDate: z.ZodOptional<z.ZodObject<{
+            year: z.ZodOptional<z.ZodOptional<z.ZodEffects<z.ZodUnion<[z.ZodNumber, z.ZodString]>, number, string | number>>>;
+            month: z.ZodOptional<z.ZodOptional<z.ZodEffects<z.ZodUnion<[z.ZodNumber, z.ZodString]>, number, string | number>>>;
+            day: z.ZodOptional<z.ZodOptional<z.ZodEffects<z.ZodUnion<[z.ZodNumber, z.ZodString]>, number, string | number>>>;
+            hour: z.ZodOptional<z.ZodOptional<z.ZodEffects<z.ZodUnion<[z.ZodNumber, z.ZodString]>, number, string | number>>>;
+            minute: z.ZodOptional<z.ZodOptional<z.ZodEffects<z.ZodUnion<[z.ZodNumber, z.ZodString]>, number, string | number>>>;
+        }, "strip", z.ZodTypeAny, {
+            year?: number | undefined;
+            month?: number | undefined;
+            day?: number | undefined;
+            hour?: number | undefined;
+            minute?: number | undefined;
+        }, {
+            year?: string | number | undefined;
+            month?: string | number | undefined;
+            day?: string | number | undefined;
+            hour?: string | number | undefined;
+            minute?: string | number | undefined;
+        }>>;
         total: z.ZodOptional<z.ZodEffects<z.ZodUnion<[z.ZodNumber, z.ZodString]>, number, string | number>>;
     }, "strip", z.ZodTypeAny, {
         airing?: number | undefined;
-        nextAiringDate?: string | undefined;
+        nextAiringDate?: {
+            year?: number | undefined;
+            month?: number | undefined;
+            day?: number | undefined;
+            hour?: number | undefined;
+            minute?: number | undefined;
+        } | undefined;
         total?: number | undefined;
     }, {
         airing?: string | number | undefined;
-        nextAiringDate?: string | undefined;
+        nextAiringDate?: {
+            year?: string | number | undefined;
+            month?: string | number | undefined;
+            day?: string | number | undefined;
+            hour?: string | number | undefined;
+            minute?: string | number | undefined;
+        } | undefined;
         total?: string | number | undefined;
     }>>;
     volumes: z.ZodOptional<z.ZodObject<{
         airing: z.ZodOptional<z.ZodEffects<z.ZodUnion<[z.ZodNumber, z.ZodString]>, number, string | number>>;
-        nextAiringDate: z.ZodOptional<z.ZodString>;
+        nextAiringDate: z.ZodOptional<z.ZodObject<{
+            year: z.ZodOptional<z.ZodOptional<z.ZodEffects<z.ZodUnion<[z.ZodNumber, z.ZodString]>, number, string | number>>>;
+            month: z.ZodOptional<z.ZodOptional<z.ZodEffects<z.ZodUnion<[z.ZodNumber, z.ZodString]>, number, string | number>>>;
+            day: z.ZodOptional<z.ZodOptional<z.ZodEffects<z.ZodUnion<[z.ZodNumber, z.ZodString]>, number, string | number>>>;
+            hour: z.ZodOptional<z.ZodOptional<z.ZodEffects<z.ZodUnion<[z.ZodNumber, z.ZodString]>, number, string | number>>>;
+            minute: z.ZodOptional<z.ZodOptional<z.ZodEffects<z.ZodUnion<[z.ZodNumber, z.ZodString]>, number, string | number>>>;
+        }, "strip", z.ZodTypeAny, {
+            year?: number | undefined;
+            month?: number | undefined;
+            day?: number | undefined;
+            hour?: number | undefined;
+            minute?: number | undefined;
+        }, {
+            year?: string | number | undefined;
+            month?: string | number | undefined;
+            day?: string | number | undefined;
+            hour?: string | number | undefined;
+            minute?: string | number | undefined;
+        }>>;
         total: z.ZodOptional<z.ZodEffects<z.ZodUnion<[z.ZodNumber, z.ZodString]>, number, string | number>>;
     }, "strip", z.ZodTypeAny, {
         airing?: number | undefined;
-        nextAiringDate?: string | undefined;
+        nextAiringDate?: {
+            year?: number | undefined;
+            month?: number | undefined;
+            day?: number | undefined;
+            hour?: number | undefined;
+            minute?: number | undefined;
+        } | undefined;
         total?: number | undefined;
     }, {
         airing?: string | number | undefined;
-        nextAiringDate?: string | undefined;
+        nextAiringDate?: {
+            year?: string | number | undefined;
+            month?: string | number | undefined;
+            day?: string | number | undefined;
+            hour?: string | number | undefined;
+            minute?: string | number | undefined;
+        } | undefined;
         total?: string | number | undefined;
     }>>;
     adult: z.ZodEffects<z.ZodUnion<[z.ZodBoolean, z.ZodLiteral<"true">, z.ZodLiteral<"false">]>, boolean, boolean | "true" | "false">;
@@ -730,7 +1220,25 @@ export declare const Create_Manga_ZOD: z.ZodObject<{
                     label: "COVER" | "BANNER" | "AVATAR" | "LOGO";
                 } | undefined;
             }>>;
-            createdDate: z.ZodOptional<z.ZodString>;
+            createdDate: z.ZodOptional<z.ZodObject<{
+                year: z.ZodOptional<z.ZodOptional<z.ZodEffects<z.ZodUnion<[z.ZodNumber, z.ZodString]>, number, string | number>>>;
+                month: z.ZodOptional<z.ZodOptional<z.ZodEffects<z.ZodUnion<[z.ZodNumber, z.ZodString]>, number, string | number>>>;
+                day: z.ZodOptional<z.ZodOptional<z.ZodEffects<z.ZodUnion<[z.ZodNumber, z.ZodString]>, number, string | number>>>;
+                hour: z.ZodOptional<z.ZodOptional<z.ZodEffects<z.ZodUnion<[z.ZodNumber, z.ZodString]>, number, string | number>>>;
+                minute: z.ZodOptional<z.ZodOptional<z.ZodEffects<z.ZodUnion<[z.ZodNumber, z.ZodString]>, number, string | number>>>;
+            }, "strip", z.ZodTypeAny, {
+                year?: number | undefined;
+                month?: number | undefined;
+                day?: number | undefined;
+                hour?: number | undefined;
+                minute?: number | undefined;
+            }, {
+                year?: string | number | undefined;
+                month?: string | number | undefined;
+                day?: string | number | undefined;
+                hour?: string | number | undefined;
+                minute?: string | number | undefined;
+            }>>;
         }, "strict", z.ZodTypeAny, {
             type: "STUDIO" | "PRODUCER";
             name: string;
@@ -747,7 +1255,13 @@ export declare const Create_Manga_ZOD: z.ZodObject<{
                     label: "COVER" | "BANNER" | "AVATAR" | "LOGO";
                 } | undefined;
             } | undefined;
-            createdDate?: string | undefined;
+            createdDate?: {
+                year?: number | undefined;
+                month?: number | undefined;
+                day?: number | undefined;
+                hour?: number | undefined;
+                minute?: number | undefined;
+            } | undefined;
         }, {
             type: "STUDIO" | "PRODUCER";
             name: string;
@@ -764,7 +1278,13 @@ export declare const Create_Manga_ZOD: z.ZodObject<{
                     label: "COVER" | "BANNER" | "AVATAR" | "LOGO";
                 } | undefined;
             } | undefined;
-            createdDate?: string | undefined;
+            createdDate?: {
+                year?: string | number | undefined;
+                month?: string | number | undefined;
+                day?: string | number | undefined;
+                hour?: string | number | undefined;
+                minute?: string | number | undefined;
+            } | undefined;
         }>>;
     }, "strip", z.ZodTypeAny, {
         id?: string | undefined;
@@ -784,7 +1304,13 @@ export declare const Create_Manga_ZOD: z.ZodObject<{
                     label: "COVER" | "BANNER" | "AVATAR" | "LOGO";
                 } | undefined;
             } | undefined;
-            createdDate?: string | undefined;
+            createdDate?: {
+                year?: number | undefined;
+                month?: number | undefined;
+                day?: number | undefined;
+                hour?: number | undefined;
+                minute?: number | undefined;
+            } | undefined;
         } | undefined;
     }, {
         id?: string | undefined;
@@ -804,7 +1330,13 @@ export declare const Create_Manga_ZOD: z.ZodObject<{
                     label: "COVER" | "BANNER" | "AVATAR" | "LOGO";
                 } | undefined;
             } | undefined;
-            createdDate?: string | undefined;
+            createdDate?: {
+                year?: string | number | undefined;
+                month?: string | number | undefined;
+                day?: string | number | undefined;
+                hour?: string | number | undefined;
+                minute?: string | number | undefined;
+            } | undefined;
         } | undefined;
     }>, "many">>;
     staffs: z.ZodOptional<z.ZodArray<z.ZodObject<{
@@ -821,8 +1353,44 @@ export declare const Create_Manga_ZOD: z.ZodObject<{
                 default: string;
                 alias?: string[] | undefined;
             }>;
-            birthDate: z.ZodOptional<z.ZodString>;
-            deathDate: z.ZodOptional<z.ZodString>;
+            birthDate: z.ZodOptional<z.ZodObject<{
+                year: z.ZodOptional<z.ZodOptional<z.ZodEffects<z.ZodUnion<[z.ZodNumber, z.ZodString]>, number, string | number>>>;
+                month: z.ZodOptional<z.ZodOptional<z.ZodEffects<z.ZodUnion<[z.ZodNumber, z.ZodString]>, number, string | number>>>;
+                day: z.ZodOptional<z.ZodOptional<z.ZodEffects<z.ZodUnion<[z.ZodNumber, z.ZodString]>, number, string | number>>>;
+                hour: z.ZodOptional<z.ZodOptional<z.ZodEffects<z.ZodUnion<[z.ZodNumber, z.ZodString]>, number, string | number>>>;
+                minute: z.ZodOptional<z.ZodOptional<z.ZodEffects<z.ZodUnion<[z.ZodNumber, z.ZodString]>, number, string | number>>>;
+            }, "strip", z.ZodTypeAny, {
+                year?: number | undefined;
+                month?: number | undefined;
+                day?: number | undefined;
+                hour?: number | undefined;
+                minute?: number | undefined;
+            }, {
+                year?: string | number | undefined;
+                month?: string | number | undefined;
+                day?: string | number | undefined;
+                hour?: string | number | undefined;
+                minute?: string | number | undefined;
+            }>>;
+            deathDate: z.ZodOptional<z.ZodObject<{
+                year: z.ZodOptional<z.ZodOptional<z.ZodEffects<z.ZodUnion<[z.ZodNumber, z.ZodString]>, number, string | number>>>;
+                month: z.ZodOptional<z.ZodOptional<z.ZodEffects<z.ZodUnion<[z.ZodNumber, z.ZodString]>, number, string | number>>>;
+                day: z.ZodOptional<z.ZodOptional<z.ZodEffects<z.ZodUnion<[z.ZodNumber, z.ZodString]>, number, string | number>>>;
+                hour: z.ZodOptional<z.ZodOptional<z.ZodEffects<z.ZodUnion<[z.ZodNumber, z.ZodString]>, number, string | number>>>;
+                minute: z.ZodOptional<z.ZodOptional<z.ZodEffects<z.ZodUnion<[z.ZodNumber, z.ZodString]>, number, string | number>>>;
+            }, "strip", z.ZodTypeAny, {
+                year?: number | undefined;
+                month?: number | undefined;
+                day?: number | undefined;
+                hour?: number | undefined;
+                minute?: number | undefined;
+            }, {
+                year?: string | number | undefined;
+                month?: string | number | undefined;
+                day?: string | number | undefined;
+                hour?: string | number | undefined;
+                minute?: string | number | undefined;
+            }>>;
             description: z.ZodOptional<z.ZodString>;
             avatar: z.ZodOptional<z.ZodObject<{
                 id: z.ZodOptional<z.ZodString>;
@@ -869,8 +1437,20 @@ export declare const Create_Manga_ZOD: z.ZodObject<{
             };
             description?: string | undefined;
             isGroupe?: boolean | undefined;
-            birthDate?: string | undefined;
-            deathDate?: string | undefined;
+            birthDate?: {
+                year?: number | undefined;
+                month?: number | undefined;
+                day?: number | undefined;
+                hour?: number | undefined;
+                minute?: number | undefined;
+            } | undefined;
+            deathDate?: {
+                year?: number | undefined;
+                month?: number | undefined;
+                day?: number | undefined;
+                hour?: number | undefined;
+                minute?: number | undefined;
+            } | undefined;
             avatar?: {
                 id?: string | undefined;
                 label?: "COVER" | "BANNER" | "AVATAR" | "LOGO" | undefined;
@@ -890,8 +1470,20 @@ export declare const Create_Manga_ZOD: z.ZodObject<{
             };
             description?: string | undefined;
             isGroupe?: boolean | undefined;
-            birthDate?: string | undefined;
-            deathDate?: string | undefined;
+            birthDate?: {
+                year?: string | number | undefined;
+                month?: string | number | undefined;
+                day?: string | number | undefined;
+                hour?: string | number | undefined;
+                minute?: string | number | undefined;
+            } | undefined;
+            deathDate?: {
+                year?: string | number | undefined;
+                month?: string | number | undefined;
+                day?: string | number | undefined;
+                hour?: string | number | undefined;
+                minute?: string | number | undefined;
+            } | undefined;
             avatar?: {
                 id?: string | undefined;
                 label?: "COVER" | "BANNER" | "AVATAR" | "LOGO" | undefined;
@@ -915,8 +1507,20 @@ export declare const Create_Manga_ZOD: z.ZodObject<{
             };
             description?: string | undefined;
             isGroupe?: boolean | undefined;
-            birthDate?: string | undefined;
-            deathDate?: string | undefined;
+            birthDate?: {
+                year?: number | undefined;
+                month?: number | undefined;
+                day?: number | undefined;
+                hour?: number | undefined;
+                minute?: number | undefined;
+            } | undefined;
+            deathDate?: {
+                year?: number | undefined;
+                month?: number | undefined;
+                day?: number | undefined;
+                hour?: number | undefined;
+                minute?: number | undefined;
+            } | undefined;
             avatar?: {
                 id?: string | undefined;
                 label?: "COVER" | "BANNER" | "AVATAR" | "LOGO" | undefined;
@@ -940,8 +1544,20 @@ export declare const Create_Manga_ZOD: z.ZodObject<{
             };
             description?: string | undefined;
             isGroupe?: boolean | undefined;
-            birthDate?: string | undefined;
-            deathDate?: string | undefined;
+            birthDate?: {
+                year?: string | number | undefined;
+                month?: string | number | undefined;
+                day?: string | number | undefined;
+                hour?: string | number | undefined;
+                minute?: string | number | undefined;
+            } | undefined;
+            deathDate?: {
+                year?: string | number | undefined;
+                month?: string | number | undefined;
+                day?: string | number | undefined;
+                hour?: string | number | undefined;
+                minute?: string | number | undefined;
+            } | undefined;
             avatar?: {
                 id?: string | undefined;
                 label?: "COVER" | "BANNER" | "AVATAR" | "LOGO" | undefined;
@@ -971,7 +1587,25 @@ export declare const Create_Manga_ZOD: z.ZodObject<{
                 alias?: string[] | undefined;
             }>;
             age: z.ZodOptional<z.ZodEffects<z.ZodUnion<[z.ZodNumber, z.ZodString]>, number, string | number>>;
-            birthDate: z.ZodOptional<z.ZodString>;
+            birthDate: z.ZodOptional<z.ZodObject<{
+                year: z.ZodOptional<z.ZodOptional<z.ZodEffects<z.ZodUnion<[z.ZodNumber, z.ZodString]>, number, string | number>>>;
+                month: z.ZodOptional<z.ZodOptional<z.ZodEffects<z.ZodUnion<[z.ZodNumber, z.ZodString]>, number, string | number>>>;
+                day: z.ZodOptional<z.ZodOptional<z.ZodEffects<z.ZodUnion<[z.ZodNumber, z.ZodString]>, number, string | number>>>;
+                hour: z.ZodOptional<z.ZodOptional<z.ZodEffects<z.ZodUnion<[z.ZodNumber, z.ZodString]>, number, string | number>>>;
+                minute: z.ZodOptional<z.ZodOptional<z.ZodEffects<z.ZodUnion<[z.ZodNumber, z.ZodString]>, number, string | number>>>;
+            }, "strip", z.ZodTypeAny, {
+                year?: number | undefined;
+                month?: number | undefined;
+                day?: number | undefined;
+                hour?: number | undefined;
+                minute?: number | undefined;
+            }, {
+                year?: string | number | undefined;
+                month?: string | number | undefined;
+                day?: string | number | undefined;
+                hour?: string | number | undefined;
+                minute?: string | number | undefined;
+            }>>;
             gender: z.ZodEnum<("MASCULIN" | "FEMININ" | "NEUTRE" | "TRANSGENRE" | "NON_BINAIRE" | "GENRE_FLUIDE" | "AUTRE")[] & [string, ...string[]]>;
             species: z.ZodEnum<("AUTRE" | "HUMAIN" | "ELFE" | "NAIN" | "LEZARD" | "DRAGON" | "ORC")[] & [string, ...string[]]>;
             description: z.ZodOptional<z.ZodString>;
@@ -1017,8 +1651,44 @@ export declare const Create_Manga_ZOD: z.ZodObject<{
                         default: string;
                         alias?: string[] | undefined;
                     }>;
-                    birthDate: z.ZodOptional<z.ZodString>;
-                    deathDate: z.ZodOptional<z.ZodString>;
+                    birthDate: z.ZodOptional<z.ZodObject<{
+                        year: z.ZodOptional<z.ZodOptional<z.ZodEffects<z.ZodUnion<[z.ZodNumber, z.ZodString]>, number, string | number>>>;
+                        month: z.ZodOptional<z.ZodOptional<z.ZodEffects<z.ZodUnion<[z.ZodNumber, z.ZodString]>, number, string | number>>>;
+                        day: z.ZodOptional<z.ZodOptional<z.ZodEffects<z.ZodUnion<[z.ZodNumber, z.ZodString]>, number, string | number>>>;
+                        hour: z.ZodOptional<z.ZodOptional<z.ZodEffects<z.ZodUnion<[z.ZodNumber, z.ZodString]>, number, string | number>>>;
+                        minute: z.ZodOptional<z.ZodOptional<z.ZodEffects<z.ZodUnion<[z.ZodNumber, z.ZodString]>, number, string | number>>>;
+                    }, "strip", z.ZodTypeAny, {
+                        year?: number | undefined;
+                        month?: number | undefined;
+                        day?: number | undefined;
+                        hour?: number | undefined;
+                        minute?: number | undefined;
+                    }, {
+                        year?: string | number | undefined;
+                        month?: string | number | undefined;
+                        day?: string | number | undefined;
+                        hour?: string | number | undefined;
+                        minute?: string | number | undefined;
+                    }>>;
+                    deathDate: z.ZodOptional<z.ZodObject<{
+                        year: z.ZodOptional<z.ZodOptional<z.ZodEffects<z.ZodUnion<[z.ZodNumber, z.ZodString]>, number, string | number>>>;
+                        month: z.ZodOptional<z.ZodOptional<z.ZodEffects<z.ZodUnion<[z.ZodNumber, z.ZodString]>, number, string | number>>>;
+                        day: z.ZodOptional<z.ZodOptional<z.ZodEffects<z.ZodUnion<[z.ZodNumber, z.ZodString]>, number, string | number>>>;
+                        hour: z.ZodOptional<z.ZodOptional<z.ZodEffects<z.ZodUnion<[z.ZodNumber, z.ZodString]>, number, string | number>>>;
+                        minute: z.ZodOptional<z.ZodOptional<z.ZodEffects<z.ZodUnion<[z.ZodNumber, z.ZodString]>, number, string | number>>>;
+                    }, "strip", z.ZodTypeAny, {
+                        year?: number | undefined;
+                        month?: number | undefined;
+                        day?: number | undefined;
+                        hour?: number | undefined;
+                        minute?: number | undefined;
+                    }, {
+                        year?: string | number | undefined;
+                        month?: string | number | undefined;
+                        day?: string | number | undefined;
+                        hour?: string | number | undefined;
+                        minute?: string | number | undefined;
+                    }>>;
                     description: z.ZodOptional<z.ZodString>;
                     avatar: z.ZodOptional<z.ZodObject<{
                         id: z.ZodOptional<z.ZodString>;
@@ -1065,8 +1735,20 @@ export declare const Create_Manga_ZOD: z.ZodObject<{
                     };
                     description?: string | undefined;
                     isGroupe?: boolean | undefined;
-                    birthDate?: string | undefined;
-                    deathDate?: string | undefined;
+                    birthDate?: {
+                        year?: number | undefined;
+                        month?: number | undefined;
+                        day?: number | undefined;
+                        hour?: number | undefined;
+                        minute?: number | undefined;
+                    } | undefined;
+                    deathDate?: {
+                        year?: number | undefined;
+                        month?: number | undefined;
+                        day?: number | undefined;
+                        hour?: number | undefined;
+                        minute?: number | undefined;
+                    } | undefined;
                     avatar?: {
                         id?: string | undefined;
                         label?: "COVER" | "BANNER" | "AVATAR" | "LOGO" | undefined;
@@ -1086,8 +1768,20 @@ export declare const Create_Manga_ZOD: z.ZodObject<{
                     };
                     description?: string | undefined;
                     isGroupe?: boolean | undefined;
-                    birthDate?: string | undefined;
-                    deathDate?: string | undefined;
+                    birthDate?: {
+                        year?: string | number | undefined;
+                        month?: string | number | undefined;
+                        day?: string | number | undefined;
+                        hour?: string | number | undefined;
+                        minute?: string | number | undefined;
+                    } | undefined;
+                    deathDate?: {
+                        year?: string | number | undefined;
+                        month?: string | number | undefined;
+                        day?: string | number | undefined;
+                        hour?: string | number | undefined;
+                        minute?: string | number | undefined;
+                    } | undefined;
                     avatar?: {
                         id?: string | undefined;
                         label?: "COVER" | "BANNER" | "AVATAR" | "LOGO" | undefined;
@@ -1111,8 +1805,20 @@ export declare const Create_Manga_ZOD: z.ZodObject<{
                     };
                     description?: string | undefined;
                     isGroupe?: boolean | undefined;
-                    birthDate?: string | undefined;
-                    deathDate?: string | undefined;
+                    birthDate?: {
+                        year?: number | undefined;
+                        month?: number | undefined;
+                        day?: number | undefined;
+                        hour?: number | undefined;
+                        minute?: number | undefined;
+                    } | undefined;
+                    deathDate?: {
+                        year?: number | undefined;
+                        month?: number | undefined;
+                        day?: number | undefined;
+                        hour?: number | undefined;
+                        minute?: number | undefined;
+                    } | undefined;
                     avatar?: {
                         id?: string | undefined;
                         label?: "COVER" | "BANNER" | "AVATAR" | "LOGO" | undefined;
@@ -1136,8 +1842,20 @@ export declare const Create_Manga_ZOD: z.ZodObject<{
                     };
                     description?: string | undefined;
                     isGroupe?: boolean | undefined;
-                    birthDate?: string | undefined;
-                    deathDate?: string | undefined;
+                    birthDate?: {
+                        year?: string | number | undefined;
+                        month?: string | number | undefined;
+                        day?: string | number | undefined;
+                        hour?: string | number | undefined;
+                        minute?: string | number | undefined;
+                    } | undefined;
+                    deathDate?: {
+                        year?: string | number | undefined;
+                        month?: string | number | undefined;
+                        day?: string | number | undefined;
+                        hour?: string | number | undefined;
+                        minute?: string | number | undefined;
+                    } | undefined;
                     avatar?: {
                         id?: string | undefined;
                         label?: "COVER" | "BANNER" | "AVATAR" | "LOGO" | undefined;
@@ -1161,7 +1879,13 @@ export declare const Create_Manga_ZOD: z.ZodObject<{
             gender: "MASCULIN" | "FEMININ" | "NEUTRE" | "TRANSGENRE" | "NON_BINAIRE" | "GENRE_FLUIDE" | "AUTRE";
             species: "AUTRE" | "HUMAIN" | "ELFE" | "NAIN" | "LEZARD" | "DRAGON" | "ORC";
             description?: string | undefined;
-            birthDate?: string | undefined;
+            birthDate?: {
+                year?: number | undefined;
+                month?: number | undefined;
+                day?: number | undefined;
+                hour?: number | undefined;
+                minute?: number | undefined;
+            } | undefined;
             avatar?: {
                 id?: string | undefined;
                 label?: "COVER" | "BANNER" | "AVATAR" | "LOGO" | undefined;
@@ -1180,8 +1904,20 @@ export declare const Create_Manga_ZOD: z.ZodObject<{
                     };
                     description?: string | undefined;
                     isGroupe?: boolean | undefined;
-                    birthDate?: string | undefined;
-                    deathDate?: string | undefined;
+                    birthDate?: {
+                        year?: number | undefined;
+                        month?: number | undefined;
+                        day?: number | undefined;
+                        hour?: number | undefined;
+                        minute?: number | undefined;
+                    } | undefined;
+                    deathDate?: {
+                        year?: number | undefined;
+                        month?: number | undefined;
+                        day?: number | undefined;
+                        hour?: number | undefined;
+                        minute?: number | undefined;
+                    } | undefined;
                     avatar?: {
                         id?: string | undefined;
                         label?: "COVER" | "BANNER" | "AVATAR" | "LOGO" | undefined;
@@ -1205,7 +1941,13 @@ export declare const Create_Manga_ZOD: z.ZodObject<{
             gender: "MASCULIN" | "FEMININ" | "NEUTRE" | "TRANSGENRE" | "NON_BINAIRE" | "GENRE_FLUIDE" | "AUTRE";
             species: "AUTRE" | "HUMAIN" | "ELFE" | "NAIN" | "LEZARD" | "DRAGON" | "ORC";
             description?: string | undefined;
-            birthDate?: string | undefined;
+            birthDate?: {
+                year?: string | number | undefined;
+                month?: string | number | undefined;
+                day?: string | number | undefined;
+                hour?: string | number | undefined;
+                minute?: string | number | undefined;
+            } | undefined;
             avatar?: {
                 id?: string | undefined;
                 label?: "COVER" | "BANNER" | "AVATAR" | "LOGO" | undefined;
@@ -1224,8 +1966,20 @@ export declare const Create_Manga_ZOD: z.ZodObject<{
                     };
                     description?: string | undefined;
                     isGroupe?: boolean | undefined;
-                    birthDate?: string | undefined;
-                    deathDate?: string | undefined;
+                    birthDate?: {
+                        year?: string | number | undefined;
+                        month?: string | number | undefined;
+                        day?: string | number | undefined;
+                        hour?: string | number | undefined;
+                        minute?: string | number | undefined;
+                    } | undefined;
+                    deathDate?: {
+                        year?: string | number | undefined;
+                        month?: string | number | undefined;
+                        day?: string | number | undefined;
+                        hour?: string | number | undefined;
+                        minute?: string | number | undefined;
+                    } | undefined;
                     avatar?: {
                         id?: string | undefined;
                         label?: "COVER" | "BANNER" | "AVATAR" | "LOGO" | undefined;
@@ -1242,10 +1996,10 @@ export declare const Create_Manga_ZOD: z.ZodObject<{
                 role?: "DOUBLAGE_SEIYU" | "AUTEUR" | "EDITEUR" | "PRODUCTEUR" | "REALISATEUR" | "REALISATEUR_EPISODES" | "REALISATEUR_MISEENPAGE" | "DIRECTEUR_ARTISTIQUE_CINEMATROGRAPHIQUE" | "DIRECTEUR_ANIMATION" | "CONCEPTEUR" | "ANIMATEUR_PRINCIPAL" | "ANIMATEUR_INTERMEDIAIRE" | "COLORISTES" | "DIRECTEUR_ENREGISTREMENT" | "SCENARISTE" | "ANIMATEUR_3D" | "METTEUR_EN_SCENE" | "SUPERVISEUR" | "MONTEUR" | "RESPONSABLE_DROITS" | "PRODUCTEUR_MUSIQUE" | "RESPONSABLE_MARKETING" | "DIFFUSEUR" | "STORYBOARDER" | "ARTISTE_VFX" | "INGENIEUR_SON" | "DIRECTEUR_DOUBLAGE" | "TRADUCTEUR" | "MANGAKA" | "CHARACTER_DESIGNER" | "DESSINATEUR_DECORS" | "REALISATEUR_MISE_EN_PAGE" | "COMPOSITEUR" | "PAROLIER" | "ARRANGEUR" | "MUSICIEN" | "CHANTEUR_EUSE" | "CHEF_ORCHESTRE" | "PRODUCTEUR_MUSICAL" | "DESIGNER_SONORE" | "MIXEUR" | undefined;
             }[] | undefined;
         }>>;
-        role: z.ZodEnum<("PRINCIPAL" | "SECONDAIRE" | "FIGURANT" | "ANTAGONISTE" | "SOUTIEN")[] & [string, ...string[]]>;
+        role: z.ZodOptional<z.ZodEnum<("PRINCIPAL" | "SECONDAIRE" | "FIGURANT" | "ANTAGONISTE" | "SOUTIEN")[] & [string, ...string[]]>>;
     }, "strip", z.ZodTypeAny, {
-        role: "PRINCIPAL" | "SECONDAIRE" | "FIGURANT" | "ANTAGONISTE" | "SOUTIEN";
         id?: string | undefined;
+        role?: "PRINCIPAL" | "SECONDAIRE" | "FIGURANT" | "ANTAGONISTE" | "SOUTIEN" | undefined;
         newCharacter?: {
             name: {
                 default: string;
@@ -1254,7 +2008,13 @@ export declare const Create_Manga_ZOD: z.ZodObject<{
             gender: "MASCULIN" | "FEMININ" | "NEUTRE" | "TRANSGENRE" | "NON_BINAIRE" | "GENRE_FLUIDE" | "AUTRE";
             species: "AUTRE" | "HUMAIN" | "ELFE" | "NAIN" | "LEZARD" | "DRAGON" | "ORC";
             description?: string | undefined;
-            birthDate?: string | undefined;
+            birthDate?: {
+                year?: number | undefined;
+                month?: number | undefined;
+                day?: number | undefined;
+                hour?: number | undefined;
+                minute?: number | undefined;
+            } | undefined;
             avatar?: {
                 id?: string | undefined;
                 label?: "COVER" | "BANNER" | "AVATAR" | "LOGO" | undefined;
@@ -1273,8 +2033,20 @@ export declare const Create_Manga_ZOD: z.ZodObject<{
                     };
                     description?: string | undefined;
                     isGroupe?: boolean | undefined;
-                    birthDate?: string | undefined;
-                    deathDate?: string | undefined;
+                    birthDate?: {
+                        year?: number | undefined;
+                        month?: number | undefined;
+                        day?: number | undefined;
+                        hour?: number | undefined;
+                        minute?: number | undefined;
+                    } | undefined;
+                    deathDate?: {
+                        year?: number | undefined;
+                        month?: number | undefined;
+                        day?: number | undefined;
+                        hour?: number | undefined;
+                        minute?: number | undefined;
+                    } | undefined;
                     avatar?: {
                         id?: string | undefined;
                         label?: "COVER" | "BANNER" | "AVATAR" | "LOGO" | undefined;
@@ -1292,8 +2064,8 @@ export declare const Create_Manga_ZOD: z.ZodObject<{
             }[] | undefined;
         } | undefined;
     }, {
-        role: "PRINCIPAL" | "SECONDAIRE" | "FIGURANT" | "ANTAGONISTE" | "SOUTIEN";
         id?: string | undefined;
+        role?: "PRINCIPAL" | "SECONDAIRE" | "FIGURANT" | "ANTAGONISTE" | "SOUTIEN" | undefined;
         newCharacter?: {
             name: {
                 default: string;
@@ -1302,7 +2074,13 @@ export declare const Create_Manga_ZOD: z.ZodObject<{
             gender: "MASCULIN" | "FEMININ" | "NEUTRE" | "TRANSGENRE" | "NON_BINAIRE" | "GENRE_FLUIDE" | "AUTRE";
             species: "AUTRE" | "HUMAIN" | "ELFE" | "NAIN" | "LEZARD" | "DRAGON" | "ORC";
             description?: string | undefined;
-            birthDate?: string | undefined;
+            birthDate?: {
+                year?: string | number | undefined;
+                month?: string | number | undefined;
+                day?: string | number | undefined;
+                hour?: string | number | undefined;
+                minute?: string | number | undefined;
+            } | undefined;
             avatar?: {
                 id?: string | undefined;
                 label?: "COVER" | "BANNER" | "AVATAR" | "LOGO" | undefined;
@@ -1321,8 +2099,20 @@ export declare const Create_Manga_ZOD: z.ZodObject<{
                     };
                     description?: string | undefined;
                     isGroupe?: boolean | undefined;
-                    birthDate?: string | undefined;
-                    deathDate?: string | undefined;
+                    birthDate?: {
+                        year?: string | number | undefined;
+                        month?: string | number | undefined;
+                        day?: string | number | undefined;
+                        hour?: string | number | undefined;
+                        minute?: string | number | undefined;
+                    } | undefined;
+                    deathDate?: {
+                        year?: string | number | undefined;
+                        month?: string | number | undefined;
+                        day?: string | number | undefined;
+                        hour?: string | number | undefined;
+                        minute?: string | number | undefined;
+                    } | undefined;
                     avatar?: {
                         id?: string | undefined;
                         label?: "COVER" | "BANNER" | "AVATAR" | "LOGO" | undefined;
@@ -1344,9 +2134,7 @@ export declare const Create_Manga_ZOD: z.ZodObject<{
     status: "AIRING" | "PAUSED" | "ENDED" | "STOPPED" | "POSTONED" | "SOON" | "any";
     title: {
         default: string;
-        alias?: {
-            content: string;
-        }[] | undefined;
+        alias?: string[] | undefined;
     };
     format: "MANGA" | "MANHWA" | "MANHUA" | "LIGHT_NOVEL" | "WEB_LOVEL" | "GRAPHIC_NOVEL" | "DOUJINSHI" | "ONE_SHOT" | "OTHER";
     adult: boolean;
@@ -1358,8 +2146,20 @@ export declare const Create_Manga_ZOD: z.ZodObject<{
         } | undefined;
     };
     date?: {
-        start?: string | undefined;
-        end?: string | undefined;
+        start?: {
+            year?: number | undefined;
+            month?: number | undefined;
+            day?: number | undefined;
+            hour?: number | undefined;
+            minute?: number | undefined;
+        } | undefined;
+        end?: {
+            year?: number | undefined;
+            month?: number | undefined;
+            day?: number | undefined;
+            hour?: number | undefined;
+            minute?: number | undefined;
+        } | undefined;
     } | undefined;
     cover?: {
         id?: string | undefined;
@@ -1385,12 +2185,24 @@ export declare const Create_Manga_ZOD: z.ZodObject<{
     genres?: ("ACTION" | "AVENTURE" | "COMEDIE" | "DRAME" | "FANTAISIE" | "FANTASTIQUE" | "HORREUR" | "ROMANCE" | "SCI_FI" | "SPORTS" | "THRILLER" | "MECHA" | "MYSTERE" | "PSYCHOLOGIQUE" | "ISEKAI" | "HAREM" | "REVERSE_HAREM" | "ECCHI" | "SLICE_OF_LIFE" | "YAOI" | "YURI" | "SHOUNEN" | "SEINEN" | "SHOJO" | "JOSEI" | "KODOMOMUKE")[] | undefined;
     chapters?: {
         airing?: number | undefined;
-        nextAiringDate?: string | undefined;
+        nextAiringDate?: {
+            year?: number | undefined;
+            month?: number | undefined;
+            day?: number | undefined;
+            hour?: number | undefined;
+            minute?: number | undefined;
+        } | undefined;
         total?: number | undefined;
     } | undefined;
     volumes?: {
         airing?: number | undefined;
-        nextAiringDate?: string | undefined;
+        nextAiringDate?: {
+            year?: number | undefined;
+            month?: number | undefined;
+            day?: number | undefined;
+            hour?: number | undefined;
+            minute?: number | undefined;
+        } | undefined;
         total?: number | undefined;
     } | undefined;
     parent?: {
@@ -1410,8 +2222,20 @@ export declare const Create_Manga_ZOD: z.ZodObject<{
             };
             description?: string | undefined;
             isGroupe?: boolean | undefined;
-            birthDate?: string | undefined;
-            deathDate?: string | undefined;
+            birthDate?: {
+                year?: number | undefined;
+                month?: number | undefined;
+                day?: number | undefined;
+                hour?: number | undefined;
+                minute?: number | undefined;
+            } | undefined;
+            deathDate?: {
+                year?: number | undefined;
+                month?: number | undefined;
+                day?: number | undefined;
+                hour?: number | undefined;
+                minute?: number | undefined;
+            } | undefined;
             avatar?: {
                 id?: string | undefined;
                 label?: "COVER" | "BANNER" | "AVATAR" | "LOGO" | undefined;
@@ -1445,12 +2269,18 @@ export declare const Create_Manga_ZOD: z.ZodObject<{
                     label: "COVER" | "BANNER" | "AVATAR" | "LOGO";
                 } | undefined;
             } | undefined;
-            createdDate?: string | undefined;
+            createdDate?: {
+                year?: number | undefined;
+                month?: number | undefined;
+                day?: number | undefined;
+                hour?: number | undefined;
+                minute?: number | undefined;
+            } | undefined;
         } | undefined;
     }[] | undefined;
     characters?: {
-        role: "PRINCIPAL" | "SECONDAIRE" | "FIGURANT" | "ANTAGONISTE" | "SOUTIEN";
         id?: string | undefined;
+        role?: "PRINCIPAL" | "SECONDAIRE" | "FIGURANT" | "ANTAGONISTE" | "SOUTIEN" | undefined;
         newCharacter?: {
             name: {
                 default: string;
@@ -1459,7 +2289,13 @@ export declare const Create_Manga_ZOD: z.ZodObject<{
             gender: "MASCULIN" | "FEMININ" | "NEUTRE" | "TRANSGENRE" | "NON_BINAIRE" | "GENRE_FLUIDE" | "AUTRE";
             species: "AUTRE" | "HUMAIN" | "ELFE" | "NAIN" | "LEZARD" | "DRAGON" | "ORC";
             description?: string | undefined;
-            birthDate?: string | undefined;
+            birthDate?: {
+                year?: number | undefined;
+                month?: number | undefined;
+                day?: number | undefined;
+                hour?: number | undefined;
+                minute?: number | undefined;
+            } | undefined;
             avatar?: {
                 id?: string | undefined;
                 label?: "COVER" | "BANNER" | "AVATAR" | "LOGO" | undefined;
@@ -1478,8 +2314,20 @@ export declare const Create_Manga_ZOD: z.ZodObject<{
                     };
                     description?: string | undefined;
                     isGroupe?: boolean | undefined;
-                    birthDate?: string | undefined;
-                    deathDate?: string | undefined;
+                    birthDate?: {
+                        year?: number | undefined;
+                        month?: number | undefined;
+                        day?: number | undefined;
+                        hour?: number | undefined;
+                        minute?: number | undefined;
+                    } | undefined;
+                    deathDate?: {
+                        year?: number | undefined;
+                        month?: number | undefined;
+                        day?: number | undefined;
+                        hour?: number | undefined;
+                        minute?: number | undefined;
+                    } | undefined;
                     avatar?: {
                         id?: string | undefined;
                         label?: "COVER" | "BANNER" | "AVATAR" | "LOGO" | undefined;
@@ -1502,9 +2350,7 @@ export declare const Create_Manga_ZOD: z.ZodObject<{
     status: "AIRING" | "PAUSED" | "ENDED" | "STOPPED" | "POSTONED" | "SOON" | "any";
     title: {
         default: string;
-        alias?: {
-            content: string;
-        }[] | undefined;
+        alias?: string[] | undefined;
     };
     format: "MANGA" | "MANHWA" | "MANHUA" | "LIGHT_NOVEL" | "WEB_LOVEL" | "GRAPHIC_NOVEL" | "DOUJINSHI" | "ONE_SHOT" | "OTHER";
     adult: boolean | "true" | "false";
@@ -1516,8 +2362,20 @@ export declare const Create_Manga_ZOD: z.ZodObject<{
         } | undefined;
     };
     date?: {
-        start?: string | undefined;
-        end?: string | undefined;
+        start?: {
+            year?: string | number | undefined;
+            month?: string | number | undefined;
+            day?: string | number | undefined;
+            hour?: string | number | undefined;
+            minute?: string | number | undefined;
+        } | undefined;
+        end?: {
+            year?: string | number | undefined;
+            month?: string | number | undefined;
+            day?: string | number | undefined;
+            hour?: string | number | undefined;
+            minute?: string | number | undefined;
+        } | undefined;
     } | undefined;
     cover?: {
         id?: string | undefined;
@@ -1543,12 +2401,24 @@ export declare const Create_Manga_ZOD: z.ZodObject<{
     genres?: ("ACTION" | "AVENTURE" | "COMEDIE" | "DRAME" | "FANTAISIE" | "FANTASTIQUE" | "HORREUR" | "ROMANCE" | "SCI_FI" | "SPORTS" | "THRILLER" | "MECHA" | "MYSTERE" | "PSYCHOLOGIQUE" | "ISEKAI" | "HAREM" | "REVERSE_HAREM" | "ECCHI" | "SLICE_OF_LIFE" | "YAOI" | "YURI" | "SHOUNEN" | "SEINEN" | "SHOJO" | "JOSEI" | "KODOMOMUKE")[] | undefined;
     chapters?: {
         airing?: string | number | undefined;
-        nextAiringDate?: string | undefined;
+        nextAiringDate?: {
+            year?: string | number | undefined;
+            month?: string | number | undefined;
+            day?: string | number | undefined;
+            hour?: string | number | undefined;
+            minute?: string | number | undefined;
+        } | undefined;
         total?: string | number | undefined;
     } | undefined;
     volumes?: {
         airing?: string | number | undefined;
-        nextAiringDate?: string | undefined;
+        nextAiringDate?: {
+            year?: string | number | undefined;
+            month?: string | number | undefined;
+            day?: string | number | undefined;
+            hour?: string | number | undefined;
+            minute?: string | number | undefined;
+        } | undefined;
         total?: string | number | undefined;
     } | undefined;
     parent?: {
@@ -1568,8 +2438,20 @@ export declare const Create_Manga_ZOD: z.ZodObject<{
             };
             description?: string | undefined;
             isGroupe?: boolean | undefined;
-            birthDate?: string | undefined;
-            deathDate?: string | undefined;
+            birthDate?: {
+                year?: string | number | undefined;
+                month?: string | number | undefined;
+                day?: string | number | undefined;
+                hour?: string | number | undefined;
+                minute?: string | number | undefined;
+            } | undefined;
+            deathDate?: {
+                year?: string | number | undefined;
+                month?: string | number | undefined;
+                day?: string | number | undefined;
+                hour?: string | number | undefined;
+                minute?: string | number | undefined;
+            } | undefined;
             avatar?: {
                 id?: string | undefined;
                 label?: "COVER" | "BANNER" | "AVATAR" | "LOGO" | undefined;
@@ -1603,12 +2485,18 @@ export declare const Create_Manga_ZOD: z.ZodObject<{
                     label: "COVER" | "BANNER" | "AVATAR" | "LOGO";
                 } | undefined;
             } | undefined;
-            createdDate?: string | undefined;
+            createdDate?: {
+                year?: string | number | undefined;
+                month?: string | number | undefined;
+                day?: string | number | undefined;
+                hour?: string | number | undefined;
+                minute?: string | number | undefined;
+            } | undefined;
         } | undefined;
     }[] | undefined;
     characters?: {
-        role: "PRINCIPAL" | "SECONDAIRE" | "FIGURANT" | "ANTAGONISTE" | "SOUTIEN";
         id?: string | undefined;
+        role?: "PRINCIPAL" | "SECONDAIRE" | "FIGURANT" | "ANTAGONISTE" | "SOUTIEN" | undefined;
         newCharacter?: {
             name: {
                 default: string;
@@ -1617,7 +2505,13 @@ export declare const Create_Manga_ZOD: z.ZodObject<{
             gender: "MASCULIN" | "FEMININ" | "NEUTRE" | "TRANSGENRE" | "NON_BINAIRE" | "GENRE_FLUIDE" | "AUTRE";
             species: "AUTRE" | "HUMAIN" | "ELFE" | "NAIN" | "LEZARD" | "DRAGON" | "ORC";
             description?: string | undefined;
-            birthDate?: string | undefined;
+            birthDate?: {
+                year?: string | number | undefined;
+                month?: string | number | undefined;
+                day?: string | number | undefined;
+                hour?: string | number | undefined;
+                minute?: string | number | undefined;
+            } | undefined;
             avatar?: {
                 id?: string | undefined;
                 label?: "COVER" | "BANNER" | "AVATAR" | "LOGO" | undefined;
@@ -1636,8 +2530,20 @@ export declare const Create_Manga_ZOD: z.ZodObject<{
                     };
                     description?: string | undefined;
                     isGroupe?: boolean | undefined;
-                    birthDate?: string | undefined;
-                    deathDate?: string | undefined;
+                    birthDate?: {
+                        year?: string | number | undefined;
+                        month?: string | number | undefined;
+                        day?: string | number | undefined;
+                        hour?: string | number | undefined;
+                        minute?: string | number | undefined;
+                    } | undefined;
+                    deathDate?: {
+                        year?: string | number | undefined;
+                        month?: string | number | undefined;
+                        day?: string | number | undefined;
+                        hour?: string | number | undefined;
+                        minute?: string | number | undefined;
+                    } | undefined;
                     avatar?: {
                         id?: string | undefined;
                         label?: "COVER" | "BANNER" | "AVATAR" | "LOGO" | undefined;
@@ -1705,43 +2611,89 @@ export declare const MangaCreateBody: z.ZodObject<z.objectUtil.extendShape<{
         }>>;
         title: z.ZodEffects<z.ZodObject<{
             default: z.ZodString;
-            alias: z.ZodOptional<z.ZodArray<z.ZodObject<{
-                content: z.ZodString;
-            }, "strip", z.ZodTypeAny, {
-                content: string;
-            }, {
-                content: string;
-            }>, "many">>;
+            alias: z.ZodOptional<z.ZodArray<z.ZodString, "many">>;
         }, "strip", z.ZodTypeAny, {
             default: string;
-            alias?: {
-                content: string;
-            }[] | undefined;
+            alias?: string[] | undefined;
         }, {
             default: string;
-            alias?: {
-                content: string;
-            }[] | undefined;
+            alias?: string[] | undefined;
         }>, {
             default: string;
-            alias?: {
-                content: string;
-            }[] | undefined;
+            alias?: string[] | undefined;
         }, {
             default: string;
-            alias?: {
-                content: string;
-            }[] | undefined;
+            alias?: string[] | undefined;
         }>;
         date: z.ZodOptional<z.ZodObject<{
-            start: z.ZodOptional<z.ZodEffects<z.ZodString, string, string>>;
-            end: z.ZodOptional<z.ZodEffects<z.ZodString, string, string>>;
+            start: z.ZodOptional<z.ZodObject<{
+                year: z.ZodOptional<z.ZodEffects<z.ZodUnion<[z.ZodNumber, z.ZodString]>, number, string | number>>;
+                month: z.ZodOptional<z.ZodEffects<z.ZodUnion<[z.ZodNumber, z.ZodString]>, number, string | number>>;
+                day: z.ZodOptional<z.ZodEffects<z.ZodUnion<[z.ZodNumber, z.ZodString]>, number, string | number>>;
+                hour: z.ZodOptional<z.ZodEffects<z.ZodUnion<[z.ZodNumber, z.ZodString]>, number, string | number>>;
+                minute: z.ZodOptional<z.ZodEffects<z.ZodUnion<[z.ZodNumber, z.ZodString]>, number, string | number>>;
+            }, "strip", z.ZodTypeAny, {
+                year?: number | undefined;
+                month?: number | undefined;
+                day?: number | undefined;
+                hour?: number | undefined;
+                minute?: number | undefined;
+            }, {
+                year?: string | number | undefined;
+                month?: string | number | undefined;
+                day?: string | number | undefined;
+                hour?: string | number | undefined;
+                minute?: string | number | undefined;
+            }>>;
+            end: z.ZodOptional<z.ZodObject<{
+                year: z.ZodOptional<z.ZodEffects<z.ZodUnion<[z.ZodNumber, z.ZodString]>, number, string | number>>;
+                month: z.ZodOptional<z.ZodEffects<z.ZodUnion<[z.ZodNumber, z.ZodString]>, number, string | number>>;
+                day: z.ZodOptional<z.ZodEffects<z.ZodUnion<[z.ZodNumber, z.ZodString]>, number, string | number>>;
+                hour: z.ZodOptional<z.ZodEffects<z.ZodUnion<[z.ZodNumber, z.ZodString]>, number, string | number>>;
+                minute: z.ZodOptional<z.ZodEffects<z.ZodUnion<[z.ZodNumber, z.ZodString]>, number, string | number>>;
+            }, "strip", z.ZodTypeAny, {
+                year?: number | undefined;
+                month?: number | undefined;
+                day?: number | undefined;
+                hour?: number | undefined;
+                minute?: number | undefined;
+            }, {
+                year?: string | number | undefined;
+                month?: string | number | undefined;
+                day?: string | number | undefined;
+                hour?: string | number | undefined;
+                minute?: string | number | undefined;
+            }>>;
         }, "strip", z.ZodTypeAny, {
-            start?: string | undefined;
-            end?: string | undefined;
+            start?: {
+                year?: number | undefined;
+                month?: number | undefined;
+                day?: number | undefined;
+                hour?: number | undefined;
+                minute?: number | undefined;
+            } | undefined;
+            end?: {
+                year?: number | undefined;
+                month?: number | undefined;
+                day?: number | undefined;
+                hour?: number | undefined;
+                minute?: number | undefined;
+            } | undefined;
         }, {
-            start?: string | undefined;
-            end?: string | undefined;
+            start?: {
+                year?: string | number | undefined;
+                month?: string | number | undefined;
+                day?: string | number | undefined;
+                hour?: string | number | undefined;
+                minute?: string | number | undefined;
+            } | undefined;
+            end?: {
+                year?: string | number | undefined;
+                month?: string | number | undefined;
+                day?: string | number | undefined;
+                hour?: string | number | undefined;
+                minute?: string | number | undefined;
+            } | undefined;
         }>>;
         cover: z.ZodOptional<z.ZodObject<{
             id: z.ZodOptional<z.ZodString>;
@@ -1806,28 +2758,88 @@ export declare const MangaCreateBody: z.ZodObject<z.objectUtil.extendShape<{
         status: z.ZodEnum<("AIRING" | "PAUSED" | "ENDED" | "STOPPED" | "POSTONED" | "SOON" | "any")[] & [string, ...string[]]>;
         chapters: z.ZodOptional<z.ZodObject<{
             airing: z.ZodOptional<z.ZodEffects<z.ZodUnion<[z.ZodNumber, z.ZodString]>, number, string | number>>;
-            nextAiringDate: z.ZodOptional<z.ZodString>;
+            nextAiringDate: z.ZodOptional<z.ZodObject<{
+                year: z.ZodOptional<z.ZodOptional<z.ZodEffects<z.ZodUnion<[z.ZodNumber, z.ZodString]>, number, string | number>>>;
+                month: z.ZodOptional<z.ZodOptional<z.ZodEffects<z.ZodUnion<[z.ZodNumber, z.ZodString]>, number, string | number>>>;
+                day: z.ZodOptional<z.ZodOptional<z.ZodEffects<z.ZodUnion<[z.ZodNumber, z.ZodString]>, number, string | number>>>;
+                hour: z.ZodOptional<z.ZodOptional<z.ZodEffects<z.ZodUnion<[z.ZodNumber, z.ZodString]>, number, string | number>>>;
+                minute: z.ZodOptional<z.ZodOptional<z.ZodEffects<z.ZodUnion<[z.ZodNumber, z.ZodString]>, number, string | number>>>;
+            }, "strip", z.ZodTypeAny, {
+                year?: number | undefined;
+                month?: number | undefined;
+                day?: number | undefined;
+                hour?: number | undefined;
+                minute?: number | undefined;
+            }, {
+                year?: string | number | undefined;
+                month?: string | number | undefined;
+                day?: string | number | undefined;
+                hour?: string | number | undefined;
+                minute?: string | number | undefined;
+            }>>;
             total: z.ZodOptional<z.ZodEffects<z.ZodUnion<[z.ZodNumber, z.ZodString]>, number, string | number>>;
         }, "strip", z.ZodTypeAny, {
             airing?: number | undefined;
-            nextAiringDate?: string | undefined;
+            nextAiringDate?: {
+                year?: number | undefined;
+                month?: number | undefined;
+                day?: number | undefined;
+                hour?: number | undefined;
+                minute?: number | undefined;
+            } | undefined;
             total?: number | undefined;
         }, {
             airing?: string | number | undefined;
-            nextAiringDate?: string | undefined;
+            nextAiringDate?: {
+                year?: string | number | undefined;
+                month?: string | number | undefined;
+                day?: string | number | undefined;
+                hour?: string | number | undefined;
+                minute?: string | number | undefined;
+            } | undefined;
             total?: string | number | undefined;
         }>>;
         volumes: z.ZodOptional<z.ZodObject<{
             airing: z.ZodOptional<z.ZodEffects<z.ZodUnion<[z.ZodNumber, z.ZodString]>, number, string | number>>;
-            nextAiringDate: z.ZodOptional<z.ZodString>;
+            nextAiringDate: z.ZodOptional<z.ZodObject<{
+                year: z.ZodOptional<z.ZodOptional<z.ZodEffects<z.ZodUnion<[z.ZodNumber, z.ZodString]>, number, string | number>>>;
+                month: z.ZodOptional<z.ZodOptional<z.ZodEffects<z.ZodUnion<[z.ZodNumber, z.ZodString]>, number, string | number>>>;
+                day: z.ZodOptional<z.ZodOptional<z.ZodEffects<z.ZodUnion<[z.ZodNumber, z.ZodString]>, number, string | number>>>;
+                hour: z.ZodOptional<z.ZodOptional<z.ZodEffects<z.ZodUnion<[z.ZodNumber, z.ZodString]>, number, string | number>>>;
+                minute: z.ZodOptional<z.ZodOptional<z.ZodEffects<z.ZodUnion<[z.ZodNumber, z.ZodString]>, number, string | number>>>;
+            }, "strip", z.ZodTypeAny, {
+                year?: number | undefined;
+                month?: number | undefined;
+                day?: number | undefined;
+                hour?: number | undefined;
+                minute?: number | undefined;
+            }, {
+                year?: string | number | undefined;
+                month?: string | number | undefined;
+                day?: string | number | undefined;
+                hour?: string | number | undefined;
+                minute?: string | number | undefined;
+            }>>;
             total: z.ZodOptional<z.ZodEffects<z.ZodUnion<[z.ZodNumber, z.ZodString]>, number, string | number>>;
         }, "strip", z.ZodTypeAny, {
             airing?: number | undefined;
-            nextAiringDate?: string | undefined;
+            nextAiringDate?: {
+                year?: number | undefined;
+                month?: number | undefined;
+                day?: number | undefined;
+                hour?: number | undefined;
+                minute?: number | undefined;
+            } | undefined;
             total?: number | undefined;
         }, {
             airing?: string | number | undefined;
-            nextAiringDate?: string | undefined;
+            nextAiringDate?: {
+                year?: string | number | undefined;
+                month?: string | number | undefined;
+                day?: string | number | undefined;
+                hour?: string | number | undefined;
+                minute?: string | number | undefined;
+            } | undefined;
             total?: string | number | undefined;
         }>>;
         adult: z.ZodEffects<z.ZodUnion<[z.ZodBoolean, z.ZodLiteral<"true">, z.ZodLiteral<"false">]>, boolean, boolean | "true" | "false">;
@@ -1886,7 +2898,25 @@ export declare const MangaCreateBody: z.ZodObject<z.objectUtil.extendShape<{
                         label: "COVER" | "BANNER" | "AVATAR" | "LOGO";
                     } | undefined;
                 }>>;
-                createdDate: z.ZodOptional<z.ZodString>;
+                createdDate: z.ZodOptional<z.ZodObject<{
+                    year: z.ZodOptional<z.ZodOptional<z.ZodEffects<z.ZodUnion<[z.ZodNumber, z.ZodString]>, number, string | number>>>;
+                    month: z.ZodOptional<z.ZodOptional<z.ZodEffects<z.ZodUnion<[z.ZodNumber, z.ZodString]>, number, string | number>>>;
+                    day: z.ZodOptional<z.ZodOptional<z.ZodEffects<z.ZodUnion<[z.ZodNumber, z.ZodString]>, number, string | number>>>;
+                    hour: z.ZodOptional<z.ZodOptional<z.ZodEffects<z.ZodUnion<[z.ZodNumber, z.ZodString]>, number, string | number>>>;
+                    minute: z.ZodOptional<z.ZodOptional<z.ZodEffects<z.ZodUnion<[z.ZodNumber, z.ZodString]>, number, string | number>>>;
+                }, "strip", z.ZodTypeAny, {
+                    year?: number | undefined;
+                    month?: number | undefined;
+                    day?: number | undefined;
+                    hour?: number | undefined;
+                    minute?: number | undefined;
+                }, {
+                    year?: string | number | undefined;
+                    month?: string | number | undefined;
+                    day?: string | number | undefined;
+                    hour?: string | number | undefined;
+                    minute?: string | number | undefined;
+                }>>;
             }, "strict", z.ZodTypeAny, {
                 type: "STUDIO" | "PRODUCER";
                 name: string;
@@ -1903,7 +2933,13 @@ export declare const MangaCreateBody: z.ZodObject<z.objectUtil.extendShape<{
                         label: "COVER" | "BANNER" | "AVATAR" | "LOGO";
                     } | undefined;
                 } | undefined;
-                createdDate?: string | undefined;
+                createdDate?: {
+                    year?: number | undefined;
+                    month?: number | undefined;
+                    day?: number | undefined;
+                    hour?: number | undefined;
+                    minute?: number | undefined;
+                } | undefined;
             }, {
                 type: "STUDIO" | "PRODUCER";
                 name: string;
@@ -1920,7 +2956,13 @@ export declare const MangaCreateBody: z.ZodObject<z.objectUtil.extendShape<{
                         label: "COVER" | "BANNER" | "AVATAR" | "LOGO";
                     } | undefined;
                 } | undefined;
-                createdDate?: string | undefined;
+                createdDate?: {
+                    year?: string | number | undefined;
+                    month?: string | number | undefined;
+                    day?: string | number | undefined;
+                    hour?: string | number | undefined;
+                    minute?: string | number | undefined;
+                } | undefined;
             }>>;
         }, "strip", z.ZodTypeAny, {
             id?: string | undefined;
@@ -1940,7 +2982,13 @@ export declare const MangaCreateBody: z.ZodObject<z.objectUtil.extendShape<{
                         label: "COVER" | "BANNER" | "AVATAR" | "LOGO";
                     } | undefined;
                 } | undefined;
-                createdDate?: string | undefined;
+                createdDate?: {
+                    year?: number | undefined;
+                    month?: number | undefined;
+                    day?: number | undefined;
+                    hour?: number | undefined;
+                    minute?: number | undefined;
+                } | undefined;
             } | undefined;
         }, {
             id?: string | undefined;
@@ -1960,7 +3008,13 @@ export declare const MangaCreateBody: z.ZodObject<z.objectUtil.extendShape<{
                         label: "COVER" | "BANNER" | "AVATAR" | "LOGO";
                     } | undefined;
                 } | undefined;
-                createdDate?: string | undefined;
+                createdDate?: {
+                    year?: string | number | undefined;
+                    month?: string | number | undefined;
+                    day?: string | number | undefined;
+                    hour?: string | number | undefined;
+                    minute?: string | number | undefined;
+                } | undefined;
             } | undefined;
         }>, "many">>;
         staffs: z.ZodOptional<z.ZodArray<z.ZodObject<{
@@ -1977,8 +3031,44 @@ export declare const MangaCreateBody: z.ZodObject<z.objectUtil.extendShape<{
                     default: string;
                     alias?: string[] | undefined;
                 }>;
-                birthDate: z.ZodOptional<z.ZodString>;
-                deathDate: z.ZodOptional<z.ZodString>;
+                birthDate: z.ZodOptional<z.ZodObject<{
+                    year: z.ZodOptional<z.ZodOptional<z.ZodEffects<z.ZodUnion<[z.ZodNumber, z.ZodString]>, number, string | number>>>;
+                    month: z.ZodOptional<z.ZodOptional<z.ZodEffects<z.ZodUnion<[z.ZodNumber, z.ZodString]>, number, string | number>>>;
+                    day: z.ZodOptional<z.ZodOptional<z.ZodEffects<z.ZodUnion<[z.ZodNumber, z.ZodString]>, number, string | number>>>;
+                    hour: z.ZodOptional<z.ZodOptional<z.ZodEffects<z.ZodUnion<[z.ZodNumber, z.ZodString]>, number, string | number>>>;
+                    minute: z.ZodOptional<z.ZodOptional<z.ZodEffects<z.ZodUnion<[z.ZodNumber, z.ZodString]>, number, string | number>>>;
+                }, "strip", z.ZodTypeAny, {
+                    year?: number | undefined;
+                    month?: number | undefined;
+                    day?: number | undefined;
+                    hour?: number | undefined;
+                    minute?: number | undefined;
+                }, {
+                    year?: string | number | undefined;
+                    month?: string | number | undefined;
+                    day?: string | number | undefined;
+                    hour?: string | number | undefined;
+                    minute?: string | number | undefined;
+                }>>;
+                deathDate: z.ZodOptional<z.ZodObject<{
+                    year: z.ZodOptional<z.ZodOptional<z.ZodEffects<z.ZodUnion<[z.ZodNumber, z.ZodString]>, number, string | number>>>;
+                    month: z.ZodOptional<z.ZodOptional<z.ZodEffects<z.ZodUnion<[z.ZodNumber, z.ZodString]>, number, string | number>>>;
+                    day: z.ZodOptional<z.ZodOptional<z.ZodEffects<z.ZodUnion<[z.ZodNumber, z.ZodString]>, number, string | number>>>;
+                    hour: z.ZodOptional<z.ZodOptional<z.ZodEffects<z.ZodUnion<[z.ZodNumber, z.ZodString]>, number, string | number>>>;
+                    minute: z.ZodOptional<z.ZodOptional<z.ZodEffects<z.ZodUnion<[z.ZodNumber, z.ZodString]>, number, string | number>>>;
+                }, "strip", z.ZodTypeAny, {
+                    year?: number | undefined;
+                    month?: number | undefined;
+                    day?: number | undefined;
+                    hour?: number | undefined;
+                    minute?: number | undefined;
+                }, {
+                    year?: string | number | undefined;
+                    month?: string | number | undefined;
+                    day?: string | number | undefined;
+                    hour?: string | number | undefined;
+                    minute?: string | number | undefined;
+                }>>;
                 description: z.ZodOptional<z.ZodString>;
                 avatar: z.ZodOptional<z.ZodObject<{
                     id: z.ZodOptional<z.ZodString>;
@@ -2025,8 +3115,20 @@ export declare const MangaCreateBody: z.ZodObject<z.objectUtil.extendShape<{
                 };
                 description?: string | undefined;
                 isGroupe?: boolean | undefined;
-                birthDate?: string | undefined;
-                deathDate?: string | undefined;
+                birthDate?: {
+                    year?: number | undefined;
+                    month?: number | undefined;
+                    day?: number | undefined;
+                    hour?: number | undefined;
+                    minute?: number | undefined;
+                } | undefined;
+                deathDate?: {
+                    year?: number | undefined;
+                    month?: number | undefined;
+                    day?: number | undefined;
+                    hour?: number | undefined;
+                    minute?: number | undefined;
+                } | undefined;
                 avatar?: {
                     id?: string | undefined;
                     label?: "COVER" | "BANNER" | "AVATAR" | "LOGO" | undefined;
@@ -2046,8 +3148,20 @@ export declare const MangaCreateBody: z.ZodObject<z.objectUtil.extendShape<{
                 };
                 description?: string | undefined;
                 isGroupe?: boolean | undefined;
-                birthDate?: string | undefined;
-                deathDate?: string | undefined;
+                birthDate?: {
+                    year?: string | number | undefined;
+                    month?: string | number | undefined;
+                    day?: string | number | undefined;
+                    hour?: string | number | undefined;
+                    minute?: string | number | undefined;
+                } | undefined;
+                deathDate?: {
+                    year?: string | number | undefined;
+                    month?: string | number | undefined;
+                    day?: string | number | undefined;
+                    hour?: string | number | undefined;
+                    minute?: string | number | undefined;
+                } | undefined;
                 avatar?: {
                     id?: string | undefined;
                     label?: "COVER" | "BANNER" | "AVATAR" | "LOGO" | undefined;
@@ -2071,8 +3185,20 @@ export declare const MangaCreateBody: z.ZodObject<z.objectUtil.extendShape<{
                 };
                 description?: string | undefined;
                 isGroupe?: boolean | undefined;
-                birthDate?: string | undefined;
-                deathDate?: string | undefined;
+                birthDate?: {
+                    year?: number | undefined;
+                    month?: number | undefined;
+                    day?: number | undefined;
+                    hour?: number | undefined;
+                    minute?: number | undefined;
+                } | undefined;
+                deathDate?: {
+                    year?: number | undefined;
+                    month?: number | undefined;
+                    day?: number | undefined;
+                    hour?: number | undefined;
+                    minute?: number | undefined;
+                } | undefined;
                 avatar?: {
                     id?: string | undefined;
                     label?: "COVER" | "BANNER" | "AVATAR" | "LOGO" | undefined;
@@ -2096,8 +3222,20 @@ export declare const MangaCreateBody: z.ZodObject<z.objectUtil.extendShape<{
                 };
                 description?: string | undefined;
                 isGroupe?: boolean | undefined;
-                birthDate?: string | undefined;
-                deathDate?: string | undefined;
+                birthDate?: {
+                    year?: string | number | undefined;
+                    month?: string | number | undefined;
+                    day?: string | number | undefined;
+                    hour?: string | number | undefined;
+                    minute?: string | number | undefined;
+                } | undefined;
+                deathDate?: {
+                    year?: string | number | undefined;
+                    month?: string | number | undefined;
+                    day?: string | number | undefined;
+                    hour?: string | number | undefined;
+                    minute?: string | number | undefined;
+                } | undefined;
                 avatar?: {
                     id?: string | undefined;
                     label?: "COVER" | "BANNER" | "AVATAR" | "LOGO" | undefined;
@@ -2127,7 +3265,25 @@ export declare const MangaCreateBody: z.ZodObject<z.objectUtil.extendShape<{
                     alias?: string[] | undefined;
                 }>;
                 age: z.ZodOptional<z.ZodEffects<z.ZodUnion<[z.ZodNumber, z.ZodString]>, number, string | number>>;
-                birthDate: z.ZodOptional<z.ZodString>;
+                birthDate: z.ZodOptional<z.ZodObject<{
+                    year: z.ZodOptional<z.ZodOptional<z.ZodEffects<z.ZodUnion<[z.ZodNumber, z.ZodString]>, number, string | number>>>;
+                    month: z.ZodOptional<z.ZodOptional<z.ZodEffects<z.ZodUnion<[z.ZodNumber, z.ZodString]>, number, string | number>>>;
+                    day: z.ZodOptional<z.ZodOptional<z.ZodEffects<z.ZodUnion<[z.ZodNumber, z.ZodString]>, number, string | number>>>;
+                    hour: z.ZodOptional<z.ZodOptional<z.ZodEffects<z.ZodUnion<[z.ZodNumber, z.ZodString]>, number, string | number>>>;
+                    minute: z.ZodOptional<z.ZodOptional<z.ZodEffects<z.ZodUnion<[z.ZodNumber, z.ZodString]>, number, string | number>>>;
+                }, "strip", z.ZodTypeAny, {
+                    year?: number | undefined;
+                    month?: number | undefined;
+                    day?: number | undefined;
+                    hour?: number | undefined;
+                    minute?: number | undefined;
+                }, {
+                    year?: string | number | undefined;
+                    month?: string | number | undefined;
+                    day?: string | number | undefined;
+                    hour?: string | number | undefined;
+                    minute?: string | number | undefined;
+                }>>;
                 gender: z.ZodEnum<("MASCULIN" | "FEMININ" | "NEUTRE" | "TRANSGENRE" | "NON_BINAIRE" | "GENRE_FLUIDE" | "AUTRE")[] & [string, ...string[]]>;
                 species: z.ZodEnum<("AUTRE" | "HUMAIN" | "ELFE" | "NAIN" | "LEZARD" | "DRAGON" | "ORC")[] & [string, ...string[]]>;
                 description: z.ZodOptional<z.ZodString>;
@@ -2173,8 +3329,44 @@ export declare const MangaCreateBody: z.ZodObject<z.objectUtil.extendShape<{
                             default: string;
                             alias?: string[] | undefined;
                         }>;
-                        birthDate: z.ZodOptional<z.ZodString>;
-                        deathDate: z.ZodOptional<z.ZodString>;
+                        birthDate: z.ZodOptional<z.ZodObject<{
+                            year: z.ZodOptional<z.ZodOptional<z.ZodEffects<z.ZodUnion<[z.ZodNumber, z.ZodString]>, number, string | number>>>;
+                            month: z.ZodOptional<z.ZodOptional<z.ZodEffects<z.ZodUnion<[z.ZodNumber, z.ZodString]>, number, string | number>>>;
+                            day: z.ZodOptional<z.ZodOptional<z.ZodEffects<z.ZodUnion<[z.ZodNumber, z.ZodString]>, number, string | number>>>;
+                            hour: z.ZodOptional<z.ZodOptional<z.ZodEffects<z.ZodUnion<[z.ZodNumber, z.ZodString]>, number, string | number>>>;
+                            minute: z.ZodOptional<z.ZodOptional<z.ZodEffects<z.ZodUnion<[z.ZodNumber, z.ZodString]>, number, string | number>>>;
+                        }, "strip", z.ZodTypeAny, {
+                            year?: number | undefined;
+                            month?: number | undefined;
+                            day?: number | undefined;
+                            hour?: number | undefined;
+                            minute?: number | undefined;
+                        }, {
+                            year?: string | number | undefined;
+                            month?: string | number | undefined;
+                            day?: string | number | undefined;
+                            hour?: string | number | undefined;
+                            minute?: string | number | undefined;
+                        }>>;
+                        deathDate: z.ZodOptional<z.ZodObject<{
+                            year: z.ZodOptional<z.ZodOptional<z.ZodEffects<z.ZodUnion<[z.ZodNumber, z.ZodString]>, number, string | number>>>;
+                            month: z.ZodOptional<z.ZodOptional<z.ZodEffects<z.ZodUnion<[z.ZodNumber, z.ZodString]>, number, string | number>>>;
+                            day: z.ZodOptional<z.ZodOptional<z.ZodEffects<z.ZodUnion<[z.ZodNumber, z.ZodString]>, number, string | number>>>;
+                            hour: z.ZodOptional<z.ZodOptional<z.ZodEffects<z.ZodUnion<[z.ZodNumber, z.ZodString]>, number, string | number>>>;
+                            minute: z.ZodOptional<z.ZodOptional<z.ZodEffects<z.ZodUnion<[z.ZodNumber, z.ZodString]>, number, string | number>>>;
+                        }, "strip", z.ZodTypeAny, {
+                            year?: number | undefined;
+                            month?: number | undefined;
+                            day?: number | undefined;
+                            hour?: number | undefined;
+                            minute?: number | undefined;
+                        }, {
+                            year?: string | number | undefined;
+                            month?: string | number | undefined;
+                            day?: string | number | undefined;
+                            hour?: string | number | undefined;
+                            minute?: string | number | undefined;
+                        }>>;
                         description: z.ZodOptional<z.ZodString>;
                         avatar: z.ZodOptional<z.ZodObject<{
                             id: z.ZodOptional<z.ZodString>;
@@ -2221,8 +3413,20 @@ export declare const MangaCreateBody: z.ZodObject<z.objectUtil.extendShape<{
                         };
                         description?: string | undefined;
                         isGroupe?: boolean | undefined;
-                        birthDate?: string | undefined;
-                        deathDate?: string | undefined;
+                        birthDate?: {
+                            year?: number | undefined;
+                            month?: number | undefined;
+                            day?: number | undefined;
+                            hour?: number | undefined;
+                            minute?: number | undefined;
+                        } | undefined;
+                        deathDate?: {
+                            year?: number | undefined;
+                            month?: number | undefined;
+                            day?: number | undefined;
+                            hour?: number | undefined;
+                            minute?: number | undefined;
+                        } | undefined;
                         avatar?: {
                             id?: string | undefined;
                             label?: "COVER" | "BANNER" | "AVATAR" | "LOGO" | undefined;
@@ -2242,8 +3446,20 @@ export declare const MangaCreateBody: z.ZodObject<z.objectUtil.extendShape<{
                         };
                         description?: string | undefined;
                         isGroupe?: boolean | undefined;
-                        birthDate?: string | undefined;
-                        deathDate?: string | undefined;
+                        birthDate?: {
+                            year?: string | number | undefined;
+                            month?: string | number | undefined;
+                            day?: string | number | undefined;
+                            hour?: string | number | undefined;
+                            minute?: string | number | undefined;
+                        } | undefined;
+                        deathDate?: {
+                            year?: string | number | undefined;
+                            month?: string | number | undefined;
+                            day?: string | number | undefined;
+                            hour?: string | number | undefined;
+                            minute?: string | number | undefined;
+                        } | undefined;
                         avatar?: {
                             id?: string | undefined;
                             label?: "COVER" | "BANNER" | "AVATAR" | "LOGO" | undefined;
@@ -2267,8 +3483,20 @@ export declare const MangaCreateBody: z.ZodObject<z.objectUtil.extendShape<{
                         };
                         description?: string | undefined;
                         isGroupe?: boolean | undefined;
-                        birthDate?: string | undefined;
-                        deathDate?: string | undefined;
+                        birthDate?: {
+                            year?: number | undefined;
+                            month?: number | undefined;
+                            day?: number | undefined;
+                            hour?: number | undefined;
+                            minute?: number | undefined;
+                        } | undefined;
+                        deathDate?: {
+                            year?: number | undefined;
+                            month?: number | undefined;
+                            day?: number | undefined;
+                            hour?: number | undefined;
+                            minute?: number | undefined;
+                        } | undefined;
                         avatar?: {
                             id?: string | undefined;
                             label?: "COVER" | "BANNER" | "AVATAR" | "LOGO" | undefined;
@@ -2292,8 +3520,20 @@ export declare const MangaCreateBody: z.ZodObject<z.objectUtil.extendShape<{
                         };
                         description?: string | undefined;
                         isGroupe?: boolean | undefined;
-                        birthDate?: string | undefined;
-                        deathDate?: string | undefined;
+                        birthDate?: {
+                            year?: string | number | undefined;
+                            month?: string | number | undefined;
+                            day?: string | number | undefined;
+                            hour?: string | number | undefined;
+                            minute?: string | number | undefined;
+                        } | undefined;
+                        deathDate?: {
+                            year?: string | number | undefined;
+                            month?: string | number | undefined;
+                            day?: string | number | undefined;
+                            hour?: string | number | undefined;
+                            minute?: string | number | undefined;
+                        } | undefined;
                         avatar?: {
                             id?: string | undefined;
                             label?: "COVER" | "BANNER" | "AVATAR" | "LOGO" | undefined;
@@ -2317,7 +3557,13 @@ export declare const MangaCreateBody: z.ZodObject<z.objectUtil.extendShape<{
                 gender: "MASCULIN" | "FEMININ" | "NEUTRE" | "TRANSGENRE" | "NON_BINAIRE" | "GENRE_FLUIDE" | "AUTRE";
                 species: "AUTRE" | "HUMAIN" | "ELFE" | "NAIN" | "LEZARD" | "DRAGON" | "ORC";
                 description?: string | undefined;
-                birthDate?: string | undefined;
+                birthDate?: {
+                    year?: number | undefined;
+                    month?: number | undefined;
+                    day?: number | undefined;
+                    hour?: number | undefined;
+                    minute?: number | undefined;
+                } | undefined;
                 avatar?: {
                     id?: string | undefined;
                     label?: "COVER" | "BANNER" | "AVATAR" | "LOGO" | undefined;
@@ -2336,8 +3582,20 @@ export declare const MangaCreateBody: z.ZodObject<z.objectUtil.extendShape<{
                         };
                         description?: string | undefined;
                         isGroupe?: boolean | undefined;
-                        birthDate?: string | undefined;
-                        deathDate?: string | undefined;
+                        birthDate?: {
+                            year?: number | undefined;
+                            month?: number | undefined;
+                            day?: number | undefined;
+                            hour?: number | undefined;
+                            minute?: number | undefined;
+                        } | undefined;
+                        deathDate?: {
+                            year?: number | undefined;
+                            month?: number | undefined;
+                            day?: number | undefined;
+                            hour?: number | undefined;
+                            minute?: number | undefined;
+                        } | undefined;
                         avatar?: {
                             id?: string | undefined;
                             label?: "COVER" | "BANNER" | "AVATAR" | "LOGO" | undefined;
@@ -2361,7 +3619,13 @@ export declare const MangaCreateBody: z.ZodObject<z.objectUtil.extendShape<{
                 gender: "MASCULIN" | "FEMININ" | "NEUTRE" | "TRANSGENRE" | "NON_BINAIRE" | "GENRE_FLUIDE" | "AUTRE";
                 species: "AUTRE" | "HUMAIN" | "ELFE" | "NAIN" | "LEZARD" | "DRAGON" | "ORC";
                 description?: string | undefined;
-                birthDate?: string | undefined;
+                birthDate?: {
+                    year?: string | number | undefined;
+                    month?: string | number | undefined;
+                    day?: string | number | undefined;
+                    hour?: string | number | undefined;
+                    minute?: string | number | undefined;
+                } | undefined;
                 avatar?: {
                     id?: string | undefined;
                     label?: "COVER" | "BANNER" | "AVATAR" | "LOGO" | undefined;
@@ -2380,8 +3644,20 @@ export declare const MangaCreateBody: z.ZodObject<z.objectUtil.extendShape<{
                         };
                         description?: string | undefined;
                         isGroupe?: boolean | undefined;
-                        birthDate?: string | undefined;
-                        deathDate?: string | undefined;
+                        birthDate?: {
+                            year?: string | number | undefined;
+                            month?: string | number | undefined;
+                            day?: string | number | undefined;
+                            hour?: string | number | undefined;
+                            minute?: string | number | undefined;
+                        } | undefined;
+                        deathDate?: {
+                            year?: string | number | undefined;
+                            month?: string | number | undefined;
+                            day?: string | number | undefined;
+                            hour?: string | number | undefined;
+                            minute?: string | number | undefined;
+                        } | undefined;
                         avatar?: {
                             id?: string | undefined;
                             label?: "COVER" | "BANNER" | "AVATAR" | "LOGO" | undefined;
@@ -2398,10 +3674,10 @@ export declare const MangaCreateBody: z.ZodObject<z.objectUtil.extendShape<{
                     role?: "DOUBLAGE_SEIYU" | "AUTEUR" | "EDITEUR" | "PRODUCTEUR" | "REALISATEUR" | "REALISATEUR_EPISODES" | "REALISATEUR_MISEENPAGE" | "DIRECTEUR_ARTISTIQUE_CINEMATROGRAPHIQUE" | "DIRECTEUR_ANIMATION" | "CONCEPTEUR" | "ANIMATEUR_PRINCIPAL" | "ANIMATEUR_INTERMEDIAIRE" | "COLORISTES" | "DIRECTEUR_ENREGISTREMENT" | "SCENARISTE" | "ANIMATEUR_3D" | "METTEUR_EN_SCENE" | "SUPERVISEUR" | "MONTEUR" | "RESPONSABLE_DROITS" | "PRODUCTEUR_MUSIQUE" | "RESPONSABLE_MARKETING" | "DIFFUSEUR" | "STORYBOARDER" | "ARTISTE_VFX" | "INGENIEUR_SON" | "DIRECTEUR_DOUBLAGE" | "TRADUCTEUR" | "MANGAKA" | "CHARACTER_DESIGNER" | "DESSINATEUR_DECORS" | "REALISATEUR_MISE_EN_PAGE" | "COMPOSITEUR" | "PAROLIER" | "ARRANGEUR" | "MUSICIEN" | "CHANTEUR_EUSE" | "CHEF_ORCHESTRE" | "PRODUCTEUR_MUSICAL" | "DESIGNER_SONORE" | "MIXEUR" | undefined;
                 }[] | undefined;
             }>>;
-            role: z.ZodEnum<("PRINCIPAL" | "SECONDAIRE" | "FIGURANT" | "ANTAGONISTE" | "SOUTIEN")[] & [string, ...string[]]>;
+            role: z.ZodOptional<z.ZodEnum<("PRINCIPAL" | "SECONDAIRE" | "FIGURANT" | "ANTAGONISTE" | "SOUTIEN")[] & [string, ...string[]]>>;
         }, "strip", z.ZodTypeAny, {
-            role: "PRINCIPAL" | "SECONDAIRE" | "FIGURANT" | "ANTAGONISTE" | "SOUTIEN";
             id?: string | undefined;
+            role?: "PRINCIPAL" | "SECONDAIRE" | "FIGURANT" | "ANTAGONISTE" | "SOUTIEN" | undefined;
             newCharacter?: {
                 name: {
                     default: string;
@@ -2410,7 +3686,13 @@ export declare const MangaCreateBody: z.ZodObject<z.objectUtil.extendShape<{
                 gender: "MASCULIN" | "FEMININ" | "NEUTRE" | "TRANSGENRE" | "NON_BINAIRE" | "GENRE_FLUIDE" | "AUTRE";
                 species: "AUTRE" | "HUMAIN" | "ELFE" | "NAIN" | "LEZARD" | "DRAGON" | "ORC";
                 description?: string | undefined;
-                birthDate?: string | undefined;
+                birthDate?: {
+                    year?: number | undefined;
+                    month?: number | undefined;
+                    day?: number | undefined;
+                    hour?: number | undefined;
+                    minute?: number | undefined;
+                } | undefined;
                 avatar?: {
                     id?: string | undefined;
                     label?: "COVER" | "BANNER" | "AVATAR" | "LOGO" | undefined;
@@ -2429,8 +3711,20 @@ export declare const MangaCreateBody: z.ZodObject<z.objectUtil.extendShape<{
                         };
                         description?: string | undefined;
                         isGroupe?: boolean | undefined;
-                        birthDate?: string | undefined;
-                        deathDate?: string | undefined;
+                        birthDate?: {
+                            year?: number | undefined;
+                            month?: number | undefined;
+                            day?: number | undefined;
+                            hour?: number | undefined;
+                            minute?: number | undefined;
+                        } | undefined;
+                        deathDate?: {
+                            year?: number | undefined;
+                            month?: number | undefined;
+                            day?: number | undefined;
+                            hour?: number | undefined;
+                            minute?: number | undefined;
+                        } | undefined;
                         avatar?: {
                             id?: string | undefined;
                             label?: "COVER" | "BANNER" | "AVATAR" | "LOGO" | undefined;
@@ -2448,8 +3742,8 @@ export declare const MangaCreateBody: z.ZodObject<z.objectUtil.extendShape<{
                 }[] | undefined;
             } | undefined;
         }, {
-            role: "PRINCIPAL" | "SECONDAIRE" | "FIGURANT" | "ANTAGONISTE" | "SOUTIEN";
             id?: string | undefined;
+            role?: "PRINCIPAL" | "SECONDAIRE" | "FIGURANT" | "ANTAGONISTE" | "SOUTIEN" | undefined;
             newCharacter?: {
                 name: {
                     default: string;
@@ -2458,7 +3752,13 @@ export declare const MangaCreateBody: z.ZodObject<z.objectUtil.extendShape<{
                 gender: "MASCULIN" | "FEMININ" | "NEUTRE" | "TRANSGENRE" | "NON_BINAIRE" | "GENRE_FLUIDE" | "AUTRE";
                 species: "AUTRE" | "HUMAIN" | "ELFE" | "NAIN" | "LEZARD" | "DRAGON" | "ORC";
                 description?: string | undefined;
-                birthDate?: string | undefined;
+                birthDate?: {
+                    year?: string | number | undefined;
+                    month?: string | number | undefined;
+                    day?: string | number | undefined;
+                    hour?: string | number | undefined;
+                    minute?: string | number | undefined;
+                } | undefined;
                 avatar?: {
                     id?: string | undefined;
                     label?: "COVER" | "BANNER" | "AVATAR" | "LOGO" | undefined;
@@ -2477,8 +3777,20 @@ export declare const MangaCreateBody: z.ZodObject<z.objectUtil.extendShape<{
                         };
                         description?: string | undefined;
                         isGroupe?: boolean | undefined;
-                        birthDate?: string | undefined;
-                        deathDate?: string | undefined;
+                        birthDate?: {
+                            year?: string | number | undefined;
+                            month?: string | number | undefined;
+                            day?: string | number | undefined;
+                            hour?: string | number | undefined;
+                            minute?: string | number | undefined;
+                        } | undefined;
+                        deathDate?: {
+                            year?: string | number | undefined;
+                            month?: string | number | undefined;
+                            day?: string | number | undefined;
+                            hour?: string | number | undefined;
+                            minute?: string | number | undefined;
+                        } | undefined;
                         avatar?: {
                             id?: string | undefined;
                             label?: "COVER" | "BANNER" | "AVATAR" | "LOGO" | undefined;
@@ -2500,9 +3812,7 @@ export declare const MangaCreateBody: z.ZodObject<z.objectUtil.extendShape<{
         status: "AIRING" | "PAUSED" | "ENDED" | "STOPPED" | "POSTONED" | "SOON" | "any";
         title: {
             default: string;
-            alias?: {
-                content: string;
-            }[] | undefined;
+            alias?: string[] | undefined;
         };
         format: "MANGA" | "MANHWA" | "MANHUA" | "LIGHT_NOVEL" | "WEB_LOVEL" | "GRAPHIC_NOVEL" | "DOUJINSHI" | "ONE_SHOT" | "OTHER";
         adult: boolean;
@@ -2514,8 +3824,20 @@ export declare const MangaCreateBody: z.ZodObject<z.objectUtil.extendShape<{
             } | undefined;
         };
         date?: {
-            start?: string | undefined;
-            end?: string | undefined;
+            start?: {
+                year?: number | undefined;
+                month?: number | undefined;
+                day?: number | undefined;
+                hour?: number | undefined;
+                minute?: number | undefined;
+            } | undefined;
+            end?: {
+                year?: number | undefined;
+                month?: number | undefined;
+                day?: number | undefined;
+                hour?: number | undefined;
+                minute?: number | undefined;
+            } | undefined;
         } | undefined;
         cover?: {
             id?: string | undefined;
@@ -2541,12 +3863,24 @@ export declare const MangaCreateBody: z.ZodObject<z.objectUtil.extendShape<{
         genres?: ("ACTION" | "AVENTURE" | "COMEDIE" | "DRAME" | "FANTAISIE" | "FANTASTIQUE" | "HORREUR" | "ROMANCE" | "SCI_FI" | "SPORTS" | "THRILLER" | "MECHA" | "MYSTERE" | "PSYCHOLOGIQUE" | "ISEKAI" | "HAREM" | "REVERSE_HAREM" | "ECCHI" | "SLICE_OF_LIFE" | "YAOI" | "YURI" | "SHOUNEN" | "SEINEN" | "SHOJO" | "JOSEI" | "KODOMOMUKE")[] | undefined;
         chapters?: {
             airing?: number | undefined;
-            nextAiringDate?: string | undefined;
+            nextAiringDate?: {
+                year?: number | undefined;
+                month?: number | undefined;
+                day?: number | undefined;
+                hour?: number | undefined;
+                minute?: number | undefined;
+            } | undefined;
             total?: number | undefined;
         } | undefined;
         volumes?: {
             airing?: number | undefined;
-            nextAiringDate?: string | undefined;
+            nextAiringDate?: {
+                year?: number | undefined;
+                month?: number | undefined;
+                day?: number | undefined;
+                hour?: number | undefined;
+                minute?: number | undefined;
+            } | undefined;
             total?: number | undefined;
         } | undefined;
         parent?: {
@@ -2566,8 +3900,20 @@ export declare const MangaCreateBody: z.ZodObject<z.objectUtil.extendShape<{
                 };
                 description?: string | undefined;
                 isGroupe?: boolean | undefined;
-                birthDate?: string | undefined;
-                deathDate?: string | undefined;
+                birthDate?: {
+                    year?: number | undefined;
+                    month?: number | undefined;
+                    day?: number | undefined;
+                    hour?: number | undefined;
+                    minute?: number | undefined;
+                } | undefined;
+                deathDate?: {
+                    year?: number | undefined;
+                    month?: number | undefined;
+                    day?: number | undefined;
+                    hour?: number | undefined;
+                    minute?: number | undefined;
+                } | undefined;
                 avatar?: {
                     id?: string | undefined;
                     label?: "COVER" | "BANNER" | "AVATAR" | "LOGO" | undefined;
@@ -2601,12 +3947,18 @@ export declare const MangaCreateBody: z.ZodObject<z.objectUtil.extendShape<{
                         label: "COVER" | "BANNER" | "AVATAR" | "LOGO";
                     } | undefined;
                 } | undefined;
-                createdDate?: string | undefined;
+                createdDate?: {
+                    year?: number | undefined;
+                    month?: number | undefined;
+                    day?: number | undefined;
+                    hour?: number | undefined;
+                    minute?: number | undefined;
+                } | undefined;
             } | undefined;
         }[] | undefined;
         characters?: {
-            role: "PRINCIPAL" | "SECONDAIRE" | "FIGURANT" | "ANTAGONISTE" | "SOUTIEN";
             id?: string | undefined;
+            role?: "PRINCIPAL" | "SECONDAIRE" | "FIGURANT" | "ANTAGONISTE" | "SOUTIEN" | undefined;
             newCharacter?: {
                 name: {
                     default: string;
@@ -2615,7 +3967,13 @@ export declare const MangaCreateBody: z.ZodObject<z.objectUtil.extendShape<{
                 gender: "MASCULIN" | "FEMININ" | "NEUTRE" | "TRANSGENRE" | "NON_BINAIRE" | "GENRE_FLUIDE" | "AUTRE";
                 species: "AUTRE" | "HUMAIN" | "ELFE" | "NAIN" | "LEZARD" | "DRAGON" | "ORC";
                 description?: string | undefined;
-                birthDate?: string | undefined;
+                birthDate?: {
+                    year?: number | undefined;
+                    month?: number | undefined;
+                    day?: number | undefined;
+                    hour?: number | undefined;
+                    minute?: number | undefined;
+                } | undefined;
                 avatar?: {
                     id?: string | undefined;
                     label?: "COVER" | "BANNER" | "AVATAR" | "LOGO" | undefined;
@@ -2634,8 +3992,20 @@ export declare const MangaCreateBody: z.ZodObject<z.objectUtil.extendShape<{
                         };
                         description?: string | undefined;
                         isGroupe?: boolean | undefined;
-                        birthDate?: string | undefined;
-                        deathDate?: string | undefined;
+                        birthDate?: {
+                            year?: number | undefined;
+                            month?: number | undefined;
+                            day?: number | undefined;
+                            hour?: number | undefined;
+                            minute?: number | undefined;
+                        } | undefined;
+                        deathDate?: {
+                            year?: number | undefined;
+                            month?: number | undefined;
+                            day?: number | undefined;
+                            hour?: number | undefined;
+                            minute?: number | undefined;
+                        } | undefined;
                         avatar?: {
                             id?: string | undefined;
                             label?: "COVER" | "BANNER" | "AVATAR" | "LOGO" | undefined;
@@ -2658,9 +4028,7 @@ export declare const MangaCreateBody: z.ZodObject<z.objectUtil.extendShape<{
         status: "AIRING" | "PAUSED" | "ENDED" | "STOPPED" | "POSTONED" | "SOON" | "any";
         title: {
             default: string;
-            alias?: {
-                content: string;
-            }[] | undefined;
+            alias?: string[] | undefined;
         };
         format: "MANGA" | "MANHWA" | "MANHUA" | "LIGHT_NOVEL" | "WEB_LOVEL" | "GRAPHIC_NOVEL" | "DOUJINSHI" | "ONE_SHOT" | "OTHER";
         adult: boolean | "true" | "false";
@@ -2672,8 +4040,20 @@ export declare const MangaCreateBody: z.ZodObject<z.objectUtil.extendShape<{
             } | undefined;
         };
         date?: {
-            start?: string | undefined;
-            end?: string | undefined;
+            start?: {
+                year?: string | number | undefined;
+                month?: string | number | undefined;
+                day?: string | number | undefined;
+                hour?: string | number | undefined;
+                minute?: string | number | undefined;
+            } | undefined;
+            end?: {
+                year?: string | number | undefined;
+                month?: string | number | undefined;
+                day?: string | number | undefined;
+                hour?: string | number | undefined;
+                minute?: string | number | undefined;
+            } | undefined;
         } | undefined;
         cover?: {
             id?: string | undefined;
@@ -2699,12 +4079,24 @@ export declare const MangaCreateBody: z.ZodObject<z.objectUtil.extendShape<{
         genres?: ("ACTION" | "AVENTURE" | "COMEDIE" | "DRAME" | "FANTAISIE" | "FANTASTIQUE" | "HORREUR" | "ROMANCE" | "SCI_FI" | "SPORTS" | "THRILLER" | "MECHA" | "MYSTERE" | "PSYCHOLOGIQUE" | "ISEKAI" | "HAREM" | "REVERSE_HAREM" | "ECCHI" | "SLICE_OF_LIFE" | "YAOI" | "YURI" | "SHOUNEN" | "SEINEN" | "SHOJO" | "JOSEI" | "KODOMOMUKE")[] | undefined;
         chapters?: {
             airing?: string | number | undefined;
-            nextAiringDate?: string | undefined;
+            nextAiringDate?: {
+                year?: string | number | undefined;
+                month?: string | number | undefined;
+                day?: string | number | undefined;
+                hour?: string | number | undefined;
+                minute?: string | number | undefined;
+            } | undefined;
             total?: string | number | undefined;
         } | undefined;
         volumes?: {
             airing?: string | number | undefined;
-            nextAiringDate?: string | undefined;
+            nextAiringDate?: {
+                year?: string | number | undefined;
+                month?: string | number | undefined;
+                day?: string | number | undefined;
+                hour?: string | number | undefined;
+                minute?: string | number | undefined;
+            } | undefined;
             total?: string | number | undefined;
         } | undefined;
         parent?: {
@@ -2724,8 +4116,20 @@ export declare const MangaCreateBody: z.ZodObject<z.objectUtil.extendShape<{
                 };
                 description?: string | undefined;
                 isGroupe?: boolean | undefined;
-                birthDate?: string | undefined;
-                deathDate?: string | undefined;
+                birthDate?: {
+                    year?: string | number | undefined;
+                    month?: string | number | undefined;
+                    day?: string | number | undefined;
+                    hour?: string | number | undefined;
+                    minute?: string | number | undefined;
+                } | undefined;
+                deathDate?: {
+                    year?: string | number | undefined;
+                    month?: string | number | undefined;
+                    day?: string | number | undefined;
+                    hour?: string | number | undefined;
+                    minute?: string | number | undefined;
+                } | undefined;
                 avatar?: {
                     id?: string | undefined;
                     label?: "COVER" | "BANNER" | "AVATAR" | "LOGO" | undefined;
@@ -2759,12 +4163,18 @@ export declare const MangaCreateBody: z.ZodObject<z.objectUtil.extendShape<{
                         label: "COVER" | "BANNER" | "AVATAR" | "LOGO";
                     } | undefined;
                 } | undefined;
-                createdDate?: string | undefined;
+                createdDate?: {
+                    year?: string | number | undefined;
+                    month?: string | number | undefined;
+                    day?: string | number | undefined;
+                    hour?: string | number | undefined;
+                    minute?: string | number | undefined;
+                } | undefined;
             } | undefined;
         }[] | undefined;
         characters?: {
-            role: "PRINCIPAL" | "SECONDAIRE" | "FIGURANT" | "ANTAGONISTE" | "SOUTIEN";
             id?: string | undefined;
+            role?: "PRINCIPAL" | "SECONDAIRE" | "FIGURANT" | "ANTAGONISTE" | "SOUTIEN" | undefined;
             newCharacter?: {
                 name: {
                     default: string;
@@ -2773,7 +4183,13 @@ export declare const MangaCreateBody: z.ZodObject<z.objectUtil.extendShape<{
                 gender: "MASCULIN" | "FEMININ" | "NEUTRE" | "TRANSGENRE" | "NON_BINAIRE" | "GENRE_FLUIDE" | "AUTRE";
                 species: "AUTRE" | "HUMAIN" | "ELFE" | "NAIN" | "LEZARD" | "DRAGON" | "ORC";
                 description?: string | undefined;
-                birthDate?: string | undefined;
+                birthDate?: {
+                    year?: string | number | undefined;
+                    month?: string | number | undefined;
+                    day?: string | number | undefined;
+                    hour?: string | number | undefined;
+                    minute?: string | number | undefined;
+                } | undefined;
                 avatar?: {
                     id?: string | undefined;
                     label?: "COVER" | "BANNER" | "AVATAR" | "LOGO" | undefined;
@@ -2792,8 +4208,20 @@ export declare const MangaCreateBody: z.ZodObject<z.objectUtil.extendShape<{
                         };
                         description?: string | undefined;
                         isGroupe?: boolean | undefined;
-                        birthDate?: string | undefined;
-                        deathDate?: string | undefined;
+                        birthDate?: {
+                            year?: string | number | undefined;
+                            month?: string | number | undefined;
+                            day?: string | number | undefined;
+                            hour?: string | number | undefined;
+                            minute?: string | number | undefined;
+                        } | undefined;
+                        deathDate?: {
+                            year?: string | number | undefined;
+                            month?: string | number | undefined;
+                            day?: string | number | undefined;
+                            hour?: string | number | undefined;
+                            minute?: string | number | undefined;
+                        } | undefined;
                         avatar?: {
                             id?: string | undefined;
                             label?: "COVER" | "BANNER" | "AVATAR" | "LOGO" | undefined;
@@ -2818,9 +4246,7 @@ export declare const MangaCreateBody: z.ZodObject<z.objectUtil.extendShape<{
         status: "AIRING" | "PAUSED" | "ENDED" | "STOPPED" | "POSTONED" | "SOON" | "any";
         title: {
             default: string;
-            alias?: {
-                content: string;
-            }[] | undefined;
+            alias?: string[] | undefined;
         };
         format: "MANGA" | "MANHWA" | "MANHUA" | "LIGHT_NOVEL" | "WEB_LOVEL" | "GRAPHIC_NOVEL" | "DOUJINSHI" | "ONE_SHOT" | "OTHER";
         adult: boolean;
@@ -2832,8 +4258,20 @@ export declare const MangaCreateBody: z.ZodObject<z.objectUtil.extendShape<{
             } | undefined;
         };
         date?: {
-            start?: string | undefined;
-            end?: string | undefined;
+            start?: {
+                year?: number | undefined;
+                month?: number | undefined;
+                day?: number | undefined;
+                hour?: number | undefined;
+                minute?: number | undefined;
+            } | undefined;
+            end?: {
+                year?: number | undefined;
+                month?: number | undefined;
+                day?: number | undefined;
+                hour?: number | undefined;
+                minute?: number | undefined;
+            } | undefined;
         } | undefined;
         cover?: {
             id?: string | undefined;
@@ -2859,12 +4297,24 @@ export declare const MangaCreateBody: z.ZodObject<z.objectUtil.extendShape<{
         genres?: ("ACTION" | "AVENTURE" | "COMEDIE" | "DRAME" | "FANTAISIE" | "FANTASTIQUE" | "HORREUR" | "ROMANCE" | "SCI_FI" | "SPORTS" | "THRILLER" | "MECHA" | "MYSTERE" | "PSYCHOLOGIQUE" | "ISEKAI" | "HAREM" | "REVERSE_HAREM" | "ECCHI" | "SLICE_OF_LIFE" | "YAOI" | "YURI" | "SHOUNEN" | "SEINEN" | "SHOJO" | "JOSEI" | "KODOMOMUKE")[] | undefined;
         chapters?: {
             airing?: number | undefined;
-            nextAiringDate?: string | undefined;
+            nextAiringDate?: {
+                year?: number | undefined;
+                month?: number | undefined;
+                day?: number | undefined;
+                hour?: number | undefined;
+                minute?: number | undefined;
+            } | undefined;
             total?: number | undefined;
         } | undefined;
         volumes?: {
             airing?: number | undefined;
-            nextAiringDate?: string | undefined;
+            nextAiringDate?: {
+                year?: number | undefined;
+                month?: number | undefined;
+                day?: number | undefined;
+                hour?: number | undefined;
+                minute?: number | undefined;
+            } | undefined;
             total?: number | undefined;
         } | undefined;
         parent?: {
@@ -2884,8 +4334,20 @@ export declare const MangaCreateBody: z.ZodObject<z.objectUtil.extendShape<{
                 };
                 description?: string | undefined;
                 isGroupe?: boolean | undefined;
-                birthDate?: string | undefined;
-                deathDate?: string | undefined;
+                birthDate?: {
+                    year?: number | undefined;
+                    month?: number | undefined;
+                    day?: number | undefined;
+                    hour?: number | undefined;
+                    minute?: number | undefined;
+                } | undefined;
+                deathDate?: {
+                    year?: number | undefined;
+                    month?: number | undefined;
+                    day?: number | undefined;
+                    hour?: number | undefined;
+                    minute?: number | undefined;
+                } | undefined;
                 avatar?: {
                     id?: string | undefined;
                     label?: "COVER" | "BANNER" | "AVATAR" | "LOGO" | undefined;
@@ -2919,12 +4381,18 @@ export declare const MangaCreateBody: z.ZodObject<z.objectUtil.extendShape<{
                         label: "COVER" | "BANNER" | "AVATAR" | "LOGO";
                     } | undefined;
                 } | undefined;
-                createdDate?: string | undefined;
+                createdDate?: {
+                    year?: number | undefined;
+                    month?: number | undefined;
+                    day?: number | undefined;
+                    hour?: number | undefined;
+                    minute?: number | undefined;
+                } | undefined;
             } | undefined;
         }[] | undefined;
         characters?: {
-            role: "PRINCIPAL" | "SECONDAIRE" | "FIGURANT" | "ANTAGONISTE" | "SOUTIEN";
             id?: string | undefined;
+            role?: "PRINCIPAL" | "SECONDAIRE" | "FIGURANT" | "ANTAGONISTE" | "SOUTIEN" | undefined;
             newCharacter?: {
                 name: {
                     default: string;
@@ -2933,7 +4401,13 @@ export declare const MangaCreateBody: z.ZodObject<z.objectUtil.extendShape<{
                 gender: "MASCULIN" | "FEMININ" | "NEUTRE" | "TRANSGENRE" | "NON_BINAIRE" | "GENRE_FLUIDE" | "AUTRE";
                 species: "AUTRE" | "HUMAIN" | "ELFE" | "NAIN" | "LEZARD" | "DRAGON" | "ORC";
                 description?: string | undefined;
-                birthDate?: string | undefined;
+                birthDate?: {
+                    year?: number | undefined;
+                    month?: number | undefined;
+                    day?: number | undefined;
+                    hour?: number | undefined;
+                    minute?: number | undefined;
+                } | undefined;
                 avatar?: {
                     id?: string | undefined;
                     label?: "COVER" | "BANNER" | "AVATAR" | "LOGO" | undefined;
@@ -2952,8 +4426,20 @@ export declare const MangaCreateBody: z.ZodObject<z.objectUtil.extendShape<{
                         };
                         description?: string | undefined;
                         isGroupe?: boolean | undefined;
-                        birthDate?: string | undefined;
-                        deathDate?: string | undefined;
+                        birthDate?: {
+                            year?: number | undefined;
+                            month?: number | undefined;
+                            day?: number | undefined;
+                            hour?: number | undefined;
+                            minute?: number | undefined;
+                        } | undefined;
+                        deathDate?: {
+                            year?: number | undefined;
+                            month?: number | undefined;
+                            day?: number | undefined;
+                            hour?: number | undefined;
+                            minute?: number | undefined;
+                        } | undefined;
                         avatar?: {
                             id?: string | undefined;
                             label?: "COVER" | "BANNER" | "AVATAR" | "LOGO" | undefined;
@@ -2980,9 +4466,7 @@ export declare const MangaCreateBody: z.ZodObject<z.objectUtil.extendShape<{
         status: "AIRING" | "PAUSED" | "ENDED" | "STOPPED" | "POSTONED" | "SOON" | "any";
         title: {
             default: string;
-            alias?: {
-                content: string;
-            }[] | undefined;
+            alias?: string[] | undefined;
         };
         format: "MANGA" | "MANHWA" | "MANHUA" | "LIGHT_NOVEL" | "WEB_LOVEL" | "GRAPHIC_NOVEL" | "DOUJINSHI" | "ONE_SHOT" | "OTHER";
         adult: boolean | "true" | "false";
@@ -2994,8 +4478,20 @@ export declare const MangaCreateBody: z.ZodObject<z.objectUtil.extendShape<{
             } | undefined;
         };
         date?: {
-            start?: string | undefined;
-            end?: string | undefined;
+            start?: {
+                year?: string | number | undefined;
+                month?: string | number | undefined;
+                day?: string | number | undefined;
+                hour?: string | number | undefined;
+                minute?: string | number | undefined;
+            } | undefined;
+            end?: {
+                year?: string | number | undefined;
+                month?: string | number | undefined;
+                day?: string | number | undefined;
+                hour?: string | number | undefined;
+                minute?: string | number | undefined;
+            } | undefined;
         } | undefined;
         cover?: {
             id?: string | undefined;
@@ -3021,12 +4517,24 @@ export declare const MangaCreateBody: z.ZodObject<z.objectUtil.extendShape<{
         genres?: ("ACTION" | "AVENTURE" | "COMEDIE" | "DRAME" | "FANTAISIE" | "FANTASTIQUE" | "HORREUR" | "ROMANCE" | "SCI_FI" | "SPORTS" | "THRILLER" | "MECHA" | "MYSTERE" | "PSYCHOLOGIQUE" | "ISEKAI" | "HAREM" | "REVERSE_HAREM" | "ECCHI" | "SLICE_OF_LIFE" | "YAOI" | "YURI" | "SHOUNEN" | "SEINEN" | "SHOJO" | "JOSEI" | "KODOMOMUKE")[] | undefined;
         chapters?: {
             airing?: string | number | undefined;
-            nextAiringDate?: string | undefined;
+            nextAiringDate?: {
+                year?: string | number | undefined;
+                month?: string | number | undefined;
+                day?: string | number | undefined;
+                hour?: string | number | undefined;
+                minute?: string | number | undefined;
+            } | undefined;
             total?: string | number | undefined;
         } | undefined;
         volumes?: {
             airing?: string | number | undefined;
-            nextAiringDate?: string | undefined;
+            nextAiringDate?: {
+                year?: string | number | undefined;
+                month?: string | number | undefined;
+                day?: string | number | undefined;
+                hour?: string | number | undefined;
+                minute?: string | number | undefined;
+            } | undefined;
             total?: string | number | undefined;
         } | undefined;
         parent?: {
@@ -3046,8 +4554,20 @@ export declare const MangaCreateBody: z.ZodObject<z.objectUtil.extendShape<{
                 };
                 description?: string | undefined;
                 isGroupe?: boolean | undefined;
-                birthDate?: string | undefined;
-                deathDate?: string | undefined;
+                birthDate?: {
+                    year?: string | number | undefined;
+                    month?: string | number | undefined;
+                    day?: string | number | undefined;
+                    hour?: string | number | undefined;
+                    minute?: string | number | undefined;
+                } | undefined;
+                deathDate?: {
+                    year?: string | number | undefined;
+                    month?: string | number | undefined;
+                    day?: string | number | undefined;
+                    hour?: string | number | undefined;
+                    minute?: string | number | undefined;
+                } | undefined;
                 avatar?: {
                     id?: string | undefined;
                     label?: "COVER" | "BANNER" | "AVATAR" | "LOGO" | undefined;
@@ -3081,12 +4601,18 @@ export declare const MangaCreateBody: z.ZodObject<z.objectUtil.extendShape<{
                         label: "COVER" | "BANNER" | "AVATAR" | "LOGO";
                     } | undefined;
                 } | undefined;
-                createdDate?: string | undefined;
+                createdDate?: {
+                    year?: string | number | undefined;
+                    month?: string | number | undefined;
+                    day?: string | number | undefined;
+                    hour?: string | number | undefined;
+                    minute?: string | number | undefined;
+                } | undefined;
             } | undefined;
         }[] | undefined;
         characters?: {
-            role: "PRINCIPAL" | "SECONDAIRE" | "FIGURANT" | "ANTAGONISTE" | "SOUTIEN";
             id?: string | undefined;
+            role?: "PRINCIPAL" | "SECONDAIRE" | "FIGURANT" | "ANTAGONISTE" | "SOUTIEN" | undefined;
             newCharacter?: {
                 name: {
                     default: string;
@@ -3095,7 +4621,13 @@ export declare const MangaCreateBody: z.ZodObject<z.objectUtil.extendShape<{
                 gender: "MASCULIN" | "FEMININ" | "NEUTRE" | "TRANSGENRE" | "NON_BINAIRE" | "GENRE_FLUIDE" | "AUTRE";
                 species: "AUTRE" | "HUMAIN" | "ELFE" | "NAIN" | "LEZARD" | "DRAGON" | "ORC";
                 description?: string | undefined;
-                birthDate?: string | undefined;
+                birthDate?: {
+                    year?: string | number | undefined;
+                    month?: string | number | undefined;
+                    day?: string | number | undefined;
+                    hour?: string | number | undefined;
+                    minute?: string | number | undefined;
+                } | undefined;
                 avatar?: {
                     id?: string | undefined;
                     label?: "COVER" | "BANNER" | "AVATAR" | "LOGO" | undefined;
@@ -3114,8 +4646,20 @@ export declare const MangaCreateBody: z.ZodObject<z.objectUtil.extendShape<{
                         };
                         description?: string | undefined;
                         isGroupe?: boolean | undefined;
-                        birthDate?: string | undefined;
-                        deathDate?: string | undefined;
+                        birthDate?: {
+                            year?: string | number | undefined;
+                            month?: string | number | undefined;
+                            day?: string | number | undefined;
+                            hour?: string | number | undefined;
+                            minute?: string | number | undefined;
+                        } | undefined;
+                        deathDate?: {
+                            year?: string | number | undefined;
+                            month?: string | number | undefined;
+                            day?: string | number | undefined;
+                            hour?: string | number | undefined;
+                            minute?: string | number | undefined;
+                        } | undefined;
                         avatar?: {
                             id?: string | undefined;
                             label?: "COVER" | "BANNER" | "AVATAR" | "LOGO" | undefined;
@@ -3184,43 +4728,89 @@ export declare const Create_Manga_ZOD_FORM: z.ZodObject<{
         }>>;
         title: z.ZodEffects<z.ZodObject<{
             default: z.ZodString;
-            alias: z.ZodOptional<z.ZodArray<z.ZodObject<{
-                content: z.ZodString;
-            }, "strip", z.ZodTypeAny, {
-                content: string;
-            }, {
-                content: string;
-            }>, "many">>;
+            alias: z.ZodOptional<z.ZodArray<z.ZodString, "many">>;
         }, "strip", z.ZodTypeAny, {
             default: string;
-            alias?: {
-                content: string;
-            }[] | undefined;
+            alias?: string[] | undefined;
         }, {
             default: string;
-            alias?: {
-                content: string;
-            }[] | undefined;
+            alias?: string[] | undefined;
         }>, {
             default: string;
-            alias?: {
-                content: string;
-            }[] | undefined;
+            alias?: string[] | undefined;
         }, {
             default: string;
-            alias?: {
-                content: string;
-            }[] | undefined;
+            alias?: string[] | undefined;
         }>;
         date: z.ZodOptional<z.ZodObject<{
-            start: z.ZodOptional<z.ZodEffects<z.ZodString, string, string>>;
-            end: z.ZodOptional<z.ZodEffects<z.ZodString, string, string>>;
+            start: z.ZodOptional<z.ZodObject<{
+                year: z.ZodOptional<z.ZodEffects<z.ZodUnion<[z.ZodNumber, z.ZodString]>, number, string | number>>;
+                month: z.ZodOptional<z.ZodEffects<z.ZodUnion<[z.ZodNumber, z.ZodString]>, number, string | number>>;
+                day: z.ZodOptional<z.ZodEffects<z.ZodUnion<[z.ZodNumber, z.ZodString]>, number, string | number>>;
+                hour: z.ZodOptional<z.ZodEffects<z.ZodUnion<[z.ZodNumber, z.ZodString]>, number, string | number>>;
+                minute: z.ZodOptional<z.ZodEffects<z.ZodUnion<[z.ZodNumber, z.ZodString]>, number, string | number>>;
+            }, "strip", z.ZodTypeAny, {
+                year?: number | undefined;
+                month?: number | undefined;
+                day?: number | undefined;
+                hour?: number | undefined;
+                minute?: number | undefined;
+            }, {
+                year?: string | number | undefined;
+                month?: string | number | undefined;
+                day?: string | number | undefined;
+                hour?: string | number | undefined;
+                minute?: string | number | undefined;
+            }>>;
+            end: z.ZodOptional<z.ZodObject<{
+                year: z.ZodOptional<z.ZodEffects<z.ZodUnion<[z.ZodNumber, z.ZodString]>, number, string | number>>;
+                month: z.ZodOptional<z.ZodEffects<z.ZodUnion<[z.ZodNumber, z.ZodString]>, number, string | number>>;
+                day: z.ZodOptional<z.ZodEffects<z.ZodUnion<[z.ZodNumber, z.ZodString]>, number, string | number>>;
+                hour: z.ZodOptional<z.ZodEffects<z.ZodUnion<[z.ZodNumber, z.ZodString]>, number, string | number>>;
+                minute: z.ZodOptional<z.ZodEffects<z.ZodUnion<[z.ZodNumber, z.ZodString]>, number, string | number>>;
+            }, "strip", z.ZodTypeAny, {
+                year?: number | undefined;
+                month?: number | undefined;
+                day?: number | undefined;
+                hour?: number | undefined;
+                minute?: number | undefined;
+            }, {
+                year?: string | number | undefined;
+                month?: string | number | undefined;
+                day?: string | number | undefined;
+                hour?: string | number | undefined;
+                minute?: string | number | undefined;
+            }>>;
         }, "strip", z.ZodTypeAny, {
-            start?: string | undefined;
-            end?: string | undefined;
+            start?: {
+                year?: number | undefined;
+                month?: number | undefined;
+                day?: number | undefined;
+                hour?: number | undefined;
+                minute?: number | undefined;
+            } | undefined;
+            end?: {
+                year?: number | undefined;
+                month?: number | undefined;
+                day?: number | undefined;
+                hour?: number | undefined;
+                minute?: number | undefined;
+            } | undefined;
         }, {
-            start?: string | undefined;
-            end?: string | undefined;
+            start?: {
+                year?: string | number | undefined;
+                month?: string | number | undefined;
+                day?: string | number | undefined;
+                hour?: string | number | undefined;
+                minute?: string | number | undefined;
+            } | undefined;
+            end?: {
+                year?: string | number | undefined;
+                month?: string | number | undefined;
+                day?: string | number | undefined;
+                hour?: string | number | undefined;
+                minute?: string | number | undefined;
+            } | undefined;
         }>>;
         cover: z.ZodOptional<z.ZodObject<{
             id: z.ZodOptional<z.ZodString>;
@@ -3285,28 +4875,88 @@ export declare const Create_Manga_ZOD_FORM: z.ZodObject<{
         status: z.ZodEnum<("AIRING" | "PAUSED" | "ENDED" | "STOPPED" | "POSTONED" | "SOON" | "any")[] & [string, ...string[]]>;
         chapters: z.ZodOptional<z.ZodObject<{
             airing: z.ZodOptional<z.ZodEffects<z.ZodUnion<[z.ZodNumber, z.ZodString]>, number, string | number>>;
-            nextAiringDate: z.ZodOptional<z.ZodString>;
+            nextAiringDate: z.ZodOptional<z.ZodObject<{
+                year: z.ZodOptional<z.ZodOptional<z.ZodEffects<z.ZodUnion<[z.ZodNumber, z.ZodString]>, number, string | number>>>;
+                month: z.ZodOptional<z.ZodOptional<z.ZodEffects<z.ZodUnion<[z.ZodNumber, z.ZodString]>, number, string | number>>>;
+                day: z.ZodOptional<z.ZodOptional<z.ZodEffects<z.ZodUnion<[z.ZodNumber, z.ZodString]>, number, string | number>>>;
+                hour: z.ZodOptional<z.ZodOptional<z.ZodEffects<z.ZodUnion<[z.ZodNumber, z.ZodString]>, number, string | number>>>;
+                minute: z.ZodOptional<z.ZodOptional<z.ZodEffects<z.ZodUnion<[z.ZodNumber, z.ZodString]>, number, string | number>>>;
+            }, "strip", z.ZodTypeAny, {
+                year?: number | undefined;
+                month?: number | undefined;
+                day?: number | undefined;
+                hour?: number | undefined;
+                minute?: number | undefined;
+            }, {
+                year?: string | number | undefined;
+                month?: string | number | undefined;
+                day?: string | number | undefined;
+                hour?: string | number | undefined;
+                minute?: string | number | undefined;
+            }>>;
             total: z.ZodOptional<z.ZodEffects<z.ZodUnion<[z.ZodNumber, z.ZodString]>, number, string | number>>;
         }, "strip", z.ZodTypeAny, {
             airing?: number | undefined;
-            nextAiringDate?: string | undefined;
+            nextAiringDate?: {
+                year?: number | undefined;
+                month?: number | undefined;
+                day?: number | undefined;
+                hour?: number | undefined;
+                minute?: number | undefined;
+            } | undefined;
             total?: number | undefined;
         }, {
             airing?: string | number | undefined;
-            nextAiringDate?: string | undefined;
+            nextAiringDate?: {
+                year?: string | number | undefined;
+                month?: string | number | undefined;
+                day?: string | number | undefined;
+                hour?: string | number | undefined;
+                minute?: string | number | undefined;
+            } | undefined;
             total?: string | number | undefined;
         }>>;
         volumes: z.ZodOptional<z.ZodObject<{
             airing: z.ZodOptional<z.ZodEffects<z.ZodUnion<[z.ZodNumber, z.ZodString]>, number, string | number>>;
-            nextAiringDate: z.ZodOptional<z.ZodString>;
+            nextAiringDate: z.ZodOptional<z.ZodObject<{
+                year: z.ZodOptional<z.ZodOptional<z.ZodEffects<z.ZodUnion<[z.ZodNumber, z.ZodString]>, number, string | number>>>;
+                month: z.ZodOptional<z.ZodOptional<z.ZodEffects<z.ZodUnion<[z.ZodNumber, z.ZodString]>, number, string | number>>>;
+                day: z.ZodOptional<z.ZodOptional<z.ZodEffects<z.ZodUnion<[z.ZodNumber, z.ZodString]>, number, string | number>>>;
+                hour: z.ZodOptional<z.ZodOptional<z.ZodEffects<z.ZodUnion<[z.ZodNumber, z.ZodString]>, number, string | number>>>;
+                minute: z.ZodOptional<z.ZodOptional<z.ZodEffects<z.ZodUnion<[z.ZodNumber, z.ZodString]>, number, string | number>>>;
+            }, "strip", z.ZodTypeAny, {
+                year?: number | undefined;
+                month?: number | undefined;
+                day?: number | undefined;
+                hour?: number | undefined;
+                minute?: number | undefined;
+            }, {
+                year?: string | number | undefined;
+                month?: string | number | undefined;
+                day?: string | number | undefined;
+                hour?: string | number | undefined;
+                minute?: string | number | undefined;
+            }>>;
             total: z.ZodOptional<z.ZodEffects<z.ZodUnion<[z.ZodNumber, z.ZodString]>, number, string | number>>;
         }, "strip", z.ZodTypeAny, {
             airing?: number | undefined;
-            nextAiringDate?: string | undefined;
+            nextAiringDate?: {
+                year?: number | undefined;
+                month?: number | undefined;
+                day?: number | undefined;
+                hour?: number | undefined;
+                minute?: number | undefined;
+            } | undefined;
             total?: number | undefined;
         }, {
             airing?: string | number | undefined;
-            nextAiringDate?: string | undefined;
+            nextAiringDate?: {
+                year?: string | number | undefined;
+                month?: string | number | undefined;
+                day?: string | number | undefined;
+                hour?: string | number | undefined;
+                minute?: string | number | undefined;
+            } | undefined;
             total?: string | number | undefined;
         }>>;
         adult: z.ZodEffects<z.ZodUnion<[z.ZodBoolean, z.ZodLiteral<"true">, z.ZodLiteral<"false">]>, boolean, boolean | "true" | "false">;
@@ -3365,7 +5015,25 @@ export declare const Create_Manga_ZOD_FORM: z.ZodObject<{
                         label: "COVER" | "BANNER" | "AVATAR" | "LOGO";
                     } | undefined;
                 }>>;
-                createdDate: z.ZodOptional<z.ZodString>;
+                createdDate: z.ZodOptional<z.ZodObject<{
+                    year: z.ZodOptional<z.ZodOptional<z.ZodEffects<z.ZodUnion<[z.ZodNumber, z.ZodString]>, number, string | number>>>;
+                    month: z.ZodOptional<z.ZodOptional<z.ZodEffects<z.ZodUnion<[z.ZodNumber, z.ZodString]>, number, string | number>>>;
+                    day: z.ZodOptional<z.ZodOptional<z.ZodEffects<z.ZodUnion<[z.ZodNumber, z.ZodString]>, number, string | number>>>;
+                    hour: z.ZodOptional<z.ZodOptional<z.ZodEffects<z.ZodUnion<[z.ZodNumber, z.ZodString]>, number, string | number>>>;
+                    minute: z.ZodOptional<z.ZodOptional<z.ZodEffects<z.ZodUnion<[z.ZodNumber, z.ZodString]>, number, string | number>>>;
+                }, "strip", z.ZodTypeAny, {
+                    year?: number | undefined;
+                    month?: number | undefined;
+                    day?: number | undefined;
+                    hour?: number | undefined;
+                    minute?: number | undefined;
+                }, {
+                    year?: string | number | undefined;
+                    month?: string | number | undefined;
+                    day?: string | number | undefined;
+                    hour?: string | number | undefined;
+                    minute?: string | number | undefined;
+                }>>;
             }, "strict", z.ZodTypeAny, {
                 type: "STUDIO" | "PRODUCER";
                 name: string;
@@ -3382,7 +5050,13 @@ export declare const Create_Manga_ZOD_FORM: z.ZodObject<{
                         label: "COVER" | "BANNER" | "AVATAR" | "LOGO";
                     } | undefined;
                 } | undefined;
-                createdDate?: string | undefined;
+                createdDate?: {
+                    year?: number | undefined;
+                    month?: number | undefined;
+                    day?: number | undefined;
+                    hour?: number | undefined;
+                    minute?: number | undefined;
+                } | undefined;
             }, {
                 type: "STUDIO" | "PRODUCER";
                 name: string;
@@ -3399,7 +5073,13 @@ export declare const Create_Manga_ZOD_FORM: z.ZodObject<{
                         label: "COVER" | "BANNER" | "AVATAR" | "LOGO";
                     } | undefined;
                 } | undefined;
-                createdDate?: string | undefined;
+                createdDate?: {
+                    year?: string | number | undefined;
+                    month?: string | number | undefined;
+                    day?: string | number | undefined;
+                    hour?: string | number | undefined;
+                    minute?: string | number | undefined;
+                } | undefined;
             }>>;
         }, "strip", z.ZodTypeAny, {
             id?: string | undefined;
@@ -3419,7 +5099,13 @@ export declare const Create_Manga_ZOD_FORM: z.ZodObject<{
                         label: "COVER" | "BANNER" | "AVATAR" | "LOGO";
                     } | undefined;
                 } | undefined;
-                createdDate?: string | undefined;
+                createdDate?: {
+                    year?: number | undefined;
+                    month?: number | undefined;
+                    day?: number | undefined;
+                    hour?: number | undefined;
+                    minute?: number | undefined;
+                } | undefined;
             } | undefined;
         }, {
             id?: string | undefined;
@@ -3439,7 +5125,13 @@ export declare const Create_Manga_ZOD_FORM: z.ZodObject<{
                         label: "COVER" | "BANNER" | "AVATAR" | "LOGO";
                     } | undefined;
                 } | undefined;
-                createdDate?: string | undefined;
+                createdDate?: {
+                    year?: string | number | undefined;
+                    month?: string | number | undefined;
+                    day?: string | number | undefined;
+                    hour?: string | number | undefined;
+                    minute?: string | number | undefined;
+                } | undefined;
             } | undefined;
         }>, "many">>;
         staffs: z.ZodOptional<z.ZodArray<z.ZodObject<{
@@ -3456,8 +5148,44 @@ export declare const Create_Manga_ZOD_FORM: z.ZodObject<{
                     default: string;
                     alias?: string[] | undefined;
                 }>;
-                birthDate: z.ZodOptional<z.ZodString>;
-                deathDate: z.ZodOptional<z.ZodString>;
+                birthDate: z.ZodOptional<z.ZodObject<{
+                    year: z.ZodOptional<z.ZodOptional<z.ZodEffects<z.ZodUnion<[z.ZodNumber, z.ZodString]>, number, string | number>>>;
+                    month: z.ZodOptional<z.ZodOptional<z.ZodEffects<z.ZodUnion<[z.ZodNumber, z.ZodString]>, number, string | number>>>;
+                    day: z.ZodOptional<z.ZodOptional<z.ZodEffects<z.ZodUnion<[z.ZodNumber, z.ZodString]>, number, string | number>>>;
+                    hour: z.ZodOptional<z.ZodOptional<z.ZodEffects<z.ZodUnion<[z.ZodNumber, z.ZodString]>, number, string | number>>>;
+                    minute: z.ZodOptional<z.ZodOptional<z.ZodEffects<z.ZodUnion<[z.ZodNumber, z.ZodString]>, number, string | number>>>;
+                }, "strip", z.ZodTypeAny, {
+                    year?: number | undefined;
+                    month?: number | undefined;
+                    day?: number | undefined;
+                    hour?: number | undefined;
+                    minute?: number | undefined;
+                }, {
+                    year?: string | number | undefined;
+                    month?: string | number | undefined;
+                    day?: string | number | undefined;
+                    hour?: string | number | undefined;
+                    minute?: string | number | undefined;
+                }>>;
+                deathDate: z.ZodOptional<z.ZodObject<{
+                    year: z.ZodOptional<z.ZodOptional<z.ZodEffects<z.ZodUnion<[z.ZodNumber, z.ZodString]>, number, string | number>>>;
+                    month: z.ZodOptional<z.ZodOptional<z.ZodEffects<z.ZodUnion<[z.ZodNumber, z.ZodString]>, number, string | number>>>;
+                    day: z.ZodOptional<z.ZodOptional<z.ZodEffects<z.ZodUnion<[z.ZodNumber, z.ZodString]>, number, string | number>>>;
+                    hour: z.ZodOptional<z.ZodOptional<z.ZodEffects<z.ZodUnion<[z.ZodNumber, z.ZodString]>, number, string | number>>>;
+                    minute: z.ZodOptional<z.ZodOptional<z.ZodEffects<z.ZodUnion<[z.ZodNumber, z.ZodString]>, number, string | number>>>;
+                }, "strip", z.ZodTypeAny, {
+                    year?: number | undefined;
+                    month?: number | undefined;
+                    day?: number | undefined;
+                    hour?: number | undefined;
+                    minute?: number | undefined;
+                }, {
+                    year?: string | number | undefined;
+                    month?: string | number | undefined;
+                    day?: string | number | undefined;
+                    hour?: string | number | undefined;
+                    minute?: string | number | undefined;
+                }>>;
                 description: z.ZodOptional<z.ZodString>;
                 avatar: z.ZodOptional<z.ZodObject<{
                     id: z.ZodOptional<z.ZodString>;
@@ -3504,8 +5232,20 @@ export declare const Create_Manga_ZOD_FORM: z.ZodObject<{
                 };
                 description?: string | undefined;
                 isGroupe?: boolean | undefined;
-                birthDate?: string | undefined;
-                deathDate?: string | undefined;
+                birthDate?: {
+                    year?: number | undefined;
+                    month?: number | undefined;
+                    day?: number | undefined;
+                    hour?: number | undefined;
+                    minute?: number | undefined;
+                } | undefined;
+                deathDate?: {
+                    year?: number | undefined;
+                    month?: number | undefined;
+                    day?: number | undefined;
+                    hour?: number | undefined;
+                    minute?: number | undefined;
+                } | undefined;
                 avatar?: {
                     id?: string | undefined;
                     label?: "COVER" | "BANNER" | "AVATAR" | "LOGO" | undefined;
@@ -3525,8 +5265,20 @@ export declare const Create_Manga_ZOD_FORM: z.ZodObject<{
                 };
                 description?: string | undefined;
                 isGroupe?: boolean | undefined;
-                birthDate?: string | undefined;
-                deathDate?: string | undefined;
+                birthDate?: {
+                    year?: string | number | undefined;
+                    month?: string | number | undefined;
+                    day?: string | number | undefined;
+                    hour?: string | number | undefined;
+                    minute?: string | number | undefined;
+                } | undefined;
+                deathDate?: {
+                    year?: string | number | undefined;
+                    month?: string | number | undefined;
+                    day?: string | number | undefined;
+                    hour?: string | number | undefined;
+                    minute?: string | number | undefined;
+                } | undefined;
                 avatar?: {
                     id?: string | undefined;
                     label?: "COVER" | "BANNER" | "AVATAR" | "LOGO" | undefined;
@@ -3550,8 +5302,20 @@ export declare const Create_Manga_ZOD_FORM: z.ZodObject<{
                 };
                 description?: string | undefined;
                 isGroupe?: boolean | undefined;
-                birthDate?: string | undefined;
-                deathDate?: string | undefined;
+                birthDate?: {
+                    year?: number | undefined;
+                    month?: number | undefined;
+                    day?: number | undefined;
+                    hour?: number | undefined;
+                    minute?: number | undefined;
+                } | undefined;
+                deathDate?: {
+                    year?: number | undefined;
+                    month?: number | undefined;
+                    day?: number | undefined;
+                    hour?: number | undefined;
+                    minute?: number | undefined;
+                } | undefined;
                 avatar?: {
                     id?: string | undefined;
                     label?: "COVER" | "BANNER" | "AVATAR" | "LOGO" | undefined;
@@ -3575,8 +5339,20 @@ export declare const Create_Manga_ZOD_FORM: z.ZodObject<{
                 };
                 description?: string | undefined;
                 isGroupe?: boolean | undefined;
-                birthDate?: string | undefined;
-                deathDate?: string | undefined;
+                birthDate?: {
+                    year?: string | number | undefined;
+                    month?: string | number | undefined;
+                    day?: string | number | undefined;
+                    hour?: string | number | undefined;
+                    minute?: string | number | undefined;
+                } | undefined;
+                deathDate?: {
+                    year?: string | number | undefined;
+                    month?: string | number | undefined;
+                    day?: string | number | undefined;
+                    hour?: string | number | undefined;
+                    minute?: string | number | undefined;
+                } | undefined;
                 avatar?: {
                     id?: string | undefined;
                     label?: "COVER" | "BANNER" | "AVATAR" | "LOGO" | undefined;
@@ -3606,7 +5382,25 @@ export declare const Create_Manga_ZOD_FORM: z.ZodObject<{
                     alias?: string[] | undefined;
                 }>;
                 age: z.ZodOptional<z.ZodEffects<z.ZodUnion<[z.ZodNumber, z.ZodString]>, number, string | number>>;
-                birthDate: z.ZodOptional<z.ZodString>;
+                birthDate: z.ZodOptional<z.ZodObject<{
+                    year: z.ZodOptional<z.ZodOptional<z.ZodEffects<z.ZodUnion<[z.ZodNumber, z.ZodString]>, number, string | number>>>;
+                    month: z.ZodOptional<z.ZodOptional<z.ZodEffects<z.ZodUnion<[z.ZodNumber, z.ZodString]>, number, string | number>>>;
+                    day: z.ZodOptional<z.ZodOptional<z.ZodEffects<z.ZodUnion<[z.ZodNumber, z.ZodString]>, number, string | number>>>;
+                    hour: z.ZodOptional<z.ZodOptional<z.ZodEffects<z.ZodUnion<[z.ZodNumber, z.ZodString]>, number, string | number>>>;
+                    minute: z.ZodOptional<z.ZodOptional<z.ZodEffects<z.ZodUnion<[z.ZodNumber, z.ZodString]>, number, string | number>>>;
+                }, "strip", z.ZodTypeAny, {
+                    year?: number | undefined;
+                    month?: number | undefined;
+                    day?: number | undefined;
+                    hour?: number | undefined;
+                    minute?: number | undefined;
+                }, {
+                    year?: string | number | undefined;
+                    month?: string | number | undefined;
+                    day?: string | number | undefined;
+                    hour?: string | number | undefined;
+                    minute?: string | number | undefined;
+                }>>;
                 gender: z.ZodEnum<("MASCULIN" | "FEMININ" | "NEUTRE" | "TRANSGENRE" | "NON_BINAIRE" | "GENRE_FLUIDE" | "AUTRE")[] & [string, ...string[]]>;
                 species: z.ZodEnum<("AUTRE" | "HUMAIN" | "ELFE" | "NAIN" | "LEZARD" | "DRAGON" | "ORC")[] & [string, ...string[]]>;
                 description: z.ZodOptional<z.ZodString>;
@@ -3652,8 +5446,44 @@ export declare const Create_Manga_ZOD_FORM: z.ZodObject<{
                             default: string;
                             alias?: string[] | undefined;
                         }>;
-                        birthDate: z.ZodOptional<z.ZodString>;
-                        deathDate: z.ZodOptional<z.ZodString>;
+                        birthDate: z.ZodOptional<z.ZodObject<{
+                            year: z.ZodOptional<z.ZodOptional<z.ZodEffects<z.ZodUnion<[z.ZodNumber, z.ZodString]>, number, string | number>>>;
+                            month: z.ZodOptional<z.ZodOptional<z.ZodEffects<z.ZodUnion<[z.ZodNumber, z.ZodString]>, number, string | number>>>;
+                            day: z.ZodOptional<z.ZodOptional<z.ZodEffects<z.ZodUnion<[z.ZodNumber, z.ZodString]>, number, string | number>>>;
+                            hour: z.ZodOptional<z.ZodOptional<z.ZodEffects<z.ZodUnion<[z.ZodNumber, z.ZodString]>, number, string | number>>>;
+                            minute: z.ZodOptional<z.ZodOptional<z.ZodEffects<z.ZodUnion<[z.ZodNumber, z.ZodString]>, number, string | number>>>;
+                        }, "strip", z.ZodTypeAny, {
+                            year?: number | undefined;
+                            month?: number | undefined;
+                            day?: number | undefined;
+                            hour?: number | undefined;
+                            minute?: number | undefined;
+                        }, {
+                            year?: string | number | undefined;
+                            month?: string | number | undefined;
+                            day?: string | number | undefined;
+                            hour?: string | number | undefined;
+                            minute?: string | number | undefined;
+                        }>>;
+                        deathDate: z.ZodOptional<z.ZodObject<{
+                            year: z.ZodOptional<z.ZodOptional<z.ZodEffects<z.ZodUnion<[z.ZodNumber, z.ZodString]>, number, string | number>>>;
+                            month: z.ZodOptional<z.ZodOptional<z.ZodEffects<z.ZodUnion<[z.ZodNumber, z.ZodString]>, number, string | number>>>;
+                            day: z.ZodOptional<z.ZodOptional<z.ZodEffects<z.ZodUnion<[z.ZodNumber, z.ZodString]>, number, string | number>>>;
+                            hour: z.ZodOptional<z.ZodOptional<z.ZodEffects<z.ZodUnion<[z.ZodNumber, z.ZodString]>, number, string | number>>>;
+                            minute: z.ZodOptional<z.ZodOptional<z.ZodEffects<z.ZodUnion<[z.ZodNumber, z.ZodString]>, number, string | number>>>;
+                        }, "strip", z.ZodTypeAny, {
+                            year?: number | undefined;
+                            month?: number | undefined;
+                            day?: number | undefined;
+                            hour?: number | undefined;
+                            minute?: number | undefined;
+                        }, {
+                            year?: string | number | undefined;
+                            month?: string | number | undefined;
+                            day?: string | number | undefined;
+                            hour?: string | number | undefined;
+                            minute?: string | number | undefined;
+                        }>>;
                         description: z.ZodOptional<z.ZodString>;
                         avatar: z.ZodOptional<z.ZodObject<{
                             id: z.ZodOptional<z.ZodString>;
@@ -3700,8 +5530,20 @@ export declare const Create_Manga_ZOD_FORM: z.ZodObject<{
                         };
                         description?: string | undefined;
                         isGroupe?: boolean | undefined;
-                        birthDate?: string | undefined;
-                        deathDate?: string | undefined;
+                        birthDate?: {
+                            year?: number | undefined;
+                            month?: number | undefined;
+                            day?: number | undefined;
+                            hour?: number | undefined;
+                            minute?: number | undefined;
+                        } | undefined;
+                        deathDate?: {
+                            year?: number | undefined;
+                            month?: number | undefined;
+                            day?: number | undefined;
+                            hour?: number | undefined;
+                            minute?: number | undefined;
+                        } | undefined;
                         avatar?: {
                             id?: string | undefined;
                             label?: "COVER" | "BANNER" | "AVATAR" | "LOGO" | undefined;
@@ -3721,8 +5563,20 @@ export declare const Create_Manga_ZOD_FORM: z.ZodObject<{
                         };
                         description?: string | undefined;
                         isGroupe?: boolean | undefined;
-                        birthDate?: string | undefined;
-                        deathDate?: string | undefined;
+                        birthDate?: {
+                            year?: string | number | undefined;
+                            month?: string | number | undefined;
+                            day?: string | number | undefined;
+                            hour?: string | number | undefined;
+                            minute?: string | number | undefined;
+                        } | undefined;
+                        deathDate?: {
+                            year?: string | number | undefined;
+                            month?: string | number | undefined;
+                            day?: string | number | undefined;
+                            hour?: string | number | undefined;
+                            minute?: string | number | undefined;
+                        } | undefined;
                         avatar?: {
                             id?: string | undefined;
                             label?: "COVER" | "BANNER" | "AVATAR" | "LOGO" | undefined;
@@ -3746,8 +5600,20 @@ export declare const Create_Manga_ZOD_FORM: z.ZodObject<{
                         };
                         description?: string | undefined;
                         isGroupe?: boolean | undefined;
-                        birthDate?: string | undefined;
-                        deathDate?: string | undefined;
+                        birthDate?: {
+                            year?: number | undefined;
+                            month?: number | undefined;
+                            day?: number | undefined;
+                            hour?: number | undefined;
+                            minute?: number | undefined;
+                        } | undefined;
+                        deathDate?: {
+                            year?: number | undefined;
+                            month?: number | undefined;
+                            day?: number | undefined;
+                            hour?: number | undefined;
+                            minute?: number | undefined;
+                        } | undefined;
                         avatar?: {
                             id?: string | undefined;
                             label?: "COVER" | "BANNER" | "AVATAR" | "LOGO" | undefined;
@@ -3771,8 +5637,20 @@ export declare const Create_Manga_ZOD_FORM: z.ZodObject<{
                         };
                         description?: string | undefined;
                         isGroupe?: boolean | undefined;
-                        birthDate?: string | undefined;
-                        deathDate?: string | undefined;
+                        birthDate?: {
+                            year?: string | number | undefined;
+                            month?: string | number | undefined;
+                            day?: string | number | undefined;
+                            hour?: string | number | undefined;
+                            minute?: string | number | undefined;
+                        } | undefined;
+                        deathDate?: {
+                            year?: string | number | undefined;
+                            month?: string | number | undefined;
+                            day?: string | number | undefined;
+                            hour?: string | number | undefined;
+                            minute?: string | number | undefined;
+                        } | undefined;
                         avatar?: {
                             id?: string | undefined;
                             label?: "COVER" | "BANNER" | "AVATAR" | "LOGO" | undefined;
@@ -3796,7 +5674,13 @@ export declare const Create_Manga_ZOD_FORM: z.ZodObject<{
                 gender: "MASCULIN" | "FEMININ" | "NEUTRE" | "TRANSGENRE" | "NON_BINAIRE" | "GENRE_FLUIDE" | "AUTRE";
                 species: "AUTRE" | "HUMAIN" | "ELFE" | "NAIN" | "LEZARD" | "DRAGON" | "ORC";
                 description?: string | undefined;
-                birthDate?: string | undefined;
+                birthDate?: {
+                    year?: number | undefined;
+                    month?: number | undefined;
+                    day?: number | undefined;
+                    hour?: number | undefined;
+                    minute?: number | undefined;
+                } | undefined;
                 avatar?: {
                     id?: string | undefined;
                     label?: "COVER" | "BANNER" | "AVATAR" | "LOGO" | undefined;
@@ -3815,8 +5699,20 @@ export declare const Create_Manga_ZOD_FORM: z.ZodObject<{
                         };
                         description?: string | undefined;
                         isGroupe?: boolean | undefined;
-                        birthDate?: string | undefined;
-                        deathDate?: string | undefined;
+                        birthDate?: {
+                            year?: number | undefined;
+                            month?: number | undefined;
+                            day?: number | undefined;
+                            hour?: number | undefined;
+                            minute?: number | undefined;
+                        } | undefined;
+                        deathDate?: {
+                            year?: number | undefined;
+                            month?: number | undefined;
+                            day?: number | undefined;
+                            hour?: number | undefined;
+                            minute?: number | undefined;
+                        } | undefined;
                         avatar?: {
                             id?: string | undefined;
                             label?: "COVER" | "BANNER" | "AVATAR" | "LOGO" | undefined;
@@ -3840,7 +5736,13 @@ export declare const Create_Manga_ZOD_FORM: z.ZodObject<{
                 gender: "MASCULIN" | "FEMININ" | "NEUTRE" | "TRANSGENRE" | "NON_BINAIRE" | "GENRE_FLUIDE" | "AUTRE";
                 species: "AUTRE" | "HUMAIN" | "ELFE" | "NAIN" | "LEZARD" | "DRAGON" | "ORC";
                 description?: string | undefined;
-                birthDate?: string | undefined;
+                birthDate?: {
+                    year?: string | number | undefined;
+                    month?: string | number | undefined;
+                    day?: string | number | undefined;
+                    hour?: string | number | undefined;
+                    minute?: string | number | undefined;
+                } | undefined;
                 avatar?: {
                     id?: string | undefined;
                     label?: "COVER" | "BANNER" | "AVATAR" | "LOGO" | undefined;
@@ -3859,8 +5761,20 @@ export declare const Create_Manga_ZOD_FORM: z.ZodObject<{
                         };
                         description?: string | undefined;
                         isGroupe?: boolean | undefined;
-                        birthDate?: string | undefined;
-                        deathDate?: string | undefined;
+                        birthDate?: {
+                            year?: string | number | undefined;
+                            month?: string | number | undefined;
+                            day?: string | number | undefined;
+                            hour?: string | number | undefined;
+                            minute?: string | number | undefined;
+                        } | undefined;
+                        deathDate?: {
+                            year?: string | number | undefined;
+                            month?: string | number | undefined;
+                            day?: string | number | undefined;
+                            hour?: string | number | undefined;
+                            minute?: string | number | undefined;
+                        } | undefined;
                         avatar?: {
                             id?: string | undefined;
                             label?: "COVER" | "BANNER" | "AVATAR" | "LOGO" | undefined;
@@ -3877,10 +5791,10 @@ export declare const Create_Manga_ZOD_FORM: z.ZodObject<{
                     role?: "DOUBLAGE_SEIYU" | "AUTEUR" | "EDITEUR" | "PRODUCTEUR" | "REALISATEUR" | "REALISATEUR_EPISODES" | "REALISATEUR_MISEENPAGE" | "DIRECTEUR_ARTISTIQUE_CINEMATROGRAPHIQUE" | "DIRECTEUR_ANIMATION" | "CONCEPTEUR" | "ANIMATEUR_PRINCIPAL" | "ANIMATEUR_INTERMEDIAIRE" | "COLORISTES" | "DIRECTEUR_ENREGISTREMENT" | "SCENARISTE" | "ANIMATEUR_3D" | "METTEUR_EN_SCENE" | "SUPERVISEUR" | "MONTEUR" | "RESPONSABLE_DROITS" | "PRODUCTEUR_MUSIQUE" | "RESPONSABLE_MARKETING" | "DIFFUSEUR" | "STORYBOARDER" | "ARTISTE_VFX" | "INGENIEUR_SON" | "DIRECTEUR_DOUBLAGE" | "TRADUCTEUR" | "MANGAKA" | "CHARACTER_DESIGNER" | "DESSINATEUR_DECORS" | "REALISATEUR_MISE_EN_PAGE" | "COMPOSITEUR" | "PAROLIER" | "ARRANGEUR" | "MUSICIEN" | "CHANTEUR_EUSE" | "CHEF_ORCHESTRE" | "PRODUCTEUR_MUSICAL" | "DESIGNER_SONORE" | "MIXEUR" | undefined;
                 }[] | undefined;
             }>>;
-            role: z.ZodEnum<("PRINCIPAL" | "SECONDAIRE" | "FIGURANT" | "ANTAGONISTE" | "SOUTIEN")[] & [string, ...string[]]>;
+            role: z.ZodOptional<z.ZodEnum<("PRINCIPAL" | "SECONDAIRE" | "FIGURANT" | "ANTAGONISTE" | "SOUTIEN")[] & [string, ...string[]]>>;
         }, "strip", z.ZodTypeAny, {
-            role: "PRINCIPAL" | "SECONDAIRE" | "FIGURANT" | "ANTAGONISTE" | "SOUTIEN";
             id?: string | undefined;
+            role?: "PRINCIPAL" | "SECONDAIRE" | "FIGURANT" | "ANTAGONISTE" | "SOUTIEN" | undefined;
             newCharacter?: {
                 name: {
                     default: string;
@@ -3889,7 +5803,13 @@ export declare const Create_Manga_ZOD_FORM: z.ZodObject<{
                 gender: "MASCULIN" | "FEMININ" | "NEUTRE" | "TRANSGENRE" | "NON_BINAIRE" | "GENRE_FLUIDE" | "AUTRE";
                 species: "AUTRE" | "HUMAIN" | "ELFE" | "NAIN" | "LEZARD" | "DRAGON" | "ORC";
                 description?: string | undefined;
-                birthDate?: string | undefined;
+                birthDate?: {
+                    year?: number | undefined;
+                    month?: number | undefined;
+                    day?: number | undefined;
+                    hour?: number | undefined;
+                    minute?: number | undefined;
+                } | undefined;
                 avatar?: {
                     id?: string | undefined;
                     label?: "COVER" | "BANNER" | "AVATAR" | "LOGO" | undefined;
@@ -3908,8 +5828,20 @@ export declare const Create_Manga_ZOD_FORM: z.ZodObject<{
                         };
                         description?: string | undefined;
                         isGroupe?: boolean | undefined;
-                        birthDate?: string | undefined;
-                        deathDate?: string | undefined;
+                        birthDate?: {
+                            year?: number | undefined;
+                            month?: number | undefined;
+                            day?: number | undefined;
+                            hour?: number | undefined;
+                            minute?: number | undefined;
+                        } | undefined;
+                        deathDate?: {
+                            year?: number | undefined;
+                            month?: number | undefined;
+                            day?: number | undefined;
+                            hour?: number | undefined;
+                            minute?: number | undefined;
+                        } | undefined;
                         avatar?: {
                             id?: string | undefined;
                             label?: "COVER" | "BANNER" | "AVATAR" | "LOGO" | undefined;
@@ -3927,8 +5859,8 @@ export declare const Create_Manga_ZOD_FORM: z.ZodObject<{
                 }[] | undefined;
             } | undefined;
         }, {
-            role: "PRINCIPAL" | "SECONDAIRE" | "FIGURANT" | "ANTAGONISTE" | "SOUTIEN";
             id?: string | undefined;
+            role?: "PRINCIPAL" | "SECONDAIRE" | "FIGURANT" | "ANTAGONISTE" | "SOUTIEN" | undefined;
             newCharacter?: {
                 name: {
                     default: string;
@@ -3937,7 +5869,13 @@ export declare const Create_Manga_ZOD_FORM: z.ZodObject<{
                 gender: "MASCULIN" | "FEMININ" | "NEUTRE" | "TRANSGENRE" | "NON_BINAIRE" | "GENRE_FLUIDE" | "AUTRE";
                 species: "AUTRE" | "HUMAIN" | "ELFE" | "NAIN" | "LEZARD" | "DRAGON" | "ORC";
                 description?: string | undefined;
-                birthDate?: string | undefined;
+                birthDate?: {
+                    year?: string | number | undefined;
+                    month?: string | number | undefined;
+                    day?: string | number | undefined;
+                    hour?: string | number | undefined;
+                    minute?: string | number | undefined;
+                } | undefined;
                 avatar?: {
                     id?: string | undefined;
                     label?: "COVER" | "BANNER" | "AVATAR" | "LOGO" | undefined;
@@ -3956,8 +5894,20 @@ export declare const Create_Manga_ZOD_FORM: z.ZodObject<{
                         };
                         description?: string | undefined;
                         isGroupe?: boolean | undefined;
-                        birthDate?: string | undefined;
-                        deathDate?: string | undefined;
+                        birthDate?: {
+                            year?: string | number | undefined;
+                            month?: string | number | undefined;
+                            day?: string | number | undefined;
+                            hour?: string | number | undefined;
+                            minute?: string | number | undefined;
+                        } | undefined;
+                        deathDate?: {
+                            year?: string | number | undefined;
+                            month?: string | number | undefined;
+                            day?: string | number | undefined;
+                            hour?: string | number | undefined;
+                            minute?: string | number | undefined;
+                        } | undefined;
                         avatar?: {
                             id?: string | undefined;
                             label?: "COVER" | "BANNER" | "AVATAR" | "LOGO" | undefined;
@@ -3979,9 +5929,7 @@ export declare const Create_Manga_ZOD_FORM: z.ZodObject<{
         status: "AIRING" | "PAUSED" | "ENDED" | "STOPPED" | "POSTONED" | "SOON" | "any";
         title: {
             default: string;
-            alias?: {
-                content: string;
-            }[] | undefined;
+            alias?: string[] | undefined;
         };
         format: "MANGA" | "MANHWA" | "MANHUA" | "LIGHT_NOVEL" | "WEB_LOVEL" | "GRAPHIC_NOVEL" | "DOUJINSHI" | "ONE_SHOT" | "OTHER";
         adult: boolean;
@@ -3993,8 +5941,20 @@ export declare const Create_Manga_ZOD_FORM: z.ZodObject<{
             } | undefined;
         };
         date?: {
-            start?: string | undefined;
-            end?: string | undefined;
+            start?: {
+                year?: number | undefined;
+                month?: number | undefined;
+                day?: number | undefined;
+                hour?: number | undefined;
+                minute?: number | undefined;
+            } | undefined;
+            end?: {
+                year?: number | undefined;
+                month?: number | undefined;
+                day?: number | undefined;
+                hour?: number | undefined;
+                minute?: number | undefined;
+            } | undefined;
         } | undefined;
         cover?: {
             id?: string | undefined;
@@ -4020,12 +5980,24 @@ export declare const Create_Manga_ZOD_FORM: z.ZodObject<{
         genres?: ("ACTION" | "AVENTURE" | "COMEDIE" | "DRAME" | "FANTAISIE" | "FANTASTIQUE" | "HORREUR" | "ROMANCE" | "SCI_FI" | "SPORTS" | "THRILLER" | "MECHA" | "MYSTERE" | "PSYCHOLOGIQUE" | "ISEKAI" | "HAREM" | "REVERSE_HAREM" | "ECCHI" | "SLICE_OF_LIFE" | "YAOI" | "YURI" | "SHOUNEN" | "SEINEN" | "SHOJO" | "JOSEI" | "KODOMOMUKE")[] | undefined;
         chapters?: {
             airing?: number | undefined;
-            nextAiringDate?: string | undefined;
+            nextAiringDate?: {
+                year?: number | undefined;
+                month?: number | undefined;
+                day?: number | undefined;
+                hour?: number | undefined;
+                minute?: number | undefined;
+            } | undefined;
             total?: number | undefined;
         } | undefined;
         volumes?: {
             airing?: number | undefined;
-            nextAiringDate?: string | undefined;
+            nextAiringDate?: {
+                year?: number | undefined;
+                month?: number | undefined;
+                day?: number | undefined;
+                hour?: number | undefined;
+                minute?: number | undefined;
+            } | undefined;
             total?: number | undefined;
         } | undefined;
         parent?: {
@@ -4045,8 +6017,20 @@ export declare const Create_Manga_ZOD_FORM: z.ZodObject<{
                 };
                 description?: string | undefined;
                 isGroupe?: boolean | undefined;
-                birthDate?: string | undefined;
-                deathDate?: string | undefined;
+                birthDate?: {
+                    year?: number | undefined;
+                    month?: number | undefined;
+                    day?: number | undefined;
+                    hour?: number | undefined;
+                    minute?: number | undefined;
+                } | undefined;
+                deathDate?: {
+                    year?: number | undefined;
+                    month?: number | undefined;
+                    day?: number | undefined;
+                    hour?: number | undefined;
+                    minute?: number | undefined;
+                } | undefined;
                 avatar?: {
                     id?: string | undefined;
                     label?: "COVER" | "BANNER" | "AVATAR" | "LOGO" | undefined;
@@ -4080,12 +6064,18 @@ export declare const Create_Manga_ZOD_FORM: z.ZodObject<{
                         label: "COVER" | "BANNER" | "AVATAR" | "LOGO";
                     } | undefined;
                 } | undefined;
-                createdDate?: string | undefined;
+                createdDate?: {
+                    year?: number | undefined;
+                    month?: number | undefined;
+                    day?: number | undefined;
+                    hour?: number | undefined;
+                    minute?: number | undefined;
+                } | undefined;
             } | undefined;
         }[] | undefined;
         characters?: {
-            role: "PRINCIPAL" | "SECONDAIRE" | "FIGURANT" | "ANTAGONISTE" | "SOUTIEN";
             id?: string | undefined;
+            role?: "PRINCIPAL" | "SECONDAIRE" | "FIGURANT" | "ANTAGONISTE" | "SOUTIEN" | undefined;
             newCharacter?: {
                 name: {
                     default: string;
@@ -4094,7 +6084,13 @@ export declare const Create_Manga_ZOD_FORM: z.ZodObject<{
                 gender: "MASCULIN" | "FEMININ" | "NEUTRE" | "TRANSGENRE" | "NON_BINAIRE" | "GENRE_FLUIDE" | "AUTRE";
                 species: "AUTRE" | "HUMAIN" | "ELFE" | "NAIN" | "LEZARD" | "DRAGON" | "ORC";
                 description?: string | undefined;
-                birthDate?: string | undefined;
+                birthDate?: {
+                    year?: number | undefined;
+                    month?: number | undefined;
+                    day?: number | undefined;
+                    hour?: number | undefined;
+                    minute?: number | undefined;
+                } | undefined;
                 avatar?: {
                     id?: string | undefined;
                     label?: "COVER" | "BANNER" | "AVATAR" | "LOGO" | undefined;
@@ -4113,8 +6109,20 @@ export declare const Create_Manga_ZOD_FORM: z.ZodObject<{
                         };
                         description?: string | undefined;
                         isGroupe?: boolean | undefined;
-                        birthDate?: string | undefined;
-                        deathDate?: string | undefined;
+                        birthDate?: {
+                            year?: number | undefined;
+                            month?: number | undefined;
+                            day?: number | undefined;
+                            hour?: number | undefined;
+                            minute?: number | undefined;
+                        } | undefined;
+                        deathDate?: {
+                            year?: number | undefined;
+                            month?: number | undefined;
+                            day?: number | undefined;
+                            hour?: number | undefined;
+                            minute?: number | undefined;
+                        } | undefined;
                         avatar?: {
                             id?: string | undefined;
                             label?: "COVER" | "BANNER" | "AVATAR" | "LOGO" | undefined;
@@ -4137,9 +6145,7 @@ export declare const Create_Manga_ZOD_FORM: z.ZodObject<{
         status: "AIRING" | "PAUSED" | "ENDED" | "STOPPED" | "POSTONED" | "SOON" | "any";
         title: {
             default: string;
-            alias?: {
-                content: string;
-            }[] | undefined;
+            alias?: string[] | undefined;
         };
         format: "MANGA" | "MANHWA" | "MANHUA" | "LIGHT_NOVEL" | "WEB_LOVEL" | "GRAPHIC_NOVEL" | "DOUJINSHI" | "ONE_SHOT" | "OTHER";
         adult: boolean | "true" | "false";
@@ -4151,8 +6157,20 @@ export declare const Create_Manga_ZOD_FORM: z.ZodObject<{
             } | undefined;
         };
         date?: {
-            start?: string | undefined;
-            end?: string | undefined;
+            start?: {
+                year?: string | number | undefined;
+                month?: string | number | undefined;
+                day?: string | number | undefined;
+                hour?: string | number | undefined;
+                minute?: string | number | undefined;
+            } | undefined;
+            end?: {
+                year?: string | number | undefined;
+                month?: string | number | undefined;
+                day?: string | number | undefined;
+                hour?: string | number | undefined;
+                minute?: string | number | undefined;
+            } | undefined;
         } | undefined;
         cover?: {
             id?: string | undefined;
@@ -4178,12 +6196,24 @@ export declare const Create_Manga_ZOD_FORM: z.ZodObject<{
         genres?: ("ACTION" | "AVENTURE" | "COMEDIE" | "DRAME" | "FANTAISIE" | "FANTASTIQUE" | "HORREUR" | "ROMANCE" | "SCI_FI" | "SPORTS" | "THRILLER" | "MECHA" | "MYSTERE" | "PSYCHOLOGIQUE" | "ISEKAI" | "HAREM" | "REVERSE_HAREM" | "ECCHI" | "SLICE_OF_LIFE" | "YAOI" | "YURI" | "SHOUNEN" | "SEINEN" | "SHOJO" | "JOSEI" | "KODOMOMUKE")[] | undefined;
         chapters?: {
             airing?: string | number | undefined;
-            nextAiringDate?: string | undefined;
+            nextAiringDate?: {
+                year?: string | number | undefined;
+                month?: string | number | undefined;
+                day?: string | number | undefined;
+                hour?: string | number | undefined;
+                minute?: string | number | undefined;
+            } | undefined;
             total?: string | number | undefined;
         } | undefined;
         volumes?: {
             airing?: string | number | undefined;
-            nextAiringDate?: string | undefined;
+            nextAiringDate?: {
+                year?: string | number | undefined;
+                month?: string | number | undefined;
+                day?: string | number | undefined;
+                hour?: string | number | undefined;
+                minute?: string | number | undefined;
+            } | undefined;
             total?: string | number | undefined;
         } | undefined;
         parent?: {
@@ -4203,8 +6233,20 @@ export declare const Create_Manga_ZOD_FORM: z.ZodObject<{
                 };
                 description?: string | undefined;
                 isGroupe?: boolean | undefined;
-                birthDate?: string | undefined;
-                deathDate?: string | undefined;
+                birthDate?: {
+                    year?: string | number | undefined;
+                    month?: string | number | undefined;
+                    day?: string | number | undefined;
+                    hour?: string | number | undefined;
+                    minute?: string | number | undefined;
+                } | undefined;
+                deathDate?: {
+                    year?: string | number | undefined;
+                    month?: string | number | undefined;
+                    day?: string | number | undefined;
+                    hour?: string | number | undefined;
+                    minute?: string | number | undefined;
+                } | undefined;
                 avatar?: {
                     id?: string | undefined;
                     label?: "COVER" | "BANNER" | "AVATAR" | "LOGO" | undefined;
@@ -4238,12 +6280,18 @@ export declare const Create_Manga_ZOD_FORM: z.ZodObject<{
                         label: "COVER" | "BANNER" | "AVATAR" | "LOGO";
                     } | undefined;
                 } | undefined;
-                createdDate?: string | undefined;
+                createdDate?: {
+                    year?: string | number | undefined;
+                    month?: string | number | undefined;
+                    day?: string | number | undefined;
+                    hour?: string | number | undefined;
+                    minute?: string | number | undefined;
+                } | undefined;
             } | undefined;
         }[] | undefined;
         characters?: {
-            role: "PRINCIPAL" | "SECONDAIRE" | "FIGURANT" | "ANTAGONISTE" | "SOUTIEN";
             id?: string | undefined;
+            role?: "PRINCIPAL" | "SECONDAIRE" | "FIGURANT" | "ANTAGONISTE" | "SOUTIEN" | undefined;
             newCharacter?: {
                 name: {
                     default: string;
@@ -4252,7 +6300,13 @@ export declare const Create_Manga_ZOD_FORM: z.ZodObject<{
                 gender: "MASCULIN" | "FEMININ" | "NEUTRE" | "TRANSGENRE" | "NON_BINAIRE" | "GENRE_FLUIDE" | "AUTRE";
                 species: "AUTRE" | "HUMAIN" | "ELFE" | "NAIN" | "LEZARD" | "DRAGON" | "ORC";
                 description?: string | undefined;
-                birthDate?: string | undefined;
+                birthDate?: {
+                    year?: string | number | undefined;
+                    month?: string | number | undefined;
+                    day?: string | number | undefined;
+                    hour?: string | number | undefined;
+                    minute?: string | number | undefined;
+                } | undefined;
                 avatar?: {
                     id?: string | undefined;
                     label?: "COVER" | "BANNER" | "AVATAR" | "LOGO" | undefined;
@@ -4271,8 +6325,20 @@ export declare const Create_Manga_ZOD_FORM: z.ZodObject<{
                         };
                         description?: string | undefined;
                         isGroupe?: boolean | undefined;
-                        birthDate?: string | undefined;
-                        deathDate?: string | undefined;
+                        birthDate?: {
+                            year?: string | number | undefined;
+                            month?: string | number | undefined;
+                            day?: string | number | undefined;
+                            hour?: string | number | undefined;
+                            minute?: string | number | undefined;
+                        } | undefined;
+                        deathDate?: {
+                            year?: string | number | undefined;
+                            month?: string | number | undefined;
+                            day?: string | number | undefined;
+                            hour?: string | number | undefined;
+                            minute?: string | number | undefined;
+                        } | undefined;
                         avatar?: {
                             id?: string | undefined;
                             label?: "COVER" | "BANNER" | "AVATAR" | "LOGO" | undefined;
@@ -4297,9 +6363,7 @@ export declare const Create_Manga_ZOD_FORM: z.ZodObject<{
         status: "AIRING" | "PAUSED" | "ENDED" | "STOPPED" | "POSTONED" | "SOON" | "any";
         title: {
             default: string;
-            alias?: {
-                content: string;
-            }[] | undefined;
+            alias?: string[] | undefined;
         };
         format: "MANGA" | "MANHWA" | "MANHUA" | "LIGHT_NOVEL" | "WEB_LOVEL" | "GRAPHIC_NOVEL" | "DOUJINSHI" | "ONE_SHOT" | "OTHER";
         adult: boolean;
@@ -4311,8 +6375,20 @@ export declare const Create_Manga_ZOD_FORM: z.ZodObject<{
             } | undefined;
         };
         date?: {
-            start?: string | undefined;
-            end?: string | undefined;
+            start?: {
+                year?: number | undefined;
+                month?: number | undefined;
+                day?: number | undefined;
+                hour?: number | undefined;
+                minute?: number | undefined;
+            } | undefined;
+            end?: {
+                year?: number | undefined;
+                month?: number | undefined;
+                day?: number | undefined;
+                hour?: number | undefined;
+                minute?: number | undefined;
+            } | undefined;
         } | undefined;
         cover?: {
             id?: string | undefined;
@@ -4338,12 +6414,24 @@ export declare const Create_Manga_ZOD_FORM: z.ZodObject<{
         genres?: ("ACTION" | "AVENTURE" | "COMEDIE" | "DRAME" | "FANTAISIE" | "FANTASTIQUE" | "HORREUR" | "ROMANCE" | "SCI_FI" | "SPORTS" | "THRILLER" | "MECHA" | "MYSTERE" | "PSYCHOLOGIQUE" | "ISEKAI" | "HAREM" | "REVERSE_HAREM" | "ECCHI" | "SLICE_OF_LIFE" | "YAOI" | "YURI" | "SHOUNEN" | "SEINEN" | "SHOJO" | "JOSEI" | "KODOMOMUKE")[] | undefined;
         chapters?: {
             airing?: number | undefined;
-            nextAiringDate?: string | undefined;
+            nextAiringDate?: {
+                year?: number | undefined;
+                month?: number | undefined;
+                day?: number | undefined;
+                hour?: number | undefined;
+                minute?: number | undefined;
+            } | undefined;
             total?: number | undefined;
         } | undefined;
         volumes?: {
             airing?: number | undefined;
-            nextAiringDate?: string | undefined;
+            nextAiringDate?: {
+                year?: number | undefined;
+                month?: number | undefined;
+                day?: number | undefined;
+                hour?: number | undefined;
+                minute?: number | undefined;
+            } | undefined;
             total?: number | undefined;
         } | undefined;
         parent?: {
@@ -4363,8 +6451,20 @@ export declare const Create_Manga_ZOD_FORM: z.ZodObject<{
                 };
                 description?: string | undefined;
                 isGroupe?: boolean | undefined;
-                birthDate?: string | undefined;
-                deathDate?: string | undefined;
+                birthDate?: {
+                    year?: number | undefined;
+                    month?: number | undefined;
+                    day?: number | undefined;
+                    hour?: number | undefined;
+                    minute?: number | undefined;
+                } | undefined;
+                deathDate?: {
+                    year?: number | undefined;
+                    month?: number | undefined;
+                    day?: number | undefined;
+                    hour?: number | undefined;
+                    minute?: number | undefined;
+                } | undefined;
                 avatar?: {
                     id?: string | undefined;
                     label?: "COVER" | "BANNER" | "AVATAR" | "LOGO" | undefined;
@@ -4398,12 +6498,18 @@ export declare const Create_Manga_ZOD_FORM: z.ZodObject<{
                         label: "COVER" | "BANNER" | "AVATAR" | "LOGO";
                     } | undefined;
                 } | undefined;
-                createdDate?: string | undefined;
+                createdDate?: {
+                    year?: number | undefined;
+                    month?: number | undefined;
+                    day?: number | undefined;
+                    hour?: number | undefined;
+                    minute?: number | undefined;
+                } | undefined;
             } | undefined;
         }[] | undefined;
         characters?: {
-            role: "PRINCIPAL" | "SECONDAIRE" | "FIGURANT" | "ANTAGONISTE" | "SOUTIEN";
             id?: string | undefined;
+            role?: "PRINCIPAL" | "SECONDAIRE" | "FIGURANT" | "ANTAGONISTE" | "SOUTIEN" | undefined;
             newCharacter?: {
                 name: {
                     default: string;
@@ -4412,7 +6518,13 @@ export declare const Create_Manga_ZOD_FORM: z.ZodObject<{
                 gender: "MASCULIN" | "FEMININ" | "NEUTRE" | "TRANSGENRE" | "NON_BINAIRE" | "GENRE_FLUIDE" | "AUTRE";
                 species: "AUTRE" | "HUMAIN" | "ELFE" | "NAIN" | "LEZARD" | "DRAGON" | "ORC";
                 description?: string | undefined;
-                birthDate?: string | undefined;
+                birthDate?: {
+                    year?: number | undefined;
+                    month?: number | undefined;
+                    day?: number | undefined;
+                    hour?: number | undefined;
+                    minute?: number | undefined;
+                } | undefined;
                 avatar?: {
                     id?: string | undefined;
                     label?: "COVER" | "BANNER" | "AVATAR" | "LOGO" | undefined;
@@ -4431,8 +6543,20 @@ export declare const Create_Manga_ZOD_FORM: z.ZodObject<{
                         };
                         description?: string | undefined;
                         isGroupe?: boolean | undefined;
-                        birthDate?: string | undefined;
-                        deathDate?: string | undefined;
+                        birthDate?: {
+                            year?: number | undefined;
+                            month?: number | undefined;
+                            day?: number | undefined;
+                            hour?: number | undefined;
+                            minute?: number | undefined;
+                        } | undefined;
+                        deathDate?: {
+                            year?: number | undefined;
+                            month?: number | undefined;
+                            day?: number | undefined;
+                            hour?: number | undefined;
+                            minute?: number | undefined;
+                        } | undefined;
                         avatar?: {
                             id?: string | undefined;
                             label?: "COVER" | "BANNER" | "AVATAR" | "LOGO" | undefined;
@@ -4458,9 +6582,7 @@ export declare const Create_Manga_ZOD_FORM: z.ZodObject<{
         status: "AIRING" | "PAUSED" | "ENDED" | "STOPPED" | "POSTONED" | "SOON" | "any";
         title: {
             default: string;
-            alias?: {
-                content: string;
-            }[] | undefined;
+            alias?: string[] | undefined;
         };
         format: "MANGA" | "MANHWA" | "MANHUA" | "LIGHT_NOVEL" | "WEB_LOVEL" | "GRAPHIC_NOVEL" | "DOUJINSHI" | "ONE_SHOT" | "OTHER";
         adult: boolean | "true" | "false";
@@ -4472,8 +6594,20 @@ export declare const Create_Manga_ZOD_FORM: z.ZodObject<{
             } | undefined;
         };
         date?: {
-            start?: string | undefined;
-            end?: string | undefined;
+            start?: {
+                year?: string | number | undefined;
+                month?: string | number | undefined;
+                day?: string | number | undefined;
+                hour?: string | number | undefined;
+                minute?: string | number | undefined;
+            } | undefined;
+            end?: {
+                year?: string | number | undefined;
+                month?: string | number | undefined;
+                day?: string | number | undefined;
+                hour?: string | number | undefined;
+                minute?: string | number | undefined;
+            } | undefined;
         } | undefined;
         cover?: {
             id?: string | undefined;
@@ -4499,12 +6633,24 @@ export declare const Create_Manga_ZOD_FORM: z.ZodObject<{
         genres?: ("ACTION" | "AVENTURE" | "COMEDIE" | "DRAME" | "FANTAISIE" | "FANTASTIQUE" | "HORREUR" | "ROMANCE" | "SCI_FI" | "SPORTS" | "THRILLER" | "MECHA" | "MYSTERE" | "PSYCHOLOGIQUE" | "ISEKAI" | "HAREM" | "REVERSE_HAREM" | "ECCHI" | "SLICE_OF_LIFE" | "YAOI" | "YURI" | "SHOUNEN" | "SEINEN" | "SHOJO" | "JOSEI" | "KODOMOMUKE")[] | undefined;
         chapters?: {
             airing?: string | number | undefined;
-            nextAiringDate?: string | undefined;
+            nextAiringDate?: {
+                year?: string | number | undefined;
+                month?: string | number | undefined;
+                day?: string | number | undefined;
+                hour?: string | number | undefined;
+                minute?: string | number | undefined;
+            } | undefined;
             total?: string | number | undefined;
         } | undefined;
         volumes?: {
             airing?: string | number | undefined;
-            nextAiringDate?: string | undefined;
+            nextAiringDate?: {
+                year?: string | number | undefined;
+                month?: string | number | undefined;
+                day?: string | number | undefined;
+                hour?: string | number | undefined;
+                minute?: string | number | undefined;
+            } | undefined;
             total?: string | number | undefined;
         } | undefined;
         parent?: {
@@ -4524,8 +6670,20 @@ export declare const Create_Manga_ZOD_FORM: z.ZodObject<{
                 };
                 description?: string | undefined;
                 isGroupe?: boolean | undefined;
-                birthDate?: string | undefined;
-                deathDate?: string | undefined;
+                birthDate?: {
+                    year?: string | number | undefined;
+                    month?: string | number | undefined;
+                    day?: string | number | undefined;
+                    hour?: string | number | undefined;
+                    minute?: string | number | undefined;
+                } | undefined;
+                deathDate?: {
+                    year?: string | number | undefined;
+                    month?: string | number | undefined;
+                    day?: string | number | undefined;
+                    hour?: string | number | undefined;
+                    minute?: string | number | undefined;
+                } | undefined;
                 avatar?: {
                     id?: string | undefined;
                     label?: "COVER" | "BANNER" | "AVATAR" | "LOGO" | undefined;
@@ -4559,12 +6717,18 @@ export declare const Create_Manga_ZOD_FORM: z.ZodObject<{
                         label: "COVER" | "BANNER" | "AVATAR" | "LOGO";
                     } | undefined;
                 } | undefined;
-                createdDate?: string | undefined;
+                createdDate?: {
+                    year?: string | number | undefined;
+                    month?: string | number | undefined;
+                    day?: string | number | undefined;
+                    hour?: string | number | undefined;
+                    minute?: string | number | undefined;
+                } | undefined;
             } | undefined;
         }[] | undefined;
         characters?: {
-            role: "PRINCIPAL" | "SECONDAIRE" | "FIGURANT" | "ANTAGONISTE" | "SOUTIEN";
             id?: string | undefined;
+            role?: "PRINCIPAL" | "SECONDAIRE" | "FIGURANT" | "ANTAGONISTE" | "SOUTIEN" | undefined;
             newCharacter?: {
                 name: {
                     default: string;
@@ -4573,7 +6737,13 @@ export declare const Create_Manga_ZOD_FORM: z.ZodObject<{
                 gender: "MASCULIN" | "FEMININ" | "NEUTRE" | "TRANSGENRE" | "NON_BINAIRE" | "GENRE_FLUIDE" | "AUTRE";
                 species: "AUTRE" | "HUMAIN" | "ELFE" | "NAIN" | "LEZARD" | "DRAGON" | "ORC";
                 description?: string | undefined;
-                birthDate?: string | undefined;
+                birthDate?: {
+                    year?: string | number | undefined;
+                    month?: string | number | undefined;
+                    day?: string | number | undefined;
+                    hour?: string | number | undefined;
+                    minute?: string | number | undefined;
+                } | undefined;
                 avatar?: {
                     id?: string | undefined;
                     label?: "COVER" | "BANNER" | "AVATAR" | "LOGO" | undefined;
@@ -4592,8 +6762,20 @@ export declare const Create_Manga_ZOD_FORM: z.ZodObject<{
                         };
                         description?: string | undefined;
                         isGroupe?: boolean | undefined;
-                        birthDate?: string | undefined;
-                        deathDate?: string | undefined;
+                        birthDate?: {
+                            year?: string | number | undefined;
+                            month?: string | number | undefined;
+                            day?: string | number | undefined;
+                            hour?: string | number | undefined;
+                            minute?: string | number | undefined;
+                        } | undefined;
+                        deathDate?: {
+                            year?: string | number | undefined;
+                            month?: string | number | undefined;
+                            day?: string | number | undefined;
+                            hour?: string | number | undefined;
+                            minute?: string | number | undefined;
+                        } | undefined;
                         avatar?: {
                             id?: string | undefined;
                             label?: "COVER" | "BANNER" | "AVATAR" | "LOGO" | undefined;
@@ -4620,9 +6802,7 @@ export declare const MangaDataToZOD: (data: IManga) => {
     status: "AIRING" | "PAUSED" | "ENDED" | "STOPPED" | "POSTONED" | "SOON" | "any";
     title: {
         default: string;
-        alias?: {
-            content: string;
-        }[] | undefined;
+        alias?: string[] | undefined;
     };
     format: "MANGA" | "MANHWA" | "MANHUA" | "LIGHT_NOVEL" | "WEB_LOVEL" | "GRAPHIC_NOVEL" | "DOUJINSHI" | "ONE_SHOT" | "OTHER";
     adult: boolean;
@@ -4634,8 +6814,20 @@ export declare const MangaDataToZOD: (data: IManga) => {
         } | undefined;
     };
     date?: {
-        start?: string | undefined;
-        end?: string | undefined;
+        start?: {
+            year?: number | undefined;
+            month?: number | undefined;
+            day?: number | undefined;
+            hour?: number | undefined;
+            minute?: number | undefined;
+        } | undefined;
+        end?: {
+            year?: number | undefined;
+            month?: number | undefined;
+            day?: number | undefined;
+            hour?: number | undefined;
+            minute?: number | undefined;
+        } | undefined;
     } | undefined;
     cover?: {
         id?: string | undefined;
@@ -4661,12 +6853,24 @@ export declare const MangaDataToZOD: (data: IManga) => {
     genres?: ("ACTION" | "AVENTURE" | "COMEDIE" | "DRAME" | "FANTAISIE" | "FANTASTIQUE" | "HORREUR" | "ROMANCE" | "SCI_FI" | "SPORTS" | "THRILLER" | "MECHA" | "MYSTERE" | "PSYCHOLOGIQUE" | "ISEKAI" | "HAREM" | "REVERSE_HAREM" | "ECCHI" | "SLICE_OF_LIFE" | "YAOI" | "YURI" | "SHOUNEN" | "SEINEN" | "SHOJO" | "JOSEI" | "KODOMOMUKE")[] | undefined;
     chapters?: {
         airing?: number | undefined;
-        nextAiringDate?: string | undefined;
+        nextAiringDate?: {
+            year?: number | undefined;
+            month?: number | undefined;
+            day?: number | undefined;
+            hour?: number | undefined;
+            minute?: number | undefined;
+        } | undefined;
         total?: number | undefined;
     } | undefined;
     volumes?: {
         airing?: number | undefined;
-        nextAiringDate?: string | undefined;
+        nextAiringDate?: {
+            year?: number | undefined;
+            month?: number | undefined;
+            day?: number | undefined;
+            hour?: number | undefined;
+            minute?: number | undefined;
+        } | undefined;
         total?: number | undefined;
     } | undefined;
     parent?: {
@@ -4686,8 +6890,20 @@ export declare const MangaDataToZOD: (data: IManga) => {
             };
             description?: string | undefined;
             isGroupe?: boolean | undefined;
-            birthDate?: string | undefined;
-            deathDate?: string | undefined;
+            birthDate?: {
+                year?: number | undefined;
+                month?: number | undefined;
+                day?: number | undefined;
+                hour?: number | undefined;
+                minute?: number | undefined;
+            } | undefined;
+            deathDate?: {
+                year?: number | undefined;
+                month?: number | undefined;
+                day?: number | undefined;
+                hour?: number | undefined;
+                minute?: number | undefined;
+            } | undefined;
             avatar?: {
                 id?: string | undefined;
                 label?: "COVER" | "BANNER" | "AVATAR" | "LOGO" | undefined;
@@ -4721,12 +6937,18 @@ export declare const MangaDataToZOD: (data: IManga) => {
                     label: "COVER" | "BANNER" | "AVATAR" | "LOGO";
                 } | undefined;
             } | undefined;
-            createdDate?: string | undefined;
+            createdDate?: {
+                year?: number | undefined;
+                month?: number | undefined;
+                day?: number | undefined;
+                hour?: number | undefined;
+                minute?: number | undefined;
+            } | undefined;
         } | undefined;
     }[] | undefined;
     characters?: {
-        role: "PRINCIPAL" | "SECONDAIRE" | "FIGURANT" | "ANTAGONISTE" | "SOUTIEN";
         id?: string | undefined;
+        role?: "PRINCIPAL" | "SECONDAIRE" | "FIGURANT" | "ANTAGONISTE" | "SOUTIEN" | undefined;
         newCharacter?: {
             name: {
                 default: string;
@@ -4735,7 +6957,13 @@ export declare const MangaDataToZOD: (data: IManga) => {
             gender: "MASCULIN" | "FEMININ" | "NEUTRE" | "TRANSGENRE" | "NON_BINAIRE" | "GENRE_FLUIDE" | "AUTRE";
             species: "AUTRE" | "HUMAIN" | "ELFE" | "NAIN" | "LEZARD" | "DRAGON" | "ORC";
             description?: string | undefined;
-            birthDate?: string | undefined;
+            birthDate?: {
+                year?: number | undefined;
+                month?: number | undefined;
+                day?: number | undefined;
+                hour?: number | undefined;
+                minute?: number | undefined;
+            } | undefined;
             avatar?: {
                 id?: string | undefined;
                 label?: "COVER" | "BANNER" | "AVATAR" | "LOGO" | undefined;
@@ -4754,8 +6982,20 @@ export declare const MangaDataToZOD: (data: IManga) => {
                     };
                     description?: string | undefined;
                     isGroupe?: boolean | undefined;
-                    birthDate?: string | undefined;
-                    deathDate?: string | undefined;
+                    birthDate?: {
+                        year?: number | undefined;
+                        month?: number | undefined;
+                        day?: number | undefined;
+                        hour?: number | undefined;
+                        minute?: number | undefined;
+                    } | undefined;
+                    deathDate?: {
+                        year?: number | undefined;
+                        month?: number | undefined;
+                        day?: number | undefined;
+                        hour?: number | undefined;
+                        minute?: number | undefined;
+                    } | undefined;
                     avatar?: {
                         id?: string | undefined;
                         label?: "COVER" | "BANNER" | "AVATAR" | "LOGO" | undefined;

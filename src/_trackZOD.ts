@@ -1,6 +1,6 @@
 import { TrackTypeArray, dateToZod, ITrack } from "@actunime/types";
 import { z } from "zod";
-import { Create_Link_ZOD, FromBody, LinkBody } from "./_media";
+import { Create_Link_ZOD, DateBody, FromBody, LinkBody } from "./_media";
 import { Add_Person_ZOD, PersonBody } from "./_personZOD";
 import { PaginationBody, zodNumber } from "./_util";
 import { Add_Image_ZOD, ImageBody } from "./_imageZOD";
@@ -9,7 +9,7 @@ import { PatchParamsBody } from "./_patchZOD";
 export const TrackQueryBody = z.object({
   name: z.object({ default: z.string(), alias: z.optional(z.array(z.string())) }),
   type: z.enum(TrackTypeArray),
-  pubDate: z.string(),
+  pubDate: z.optional(DateBody.partial()),
   artists: PersonBody.partial(),
   cover: ImageBody.partial(),
   links: LinkBody.partial(),
@@ -49,7 +49,7 @@ export const Create_Track_ZOD = z
   .object({
     name: z.object({ default: z.string(), alias: z.optional(z.array(z.string())) }),
     type: z.enum(TrackTypeArray),
-    pubDate: z.optional(z.string()),
+    pubDate: z.optional(DateBody.partial()),
     artists: z.optional(z.array(Add_Person_ZOD)),
     cover: z.optional(Add_Image_ZOD),
     description: z.optional(z.string()),
@@ -85,8 +85,8 @@ export const TrackDataToZOD = (data: ITrack) => {
 
   const toZOD: ICreate_Track_ZOD = {
     name: data.name,
-    type: data.type as any,
-    pubDate: dateToZod(data.pubDate),
+    type: data.type,
+    pubDate: data.pubDate,
     cover: data.cover,
     artists: data.artists,
     description: data.description,

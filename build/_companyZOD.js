@@ -1,7 +1,6 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.CompanyDataToZOD = exports.Add_Company_ZOD = exports.Create_Company_ZOD_FORM = exports.CompanyCreateBody = exports.Create_Company_ZOD = exports.Company_Pagination_ZOD = exports.CompanyPaginationBody = exports.CompanySortBody = exports.CompanyQueryBody = void 0;
-const types_1 = require("@actunime/types");
 const zod_1 = require("zod");
 const _media_1 = require("./_media");
 const _util_1 = require("./_util");
@@ -12,7 +11,7 @@ exports.CompanyQueryBody = zod_1.z.object({
     name: zod_1.z.string(),
     links: _media_1.LinkBody.partial(),
     logo: _imageZOD_1.ImageBody.partial(),
-    createdDate: zod_1.z.optional(zod_1.z.string()),
+    createdDate: zod_1.z.optional(_media_1.DateBody.partial()),
     createdAt: zod_1.z.string(),
     updatedAt: zod_1.z.string(),
 });
@@ -21,7 +20,11 @@ const checkErr = "le sort doit être soit -1 ou 1";
 exports.CompanySortBody = zod_1.z.object({
     type: (0, _util_1.zodNumber)().refine(check, checkErr),
     name: (0, _util_1.zodNumber)().refine(check, checkErr),
-    createdDate: (0, _util_1.zodNumber)().refine(check, checkErr),
+    createdDate: zod_1.z.object({
+        year: (0, _util_1.zodNumber)().refine(check, checkErr),
+        month: (0, _util_1.zodNumber)().refine(check, checkErr),
+        day: (0, _util_1.zodNumber)().refine(check, checkErr),
+    }),
     createdAt: (0, _util_1.zodNumber)().refine(check, checkErr),
     updatedAt: (0, _util_1.zodNumber)().refine(check, checkErr),
 });
@@ -43,7 +46,7 @@ exports.Create_Company_ZOD = zod_1.z.object({
     description: zod_1.z.optional(zod_1.z.string()),
     links: zod_1.z.optional(zod_1.z.array(_media_1.Create_Link_ZOD)),
     logo: zod_1.z.optional(_imageZOD_1.Add_Image_ZOD),
-    createdDate: zod_1.z.optional(zod_1.z.string()),
+    createdDate: zod_1.z.optional(_media_1.DateBody.partial()),
 })
     .strict();
 exports.CompanyCreateBody = _patchZOD_1.PatchParamsBody.partial().extend({
@@ -66,7 +69,7 @@ const CompanyDataToZOD = (data) => {
         description: data.description,
         links: data.links,
         logo: data.logo,
-        createdDate: (0, types_1.dateToZod)(data.createdDate),
+        createdDate: data.createdDate,
     };
     const safeParse = exports.Create_Company_ZOD.safeParse(toZOD);
     if (safeParse.success)

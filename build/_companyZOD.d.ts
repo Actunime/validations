@@ -23,7 +23,25 @@ export declare const CompanyQueryBody: z.ZodObject<{
         id?: string | undefined;
         label?: "COVER" | "BANNER" | "AVATAR" | "LOGO" | undefined;
     }>;
-    createdDate: z.ZodOptional<z.ZodString>;
+    createdDate: z.ZodOptional<z.ZodObject<{
+        year: z.ZodOptional<z.ZodOptional<z.ZodEffects<z.ZodUnion<[z.ZodNumber, z.ZodString]>, number, string | number>>>;
+        month: z.ZodOptional<z.ZodOptional<z.ZodEffects<z.ZodUnion<[z.ZodNumber, z.ZodString]>, number, string | number>>>;
+        day: z.ZodOptional<z.ZodOptional<z.ZodEffects<z.ZodUnion<[z.ZodNumber, z.ZodString]>, number, string | number>>>;
+        hour: z.ZodOptional<z.ZodOptional<z.ZodEffects<z.ZodUnion<[z.ZodNumber, z.ZodString]>, number, string | number>>>;
+        minute: z.ZodOptional<z.ZodOptional<z.ZodEffects<z.ZodUnion<[z.ZodNumber, z.ZodString]>, number, string | number>>>;
+    }, "strip", z.ZodTypeAny, {
+        year?: number | undefined;
+        month?: number | undefined;
+        day?: number | undefined;
+        hour?: number | undefined;
+        minute?: number | undefined;
+    }, {
+        year?: string | number | undefined;
+        month?: string | number | undefined;
+        day?: string | number | undefined;
+        hour?: string | number | undefined;
+        minute?: string | number | undefined;
+    }>>;
     createdAt: z.ZodString;
     updatedAt: z.ZodString;
 }, "strip", z.ZodTypeAny, {
@@ -39,7 +57,13 @@ export declare const CompanyQueryBody: z.ZodObject<{
         id?: string | undefined;
         label?: "COVER" | "BANNER" | "AVATAR" | "LOGO" | undefined;
     };
-    createdDate?: string | undefined;
+    createdDate?: {
+        year?: number | undefined;
+        month?: number | undefined;
+        day?: number | undefined;
+        hour?: number | undefined;
+        minute?: number | undefined;
+    } | undefined;
 }, {
     type: "STUDIO" | "PRODUCER";
     name: string;
@@ -53,12 +77,30 @@ export declare const CompanyQueryBody: z.ZodObject<{
         id?: string | undefined;
         label?: "COVER" | "BANNER" | "AVATAR" | "LOGO" | undefined;
     };
-    createdDate?: string | undefined;
+    createdDate?: {
+        year?: string | number | undefined;
+        month?: string | number | undefined;
+        day?: string | number | undefined;
+        hour?: string | number | undefined;
+        minute?: string | number | undefined;
+    } | undefined;
 }>;
 export declare const CompanySortBody: z.ZodObject<{
     type: z.ZodEffects<z.ZodEffects<z.ZodUnion<[z.ZodNumber, z.ZodString]>, number, string | number>, number, string | number>;
     name: z.ZodEffects<z.ZodEffects<z.ZodUnion<[z.ZodNumber, z.ZodString]>, number, string | number>, number, string | number>;
-    createdDate: z.ZodEffects<z.ZodEffects<z.ZodUnion<[z.ZodNumber, z.ZodString]>, number, string | number>, number, string | number>;
+    createdDate: z.ZodObject<{
+        year: z.ZodEffects<z.ZodEffects<z.ZodUnion<[z.ZodNumber, z.ZodString]>, number, string | number>, number, string | number>;
+        month: z.ZodEffects<z.ZodEffects<z.ZodUnion<[z.ZodNumber, z.ZodString]>, number, string | number>, number, string | number>;
+        day: z.ZodEffects<z.ZodEffects<z.ZodUnion<[z.ZodNumber, z.ZodString]>, number, string | number>, number, string | number>;
+    }, "strip", z.ZodTypeAny, {
+        year: number;
+        month: number;
+        day: number;
+    }, {
+        year: string | number;
+        month: string | number;
+        day: string | number;
+    }>;
     createdAt: z.ZodEffects<z.ZodEffects<z.ZodUnion<[z.ZodNumber, z.ZodString]>, number, string | number>, number, string | number>;
     updatedAt: z.ZodEffects<z.ZodEffects<z.ZodUnion<[z.ZodNumber, z.ZodString]>, number, string | number>, number, string | number>;
 }, "strip", z.ZodTypeAny, {
@@ -66,13 +108,21 @@ export declare const CompanySortBody: z.ZodObject<{
     name: number;
     createdAt: number;
     updatedAt: number;
-    createdDate: number;
+    createdDate: {
+        year: number;
+        month: number;
+        day: number;
+    };
 }, {
     type: string | number;
     name: string | number;
     createdAt: string | number;
     updatedAt: string | number;
-    createdDate: string | number;
+    createdDate: {
+        year: string | number;
+        month: string | number;
+        day: string | number;
+    };
 }>;
 export declare const CompanyPaginationBody: z.ZodObject<{
     page: z.ZodOptional<z.ZodNumber>;
@@ -82,7 +132,19 @@ export declare const CompanyPaginationBody: z.ZodObject<{
     sort: z.ZodOptional<z.ZodObject<{
         type: z.ZodOptional<z.ZodEffects<z.ZodEffects<z.ZodUnion<[z.ZodNumber, z.ZodString]>, number, string | number>, number, string | number>>;
         name: z.ZodOptional<z.ZodEffects<z.ZodEffects<z.ZodUnion<[z.ZodNumber, z.ZodString]>, number, string | number>, number, string | number>>;
-        createdDate: z.ZodOptional<z.ZodEffects<z.ZodEffects<z.ZodUnion<[z.ZodNumber, z.ZodString]>, number, string | number>, number, string | number>>;
+        createdDate: z.ZodOptional<z.ZodObject<{
+            year: z.ZodEffects<z.ZodEffects<z.ZodUnion<[z.ZodNumber, z.ZodString]>, number, string | number>, number, string | number>;
+            month: z.ZodEffects<z.ZodEffects<z.ZodUnion<[z.ZodNumber, z.ZodString]>, number, string | number>, number, string | number>;
+            day: z.ZodEffects<z.ZodEffects<z.ZodUnion<[z.ZodNumber, z.ZodString]>, number, string | number>, number, string | number>;
+        }, "strip", z.ZodTypeAny, {
+            year: number;
+            month: number;
+            day: number;
+        }, {
+            year: string | number;
+            month: string | number;
+            day: string | number;
+        }>>;
         createdAt: z.ZodOptional<z.ZodEffects<z.ZodEffects<z.ZodUnion<[z.ZodNumber, z.ZodString]>, number, string | number>, number, string | number>>;
         updatedAt: z.ZodOptional<z.ZodEffects<z.ZodEffects<z.ZodUnion<[z.ZodNumber, z.ZodString]>, number, string | number>, number, string | number>>;
     }, "strip", z.ZodTypeAny, {
@@ -90,13 +152,21 @@ export declare const CompanyPaginationBody: z.ZodObject<{
         name?: number | undefined;
         createdAt?: number | undefined;
         updatedAt?: number | undefined;
-        createdDate?: number | undefined;
+        createdDate?: {
+            year: number;
+            month: number;
+            day: number;
+        } | undefined;
     }, {
         type?: string | number | undefined;
         name?: string | number | undefined;
         createdAt?: string | number | undefined;
         updatedAt?: string | number | undefined;
-        createdDate?: string | number | undefined;
+        createdDate?: {
+            year: string | number;
+            month: string | number;
+            day: string | number;
+        } | undefined;
     }>>;
     query: z.ZodOptional<z.ZodObject<{
         type: z.ZodOptional<z.ZodEnum<["STUDIO", "PRODUCER"]>>;
@@ -121,7 +191,25 @@ export declare const CompanyPaginationBody: z.ZodObject<{
             id?: string | undefined;
             label?: "COVER" | "BANNER" | "AVATAR" | "LOGO" | undefined;
         }>>;
-        createdDate: z.ZodOptional<z.ZodOptional<z.ZodString>>;
+        createdDate: z.ZodOptional<z.ZodOptional<z.ZodObject<{
+            year: z.ZodOptional<z.ZodOptional<z.ZodEffects<z.ZodUnion<[z.ZodNumber, z.ZodString]>, number, string | number>>>;
+            month: z.ZodOptional<z.ZodOptional<z.ZodEffects<z.ZodUnion<[z.ZodNumber, z.ZodString]>, number, string | number>>>;
+            day: z.ZodOptional<z.ZodOptional<z.ZodEffects<z.ZodUnion<[z.ZodNumber, z.ZodString]>, number, string | number>>>;
+            hour: z.ZodOptional<z.ZodOptional<z.ZodEffects<z.ZodUnion<[z.ZodNumber, z.ZodString]>, number, string | number>>>;
+            minute: z.ZodOptional<z.ZodOptional<z.ZodEffects<z.ZodUnion<[z.ZodNumber, z.ZodString]>, number, string | number>>>;
+        }, "strip", z.ZodTypeAny, {
+            year?: number | undefined;
+            month?: number | undefined;
+            day?: number | undefined;
+            hour?: number | undefined;
+            minute?: number | undefined;
+        }, {
+            year?: string | number | undefined;
+            month?: string | number | undefined;
+            day?: string | number | undefined;
+            hour?: string | number | undefined;
+            minute?: string | number | undefined;
+        }>>>;
         createdAt: z.ZodOptional<z.ZodString>;
         updatedAt: z.ZodOptional<z.ZodString>;
     }, "strip", z.ZodTypeAny, {
@@ -137,7 +225,13 @@ export declare const CompanyPaginationBody: z.ZodObject<{
             id?: string | undefined;
             label?: "COVER" | "BANNER" | "AVATAR" | "LOGO" | undefined;
         } | undefined;
-        createdDate?: string | undefined;
+        createdDate?: {
+            year?: number | undefined;
+            month?: number | undefined;
+            day?: number | undefined;
+            hour?: number | undefined;
+            minute?: number | undefined;
+        } | undefined;
     }, {
         type?: "STUDIO" | "PRODUCER" | undefined;
         name?: string | undefined;
@@ -151,7 +245,13 @@ export declare const CompanyPaginationBody: z.ZodObject<{
             id?: string | undefined;
             label?: "COVER" | "BANNER" | "AVATAR" | "LOGO" | undefined;
         } | undefined;
-        createdDate?: string | undefined;
+        createdDate?: {
+            year?: string | number | undefined;
+            month?: string | number | undefined;
+            day?: string | number | undefined;
+            hour?: string | number | undefined;
+            minute?: string | number | undefined;
+        } | undefined;
     }>>;
     from: z.ZodOptional<z.ZodObject<{
         id: z.ZodString;
@@ -173,7 +273,11 @@ export declare const CompanyPaginationBody: z.ZodObject<{
         name?: number | undefined;
         createdAt?: number | undefined;
         updatedAt?: number | undefined;
-        createdDate?: number | undefined;
+        createdDate?: {
+            year: number;
+            month: number;
+            day: number;
+        } | undefined;
     } | undefined;
     query?: {
         type?: "STUDIO" | "PRODUCER" | undefined;
@@ -188,7 +292,13 @@ export declare const CompanyPaginationBody: z.ZodObject<{
             id?: string | undefined;
             label?: "COVER" | "BANNER" | "AVATAR" | "LOGO" | undefined;
         } | undefined;
-        createdDate?: string | undefined;
+        createdDate?: {
+            year?: number | undefined;
+            month?: number | undefined;
+            day?: number | undefined;
+            hour?: number | undefined;
+            minute?: number | undefined;
+        } | undefined;
     } | undefined;
     from?: {
         path: "User" | "Account" | "UserProfile" | "UserPreferences" | "UserAnimeListe" | "UserDeleteAnimeFromListe" | "Groupe" | "Manga" | "Anime" | "Person" | "Character" | "Track" | "Company" | "Image" | "Patch" | "Activity" | "Report" | "DisabledUser" | "PremiumUser";
@@ -204,7 +314,11 @@ export declare const CompanyPaginationBody: z.ZodObject<{
         name?: string | number | undefined;
         createdAt?: string | number | undefined;
         updatedAt?: string | number | undefined;
-        createdDate?: string | number | undefined;
+        createdDate?: {
+            year: string | number;
+            month: string | number;
+            day: string | number;
+        } | undefined;
     } | undefined;
     query?: {
         type?: "STUDIO" | "PRODUCER" | undefined;
@@ -219,7 +333,13 @@ export declare const CompanyPaginationBody: z.ZodObject<{
             id?: string | undefined;
             label?: "COVER" | "BANNER" | "AVATAR" | "LOGO" | undefined;
         } | undefined;
-        createdDate?: string | undefined;
+        createdDate?: {
+            year?: string | number | undefined;
+            month?: string | number | undefined;
+            day?: string | number | undefined;
+            hour?: string | number | undefined;
+            minute?: string | number | undefined;
+        } | undefined;
     } | undefined;
     from?: {
         path: "User" | "Account" | "UserProfile" | "UserPreferences" | "UserAnimeListe" | "UserDeleteAnimeFromListe" | "Groupe" | "Manga" | "Anime" | "Person" | "Character" | "Track" | "Company" | "Image" | "Patch" | "Activity" | "Report" | "DisabledUser" | "PremiumUser";
@@ -234,7 +354,19 @@ export declare const Company_Pagination_ZOD: z.ZodObject<{
     sort: z.ZodObject<{
         type: z.ZodOptional<z.ZodEffects<z.ZodEffects<z.ZodUnion<[z.ZodNumber, z.ZodString]>, number, string | number>, number, string | number>>;
         name: z.ZodOptional<z.ZodEffects<z.ZodEffects<z.ZodUnion<[z.ZodNumber, z.ZodString]>, number, string | number>, number, string | number>>;
-        createdDate: z.ZodOptional<z.ZodEffects<z.ZodEffects<z.ZodUnion<[z.ZodNumber, z.ZodString]>, number, string | number>, number, string | number>>;
+        createdDate: z.ZodOptional<z.ZodObject<{
+            year: z.ZodEffects<z.ZodEffects<z.ZodUnion<[z.ZodNumber, z.ZodString]>, number, string | number>, number, string | number>;
+            month: z.ZodEffects<z.ZodEffects<z.ZodUnion<[z.ZodNumber, z.ZodString]>, number, string | number>, number, string | number>;
+            day: z.ZodEffects<z.ZodEffects<z.ZodUnion<[z.ZodNumber, z.ZodString]>, number, string | number>, number, string | number>;
+        }, "strip", z.ZodTypeAny, {
+            year: number;
+            month: number;
+            day: number;
+        }, {
+            year: string | number;
+            month: string | number;
+            day: string | number;
+        }>>;
         createdAt: z.ZodOptional<z.ZodEffects<z.ZodEffects<z.ZodUnion<[z.ZodNumber, z.ZodString]>, number, string | number>, number, string | number>>;
         updatedAt: z.ZodOptional<z.ZodEffects<z.ZodEffects<z.ZodUnion<[z.ZodNumber, z.ZodString]>, number, string | number>, number, string | number>>;
     }, "strip", z.ZodTypeAny, {
@@ -242,13 +374,21 @@ export declare const Company_Pagination_ZOD: z.ZodObject<{
         name?: number | undefined;
         createdAt?: number | undefined;
         updatedAt?: number | undefined;
-        createdDate?: number | undefined;
+        createdDate?: {
+            year: number;
+            month: number;
+            day: number;
+        } | undefined;
     }, {
         type?: string | number | undefined;
         name?: string | number | undefined;
         createdAt?: string | number | undefined;
         updatedAt?: string | number | undefined;
-        createdDate?: string | number | undefined;
+        createdDate?: {
+            year: string | number;
+            month: string | number;
+            day: string | number;
+        } | undefined;
     }>;
     query: z.ZodObject<{
         type: z.ZodOptional<z.ZodEnum<["STUDIO", "PRODUCER"]>>;
@@ -273,7 +413,25 @@ export declare const Company_Pagination_ZOD: z.ZodObject<{
             id?: string | undefined;
             label?: "COVER" | "BANNER" | "AVATAR" | "LOGO" | undefined;
         }>>;
-        createdDate: z.ZodOptional<z.ZodOptional<z.ZodString>>;
+        createdDate: z.ZodOptional<z.ZodOptional<z.ZodObject<{
+            year: z.ZodOptional<z.ZodOptional<z.ZodEffects<z.ZodUnion<[z.ZodNumber, z.ZodString]>, number, string | number>>>;
+            month: z.ZodOptional<z.ZodOptional<z.ZodEffects<z.ZodUnion<[z.ZodNumber, z.ZodString]>, number, string | number>>>;
+            day: z.ZodOptional<z.ZodOptional<z.ZodEffects<z.ZodUnion<[z.ZodNumber, z.ZodString]>, number, string | number>>>;
+            hour: z.ZodOptional<z.ZodOptional<z.ZodEffects<z.ZodUnion<[z.ZodNumber, z.ZodString]>, number, string | number>>>;
+            minute: z.ZodOptional<z.ZodOptional<z.ZodEffects<z.ZodUnion<[z.ZodNumber, z.ZodString]>, number, string | number>>>;
+        }, "strip", z.ZodTypeAny, {
+            year?: number | undefined;
+            month?: number | undefined;
+            day?: number | undefined;
+            hour?: number | undefined;
+            minute?: number | undefined;
+        }, {
+            year?: string | number | undefined;
+            month?: string | number | undefined;
+            day?: string | number | undefined;
+            hour?: string | number | undefined;
+            minute?: string | number | undefined;
+        }>>>;
         createdAt: z.ZodOptional<z.ZodString>;
         updatedAt: z.ZodOptional<z.ZodString>;
     }, "strip", z.ZodTypeAny, {
@@ -289,7 +447,13 @@ export declare const Company_Pagination_ZOD: z.ZodObject<{
             id?: string | undefined;
             label?: "COVER" | "BANNER" | "AVATAR" | "LOGO" | undefined;
         } | undefined;
-        createdDate?: string | undefined;
+        createdDate?: {
+            year?: number | undefined;
+            month?: number | undefined;
+            day?: number | undefined;
+            hour?: number | undefined;
+            minute?: number | undefined;
+        } | undefined;
     }, {
         type?: "STUDIO" | "PRODUCER" | undefined;
         name?: string | undefined;
@@ -303,7 +467,13 @@ export declare const Company_Pagination_ZOD: z.ZodObject<{
             id?: string | undefined;
             label?: "COVER" | "BANNER" | "AVATAR" | "LOGO" | undefined;
         } | undefined;
-        createdDate?: string | undefined;
+        createdDate?: {
+            year?: string | number | undefined;
+            month?: string | number | undefined;
+            day?: string | number | undefined;
+            hour?: string | number | undefined;
+            minute?: string | number | undefined;
+        } | undefined;
     }>;
 }, "strip", z.ZodTypeAny, {
     page: number;
@@ -314,7 +484,11 @@ export declare const Company_Pagination_ZOD: z.ZodObject<{
         name?: number | undefined;
         createdAt?: number | undefined;
         updatedAt?: number | undefined;
-        createdDate?: number | undefined;
+        createdDate?: {
+            year: number;
+            month: number;
+            day: number;
+        } | undefined;
     };
     query: {
         type?: "STUDIO" | "PRODUCER" | undefined;
@@ -329,7 +503,13 @@ export declare const Company_Pagination_ZOD: z.ZodObject<{
             id?: string | undefined;
             label?: "COVER" | "BANNER" | "AVATAR" | "LOGO" | undefined;
         } | undefined;
-        createdDate?: string | undefined;
+        createdDate?: {
+            year?: number | undefined;
+            month?: number | undefined;
+            day?: number | undefined;
+            hour?: number | undefined;
+            minute?: number | undefined;
+        } | undefined;
     };
 }, {
     page: number;
@@ -340,7 +520,11 @@ export declare const Company_Pagination_ZOD: z.ZodObject<{
         name?: string | number | undefined;
         createdAt?: string | number | undefined;
         updatedAt?: string | number | undefined;
-        createdDate?: string | number | undefined;
+        createdDate?: {
+            year: string | number;
+            month: string | number;
+            day: string | number;
+        } | undefined;
     };
     query: {
         type?: "STUDIO" | "PRODUCER" | undefined;
@@ -355,7 +539,13 @@ export declare const Company_Pagination_ZOD: z.ZodObject<{
             id?: string | undefined;
             label?: "COVER" | "BANNER" | "AVATAR" | "LOGO" | undefined;
         } | undefined;
-        createdDate?: string | undefined;
+        createdDate?: {
+            year?: string | number | undefined;
+            month?: string | number | undefined;
+            day?: string | number | undefined;
+            hour?: string | number | undefined;
+            minute?: string | number | undefined;
+        } | undefined;
     };
 }>;
 export type ICompany_Pagination_ZOD = z.infer<typeof Company_Pagination_ZOD>;
@@ -401,7 +591,25 @@ export declare const Create_Company_ZOD: z.ZodObject<{
             label: "COVER" | "BANNER" | "AVATAR" | "LOGO";
         } | undefined;
     }>>;
-    createdDate: z.ZodOptional<z.ZodString>;
+    createdDate: z.ZodOptional<z.ZodObject<{
+        year: z.ZodOptional<z.ZodOptional<z.ZodEffects<z.ZodUnion<[z.ZodNumber, z.ZodString]>, number, string | number>>>;
+        month: z.ZodOptional<z.ZodOptional<z.ZodEffects<z.ZodUnion<[z.ZodNumber, z.ZodString]>, number, string | number>>>;
+        day: z.ZodOptional<z.ZodOptional<z.ZodEffects<z.ZodUnion<[z.ZodNumber, z.ZodString]>, number, string | number>>>;
+        hour: z.ZodOptional<z.ZodOptional<z.ZodEffects<z.ZodUnion<[z.ZodNumber, z.ZodString]>, number, string | number>>>;
+        minute: z.ZodOptional<z.ZodOptional<z.ZodEffects<z.ZodUnion<[z.ZodNumber, z.ZodString]>, number, string | number>>>;
+    }, "strip", z.ZodTypeAny, {
+        year?: number | undefined;
+        month?: number | undefined;
+        day?: number | undefined;
+        hour?: number | undefined;
+        minute?: number | undefined;
+    }, {
+        year?: string | number | undefined;
+        month?: string | number | undefined;
+        day?: string | number | undefined;
+        hour?: string | number | undefined;
+        minute?: string | number | undefined;
+    }>>;
 }, "strict", z.ZodTypeAny, {
     type: "STUDIO" | "PRODUCER";
     name: string;
@@ -418,7 +626,13 @@ export declare const Create_Company_ZOD: z.ZodObject<{
             label: "COVER" | "BANNER" | "AVATAR" | "LOGO";
         } | undefined;
     } | undefined;
-    createdDate?: string | undefined;
+    createdDate?: {
+        year?: number | undefined;
+        month?: number | undefined;
+        day?: number | undefined;
+        hour?: number | undefined;
+        minute?: number | undefined;
+    } | undefined;
 }, {
     type: "STUDIO" | "PRODUCER";
     name: string;
@@ -435,7 +649,13 @@ export declare const Create_Company_ZOD: z.ZodObject<{
             label: "COVER" | "BANNER" | "AVATAR" | "LOGO";
         } | undefined;
     } | undefined;
-    createdDate?: string | undefined;
+    createdDate?: {
+        year?: string | number | undefined;
+        month?: string | number | undefined;
+        day?: string | number | undefined;
+        hour?: string | number | undefined;
+        minute?: string | number | undefined;
+    } | undefined;
 }>;
 export type ICreate_Company_ZOD = z.infer<typeof Create_Company_ZOD>;
 export declare const CompanyCreateBody: z.ZodObject<z.objectUtil.extendShape<{
@@ -484,7 +704,25 @@ export declare const CompanyCreateBody: z.ZodObject<z.objectUtil.extendShape<{
                 label: "COVER" | "BANNER" | "AVATAR" | "LOGO";
             } | undefined;
         }>>;
-        createdDate: z.ZodOptional<z.ZodString>;
+        createdDate: z.ZodOptional<z.ZodObject<{
+            year: z.ZodOptional<z.ZodOptional<z.ZodEffects<z.ZodUnion<[z.ZodNumber, z.ZodString]>, number, string | number>>>;
+            month: z.ZodOptional<z.ZodOptional<z.ZodEffects<z.ZodUnion<[z.ZodNumber, z.ZodString]>, number, string | number>>>;
+            day: z.ZodOptional<z.ZodOptional<z.ZodEffects<z.ZodUnion<[z.ZodNumber, z.ZodString]>, number, string | number>>>;
+            hour: z.ZodOptional<z.ZodOptional<z.ZodEffects<z.ZodUnion<[z.ZodNumber, z.ZodString]>, number, string | number>>>;
+            minute: z.ZodOptional<z.ZodOptional<z.ZodEffects<z.ZodUnion<[z.ZodNumber, z.ZodString]>, number, string | number>>>;
+        }, "strip", z.ZodTypeAny, {
+            year?: number | undefined;
+            month?: number | undefined;
+            day?: number | undefined;
+            hour?: number | undefined;
+            minute?: number | undefined;
+        }, {
+            year?: string | number | undefined;
+            month?: string | number | undefined;
+            day?: string | number | undefined;
+            hour?: string | number | undefined;
+            minute?: string | number | undefined;
+        }>>;
     }, "strict", z.ZodTypeAny, {
         type: "STUDIO" | "PRODUCER";
         name: string;
@@ -501,7 +739,13 @@ export declare const CompanyCreateBody: z.ZodObject<z.objectUtil.extendShape<{
                 label: "COVER" | "BANNER" | "AVATAR" | "LOGO";
             } | undefined;
         } | undefined;
-        createdDate?: string | undefined;
+        createdDate?: {
+            year?: number | undefined;
+            month?: number | undefined;
+            day?: number | undefined;
+            hour?: number | undefined;
+            minute?: number | undefined;
+        } | undefined;
     }, {
         type: "STUDIO" | "PRODUCER";
         name: string;
@@ -518,7 +762,13 @@ export declare const CompanyCreateBody: z.ZodObject<z.objectUtil.extendShape<{
                 label: "COVER" | "BANNER" | "AVATAR" | "LOGO";
             } | undefined;
         } | undefined;
-        createdDate?: string | undefined;
+        createdDate?: {
+            year?: string | number | undefined;
+            month?: string | number | undefined;
+            day?: string | number | undefined;
+            hour?: string | number | undefined;
+            minute?: string | number | undefined;
+        } | undefined;
     }>;
 }>, "strip", z.ZodTypeAny, {
     data: {
@@ -537,7 +787,13 @@ export declare const CompanyCreateBody: z.ZodObject<z.objectUtil.extendShape<{
                 label: "COVER" | "BANNER" | "AVATAR" | "LOGO";
             } | undefined;
         } | undefined;
-        createdDate?: string | undefined;
+        createdDate?: {
+            year?: number | undefined;
+            month?: number | undefined;
+            day?: number | undefined;
+            hour?: number | undefined;
+            minute?: number | undefined;
+        } | undefined;
     };
     reason?: string | undefined;
     description?: string | undefined;
@@ -558,7 +814,13 @@ export declare const CompanyCreateBody: z.ZodObject<z.objectUtil.extendShape<{
                 label: "COVER" | "BANNER" | "AVATAR" | "LOGO";
             } | undefined;
         } | undefined;
-        createdDate?: string | undefined;
+        createdDate?: {
+            year?: string | number | undefined;
+            month?: string | number | undefined;
+            day?: string | number | undefined;
+            hour?: string | number | undefined;
+            minute?: string | number | undefined;
+        } | undefined;
     };
     reason?: string | undefined;
     description?: string | undefined;
@@ -608,7 +870,25 @@ export declare const Create_Company_ZOD_FORM: z.ZodObject<{
                 label: "COVER" | "BANNER" | "AVATAR" | "LOGO";
             } | undefined;
         }>>;
-        createdDate: z.ZodOptional<z.ZodString>;
+        createdDate: z.ZodOptional<z.ZodObject<{
+            year: z.ZodOptional<z.ZodOptional<z.ZodEffects<z.ZodUnion<[z.ZodNumber, z.ZodString]>, number, string | number>>>;
+            month: z.ZodOptional<z.ZodOptional<z.ZodEffects<z.ZodUnion<[z.ZodNumber, z.ZodString]>, number, string | number>>>;
+            day: z.ZodOptional<z.ZodOptional<z.ZodEffects<z.ZodUnion<[z.ZodNumber, z.ZodString]>, number, string | number>>>;
+            hour: z.ZodOptional<z.ZodOptional<z.ZodEffects<z.ZodUnion<[z.ZodNumber, z.ZodString]>, number, string | number>>>;
+            minute: z.ZodOptional<z.ZodOptional<z.ZodEffects<z.ZodUnion<[z.ZodNumber, z.ZodString]>, number, string | number>>>;
+        }, "strip", z.ZodTypeAny, {
+            year?: number | undefined;
+            month?: number | undefined;
+            day?: number | undefined;
+            hour?: number | undefined;
+            minute?: number | undefined;
+        }, {
+            year?: string | number | undefined;
+            month?: string | number | undefined;
+            day?: string | number | undefined;
+            hour?: string | number | undefined;
+            minute?: string | number | undefined;
+        }>>;
     }, "strict", z.ZodTypeAny, {
         type: "STUDIO" | "PRODUCER";
         name: string;
@@ -625,7 +905,13 @@ export declare const Create_Company_ZOD_FORM: z.ZodObject<{
                 label: "COVER" | "BANNER" | "AVATAR" | "LOGO";
             } | undefined;
         } | undefined;
-        createdDate?: string | undefined;
+        createdDate?: {
+            year?: number | undefined;
+            month?: number | undefined;
+            day?: number | undefined;
+            hour?: number | undefined;
+            minute?: number | undefined;
+        } | undefined;
     }, {
         type: "STUDIO" | "PRODUCER";
         name: string;
@@ -642,7 +928,13 @@ export declare const Create_Company_ZOD_FORM: z.ZodObject<{
                 label: "COVER" | "BANNER" | "AVATAR" | "LOGO";
             } | undefined;
         } | undefined;
-        createdDate?: string | undefined;
+        createdDate?: {
+            year?: string | number | undefined;
+            month?: string | number | undefined;
+            day?: string | number | undefined;
+            hour?: string | number | undefined;
+            minute?: string | number | undefined;
+        } | undefined;
     }>;
 }, "strip", z.ZodTypeAny, {
     data: {
@@ -661,7 +953,13 @@ export declare const Create_Company_ZOD_FORM: z.ZodObject<{
                 label: "COVER" | "BANNER" | "AVATAR" | "LOGO";
             } | undefined;
         } | undefined;
-        createdDate?: string | undefined;
+        createdDate?: {
+            year?: number | undefined;
+            month?: number | undefined;
+            day?: number | undefined;
+            hour?: number | undefined;
+            minute?: number | undefined;
+        } | undefined;
     };
     note?: string | undefined;
 }, {
@@ -681,7 +979,13 @@ export declare const Create_Company_ZOD_FORM: z.ZodObject<{
                 label: "COVER" | "BANNER" | "AVATAR" | "LOGO";
             } | undefined;
         } | undefined;
-        createdDate?: string | undefined;
+        createdDate?: {
+            year?: string | number | undefined;
+            month?: string | number | undefined;
+            day?: string | number | undefined;
+            hour?: string | number | undefined;
+            minute?: string | number | undefined;
+        } | undefined;
     };
     note?: string | undefined;
 }>;
@@ -730,7 +1034,25 @@ export declare const Add_Company_ZOD: z.ZodObject<{
                 label: "COVER" | "BANNER" | "AVATAR" | "LOGO";
             } | undefined;
         }>>;
-        createdDate: z.ZodOptional<z.ZodString>;
+        createdDate: z.ZodOptional<z.ZodObject<{
+            year: z.ZodOptional<z.ZodOptional<z.ZodEffects<z.ZodUnion<[z.ZodNumber, z.ZodString]>, number, string | number>>>;
+            month: z.ZodOptional<z.ZodOptional<z.ZodEffects<z.ZodUnion<[z.ZodNumber, z.ZodString]>, number, string | number>>>;
+            day: z.ZodOptional<z.ZodOptional<z.ZodEffects<z.ZodUnion<[z.ZodNumber, z.ZodString]>, number, string | number>>>;
+            hour: z.ZodOptional<z.ZodOptional<z.ZodEffects<z.ZodUnion<[z.ZodNumber, z.ZodString]>, number, string | number>>>;
+            minute: z.ZodOptional<z.ZodOptional<z.ZodEffects<z.ZodUnion<[z.ZodNumber, z.ZodString]>, number, string | number>>>;
+        }, "strip", z.ZodTypeAny, {
+            year?: number | undefined;
+            month?: number | undefined;
+            day?: number | undefined;
+            hour?: number | undefined;
+            minute?: number | undefined;
+        }, {
+            year?: string | number | undefined;
+            month?: string | number | undefined;
+            day?: string | number | undefined;
+            hour?: string | number | undefined;
+            minute?: string | number | undefined;
+        }>>;
     }, "strict", z.ZodTypeAny, {
         type: "STUDIO" | "PRODUCER";
         name: string;
@@ -747,7 +1069,13 @@ export declare const Add_Company_ZOD: z.ZodObject<{
                 label: "COVER" | "BANNER" | "AVATAR" | "LOGO";
             } | undefined;
         } | undefined;
-        createdDate?: string | undefined;
+        createdDate?: {
+            year?: number | undefined;
+            month?: number | undefined;
+            day?: number | undefined;
+            hour?: number | undefined;
+            minute?: number | undefined;
+        } | undefined;
     }, {
         type: "STUDIO" | "PRODUCER";
         name: string;
@@ -764,7 +1092,13 @@ export declare const Add_Company_ZOD: z.ZodObject<{
                 label: "COVER" | "BANNER" | "AVATAR" | "LOGO";
             } | undefined;
         } | undefined;
-        createdDate?: string | undefined;
+        createdDate?: {
+            year?: string | number | undefined;
+            month?: string | number | undefined;
+            day?: string | number | undefined;
+            hour?: string | number | undefined;
+            minute?: string | number | undefined;
+        } | undefined;
     }>>;
 }, "strip", z.ZodTypeAny, {
     id?: string | undefined;
@@ -784,7 +1118,13 @@ export declare const Add_Company_ZOD: z.ZodObject<{
                 label: "COVER" | "BANNER" | "AVATAR" | "LOGO";
             } | undefined;
         } | undefined;
-        createdDate?: string | undefined;
+        createdDate?: {
+            year?: number | undefined;
+            month?: number | undefined;
+            day?: number | undefined;
+            hour?: number | undefined;
+            minute?: number | undefined;
+        } | undefined;
     } | undefined;
 }, {
     id?: string | undefined;
@@ -804,7 +1144,13 @@ export declare const Add_Company_ZOD: z.ZodObject<{
                 label: "COVER" | "BANNER" | "AVATAR" | "LOGO";
             } | undefined;
         } | undefined;
-        createdDate?: string | undefined;
+        createdDate?: {
+            year?: string | number | undefined;
+            month?: string | number | undefined;
+            day?: string | number | undefined;
+            hour?: string | number | undefined;
+            minute?: string | number | undefined;
+        } | undefined;
     } | undefined;
 }>;
 export type IAdd_Company_ZOD = z.infer<typeof Add_Company_ZOD>;
@@ -824,5 +1170,11 @@ export declare const CompanyDataToZOD: (data: ICompany) => {
             label: "COVER" | "BANNER" | "AVATAR" | "LOGO";
         } | undefined;
     } | undefined;
-    createdDate?: string | undefined;
+    createdDate?: {
+        year?: number | undefined;
+        month?: number | undefined;
+        day?: number | undefined;
+        hour?: number | undefined;
+        minute?: number | undefined;
+    } | undefined;
 } | undefined;

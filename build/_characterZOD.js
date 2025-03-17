@@ -15,7 +15,7 @@ exports.Character_Name_ZOD = zod_1.z.object({
 exports.CharacterQueryBody = zod_1.z.object({
     name: exports.Character_Name_ZOD.partial(),
     age: (0, _util_1.zodNumber)(),
-    birthDate: zod_1.z.string(),
+    birthDate: zod_1.z.optional(_media_1.DateBody.partial()),
     avatar: _imageZOD_1.ImageBody.partial(),
     gender: zod_1.z.enum(types_1.CharacterGenderArray),
     species: zod_1.z.enum(types_1.CharacterSpeciesArray),
@@ -49,7 +49,7 @@ exports.Create_Character_ZOD = zod_1.z
     .object({
     name: exports.Character_Name_ZOD,
     age: zod_1.z.optional((0, _util_1.zodNumber)()),
-    birthDate: zod_1.z.optional(zod_1.z.string()),
+    birthDate: zod_1.z.optional(_media_1.DateBody.partial()),
     gender: zod_1.z.enum(types_1.CharacterGenderArray),
     species: zod_1.z.enum(types_1.CharacterSpeciesArray),
     description: zod_1.z.optional(zod_1.z.string()),
@@ -67,7 +67,7 @@ exports.Create_Character_ZOD_FORM = zod_1.z.object({
 exports.Add_Character_ZOD = zod_1.z.object({
     id: zod_1.z.optional(zod_1.z.string()),
     newCharacter: zod_1.z.optional(exports.Create_Character_ZOD),
-    role: zod_1.z.enum(types_1.CharacterRoleArray, { required_error: "Le role est requis" }),
+    role: zod_1.z.optional(zod_1.z.enum(types_1.CharacterRoleArray, { required_error: "Le role est requis" })),
 });
 const CharacterDataToZOD = (data) => {
     if (!data)
@@ -75,7 +75,7 @@ const CharacterDataToZOD = (data) => {
     const toZOD = {
         name: data.name,
         age: data.age,
-        birthDate: (0, types_1.dateToZod)(data.birthDate),
+        birthDate: data.birthDate,
         gender: data.gender,
         species: data.species,
         description: data.description,
