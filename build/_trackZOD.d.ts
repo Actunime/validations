@@ -12,7 +12,7 @@ export declare const TrackQueryBody: z.ZodObject<{
         alias?: string[] | undefined;
     }>;
     type: z.ZodEnum<("OPENING" | "ENDING" | "BGM" | "INSERT")[] & [string, ...string[]]>;
-    pubDate: z.ZodOptional<z.ZodObject<{
+    releaseDate: z.ZodOptional<z.ZodObject<{
         year: z.ZodOptional<z.ZodOptional<z.ZodEffects<z.ZodUnion<[z.ZodNumber, z.ZodString]>, number, string | number>>>;
         month: z.ZodOptional<z.ZodOptional<z.ZodEffects<z.ZodUnion<[z.ZodNumber, z.ZodString]>, number, string | number>>>;
         day: z.ZodOptional<z.ZodOptional<z.ZodEffects<z.ZodUnion<[z.ZodNumber, z.ZodString]>, number, string | number>>>;
@@ -276,7 +276,7 @@ export declare const TrackQueryBody: z.ZodObject<{
             name: string;
         }[] | undefined;
     };
-    pubDate?: {
+    releaseDate?: {
         year?: number | undefined;
         month?: number | undefined;
         day?: number | undefined;
@@ -337,7 +337,7 @@ export declare const TrackQueryBody: z.ZodObject<{
             name: string;
         }[] | undefined;
     };
-    pubDate?: {
+    releaseDate?: {
         year?: string | number | undefined;
         month?: string | number | undefined;
         day?: string | number | undefined;
@@ -348,19 +348,19 @@ export declare const TrackQueryBody: z.ZodObject<{
 }>;
 export declare const TrackSortBody: z.ZodObject<{
     type: z.ZodEffects<z.ZodEffects<z.ZodUnion<[z.ZodNumber, z.ZodString]>, number, string | number>, number, string | number>;
-    pubDate: z.ZodEffects<z.ZodEffects<z.ZodUnion<[z.ZodNumber, z.ZodString]>, number, string | number>, number, string | number>;
+    releaseDate: z.ZodEffects<z.ZodEffects<z.ZodUnion<[z.ZodNumber, z.ZodString]>, number, string | number>, number, string | number>;
     createdAt: z.ZodEffects<z.ZodEffects<z.ZodUnion<[z.ZodNumber, z.ZodString]>, number, string | number>, number, string | number>;
     updatedAt: z.ZodEffects<z.ZodEffects<z.ZodUnion<[z.ZodNumber, z.ZodString]>, number, string | number>, number, string | number>;
 }, "strip", z.ZodTypeAny, {
     type: number;
     createdAt: number;
     updatedAt: number;
-    pubDate: number;
+    releaseDate: number;
 }, {
     type: string | number;
     createdAt: string | number;
     updatedAt: string | number;
-    pubDate: string | number;
+    releaseDate: string | number;
 }>;
 export declare const TrackPaginationBody: z.ZodObject<{
     page: z.ZodOptional<z.ZodNumber>;
@@ -369,19 +369,19 @@ export declare const TrackPaginationBody: z.ZodObject<{
     onlyVerified: z.ZodOptional<z.ZodBoolean>;
     sort: z.ZodOptional<z.ZodObject<{
         type: z.ZodOptional<z.ZodEffects<z.ZodEffects<z.ZodUnion<[z.ZodNumber, z.ZodString]>, number, string | number>, number, string | number>>;
-        pubDate: z.ZodOptional<z.ZodEffects<z.ZodEffects<z.ZodUnion<[z.ZodNumber, z.ZodString]>, number, string | number>, number, string | number>>;
+        releaseDate: z.ZodOptional<z.ZodEffects<z.ZodEffects<z.ZodUnion<[z.ZodNumber, z.ZodString]>, number, string | number>, number, string | number>>;
         createdAt: z.ZodOptional<z.ZodEffects<z.ZodEffects<z.ZodUnion<[z.ZodNumber, z.ZodString]>, number, string | number>, number, string | number>>;
         updatedAt: z.ZodOptional<z.ZodEffects<z.ZodEffects<z.ZodUnion<[z.ZodNumber, z.ZodString]>, number, string | number>, number, string | number>>;
     }, "strip", z.ZodTypeAny, {
         type?: number | undefined;
         createdAt?: number | undefined;
         updatedAt?: number | undefined;
-        pubDate?: number | undefined;
+        releaseDate?: number | undefined;
     }, {
         type?: string | number | undefined;
         createdAt?: string | number | undefined;
         updatedAt?: string | number | undefined;
-        pubDate?: string | number | undefined;
+        releaseDate?: string | number | undefined;
     }>>;
     query: z.ZodOptional<z.ZodObject<{
         name: z.ZodOptional<z.ZodObject<{
@@ -395,7 +395,7 @@ export declare const TrackPaginationBody: z.ZodObject<{
             alias?: string[] | undefined;
         }>>;
         type: z.ZodOptional<z.ZodEnum<("OPENING" | "ENDING" | "BGM" | "INSERT")[] & [string, ...string[]]>>;
-        pubDate: z.ZodOptional<z.ZodOptional<z.ZodObject<{
+        releaseDate: z.ZodOptional<z.ZodOptional<z.ZodObject<{
             year: z.ZodOptional<z.ZodOptional<z.ZodEffects<z.ZodUnion<[z.ZodNumber, z.ZodString]>, number, string | number>>>;
             month: z.ZodOptional<z.ZodOptional<z.ZodEffects<z.ZodUnion<[z.ZodNumber, z.ZodString]>, number, string | number>>>;
             day: z.ZodOptional<z.ZodOptional<z.ZodEffects<z.ZodUnion<[z.ZodNumber, z.ZodString]>, number, string | number>>>;
@@ -623,7 +623,7 @@ export declare const TrackPaginationBody: z.ZodObject<{
             value?: string | undefined;
             name?: string | undefined;
         } | undefined;
-        pubDate?: {
+        releaseDate?: {
             year?: number | undefined;
             month?: number | undefined;
             day?: number | undefined;
@@ -684,7 +684,7 @@ export declare const TrackPaginationBody: z.ZodObject<{
             value?: string | undefined;
             name?: string | undefined;
         } | undefined;
-        pubDate?: {
+        releaseDate?: {
             year?: string | number | undefined;
             month?: string | number | undefined;
             day?: string | number | undefined;
@@ -748,7 +748,7 @@ export declare const TrackPaginationBody: z.ZodObject<{
         type?: number | undefined;
         createdAt?: number | undefined;
         updatedAt?: number | undefined;
-        pubDate?: number | undefined;
+        releaseDate?: number | undefined;
     } | undefined;
     query?: {
         type?: "OPENING" | "ENDING" | "BGM" | "INSERT" | undefined;
@@ -767,7 +767,7 @@ export declare const TrackPaginationBody: z.ZodObject<{
             value?: string | undefined;
             name?: string | undefined;
         } | undefined;
-        pubDate?: {
+        releaseDate?: {
             year?: number | undefined;
             month?: number | undefined;
             day?: number | undefined;
@@ -825,7 +825,7 @@ export declare const TrackPaginationBody: z.ZodObject<{
         type?: string | number | undefined;
         createdAt?: string | number | undefined;
         updatedAt?: string | number | undefined;
-        pubDate?: string | number | undefined;
+        releaseDate?: string | number | undefined;
     } | undefined;
     query?: {
         type?: "OPENING" | "ENDING" | "BGM" | "INSERT" | undefined;
@@ -844,7 +844,7 @@ export declare const TrackPaginationBody: z.ZodObject<{
             value?: string | undefined;
             name?: string | undefined;
         } | undefined;
-        pubDate?: {
+        releaseDate?: {
             year?: string | number | undefined;
             month?: string | number | undefined;
             day?: string | number | undefined;
@@ -901,19 +901,19 @@ export declare const Track_Pagination_ZOD: z.ZodObject<{
     strict: z.ZodBoolean;
     sort: z.ZodObject<{
         type: z.ZodOptional<z.ZodEffects<z.ZodEffects<z.ZodUnion<[z.ZodNumber, z.ZodString]>, number, string | number>, number, string | number>>;
-        pubDate: z.ZodOptional<z.ZodEffects<z.ZodEffects<z.ZodUnion<[z.ZodNumber, z.ZodString]>, number, string | number>, number, string | number>>;
+        releaseDate: z.ZodOptional<z.ZodEffects<z.ZodEffects<z.ZodUnion<[z.ZodNumber, z.ZodString]>, number, string | number>, number, string | number>>;
         createdAt: z.ZodOptional<z.ZodEffects<z.ZodEffects<z.ZodUnion<[z.ZodNumber, z.ZodString]>, number, string | number>, number, string | number>>;
         updatedAt: z.ZodOptional<z.ZodEffects<z.ZodEffects<z.ZodUnion<[z.ZodNumber, z.ZodString]>, number, string | number>, number, string | number>>;
     }, "strip", z.ZodTypeAny, {
         type?: number | undefined;
         createdAt?: number | undefined;
         updatedAt?: number | undefined;
-        pubDate?: number | undefined;
+        releaseDate?: number | undefined;
     }, {
         type?: string | number | undefined;
         createdAt?: string | number | undefined;
         updatedAt?: string | number | undefined;
-        pubDate?: string | number | undefined;
+        releaseDate?: string | number | undefined;
     }>;
     query: z.ZodObject<{
         name: z.ZodOptional<z.ZodObject<{
@@ -927,7 +927,7 @@ export declare const Track_Pagination_ZOD: z.ZodObject<{
             alias?: string[] | undefined;
         }>>;
         type: z.ZodOptional<z.ZodEnum<("OPENING" | "ENDING" | "BGM" | "INSERT")[] & [string, ...string[]]>>;
-        pubDate: z.ZodOptional<z.ZodOptional<z.ZodObject<{
+        releaseDate: z.ZodOptional<z.ZodOptional<z.ZodObject<{
             year: z.ZodOptional<z.ZodOptional<z.ZodEffects<z.ZodUnion<[z.ZodNumber, z.ZodString]>, number, string | number>>>;
             month: z.ZodOptional<z.ZodOptional<z.ZodEffects<z.ZodUnion<[z.ZodNumber, z.ZodString]>, number, string | number>>>;
             day: z.ZodOptional<z.ZodOptional<z.ZodEffects<z.ZodUnion<[z.ZodNumber, z.ZodString]>, number, string | number>>>;
@@ -1155,7 +1155,7 @@ export declare const Track_Pagination_ZOD: z.ZodObject<{
             value?: string | undefined;
             name?: string | undefined;
         } | undefined;
-        pubDate?: {
+        releaseDate?: {
             year?: number | undefined;
             month?: number | undefined;
             day?: number | undefined;
@@ -1216,7 +1216,7 @@ export declare const Track_Pagination_ZOD: z.ZodObject<{
             value?: string | undefined;
             name?: string | undefined;
         } | undefined;
-        pubDate?: {
+        releaseDate?: {
             year?: string | number | undefined;
             month?: string | number | undefined;
             day?: string | number | undefined;
@@ -1269,7 +1269,7 @@ export declare const Track_Pagination_ZOD: z.ZodObject<{
         type?: number | undefined;
         createdAt?: number | undefined;
         updatedAt?: number | undefined;
-        pubDate?: number | undefined;
+        releaseDate?: number | undefined;
     };
     query: {
         type?: "OPENING" | "ENDING" | "BGM" | "INSERT" | undefined;
@@ -1288,7 +1288,7 @@ export declare const Track_Pagination_ZOD: z.ZodObject<{
             value?: string | undefined;
             name?: string | undefined;
         } | undefined;
-        pubDate?: {
+        releaseDate?: {
             year?: number | undefined;
             month?: number | undefined;
             day?: number | undefined;
@@ -1341,7 +1341,7 @@ export declare const Track_Pagination_ZOD: z.ZodObject<{
         type?: string | number | undefined;
         createdAt?: string | number | undefined;
         updatedAt?: string | number | undefined;
-        pubDate?: string | number | undefined;
+        releaseDate?: string | number | undefined;
     };
     query: {
         type?: "OPENING" | "ENDING" | "BGM" | "INSERT" | undefined;
@@ -1360,7 +1360,7 @@ export declare const Track_Pagination_ZOD: z.ZodObject<{
             value?: string | undefined;
             name?: string | undefined;
         } | undefined;
-        pubDate?: {
+        releaseDate?: {
             year?: string | number | undefined;
             month?: string | number | undefined;
             day?: string | number | undefined;
@@ -1419,7 +1419,7 @@ export declare const TrackBody: z.ZodObject<{
         alias?: string[] | undefined;
     }>;
     type: z.ZodEnum<("OPENING" | "ENDING" | "BGM" | "INSERT")[] & [string, ...string[]]>;
-    pubDate: z.ZodOptional<z.ZodObject<{
+    releaseDate: z.ZodOptional<z.ZodObject<{
         year: z.ZodOptional<z.ZodOptional<z.ZodEffects<z.ZodUnion<[z.ZodNumber, z.ZodString]>, number, string | number>>>;
         month: z.ZodOptional<z.ZodOptional<z.ZodEffects<z.ZodUnion<[z.ZodNumber, z.ZodString]>, number, string | number>>>;
         day: z.ZodOptional<z.ZodOptional<z.ZodEffects<z.ZodUnion<[z.ZodNumber, z.ZodString]>, number, string | number>>>;
@@ -1747,7 +1747,7 @@ export declare const TrackBody: z.ZodObject<{
         value: string;
         name: string;
     }[] | undefined;
-    pubDate?: {
+    releaseDate?: {
         year?: number | undefined;
         month?: number | undefined;
         day?: number | undefined;
@@ -1814,7 +1814,7 @@ export declare const TrackBody: z.ZodObject<{
         value: string;
         name: string;
     }[] | undefined;
-    pubDate?: {
+    releaseDate?: {
         year?: string | number | undefined;
         month?: string | number | undefined;
         day?: string | number | undefined;
@@ -1880,7 +1880,7 @@ export declare const TrackCreateBody: z.ZodObject<z.objectUtil.extendShape<{
             alias?: string[] | undefined;
         }>;
         type: z.ZodEnum<("OPENING" | "ENDING" | "BGM" | "INSERT")[] & [string, ...string[]]>;
-        pubDate: z.ZodOptional<z.ZodObject<{
+        releaseDate: z.ZodOptional<z.ZodObject<{
             year: z.ZodOptional<z.ZodOptional<z.ZodEffects<z.ZodUnion<[z.ZodNumber, z.ZodString]>, number, string | number>>>;
             month: z.ZodOptional<z.ZodOptional<z.ZodEffects<z.ZodUnion<[z.ZodNumber, z.ZodString]>, number, string | number>>>;
             day: z.ZodOptional<z.ZodOptional<z.ZodEffects<z.ZodUnion<[z.ZodNumber, z.ZodString]>, number, string | number>>>;
@@ -2208,7 +2208,7 @@ export declare const TrackCreateBody: z.ZodObject<z.objectUtil.extendShape<{
             value: string;
             name: string;
         }[] | undefined;
-        pubDate?: {
+        releaseDate?: {
             year?: number | undefined;
             month?: number | undefined;
             day?: number | undefined;
@@ -2275,7 +2275,7 @@ export declare const TrackCreateBody: z.ZodObject<z.objectUtil.extendShape<{
             value: string;
             name: string;
         }[] | undefined;
-        pubDate?: {
+        releaseDate?: {
             year?: string | number | undefined;
             month?: string | number | undefined;
             day?: string | number | undefined;
@@ -2344,7 +2344,7 @@ export declare const TrackCreateBody: z.ZodObject<z.objectUtil.extendShape<{
             value: string;
             name: string;
         }[] | undefined;
-        pubDate?: {
+        releaseDate?: {
             year?: number | undefined;
             month?: number | undefined;
             day?: number | undefined;
@@ -2415,7 +2415,7 @@ export declare const TrackCreateBody: z.ZodObject<z.objectUtil.extendShape<{
             value: string;
             name: string;
         }[] | undefined;
-        pubDate?: {
+        releaseDate?: {
             year?: string | number | undefined;
             month?: string | number | undefined;
             day?: string | number | undefined;
@@ -2482,7 +2482,7 @@ export declare const TrackAddBody: z.ZodObject<{
             alias?: string[] | undefined;
         }>;
         type: z.ZodEnum<("OPENING" | "ENDING" | "BGM" | "INSERT")[] & [string, ...string[]]>;
-        pubDate: z.ZodOptional<z.ZodObject<{
+        releaseDate: z.ZodOptional<z.ZodObject<{
             year: z.ZodOptional<z.ZodOptional<z.ZodEffects<z.ZodUnion<[z.ZodNumber, z.ZodString]>, number, string | number>>>;
             month: z.ZodOptional<z.ZodOptional<z.ZodEffects<z.ZodUnion<[z.ZodNumber, z.ZodString]>, number, string | number>>>;
             day: z.ZodOptional<z.ZodOptional<z.ZodEffects<z.ZodUnion<[z.ZodNumber, z.ZodString]>, number, string | number>>>;
@@ -2810,7 +2810,7 @@ export declare const TrackAddBody: z.ZodObject<{
             value: string;
             name: string;
         }[] | undefined;
-        pubDate?: {
+        releaseDate?: {
             year?: number | undefined;
             month?: number | undefined;
             day?: number | undefined;
@@ -2877,7 +2877,7 @@ export declare const TrackAddBody: z.ZodObject<{
             value: string;
             name: string;
         }[] | undefined;
-        pubDate?: {
+        releaseDate?: {
             year?: string | number | undefined;
             month?: string | number | undefined;
             day?: string | number | undefined;
@@ -2947,7 +2947,7 @@ export declare const TrackAddBody: z.ZodObject<{
             value: string;
             name: string;
         }[] | undefined;
-        pubDate?: {
+        releaseDate?: {
             year?: number | undefined;
             month?: number | undefined;
             day?: number | undefined;
@@ -3017,7 +3017,7 @@ export declare const TrackAddBody: z.ZodObject<{
             value: string;
             name: string;
         }[] | undefined;
-        pubDate?: {
+        releaseDate?: {
             year?: string | number | undefined;
             month?: string | number | undefined;
             day?: string | number | undefined;
@@ -3087,7 +3087,7 @@ export declare const TrackDataToZOD: (data: ITrack) => {
         value: string;
         name: string;
     }[] | undefined;
-    pubDate?: {
+    releaseDate?: {
         year?: number | undefined;
         month?: number | undefined;
         day?: number | undefined;

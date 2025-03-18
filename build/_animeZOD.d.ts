@@ -2862,7 +2862,7 @@ export declare const AnimeBody: z.ZodEffects<z.ZodObject<{
                 alias?: string[] | undefined;
             }>;
             type: z.ZodEnum<("OPENING" | "ENDING" | "BGM" | "INSERT")[] & [string, ...string[]]>;
-            pubDate: z.ZodOptional<z.ZodObject<{
+            releaseDate: z.ZodOptional<z.ZodObject<{
                 year: z.ZodOptional<z.ZodOptional<z.ZodEffects<z.ZodUnion<[z.ZodNumber, z.ZodString]>, number, string | number>>>;
                 month: z.ZodOptional<z.ZodOptional<z.ZodEffects<z.ZodUnion<[z.ZodNumber, z.ZodString]>, number, string | number>>>;
                 day: z.ZodOptional<z.ZodOptional<z.ZodEffects<z.ZodUnion<[z.ZodNumber, z.ZodString]>, number, string | number>>>;
@@ -3190,7 +3190,7 @@ export declare const AnimeBody: z.ZodEffects<z.ZodObject<{
                 value: string;
                 name: string;
             }[] | undefined;
-            pubDate?: {
+            releaseDate?: {
                 year?: number | undefined;
                 month?: number | undefined;
                 day?: number | undefined;
@@ -3257,7 +3257,7 @@ export declare const AnimeBody: z.ZodEffects<z.ZodObject<{
                 value: string;
                 name: string;
             }[] | undefined;
-            pubDate?: {
+            releaseDate?: {
                 year?: string | number | undefined;
                 month?: string | number | undefined;
                 day?: string | number | undefined;
@@ -3327,7 +3327,7 @@ export declare const AnimeBody: z.ZodEffects<z.ZodObject<{
                 value: string;
                 name: string;
             }[] | undefined;
-            pubDate?: {
+            releaseDate?: {
                 year?: number | undefined;
                 month?: number | undefined;
                 day?: number | undefined;
@@ -3397,7 +3397,7 @@ export declare const AnimeBody: z.ZodEffects<z.ZodObject<{
                 value: string;
                 name: string;
             }[] | undefined;
-            pubDate?: {
+            releaseDate?: {
                 year?: string | number | undefined;
                 month?: string | number | undefined;
                 day?: string | number | undefined;
@@ -3691,7 +3691,7 @@ export declare const AnimeBody: z.ZodEffects<z.ZodObject<{
                 value: string;
                 name: string;
             }[] | undefined;
-            pubDate?: {
+            releaseDate?: {
                 year?: number | undefined;
                 month?: number | undefined;
                 day?: number | undefined;
@@ -3985,7 +3985,7 @@ export declare const AnimeBody: z.ZodEffects<z.ZodObject<{
                 value: string;
                 name: string;
             }[] | undefined;
-            pubDate?: {
+            releaseDate?: {
                 year?: string | number | undefined;
                 month?: string | number | undefined;
                 day?: string | number | undefined;
@@ -4279,7 +4279,7 @@ export declare const AnimeBody: z.ZodEffects<z.ZodObject<{
                 value: string;
                 name: string;
             }[] | undefined;
-            pubDate?: {
+            releaseDate?: {
                 year?: number | undefined;
                 month?: number | undefined;
                 day?: number | undefined;
@@ -4573,7 +4573,7 @@ export declare const AnimeBody: z.ZodEffects<z.ZodObject<{
                 value: string;
                 name: string;
             }[] | undefined;
-            pubDate?: {
+            releaseDate?: {
                 year?: string | number | undefined;
                 month?: string | number | undefined;
                 day?: string | number | undefined;
@@ -5946,7 +5946,7 @@ export declare const AnimeCreateBody: z.ZodObject<z.objectUtil.extendShape<{
                     alias?: string[] | undefined;
                 }>;
                 type: z.ZodEnum<("OPENING" | "ENDING" | "BGM" | "INSERT")[] & [string, ...string[]]>;
-                pubDate: z.ZodOptional<z.ZodObject<{
+                releaseDate: z.ZodOptional<z.ZodObject<{
                     year: z.ZodOptional<z.ZodOptional<z.ZodEffects<z.ZodUnion<[z.ZodNumber, z.ZodString]>, number, string | number>>>;
                     month: z.ZodOptional<z.ZodOptional<z.ZodEffects<z.ZodUnion<[z.ZodNumber, z.ZodString]>, number, string | number>>>;
                     day: z.ZodOptional<z.ZodOptional<z.ZodEffects<z.ZodUnion<[z.ZodNumber, z.ZodString]>, number, string | number>>>;
@@ -6274,7 +6274,7 @@ export declare const AnimeCreateBody: z.ZodObject<z.objectUtil.extendShape<{
                     value: string;
                     name: string;
                 }[] | undefined;
-                pubDate?: {
+                releaseDate?: {
                     year?: number | undefined;
                     month?: number | undefined;
                     day?: number | undefined;
@@ -6341,7 +6341,7 @@ export declare const AnimeCreateBody: z.ZodObject<z.objectUtil.extendShape<{
                     value: string;
                     name: string;
                 }[] | undefined;
-                pubDate?: {
+                releaseDate?: {
                     year?: string | number | undefined;
                     month?: string | number | undefined;
                     day?: string | number | undefined;
@@ -6411,7 +6411,7 @@ export declare const AnimeCreateBody: z.ZodObject<z.objectUtil.extendShape<{
                     value: string;
                     name: string;
                 }[] | undefined;
-                pubDate?: {
+                releaseDate?: {
                     year?: number | undefined;
                     month?: number | undefined;
                     day?: number | undefined;
@@ -6481,7 +6481,7 @@ export declare const AnimeCreateBody: z.ZodObject<z.objectUtil.extendShape<{
                     value: string;
                     name: string;
                 }[] | undefined;
-                pubDate?: {
+                releaseDate?: {
                     year?: string | number | undefined;
                     month?: string | number | undefined;
                     day?: string | number | undefined;
@@ -6775,7 +6775,7 @@ export declare const AnimeCreateBody: z.ZodObject<z.objectUtil.extendShape<{
                     value: string;
                     name: string;
                 }[] | undefined;
-                pubDate?: {
+                releaseDate?: {
                     year?: number | undefined;
                     month?: number | undefined;
                     day?: number | undefined;
@@ -7069,7 +7069,7 @@ export declare const AnimeCreateBody: z.ZodObject<z.objectUtil.extendShape<{
                     value: string;
                     name: string;
                 }[] | undefined;
-                pubDate?: {
+                releaseDate?: {
                     year?: string | number | undefined;
                     month?: string | number | undefined;
                     day?: string | number | undefined;
@@ -7363,7 +7363,7 @@ export declare const AnimeCreateBody: z.ZodObject<z.objectUtil.extendShape<{
                     value: string;
                     name: string;
                 }[] | undefined;
-                pubDate?: {
+                releaseDate?: {
                     year?: number | undefined;
                     month?: number | undefined;
                     day?: number | undefined;
@@ -7657,7 +7657,7 @@ export declare const AnimeCreateBody: z.ZodObject<z.objectUtil.extendShape<{
                     value: string;
                     name: string;
                 }[] | undefined;
-                pubDate?: {
+                releaseDate?: {
                     year?: string | number | undefined;
                     month?: string | number | undefined;
                     day?: string | number | undefined;
@@ -7953,7 +7953,7 @@ export declare const AnimeCreateBody: z.ZodObject<z.objectUtil.extendShape<{
                     value: string;
                     name: string;
                 }[] | undefined;
-                pubDate?: {
+                releaseDate?: {
                     year?: number | undefined;
                     month?: number | undefined;
                     day?: number | undefined;
@@ -8251,7 +8251,7 @@ export declare const AnimeCreateBody: z.ZodObject<z.objectUtil.extendShape<{
                     value: string;
                     name: string;
                 }[] | undefined;
-                pubDate?: {
+                releaseDate?: {
                     year?: string | number | undefined;
                     month?: string | number | undefined;
                     day?: string | number | undefined;
@@ -8550,7 +8550,7 @@ export declare const AnimeDataToZOD: (data: IAnime) => {
                 value: string;
                 name: string;
             }[] | undefined;
-            pubDate?: {
+            releaseDate?: {
                 year?: number | undefined;
                 month?: number | undefined;
                 day?: number | undefined;
@@ -8845,7 +8845,7 @@ export declare const AnimeDataToZOD: (data: IAnime) => {
                     value: string;
                     name: string;
                 }[] | undefined;
-                pubDate?: {
+                releaseDate?: {
                     year?: number | undefined;
                     month?: number | undefined;
                     day?: number | undefined;

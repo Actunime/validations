@@ -9,7 +9,7 @@ import { PatchParamsBody } from "./_patchZOD";
 export const TrackQueryBody = z.object({
   name: MediaTitleBody.partial(),
   type: z.enum(TrackTypeArray),
-  pubDate: z.optional(DateBody.partial()),
+  releaseDate: z.optional(DateBody.partial()),
   artists: PersonBody.partial(),
   cover: ImageBody.partial(),
   links: LinkBody.partial(),
@@ -22,7 +22,7 @@ const check = (v: number) => [-1, 1].includes(v);
 const checkErr = "le sort doit être soit -1 ou 1";
 export const TrackSortBody = z.object({
   type: zodNumber().refine(check, checkErr),
-  pubDate: zodNumber().refine(check, checkErr),
+  releaseDate: zodNumber().refine(check, checkErr),
   createdAt: zodNumber().refine(check, checkErr),
   updatedAt: zodNumber().refine(check, checkErr),
 })
@@ -48,7 +48,7 @@ export type ITrack_Pagination_ZOD = z.infer<typeof Track_Pagination_ZOD>;
 export const TrackBody = z.object({
   name: MediaTitleBody,
   type: z.enum(TrackTypeArray),
-  pubDate: z.optional(DateBody.partial()),
+  releaseDate: z.optional(DateBody.partial()),
   artists: z.optional(z.array(PersonAddBody)),
   cover: z.optional(Add_Image_ZOD),
   description: z.optional(z.string()),
@@ -76,7 +76,7 @@ export const TrackDataToZOD = (data: ITrack) => {
   const toZOD: ITrackBody = {
     name: data.name,
     type: data.type,
-    pubDate: data.pubDate,
+    releaseDate: data.releaseDate,
     cover: data.cover,
     artists: data.artists,
     description: data.description,
