@@ -1,3 +1,10 @@
+## [1.0.31](https://github.com/Actunime/validations/compare/v1.0.30...v1.0.31) (2025-03-18)
+
+
+### Bug Fixes
+
+* **track:** pubDate => releaseDate ([920697b](https://github.com/Actunime/validations/commit/920697b90e5ac63bc90103b6c6fc8508e64beaa4))
+
 ## [1.0.30](https://github.com/Actunime/validations/compare/v1.0.29...v1.0.30) (2025-03-17)
 
 
