@@ -1,3 +1,10 @@
+## [1.0.34](https://github.com/Actunime/validations/compare/v1.0.33...v1.0.34) (2025-03-25)
+
+
+### Bug Fixes
+
+* manga source id was optionnal ([99f1eeb](https://github.com/Actunime/validations/commit/99f1eeb56ccf6140fac3d8ae7bbf0b87fbe49d3a))
+
 ## [1.0.33](https://github.com/Actunime/validations/compare/v1.0.32...v1.0.33) (2025-03-25)
 
 
