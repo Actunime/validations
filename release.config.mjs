@@ -5,7 +5,7 @@ export default {
     branches: [
         "main"
     ],
-    repositoryUrl: "https://github.com/Actunime/types",
+    repositoryUrl: "https://github.com/Actunime/validations",
     plugins: [
         "@semantic-release/commit-analyzer",
         "@semantic-release/release-notes-generator",
