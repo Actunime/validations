@@ -1,52 +1,46 @@
-"use strict";
-Object.defineProperty(exports, "__esModule", { value: true });
-exports.Update_Action_ZOD = exports.Update_Pagination_ZOD = void 0;
-const types_1 = require("@actunime/types");
-const zod_1 = require("zod");
-const _util_1 = require("./_util");
-exports.Update_Pagination_ZOD = zod_1.z
+import { PatchStatusArray, PatchTypeArray, TargetPathArray, } from "@actunime/types";
+import { z } from "zod";
+import { zodNumber } from "./_util";
+export const Update_Pagination_ZOD = z
     .object({
-    page: (0, _util_1.zodNumber)(),
-    limit: (0, _util_1.zodNumber)(),
-    strict: zod_1.z.boolean().optional(),
-    sort: zod_1.z
+    page: zodNumber(),
+    limit: zodNumber(),
+    strict: z.boolean().optional(),
+    sort: z
         .object({
-        updaptedAt: zod_1.z.enum(["DESC", "ASC"]).optional(),
-        createdAt: zod_1.z.enum(["DESC", "ASC"]).optional(),
+        updaptedAt: z.enum(["DESC", "ASC"]).optional(),
+        createdAt: z.enum(["DESC", "ASC"]).optional(),
     })
         .partial()
         .strict(),
-    query: zod_1.z
+    query: z
         .object({
-        target: zod_1.z.optional(zod_1.z.string()),
-        targetPath: zod_1.z.optional(zod_1.z.union([zod_1.z.enum(types_1.TargetPathArray), zod_1.z.array(zod_1.z.enum(types_1.TargetPathArray))])),
-        author: zod_1.z.optional(zod_1.z.string()),
-        status: zod_1.z.optional(zod_1.z.union([
-            zod_1.z.array(zod_1.z.enum(types_1.PatchStatusArray)),
-            zod_1.z.enum(types_1.PatchStatusArray),
+        target: z.optional(z.string()),
+        targetPath: z.optional(z.union([z.enum(TargetPathArray), z.array(z.enum(TargetPathArray))])),
+        author: z.optional(z.string()),
+        status: z.optional(z.union([
+            z.array(z.enum(PatchStatusArray)),
+            z.enum(PatchStatusArray),
         ])),
-        // actionLabel: z.optional(z.enum(PatchActionArray)),
-        actionUser: zod_1.z.optional(zod_1.z.string()),
-        type: zod_1.z.optional(zod_1.z.union([zod_1.z.enum(types_1.TargetPathArray), zod_1.z.array(zod_1.z.enum(types_1.PatchTypeArray))])),
-        ref: zod_1.z.optional(zod_1.z.string()),
+        actionUser: z.optional(z.string()),
+        type: z.optional(z.union([z.enum(TargetPathArray), z.array(z.enum(PatchTypeArray))])),
+        ref: z.optional(z.string()),
     })
         .partial()
         .strict(),
-    with: zod_1.z
+    with: z
         .object({
-        author: zod_1.z.boolean().optional(),
-        target: zod_1.z.boolean().optional(),
-        actions: zod_1.z.boolean().optional(),
-        ref: zod_1.z.boolean().optional(),
+        author: z.boolean().optional(),
+        target: z.boolean().optional(),
+        actions: z.boolean().optional(),
+        ref: z.boolean().optional(),
     })
         .partial()
         .strict(),
 })
     .partial()
     .strict();
-exports.Update_Action_ZOD = zod_1.z.object({
-    // label: z.enum(PatchActionArray),
-    note: zod_1.z.string(),
-    changes: zod_1.z.any().optional(),
+export const Update_Action_ZOD = z.object({
+    note: z.string(),
+    changes: z.any().optional(),
 });
-//# sourceMappingURL=_updateZOD.js.map

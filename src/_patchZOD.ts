@@ -6,7 +6,6 @@ import {
   PatchStatusArray,
   PatchTypeArray,
 } from "@actunime/types";
-import { MediaDeleteBody } from "./_media";
 
 export const PatchQueryBody = z.object({
   id: z.string(),

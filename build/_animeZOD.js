@@ -1,95 +1,79 @@
-"use strict";
-Object.defineProperty(exports, "__esModule", { value: true });
-exports.AnimeDataToZOD = exports.AnimeCreateBody = exports.AnimeBody = exports.Anime_Pagination_ZOD = exports.AnimePaginationBody = exports.AnimeSortBody = exports.AnimeQueryBody = exports.Add_Anime_ZOD = void 0;
-const types_1 = require("@actunime/types");
-const zod_1 = require("zod");
-const _characterZOD_1 = require("./_characterZOD");
-const _companyZOD_1 = require("./_companyZOD");
-const _groupeZOD_1 = require("./_groupeZOD");
-const _mangaZOD_1 = require("./_mangaZOD");
-const _media_1 = require("./_media");
-const _personZOD_1 = require("./_personZOD");
-const _trackZOD_1 = require("./_trackZOD");
-const _util_1 = require("./_util");
-const _imageZOD_1 = require("./_imageZOD");
-const _patchZOD_1 = require("./_patchZOD");
-const AnimeEpisodeBody = zod_1.z.object({
-    airing: zod_1.z.number(),
-    nextAiringDate: zod_1.z.optional(_media_1.DateBody.partial()),
-    total: zod_1.z.number(),
-    durationMinutes: zod_1.z.number(),
+import { z } from 'zod';
+import { CharacterAddBody } from './_characterZOD';
+import { CompanyAddBody } from './_companyZOD';
+import { GroupeAddBody } from './_groupeZOD';
+import { MangaAddBody } from './_mangaZOD';
+import { DateBody, MediaDateBody, MediaDateSortBody, MediaLinkBody, MediaTitleBody, YoutubeURLStringBody, } from './_media';
+import { PersonAddBody } from './_personZOD';
+import { TrackAddBody } from './_trackZOD';
+import { PaginationBody, zodBoolean } from './_util';
+import { ImageAddBody } from './_imageZOD';
+import { PatchParamsBody } from './_patchZOD';
+import { AnimeFormatArray, MediaGenresArray, MediaParentLabelArray, MediaSourceArray, MediaStatusArray, MediaStatusObj, } from '@actunime/types';
+const AnimeEpisodeBody = z.object({
+    airing: z.number(),
+    nextAiringDate: z.optional(DateBody.partial()),
+    total: z.number(),
+    durationMinutes: z.number(),
 });
-exports.Add_Anime_ZOD = zod_1.z.object({
-    id: zod_1.z.string(),
-    parentLabel: zod_1.z.optional(zod_1.z.enum(types_1.MediaParentLabelArray)),
-});
-// Définir une regex pour les URL de vidéos YouTube
-const youtubeUrlRegex = /^(https?:\/\/)?(www\.)?(youtube\.com|youtu\.?be)\/.+$/;
-// Créer un schéma Zod pour valider les URL YouTube
-const youtubeUrlSchema = zod_1.z.string().regex(youtubeUrlRegex, {
-    message: "L'URL doit être une URL de vidéo YouTube valide."
-});
-exports.AnimeQueryBody = zod_1.z.object({
-    title: _media_1.MediaTitleBody.partial(),
-    date: _media_1.MediaDateBody.partial(),
-    format: zod_1.z.enum(types_1.AnimeFormatArray),
-    vf: zod_1.z.boolean(),
-    genres: zod_1.z.array(zod_1.z.enum(types_1.MediaGenresArray)),
-    status: zod_1.z.enum(types_1.MediaStatusArray),
-    trailer: youtubeUrlSchema,
+export const AnimeQueryBody = z.object({
+    title: MediaTitleBody.partial(),
+    date: MediaDateBody.partial(),
+    format: z.enum(AnimeFormatArray),
+    vf: z.boolean(),
+    genres: z.array(z.enum(MediaGenresArray)),
+    status: z.enum(MediaStatusArray),
+    trailer: YoutubeURLStringBody,
     episodes: AnimeEpisodeBody.partial(),
-    adult: zod_1.z.boolean(),
-    explicit: zod_1.z.boolean(),
-    links: _media_1.LinkBody.partial(),
-    createdAt: zod_1.z.string(),
-    updatedAt: zod_1.z.string(),
+    adult: z.boolean(),
+    explicit: z.boolean(),
+    links: MediaLinkBody.partial(),
+    createdAt: z.string(),
+    updatedAt: z.string(),
 });
 const check = (v) => [-1, 1].includes(v);
-const checkErr = "le sort doit être soit -1 ou 1";
-exports.AnimeSortBody = zod_1.z.object({
-    vf: zod_1.z.number().refine(check, checkErr),
-    status: zod_1.z.number().refine(check, checkErr),
-    adult: zod_1.z.number().refine(check, checkErr),
-    date: _media_1.MediaDateSortBody,
-    explicit: zod_1.z.number().refine(check, checkErr),
-    createdAt: zod_1.z.number().refine(check, checkErr),
-    updatedAt: zod_1.z.number().refine(check, checkErr),
+const checkErr = 'le sort doit être soit -1 ou 1';
+export const AnimeSortBody = z.object({
+    vf: z.number().refine(check, checkErr),
+    status: z.number().refine(check, checkErr),
+    adult: z.number().refine(check, checkErr),
+    date: MediaDateSortBody,
+    explicit: z.number().refine(check, checkErr),
+    createdAt: z.number().refine(check, checkErr),
+    updatedAt: z.number().refine(check, checkErr),
 });
-exports.AnimePaginationBody = _util_1.PaginationBody.extend({
-    sort: exports.AnimeSortBody.partial(),
-    query: exports.AnimeQueryBody.partial()
+export const AnimePaginationBody = PaginationBody.extend({
+    sort: AnimeSortBody.partial(),
+    query: AnimeQueryBody.partial(),
 });
-exports.Anime_Pagination_ZOD = zod_1.z.object({
-    page: zod_1.z.number(),
-    limit: zod_1.z.number(),
-    strict: zod_1.z.boolean(),
-    sort: exports.AnimeSortBody.partial(),
-    query: exports.AnimeQueryBody.partial()
+export const AnimeAddBody = z.object({
+    id: z.string(),
+    parentLabel: z.optional(z.enum(MediaParentLabelArray)),
 });
-exports.AnimeBody = zod_1.z.object({
-    groupe: _groupeZOD_1.GroupeAddBody,
-    parent: zod_1.z.optional(exports.Add_Anime_ZOD.partial()),
-    manga: zod_1.z.optional(_mangaZOD_1.MangaAddBody.partial()),
-    source: zod_1.z.enum(types_1.MediaSourceArray),
-    title: _media_1.MediaTitleBody,
-    date: zod_1.z.optional(_media_1.MediaDateBody.partial()),
-    cover: zod_1.z.optional(_imageZOD_1.Add_Image_ZOD.partial()),
-    banner: zod_1.z.optional(_imageZOD_1.Add_Image_ZOD.partial()),
-    synopsis: zod_1.z.optional(zod_1.z.string()),
-    format: zod_1.z.enum(types_1.AnimeFormatArray),
-    vf: zod_1.z.optional((0, _util_1.zodBoolean)()),
-    genres: zod_1.z.optional(zod_1.z.array(zod_1.z.enum(types_1.MediaGenresArray))),
-    // themes: z.optional(z.array(z.string())),
-    status: zod_1.z.enum(types_1.MediaStatusArray),
-    trailer: zod_1.z.optional(youtubeUrlSchema),
-    episodes: zod_1.z.optional(AnimeEpisodeBody.partial()),
-    adult: (0, _util_1.zodBoolean)(),
-    explicit: (0, _util_1.zodBoolean)(),
-    links: zod_1.z.optional(zod_1.z.array(_media_1.Create_Link_ZOD)),
-    companys: zod_1.z.optional(zod_1.z.array(_companyZOD_1.CompanyAddBody)),
-    staffs: zod_1.z.optional(zod_1.z.array(_personZOD_1.PersonAddBody)),
-    characters: zod_1.z.optional(zod_1.z.array(_characterZOD_1.CharacterAddBody)),
-    tracks: zod_1.z.optional(zod_1.z.array(_trackZOD_1.TrackAddBody)),
+export const AnimeBody = z
+    .object({
+    groupe: GroupeAddBody,
+    parent: z.optional(AnimeAddBody),
+    manga: z.optional(MangaAddBody.partial()),
+    source: z.optional(z.enum(MediaSourceArray)),
+    title: MediaTitleBody,
+    date: z.optional(MediaDateBody.partial()),
+    cover: z.optional(ImageAddBody.partial()),
+    banner: z.optional(ImageAddBody.partial()),
+    synopsis: z.optional(z.string()),
+    format: z.enum(AnimeFormatArray),
+    vf: z.optional(zodBoolean()),
+    genres: z.optional(z.array(z.enum(MediaGenresArray))),
+    status: z.enum(MediaStatusArray),
+    trailer: z.optional(YoutubeURLStringBody),
+    episodes: z.optional(AnimeEpisodeBody.partial()),
+    adult: zodBoolean(),
+    explicit: zodBoolean(),
+    links: z.optional(z.array(MediaLinkBody)),
+    companys: z.optional(z.array(CompanyAddBody)),
+    staffs: z.optional(z.array(PersonAddBody)),
+    characters: z.optional(z.array(CharacterAddBody)),
+    tracks: z.optional(z.array(TrackAddBody)),
 })
     .strict()
     .refine((data) => {
@@ -98,9 +82,9 @@ exports.AnimeBody = zod_1.z.object({
             return false;
         }
     }
-    let status = data.status;
+    const status = data.status;
     if (status) {
-        if (["AIRING", "PAUSED"].includes(status)) {
+        if (['AIRING', 'PAUSED'].includes(status)) {
             if (!data.date?.start) {
                 return false;
             }
@@ -111,7 +95,7 @@ exports.AnimeBody = zod_1.z.object({
                 return false;
             }
         }
-        if (["ENDED", "STOPPED"].includes(status)) {
+        if (['ENDED', 'STOPPED'].includes(status)) {
             if (!data.episodes?.airing) {
                 return false;
             }
@@ -125,7 +109,7 @@ exports.AnimeBody = zod_1.z.object({
                 return false;
             }
         }
-        if (["POSTPONED"].includes(status)) {
+        if (['POSTPONED'].includes(status)) {
             if (!data.date?.start) {
                 return false;
             }
@@ -136,80 +120,81 @@ exports.AnimeBody = zod_1.z.object({
     if (data.parent?.id) {
         if (!data.parent?.parentLabel) {
             return {
-                message: "Ce champ est obligatoire si vous avez spécifié un parent.",
-                path: ["parentLabel"],
+                message: 'Ce champ est obligatoire si vous avez spécifié un parent.',
+                path: ['parentLabel'],
             };
         }
     }
-    let status = data.status;
-    let message = `Le statut spécifié est: "${types_1.MediaStatusObj[status].label}", alors remplir ce champ est obligatoire !`;
+    const status = data.status;
+    const message = `Le statut spécifié est: "${MediaStatusObj[status].label}", alors remplir ce champ est obligatoire !`;
     if (status) {
-        if (["AIRING", "PAUSED"].includes(status)) {
+        if (['AIRING', 'PAUSED'].includes(status)) {
             if (!data.date?.start) {
                 return {
                     message,
-                    path: ["date.start"],
+                    path: ['date.start'],
                 };
             }
             if (!data.episodes?.airing) {
                 return {
                     message,
-                    path: ["episodes.airing"],
+                    path: ['episodes.airing'],
                 };
             }
             if (!data.episodes?.nextAiringDate) {
                 return {
                     message,
-                    path: ["episodes.nextAiringDate"],
+                    path: ['episodes.nextAiringDate'],
                 };
             }
         }
-        if (["ENDED", "STOPPED"].includes(status)) {
+        if (['ENDED', 'STOPPED'].includes(status)) {
             if (!data.episodes?.airing) {
                 return {
                     message,
-                    path: ["episodes.airing"],
+                    path: ['episodes.airing'],
                 };
             }
             if (!data.episodes?.total) {
                 return {
                     message,
-                    path: ["episodes.total"],
+                    path: ['episodes.total'],
                 };
             }
             if (!data.date?.start) {
                 return {
                     message,
-                    path: ["date.start"],
+                    path: ['date.start'],
                 };
             }
             if (!data.date?.end) {
                 return {
                     message,
-                    path: ["date.end"],
+                    path: ['date.end'],
                 };
             }
         }
-        if (["POSTPONED"].includes(status)) {
+        if (['POSTPONED'].includes(status)) {
             if (!data.date?.start) {
                 return {
                     message,
-                    path: ["date.start"],
+                    path: ['date.start'],
                 };
             }
         }
     }
     return {
-        message: "Nous avons un problème.",
-        path: ["CreateAnime"],
+        message: 'Nous avons un problème.',
+        path: ['CreateAnime'],
     };
 });
-exports.AnimeCreateBody = _patchZOD_1.PatchParamsBody.partial()
-    .extend({ data: exports.AnimeBody });
-const AnimeDataToZOD = (data) => {
+export const AnimeCreateBody = PatchParamsBody.partial().extend({
+    data: AnimeBody,
+});
+export const AnimeDataToZOD = (data) => {
     if (!data)
         return;
-    let toZOD = {
+    const toZOD = {
         groupe: data.groupe,
         parent: data.parent,
         source: data.source,
@@ -232,10 +217,8 @@ const AnimeDataToZOD = (data) => {
         characters: data.characters,
         tracks: data.tracks,
     };
-    let safeParse = exports.AnimeCreateBody.safeParse({ data: toZOD });
+    const safeParse = AnimeCreateBody.safeParse({ data: toZOD });
     if (safeParse.success)
         return safeParse.data;
     return toZOD;
 };
-exports.AnimeDataToZOD = AnimeDataToZOD;
-//# sourceMappingURL=_animeZOD.js.map

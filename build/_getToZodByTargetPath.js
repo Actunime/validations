@@ -1,30 +1,26 @@
-"use strict";
-Object.defineProperty(exports, "__esModule", { value: true });
-exports.TargetPathZodResolver = exports.TargetPathToZod = void 0;
-const _mangaZOD_1 = require("./_mangaZOD");
-const _animeZOD_1 = require("./_animeZOD");
-const _personZOD_1 = require("./_personZOD");
-const _characterZOD_1 = require("./_characterZOD");
-const _trackZOD_1 = require("./_trackZOD");
-const _companyZOD_1 = require("./_companyZOD");
-const _groupeZOD_1 = require("./_groupeZOD");
-exports.TargetPathToZod = {
-    Groupe: _groupeZOD_1.GroupeDataToZOD,
-    Manga: _mangaZOD_1.MangaDataToZOD,
-    Anime: _animeZOD_1.AnimeDataToZOD,
-    Person: _personZOD_1.PersonDataToZOD,
-    Character: _characterZOD_1.CharacterDataToZOD,
-    Track: _trackZOD_1.TrackDataToZOD,
-    Company: _companyZOD_1.CompanyDataToZOD,
+import { MangaBody, MangaDataToZOD } from "./_mangaZOD";
+import { AnimeBody, AnimeDataToZOD } from "./_animeZOD";
+import { PersonBody, PersonDataToZOD } from "./_personZOD";
+import { CharacterDataToZOD, CharacterBody } from "./_characterZOD";
+import { TrackBody, TrackDataToZOD } from "./_trackZOD";
+import { CompanyDataToZOD, CompanyBody } from "./_companyZOD";
+import { GroupeDataToZOD } from "./_groupeZOD";
+export const TargetPathToZod = {
+    Groupe: GroupeDataToZOD,
+    Manga: MangaDataToZOD,
+    Anime: AnimeDataToZOD,
+    Person: PersonDataToZOD,
+    Character: CharacterDataToZOD,
+    Track: TrackDataToZOD,
+    Company: CompanyDataToZOD,
     ...{},
 };
-exports.TargetPathZodResolver = {
-    Anime: _animeZOD_1.AnimeBody,
-    Manga: _mangaZOD_1.MangaBody,
-    Character: _characterZOD_1.CharacterBody,
-    Person: _personZOD_1.PersonBody,
-    Company: _companyZOD_1.CompanyBody,
-    Track: _trackZOD_1.TrackBody,
+export const TargetPathZodResolver = {
+    Anime: AnimeBody,
+    Manga: MangaBody,
+    Character: CharacterBody,
+    Person: PersonBody,
+    Company: CompanyBody,
+    Track: TrackBody,
     ...{},
 };
-//# sourceMappingURL=_getToZodByTargetPath.js.map

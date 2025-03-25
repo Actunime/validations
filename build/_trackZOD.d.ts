@@ -1,5 +1,5 @@
-import { ITrack } from "@actunime/types";
-import { z } from "zod";
+import { ITrack } from '@actunime/types';
+import { z } from 'zod';
 export declare const TrackQueryBody: z.ZodObject<{
     name: z.ZodObject<{
         default: z.ZodOptional<z.ZodString>;
@@ -105,15 +105,15 @@ export declare const TrackQueryBody: z.ZodObject<{
                 label: "COVER" | "BANNER" | "AVATAR" | "LOGO";
             }>>;
         }, "strip", z.ZodTypeAny, {
-            id?: string | undefined;
             label?: "COVER" | "BANNER" | "AVATAR" | "LOGO" | undefined;
+            id?: string | undefined;
             newImage?: {
                 value: string;
                 label: "COVER" | "BANNER" | "AVATAR" | "LOGO";
             } | undefined;
         }, {
-            id?: string | undefined;
             label?: "COVER" | "BANNER" | "AVATAR" | "LOGO" | undefined;
+            id?: string | undefined;
             newImage?: {
                 value: string;
                 label: "COVER" | "BANNER" | "AVATAR" | "LOGO";
@@ -121,7 +121,7 @@ export declare const TrackQueryBody: z.ZodObject<{
         }>>>;
         links: z.ZodOptional<z.ZodOptional<z.ZodArray<z.ZodObject<{
             name: z.ZodString;
-            value: z.ZodEffects<z.ZodString, string, string>;
+            value: z.ZodString;
         }, "strip", z.ZodTypeAny, {
             value: string;
             name: string;
@@ -130,12 +130,11 @@ export declare const TrackQueryBody: z.ZodObject<{
             name: string;
         }>, "many">>>;
     }, "strict", z.ZodTypeAny, {
+        isGroupe?: boolean | undefined;
         name?: {
             default: string;
             alias?: string[] | undefined;
         } | undefined;
-        description?: string | undefined;
-        isGroupe?: boolean | undefined;
         birthDate?: {
             year?: number | undefined;
             month?: number | undefined;
@@ -153,8 +152,8 @@ export declare const TrackQueryBody: z.ZodObject<{
             seconds?: number | undefined;
         } | undefined;
         avatar?: {
-            id?: string | undefined;
             label?: "COVER" | "BANNER" | "AVATAR" | "LOGO" | undefined;
+            id?: string | undefined;
             newImage?: {
                 value: string;
                 label: "COVER" | "BANNER" | "AVATAR" | "LOGO";
@@ -164,13 +163,13 @@ export declare const TrackQueryBody: z.ZodObject<{
             value: string;
             name: string;
         }[] | undefined;
+        description?: string | undefined;
     }, {
+        isGroupe?: boolean | undefined;
         name?: {
             default: string;
             alias?: string[] | undefined;
         } | undefined;
-        description?: string | undefined;
-        isGroupe?: boolean | undefined;
         birthDate?: {
             year?: string | number | undefined;
             month?: string | number | undefined;
@@ -188,8 +187,8 @@ export declare const TrackQueryBody: z.ZodObject<{
             seconds?: string | number | undefined;
         } | undefined;
         avatar?: {
-            id?: string | undefined;
             label?: "COVER" | "BANNER" | "AVATAR" | "LOGO" | undefined;
+            id?: string | undefined;
             newImage?: {
                 value: string;
                 label: "COVER" | "BANNER" | "AVATAR" | "LOGO";
@@ -199,20 +198,21 @@ export declare const TrackQueryBody: z.ZodObject<{
             value: string;
             name: string;
         }[] | undefined;
+        description?: string | undefined;
     }>;
     cover: z.ZodObject<{
-        id: z.ZodOptional<z.ZodString>;
         label: z.ZodOptional<z.ZodEnum<("COVER" | "BANNER" | "AVATAR" | "LOGO")[] & [string, ...string[]]>>;
+        value: z.ZodOptional<z.ZodString>;
     }, "strip", z.ZodTypeAny, {
-        id?: string | undefined;
+        value?: string | undefined;
         label?: "COVER" | "BANNER" | "AVATAR" | "LOGO" | undefined;
     }, {
-        id?: string | undefined;
+        value?: string | undefined;
         label?: "COVER" | "BANNER" | "AVATAR" | "LOGO" | undefined;
     }>;
     links: z.ZodObject<{
-        name: z.ZodOptional<z.ZodDefault<z.ZodString>>;
-        value: z.ZodOptional<z.ZodDefault<z.ZodString>>;
+        name: z.ZodOptional<z.ZodString>;
+        value: z.ZodOptional<z.ZodString>;
     }, "strip", z.ZodTypeAny, {
         value?: string | undefined;
         name?: string | undefined;
@@ -225,28 +225,27 @@ export declare const TrackQueryBody: z.ZodObject<{
     updatedAt: z.ZodString;
 }, "strip", z.ZodTypeAny, {
     type: "OPENING" | "ENDING" | "BGM" | "INSERT";
-    cover: {
-        id?: string | undefined;
-        label?: "COVER" | "BANNER" | "AVATAR" | "LOGO" | undefined;
-    };
     name: {
         default?: string | undefined;
         alias?: string[] | undefined;
     };
-    createdAt: string;
-    updatedAt: string;
-    description: string;
     links: {
         value?: string | undefined;
         name?: string | undefined;
     };
+    createdAt: string;
+    updatedAt: string;
+    description: string;
+    cover: {
+        value?: string | undefined;
+        label?: "COVER" | "BANNER" | "AVATAR" | "LOGO" | undefined;
+    };
     artists: {
+        isGroupe?: boolean | undefined;
         name?: {
             default: string;
             alias?: string[] | undefined;
         } | undefined;
-        description?: string | undefined;
-        isGroupe?: boolean | undefined;
         birthDate?: {
             year?: number | undefined;
             month?: number | undefined;
@@ -264,8 +263,8 @@ export declare const TrackQueryBody: z.ZodObject<{
             seconds?: number | undefined;
         } | undefined;
         avatar?: {
-            id?: string | undefined;
             label?: "COVER" | "BANNER" | "AVATAR" | "LOGO" | undefined;
+            id?: string | undefined;
             newImage?: {
                 value: string;
                 label: "COVER" | "BANNER" | "AVATAR" | "LOGO";
@@ -275,6 +274,7 @@ export declare const TrackQueryBody: z.ZodObject<{
             value: string;
             name: string;
         }[] | undefined;
+        description?: string | undefined;
     };
     releaseDate?: {
         year?: number | undefined;
@@ -286,28 +286,27 @@ export declare const TrackQueryBody: z.ZodObject<{
     } | undefined;
 }, {
     type: "OPENING" | "ENDING" | "BGM" | "INSERT";
-    cover: {
-        id?: string | undefined;
-        label?: "COVER" | "BANNER" | "AVATAR" | "LOGO" | undefined;
-    };
     name: {
         default?: string | undefined;
         alias?: string[] | undefined;
     };
-    createdAt: string;
-    updatedAt: string;
-    description: string;
     links: {
         value?: string | undefined;
         name?: string | undefined;
     };
+    createdAt: string;
+    updatedAt: string;
+    description: string;
+    cover: {
+        value?: string | undefined;
+        label?: "COVER" | "BANNER" | "AVATAR" | "LOGO" | undefined;
+    };
     artists: {
+        isGroupe?: boolean | undefined;
         name?: {
             default: string;
             alias?: string[] | undefined;
         } | undefined;
-        description?: string | undefined;
-        isGroupe?: boolean | undefined;
         birthDate?: {
             year?: string | number | undefined;
             month?: string | number | undefined;
@@ -325,8 +324,8 @@ export declare const TrackQueryBody: z.ZodObject<{
             seconds?: string | number | undefined;
         } | undefined;
         avatar?: {
-            id?: string | undefined;
             label?: "COVER" | "BANNER" | "AVATAR" | "LOGO" | undefined;
+            id?: string | undefined;
             newImage?: {
                 value: string;
                 label: "COVER" | "BANNER" | "AVATAR" | "LOGO";
@@ -336,6 +335,7 @@ export declare const TrackQueryBody: z.ZodObject<{
             value: string;
             name: string;
         }[] | undefined;
+        description?: string | undefined;
     };
     releaseDate?: {
         year?: string | number | undefined;
@@ -488,15 +488,15 @@ export declare const TrackPaginationBody: z.ZodObject<{
                     label: "COVER" | "BANNER" | "AVATAR" | "LOGO";
                 }>>;
             }, "strip", z.ZodTypeAny, {
-                id?: string | undefined;
                 label?: "COVER" | "BANNER" | "AVATAR" | "LOGO" | undefined;
+                id?: string | undefined;
                 newImage?: {
                     value: string;
                     label: "COVER" | "BANNER" | "AVATAR" | "LOGO";
                 } | undefined;
             }, {
-                id?: string | undefined;
                 label?: "COVER" | "BANNER" | "AVATAR" | "LOGO" | undefined;
+                id?: string | undefined;
                 newImage?: {
                     value: string;
                     label: "COVER" | "BANNER" | "AVATAR" | "LOGO";
@@ -504,7 +504,7 @@ export declare const TrackPaginationBody: z.ZodObject<{
             }>>>;
             links: z.ZodOptional<z.ZodOptional<z.ZodArray<z.ZodObject<{
                 name: z.ZodString;
-                value: z.ZodEffects<z.ZodString, string, string>;
+                value: z.ZodString;
             }, "strip", z.ZodTypeAny, {
                 value: string;
                 name: string;
@@ -513,12 +513,11 @@ export declare const TrackPaginationBody: z.ZodObject<{
                 name: string;
             }>, "many">>>;
         }, "strict", z.ZodTypeAny, {
+            isGroupe?: boolean | undefined;
             name?: {
                 default: string;
                 alias?: string[] | undefined;
             } | undefined;
-            description?: string | undefined;
-            isGroupe?: boolean | undefined;
             birthDate?: {
                 year?: number | undefined;
                 month?: number | undefined;
@@ -536,8 +535,8 @@ export declare const TrackPaginationBody: z.ZodObject<{
                 seconds?: number | undefined;
             } | undefined;
             avatar?: {
-                id?: string | undefined;
                 label?: "COVER" | "BANNER" | "AVATAR" | "LOGO" | undefined;
+                id?: string | undefined;
                 newImage?: {
                     value: string;
                     label: "COVER" | "BANNER" | "AVATAR" | "LOGO";
@@ -547,13 +546,13 @@ export declare const TrackPaginationBody: z.ZodObject<{
                 value: string;
                 name: string;
             }[] | undefined;
+            description?: string | undefined;
         }, {
+            isGroupe?: boolean | undefined;
             name?: {
                 default: string;
                 alias?: string[] | undefined;
             } | undefined;
-            description?: string | undefined;
-            isGroupe?: boolean | undefined;
             birthDate?: {
                 year?: string | number | undefined;
                 month?: string | number | undefined;
@@ -571,8 +570,8 @@ export declare const TrackPaginationBody: z.ZodObject<{
                 seconds?: string | number | undefined;
             } | undefined;
             avatar?: {
-                id?: string | undefined;
                 label?: "COVER" | "BANNER" | "AVATAR" | "LOGO" | undefined;
+                id?: string | undefined;
                 newImage?: {
                     value: string;
                     label: "COVER" | "BANNER" | "AVATAR" | "LOGO";
@@ -582,20 +581,21 @@ export declare const TrackPaginationBody: z.ZodObject<{
                 value: string;
                 name: string;
             }[] | undefined;
+            description?: string | undefined;
         }>>;
         cover: z.ZodOptional<z.ZodObject<{
-            id: z.ZodOptional<z.ZodString>;
             label: z.ZodOptional<z.ZodEnum<("COVER" | "BANNER" | "AVATAR" | "LOGO")[] & [string, ...string[]]>>;
+            value: z.ZodOptional<z.ZodString>;
         }, "strip", z.ZodTypeAny, {
-            id?: string | undefined;
+            value?: string | undefined;
             label?: "COVER" | "BANNER" | "AVATAR" | "LOGO" | undefined;
         }, {
-            id?: string | undefined;
+            value?: string | undefined;
             label?: "COVER" | "BANNER" | "AVATAR" | "LOGO" | undefined;
         }>>;
         links: z.ZodOptional<z.ZodObject<{
-            name: z.ZodOptional<z.ZodDefault<z.ZodString>>;
-            value: z.ZodOptional<z.ZodDefault<z.ZodString>>;
+            name: z.ZodOptional<z.ZodString>;
+            value: z.ZodOptional<z.ZodString>;
         }, "strip", z.ZodTypeAny, {
             value?: string | undefined;
             name?: string | undefined;
@@ -608,20 +608,20 @@ export declare const TrackPaginationBody: z.ZodObject<{
         updatedAt: z.ZodOptional<z.ZodString>;
     }, "strip", z.ZodTypeAny, {
         type?: "OPENING" | "ENDING" | "BGM" | "INSERT" | undefined;
-        cover?: {
-            id?: string | undefined;
-            label?: "COVER" | "BANNER" | "AVATAR" | "LOGO" | undefined;
-        } | undefined;
         name?: {
             default?: string | undefined;
             alias?: string[] | undefined;
         } | undefined;
-        createdAt?: string | undefined;
-        updatedAt?: string | undefined;
-        description?: string | undefined;
         links?: {
             value?: string | undefined;
             name?: string | undefined;
+        } | undefined;
+        createdAt?: string | undefined;
+        updatedAt?: string | undefined;
+        description?: string | undefined;
+        cover?: {
+            value?: string | undefined;
+            label?: "COVER" | "BANNER" | "AVATAR" | "LOGO" | undefined;
         } | undefined;
         releaseDate?: {
             year?: number | undefined;
@@ -632,12 +632,11 @@ export declare const TrackPaginationBody: z.ZodObject<{
             seconds?: number | undefined;
         } | undefined;
         artists?: {
+            isGroupe?: boolean | undefined;
             name?: {
                 default: string;
                 alias?: string[] | undefined;
             } | undefined;
-            description?: string | undefined;
-            isGroupe?: boolean | undefined;
             birthDate?: {
                 year?: number | undefined;
                 month?: number | undefined;
@@ -655,8 +654,8 @@ export declare const TrackPaginationBody: z.ZodObject<{
                 seconds?: number | undefined;
             } | undefined;
             avatar?: {
-                id?: string | undefined;
                 label?: "COVER" | "BANNER" | "AVATAR" | "LOGO" | undefined;
+                id?: string | undefined;
                 newImage?: {
                     value: string;
                     label: "COVER" | "BANNER" | "AVATAR" | "LOGO";
@@ -666,23 +665,24 @@ export declare const TrackPaginationBody: z.ZodObject<{
                 value: string;
                 name: string;
             }[] | undefined;
+            description?: string | undefined;
         } | undefined;
     }, {
         type?: "OPENING" | "ENDING" | "BGM" | "INSERT" | undefined;
-        cover?: {
-            id?: string | undefined;
-            label?: "COVER" | "BANNER" | "AVATAR" | "LOGO" | undefined;
-        } | undefined;
         name?: {
             default?: string | undefined;
             alias?: string[] | undefined;
         } | undefined;
-        createdAt?: string | undefined;
-        updatedAt?: string | undefined;
-        description?: string | undefined;
         links?: {
             value?: string | undefined;
             name?: string | undefined;
+        } | undefined;
+        createdAt?: string | undefined;
+        updatedAt?: string | undefined;
+        description?: string | undefined;
+        cover?: {
+            value?: string | undefined;
+            label?: "COVER" | "BANNER" | "AVATAR" | "LOGO" | undefined;
         } | undefined;
         releaseDate?: {
             year?: string | number | undefined;
@@ -693,12 +693,11 @@ export declare const TrackPaginationBody: z.ZodObject<{
             seconds?: string | number | undefined;
         } | undefined;
         artists?: {
+            isGroupe?: boolean | undefined;
             name?: {
                 default: string;
                 alias?: string[] | undefined;
             } | undefined;
-            description?: string | undefined;
-            isGroupe?: boolean | undefined;
             birthDate?: {
                 year?: string | number | undefined;
                 month?: string | number | undefined;
@@ -716,8 +715,8 @@ export declare const TrackPaginationBody: z.ZodObject<{
                 seconds?: string | number | undefined;
             } | undefined;
             avatar?: {
-                id?: string | undefined;
                 label?: "COVER" | "BANNER" | "AVATAR" | "LOGO" | undefined;
+                id?: string | undefined;
                 newImage?: {
                     value: string;
                     label: "COVER" | "BANNER" | "AVATAR" | "LOGO";
@@ -727,45 +726,46 @@ export declare const TrackPaginationBody: z.ZodObject<{
                 value: string;
                 name: string;
             }[] | undefined;
+            description?: string | undefined;
         } | undefined;
     }>>;
     from: z.ZodOptional<z.ZodObject<{
         id: z.ZodString;
-        path: z.ZodEnum<("User" | "Account" | "UserProfile" | "UserPreferences" | "UserAnimeListe" | "UserDeleteAnimeFromListe" | "Groupe" | "Manga" | "Anime" | "Person" | "Character" | "Track" | "Company" | "Image" | "Patch" | "Activity" | "Report" | "DisabledUser" | "PremiumUser")[] & [string, ...string[]]>;
+        path: z.ZodEnum<("User" | "Groupe" | "Manga" | "Anime" | "Person" | "Character" | "Track" | "Company" | "Image" | "Patch" | "Activity" | "Report")[] & [string, ...string[]]>;
     }, "strip", z.ZodTypeAny, {
-        path: "User" | "Account" | "UserProfile" | "UserPreferences" | "UserAnimeListe" | "UserDeleteAnimeFromListe" | "Groupe" | "Manga" | "Anime" | "Person" | "Character" | "Track" | "Company" | "Image" | "Patch" | "Activity" | "Report" | "DisabledUser" | "PremiumUser";
+        path: "User" | "Groupe" | "Manga" | "Anime" | "Person" | "Character" | "Track" | "Company" | "Image" | "Patch" | "Activity" | "Report";
         id: string;
     }, {
-        path: "User" | "Account" | "UserProfile" | "UserPreferences" | "UserAnimeListe" | "UserDeleteAnimeFromListe" | "Groupe" | "Manga" | "Anime" | "Person" | "Character" | "Track" | "Company" | "Image" | "Patch" | "Activity" | "Report" | "DisabledUser" | "PremiumUser";
+        path: "User" | "Groupe" | "Manga" | "Anime" | "Person" | "Character" | "Track" | "Company" | "Image" | "Patch" | "Activity" | "Report";
         id: string;
     }>>;
 }, "strip", z.ZodTypeAny, {
-    page?: number | undefined;
-    limit?: number | undefined;
-    strict?: boolean | undefined;
-    onlyVerified?: boolean | undefined;
     sort?: {
         type?: number | undefined;
         createdAt?: number | undefined;
         updatedAt?: number | undefined;
         releaseDate?: number | undefined;
     } | undefined;
+    page?: number | undefined;
+    limit?: number | undefined;
+    strict?: boolean | undefined;
+    onlyVerified?: boolean | undefined;
     query?: {
         type?: "OPENING" | "ENDING" | "BGM" | "INSERT" | undefined;
-        cover?: {
-            id?: string | undefined;
-            label?: "COVER" | "BANNER" | "AVATAR" | "LOGO" | undefined;
-        } | undefined;
         name?: {
             default?: string | undefined;
             alias?: string[] | undefined;
         } | undefined;
-        createdAt?: string | undefined;
-        updatedAt?: string | undefined;
-        description?: string | undefined;
         links?: {
             value?: string | undefined;
             name?: string | undefined;
+        } | undefined;
+        createdAt?: string | undefined;
+        updatedAt?: string | undefined;
+        description?: string | undefined;
+        cover?: {
+            value?: string | undefined;
+            label?: "COVER" | "BANNER" | "AVATAR" | "LOGO" | undefined;
         } | undefined;
         releaseDate?: {
             year?: number | undefined;
@@ -776,12 +776,11 @@ export declare const TrackPaginationBody: z.ZodObject<{
             seconds?: number | undefined;
         } | undefined;
         artists?: {
+            isGroupe?: boolean | undefined;
             name?: {
                 default: string;
                 alias?: string[] | undefined;
             } | undefined;
-            description?: string | undefined;
-            isGroupe?: boolean | undefined;
             birthDate?: {
                 year?: number | undefined;
                 month?: number | undefined;
@@ -799,8 +798,8 @@ export declare const TrackPaginationBody: z.ZodObject<{
                 seconds?: number | undefined;
             } | undefined;
             avatar?: {
-                id?: string | undefined;
                 label?: "COVER" | "BANNER" | "AVATAR" | "LOGO" | undefined;
+                id?: string | undefined;
                 newImage?: {
                     value: string;
                     label: "COVER" | "BANNER" | "AVATAR" | "LOGO";
@@ -810,39 +809,40 @@ export declare const TrackPaginationBody: z.ZodObject<{
                 value: string;
                 name: string;
             }[] | undefined;
+            description?: string | undefined;
         } | undefined;
     } | undefined;
     from?: {
-        path: "User" | "Account" | "UserProfile" | "UserPreferences" | "UserAnimeListe" | "UserDeleteAnimeFromListe" | "Groupe" | "Manga" | "Anime" | "Person" | "Character" | "Track" | "Company" | "Image" | "Patch" | "Activity" | "Report" | "DisabledUser" | "PremiumUser";
+        path: "User" | "Groupe" | "Manga" | "Anime" | "Person" | "Character" | "Track" | "Company" | "Image" | "Patch" | "Activity" | "Report";
         id: string;
     } | undefined;
 }, {
-    page?: number | undefined;
-    limit?: number | undefined;
-    strict?: boolean | undefined;
-    onlyVerified?: boolean | undefined;
     sort?: {
         type?: string | number | undefined;
         createdAt?: string | number | undefined;
         updatedAt?: string | number | undefined;
         releaseDate?: string | number | undefined;
     } | undefined;
+    page?: number | undefined;
+    limit?: number | undefined;
+    strict?: boolean | undefined;
+    onlyVerified?: boolean | undefined;
     query?: {
         type?: "OPENING" | "ENDING" | "BGM" | "INSERT" | undefined;
-        cover?: {
-            id?: string | undefined;
-            label?: "COVER" | "BANNER" | "AVATAR" | "LOGO" | undefined;
-        } | undefined;
         name?: {
             default?: string | undefined;
             alias?: string[] | undefined;
         } | undefined;
-        createdAt?: string | undefined;
-        updatedAt?: string | undefined;
-        description?: string | undefined;
         links?: {
             value?: string | undefined;
             name?: string | undefined;
+        } | undefined;
+        createdAt?: string | undefined;
+        updatedAt?: string | undefined;
+        description?: string | undefined;
+        cover?: {
+            value?: string | undefined;
+            label?: "COVER" | "BANNER" | "AVATAR" | "LOGO" | undefined;
         } | undefined;
         releaseDate?: {
             year?: string | number | undefined;
@@ -853,12 +853,11 @@ export declare const TrackPaginationBody: z.ZodObject<{
             seconds?: string | number | undefined;
         } | undefined;
         artists?: {
+            isGroupe?: boolean | undefined;
             name?: {
                 default: string;
                 alias?: string[] | undefined;
             } | undefined;
-            description?: string | undefined;
-            isGroupe?: boolean | undefined;
             birthDate?: {
                 year?: string | number | undefined;
                 month?: string | number | undefined;
@@ -876,8 +875,8 @@ export declare const TrackPaginationBody: z.ZodObject<{
                 seconds?: string | number | undefined;
             } | undefined;
             avatar?: {
-                id?: string | undefined;
                 label?: "COVER" | "BANNER" | "AVATAR" | "LOGO" | undefined;
+                id?: string | undefined;
                 newImage?: {
                     value: string;
                     label: "COVER" | "BANNER" | "AVATAR" | "LOGO";
@@ -887,10 +886,11 @@ export declare const TrackPaginationBody: z.ZodObject<{
                 value: string;
                 name: string;
             }[] | undefined;
+            description?: string | undefined;
         } | undefined;
     } | undefined;
     from?: {
-        path: "User" | "Account" | "UserProfile" | "UserPreferences" | "UserAnimeListe" | "UserDeleteAnimeFromListe" | "Groupe" | "Manga" | "Anime" | "Person" | "Character" | "Track" | "Company" | "Image" | "Patch" | "Activity" | "Report" | "DisabledUser" | "PremiumUser";
+        path: "User" | "Groupe" | "Manga" | "Anime" | "Person" | "Character" | "Track" | "Company" | "Image" | "Patch" | "Activity" | "Report";
         id: string;
     } | undefined;
 }>;
@@ -1020,15 +1020,15 @@ export declare const Track_Pagination_ZOD: z.ZodObject<{
                     label: "COVER" | "BANNER" | "AVATAR" | "LOGO";
                 }>>;
             }, "strip", z.ZodTypeAny, {
-                id?: string | undefined;
                 label?: "COVER" | "BANNER" | "AVATAR" | "LOGO" | undefined;
+                id?: string | undefined;
                 newImage?: {
                     value: string;
                     label: "COVER" | "BANNER" | "AVATAR" | "LOGO";
                 } | undefined;
             }, {
-                id?: string | undefined;
                 label?: "COVER" | "BANNER" | "AVATAR" | "LOGO" | undefined;
+                id?: string | undefined;
                 newImage?: {
                     value: string;
                     label: "COVER" | "BANNER" | "AVATAR" | "LOGO";
@@ -1036,7 +1036,7 @@ export declare const Track_Pagination_ZOD: z.ZodObject<{
             }>>>;
             links: z.ZodOptional<z.ZodOptional<z.ZodArray<z.ZodObject<{
                 name: z.ZodString;
-                value: z.ZodEffects<z.ZodString, string, string>;
+                value: z.ZodString;
             }, "strip", z.ZodTypeAny, {
                 value: string;
                 name: string;
@@ -1045,12 +1045,11 @@ export declare const Track_Pagination_ZOD: z.ZodObject<{
                 name: string;
             }>, "many">>>;
         }, "strict", z.ZodTypeAny, {
+            isGroupe?: boolean | undefined;
             name?: {
                 default: string;
                 alias?: string[] | undefined;
             } | undefined;
-            description?: string | undefined;
-            isGroupe?: boolean | undefined;
             birthDate?: {
                 year?: number | undefined;
                 month?: number | undefined;
@@ -1068,8 +1067,8 @@ export declare const Track_Pagination_ZOD: z.ZodObject<{
                 seconds?: number | undefined;
             } | undefined;
             avatar?: {
-                id?: string | undefined;
                 label?: "COVER" | "BANNER" | "AVATAR" | "LOGO" | undefined;
+                id?: string | undefined;
                 newImage?: {
                     value: string;
                     label: "COVER" | "BANNER" | "AVATAR" | "LOGO";
@@ -1079,13 +1078,13 @@ export declare const Track_Pagination_ZOD: z.ZodObject<{
                 value: string;
                 name: string;
             }[] | undefined;
+            description?: string | undefined;
         }, {
+            isGroupe?: boolean | undefined;
             name?: {
                 default: string;
                 alias?: string[] | undefined;
             } | undefined;
-            description?: string | undefined;
-            isGroupe?: boolean | undefined;
             birthDate?: {
                 year?: string | number | undefined;
                 month?: string | number | undefined;
@@ -1103,8 +1102,8 @@ export declare const Track_Pagination_ZOD: z.ZodObject<{
                 seconds?: string | number | undefined;
             } | undefined;
             avatar?: {
-                id?: string | undefined;
                 label?: "COVER" | "BANNER" | "AVATAR" | "LOGO" | undefined;
+                id?: string | undefined;
                 newImage?: {
                     value: string;
                     label: "COVER" | "BANNER" | "AVATAR" | "LOGO";
@@ -1114,20 +1113,21 @@ export declare const Track_Pagination_ZOD: z.ZodObject<{
                 value: string;
                 name: string;
             }[] | undefined;
+            description?: string | undefined;
         }>>;
         cover: z.ZodOptional<z.ZodObject<{
-            id: z.ZodOptional<z.ZodString>;
             label: z.ZodOptional<z.ZodEnum<("COVER" | "BANNER" | "AVATAR" | "LOGO")[] & [string, ...string[]]>>;
+            value: z.ZodOptional<z.ZodString>;
         }, "strip", z.ZodTypeAny, {
-            id?: string | undefined;
+            value?: string | undefined;
             label?: "COVER" | "BANNER" | "AVATAR" | "LOGO" | undefined;
         }, {
-            id?: string | undefined;
+            value?: string | undefined;
             label?: "COVER" | "BANNER" | "AVATAR" | "LOGO" | undefined;
         }>>;
         links: z.ZodOptional<z.ZodObject<{
-            name: z.ZodOptional<z.ZodDefault<z.ZodString>>;
-            value: z.ZodOptional<z.ZodDefault<z.ZodString>>;
+            name: z.ZodOptional<z.ZodString>;
+            value: z.ZodOptional<z.ZodString>;
         }, "strip", z.ZodTypeAny, {
             value?: string | undefined;
             name?: string | undefined;
@@ -1140,20 +1140,20 @@ export declare const Track_Pagination_ZOD: z.ZodObject<{
         updatedAt: z.ZodOptional<z.ZodString>;
     }, "strip", z.ZodTypeAny, {
         type?: "OPENING" | "ENDING" | "BGM" | "INSERT" | undefined;
-        cover?: {
-            id?: string | undefined;
-            label?: "COVER" | "BANNER" | "AVATAR" | "LOGO" | undefined;
-        } | undefined;
         name?: {
             default?: string | undefined;
             alias?: string[] | undefined;
         } | undefined;
-        createdAt?: string | undefined;
-        updatedAt?: string | undefined;
-        description?: string | undefined;
         links?: {
             value?: string | undefined;
             name?: string | undefined;
+        } | undefined;
+        createdAt?: string | undefined;
+        updatedAt?: string | undefined;
+        description?: string | undefined;
+        cover?: {
+            value?: string | undefined;
+            label?: "COVER" | "BANNER" | "AVATAR" | "LOGO" | undefined;
         } | undefined;
         releaseDate?: {
             year?: number | undefined;
@@ -1164,12 +1164,11 @@ export declare const Track_Pagination_ZOD: z.ZodObject<{
             seconds?: number | undefined;
         } | undefined;
         artists?: {
+            isGroupe?: boolean | undefined;
             name?: {
                 default: string;
                 alias?: string[] | undefined;
             } | undefined;
-            description?: string | undefined;
-            isGroupe?: boolean | undefined;
             birthDate?: {
                 year?: number | undefined;
                 month?: number | undefined;
@@ -1187,8 +1186,8 @@ export declare const Track_Pagination_ZOD: z.ZodObject<{
                 seconds?: number | undefined;
             } | undefined;
             avatar?: {
-                id?: string | undefined;
                 label?: "COVER" | "BANNER" | "AVATAR" | "LOGO" | undefined;
+                id?: string | undefined;
                 newImage?: {
                     value: string;
                     label: "COVER" | "BANNER" | "AVATAR" | "LOGO";
@@ -1198,23 +1197,24 @@ export declare const Track_Pagination_ZOD: z.ZodObject<{
                 value: string;
                 name: string;
             }[] | undefined;
+            description?: string | undefined;
         } | undefined;
     }, {
         type?: "OPENING" | "ENDING" | "BGM" | "INSERT" | undefined;
-        cover?: {
-            id?: string | undefined;
-            label?: "COVER" | "BANNER" | "AVATAR" | "LOGO" | undefined;
-        } | undefined;
         name?: {
             default?: string | undefined;
             alias?: string[] | undefined;
         } | undefined;
-        createdAt?: string | undefined;
-        updatedAt?: string | undefined;
-        description?: string | undefined;
         links?: {
             value?: string | undefined;
             name?: string | undefined;
+        } | undefined;
+        createdAt?: string | undefined;
+        updatedAt?: string | undefined;
+        description?: string | undefined;
+        cover?: {
+            value?: string | undefined;
+            label?: "COVER" | "BANNER" | "AVATAR" | "LOGO" | undefined;
         } | undefined;
         releaseDate?: {
             year?: string | number | undefined;
@@ -1225,12 +1225,11 @@ export declare const Track_Pagination_ZOD: z.ZodObject<{
             seconds?: string | number | undefined;
         } | undefined;
         artists?: {
+            isGroupe?: boolean | undefined;
             name?: {
                 default: string;
                 alias?: string[] | undefined;
             } | undefined;
-            description?: string | undefined;
-            isGroupe?: boolean | undefined;
             birthDate?: {
                 year?: string | number | undefined;
                 month?: string | number | undefined;
@@ -1248,8 +1247,8 @@ export declare const Track_Pagination_ZOD: z.ZodObject<{
                 seconds?: string | number | undefined;
             } | undefined;
             avatar?: {
-                id?: string | undefined;
                 label?: "COVER" | "BANNER" | "AVATAR" | "LOGO" | undefined;
+                id?: string | undefined;
                 newImage?: {
                     value: string;
                     label: "COVER" | "BANNER" | "AVATAR" | "LOGO";
@@ -1259,34 +1258,35 @@ export declare const Track_Pagination_ZOD: z.ZodObject<{
                 value: string;
                 name: string;
             }[] | undefined;
+            description?: string | undefined;
         } | undefined;
     }>;
 }, "strip", z.ZodTypeAny, {
-    page: number;
-    limit: number;
-    strict: boolean;
     sort: {
         type?: number | undefined;
         createdAt?: number | undefined;
         updatedAt?: number | undefined;
         releaseDate?: number | undefined;
     };
+    page: number;
+    limit: number;
+    strict: boolean;
     query: {
         type?: "OPENING" | "ENDING" | "BGM" | "INSERT" | undefined;
-        cover?: {
-            id?: string | undefined;
-            label?: "COVER" | "BANNER" | "AVATAR" | "LOGO" | undefined;
-        } | undefined;
         name?: {
             default?: string | undefined;
             alias?: string[] | undefined;
         } | undefined;
-        createdAt?: string | undefined;
-        updatedAt?: string | undefined;
-        description?: string | undefined;
         links?: {
             value?: string | undefined;
             name?: string | undefined;
+        } | undefined;
+        createdAt?: string | undefined;
+        updatedAt?: string | undefined;
+        description?: string | undefined;
+        cover?: {
+            value?: string | undefined;
+            label?: "COVER" | "BANNER" | "AVATAR" | "LOGO" | undefined;
         } | undefined;
         releaseDate?: {
             year?: number | undefined;
@@ -1297,12 +1297,11 @@ export declare const Track_Pagination_ZOD: z.ZodObject<{
             seconds?: number | undefined;
         } | undefined;
         artists?: {
+            isGroupe?: boolean | undefined;
             name?: {
                 default: string;
                 alias?: string[] | undefined;
             } | undefined;
-            description?: string | undefined;
-            isGroupe?: boolean | undefined;
             birthDate?: {
                 year?: number | undefined;
                 month?: number | undefined;
@@ -1320,8 +1319,8 @@ export declare const Track_Pagination_ZOD: z.ZodObject<{
                 seconds?: number | undefined;
             } | undefined;
             avatar?: {
-                id?: string | undefined;
                 label?: "COVER" | "BANNER" | "AVATAR" | "LOGO" | undefined;
+                id?: string | undefined;
                 newImage?: {
                     value: string;
                     label: "COVER" | "BANNER" | "AVATAR" | "LOGO";
@@ -1331,34 +1330,35 @@ export declare const Track_Pagination_ZOD: z.ZodObject<{
                 value: string;
                 name: string;
             }[] | undefined;
+            description?: string | undefined;
         } | undefined;
     };
 }, {
-    page: number;
-    limit: number;
-    strict: boolean;
     sort: {
         type?: string | number | undefined;
         createdAt?: string | number | undefined;
         updatedAt?: string | number | undefined;
         releaseDate?: string | number | undefined;
     };
+    page: number;
+    limit: number;
+    strict: boolean;
     query: {
         type?: "OPENING" | "ENDING" | "BGM" | "INSERT" | undefined;
-        cover?: {
-            id?: string | undefined;
-            label?: "COVER" | "BANNER" | "AVATAR" | "LOGO" | undefined;
-        } | undefined;
         name?: {
             default?: string | undefined;
             alias?: string[] | undefined;
         } | undefined;
-        createdAt?: string | undefined;
-        updatedAt?: string | undefined;
-        description?: string | undefined;
         links?: {
             value?: string | undefined;
             name?: string | undefined;
+        } | undefined;
+        createdAt?: string | undefined;
+        updatedAt?: string | undefined;
+        description?: string | undefined;
+        cover?: {
+            value?: string | undefined;
+            label?: "COVER" | "BANNER" | "AVATAR" | "LOGO" | undefined;
         } | undefined;
         releaseDate?: {
             year?: string | number | undefined;
@@ -1369,12 +1369,11 @@ export declare const Track_Pagination_ZOD: z.ZodObject<{
             seconds?: string | number | undefined;
         } | undefined;
         artists?: {
+            isGroupe?: boolean | undefined;
             name?: {
                 default: string;
                 alias?: string[] | undefined;
             } | undefined;
-            description?: string | undefined;
-            isGroupe?: boolean | undefined;
             birthDate?: {
                 year?: string | number | undefined;
                 month?: string | number | undefined;
@@ -1392,8 +1391,8 @@ export declare const Track_Pagination_ZOD: z.ZodObject<{
                 seconds?: string | number | undefined;
             } | undefined;
             avatar?: {
-                id?: string | undefined;
                 label?: "COVER" | "BANNER" | "AVATAR" | "LOGO" | undefined;
+                id?: string | undefined;
                 newImage?: {
                     value: string;
                     label: "COVER" | "BANNER" | "AVATAR" | "LOGO";
@@ -1403,6 +1402,7 @@ export declare const Track_Pagination_ZOD: z.ZodObject<{
                 value: string;
                 name: string;
             }[] | undefined;
+            description?: string | undefined;
         } | undefined;
     };
 }>;
@@ -1514,15 +1514,15 @@ export declare const TrackBody: z.ZodObject<{
                     label: "COVER" | "BANNER" | "AVATAR" | "LOGO";
                 }>>;
             }, "strip", z.ZodTypeAny, {
-                id?: string | undefined;
                 label?: "COVER" | "BANNER" | "AVATAR" | "LOGO" | undefined;
+                id?: string | undefined;
                 newImage?: {
                     value: string;
                     label: "COVER" | "BANNER" | "AVATAR" | "LOGO";
                 } | undefined;
             }, {
-                id?: string | undefined;
                 label?: "COVER" | "BANNER" | "AVATAR" | "LOGO" | undefined;
+                id?: string | undefined;
                 newImage?: {
                     value: string;
                     label: "COVER" | "BANNER" | "AVATAR" | "LOGO";
@@ -1530,7 +1530,7 @@ export declare const TrackBody: z.ZodObject<{
             }>>;
             links: z.ZodOptional<z.ZodArray<z.ZodObject<{
                 name: z.ZodString;
-                value: z.ZodEffects<z.ZodString, string, string>;
+                value: z.ZodString;
             }, "strip", z.ZodTypeAny, {
                 value: string;
                 name: string;
@@ -1543,7 +1543,6 @@ export declare const TrackBody: z.ZodObject<{
                 default: string;
                 alias?: string[] | undefined;
             };
-            description?: string | undefined;
             isGroupe?: boolean | undefined;
             birthDate?: {
                 year?: number | undefined;
@@ -1562,8 +1561,8 @@ export declare const TrackBody: z.ZodObject<{
                 seconds?: number | undefined;
             } | undefined;
             avatar?: {
-                id?: string | undefined;
                 label?: "COVER" | "BANNER" | "AVATAR" | "LOGO" | undefined;
+                id?: string | undefined;
                 newImage?: {
                     value: string;
                     label: "COVER" | "BANNER" | "AVATAR" | "LOGO";
@@ -1573,12 +1572,12 @@ export declare const TrackBody: z.ZodObject<{
                 value: string;
                 name: string;
             }[] | undefined;
+            description?: string | undefined;
         }, {
             name: {
                 default: string;
                 alias?: string[] | undefined;
             };
-            description?: string | undefined;
             isGroupe?: boolean | undefined;
             birthDate?: {
                 year?: string | number | undefined;
@@ -1597,8 +1596,8 @@ export declare const TrackBody: z.ZodObject<{
                 seconds?: string | number | undefined;
             } | undefined;
             avatar?: {
-                id?: string | undefined;
                 label?: "COVER" | "BANNER" | "AVATAR" | "LOGO" | undefined;
+                id?: string | undefined;
                 newImage?: {
                     value: string;
                     label: "COVER" | "BANNER" | "AVATAR" | "LOGO";
@@ -1608,6 +1607,7 @@ export declare const TrackBody: z.ZodObject<{
                 value: string;
                 name: string;
             }[] | undefined;
+            description?: string | undefined;
         }>>;
         role: z.ZodOptional<z.ZodEnum<("DOUBLAGE_SEIYU" | "AUTEUR" | "EDITEUR" | "PRODUCTEUR" | "REALISATEUR" | "REALISATEUR_EPISODES" | "REALISATEUR_MISEENPAGE" | "DIRECTEUR_ARTISTIQUE_CINEMATROGRAPHIQUE" | "DIRECTEUR_ANIMATION" | "CONCEPTEUR" | "ANIMATEUR_PRINCIPAL" | "ANIMATEUR_INTERMEDIAIRE" | "COLORISTES" | "DIRECTEUR_ENREGISTREMENT" | "SCENARISTE" | "ANIMATEUR_3D" | "METTEUR_EN_SCENE" | "SUPERVISEUR" | "MONTEUR" | "RESPONSABLE_DROITS" | "PRODUCTEUR_MUSIQUE" | "RESPONSABLE_MARKETING" | "DIFFUSEUR" | "STORYBOARDER" | "ARTISTE_VFX" | "INGENIEUR_SON" | "DIRECTEUR_DOUBLAGE" | "TRADUCTEUR" | "MANGAKA" | "CHARACTER_DESIGNER" | "DESSINATEUR_DECORS" | "REALISATEUR_MISE_EN_PAGE" | "COMPOSITEUR" | "PAROLIER" | "ARRANGEUR" | "MUSICIEN" | "CHANTEUR_EUSE" | "CHEF_ORCHESTRE" | "PRODUCTEUR_MUSICAL" | "DESIGNER_SONORE" | "MIXEUR")[] & [string, ...string[]]>>;
     }, "strip", z.ZodTypeAny, {
@@ -1617,7 +1617,6 @@ export declare const TrackBody: z.ZodObject<{
                 default: string;
                 alias?: string[] | undefined;
             };
-            description?: string | undefined;
             isGroupe?: boolean | undefined;
             birthDate?: {
                 year?: number | undefined;
@@ -1636,8 +1635,8 @@ export declare const TrackBody: z.ZodObject<{
                 seconds?: number | undefined;
             } | undefined;
             avatar?: {
-                id?: string | undefined;
                 label?: "COVER" | "BANNER" | "AVATAR" | "LOGO" | undefined;
+                id?: string | undefined;
                 newImage?: {
                     value: string;
                     label: "COVER" | "BANNER" | "AVATAR" | "LOGO";
@@ -1647,6 +1646,7 @@ export declare const TrackBody: z.ZodObject<{
                 value: string;
                 name: string;
             }[] | undefined;
+            description?: string | undefined;
         } | undefined;
         role?: "DOUBLAGE_SEIYU" | "AUTEUR" | "EDITEUR" | "PRODUCTEUR" | "REALISATEUR" | "REALISATEUR_EPISODES" | "REALISATEUR_MISEENPAGE" | "DIRECTEUR_ARTISTIQUE_CINEMATROGRAPHIQUE" | "DIRECTEUR_ANIMATION" | "CONCEPTEUR" | "ANIMATEUR_PRINCIPAL" | "ANIMATEUR_INTERMEDIAIRE" | "COLORISTES" | "DIRECTEUR_ENREGISTREMENT" | "SCENARISTE" | "ANIMATEUR_3D" | "METTEUR_EN_SCENE" | "SUPERVISEUR" | "MONTEUR" | "RESPONSABLE_DROITS" | "PRODUCTEUR_MUSIQUE" | "RESPONSABLE_MARKETING" | "DIFFUSEUR" | "STORYBOARDER" | "ARTISTE_VFX" | "INGENIEUR_SON" | "DIRECTEUR_DOUBLAGE" | "TRADUCTEUR" | "MANGAKA" | "CHARACTER_DESIGNER" | "DESSINATEUR_DECORS" | "REALISATEUR_MISE_EN_PAGE" | "COMPOSITEUR" | "PAROLIER" | "ARRANGEUR" | "MUSICIEN" | "CHANTEUR_EUSE" | "CHEF_ORCHESTRE" | "PRODUCTEUR_MUSICAL" | "DESIGNER_SONORE" | "MIXEUR" | undefined;
     }, {
@@ -1656,7 +1656,6 @@ export declare const TrackBody: z.ZodObject<{
                 default: string;
                 alias?: string[] | undefined;
             };
-            description?: string | undefined;
             isGroupe?: boolean | undefined;
             birthDate?: {
                 year?: string | number | undefined;
@@ -1675,8 +1674,8 @@ export declare const TrackBody: z.ZodObject<{
                 seconds?: string | number | undefined;
             } | undefined;
             avatar?: {
-                id?: string | undefined;
                 label?: "COVER" | "BANNER" | "AVATAR" | "LOGO" | undefined;
+                id?: string | undefined;
                 newImage?: {
                     value: string;
                     label: "COVER" | "BANNER" | "AVATAR" | "LOGO";
@@ -1686,6 +1685,7 @@ export declare const TrackBody: z.ZodObject<{
                 value: string;
                 name: string;
             }[] | undefined;
+            description?: string | undefined;
         } | undefined;
         role?: "DOUBLAGE_SEIYU" | "AUTEUR" | "EDITEUR" | "PRODUCTEUR" | "REALISATEUR" | "REALISATEUR_EPISODES" | "REALISATEUR_MISEENPAGE" | "DIRECTEUR_ARTISTIQUE_CINEMATROGRAPHIQUE" | "DIRECTEUR_ANIMATION" | "CONCEPTEUR" | "ANIMATEUR_PRINCIPAL" | "ANIMATEUR_INTERMEDIAIRE" | "COLORISTES" | "DIRECTEUR_ENREGISTREMENT" | "SCENARISTE" | "ANIMATEUR_3D" | "METTEUR_EN_SCENE" | "SUPERVISEUR" | "MONTEUR" | "RESPONSABLE_DROITS" | "PRODUCTEUR_MUSIQUE" | "RESPONSABLE_MARKETING" | "DIFFUSEUR" | "STORYBOARDER" | "ARTISTE_VFX" | "INGENIEUR_SON" | "DIRECTEUR_DOUBLAGE" | "TRADUCTEUR" | "MANGAKA" | "CHARACTER_DESIGNER" | "DESSINATEUR_DECORS" | "REALISATEUR_MISE_EN_PAGE" | "COMPOSITEUR" | "PAROLIER" | "ARRANGEUR" | "MUSICIEN" | "CHANTEUR_EUSE" | "CHEF_ORCHESTRE" | "PRODUCTEUR_MUSICAL" | "DESIGNER_SONORE" | "MIXEUR" | undefined;
     }>, "many">>;
@@ -1703,15 +1703,15 @@ export declare const TrackBody: z.ZodObject<{
             label: "COVER" | "BANNER" | "AVATAR" | "LOGO";
         }>>;
     }, "strip", z.ZodTypeAny, {
-        id?: string | undefined;
         label?: "COVER" | "BANNER" | "AVATAR" | "LOGO" | undefined;
+        id?: string | undefined;
         newImage?: {
             value: string;
             label: "COVER" | "BANNER" | "AVATAR" | "LOGO";
         } | undefined;
     }, {
-        id?: string | undefined;
         label?: "COVER" | "BANNER" | "AVATAR" | "LOGO" | undefined;
+        id?: string | undefined;
         newImage?: {
             value: string;
             label: "COVER" | "BANNER" | "AVATAR" | "LOGO";
@@ -1720,7 +1720,7 @@ export declare const TrackBody: z.ZodObject<{
     description: z.ZodOptional<z.ZodString>;
     links: z.ZodOptional<z.ZodArray<z.ZodObject<{
         name: z.ZodString;
-        value: z.ZodEffects<z.ZodString, string, string>;
+        value: z.ZodString;
     }, "strip", z.ZodTypeAny, {
         value: string;
         name: string;
@@ -1734,19 +1734,19 @@ export declare const TrackBody: z.ZodObject<{
         default: string;
         alias?: string[] | undefined;
     };
+    links?: {
+        value: string;
+        name: string;
+    }[] | undefined;
+    description?: string | undefined;
     cover?: {
-        id?: string | undefined;
         label?: "COVER" | "BANNER" | "AVATAR" | "LOGO" | undefined;
+        id?: string | undefined;
         newImage?: {
             value: string;
             label: "COVER" | "BANNER" | "AVATAR" | "LOGO";
         } | undefined;
     } | undefined;
-    description?: string | undefined;
-    links?: {
-        value: string;
-        name: string;
-    }[] | undefined;
     releaseDate?: {
         year?: number | undefined;
         month?: number | undefined;
@@ -1762,7 +1762,6 @@ export declare const TrackBody: z.ZodObject<{
                 default: string;
                 alias?: string[] | undefined;
             };
-            description?: string | undefined;
             isGroupe?: boolean | undefined;
             birthDate?: {
                 year?: number | undefined;
@@ -1781,8 +1780,8 @@ export declare const TrackBody: z.ZodObject<{
                 seconds?: number | undefined;
             } | undefined;
             avatar?: {
-                id?: string | undefined;
                 label?: "COVER" | "BANNER" | "AVATAR" | "LOGO" | undefined;
+                id?: string | undefined;
                 newImage?: {
                     value: string;
                     label: "COVER" | "BANNER" | "AVATAR" | "LOGO";
@@ -1792,6 +1791,7 @@ export declare const TrackBody: z.ZodObject<{
                 value: string;
                 name: string;
             }[] | undefined;
+            description?: string | undefined;
         } | undefined;
         role?: "DOUBLAGE_SEIYU" | "AUTEUR" | "EDITEUR" | "PRODUCTEUR" | "REALISATEUR" | "REALISATEUR_EPISODES" | "REALISATEUR_MISEENPAGE" | "DIRECTEUR_ARTISTIQUE_CINEMATROGRAPHIQUE" | "DIRECTEUR_ANIMATION" | "CONCEPTEUR" | "ANIMATEUR_PRINCIPAL" | "ANIMATEUR_INTERMEDIAIRE" | "COLORISTES" | "DIRECTEUR_ENREGISTREMENT" | "SCENARISTE" | "ANIMATEUR_3D" | "METTEUR_EN_SCENE" | "SUPERVISEUR" | "MONTEUR" | "RESPONSABLE_DROITS" | "PRODUCTEUR_MUSIQUE" | "RESPONSABLE_MARKETING" | "DIFFUSEUR" | "STORYBOARDER" | "ARTISTE_VFX" | "INGENIEUR_SON" | "DIRECTEUR_DOUBLAGE" | "TRADUCTEUR" | "MANGAKA" | "CHARACTER_DESIGNER" | "DESSINATEUR_DECORS" | "REALISATEUR_MISE_EN_PAGE" | "COMPOSITEUR" | "PAROLIER" | "ARRANGEUR" | "MUSICIEN" | "CHANTEUR_EUSE" | "CHEF_ORCHESTRE" | "PRODUCTEUR_MUSICAL" | "DESIGNER_SONORE" | "MIXEUR" | undefined;
     }[] | undefined;
@@ -1801,19 +1801,19 @@ export declare const TrackBody: z.ZodObject<{
         default: string;
         alias?: string[] | undefined;
     };
+    links?: {
+        value: string;
+        name: string;
+    }[] | undefined;
+    description?: string | undefined;
     cover?: {
-        id?: string | undefined;
         label?: "COVER" | "BANNER" | "AVATAR" | "LOGO" | undefined;
+        id?: string | undefined;
         newImage?: {
             value: string;
             label: "COVER" | "BANNER" | "AVATAR" | "LOGO";
         } | undefined;
     } | undefined;
-    description?: string | undefined;
-    links?: {
-        value: string;
-        name: string;
-    }[] | undefined;
     releaseDate?: {
         year?: string | number | undefined;
         month?: string | number | undefined;
@@ -1829,7 +1829,6 @@ export declare const TrackBody: z.ZodObject<{
                 default: string;
                 alias?: string[] | undefined;
             };
-            description?: string | undefined;
             isGroupe?: boolean | undefined;
             birthDate?: {
                 year?: string | number | undefined;
@@ -1848,8 +1847,8 @@ export declare const TrackBody: z.ZodObject<{
                 seconds?: string | number | undefined;
             } | undefined;
             avatar?: {
-                id?: string | undefined;
                 label?: "COVER" | "BANNER" | "AVATAR" | "LOGO" | undefined;
+                id?: string | undefined;
                 newImage?: {
                     value: string;
                     label: "COVER" | "BANNER" | "AVATAR" | "LOGO";
@@ -1859,6 +1858,7 @@ export declare const TrackBody: z.ZodObject<{
                 value: string;
                 name: string;
             }[] | undefined;
+            description?: string | undefined;
         } | undefined;
         role?: "DOUBLAGE_SEIYU" | "AUTEUR" | "EDITEUR" | "PRODUCTEUR" | "REALISATEUR" | "REALISATEUR_EPISODES" | "REALISATEUR_MISEENPAGE" | "DIRECTEUR_ARTISTIQUE_CINEMATROGRAPHIQUE" | "DIRECTEUR_ANIMATION" | "CONCEPTEUR" | "ANIMATEUR_PRINCIPAL" | "ANIMATEUR_INTERMEDIAIRE" | "COLORISTES" | "DIRECTEUR_ENREGISTREMENT" | "SCENARISTE" | "ANIMATEUR_3D" | "METTEUR_EN_SCENE" | "SUPERVISEUR" | "MONTEUR" | "RESPONSABLE_DROITS" | "PRODUCTEUR_MUSIQUE" | "RESPONSABLE_MARKETING" | "DIFFUSEUR" | "STORYBOARDER" | "ARTISTE_VFX" | "INGENIEUR_SON" | "DIRECTEUR_DOUBLAGE" | "TRADUCTEUR" | "MANGAKA" | "CHARACTER_DESIGNER" | "DESSINATEUR_DECORS" | "REALISATEUR_MISE_EN_PAGE" | "COMPOSITEUR" | "PAROLIER" | "ARRANGEUR" | "MUSICIEN" | "CHANTEUR_EUSE" | "CHEF_ORCHESTRE" | "PRODUCTEUR_MUSICAL" | "DESIGNER_SONORE" | "MIXEUR" | undefined;
     }[] | undefined;
@@ -1975,15 +1975,15 @@ export declare const TrackCreateBody: z.ZodObject<z.objectUtil.extendShape<{
                         label: "COVER" | "BANNER" | "AVATAR" | "LOGO";
                     }>>;
                 }, "strip", z.ZodTypeAny, {
-                    id?: string | undefined;
                     label?: "COVER" | "BANNER" | "AVATAR" | "LOGO" | undefined;
+                    id?: string | undefined;
                     newImage?: {
                         value: string;
                         label: "COVER" | "BANNER" | "AVATAR" | "LOGO";
                     } | undefined;
                 }, {
-                    id?: string | undefined;
                     label?: "COVER" | "BANNER" | "AVATAR" | "LOGO" | undefined;
+                    id?: string | undefined;
                     newImage?: {
                         value: string;
                         label: "COVER" | "BANNER" | "AVATAR" | "LOGO";
@@ -1991,7 +1991,7 @@ export declare const TrackCreateBody: z.ZodObject<z.objectUtil.extendShape<{
                 }>>;
                 links: z.ZodOptional<z.ZodArray<z.ZodObject<{
                     name: z.ZodString;
-                    value: z.ZodEffects<z.ZodString, string, string>;
+                    value: z.ZodString;
                 }, "strip", z.ZodTypeAny, {
                     value: string;
                     name: string;
@@ -2004,7 +2004,6 @@ export declare const TrackCreateBody: z.ZodObject<z.objectUtil.extendShape<{
                     default: string;
                     alias?: string[] | undefined;
                 };
-                description?: string | undefined;
                 isGroupe?: boolean | undefined;
                 birthDate?: {
                     year?: number | undefined;
@@ -2023,8 +2022,8 @@ export declare const TrackCreateBody: z.ZodObject<z.objectUtil.extendShape<{
                     seconds?: number | undefined;
                 } | undefined;
                 avatar?: {
-                    id?: string | undefined;
                     label?: "COVER" | "BANNER" | "AVATAR" | "LOGO" | undefined;
+                    id?: string | undefined;
                     newImage?: {
                         value: string;
                         label: "COVER" | "BANNER" | "AVATAR" | "LOGO";
@@ -2034,12 +2033,12 @@ export declare const TrackCreateBody: z.ZodObject<z.objectUtil.extendShape<{
                     value: string;
                     name: string;
                 }[] | undefined;
+                description?: string | undefined;
             }, {
                 name: {
                     default: string;
                     alias?: string[] | undefined;
                 };
-                description?: string | undefined;
                 isGroupe?: boolean | undefined;
                 birthDate?: {
                     year?: string | number | undefined;
@@ -2058,8 +2057,8 @@ export declare const TrackCreateBody: z.ZodObject<z.objectUtil.extendShape<{
                     seconds?: string | number | undefined;
                 } | undefined;
                 avatar?: {
-                    id?: string | undefined;
                     label?: "COVER" | "BANNER" | "AVATAR" | "LOGO" | undefined;
+                    id?: string | undefined;
                     newImage?: {
                         value: string;
                         label: "COVER" | "BANNER" | "AVATAR" | "LOGO";
@@ -2069,6 +2068,7 @@ export declare const TrackCreateBody: z.ZodObject<z.objectUtil.extendShape<{
                     value: string;
                     name: string;
                 }[] | undefined;
+                description?: string | undefined;
             }>>;
             role: z.ZodOptional<z.ZodEnum<("DOUBLAGE_SEIYU" | "AUTEUR" | "EDITEUR" | "PRODUCTEUR" | "REALISATEUR" | "REALISATEUR_EPISODES" | "REALISATEUR_MISEENPAGE" | "DIRECTEUR_ARTISTIQUE_CINEMATROGRAPHIQUE" | "DIRECTEUR_ANIMATION" | "CONCEPTEUR" | "ANIMATEUR_PRINCIPAL" | "ANIMATEUR_INTERMEDIAIRE" | "COLORISTES" | "DIRECTEUR_ENREGISTREMENT" | "SCENARISTE" | "ANIMATEUR_3D" | "METTEUR_EN_SCENE" | "SUPERVISEUR" | "MONTEUR" | "RESPONSABLE_DROITS" | "PRODUCTEUR_MUSIQUE" | "RESPONSABLE_MARKETING" | "DIFFUSEUR" | "STORYBOARDER" | "ARTISTE_VFX" | "INGENIEUR_SON" | "DIRECTEUR_DOUBLAGE" | "TRADUCTEUR" | "MANGAKA" | "CHARACTER_DESIGNER" | "DESSINATEUR_DECORS" | "REALISATEUR_MISE_EN_PAGE" | "COMPOSITEUR" | "PAROLIER" | "ARRANGEUR" | "MUSICIEN" | "CHANTEUR_EUSE" | "CHEF_ORCHESTRE" | "PRODUCTEUR_MUSICAL" | "DESIGNER_SONORE" | "MIXEUR")[] & [string, ...string[]]>>;
         }, "strip", z.ZodTypeAny, {
@@ -2078,7 +2078,6 @@ export declare const TrackCreateBody: z.ZodObject<z.objectUtil.extendShape<{
                     default: string;
                     alias?: string[] | undefined;
                 };
-                description?: string | undefined;
                 isGroupe?: boolean | undefined;
                 birthDate?: {
                     year?: number | undefined;
@@ -2097,8 +2096,8 @@ export declare const TrackCreateBody: z.ZodObject<z.objectUtil.extendShape<{
                     seconds?: number | undefined;
                 } | undefined;
                 avatar?: {
-                    id?: string | undefined;
                     label?: "COVER" | "BANNER" | "AVATAR" | "LOGO" | undefined;
+                    id?: string | undefined;
                     newImage?: {
                         value: string;
                         label: "COVER" | "BANNER" | "AVATAR" | "LOGO";
@@ -2108,6 +2107,7 @@ export declare const TrackCreateBody: z.ZodObject<z.objectUtil.extendShape<{
                     value: string;
                     name: string;
                 }[] | undefined;
+                description?: string | undefined;
             } | undefined;
             role?: "DOUBLAGE_SEIYU" | "AUTEUR" | "EDITEUR" | "PRODUCTEUR" | "REALISATEUR" | "REALISATEUR_EPISODES" | "REALISATEUR_MISEENPAGE" | "DIRECTEUR_ARTISTIQUE_CINEMATROGRAPHIQUE" | "DIRECTEUR_ANIMATION" | "CONCEPTEUR" | "ANIMATEUR_PRINCIPAL" | "ANIMATEUR_INTERMEDIAIRE" | "COLORISTES" | "DIRECTEUR_ENREGISTREMENT" | "SCENARISTE" | "ANIMATEUR_3D" | "METTEUR_EN_SCENE" | "SUPERVISEUR" | "MONTEUR" | "RESPONSABLE_DROITS" | "PRODUCTEUR_MUSIQUE" | "RESPONSABLE_MARKETING" | "DIFFUSEUR" | "STORYBOARDER" | "ARTISTE_VFX" | "INGENIEUR_SON" | "DIRECTEUR_DOUBLAGE" | "TRADUCTEUR" | "MANGAKA" | "CHARACTER_DESIGNER" | "DESSINATEUR_DECORS" | "REALISATEUR_MISE_EN_PAGE" | "COMPOSITEUR" | "PAROLIER" | "ARRANGEUR" | "MUSICIEN" | "CHANTEUR_EUSE" | "CHEF_ORCHESTRE" | "PRODUCTEUR_MUSICAL" | "DESIGNER_SONORE" | "MIXEUR" | undefined;
         }, {
@@ -2117,7 +2117,6 @@ export declare const TrackCreateBody: z.ZodObject<z.objectUtil.extendShape<{
                     default: string;
                     alias?: string[] | undefined;
                 };
-                description?: string | undefined;
                 isGroupe?: boolean | undefined;
                 birthDate?: {
                     year?: string | number | undefined;
@@ -2136,8 +2135,8 @@ export declare const TrackCreateBody: z.ZodObject<z.objectUtil.extendShape<{
                     seconds?: string | number | undefined;
                 } | undefined;
                 avatar?: {
-                    id?: string | undefined;
                     label?: "COVER" | "BANNER" | "AVATAR" | "LOGO" | undefined;
+                    id?: string | undefined;
                     newImage?: {
                         value: string;
                         label: "COVER" | "BANNER" | "AVATAR" | "LOGO";
@@ -2147,6 +2146,7 @@ export declare const TrackCreateBody: z.ZodObject<z.objectUtil.extendShape<{
                     value: string;
                     name: string;
                 }[] | undefined;
+                description?: string | undefined;
             } | undefined;
             role?: "DOUBLAGE_SEIYU" | "AUTEUR" | "EDITEUR" | "PRODUCTEUR" | "REALISATEUR" | "REALISATEUR_EPISODES" | "REALISATEUR_MISEENPAGE" | "DIRECTEUR_ARTISTIQUE_CINEMATROGRAPHIQUE" | "DIRECTEUR_ANIMATION" | "CONCEPTEUR" | "ANIMATEUR_PRINCIPAL" | "ANIMATEUR_INTERMEDIAIRE" | "COLORISTES" | "DIRECTEUR_ENREGISTREMENT" | "SCENARISTE" | "ANIMATEUR_3D" | "METTEUR_EN_SCENE" | "SUPERVISEUR" | "MONTEUR" | "RESPONSABLE_DROITS" | "PRODUCTEUR_MUSIQUE" | "RESPONSABLE_MARKETING" | "DIFFUSEUR" | "STORYBOARDER" | "ARTISTE_VFX" | "INGENIEUR_SON" | "DIRECTEUR_DOUBLAGE" | "TRADUCTEUR" | "MANGAKA" | "CHARACTER_DESIGNER" | "DESSINATEUR_DECORS" | "REALISATEUR_MISE_EN_PAGE" | "COMPOSITEUR" | "PAROLIER" | "ARRANGEUR" | "MUSICIEN" | "CHANTEUR_EUSE" | "CHEF_ORCHESTRE" | "PRODUCTEUR_MUSICAL" | "DESIGNER_SONORE" | "MIXEUR" | undefined;
         }>, "many">>;
@@ -2164,15 +2164,15 @@ export declare const TrackCreateBody: z.ZodObject<z.objectUtil.extendShape<{
                 label: "COVER" | "BANNER" | "AVATAR" | "LOGO";
             }>>;
         }, "strip", z.ZodTypeAny, {
-            id?: string | undefined;
             label?: "COVER" | "BANNER" | "AVATAR" | "LOGO" | undefined;
+            id?: string | undefined;
             newImage?: {
                 value: string;
                 label: "COVER" | "BANNER" | "AVATAR" | "LOGO";
             } | undefined;
         }, {
-            id?: string | undefined;
             label?: "COVER" | "BANNER" | "AVATAR" | "LOGO" | undefined;
+            id?: string | undefined;
             newImage?: {
                 value: string;
                 label: "COVER" | "BANNER" | "AVATAR" | "LOGO";
@@ -2181,7 +2181,7 @@ export declare const TrackCreateBody: z.ZodObject<z.objectUtil.extendShape<{
         description: z.ZodOptional<z.ZodString>;
         links: z.ZodOptional<z.ZodArray<z.ZodObject<{
             name: z.ZodString;
-            value: z.ZodEffects<z.ZodString, string, string>;
+            value: z.ZodString;
         }, "strip", z.ZodTypeAny, {
             value: string;
             name: string;
@@ -2195,19 +2195,19 @@ export declare const TrackCreateBody: z.ZodObject<z.objectUtil.extendShape<{
             default: string;
             alias?: string[] | undefined;
         };
+        links?: {
+            value: string;
+            name: string;
+        }[] | undefined;
+        description?: string | undefined;
         cover?: {
-            id?: string | undefined;
             label?: "COVER" | "BANNER" | "AVATAR" | "LOGO" | undefined;
+            id?: string | undefined;
             newImage?: {
                 value: string;
                 label: "COVER" | "BANNER" | "AVATAR" | "LOGO";
             } | undefined;
         } | undefined;
-        description?: string | undefined;
-        links?: {
-            value: string;
-            name: string;
-        }[] | undefined;
         releaseDate?: {
             year?: number | undefined;
             month?: number | undefined;
@@ -2223,7 +2223,6 @@ export declare const TrackCreateBody: z.ZodObject<z.objectUtil.extendShape<{
                     default: string;
                     alias?: string[] | undefined;
                 };
-                description?: string | undefined;
                 isGroupe?: boolean | undefined;
                 birthDate?: {
                     year?: number | undefined;
@@ -2242,8 +2241,8 @@ export declare const TrackCreateBody: z.ZodObject<z.objectUtil.extendShape<{
                     seconds?: number | undefined;
                 } | undefined;
                 avatar?: {
-                    id?: string | undefined;
                     label?: "COVER" | "BANNER" | "AVATAR" | "LOGO" | undefined;
+                    id?: string | undefined;
                     newImage?: {
                         value: string;
                         label: "COVER" | "BANNER" | "AVATAR" | "LOGO";
@@ -2253,6 +2252,7 @@ export declare const TrackCreateBody: z.ZodObject<z.objectUtil.extendShape<{
                     value: string;
                     name: string;
                 }[] | undefined;
+                description?: string | undefined;
             } | undefined;
             role?: "DOUBLAGE_SEIYU" | "AUTEUR" | "EDITEUR" | "PRODUCTEUR" | "REALISATEUR" | "REALISATEUR_EPISODES" | "REALISATEUR_MISEENPAGE" | "DIRECTEUR_ARTISTIQUE_CINEMATROGRAPHIQUE" | "DIRECTEUR_ANIMATION" | "CONCEPTEUR" | "ANIMATEUR_PRINCIPAL" | "ANIMATEUR_INTERMEDIAIRE" | "COLORISTES" | "DIRECTEUR_ENREGISTREMENT" | "SCENARISTE" | "ANIMATEUR_3D" | "METTEUR_EN_SCENE" | "SUPERVISEUR" | "MONTEUR" | "RESPONSABLE_DROITS" | "PRODUCTEUR_MUSIQUE" | "RESPONSABLE_MARKETING" | "DIFFUSEUR" | "STORYBOARDER" | "ARTISTE_VFX" | "INGENIEUR_SON" | "DIRECTEUR_DOUBLAGE" | "TRADUCTEUR" | "MANGAKA" | "CHARACTER_DESIGNER" | "DESSINATEUR_DECORS" | "REALISATEUR_MISE_EN_PAGE" | "COMPOSITEUR" | "PAROLIER" | "ARRANGEUR" | "MUSICIEN" | "CHANTEUR_EUSE" | "CHEF_ORCHESTRE" | "PRODUCTEUR_MUSICAL" | "DESIGNER_SONORE" | "MIXEUR" | undefined;
         }[] | undefined;
@@ -2262,19 +2262,19 @@ export declare const TrackCreateBody: z.ZodObject<z.objectUtil.extendShape<{
             default: string;
             alias?: string[] | undefined;
         };
+        links?: {
+            value: string;
+            name: string;
+        }[] | undefined;
+        description?: string | undefined;
         cover?: {
-            id?: string | undefined;
             label?: "COVER" | "BANNER" | "AVATAR" | "LOGO" | undefined;
+            id?: string | undefined;
             newImage?: {
                 value: string;
                 label: "COVER" | "BANNER" | "AVATAR" | "LOGO";
             } | undefined;
         } | undefined;
-        description?: string | undefined;
-        links?: {
-            value: string;
-            name: string;
-        }[] | undefined;
         releaseDate?: {
             year?: string | number | undefined;
             month?: string | number | undefined;
@@ -2290,7 +2290,6 @@ export declare const TrackCreateBody: z.ZodObject<z.objectUtil.extendShape<{
                     default: string;
                     alias?: string[] | undefined;
                 };
-                description?: string | undefined;
                 isGroupe?: boolean | undefined;
                 birthDate?: {
                     year?: string | number | undefined;
@@ -2309,8 +2308,8 @@ export declare const TrackCreateBody: z.ZodObject<z.objectUtil.extendShape<{
                     seconds?: string | number | undefined;
                 } | undefined;
                 avatar?: {
-                    id?: string | undefined;
                     label?: "COVER" | "BANNER" | "AVATAR" | "LOGO" | undefined;
+                    id?: string | undefined;
                     newImage?: {
                         value: string;
                         label: "COVER" | "BANNER" | "AVATAR" | "LOGO";
@@ -2320,6 +2319,7 @@ export declare const TrackCreateBody: z.ZodObject<z.objectUtil.extendShape<{
                     value: string;
                     name: string;
                 }[] | undefined;
+                description?: string | undefined;
             } | undefined;
             role?: "DOUBLAGE_SEIYU" | "AUTEUR" | "EDITEUR" | "PRODUCTEUR" | "REALISATEUR" | "REALISATEUR_EPISODES" | "REALISATEUR_MISEENPAGE" | "DIRECTEUR_ARTISTIQUE_CINEMATROGRAPHIQUE" | "DIRECTEUR_ANIMATION" | "CONCEPTEUR" | "ANIMATEUR_PRINCIPAL" | "ANIMATEUR_INTERMEDIAIRE" | "COLORISTES" | "DIRECTEUR_ENREGISTREMENT" | "SCENARISTE" | "ANIMATEUR_3D" | "METTEUR_EN_SCENE" | "SUPERVISEUR" | "MONTEUR" | "RESPONSABLE_DROITS" | "PRODUCTEUR_MUSIQUE" | "RESPONSABLE_MARKETING" | "DIFFUSEUR" | "STORYBOARDER" | "ARTISTE_VFX" | "INGENIEUR_SON" | "DIRECTEUR_DOUBLAGE" | "TRADUCTEUR" | "MANGAKA" | "CHARACTER_DESIGNER" | "DESSINATEUR_DECORS" | "REALISATEUR_MISE_EN_PAGE" | "COMPOSITEUR" | "PAROLIER" | "ARRANGEUR" | "MUSICIEN" | "CHANTEUR_EUSE" | "CHEF_ORCHESTRE" | "PRODUCTEUR_MUSICAL" | "DESIGNER_SONORE" | "MIXEUR" | undefined;
         }[] | undefined;
@@ -2331,19 +2331,19 @@ export declare const TrackCreateBody: z.ZodObject<z.objectUtil.extendShape<{
             default: string;
             alias?: string[] | undefined;
         };
+        links?: {
+            value: string;
+            name: string;
+        }[] | undefined;
+        description?: string | undefined;
         cover?: {
-            id?: string | undefined;
             label?: "COVER" | "BANNER" | "AVATAR" | "LOGO" | undefined;
+            id?: string | undefined;
             newImage?: {
                 value: string;
                 label: "COVER" | "BANNER" | "AVATAR" | "LOGO";
             } | undefined;
         } | undefined;
-        description?: string | undefined;
-        links?: {
-            value: string;
-            name: string;
-        }[] | undefined;
         releaseDate?: {
             year?: number | undefined;
             month?: number | undefined;
@@ -2359,7 +2359,6 @@ export declare const TrackCreateBody: z.ZodObject<z.objectUtil.extendShape<{
                     default: string;
                     alias?: string[] | undefined;
                 };
-                description?: string | undefined;
                 isGroupe?: boolean | undefined;
                 birthDate?: {
                     year?: number | undefined;
@@ -2378,8 +2377,8 @@ export declare const TrackCreateBody: z.ZodObject<z.objectUtil.extendShape<{
                     seconds?: number | undefined;
                 } | undefined;
                 avatar?: {
-                    id?: string | undefined;
                     label?: "COVER" | "BANNER" | "AVATAR" | "LOGO" | undefined;
+                    id?: string | undefined;
                     newImage?: {
                         value: string;
                         label: "COVER" | "BANNER" | "AVATAR" | "LOGO";
@@ -2389,12 +2388,13 @@ export declare const TrackCreateBody: z.ZodObject<z.objectUtil.extendShape<{
                     value: string;
                     name: string;
                 }[] | undefined;
+                description?: string | undefined;
             } | undefined;
             role?: "DOUBLAGE_SEIYU" | "AUTEUR" | "EDITEUR" | "PRODUCTEUR" | "REALISATEUR" | "REALISATEUR_EPISODES" | "REALISATEUR_MISEENPAGE" | "DIRECTEUR_ARTISTIQUE_CINEMATROGRAPHIQUE" | "DIRECTEUR_ANIMATION" | "CONCEPTEUR" | "ANIMATEUR_PRINCIPAL" | "ANIMATEUR_INTERMEDIAIRE" | "COLORISTES" | "DIRECTEUR_ENREGISTREMENT" | "SCENARISTE" | "ANIMATEUR_3D" | "METTEUR_EN_SCENE" | "SUPERVISEUR" | "MONTEUR" | "RESPONSABLE_DROITS" | "PRODUCTEUR_MUSIQUE" | "RESPONSABLE_MARKETING" | "DIFFUSEUR" | "STORYBOARDER" | "ARTISTE_VFX" | "INGENIEUR_SON" | "DIRECTEUR_DOUBLAGE" | "TRADUCTEUR" | "MANGAKA" | "CHARACTER_DESIGNER" | "DESSINATEUR_DECORS" | "REALISATEUR_MISE_EN_PAGE" | "COMPOSITEUR" | "PAROLIER" | "ARRANGEUR" | "MUSICIEN" | "CHANTEUR_EUSE" | "CHEF_ORCHESTRE" | "PRODUCTEUR_MUSICAL" | "DESIGNER_SONORE" | "MIXEUR" | undefined;
         }[] | undefined;
     };
-    reason?: string | undefined;
     description?: string | undefined;
+    reason?: string | undefined;
 }, {
     data: {
         type: "OPENING" | "ENDING" | "BGM" | "INSERT";
@@ -2402,19 +2402,19 @@ export declare const TrackCreateBody: z.ZodObject<z.objectUtil.extendShape<{
             default: string;
             alias?: string[] | undefined;
         };
+        links?: {
+            value: string;
+            name: string;
+        }[] | undefined;
+        description?: string | undefined;
         cover?: {
-            id?: string | undefined;
             label?: "COVER" | "BANNER" | "AVATAR" | "LOGO" | undefined;
+            id?: string | undefined;
             newImage?: {
                 value: string;
                 label: "COVER" | "BANNER" | "AVATAR" | "LOGO";
             } | undefined;
         } | undefined;
-        description?: string | undefined;
-        links?: {
-            value: string;
-            name: string;
-        }[] | undefined;
         releaseDate?: {
             year?: string | number | undefined;
             month?: string | number | undefined;
@@ -2430,7 +2430,6 @@ export declare const TrackCreateBody: z.ZodObject<z.objectUtil.extendShape<{
                     default: string;
                     alias?: string[] | undefined;
                 };
-                description?: string | undefined;
                 isGroupe?: boolean | undefined;
                 birthDate?: {
                     year?: string | number | undefined;
@@ -2449,8 +2448,8 @@ export declare const TrackCreateBody: z.ZodObject<z.objectUtil.extendShape<{
                     seconds?: string | number | undefined;
                 } | undefined;
                 avatar?: {
-                    id?: string | undefined;
                     label?: "COVER" | "BANNER" | "AVATAR" | "LOGO" | undefined;
+                    id?: string | undefined;
                     newImage?: {
                         value: string;
                         label: "COVER" | "BANNER" | "AVATAR" | "LOGO";
@@ -2460,12 +2459,13 @@ export declare const TrackCreateBody: z.ZodObject<z.objectUtil.extendShape<{
                     value: string;
                     name: string;
                 }[] | undefined;
+                description?: string | undefined;
             } | undefined;
             role?: "DOUBLAGE_SEIYU" | "AUTEUR" | "EDITEUR" | "PRODUCTEUR" | "REALISATEUR" | "REALISATEUR_EPISODES" | "REALISATEUR_MISEENPAGE" | "DIRECTEUR_ARTISTIQUE_CINEMATROGRAPHIQUE" | "DIRECTEUR_ANIMATION" | "CONCEPTEUR" | "ANIMATEUR_PRINCIPAL" | "ANIMATEUR_INTERMEDIAIRE" | "COLORISTES" | "DIRECTEUR_ENREGISTREMENT" | "SCENARISTE" | "ANIMATEUR_3D" | "METTEUR_EN_SCENE" | "SUPERVISEUR" | "MONTEUR" | "RESPONSABLE_DROITS" | "PRODUCTEUR_MUSIQUE" | "RESPONSABLE_MARKETING" | "DIFFUSEUR" | "STORYBOARDER" | "ARTISTE_VFX" | "INGENIEUR_SON" | "DIRECTEUR_DOUBLAGE" | "TRADUCTEUR" | "MANGAKA" | "CHARACTER_DESIGNER" | "DESSINATEUR_DECORS" | "REALISATEUR_MISE_EN_PAGE" | "COMPOSITEUR" | "PAROLIER" | "ARRANGEUR" | "MUSICIEN" | "CHANTEUR_EUSE" | "CHEF_ORCHESTRE" | "PRODUCTEUR_MUSICAL" | "DESIGNER_SONORE" | "MIXEUR" | undefined;
         }[] | undefined;
     };
-    reason?: string | undefined;
     description?: string | undefined;
+    reason?: string | undefined;
 }>;
 export type ITrackCreateBody = z.infer<typeof TrackCreateBody>;
 export declare const TrackAddBody: z.ZodObject<{
@@ -2577,15 +2577,15 @@ export declare const TrackAddBody: z.ZodObject<{
                         label: "COVER" | "BANNER" | "AVATAR" | "LOGO";
                     }>>;
                 }, "strip", z.ZodTypeAny, {
-                    id?: string | undefined;
                     label?: "COVER" | "BANNER" | "AVATAR" | "LOGO" | undefined;
+                    id?: string | undefined;
                     newImage?: {
                         value: string;
                         label: "COVER" | "BANNER" | "AVATAR" | "LOGO";
                     } | undefined;
                 }, {
-                    id?: string | undefined;
                     label?: "COVER" | "BANNER" | "AVATAR" | "LOGO" | undefined;
+                    id?: string | undefined;
                     newImage?: {
                         value: string;
                         label: "COVER" | "BANNER" | "AVATAR" | "LOGO";
@@ -2593,7 +2593,7 @@ export declare const TrackAddBody: z.ZodObject<{
                 }>>;
                 links: z.ZodOptional<z.ZodArray<z.ZodObject<{
                     name: z.ZodString;
-                    value: z.ZodEffects<z.ZodString, string, string>;
+                    value: z.ZodString;
                 }, "strip", z.ZodTypeAny, {
                     value: string;
                     name: string;
@@ -2606,7 +2606,6 @@ export declare const TrackAddBody: z.ZodObject<{
                     default: string;
                     alias?: string[] | undefined;
                 };
-                description?: string | undefined;
                 isGroupe?: boolean | undefined;
                 birthDate?: {
                     year?: number | undefined;
@@ -2625,8 +2624,8 @@ export declare const TrackAddBody: z.ZodObject<{
                     seconds?: number | undefined;
                 } | undefined;
                 avatar?: {
-                    id?: string | undefined;
                     label?: "COVER" | "BANNER" | "AVATAR" | "LOGO" | undefined;
+                    id?: string | undefined;
                     newImage?: {
                         value: string;
                         label: "COVER" | "BANNER" | "AVATAR" | "LOGO";
@@ -2636,12 +2635,12 @@ export declare const TrackAddBody: z.ZodObject<{
                     value: string;
                     name: string;
                 }[] | undefined;
+                description?: string | undefined;
             }, {
                 name: {
                     default: string;
                     alias?: string[] | undefined;
                 };
-                description?: string | undefined;
                 isGroupe?: boolean | undefined;
                 birthDate?: {
                     year?: string | number | undefined;
@@ -2660,8 +2659,8 @@ export declare const TrackAddBody: z.ZodObject<{
                     seconds?: string | number | undefined;
                 } | undefined;
                 avatar?: {
-                    id?: string | undefined;
                     label?: "COVER" | "BANNER" | "AVATAR" | "LOGO" | undefined;
+                    id?: string | undefined;
                     newImage?: {
                         value: string;
                         label: "COVER" | "BANNER" | "AVATAR" | "LOGO";
@@ -2671,6 +2670,7 @@ export declare const TrackAddBody: z.ZodObject<{
                     value: string;
                     name: string;
                 }[] | undefined;
+                description?: string | undefined;
             }>>;
             role: z.ZodOptional<z.ZodEnum<("DOUBLAGE_SEIYU" | "AUTEUR" | "EDITEUR" | "PRODUCTEUR" | "REALISATEUR" | "REALISATEUR_EPISODES" | "REALISATEUR_MISEENPAGE" | "DIRECTEUR_ARTISTIQUE_CINEMATROGRAPHIQUE" | "DIRECTEUR_ANIMATION" | "CONCEPTEUR" | "ANIMATEUR_PRINCIPAL" | "ANIMATEUR_INTERMEDIAIRE" | "COLORISTES" | "DIRECTEUR_ENREGISTREMENT" | "SCENARISTE" | "ANIMATEUR_3D" | "METTEUR_EN_SCENE" | "SUPERVISEUR" | "MONTEUR" | "RESPONSABLE_DROITS" | "PRODUCTEUR_MUSIQUE" | "RESPONSABLE_MARKETING" | "DIFFUSEUR" | "STORYBOARDER" | "ARTISTE_VFX" | "INGENIEUR_SON" | "DIRECTEUR_DOUBLAGE" | "TRADUCTEUR" | "MANGAKA" | "CHARACTER_DESIGNER" | "DESSINATEUR_DECORS" | "REALISATEUR_MISE_EN_PAGE" | "COMPOSITEUR" | "PAROLIER" | "ARRANGEUR" | "MUSICIEN" | "CHANTEUR_EUSE" | "CHEF_ORCHESTRE" | "PRODUCTEUR_MUSICAL" | "DESIGNER_SONORE" | "MIXEUR")[] & [string, ...string[]]>>;
         }, "strip", z.ZodTypeAny, {
@@ -2680,7 +2680,6 @@ export declare const TrackAddBody: z.ZodObject<{
                     default: string;
                     alias?: string[] | undefined;
                 };
-                description?: string | undefined;
                 isGroupe?: boolean | undefined;
                 birthDate?: {
                     year?: number | undefined;
@@ -2699,8 +2698,8 @@ export declare const TrackAddBody: z.ZodObject<{
                     seconds?: number | undefined;
                 } | undefined;
                 avatar?: {
-                    id?: string | undefined;
                     label?: "COVER" | "BANNER" | "AVATAR" | "LOGO" | undefined;
+                    id?: string | undefined;
                     newImage?: {
                         value: string;
                         label: "COVER" | "BANNER" | "AVATAR" | "LOGO";
@@ -2710,6 +2709,7 @@ export declare const TrackAddBody: z.ZodObject<{
                     value: string;
                     name: string;
                 }[] | undefined;
+                description?: string | undefined;
             } | undefined;
             role?: "DOUBLAGE_SEIYU" | "AUTEUR" | "EDITEUR" | "PRODUCTEUR" | "REALISATEUR" | "REALISATEUR_EPISODES" | "REALISATEUR_MISEENPAGE" | "DIRECTEUR_ARTISTIQUE_CINEMATROGRAPHIQUE" | "DIRECTEUR_ANIMATION" | "CONCEPTEUR" | "ANIMATEUR_PRINCIPAL" | "ANIMATEUR_INTERMEDIAIRE" | "COLORISTES" | "DIRECTEUR_ENREGISTREMENT" | "SCENARISTE" | "ANIMATEUR_3D" | "METTEUR_EN_SCENE" | "SUPERVISEUR" | "MONTEUR" | "RESPONSABLE_DROITS" | "PRODUCTEUR_MUSIQUE" | "RESPONSABLE_MARKETING" | "DIFFUSEUR" | "STORYBOARDER" | "ARTISTE_VFX" | "INGENIEUR_SON" | "DIRECTEUR_DOUBLAGE" | "TRADUCTEUR" | "MANGAKA" | "CHARACTER_DESIGNER" | "DESSINATEUR_DECORS" | "REALISATEUR_MISE_EN_PAGE" | "COMPOSITEUR" | "PAROLIER" | "ARRANGEUR" | "MUSICIEN" | "CHANTEUR_EUSE" | "CHEF_ORCHESTRE" | "PRODUCTEUR_MUSICAL" | "DESIGNER_SONORE" | "MIXEUR" | undefined;
         }, {
@@ -2719,7 +2719,6 @@ export declare const TrackAddBody: z.ZodObject<{
                     default: string;
                     alias?: string[] | undefined;
                 };
-                description?: string | undefined;
                 isGroupe?: boolean | undefined;
                 birthDate?: {
                     year?: string | number | undefined;
@@ -2738,8 +2737,8 @@ export declare const TrackAddBody: z.ZodObject<{
                     seconds?: string | number | undefined;
                 } | undefined;
                 avatar?: {
-                    id?: string | undefined;
                     label?: "COVER" | "BANNER" | "AVATAR" | "LOGO" | undefined;
+                    id?: string | undefined;
                     newImage?: {
                         value: string;
                         label: "COVER" | "BANNER" | "AVATAR" | "LOGO";
@@ -2749,6 +2748,7 @@ export declare const TrackAddBody: z.ZodObject<{
                     value: string;
                     name: string;
                 }[] | undefined;
+                description?: string | undefined;
             } | undefined;
             role?: "DOUBLAGE_SEIYU" | "AUTEUR" | "EDITEUR" | "PRODUCTEUR" | "REALISATEUR" | "REALISATEUR_EPISODES" | "REALISATEUR_MISEENPAGE" | "DIRECTEUR_ARTISTIQUE_CINEMATROGRAPHIQUE" | "DIRECTEUR_ANIMATION" | "CONCEPTEUR" | "ANIMATEUR_PRINCIPAL" | "ANIMATEUR_INTERMEDIAIRE" | "COLORISTES" | "DIRECTEUR_ENREGISTREMENT" | "SCENARISTE" | "ANIMATEUR_3D" | "METTEUR_EN_SCENE" | "SUPERVISEUR" | "MONTEUR" | "RESPONSABLE_DROITS" | "PRODUCTEUR_MUSIQUE" | "RESPONSABLE_MARKETING" | "DIFFUSEUR" | "STORYBOARDER" | "ARTISTE_VFX" | "INGENIEUR_SON" | "DIRECTEUR_DOUBLAGE" | "TRADUCTEUR" | "MANGAKA" | "CHARACTER_DESIGNER" | "DESSINATEUR_DECORS" | "REALISATEUR_MISE_EN_PAGE" | "COMPOSITEUR" | "PAROLIER" | "ARRANGEUR" | "MUSICIEN" | "CHANTEUR_EUSE" | "CHEF_ORCHESTRE" | "PRODUCTEUR_MUSICAL" | "DESIGNER_SONORE" | "MIXEUR" | undefined;
         }>, "many">>;
@@ -2766,15 +2766,15 @@ export declare const TrackAddBody: z.ZodObject<{
                 label: "COVER" | "BANNER" | "AVATAR" | "LOGO";
             }>>;
         }, "strip", z.ZodTypeAny, {
-            id?: string | undefined;
             label?: "COVER" | "BANNER" | "AVATAR" | "LOGO" | undefined;
+            id?: string | undefined;
             newImage?: {
                 value: string;
                 label: "COVER" | "BANNER" | "AVATAR" | "LOGO";
             } | undefined;
         }, {
-            id?: string | undefined;
             label?: "COVER" | "BANNER" | "AVATAR" | "LOGO" | undefined;
+            id?: string | undefined;
             newImage?: {
                 value: string;
                 label: "COVER" | "BANNER" | "AVATAR" | "LOGO";
@@ -2783,7 +2783,7 @@ export declare const TrackAddBody: z.ZodObject<{
         description: z.ZodOptional<z.ZodString>;
         links: z.ZodOptional<z.ZodArray<z.ZodObject<{
             name: z.ZodString;
-            value: z.ZodEffects<z.ZodString, string, string>;
+            value: z.ZodString;
         }, "strip", z.ZodTypeAny, {
             value: string;
             name: string;
@@ -2797,19 +2797,19 @@ export declare const TrackAddBody: z.ZodObject<{
             default: string;
             alias?: string[] | undefined;
         };
+        links?: {
+            value: string;
+            name: string;
+        }[] | undefined;
+        description?: string | undefined;
         cover?: {
-            id?: string | undefined;
             label?: "COVER" | "BANNER" | "AVATAR" | "LOGO" | undefined;
+            id?: string | undefined;
             newImage?: {
                 value: string;
                 label: "COVER" | "BANNER" | "AVATAR" | "LOGO";
             } | undefined;
         } | undefined;
-        description?: string | undefined;
-        links?: {
-            value: string;
-            name: string;
-        }[] | undefined;
         releaseDate?: {
             year?: number | undefined;
             month?: number | undefined;
@@ -2825,7 +2825,6 @@ export declare const TrackAddBody: z.ZodObject<{
                     default: string;
                     alias?: string[] | undefined;
                 };
-                description?: string | undefined;
                 isGroupe?: boolean | undefined;
                 birthDate?: {
                     year?: number | undefined;
@@ -2844,8 +2843,8 @@ export declare const TrackAddBody: z.ZodObject<{
                     seconds?: number | undefined;
                 } | undefined;
                 avatar?: {
-                    id?: string | undefined;
                     label?: "COVER" | "BANNER" | "AVATAR" | "LOGO" | undefined;
+                    id?: string | undefined;
                     newImage?: {
                         value: string;
                         label: "COVER" | "BANNER" | "AVATAR" | "LOGO";
@@ -2855,6 +2854,7 @@ export declare const TrackAddBody: z.ZodObject<{
                     value: string;
                     name: string;
                 }[] | undefined;
+                description?: string | undefined;
             } | undefined;
             role?: "DOUBLAGE_SEIYU" | "AUTEUR" | "EDITEUR" | "PRODUCTEUR" | "REALISATEUR" | "REALISATEUR_EPISODES" | "REALISATEUR_MISEENPAGE" | "DIRECTEUR_ARTISTIQUE_CINEMATROGRAPHIQUE" | "DIRECTEUR_ANIMATION" | "CONCEPTEUR" | "ANIMATEUR_PRINCIPAL" | "ANIMATEUR_INTERMEDIAIRE" | "COLORISTES" | "DIRECTEUR_ENREGISTREMENT" | "SCENARISTE" | "ANIMATEUR_3D" | "METTEUR_EN_SCENE" | "SUPERVISEUR" | "MONTEUR" | "RESPONSABLE_DROITS" | "PRODUCTEUR_MUSIQUE" | "RESPONSABLE_MARKETING" | "DIFFUSEUR" | "STORYBOARDER" | "ARTISTE_VFX" | "INGENIEUR_SON" | "DIRECTEUR_DOUBLAGE" | "TRADUCTEUR" | "MANGAKA" | "CHARACTER_DESIGNER" | "DESSINATEUR_DECORS" | "REALISATEUR_MISE_EN_PAGE" | "COMPOSITEUR" | "PAROLIER" | "ARRANGEUR" | "MUSICIEN" | "CHANTEUR_EUSE" | "CHEF_ORCHESTRE" | "PRODUCTEUR_MUSICAL" | "DESIGNER_SONORE" | "MIXEUR" | undefined;
         }[] | undefined;
@@ -2864,19 +2864,19 @@ export declare const TrackAddBody: z.ZodObject<{
             default: string;
             alias?: string[] | undefined;
         };
+        links?: {
+            value: string;
+            name: string;
+        }[] | undefined;
+        description?: string | undefined;
         cover?: {
-            id?: string | undefined;
             label?: "COVER" | "BANNER" | "AVATAR" | "LOGO" | undefined;
+            id?: string | undefined;
             newImage?: {
                 value: string;
                 label: "COVER" | "BANNER" | "AVATAR" | "LOGO";
             } | undefined;
         } | undefined;
-        description?: string | undefined;
-        links?: {
-            value: string;
-            name: string;
-        }[] | undefined;
         releaseDate?: {
             year?: string | number | undefined;
             month?: string | number | undefined;
@@ -2892,7 +2892,6 @@ export declare const TrackAddBody: z.ZodObject<{
                     default: string;
                     alias?: string[] | undefined;
                 };
-                description?: string | undefined;
                 isGroupe?: boolean | undefined;
                 birthDate?: {
                     year?: string | number | undefined;
@@ -2911,8 +2910,8 @@ export declare const TrackAddBody: z.ZodObject<{
                     seconds?: string | number | undefined;
                 } | undefined;
                 avatar?: {
-                    id?: string | undefined;
                     label?: "COVER" | "BANNER" | "AVATAR" | "LOGO" | undefined;
+                    id?: string | undefined;
                     newImage?: {
                         value: string;
                         label: "COVER" | "BANNER" | "AVATAR" | "LOGO";
@@ -2922,6 +2921,7 @@ export declare const TrackAddBody: z.ZodObject<{
                     value: string;
                     name: string;
                 }[] | undefined;
+                description?: string | undefined;
             } | undefined;
             role?: "DOUBLAGE_SEIYU" | "AUTEUR" | "EDITEUR" | "PRODUCTEUR" | "REALISATEUR" | "REALISATEUR_EPISODES" | "REALISATEUR_MISEENPAGE" | "DIRECTEUR_ARTISTIQUE_CINEMATROGRAPHIQUE" | "DIRECTEUR_ANIMATION" | "CONCEPTEUR" | "ANIMATEUR_PRINCIPAL" | "ANIMATEUR_INTERMEDIAIRE" | "COLORISTES" | "DIRECTEUR_ENREGISTREMENT" | "SCENARISTE" | "ANIMATEUR_3D" | "METTEUR_EN_SCENE" | "SUPERVISEUR" | "MONTEUR" | "RESPONSABLE_DROITS" | "PRODUCTEUR_MUSIQUE" | "RESPONSABLE_MARKETING" | "DIFFUSEUR" | "STORYBOARDER" | "ARTISTE_VFX" | "INGENIEUR_SON" | "DIRECTEUR_DOUBLAGE" | "TRADUCTEUR" | "MANGAKA" | "CHARACTER_DESIGNER" | "DESSINATEUR_DECORS" | "REALISATEUR_MISE_EN_PAGE" | "COMPOSITEUR" | "PAROLIER" | "ARRANGEUR" | "MUSICIEN" | "CHANTEUR_EUSE" | "CHEF_ORCHESTRE" | "PRODUCTEUR_MUSICAL" | "DESIGNER_SONORE" | "MIXEUR" | undefined;
         }[] | undefined;
@@ -2934,19 +2934,19 @@ export declare const TrackAddBody: z.ZodObject<{
             default: string;
             alias?: string[] | undefined;
         };
+        links?: {
+            value: string;
+            name: string;
+        }[] | undefined;
+        description?: string | undefined;
         cover?: {
-            id?: string | undefined;
             label?: "COVER" | "BANNER" | "AVATAR" | "LOGO" | undefined;
+            id?: string | undefined;
             newImage?: {
                 value: string;
                 label: "COVER" | "BANNER" | "AVATAR" | "LOGO";
             } | undefined;
         } | undefined;
-        description?: string | undefined;
-        links?: {
-            value: string;
-            name: string;
-        }[] | undefined;
         releaseDate?: {
             year?: number | undefined;
             month?: number | undefined;
@@ -2962,7 +2962,6 @@ export declare const TrackAddBody: z.ZodObject<{
                     default: string;
                     alias?: string[] | undefined;
                 };
-                description?: string | undefined;
                 isGroupe?: boolean | undefined;
                 birthDate?: {
                     year?: number | undefined;
@@ -2981,8 +2980,8 @@ export declare const TrackAddBody: z.ZodObject<{
                     seconds?: number | undefined;
                 } | undefined;
                 avatar?: {
-                    id?: string | undefined;
                     label?: "COVER" | "BANNER" | "AVATAR" | "LOGO" | undefined;
+                    id?: string | undefined;
                     newImage?: {
                         value: string;
                         label: "COVER" | "BANNER" | "AVATAR" | "LOGO";
@@ -2992,6 +2991,7 @@ export declare const TrackAddBody: z.ZodObject<{
                     value: string;
                     name: string;
                 }[] | undefined;
+                description?: string | undefined;
             } | undefined;
             role?: "DOUBLAGE_SEIYU" | "AUTEUR" | "EDITEUR" | "PRODUCTEUR" | "REALISATEUR" | "REALISATEUR_EPISODES" | "REALISATEUR_MISEENPAGE" | "DIRECTEUR_ARTISTIQUE_CINEMATROGRAPHIQUE" | "DIRECTEUR_ANIMATION" | "CONCEPTEUR" | "ANIMATEUR_PRINCIPAL" | "ANIMATEUR_INTERMEDIAIRE" | "COLORISTES" | "DIRECTEUR_ENREGISTREMENT" | "SCENARISTE" | "ANIMATEUR_3D" | "METTEUR_EN_SCENE" | "SUPERVISEUR" | "MONTEUR" | "RESPONSABLE_DROITS" | "PRODUCTEUR_MUSIQUE" | "RESPONSABLE_MARKETING" | "DIFFUSEUR" | "STORYBOARDER" | "ARTISTE_VFX" | "INGENIEUR_SON" | "DIRECTEUR_DOUBLAGE" | "TRADUCTEUR" | "MANGAKA" | "CHARACTER_DESIGNER" | "DESSINATEUR_DECORS" | "REALISATEUR_MISE_EN_PAGE" | "COMPOSITEUR" | "PAROLIER" | "ARRANGEUR" | "MUSICIEN" | "CHANTEUR_EUSE" | "CHEF_ORCHESTRE" | "PRODUCTEUR_MUSICAL" | "DESIGNER_SONORE" | "MIXEUR" | undefined;
         }[] | undefined;
@@ -3004,19 +3004,19 @@ export declare const TrackAddBody: z.ZodObject<{
             default: string;
             alias?: string[] | undefined;
         };
+        links?: {
+            value: string;
+            name: string;
+        }[] | undefined;
+        description?: string | undefined;
         cover?: {
-            id?: string | undefined;
             label?: "COVER" | "BANNER" | "AVATAR" | "LOGO" | undefined;
+            id?: string | undefined;
             newImage?: {
                 value: string;
                 label: "COVER" | "BANNER" | "AVATAR" | "LOGO";
             } | undefined;
         } | undefined;
-        description?: string | undefined;
-        links?: {
-            value: string;
-            name: string;
-        }[] | undefined;
         releaseDate?: {
             year?: string | number | undefined;
             month?: string | number | undefined;
@@ -3032,7 +3032,6 @@ export declare const TrackAddBody: z.ZodObject<{
                     default: string;
                     alias?: string[] | undefined;
                 };
-                description?: string | undefined;
                 isGroupe?: boolean | undefined;
                 birthDate?: {
                     year?: string | number | undefined;
@@ -3051,8 +3050,8 @@ export declare const TrackAddBody: z.ZodObject<{
                     seconds?: string | number | undefined;
                 } | undefined;
                 avatar?: {
-                    id?: string | undefined;
                     label?: "COVER" | "BANNER" | "AVATAR" | "LOGO" | undefined;
+                    id?: string | undefined;
                     newImage?: {
                         value: string;
                         label: "COVER" | "BANNER" | "AVATAR" | "LOGO";
@@ -3062,6 +3061,7 @@ export declare const TrackAddBody: z.ZodObject<{
                     value: string;
                     name: string;
                 }[] | undefined;
+                description?: string | undefined;
             } | undefined;
             role?: "DOUBLAGE_SEIYU" | "AUTEUR" | "EDITEUR" | "PRODUCTEUR" | "REALISATEUR" | "REALISATEUR_EPISODES" | "REALISATEUR_MISEENPAGE" | "DIRECTEUR_ARTISTIQUE_CINEMATROGRAPHIQUE" | "DIRECTEUR_ANIMATION" | "CONCEPTEUR" | "ANIMATEUR_PRINCIPAL" | "ANIMATEUR_INTERMEDIAIRE" | "COLORISTES" | "DIRECTEUR_ENREGISTREMENT" | "SCENARISTE" | "ANIMATEUR_3D" | "METTEUR_EN_SCENE" | "SUPERVISEUR" | "MONTEUR" | "RESPONSABLE_DROITS" | "PRODUCTEUR_MUSIQUE" | "RESPONSABLE_MARKETING" | "DIFFUSEUR" | "STORYBOARDER" | "ARTISTE_VFX" | "INGENIEUR_SON" | "DIRECTEUR_DOUBLAGE" | "TRADUCTEUR" | "MANGAKA" | "CHARACTER_DESIGNER" | "DESSINATEUR_DECORS" | "REALISATEUR_MISE_EN_PAGE" | "COMPOSITEUR" | "PAROLIER" | "ARRANGEUR" | "MUSICIEN" | "CHANTEUR_EUSE" | "CHEF_ORCHESTRE" | "PRODUCTEUR_MUSICAL" | "DESIGNER_SONORE" | "MIXEUR" | undefined;
         }[] | undefined;
@@ -3074,19 +3074,19 @@ export declare const TrackDataToZOD: (data: ITrack) => {
         default: string;
         alias?: string[] | undefined;
     };
+    links?: {
+        value: string;
+        name: string;
+    }[] | undefined;
+    description?: string | undefined;
     cover?: {
-        id?: string | undefined;
         label?: "COVER" | "BANNER" | "AVATAR" | "LOGO" | undefined;
+        id?: string | undefined;
         newImage?: {
             value: string;
             label: "COVER" | "BANNER" | "AVATAR" | "LOGO";
         } | undefined;
     } | undefined;
-    description?: string | undefined;
-    links?: {
-        value: string;
-        name: string;
-    }[] | undefined;
     releaseDate?: {
         year?: number | undefined;
         month?: number | undefined;
@@ -3102,7 +3102,6 @@ export declare const TrackDataToZOD: (data: ITrack) => {
                 default: string;
                 alias?: string[] | undefined;
             };
-            description?: string | undefined;
             isGroupe?: boolean | undefined;
             birthDate?: {
                 year?: number | undefined;
@@ -3121,8 +3120,8 @@ export declare const TrackDataToZOD: (data: ITrack) => {
                 seconds?: number | undefined;
             } | undefined;
             avatar?: {
-                id?: string | undefined;
                 label?: "COVER" | "BANNER" | "AVATAR" | "LOGO" | undefined;
+                id?: string | undefined;
                 newImage?: {
                     value: string;
                     label: "COVER" | "BANNER" | "AVATAR" | "LOGO";
@@ -3132,6 +3131,7 @@ export declare const TrackDataToZOD: (data: ITrack) => {
                 value: string;
                 name: string;
             }[] | undefined;
+            description?: string | undefined;
         } | undefined;
         role?: "DOUBLAGE_SEIYU" | "AUTEUR" | "EDITEUR" | "PRODUCTEUR" | "REALISATEUR" | "REALISATEUR_EPISODES" | "REALISATEUR_MISEENPAGE" | "DIRECTEUR_ARTISTIQUE_CINEMATROGRAPHIQUE" | "DIRECTEUR_ANIMATION" | "CONCEPTEUR" | "ANIMATEUR_PRINCIPAL" | "ANIMATEUR_INTERMEDIAIRE" | "COLORISTES" | "DIRECTEUR_ENREGISTREMENT" | "SCENARISTE" | "ANIMATEUR_3D" | "METTEUR_EN_SCENE" | "SUPERVISEUR" | "MONTEUR" | "RESPONSABLE_DROITS" | "PRODUCTEUR_MUSIQUE" | "RESPONSABLE_MARKETING" | "DIFFUSEUR" | "STORYBOARDER" | "ARTISTE_VFX" | "INGENIEUR_SON" | "DIRECTEUR_DOUBLAGE" | "TRADUCTEUR" | "MANGAKA" | "CHARACTER_DESIGNER" | "DESSINATEUR_DECORS" | "REALISATEUR_MISE_EN_PAGE" | "COMPOSITEUR" | "PAROLIER" | "ARRANGEUR" | "MUSICIEN" | "CHANTEUR_EUSE" | "CHEF_ORCHESTRE" | "PRODUCTEUR_MUSICAL" | "DESIGNER_SONORE" | "MIXEUR" | undefined;
     }[] | undefined;

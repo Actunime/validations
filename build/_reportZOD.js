@@ -1,56 +1,52 @@
-"use strict";
-Object.defineProperty(exports, "__esModule", { value: true });
-exports.Patch_Report_ZOD = exports.Create_Report_ZOD_FORM = exports.Create_Report_ZOD = exports.Report_Pagination_ZOD = void 0;
-const types_1 = require("@actunime/types");
-const zod_1 = require("zod");
-const _util_1 = require("./_util");
-exports.Report_Pagination_ZOD = zod_1.z
+import { ReportStatusArray, ReportSubjectArray, TargetPathArray, } from "@actunime/types";
+import { z } from "zod";
+import { zodNumber } from "./_util";
+export const Report_Pagination_ZOD = z
     .object({
-    page: (0, _util_1.zodNumber)(),
-    limit: (0, _util_1.zodNumber)(),
-    strict: zod_1.z.boolean().optional(),
-    sort: zod_1.z
+    page: zodNumber(),
+    limit: zodNumber(),
+    strict: z.boolean().optional(),
+    sort: z
         .object({
-        updaptedAt: zod_1.z.enum(["DESC", "ASC"]).optional(),
-        createdAt: zod_1.z.enum(["DESC", "ASC"]).optional(),
+        updaptedAt: z.enum(["DESC", "ASC"]).optional(),
+        createdAt: z.enum(["DESC", "ASC"]).optional(),
     })
         .partial()
         .strict(),
-    query: zod_1.z
+    query: z
         .object({
-        subject: zod_1.z.enum(types_1.ReportSubjectArray).optional(),
-        status: zod_1.z.enum(types_1.ReportStatusArray).optional(),
-        by: zod_1.z.string().optional(),
-        author: zod_1.z.string().optional(),
-        target: zod_1.z.string().optional(),
-        targetPath: zod_1.z.enum(types_1.TargetPathArray).optional(),
+        subject: z.enum(ReportSubjectArray).optional(),
+        status: z.enum(ReportStatusArray).optional(),
+        by: z.string().optional(),
+        author: z.string().optional(),
+        target: z.string().optional(),
+        targetPath: z.enum(TargetPathArray).optional(),
     })
         .partial()
         .strict(),
-    with: zod_1.z
+    with: z
         .object({
-        by: zod_1.z.boolean().optional(),
-        author: zod_1.z.boolean().optional(),
-        target: zod_1.z.boolean().optional(),
+        by: z.boolean().optional(),
+        author: z.boolean().optional(),
+        target: z.boolean().optional(),
     })
         .partial()
         .strict(),
 })
     .partial()
     .strict();
-exports.Create_Report_ZOD = zod_1.z
+export const Create_Report_ZOD = z
     .object({
-    status: zod_1.z.enum(types_1.ReportStatusArray),
+    status: z.enum(ReportStatusArray),
 })
     .strict();
-exports.Create_Report_ZOD_FORM = zod_1.z.object({
-    note: zod_1.z.string().optional(),
-    data: exports.Create_Report_ZOD,
+export const Create_Report_ZOD_FORM = z.object({
+    note: z.string().optional(),
+    data: Create_Report_ZOD,
 });
-exports.Patch_Report_ZOD = zod_1.z
+export const Patch_Report_ZOD = z
     .object({
-    status: zod_1.z.enum(types_1.ReportStatusArray),
+    status: z.enum(ReportStatusArray),
 })
     .strict()
     .partial();
-//# sourceMappingURL=_reportZOD.js.map

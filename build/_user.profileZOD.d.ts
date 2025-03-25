@@ -1,5 +1,5 @@
-import { IUser } from "@actunime/types";
-import { z } from "zod";
+import { IUser } from '@actunime/types';
+import { z } from 'zod';
 export declare const Patch_UserProfile_ZOD: z.ZodObject<{
     username: z.ZodOptional<z.ZodOptional<z.ZodString>>;
     displayName: z.ZodOptional<z.ZodOptional<z.ZodString>>;
@@ -19,15 +19,15 @@ export declare const Patch_UserProfile_ZOD: z.ZodObject<{
             label: "COVER" | "BANNER" | "AVATAR" | "LOGO";
         }>>;
     }, "strip", z.ZodTypeAny, {
-        id?: string | undefined;
         label?: "COVER" | "BANNER" | "AVATAR" | "LOGO" | undefined;
+        id?: string | undefined;
         newImage?: {
             value: string;
             label: "COVER" | "BANNER" | "AVATAR" | "LOGO";
         } | undefined;
     }, {
-        id?: string | undefined;
         label?: "COVER" | "BANNER" | "AVATAR" | "LOGO" | undefined;
+        id?: string | undefined;
         newImage?: {
             value: string;
             label: "COVER" | "BANNER" | "AVATAR" | "LOGO";
@@ -47,33 +47,33 @@ export declare const Patch_UserProfile_ZOD: z.ZodObject<{
             label: "COVER" | "BANNER" | "AVATAR" | "LOGO";
         }>>;
     }, "strip", z.ZodTypeAny, {
-        id?: string | undefined;
         label?: "COVER" | "BANNER" | "AVATAR" | "LOGO" | undefined;
+        id?: string | undefined;
         newImage?: {
             value: string;
             label: "COVER" | "BANNER" | "AVATAR" | "LOGO";
         } | undefined;
     }, {
-        id?: string | undefined;
         label?: "COVER" | "BANNER" | "AVATAR" | "LOGO" | undefined;
+        id?: string | undefined;
         newImage?: {
             value: string;
             label: "COVER" | "BANNER" | "AVATAR" | "LOGO";
         } | undefined;
     }>>>;
 }, "strip", z.ZodTypeAny, {
-    banner?: {
-        id?: string | undefined;
+    avatar?: {
         label?: "COVER" | "BANNER" | "AVATAR" | "LOGO" | undefined;
+        id?: string | undefined;
         newImage?: {
             value: string;
             label: "COVER" | "BANNER" | "AVATAR" | "LOGO";
         } | undefined;
     } | undefined;
     description?: string | undefined;
-    avatar?: {
-        id?: string | undefined;
+    banner?: {
         label?: "COVER" | "BANNER" | "AVATAR" | "LOGO" | undefined;
+        id?: string | undefined;
         newImage?: {
             value: string;
             label: "COVER" | "BANNER" | "AVATAR" | "LOGO";
@@ -83,18 +83,18 @@ export declare const Patch_UserProfile_ZOD: z.ZodObject<{
     displayName?: string | undefined;
     roles?: ("MEMBER" | "PREMIUM" | "MODERATOR" | "ANIME_MODERATOR" | "MANGA_MODERATOR" | "CHARACTER_MODERATOR" | "PERSON_MODERATOR" | "TRACK_MODERATOR" | "COMPANY_MODERATOR" | "ADMINISTRATOR" | "ACTUNIME")[] | undefined;
 }, {
-    banner?: {
-        id?: string | undefined;
+    avatar?: {
         label?: "COVER" | "BANNER" | "AVATAR" | "LOGO" | undefined;
+        id?: string | undefined;
         newImage?: {
             value: string;
             label: "COVER" | "BANNER" | "AVATAR" | "LOGO";
         } | undefined;
     } | undefined;
     description?: string | undefined;
-    avatar?: {
-        id?: string | undefined;
+    banner?: {
         label?: "COVER" | "BANNER" | "AVATAR" | "LOGO" | undefined;
+        id?: string | undefined;
         newImage?: {
             value: string;
             label: "COVER" | "BANNER" | "AVATAR" | "LOGO";
@@ -125,15 +125,15 @@ export declare const Patch_UserProfile_ZOD_FORM: z.ZodObject<{
                 label: "COVER" | "BANNER" | "AVATAR" | "LOGO";
             }>>;
         }, "strip", z.ZodTypeAny, {
-            id?: string | undefined;
             label?: "COVER" | "BANNER" | "AVATAR" | "LOGO" | undefined;
+            id?: string | undefined;
             newImage?: {
                 value: string;
                 label: "COVER" | "BANNER" | "AVATAR" | "LOGO";
             } | undefined;
         }, {
-            id?: string | undefined;
             label?: "COVER" | "BANNER" | "AVATAR" | "LOGO" | undefined;
+            id?: string | undefined;
             newImage?: {
                 value: string;
                 label: "COVER" | "BANNER" | "AVATAR" | "LOGO";
@@ -153,33 +153,33 @@ export declare const Patch_UserProfile_ZOD_FORM: z.ZodObject<{
                 label: "COVER" | "BANNER" | "AVATAR" | "LOGO";
             }>>;
         }, "strip", z.ZodTypeAny, {
-            id?: string | undefined;
             label?: "COVER" | "BANNER" | "AVATAR" | "LOGO" | undefined;
+            id?: string | undefined;
             newImage?: {
                 value: string;
                 label: "COVER" | "BANNER" | "AVATAR" | "LOGO";
             } | undefined;
         }, {
-            id?: string | undefined;
             label?: "COVER" | "BANNER" | "AVATAR" | "LOGO" | undefined;
+            id?: string | undefined;
             newImage?: {
                 value: string;
                 label: "COVER" | "BANNER" | "AVATAR" | "LOGO";
             } | undefined;
         }>>>;
     }, "strip", z.ZodTypeAny, {
-        banner?: {
-            id?: string | undefined;
+        avatar?: {
             label?: "COVER" | "BANNER" | "AVATAR" | "LOGO" | undefined;
+            id?: string | undefined;
             newImage?: {
                 value: string;
                 label: "COVER" | "BANNER" | "AVATAR" | "LOGO";
             } | undefined;
         } | undefined;
         description?: string | undefined;
-        avatar?: {
-            id?: string | undefined;
+        banner?: {
             label?: "COVER" | "BANNER" | "AVATAR" | "LOGO" | undefined;
+            id?: string | undefined;
             newImage?: {
                 value: string;
                 label: "COVER" | "BANNER" | "AVATAR" | "LOGO";
@@ -189,18 +189,18 @@ export declare const Patch_UserProfile_ZOD_FORM: z.ZodObject<{
         displayName?: string | undefined;
         roles?: ("MEMBER" | "PREMIUM" | "MODERATOR" | "ANIME_MODERATOR" | "MANGA_MODERATOR" | "CHARACTER_MODERATOR" | "PERSON_MODERATOR" | "TRACK_MODERATOR" | "COMPANY_MODERATOR" | "ADMINISTRATOR" | "ACTUNIME")[] | undefined;
     }, {
-        banner?: {
-            id?: string | undefined;
+        avatar?: {
             label?: "COVER" | "BANNER" | "AVATAR" | "LOGO" | undefined;
+            id?: string | undefined;
             newImage?: {
                 value: string;
                 label: "COVER" | "BANNER" | "AVATAR" | "LOGO";
             } | undefined;
         } | undefined;
         description?: string | undefined;
-        avatar?: {
-            id?: string | undefined;
+        banner?: {
             label?: "COVER" | "BANNER" | "AVATAR" | "LOGO" | undefined;
+            id?: string | undefined;
             newImage?: {
                 value: string;
                 label: "COVER" | "BANNER" | "AVATAR" | "LOGO";
@@ -213,18 +213,18 @@ export declare const Patch_UserProfile_ZOD_FORM: z.ZodObject<{
     note: z.ZodOptional<z.ZodString>;
 }, "strip", z.ZodTypeAny, {
     data: {
-        banner?: {
-            id?: string | undefined;
+        avatar?: {
             label?: "COVER" | "BANNER" | "AVATAR" | "LOGO" | undefined;
+            id?: string | undefined;
             newImage?: {
                 value: string;
                 label: "COVER" | "BANNER" | "AVATAR" | "LOGO";
             } | undefined;
         } | undefined;
         description?: string | undefined;
-        avatar?: {
-            id?: string | undefined;
+        banner?: {
             label?: "COVER" | "BANNER" | "AVATAR" | "LOGO" | undefined;
+            id?: string | undefined;
             newImage?: {
                 value: string;
                 label: "COVER" | "BANNER" | "AVATAR" | "LOGO";
@@ -237,18 +237,18 @@ export declare const Patch_UserProfile_ZOD_FORM: z.ZodObject<{
     note?: string | undefined;
 }, {
     data: {
-        banner?: {
-            id?: string | undefined;
+        avatar?: {
             label?: "COVER" | "BANNER" | "AVATAR" | "LOGO" | undefined;
+            id?: string | undefined;
             newImage?: {
                 value: string;
                 label: "COVER" | "BANNER" | "AVATAR" | "LOGO";
             } | undefined;
         } | undefined;
         description?: string | undefined;
-        avatar?: {
-            id?: string | undefined;
+        banner?: {
             label?: "COVER" | "BANNER" | "AVATAR" | "LOGO" | undefined;
+            id?: string | undefined;
             newImage?: {
                 value: string;
                 label: "COVER" | "BANNER" | "AVATAR" | "LOGO";

@@ -1,25 +1,18 @@
-"use strict";
-Object.defineProperty(exports, "__esModule", { value: true });
-exports.PaginationBody = exports.zodDate = exports.zodNumber = exports.zodBoolean = void 0;
-const zod_1 = require("zod");
-const zodBoolean = () => zod_1.z
-    .union([zod_1.z.boolean(), zod_1.z.literal("true"), zod_1.z.literal("false")])
+import { z } from "zod";
+export const zodBoolean = () => z
+    .union([z.boolean(), z.literal("true"), z.literal("false")])
     .transform((value) => value === true || value === "true");
-exports.zodBoolean = zodBoolean;
-const zodNumber = () => zod_1.z
-    .union([zod_1.z.number(), zod_1.z.string()])
+export const zodNumber = () => z
+    .union([z.number(), z.string()])
     .transform((value) => typeof value === "string" ? parseInt(value) : value);
-exports.zodNumber = zodNumber;
-const zodDate = () => zod_1.z
-    .union([zod_1.z.date(), zod_1.z.string()])
+export const zodDate = () => z
+    .union([z.date(), z.string()])
     .transform((value) => typeof value === "string" ? new Date(value) : value);
-exports.zodDate = zodDate;
-exports.PaginationBody = zod_1.z.object({
-    page: zod_1.z.number(),
-    limit: zod_1.z.number(),
-    strict: zod_1.z.boolean(),
-    onlyVerified: zod_1.z.boolean(),
-    sort: zod_1.z.any(),
-    query: zod_1.z.any(),
+export const PaginationBody = z.object({
+    page: z.number(),
+    limit: z.number(),
+    strict: z.boolean(),
+    onlyVerified: z.boolean(),
+    sort: z.any(),
+    query: z.any(),
 });
-//# sourceMappingURL=_util.js.map

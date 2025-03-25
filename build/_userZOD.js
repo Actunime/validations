@@ -1,88 +1,88 @@
-"use strict";
-Object.defineProperty(exports, "__esModule", { value: true });
-exports.UserAnimeListe_ZOD = exports.UserDataToZOD = exports.Create_User_ZOD = exports.Disable_User_ZOD_FORM = exports.Patch_User_ZOD_FORM = exports.Patch_User_ZOD = exports.User_Pagination_ZOD = exports.UserMutationBody = exports.UserPaginationBody = exports.UserSortBody = exports.UserQueryBody = void 0;
-const types_1 = require("@actunime/types");
-const zod_1 = require("zod");
-const _util_1 = require("./_util");
-const _imageZOD_1 = require("./_imageZOD");
-exports.UserQueryBody = zod_1.z.object({
-    username: zod_1.z.string(),
-    displayName: zod_1.z.string(),
-    roles: zod_1.z.array(zod_1.z.enum(types_1.UserRolesArray)),
-    createdAt: zod_1.z.string(),
-    updatedAt: zod_1.z.string(),
+import { UserRolesArray, UserAnimeListStatusArray, } from '@actunime/types';
+import { z } from 'zod';
+import { PaginationBody, zodNumber } from './_util';
+import { ImageAddBody } from './_imageZOD';
+export const UserQueryBody = z.object({
+    username: z.string(),
+    displayName: z.string(),
+    roles: z.array(z.enum(UserRolesArray)),
+    createdAt: z.string(),
+    updatedAt: z.string(),
 });
 const check = (v) => [-1, 1].includes(v);
-const checkErr = "le sort doit être soit -1 ou 1";
-exports.UserSortBody = zod_1.z.object({
-    username: (0, _util_1.zodNumber)().refine(check, checkErr),
-    displayName: (0, _util_1.zodNumber)().refine(check, checkErr),
-    roles: (0, _util_1.zodNumber)().refine(check, checkErr),
-    createdAt: (0, _util_1.zodNumber)().refine(check, checkErr),
-    updatedAt: (0, _util_1.zodNumber)().refine(check, checkErr),
+const checkErr = 'le sort doit être soit -1 ou 1';
+export const UserSortBody = z.object({
+    username: zodNumber().refine(check, checkErr),
+    displayName: zodNumber().refine(check, checkErr),
+    roles: zodNumber().refine(check, checkErr),
+    createdAt: zodNumber().refine(check, checkErr),
+    updatedAt: zodNumber().refine(check, checkErr),
 });
-exports.UserPaginationBody = _util_1.PaginationBody.extend({
-    sort: exports.UserSortBody.partial(),
-    query: exports.UserQueryBody.partial()
+export const UserPaginationBody = PaginationBody.extend({
+    sort: UserSortBody.partial(),
+    query: UserQueryBody.partial(),
 });
-exports.UserMutationBody = zod_1.z.object({
-    username: zod_1.z.string(),
-    displayName: zod_1.z.string().min(3, "Le pseudonyme doit contenir au moins 3 caractères").max(18, "Le pseudonyme doit contenir au maximum 18 caractères"),
-    description: zod_1.z.optional(zod_1.z.string()),
-    avatar: zod_1.z.optional(_imageZOD_1.Add_Image_ZOD),
-    banner: zod_1.z.optional(_imageZOD_1.Add_Image_ZOD),
+export const UserMutationBody = z.object({
+    username: z.string(),
+    displayName: z
+        .string()
+        .min(3, 'Le pseudonyme doit contenir au moins 3 caractères')
+        .max(18, 'Le pseudonyme doit contenir au maximum 18 caractères'),
+    description: z.optional(z.string()),
+    avatar: z.optional(ImageAddBody),
+    banner: z.optional(ImageAddBody),
 });
-exports.User_Pagination_ZOD = zod_1.z
+export const User_Pagination_ZOD = z
     .object({
-    page: (0, _util_1.zodNumber)(),
-    limit: (0, _util_1.zodNumber)(),
-    query: zod_1.z
+    page: zodNumber(),
+    limit: zodNumber(),
+    query: z
         .object({
-        name: zod_1.z.string(),
-        id: zod_1.z.string(),
-        roles: zod_1.z.array(zod_1.z.enum(types_1.UserRolesArray)),
-        allowUnverified: zod_1.z.boolean().optional(),
+        name: z.string(),
+        id: z.string(),
+        roles: z.array(z.enum(UserRolesArray)),
+        allowUnverified: z.boolean().optional(),
     })
         .partial()
         .strict(),
-    strict: zod_1.z.boolean().optional(),
-    sort: zod_1.z.object({
-        createdAt: zod_1.z.enum(["DESC", "ASC"]).optional(),
-        updatedAt: zod_1.z.enum(["DESC", "ASC"]).optional(),
+    strict: z.boolean().optional(),
+    sort: z.object({
+        createdAt: z.enum(['DESC', 'ASC']).optional(),
+        updatedAt: z.enum(['DESC', 'ASC']).optional(),
     }),
-    with: zod_1.z
+    with: z
         .object({
-        avatar: zod_1.z.boolean().optional(),
-        banner: zod_1.z.boolean().optional(),
+        avatar: z.boolean().optional(),
+        banner: z.boolean().optional(),
     })
         .partial()
         .strict(),
 })
     .partial()
     .strict();
-exports.Patch_User_ZOD = zod_1.z
+export const Patch_User_ZOD = z
     .object({
-    username: zod_1.z.string().optional(),
-    displayName: zod_1.z.string().optional(),
-    description: zod_1.z.string().optional(),
-    roles: zod_1.z.array(zod_1.z.enum(types_1.UserRolesArray)).optional(),
-    avatar: zod_1.z.optional(_imageZOD_1.Add_Image_ZOD),
-    banner: zod_1.z.optional(_imageZOD_1.Add_Image_ZOD),
+    username: z.string().optional(),
+    displayName: z.string().optional(),
+    description: z.string().optional(),
+    roles: z.array(z.enum(UserRolesArray)).optional(),
+    avatar: z.optional(ImageAddBody),
+    banner: z.optional(ImageAddBody),
 })
     .partial();
-exports.Patch_User_ZOD_FORM = zod_1.z.object({
-    data: exports.Patch_User_ZOD,
-    note: zod_1.z.string().optional(),
+export const Patch_User_ZOD_FORM = z.object({
+    data: Patch_User_ZOD,
+    note: z.string().optional(),
 });
-exports.Disable_User_ZOD_FORM = zod_1.z.object({
-    reason: zod_1.z.string(),
-    note: zod_1.z.string().optional(),
+export const Disable_User_ZOD_FORM = z.object({
+    reason: z.string(),
+    note: z.string().optional(),
 });
-exports.Create_User_ZOD = zod_1.z.object({
-    user: exports.Patch_User_ZOD,
-    account: zod_1.z.object({}),
+export const Create_User_ZOD = z.object({
+    user: Patch_User_ZOD,
+    account: z.object({}),
 });
-const UserDataToZOD = (data) => {
+export const UserDataToZOD = (data) => {
     if (!data)
         return {};
     let toZOD = {
@@ -93,21 +93,19 @@ const UserDataToZOD = (data) => {
         avatar: data.avatar,
         banner: data.banner,
     };
-    let safeParse = exports.Patch_User_ZOD.safeParse(toZOD);
+    let safeParse = Patch_User_ZOD.safeParse(toZOD);
     if (safeParse.success)
         return safeParse.data;
     return toZOD;
 };
-exports.UserDataToZOD = UserDataToZOD;
-exports.UserAnimeListe_ZOD = zod_1.z.object({
-    id: zod_1.z.string(),
-    episode: (0, _util_1.zodNumber)().optional(),
-    status: zod_1.z.enum(types_1.UserAnimeListStatusArray),
-    score: (0, _util_1.zodNumber)().optional(),
-    note: zod_1.z.string().optional(),
-    favoris: zod_1.z.boolean().optional(),
-    rank: (0, _util_1.zodNumber)().optional(),
-    startedAt: zod_1.z.string().optional(),
-    completedAt: zod_1.z.string().optional(),
+export const UserAnimeListe_ZOD = z.object({
+    id: z.string(),
+    episode: zodNumber().optional(),
+    status: z.enum(UserAnimeListStatusArray),
+    score: zodNumber().optional(),
+    note: z.string().optional(),
+    favoris: z.boolean().optional(),
+    rank: zodNumber().optional(),
+    startedAt: z.string().optional(),
+    completedAt: z.string().optional(),
 });
-//# sourceMappingURL=_userZOD.js.map

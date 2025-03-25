@@ -1,44 +1,39 @@
-"use strict";
-Object.defineProperty(exports, "__esModule", { value: true });
-exports.GroupeDataToZOD = exports.GroupeAddBody = exports.GroupeCreateBody = exports.GroupeBody = exports.GroupePaginationBody = exports.GroupeSortBody = exports.GroupeQueryBody = void 0;
-const zod_1 = require("zod");
-const _util_1 = require("./_util");
-const _patchZOD_1 = require("./_patchZOD");
-const _media_1 = require("./_media");
-exports.GroupeQueryBody = zod_1.z.object({
-    name: _media_1.MediaTitleBody.partial(),
+import { z } from "zod";
+import { PaginationBody } from "./_util";
+import { PatchParamsBody } from "./_patchZOD";
+import { MediaTitleBody } from "./_media";
+export const GroupeQueryBody = z.object({
+    name: MediaTitleBody.partial(),
 });
 const check = (v) => [-1, 1].includes(v);
 const checkErr = "le sort doit être soit -1 ou 1";
-exports.GroupeSortBody = zod_1.z.object({
-    name: zod_1.z.number().refine(check, checkErr),
-    createdAt: zod_1.z.number().refine(check, checkErr),
-    updatedAt: zod_1.z.number().refine(check, checkErr),
+export const GroupeSortBody = z.object({
+    name: z.number().refine(check, checkErr),
+    createdAt: z.number().refine(check, checkErr),
+    updatedAt: z.number().refine(check, checkErr),
 });
-exports.GroupePaginationBody = _util_1.PaginationBody.extend({
-    sort: exports.GroupeSortBody.partial(),
-    query: exports.GroupeQueryBody.partial()
+export const GroupePaginationBody = PaginationBody.extend({
+    sort: GroupeSortBody.partial(),
+    query: GroupeQueryBody.partial()
 });
-exports.GroupeBody = zod_1.z.object({
-    name: _media_1.MediaTitleBody,
+export const GroupeBody = z.object({
+    name: MediaTitleBody,
 });
-exports.GroupeCreateBody = _patchZOD_1.PatchParamsBody.partial().extend({
-    data: exports.GroupeBody
+export const GroupeCreateBody = PatchParamsBody.partial().extend({
+    data: GroupeBody
 });
-exports.GroupeAddBody = zod_1.z.object({
-    id: zod_1.z.optional(zod_1.z.string()),
-    newGroupe: zod_1.z.optional(exports.GroupeBody),
+export const GroupeAddBody = z.object({
+    id: z.optional(z.string()),
+    newGroupe: z.optional(GroupeBody),
 });
-const GroupeDataToZOD = (data) => {
+export const GroupeDataToZOD = (data) => {
     if (!data)
         return;
     const toZOD = {
         name: data.name,
     };
-    const safeParse = exports.GroupeBody.safeParse(toZOD);
+    const safeParse = GroupeBody.safeParse(toZOD);
     if (safeParse.success)
         return safeParse.data;
     return toZOD;
 };
-exports.GroupeDataToZOD = GroupeDataToZOD;
-//# sourceMappingURL=_groupeZOD.js.map

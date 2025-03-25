@@ -1,8 +1,8 @@
-import { z } from "zod";
-import { PaginationBody, zodNumber } from "./_util";
-import { IImage, ImageLabelArray } from "@actunime/types";
-import { PatchParamsBody } from "./_patchZOD";
-import { FromBody } from "./_media";
+import { z } from 'zod';
+import { PaginationBody, zodNumber } from './_util';
+import { IImageFull, ImageLabelArray } from '@actunime/types';
+import { PatchParamsBody } from './_patchZOD';
+import { FromBody } from './_media';
 
 export const ImageQueryBody = z.object({
   label: z.enum(ImageLabelArray),
@@ -11,74 +11,51 @@ export const ImageQueryBody = z.object({
 });
 
 const check = (v: number) => [-1, 1].includes(v);
-const checkErr = "le sort doit être soit -1 ou 1";
+const checkErr = 'le sort doit être soit -1 ou 1';
 export const ImageSortBody = z.object({
   label: zodNumber().refine(check, checkErr),
   createdAt: zodNumber().refine(check, checkErr),
   updatedAt: zodNumber().refine(check, checkErr),
-})
+});
 
 export const ImagePaginationBody = PaginationBody.extend({
   sort: ImageSortBody.partial(),
   query: ImageQueryBody.partial(),
   from: FromBody,
-}).partial()
+}).partial();
 
 export type IImagePaginationBody = z.infer<typeof ImagePaginationBody>;
 
-export const Image_Pagination_ZOD = z.object({
-  page: z.number(),
-  limit: z.number(),
-  strict: z.boolean(),
-  sort: ImageSortBody.partial(),
-  query: ImageQueryBody.partial()
-})
-
-export type IImage_Pagination_ZOD = z.infer<typeof Image_Pagination_ZOD>;
-
-export const Create_Image_ZOD = z.object({
+export const ImageBody = z.object({
   label: z.enum(ImageLabelArray),
   value: z.string(),
 });
 
-export type ICreate_Image_ZOD = z.infer<typeof Create_Image_ZOD>;
+export type IImageBody = z.infer<typeof ImageBody>;
 
 export const ImageCreateBody = PatchParamsBody.partial().extend({
-  data: Create_Image_ZOD
-})
+  data: ImageBody,
+});
 
 export type IImageCreateBody = z.infer<typeof ImageCreateBody>;
 
-export const Create_Image_ZOD_FORM = z.object({
-  note: z.string().optional(),
-  data: Create_Image_ZOD,
-});
-
-export type ICreate_Image_ZOD_FORM = z.infer<typeof Create_Image_ZOD_FORM>;
-
-
-export const Add_Image_ZOD = z.object({
+export const ImageAddBody = z.object({
   id: z.optional(z.string()),
   label: z.optional(z.enum(ImageLabelArray)),
-  newImage: z.optional(Create_Image_ZOD),
+  newImage: z.optional(ImageBody),
 });
 
-export type IAdd_Image_ZOD = z.infer<typeof Add_Image_ZOD>;
+export type IImageAddBody = z.infer<typeof ImageAddBody>;
 
-export const ImageBody = z.object({
-  id: z.string(),
-  label: z.enum(ImageLabelArray),
-})
-
-export const ImageDataToZOD = (data: IImage) => {
+export const ImageDataToZOD = (data: IImageFull) => {
   if (!data) return;
 
-  const toZOD: ICreate_Image_ZOD = {
-    value: data.url!,
-    label: data.label
+  const toZOD: IImageBody = {
+    value: data.url,
+    label: data.label,
   };
 
-  const safeParse = Create_Image_ZOD.safeParse(toZOD);
+  const safeParse = ImageBody.safeParse(toZOD);
 
   if (safeParse.success) return safeParse.data;
 

@@ -1,5 +1,5 @@
-import { IManga } from "@actunime/types";
-import { z } from "zod";
+import { IManga } from '@actunime/types';
+import { z } from 'zod';
 export declare const MangaQueryBody: z.ZodObject<{
     title: z.ZodObject<{
         default: z.ZodOptional<z.ZodString>;
@@ -195,8 +195,8 @@ export declare const MangaQueryBody: z.ZodObject<{
     adult: z.ZodBoolean;
     explicit: z.ZodBoolean;
     links: z.ZodObject<{
-        name: z.ZodOptional<z.ZodDefault<z.ZodString>>;
-        value: z.ZodOptional<z.ZodDefault<z.ZodString>>;
+        name: z.ZodOptional<z.ZodString>;
+        value: z.ZodOptional<z.ZodString>;
     }, "strip", z.ZodTypeAny, {
         value?: string | undefined;
         name?: string | undefined;
@@ -565,8 +565,8 @@ export declare const MangaPaginationBody: z.ZodObject<{
         adult: z.ZodOptional<z.ZodBoolean>;
         explicit: z.ZodOptional<z.ZodBoolean>;
         links: z.ZodOptional<z.ZodObject<{
-            name: z.ZodOptional<z.ZodDefault<z.ZodString>>;
-            value: z.ZodOptional<z.ZodDefault<z.ZodString>>;
+            name: z.ZodOptional<z.ZodString>;
+            value: z.ZodOptional<z.ZodString>;
         }, "strip", z.ZodTypeAny, {
             value?: string | undefined;
             name?: string | undefined;
@@ -693,19 +693,15 @@ export declare const MangaPaginationBody: z.ZodObject<{
     }>>;
     from: z.ZodOptional<z.ZodObject<{
         id: z.ZodString;
-        path: z.ZodEnum<("User" | "Account" | "UserProfile" | "UserPreferences" | "UserAnimeListe" | "UserDeleteAnimeFromListe" | "Groupe" | "Manga" | "Anime" | "Person" | "Character" | "Track" | "Company" | "Image" | "Patch" | "Activity" | "Report" | "DisabledUser" | "PremiumUser")[] & [string, ...string[]]>;
+        path: z.ZodEnum<("User" | "Groupe" | "Manga" | "Anime" | "Person" | "Character" | "Track" | "Company" | "Image" | "Patch" | "Activity" | "Report")[] & [string, ...string[]]>;
     }, "strip", z.ZodTypeAny, {
-        path: "User" | "Account" | "UserProfile" | "UserPreferences" | "UserAnimeListe" | "UserDeleteAnimeFromListe" | "Groupe" | "Manga" | "Anime" | "Person" | "Character" | "Track" | "Company" | "Image" | "Patch" | "Activity" | "Report" | "DisabledUser" | "PremiumUser";
+        path: "User" | "Groupe" | "Manga" | "Anime" | "Person" | "Character" | "Track" | "Company" | "Image" | "Patch" | "Activity" | "Report";
         id: string;
     }, {
-        path: "User" | "Account" | "UserProfile" | "UserPreferences" | "UserAnimeListe" | "UserDeleteAnimeFromListe" | "Groupe" | "Manga" | "Anime" | "Person" | "Character" | "Track" | "Company" | "Image" | "Patch" | "Activity" | "Report" | "DisabledUser" | "PremiumUser";
+        path: "User" | "Groupe" | "Manga" | "Anime" | "Person" | "Character" | "Track" | "Company" | "Image" | "Patch" | "Activity" | "Report";
         id: string;
     }>>;
 }, "strip", z.ZodTypeAny, {
-    page?: number | undefined;
-    limit?: number | undefined;
-    strict?: boolean | undefined;
-    onlyVerified?: boolean | undefined;
     sort?: {
         status?: number | undefined;
         createdAt?: number | undefined;
@@ -714,6 +710,10 @@ export declare const MangaPaginationBody: z.ZodObject<{
         adult?: number | undefined;
         explicit?: number | undefined;
     } | undefined;
+    page?: number | undefined;
+    limit?: number | undefined;
+    strict?: boolean | undefined;
+    onlyVerified?: boolean | undefined;
     query?: {
         status?: "AIRING" | "PAUSED" | "ENDED" | "STOPPED" | "POSTONED" | "SOON" | "any" | undefined;
         date?: {
@@ -774,14 +774,10 @@ export declare const MangaPaginationBody: z.ZodObject<{
         explicit?: boolean | undefined;
     } | undefined;
     from?: {
-        path: "User" | "Account" | "UserProfile" | "UserPreferences" | "UserAnimeListe" | "UserDeleteAnimeFromListe" | "Groupe" | "Manga" | "Anime" | "Person" | "Character" | "Track" | "Company" | "Image" | "Patch" | "Activity" | "Report" | "DisabledUser" | "PremiumUser";
+        path: "User" | "Groupe" | "Manga" | "Anime" | "Person" | "Character" | "Track" | "Company" | "Image" | "Patch" | "Activity" | "Report";
         id: string;
     } | undefined;
 }, {
-    page?: number | undefined;
-    limit?: number | undefined;
-    strict?: boolean | undefined;
-    onlyVerified?: boolean | undefined;
     sort?: {
         status?: number | undefined;
         createdAt?: number | undefined;
@@ -790,6 +786,10 @@ export declare const MangaPaginationBody: z.ZodObject<{
         adult?: number | undefined;
         explicit?: number | undefined;
     } | undefined;
+    page?: number | undefined;
+    limit?: number | undefined;
+    strict?: boolean | undefined;
+    onlyVerified?: boolean | undefined;
     query?: {
         status?: "AIRING" | "PAUSED" | "ENDED" | "STOPPED" | "POSTONED" | "SOON" | "any" | undefined;
         date?: {
@@ -850,7 +850,7 @@ export declare const MangaPaginationBody: z.ZodObject<{
         explicit?: boolean | undefined;
     } | undefined;
     from?: {
-        path: "User" | "Account" | "UserProfile" | "UserPreferences" | "UserAnimeListe" | "UserDeleteAnimeFromListe" | "Groupe" | "Manga" | "Anime" | "Person" | "Character" | "Track" | "Company" | "Image" | "Patch" | "Activity" | "Report" | "DisabledUser" | "PremiumUser";
+        path: "User" | "Groupe" | "Manga" | "Anime" | "Person" | "Character" | "Track" | "Company" | "Image" | "Patch" | "Activity" | "Report";
         id: string;
     } | undefined;
 }>;
@@ -918,16 +918,10 @@ export declare const MangaBody: z.ZodObject<{
         id: string;
         parentLabel?: "SEQUEL" | "SPIN_OFF" | "ALTERNATIVE" | "REBOOT" | "FILM" | undefined;
     }>>;
-    title: z.ZodEffects<z.ZodObject<{
+    title: z.ZodObject<{
         default: z.ZodString;
         alias: z.ZodOptional<z.ZodArray<z.ZodString, "many">>;
     }, "strip", z.ZodTypeAny, {
-        default: string;
-        alias?: string[] | undefined;
-    }, {
-        default: string;
-        alias?: string[] | undefined;
-    }>, {
         default: string;
         alias?: string[] | undefined;
     }, {
@@ -1028,15 +1022,15 @@ export declare const MangaBody: z.ZodObject<{
             label: "COVER" | "BANNER" | "AVATAR" | "LOGO";
         }>>;
     }, "strip", z.ZodTypeAny, {
-        id?: string | undefined;
         label?: "COVER" | "BANNER" | "AVATAR" | "LOGO" | undefined;
+        id?: string | undefined;
         newImage?: {
             value: string;
             label: "COVER" | "BANNER" | "AVATAR" | "LOGO";
         } | undefined;
     }, {
-        id?: string | undefined;
         label?: "COVER" | "BANNER" | "AVATAR" | "LOGO" | undefined;
+        id?: string | undefined;
         newImage?: {
             value: string;
             label: "COVER" | "BANNER" | "AVATAR" | "LOGO";
@@ -1056,15 +1050,15 @@ export declare const MangaBody: z.ZodObject<{
             label: "COVER" | "BANNER" | "AVATAR" | "LOGO";
         }>>;
     }, "strip", z.ZodTypeAny, {
-        id?: string | undefined;
         label?: "COVER" | "BANNER" | "AVATAR" | "LOGO" | undefined;
+        id?: string | undefined;
         newImage?: {
             value: string;
             label: "COVER" | "BANNER" | "AVATAR" | "LOGO";
         } | undefined;
     }, {
-        id?: string | undefined;
         label?: "COVER" | "BANNER" | "AVATAR" | "LOGO" | undefined;
+        id?: string | undefined;
         newImage?: {
             value: string;
             label: "COVER" | "BANNER" | "AVATAR" | "LOGO";
@@ -1175,7 +1169,7 @@ export declare const MangaBody: z.ZodObject<{
     explicit: z.ZodEffects<z.ZodUnion<[z.ZodBoolean, z.ZodLiteral<"true">, z.ZodLiteral<"false">]>, boolean, boolean | "true" | "false">;
     links: z.ZodOptional<z.ZodArray<z.ZodObject<{
         name: z.ZodString;
-        value: z.ZodEffects<z.ZodString, string, string>;
+        value: z.ZodString;
     }, "strip", z.ZodTypeAny, {
         value: string;
         name: string;
@@ -1200,7 +1194,7 @@ export declare const MangaBody: z.ZodObject<{
             description: z.ZodOptional<z.ZodString>;
             links: z.ZodOptional<z.ZodArray<z.ZodObject<{
                 name: z.ZodString;
-                value: z.ZodEffects<z.ZodString, string, string>;
+                value: z.ZodString;
             }, "strip", z.ZodTypeAny, {
                 value: string;
                 name: string;
@@ -1222,15 +1216,15 @@ export declare const MangaBody: z.ZodObject<{
                     label: "COVER" | "BANNER" | "AVATAR" | "LOGO";
                 }>>;
             }, "strip", z.ZodTypeAny, {
-                id?: string | undefined;
                 label?: "COVER" | "BANNER" | "AVATAR" | "LOGO" | undefined;
+                id?: string | undefined;
                 newImage?: {
                     value: string;
                     label: "COVER" | "BANNER" | "AVATAR" | "LOGO";
                 } | undefined;
             }, {
-                id?: string | undefined;
                 label?: "COVER" | "BANNER" | "AVATAR" | "LOGO" | undefined;
+                id?: string | undefined;
                 newImage?: {
                     value: string;
                     label: "COVER" | "BANNER" | "AVATAR" | "LOGO";
@@ -1264,14 +1258,14 @@ export declare const MangaBody: z.ZodObject<{
                 default: string;
                 alias?: string[] | undefined;
             };
-            description?: string | undefined;
             links?: {
                 value: string;
                 name: string;
             }[] | undefined;
+            description?: string | undefined;
             logo?: {
-                id?: string | undefined;
                 label?: "COVER" | "BANNER" | "AVATAR" | "LOGO" | undefined;
+                id?: string | undefined;
                 newImage?: {
                     value: string;
                     label: "COVER" | "BANNER" | "AVATAR" | "LOGO";
@@ -1291,14 +1285,14 @@ export declare const MangaBody: z.ZodObject<{
                 default: string;
                 alias?: string[] | undefined;
             };
-            description?: string | undefined;
             links?: {
                 value: string;
                 name: string;
             }[] | undefined;
+            description?: string | undefined;
             logo?: {
-                id?: string | undefined;
                 label?: "COVER" | "BANNER" | "AVATAR" | "LOGO" | undefined;
+                id?: string | undefined;
                 newImage?: {
                     value: string;
                     label: "COVER" | "BANNER" | "AVATAR" | "LOGO";
@@ -1321,14 +1315,14 @@ export declare const MangaBody: z.ZodObject<{
                 default: string;
                 alias?: string[] | undefined;
             };
-            description?: string | undefined;
             links?: {
                 value: string;
                 name: string;
             }[] | undefined;
+            description?: string | undefined;
             logo?: {
-                id?: string | undefined;
                 label?: "COVER" | "BANNER" | "AVATAR" | "LOGO" | undefined;
+                id?: string | undefined;
                 newImage?: {
                     value: string;
                     label: "COVER" | "BANNER" | "AVATAR" | "LOGO";
@@ -1351,14 +1345,14 @@ export declare const MangaBody: z.ZodObject<{
                 default: string;
                 alias?: string[] | undefined;
             };
-            description?: string | undefined;
             links?: {
                 value: string;
                 name: string;
             }[] | undefined;
+            description?: string | undefined;
             logo?: {
-                id?: string | undefined;
                 label?: "COVER" | "BANNER" | "AVATAR" | "LOGO" | undefined;
+                id?: string | undefined;
                 newImage?: {
                     value: string;
                     label: "COVER" | "BANNER" | "AVATAR" | "LOGO";
@@ -1447,15 +1441,15 @@ export declare const MangaBody: z.ZodObject<{
                     label: "COVER" | "BANNER" | "AVATAR" | "LOGO";
                 }>>;
             }, "strip", z.ZodTypeAny, {
-                id?: string | undefined;
                 label?: "COVER" | "BANNER" | "AVATAR" | "LOGO" | undefined;
+                id?: string | undefined;
                 newImage?: {
                     value: string;
                     label: "COVER" | "BANNER" | "AVATAR" | "LOGO";
                 } | undefined;
             }, {
-                id?: string | undefined;
                 label?: "COVER" | "BANNER" | "AVATAR" | "LOGO" | undefined;
+                id?: string | undefined;
                 newImage?: {
                     value: string;
                     label: "COVER" | "BANNER" | "AVATAR" | "LOGO";
@@ -1463,7 +1457,7 @@ export declare const MangaBody: z.ZodObject<{
             }>>;
             links: z.ZodOptional<z.ZodArray<z.ZodObject<{
                 name: z.ZodString;
-                value: z.ZodEffects<z.ZodString, string, string>;
+                value: z.ZodString;
             }, "strip", z.ZodTypeAny, {
                 value: string;
                 name: string;
@@ -1476,7 +1470,6 @@ export declare const MangaBody: z.ZodObject<{
                 default: string;
                 alias?: string[] | undefined;
             };
-            description?: string | undefined;
             isGroupe?: boolean | undefined;
             birthDate?: {
                 year?: number | undefined;
@@ -1495,8 +1488,8 @@ export declare const MangaBody: z.ZodObject<{
                 seconds?: number | undefined;
             } | undefined;
             avatar?: {
-                id?: string | undefined;
                 label?: "COVER" | "BANNER" | "AVATAR" | "LOGO" | undefined;
+                id?: string | undefined;
                 newImage?: {
                     value: string;
                     label: "COVER" | "BANNER" | "AVATAR" | "LOGO";
@@ -1506,12 +1499,12 @@ export declare const MangaBody: z.ZodObject<{
                 value: string;
                 name: string;
             }[] | undefined;
+            description?: string | undefined;
         }, {
             name: {
                 default: string;
                 alias?: string[] | undefined;
             };
-            description?: string | undefined;
             isGroupe?: boolean | undefined;
             birthDate?: {
                 year?: string | number | undefined;
@@ -1530,8 +1523,8 @@ export declare const MangaBody: z.ZodObject<{
                 seconds?: string | number | undefined;
             } | undefined;
             avatar?: {
-                id?: string | undefined;
                 label?: "COVER" | "BANNER" | "AVATAR" | "LOGO" | undefined;
+                id?: string | undefined;
                 newImage?: {
                     value: string;
                     label: "COVER" | "BANNER" | "AVATAR" | "LOGO";
@@ -1541,6 +1534,7 @@ export declare const MangaBody: z.ZodObject<{
                 value: string;
                 name: string;
             }[] | undefined;
+            description?: string | undefined;
         }>>;
         role: z.ZodOptional<z.ZodEnum<("DOUBLAGE_SEIYU" | "AUTEUR" | "EDITEUR" | "PRODUCTEUR" | "REALISATEUR" | "REALISATEUR_EPISODES" | "REALISATEUR_MISEENPAGE" | "DIRECTEUR_ARTISTIQUE_CINEMATROGRAPHIQUE" | "DIRECTEUR_ANIMATION" | "CONCEPTEUR" | "ANIMATEUR_PRINCIPAL" | "ANIMATEUR_INTERMEDIAIRE" | "COLORISTES" | "DIRECTEUR_ENREGISTREMENT" | "SCENARISTE" | "ANIMATEUR_3D" | "METTEUR_EN_SCENE" | "SUPERVISEUR" | "MONTEUR" | "RESPONSABLE_DROITS" | "PRODUCTEUR_MUSIQUE" | "RESPONSABLE_MARKETING" | "DIFFUSEUR" | "STORYBOARDER" | "ARTISTE_VFX" | "INGENIEUR_SON" | "DIRECTEUR_DOUBLAGE" | "TRADUCTEUR" | "MANGAKA" | "CHARACTER_DESIGNER" | "DESSINATEUR_DECORS" | "REALISATEUR_MISE_EN_PAGE" | "COMPOSITEUR" | "PAROLIER" | "ARRANGEUR" | "MUSICIEN" | "CHANTEUR_EUSE" | "CHEF_ORCHESTRE" | "PRODUCTEUR_MUSICAL" | "DESIGNER_SONORE" | "MIXEUR")[] & [string, ...string[]]>>;
     }, "strip", z.ZodTypeAny, {
@@ -1550,7 +1544,6 @@ export declare const MangaBody: z.ZodObject<{
                 default: string;
                 alias?: string[] | undefined;
             };
-            description?: string | undefined;
             isGroupe?: boolean | undefined;
             birthDate?: {
                 year?: number | undefined;
@@ -1569,8 +1562,8 @@ export declare const MangaBody: z.ZodObject<{
                 seconds?: number | undefined;
             } | undefined;
             avatar?: {
-                id?: string | undefined;
                 label?: "COVER" | "BANNER" | "AVATAR" | "LOGO" | undefined;
+                id?: string | undefined;
                 newImage?: {
                     value: string;
                     label: "COVER" | "BANNER" | "AVATAR" | "LOGO";
@@ -1580,6 +1573,7 @@ export declare const MangaBody: z.ZodObject<{
                 value: string;
                 name: string;
             }[] | undefined;
+            description?: string | undefined;
         } | undefined;
         role?: "DOUBLAGE_SEIYU" | "AUTEUR" | "EDITEUR" | "PRODUCTEUR" | "REALISATEUR" | "REALISATEUR_EPISODES" | "REALISATEUR_MISEENPAGE" | "DIRECTEUR_ARTISTIQUE_CINEMATROGRAPHIQUE" | "DIRECTEUR_ANIMATION" | "CONCEPTEUR" | "ANIMATEUR_PRINCIPAL" | "ANIMATEUR_INTERMEDIAIRE" | "COLORISTES" | "DIRECTEUR_ENREGISTREMENT" | "SCENARISTE" | "ANIMATEUR_3D" | "METTEUR_EN_SCENE" | "SUPERVISEUR" | "MONTEUR" | "RESPONSABLE_DROITS" | "PRODUCTEUR_MUSIQUE" | "RESPONSABLE_MARKETING" | "DIFFUSEUR" | "STORYBOARDER" | "ARTISTE_VFX" | "INGENIEUR_SON" | "DIRECTEUR_DOUBLAGE" | "TRADUCTEUR" | "MANGAKA" | "CHARACTER_DESIGNER" | "DESSINATEUR_DECORS" | "REALISATEUR_MISE_EN_PAGE" | "COMPOSITEUR" | "PAROLIER" | "ARRANGEUR" | "MUSICIEN" | "CHANTEUR_EUSE" | "CHEF_ORCHESTRE" | "PRODUCTEUR_MUSICAL" | "DESIGNER_SONORE" | "MIXEUR" | undefined;
     }, {
@@ -1589,7 +1583,6 @@ export declare const MangaBody: z.ZodObject<{
                 default: string;
                 alias?: string[] | undefined;
             };
-            description?: string | undefined;
             isGroupe?: boolean | undefined;
             birthDate?: {
                 year?: string | number | undefined;
@@ -1608,8 +1601,8 @@ export declare const MangaBody: z.ZodObject<{
                 seconds?: string | number | undefined;
             } | undefined;
             avatar?: {
-                id?: string | undefined;
                 label?: "COVER" | "BANNER" | "AVATAR" | "LOGO" | undefined;
+                id?: string | undefined;
                 newImage?: {
                     value: string;
                     label: "COVER" | "BANNER" | "AVATAR" | "LOGO";
@@ -1619,6 +1612,7 @@ export declare const MangaBody: z.ZodObject<{
                 value: string;
                 name: string;
             }[] | undefined;
+            description?: string | undefined;
         } | undefined;
         role?: "DOUBLAGE_SEIYU" | "AUTEUR" | "EDITEUR" | "PRODUCTEUR" | "REALISATEUR" | "REALISATEUR_EPISODES" | "REALISATEUR_MISEENPAGE" | "DIRECTEUR_ARTISTIQUE_CINEMATROGRAPHIQUE" | "DIRECTEUR_ANIMATION" | "CONCEPTEUR" | "ANIMATEUR_PRINCIPAL" | "ANIMATEUR_INTERMEDIAIRE" | "COLORISTES" | "DIRECTEUR_ENREGISTREMENT" | "SCENARISTE" | "ANIMATEUR_3D" | "METTEUR_EN_SCENE" | "SUPERVISEUR" | "MONTEUR" | "RESPONSABLE_DROITS" | "PRODUCTEUR_MUSIQUE" | "RESPONSABLE_MARKETING" | "DIFFUSEUR" | "STORYBOARDER" | "ARTISTE_VFX" | "INGENIEUR_SON" | "DIRECTEUR_DOUBLAGE" | "TRADUCTEUR" | "MANGAKA" | "CHARACTER_DESIGNER" | "DESSINATEUR_DECORS" | "REALISATEUR_MISE_EN_PAGE" | "COMPOSITEUR" | "PAROLIER" | "ARRANGEUR" | "MUSICIEN" | "CHANTEUR_EUSE" | "CHEF_ORCHESTRE" | "PRODUCTEUR_MUSICAL" | "DESIGNER_SONORE" | "MIXEUR" | undefined;
     }>, "many">>;
@@ -1658,8 +1652,8 @@ export declare const MangaBody: z.ZodObject<{
                 minutes?: string | number | undefined;
                 seconds?: string | number | undefined;
             }>>;
-            gender: z.ZodEnum<("MASCULIN" | "FEMININ" | "NEUTRE" | "TRANSGENRE" | "NON_BINAIRE" | "GENRE_FLUIDE" | "AUTRE")[] & [string, ...string[]]>;
-            species: z.ZodEnum<("AUTRE" | "HUMAIN" | "ELFE" | "NAIN" | "LEZARD" | "DRAGON" | "ORC")[] & [string, ...string[]]>;
+            gender: z.ZodOptional<z.ZodEnum<("MASCULIN" | "FEMININ" | "NEUTRE" | "TRANSGENRE" | "NON_BINAIRE" | "GENRE_FLUIDE" | "AUTRE")[] & [string, ...string[]]>>;
+            species: z.ZodOptional<z.ZodEnum<("AUTRE" | "HUMAIN" | "ELFE" | "NAIN" | "LEZARD" | "DRAGON" | "ORC")[] & [string, ...string[]]>>;
             description: z.ZodOptional<z.ZodString>;
             avatar: z.ZodOptional<z.ZodObject<{
                 id: z.ZodOptional<z.ZodString>;
@@ -1675,15 +1669,15 @@ export declare const MangaBody: z.ZodObject<{
                     label: "COVER" | "BANNER" | "AVATAR" | "LOGO";
                 }>>;
             }, "strip", z.ZodTypeAny, {
-                id?: string | undefined;
                 label?: "COVER" | "BANNER" | "AVATAR" | "LOGO" | undefined;
+                id?: string | undefined;
                 newImage?: {
                     value: string;
                     label: "COVER" | "BANNER" | "AVATAR" | "LOGO";
                 } | undefined;
             }, {
-                id?: string | undefined;
                 label?: "COVER" | "BANNER" | "AVATAR" | "LOGO" | undefined;
+                id?: string | undefined;
                 newImage?: {
                     value: string;
                     label: "COVER" | "BANNER" | "AVATAR" | "LOGO";
@@ -1762,15 +1756,15 @@ export declare const MangaBody: z.ZodObject<{
                             label: "COVER" | "BANNER" | "AVATAR" | "LOGO";
                         }>>;
                     }, "strip", z.ZodTypeAny, {
-                        id?: string | undefined;
                         label?: "COVER" | "BANNER" | "AVATAR" | "LOGO" | undefined;
+                        id?: string | undefined;
                         newImage?: {
                             value: string;
                             label: "COVER" | "BANNER" | "AVATAR" | "LOGO";
                         } | undefined;
                     }, {
-                        id?: string | undefined;
                         label?: "COVER" | "BANNER" | "AVATAR" | "LOGO" | undefined;
+                        id?: string | undefined;
                         newImage?: {
                             value: string;
                             label: "COVER" | "BANNER" | "AVATAR" | "LOGO";
@@ -1778,7 +1772,7 @@ export declare const MangaBody: z.ZodObject<{
                     }>>;
                     links: z.ZodOptional<z.ZodArray<z.ZodObject<{
                         name: z.ZodString;
-                        value: z.ZodEffects<z.ZodString, string, string>;
+                        value: z.ZodString;
                     }, "strip", z.ZodTypeAny, {
                         value: string;
                         name: string;
@@ -1791,7 +1785,6 @@ export declare const MangaBody: z.ZodObject<{
                         default: string;
                         alias?: string[] | undefined;
                     };
-                    description?: string | undefined;
                     isGroupe?: boolean | undefined;
                     birthDate?: {
                         year?: number | undefined;
@@ -1810,8 +1803,8 @@ export declare const MangaBody: z.ZodObject<{
                         seconds?: number | undefined;
                     } | undefined;
                     avatar?: {
-                        id?: string | undefined;
                         label?: "COVER" | "BANNER" | "AVATAR" | "LOGO" | undefined;
+                        id?: string | undefined;
                         newImage?: {
                             value: string;
                             label: "COVER" | "BANNER" | "AVATAR" | "LOGO";
@@ -1821,12 +1814,12 @@ export declare const MangaBody: z.ZodObject<{
                         value: string;
                         name: string;
                     }[] | undefined;
+                    description?: string | undefined;
                 }, {
                     name: {
                         default: string;
                         alias?: string[] | undefined;
                     };
-                    description?: string | undefined;
                     isGroupe?: boolean | undefined;
                     birthDate?: {
                         year?: string | number | undefined;
@@ -1845,8 +1838,8 @@ export declare const MangaBody: z.ZodObject<{
                         seconds?: string | number | undefined;
                     } | undefined;
                     avatar?: {
-                        id?: string | undefined;
                         label?: "COVER" | "BANNER" | "AVATAR" | "LOGO" | undefined;
+                        id?: string | undefined;
                         newImage?: {
                             value: string;
                             label: "COVER" | "BANNER" | "AVATAR" | "LOGO";
@@ -1856,6 +1849,7 @@ export declare const MangaBody: z.ZodObject<{
                         value: string;
                         name: string;
                     }[] | undefined;
+                    description?: string | undefined;
                 }>>;
                 role: z.ZodOptional<z.ZodEnum<("DOUBLAGE_SEIYU" | "AUTEUR" | "EDITEUR" | "PRODUCTEUR" | "REALISATEUR" | "REALISATEUR_EPISODES" | "REALISATEUR_MISEENPAGE" | "DIRECTEUR_ARTISTIQUE_CINEMATROGRAPHIQUE" | "DIRECTEUR_ANIMATION" | "CONCEPTEUR" | "ANIMATEUR_PRINCIPAL" | "ANIMATEUR_INTERMEDIAIRE" | "COLORISTES" | "DIRECTEUR_ENREGISTREMENT" | "SCENARISTE" | "ANIMATEUR_3D" | "METTEUR_EN_SCENE" | "SUPERVISEUR" | "MONTEUR" | "RESPONSABLE_DROITS" | "PRODUCTEUR_MUSIQUE" | "RESPONSABLE_MARKETING" | "DIFFUSEUR" | "STORYBOARDER" | "ARTISTE_VFX" | "INGENIEUR_SON" | "DIRECTEUR_DOUBLAGE" | "TRADUCTEUR" | "MANGAKA" | "CHARACTER_DESIGNER" | "DESSINATEUR_DECORS" | "REALISATEUR_MISE_EN_PAGE" | "COMPOSITEUR" | "PAROLIER" | "ARRANGEUR" | "MUSICIEN" | "CHANTEUR_EUSE" | "CHEF_ORCHESTRE" | "PRODUCTEUR_MUSICAL" | "DESIGNER_SONORE" | "MIXEUR")[] & [string, ...string[]]>>;
             }, "strip", z.ZodTypeAny, {
@@ -1865,7 +1859,6 @@ export declare const MangaBody: z.ZodObject<{
                         default: string;
                         alias?: string[] | undefined;
                     };
-                    description?: string | undefined;
                     isGroupe?: boolean | undefined;
                     birthDate?: {
                         year?: number | undefined;
@@ -1884,8 +1877,8 @@ export declare const MangaBody: z.ZodObject<{
                         seconds?: number | undefined;
                     } | undefined;
                     avatar?: {
-                        id?: string | undefined;
                         label?: "COVER" | "BANNER" | "AVATAR" | "LOGO" | undefined;
+                        id?: string | undefined;
                         newImage?: {
                             value: string;
                             label: "COVER" | "BANNER" | "AVATAR" | "LOGO";
@@ -1895,6 +1888,7 @@ export declare const MangaBody: z.ZodObject<{
                         value: string;
                         name: string;
                     }[] | undefined;
+                    description?: string | undefined;
                 } | undefined;
                 role?: "DOUBLAGE_SEIYU" | "AUTEUR" | "EDITEUR" | "PRODUCTEUR" | "REALISATEUR" | "REALISATEUR_EPISODES" | "REALISATEUR_MISEENPAGE" | "DIRECTEUR_ARTISTIQUE_CINEMATROGRAPHIQUE" | "DIRECTEUR_ANIMATION" | "CONCEPTEUR" | "ANIMATEUR_PRINCIPAL" | "ANIMATEUR_INTERMEDIAIRE" | "COLORISTES" | "DIRECTEUR_ENREGISTREMENT" | "SCENARISTE" | "ANIMATEUR_3D" | "METTEUR_EN_SCENE" | "SUPERVISEUR" | "MONTEUR" | "RESPONSABLE_DROITS" | "PRODUCTEUR_MUSIQUE" | "RESPONSABLE_MARKETING" | "DIFFUSEUR" | "STORYBOARDER" | "ARTISTE_VFX" | "INGENIEUR_SON" | "DIRECTEUR_DOUBLAGE" | "TRADUCTEUR" | "MANGAKA" | "CHARACTER_DESIGNER" | "DESSINATEUR_DECORS" | "REALISATEUR_MISE_EN_PAGE" | "COMPOSITEUR" | "PAROLIER" | "ARRANGEUR" | "MUSICIEN" | "CHANTEUR_EUSE" | "CHEF_ORCHESTRE" | "PRODUCTEUR_MUSICAL" | "DESIGNER_SONORE" | "MIXEUR" | undefined;
             }, {
@@ -1904,7 +1898,6 @@ export declare const MangaBody: z.ZodObject<{
                         default: string;
                         alias?: string[] | undefined;
                     };
-                    description?: string | undefined;
                     isGroupe?: boolean | undefined;
                     birthDate?: {
                         year?: string | number | undefined;
@@ -1923,8 +1916,8 @@ export declare const MangaBody: z.ZodObject<{
                         seconds?: string | number | undefined;
                     } | undefined;
                     avatar?: {
-                        id?: string | undefined;
                         label?: "COVER" | "BANNER" | "AVATAR" | "LOGO" | undefined;
+                        id?: string | undefined;
                         newImage?: {
                             value: string;
                             label: "COVER" | "BANNER" | "AVATAR" | "LOGO";
@@ -1934,6 +1927,7 @@ export declare const MangaBody: z.ZodObject<{
                         value: string;
                         name: string;
                     }[] | undefined;
+                    description?: string | undefined;
                 } | undefined;
                 role?: "DOUBLAGE_SEIYU" | "AUTEUR" | "EDITEUR" | "PRODUCTEUR" | "REALISATEUR" | "REALISATEUR_EPISODES" | "REALISATEUR_MISEENPAGE" | "DIRECTEUR_ARTISTIQUE_CINEMATROGRAPHIQUE" | "DIRECTEUR_ANIMATION" | "CONCEPTEUR" | "ANIMATEUR_PRINCIPAL" | "ANIMATEUR_INTERMEDIAIRE" | "COLORISTES" | "DIRECTEUR_ENREGISTREMENT" | "SCENARISTE" | "ANIMATEUR_3D" | "METTEUR_EN_SCENE" | "SUPERVISEUR" | "MONTEUR" | "RESPONSABLE_DROITS" | "PRODUCTEUR_MUSIQUE" | "RESPONSABLE_MARKETING" | "DIFFUSEUR" | "STORYBOARDER" | "ARTISTE_VFX" | "INGENIEUR_SON" | "DIRECTEUR_DOUBLAGE" | "TRADUCTEUR" | "MANGAKA" | "CHARACTER_DESIGNER" | "DESSINATEUR_DECORS" | "REALISATEUR_MISE_EN_PAGE" | "COMPOSITEUR" | "PAROLIER" | "ARRANGEUR" | "MUSICIEN" | "CHANTEUR_EUSE" | "CHEF_ORCHESTRE" | "PRODUCTEUR_MUSICAL" | "DESIGNER_SONORE" | "MIXEUR" | undefined;
             }>, "many">>;
@@ -1942,9 +1936,6 @@ export declare const MangaBody: z.ZodObject<{
                 default: string;
                 alias?: string[] | undefined;
             };
-            gender: "MASCULIN" | "FEMININ" | "NEUTRE" | "TRANSGENRE" | "NON_BINAIRE" | "GENRE_FLUIDE" | "AUTRE";
-            species: "AUTRE" | "HUMAIN" | "ELFE" | "NAIN" | "LEZARD" | "DRAGON" | "ORC";
-            description?: string | undefined;
             birthDate?: {
                 year?: number | undefined;
                 month?: number | undefined;
@@ -1954,14 +1945,17 @@ export declare const MangaBody: z.ZodObject<{
                 seconds?: number | undefined;
             } | undefined;
             avatar?: {
-                id?: string | undefined;
                 label?: "COVER" | "BANNER" | "AVATAR" | "LOGO" | undefined;
+                id?: string | undefined;
                 newImage?: {
                     value: string;
                     label: "COVER" | "BANNER" | "AVATAR" | "LOGO";
                 } | undefined;
             } | undefined;
+            description?: string | undefined;
             age?: number | undefined;
+            gender?: "MASCULIN" | "FEMININ" | "NEUTRE" | "TRANSGENRE" | "NON_BINAIRE" | "GENRE_FLUIDE" | "AUTRE" | undefined;
+            species?: "AUTRE" | "HUMAIN" | "ELFE" | "NAIN" | "LEZARD" | "DRAGON" | "ORC" | undefined;
             actors?: {
                 id?: string | undefined;
                 newPerson?: {
@@ -1969,7 +1963,6 @@ export declare const MangaBody: z.ZodObject<{
                         default: string;
                         alias?: string[] | undefined;
                     };
-                    description?: string | undefined;
                     isGroupe?: boolean | undefined;
                     birthDate?: {
                         year?: number | undefined;
@@ -1988,8 +1981,8 @@ export declare const MangaBody: z.ZodObject<{
                         seconds?: number | undefined;
                     } | undefined;
                     avatar?: {
-                        id?: string | undefined;
                         label?: "COVER" | "BANNER" | "AVATAR" | "LOGO" | undefined;
+                        id?: string | undefined;
                         newImage?: {
                             value: string;
                             label: "COVER" | "BANNER" | "AVATAR" | "LOGO";
@@ -1999,6 +1992,7 @@ export declare const MangaBody: z.ZodObject<{
                         value: string;
                         name: string;
                     }[] | undefined;
+                    description?: string | undefined;
                 } | undefined;
                 role?: "DOUBLAGE_SEIYU" | "AUTEUR" | "EDITEUR" | "PRODUCTEUR" | "REALISATEUR" | "REALISATEUR_EPISODES" | "REALISATEUR_MISEENPAGE" | "DIRECTEUR_ARTISTIQUE_CINEMATROGRAPHIQUE" | "DIRECTEUR_ANIMATION" | "CONCEPTEUR" | "ANIMATEUR_PRINCIPAL" | "ANIMATEUR_INTERMEDIAIRE" | "COLORISTES" | "DIRECTEUR_ENREGISTREMENT" | "SCENARISTE" | "ANIMATEUR_3D" | "METTEUR_EN_SCENE" | "SUPERVISEUR" | "MONTEUR" | "RESPONSABLE_DROITS" | "PRODUCTEUR_MUSIQUE" | "RESPONSABLE_MARKETING" | "DIFFUSEUR" | "STORYBOARDER" | "ARTISTE_VFX" | "INGENIEUR_SON" | "DIRECTEUR_DOUBLAGE" | "TRADUCTEUR" | "MANGAKA" | "CHARACTER_DESIGNER" | "DESSINATEUR_DECORS" | "REALISATEUR_MISE_EN_PAGE" | "COMPOSITEUR" | "PAROLIER" | "ARRANGEUR" | "MUSICIEN" | "CHANTEUR_EUSE" | "CHEF_ORCHESTRE" | "PRODUCTEUR_MUSICAL" | "DESIGNER_SONORE" | "MIXEUR" | undefined;
             }[] | undefined;
@@ -2007,9 +2001,6 @@ export declare const MangaBody: z.ZodObject<{
                 default: string;
                 alias?: string[] | undefined;
             };
-            gender: "MASCULIN" | "FEMININ" | "NEUTRE" | "TRANSGENRE" | "NON_BINAIRE" | "GENRE_FLUIDE" | "AUTRE";
-            species: "AUTRE" | "HUMAIN" | "ELFE" | "NAIN" | "LEZARD" | "DRAGON" | "ORC";
-            description?: string | undefined;
             birthDate?: {
                 year?: string | number | undefined;
                 month?: string | number | undefined;
@@ -2019,14 +2010,17 @@ export declare const MangaBody: z.ZodObject<{
                 seconds?: string | number | undefined;
             } | undefined;
             avatar?: {
-                id?: string | undefined;
                 label?: "COVER" | "BANNER" | "AVATAR" | "LOGO" | undefined;
+                id?: string | undefined;
                 newImage?: {
                     value: string;
                     label: "COVER" | "BANNER" | "AVATAR" | "LOGO";
                 } | undefined;
             } | undefined;
+            description?: string | undefined;
             age?: string | number | undefined;
+            gender?: "MASCULIN" | "FEMININ" | "NEUTRE" | "TRANSGENRE" | "NON_BINAIRE" | "GENRE_FLUIDE" | "AUTRE" | undefined;
+            species?: "AUTRE" | "HUMAIN" | "ELFE" | "NAIN" | "LEZARD" | "DRAGON" | "ORC" | undefined;
             actors?: {
                 id?: string | undefined;
                 newPerson?: {
@@ -2034,7 +2028,6 @@ export declare const MangaBody: z.ZodObject<{
                         default: string;
                         alias?: string[] | undefined;
                     };
-                    description?: string | undefined;
                     isGroupe?: boolean | undefined;
                     birthDate?: {
                         year?: string | number | undefined;
@@ -2053,8 +2046,8 @@ export declare const MangaBody: z.ZodObject<{
                         seconds?: string | number | undefined;
                     } | undefined;
                     avatar?: {
-                        id?: string | undefined;
                         label?: "COVER" | "BANNER" | "AVATAR" | "LOGO" | undefined;
+                        id?: string | undefined;
                         newImage?: {
                             value: string;
                             label: "COVER" | "BANNER" | "AVATAR" | "LOGO";
@@ -2064,6 +2057,7 @@ export declare const MangaBody: z.ZodObject<{
                         value: string;
                         name: string;
                     }[] | undefined;
+                    description?: string | undefined;
                 } | undefined;
                 role?: "DOUBLAGE_SEIYU" | "AUTEUR" | "EDITEUR" | "PRODUCTEUR" | "REALISATEUR" | "REALISATEUR_EPISODES" | "REALISATEUR_MISEENPAGE" | "DIRECTEUR_ARTISTIQUE_CINEMATROGRAPHIQUE" | "DIRECTEUR_ANIMATION" | "CONCEPTEUR" | "ANIMATEUR_PRINCIPAL" | "ANIMATEUR_INTERMEDIAIRE" | "COLORISTES" | "DIRECTEUR_ENREGISTREMENT" | "SCENARISTE" | "ANIMATEUR_3D" | "METTEUR_EN_SCENE" | "SUPERVISEUR" | "MONTEUR" | "RESPONSABLE_DROITS" | "PRODUCTEUR_MUSIQUE" | "RESPONSABLE_MARKETING" | "DIFFUSEUR" | "STORYBOARDER" | "ARTISTE_VFX" | "INGENIEUR_SON" | "DIRECTEUR_DOUBLAGE" | "TRADUCTEUR" | "MANGAKA" | "CHARACTER_DESIGNER" | "DESSINATEUR_DECORS" | "REALISATEUR_MISE_EN_PAGE" | "COMPOSITEUR" | "PAROLIER" | "ARRANGEUR" | "MUSICIEN" | "CHANTEUR_EUSE" | "CHEF_ORCHESTRE" | "PRODUCTEUR_MUSICAL" | "DESIGNER_SONORE" | "MIXEUR" | undefined;
             }[] | undefined;
@@ -2077,9 +2071,6 @@ export declare const MangaBody: z.ZodObject<{
                 default: string;
                 alias?: string[] | undefined;
             };
-            gender: "MASCULIN" | "FEMININ" | "NEUTRE" | "TRANSGENRE" | "NON_BINAIRE" | "GENRE_FLUIDE" | "AUTRE";
-            species: "AUTRE" | "HUMAIN" | "ELFE" | "NAIN" | "LEZARD" | "DRAGON" | "ORC";
-            description?: string | undefined;
             birthDate?: {
                 year?: number | undefined;
                 month?: number | undefined;
@@ -2089,14 +2080,17 @@ export declare const MangaBody: z.ZodObject<{
                 seconds?: number | undefined;
             } | undefined;
             avatar?: {
-                id?: string | undefined;
                 label?: "COVER" | "BANNER" | "AVATAR" | "LOGO" | undefined;
+                id?: string | undefined;
                 newImage?: {
                     value: string;
                     label: "COVER" | "BANNER" | "AVATAR" | "LOGO";
                 } | undefined;
             } | undefined;
+            description?: string | undefined;
             age?: number | undefined;
+            gender?: "MASCULIN" | "FEMININ" | "NEUTRE" | "TRANSGENRE" | "NON_BINAIRE" | "GENRE_FLUIDE" | "AUTRE" | undefined;
+            species?: "AUTRE" | "HUMAIN" | "ELFE" | "NAIN" | "LEZARD" | "DRAGON" | "ORC" | undefined;
             actors?: {
                 id?: string | undefined;
                 newPerson?: {
@@ -2104,7 +2098,6 @@ export declare const MangaBody: z.ZodObject<{
                         default: string;
                         alias?: string[] | undefined;
                     };
-                    description?: string | undefined;
                     isGroupe?: boolean | undefined;
                     birthDate?: {
                         year?: number | undefined;
@@ -2123,8 +2116,8 @@ export declare const MangaBody: z.ZodObject<{
                         seconds?: number | undefined;
                     } | undefined;
                     avatar?: {
-                        id?: string | undefined;
                         label?: "COVER" | "BANNER" | "AVATAR" | "LOGO" | undefined;
+                        id?: string | undefined;
                         newImage?: {
                             value: string;
                             label: "COVER" | "BANNER" | "AVATAR" | "LOGO";
@@ -2134,6 +2127,7 @@ export declare const MangaBody: z.ZodObject<{
                         value: string;
                         name: string;
                     }[] | undefined;
+                    description?: string | undefined;
                 } | undefined;
                 role?: "DOUBLAGE_SEIYU" | "AUTEUR" | "EDITEUR" | "PRODUCTEUR" | "REALISATEUR" | "REALISATEUR_EPISODES" | "REALISATEUR_MISEENPAGE" | "DIRECTEUR_ARTISTIQUE_CINEMATROGRAPHIQUE" | "DIRECTEUR_ANIMATION" | "CONCEPTEUR" | "ANIMATEUR_PRINCIPAL" | "ANIMATEUR_INTERMEDIAIRE" | "COLORISTES" | "DIRECTEUR_ENREGISTREMENT" | "SCENARISTE" | "ANIMATEUR_3D" | "METTEUR_EN_SCENE" | "SUPERVISEUR" | "MONTEUR" | "RESPONSABLE_DROITS" | "PRODUCTEUR_MUSIQUE" | "RESPONSABLE_MARKETING" | "DIFFUSEUR" | "STORYBOARDER" | "ARTISTE_VFX" | "INGENIEUR_SON" | "DIRECTEUR_DOUBLAGE" | "TRADUCTEUR" | "MANGAKA" | "CHARACTER_DESIGNER" | "DESSINATEUR_DECORS" | "REALISATEUR_MISE_EN_PAGE" | "COMPOSITEUR" | "PAROLIER" | "ARRANGEUR" | "MUSICIEN" | "CHANTEUR_EUSE" | "CHEF_ORCHESTRE" | "PRODUCTEUR_MUSICAL" | "DESIGNER_SONORE" | "MIXEUR" | undefined;
             }[] | undefined;
@@ -2146,9 +2140,6 @@ export declare const MangaBody: z.ZodObject<{
                 default: string;
                 alias?: string[] | undefined;
             };
-            gender: "MASCULIN" | "FEMININ" | "NEUTRE" | "TRANSGENRE" | "NON_BINAIRE" | "GENRE_FLUIDE" | "AUTRE";
-            species: "AUTRE" | "HUMAIN" | "ELFE" | "NAIN" | "LEZARD" | "DRAGON" | "ORC";
-            description?: string | undefined;
             birthDate?: {
                 year?: string | number | undefined;
                 month?: string | number | undefined;
@@ -2158,14 +2149,17 @@ export declare const MangaBody: z.ZodObject<{
                 seconds?: string | number | undefined;
             } | undefined;
             avatar?: {
-                id?: string | undefined;
                 label?: "COVER" | "BANNER" | "AVATAR" | "LOGO" | undefined;
+                id?: string | undefined;
                 newImage?: {
                     value: string;
                     label: "COVER" | "BANNER" | "AVATAR" | "LOGO";
                 } | undefined;
             } | undefined;
+            description?: string | undefined;
             age?: string | number | undefined;
+            gender?: "MASCULIN" | "FEMININ" | "NEUTRE" | "TRANSGENRE" | "NON_BINAIRE" | "GENRE_FLUIDE" | "AUTRE" | undefined;
+            species?: "AUTRE" | "HUMAIN" | "ELFE" | "NAIN" | "LEZARD" | "DRAGON" | "ORC" | undefined;
             actors?: {
                 id?: string | undefined;
                 newPerson?: {
@@ -2173,7 +2167,6 @@ export declare const MangaBody: z.ZodObject<{
                         default: string;
                         alias?: string[] | undefined;
                     };
-                    description?: string | undefined;
                     isGroupe?: boolean | undefined;
                     birthDate?: {
                         year?: string | number | undefined;
@@ -2192,8 +2185,8 @@ export declare const MangaBody: z.ZodObject<{
                         seconds?: string | number | undefined;
                     } | undefined;
                     avatar?: {
-                        id?: string | undefined;
                         label?: "COVER" | "BANNER" | "AVATAR" | "LOGO" | undefined;
+                        id?: string | undefined;
                         newImage?: {
                             value: string;
                             label: "COVER" | "BANNER" | "AVATAR" | "LOGO";
@@ -2203,6 +2196,7 @@ export declare const MangaBody: z.ZodObject<{
                         value: string;
                         name: string;
                     }[] | undefined;
+                    description?: string | undefined;
                 } | undefined;
                 role?: "DOUBLAGE_SEIYU" | "AUTEUR" | "EDITEUR" | "PRODUCTEUR" | "REALISATEUR" | "REALISATEUR_EPISODES" | "REALISATEUR_MISEENPAGE" | "DIRECTEUR_ARTISTIQUE_CINEMATROGRAPHIQUE" | "DIRECTEUR_ANIMATION" | "CONCEPTEUR" | "ANIMATEUR_PRINCIPAL" | "ANIMATEUR_INTERMEDIAIRE" | "COLORISTES" | "DIRECTEUR_ENREGISTREMENT" | "SCENARISTE" | "ANIMATEUR_3D" | "METTEUR_EN_SCENE" | "SUPERVISEUR" | "MONTEUR" | "RESPONSABLE_DROITS" | "PRODUCTEUR_MUSIQUE" | "RESPONSABLE_MARKETING" | "DIFFUSEUR" | "STORYBOARDER" | "ARTISTE_VFX" | "INGENIEUR_SON" | "DIRECTEUR_DOUBLAGE" | "TRADUCTEUR" | "MANGAKA" | "CHARACTER_DESIGNER" | "DESSINATEUR_DECORS" | "REALISATEUR_MISE_EN_PAGE" | "COMPOSITEUR" | "PAROLIER" | "ARRANGEUR" | "MUSICIEN" | "CHANTEUR_EUSE" | "CHEF_ORCHESTRE" | "PRODUCTEUR_MUSICAL" | "DESIGNER_SONORE" | "MIXEUR" | undefined;
             }[] | undefined;
@@ -2244,22 +2238,6 @@ export declare const MangaBody: z.ZodObject<{
             seconds?: number | undefined;
         } | undefined;
     } | undefined;
-    cover?: {
-        id?: string | undefined;
-        label?: "COVER" | "BANNER" | "AVATAR" | "LOGO" | undefined;
-        newImage?: {
-            value: string;
-            label: "COVER" | "BANNER" | "AVATAR" | "LOGO";
-        } | undefined;
-    } | undefined;
-    banner?: {
-        id?: string | undefined;
-        label?: "COVER" | "BANNER" | "AVATAR" | "LOGO" | undefined;
-        newImage?: {
-            value: string;
-            label: "COVER" | "BANNER" | "AVATAR" | "LOGO";
-        } | undefined;
-    } | undefined;
     links?: {
         value: string;
         name: string;
@@ -2294,6 +2272,22 @@ export declare const MangaBody: z.ZodObject<{
         id: string;
         parentLabel?: "SEQUEL" | "SPIN_OFF" | "ALTERNATIVE" | "REBOOT" | "FILM" | undefined;
     } | undefined;
+    cover?: {
+        label?: "COVER" | "BANNER" | "AVATAR" | "LOGO" | undefined;
+        id?: string | undefined;
+        newImage?: {
+            value: string;
+            label: "COVER" | "BANNER" | "AVATAR" | "LOGO";
+        } | undefined;
+    } | undefined;
+    banner?: {
+        label?: "COVER" | "BANNER" | "AVATAR" | "LOGO" | undefined;
+        id?: string | undefined;
+        newImage?: {
+            value: string;
+            label: "COVER" | "BANNER" | "AVATAR" | "LOGO";
+        } | undefined;
+    } | undefined;
     synopsis?: string | undefined;
     companys?: {
         id?: string | undefined;
@@ -2303,14 +2297,14 @@ export declare const MangaBody: z.ZodObject<{
                 default: string;
                 alias?: string[] | undefined;
             };
-            description?: string | undefined;
             links?: {
                 value: string;
                 name: string;
             }[] | undefined;
+            description?: string | undefined;
             logo?: {
-                id?: string | undefined;
                 label?: "COVER" | "BANNER" | "AVATAR" | "LOGO" | undefined;
+                id?: string | undefined;
                 newImage?: {
                     value: string;
                     label: "COVER" | "BANNER" | "AVATAR" | "LOGO";
@@ -2333,7 +2327,6 @@ export declare const MangaBody: z.ZodObject<{
                 default: string;
                 alias?: string[] | undefined;
             };
-            description?: string | undefined;
             isGroupe?: boolean | undefined;
             birthDate?: {
                 year?: number | undefined;
@@ -2352,8 +2345,8 @@ export declare const MangaBody: z.ZodObject<{
                 seconds?: number | undefined;
             } | undefined;
             avatar?: {
-                id?: string | undefined;
                 label?: "COVER" | "BANNER" | "AVATAR" | "LOGO" | undefined;
+                id?: string | undefined;
                 newImage?: {
                     value: string;
                     label: "COVER" | "BANNER" | "AVATAR" | "LOGO";
@@ -2363,6 +2356,7 @@ export declare const MangaBody: z.ZodObject<{
                 value: string;
                 name: string;
             }[] | undefined;
+            description?: string | undefined;
         } | undefined;
         role?: "DOUBLAGE_SEIYU" | "AUTEUR" | "EDITEUR" | "PRODUCTEUR" | "REALISATEUR" | "REALISATEUR_EPISODES" | "REALISATEUR_MISEENPAGE" | "DIRECTEUR_ARTISTIQUE_CINEMATROGRAPHIQUE" | "DIRECTEUR_ANIMATION" | "CONCEPTEUR" | "ANIMATEUR_PRINCIPAL" | "ANIMATEUR_INTERMEDIAIRE" | "COLORISTES" | "DIRECTEUR_ENREGISTREMENT" | "SCENARISTE" | "ANIMATEUR_3D" | "METTEUR_EN_SCENE" | "SUPERVISEUR" | "MONTEUR" | "RESPONSABLE_DROITS" | "PRODUCTEUR_MUSIQUE" | "RESPONSABLE_MARKETING" | "DIFFUSEUR" | "STORYBOARDER" | "ARTISTE_VFX" | "INGENIEUR_SON" | "DIRECTEUR_DOUBLAGE" | "TRADUCTEUR" | "MANGAKA" | "CHARACTER_DESIGNER" | "DESSINATEUR_DECORS" | "REALISATEUR_MISE_EN_PAGE" | "COMPOSITEUR" | "PAROLIER" | "ARRANGEUR" | "MUSICIEN" | "CHANTEUR_EUSE" | "CHEF_ORCHESTRE" | "PRODUCTEUR_MUSICAL" | "DESIGNER_SONORE" | "MIXEUR" | undefined;
     }[] | undefined;
@@ -2374,9 +2368,6 @@ export declare const MangaBody: z.ZodObject<{
                 default: string;
                 alias?: string[] | undefined;
             };
-            gender: "MASCULIN" | "FEMININ" | "NEUTRE" | "TRANSGENRE" | "NON_BINAIRE" | "GENRE_FLUIDE" | "AUTRE";
-            species: "AUTRE" | "HUMAIN" | "ELFE" | "NAIN" | "LEZARD" | "DRAGON" | "ORC";
-            description?: string | undefined;
             birthDate?: {
                 year?: number | undefined;
                 month?: number | undefined;
@@ -2386,14 +2377,17 @@ export declare const MangaBody: z.ZodObject<{
                 seconds?: number | undefined;
             } | undefined;
             avatar?: {
-                id?: string | undefined;
                 label?: "COVER" | "BANNER" | "AVATAR" | "LOGO" | undefined;
+                id?: string | undefined;
                 newImage?: {
                     value: string;
                     label: "COVER" | "BANNER" | "AVATAR" | "LOGO";
                 } | undefined;
             } | undefined;
+            description?: string | undefined;
             age?: number | undefined;
+            gender?: "MASCULIN" | "FEMININ" | "NEUTRE" | "TRANSGENRE" | "NON_BINAIRE" | "GENRE_FLUIDE" | "AUTRE" | undefined;
+            species?: "AUTRE" | "HUMAIN" | "ELFE" | "NAIN" | "LEZARD" | "DRAGON" | "ORC" | undefined;
             actors?: {
                 id?: string | undefined;
                 newPerson?: {
@@ -2401,7 +2395,6 @@ export declare const MangaBody: z.ZodObject<{
                         default: string;
                         alias?: string[] | undefined;
                     };
-                    description?: string | undefined;
                     isGroupe?: boolean | undefined;
                     birthDate?: {
                         year?: number | undefined;
@@ -2420,8 +2413,8 @@ export declare const MangaBody: z.ZodObject<{
                         seconds?: number | undefined;
                     } | undefined;
                     avatar?: {
-                        id?: string | undefined;
                         label?: "COVER" | "BANNER" | "AVATAR" | "LOGO" | undefined;
+                        id?: string | undefined;
                         newImage?: {
                             value: string;
                             label: "COVER" | "BANNER" | "AVATAR" | "LOGO";
@@ -2431,6 +2424,7 @@ export declare const MangaBody: z.ZodObject<{
                         value: string;
                         name: string;
                     }[] | undefined;
+                    description?: string | undefined;
                 } | undefined;
                 role?: "DOUBLAGE_SEIYU" | "AUTEUR" | "EDITEUR" | "PRODUCTEUR" | "REALISATEUR" | "REALISATEUR_EPISODES" | "REALISATEUR_MISEENPAGE" | "DIRECTEUR_ARTISTIQUE_CINEMATROGRAPHIQUE" | "DIRECTEUR_ANIMATION" | "CONCEPTEUR" | "ANIMATEUR_PRINCIPAL" | "ANIMATEUR_INTERMEDIAIRE" | "COLORISTES" | "DIRECTEUR_ENREGISTREMENT" | "SCENARISTE" | "ANIMATEUR_3D" | "METTEUR_EN_SCENE" | "SUPERVISEUR" | "MONTEUR" | "RESPONSABLE_DROITS" | "PRODUCTEUR_MUSIQUE" | "RESPONSABLE_MARKETING" | "DIFFUSEUR" | "STORYBOARDER" | "ARTISTE_VFX" | "INGENIEUR_SON" | "DIRECTEUR_DOUBLAGE" | "TRADUCTEUR" | "MANGAKA" | "CHARACTER_DESIGNER" | "DESSINATEUR_DECORS" | "REALISATEUR_MISE_EN_PAGE" | "COMPOSITEUR" | "PAROLIER" | "ARRANGEUR" | "MUSICIEN" | "CHANTEUR_EUSE" | "CHEF_ORCHESTRE" | "PRODUCTEUR_MUSICAL" | "DESIGNER_SONORE" | "MIXEUR" | undefined;
             }[] | undefined;
@@ -2472,22 +2466,6 @@ export declare const MangaBody: z.ZodObject<{
             seconds?: string | number | undefined;
         } | undefined;
     } | undefined;
-    cover?: {
-        id?: string | undefined;
-        label?: "COVER" | "BANNER" | "AVATAR" | "LOGO" | undefined;
-        newImage?: {
-            value: string;
-            label: "COVER" | "BANNER" | "AVATAR" | "LOGO";
-        } | undefined;
-    } | undefined;
-    banner?: {
-        id?: string | undefined;
-        label?: "COVER" | "BANNER" | "AVATAR" | "LOGO" | undefined;
-        newImage?: {
-            value: string;
-            label: "COVER" | "BANNER" | "AVATAR" | "LOGO";
-        } | undefined;
-    } | undefined;
     links?: {
         value: string;
         name: string;
@@ -2522,6 +2500,22 @@ export declare const MangaBody: z.ZodObject<{
         id: string;
         parentLabel?: "SEQUEL" | "SPIN_OFF" | "ALTERNATIVE" | "REBOOT" | "FILM" | undefined;
     } | undefined;
+    cover?: {
+        label?: "COVER" | "BANNER" | "AVATAR" | "LOGO" | undefined;
+        id?: string | undefined;
+        newImage?: {
+            value: string;
+            label: "COVER" | "BANNER" | "AVATAR" | "LOGO";
+        } | undefined;
+    } | undefined;
+    banner?: {
+        label?: "COVER" | "BANNER" | "AVATAR" | "LOGO" | undefined;
+        id?: string | undefined;
+        newImage?: {
+            value: string;
+            label: "COVER" | "BANNER" | "AVATAR" | "LOGO";
+        } | undefined;
+    } | undefined;
     synopsis?: string | undefined;
     companys?: {
         id?: string | undefined;
@@ -2531,14 +2525,14 @@ export declare const MangaBody: z.ZodObject<{
                 default: string;
                 alias?: string[] | undefined;
             };
-            description?: string | undefined;
             links?: {
                 value: string;
                 name: string;
             }[] | undefined;
+            description?: string | undefined;
             logo?: {
-                id?: string | undefined;
                 label?: "COVER" | "BANNER" | "AVATAR" | "LOGO" | undefined;
+                id?: string | undefined;
                 newImage?: {
                     value: string;
                     label: "COVER" | "BANNER" | "AVATAR" | "LOGO";
@@ -2561,7 +2555,6 @@ export declare const MangaBody: z.ZodObject<{
                 default: string;
                 alias?: string[] | undefined;
             };
-            description?: string | undefined;
             isGroupe?: boolean | undefined;
             birthDate?: {
                 year?: string | number | undefined;
@@ -2580,8 +2573,8 @@ export declare const MangaBody: z.ZodObject<{
                 seconds?: string | number | undefined;
             } | undefined;
             avatar?: {
-                id?: string | undefined;
                 label?: "COVER" | "BANNER" | "AVATAR" | "LOGO" | undefined;
+                id?: string | undefined;
                 newImage?: {
                     value: string;
                     label: "COVER" | "BANNER" | "AVATAR" | "LOGO";
@@ -2591,6 +2584,7 @@ export declare const MangaBody: z.ZodObject<{
                 value: string;
                 name: string;
             }[] | undefined;
+            description?: string | undefined;
         } | undefined;
         role?: "DOUBLAGE_SEIYU" | "AUTEUR" | "EDITEUR" | "PRODUCTEUR" | "REALISATEUR" | "REALISATEUR_EPISODES" | "REALISATEUR_MISEENPAGE" | "DIRECTEUR_ARTISTIQUE_CINEMATROGRAPHIQUE" | "DIRECTEUR_ANIMATION" | "CONCEPTEUR" | "ANIMATEUR_PRINCIPAL" | "ANIMATEUR_INTERMEDIAIRE" | "COLORISTES" | "DIRECTEUR_ENREGISTREMENT" | "SCENARISTE" | "ANIMATEUR_3D" | "METTEUR_EN_SCENE" | "SUPERVISEUR" | "MONTEUR" | "RESPONSABLE_DROITS" | "PRODUCTEUR_MUSIQUE" | "RESPONSABLE_MARKETING" | "DIFFUSEUR" | "STORYBOARDER" | "ARTISTE_VFX" | "INGENIEUR_SON" | "DIRECTEUR_DOUBLAGE" | "TRADUCTEUR" | "MANGAKA" | "CHARACTER_DESIGNER" | "DESSINATEUR_DECORS" | "REALISATEUR_MISE_EN_PAGE" | "COMPOSITEUR" | "PAROLIER" | "ARRANGEUR" | "MUSICIEN" | "CHANTEUR_EUSE" | "CHEF_ORCHESTRE" | "PRODUCTEUR_MUSICAL" | "DESIGNER_SONORE" | "MIXEUR" | undefined;
     }[] | undefined;
@@ -2602,9 +2596,6 @@ export declare const MangaBody: z.ZodObject<{
                 default: string;
                 alias?: string[] | undefined;
             };
-            gender: "MASCULIN" | "FEMININ" | "NEUTRE" | "TRANSGENRE" | "NON_BINAIRE" | "GENRE_FLUIDE" | "AUTRE";
-            species: "AUTRE" | "HUMAIN" | "ELFE" | "NAIN" | "LEZARD" | "DRAGON" | "ORC";
-            description?: string | undefined;
             birthDate?: {
                 year?: string | number | undefined;
                 month?: string | number | undefined;
@@ -2614,14 +2605,17 @@ export declare const MangaBody: z.ZodObject<{
                 seconds?: string | number | undefined;
             } | undefined;
             avatar?: {
-                id?: string | undefined;
                 label?: "COVER" | "BANNER" | "AVATAR" | "LOGO" | undefined;
+                id?: string | undefined;
                 newImage?: {
                     value: string;
                     label: "COVER" | "BANNER" | "AVATAR" | "LOGO";
                 } | undefined;
             } | undefined;
+            description?: string | undefined;
             age?: string | number | undefined;
+            gender?: "MASCULIN" | "FEMININ" | "NEUTRE" | "TRANSGENRE" | "NON_BINAIRE" | "GENRE_FLUIDE" | "AUTRE" | undefined;
+            species?: "AUTRE" | "HUMAIN" | "ELFE" | "NAIN" | "LEZARD" | "DRAGON" | "ORC" | undefined;
             actors?: {
                 id?: string | undefined;
                 newPerson?: {
@@ -2629,7 +2623,6 @@ export declare const MangaBody: z.ZodObject<{
                         default: string;
                         alias?: string[] | undefined;
                     };
-                    description?: string | undefined;
                     isGroupe?: boolean | undefined;
                     birthDate?: {
                         year?: string | number | undefined;
@@ -2648,8 +2641,8 @@ export declare const MangaBody: z.ZodObject<{
                         seconds?: string | number | undefined;
                     } | undefined;
                     avatar?: {
-                        id?: string | undefined;
                         label?: "COVER" | "BANNER" | "AVATAR" | "LOGO" | undefined;
+                        id?: string | undefined;
                         newImage?: {
                             value: string;
                             label: "COVER" | "BANNER" | "AVATAR" | "LOGO";
@@ -2659,6 +2652,7 @@ export declare const MangaBody: z.ZodObject<{
                         value: string;
                         name: string;
                     }[] | undefined;
+                    description?: string | undefined;
                 } | undefined;
                 role?: "DOUBLAGE_SEIYU" | "AUTEUR" | "EDITEUR" | "PRODUCTEUR" | "REALISATEUR" | "REALISATEUR_EPISODES" | "REALISATEUR_MISEENPAGE" | "DIRECTEUR_ARTISTIQUE_CINEMATROGRAPHIQUE" | "DIRECTEUR_ANIMATION" | "CONCEPTEUR" | "ANIMATEUR_PRINCIPAL" | "ANIMATEUR_INTERMEDIAIRE" | "COLORISTES" | "DIRECTEUR_ENREGISTREMENT" | "SCENARISTE" | "ANIMATEUR_3D" | "METTEUR_EN_SCENE" | "SUPERVISEUR" | "MONTEUR" | "RESPONSABLE_DROITS" | "PRODUCTEUR_MUSIQUE" | "RESPONSABLE_MARKETING" | "DIFFUSEUR" | "STORYBOARDER" | "ARTISTE_VFX" | "INGENIEUR_SON" | "DIRECTEUR_DOUBLAGE" | "TRADUCTEUR" | "MANGAKA" | "CHARACTER_DESIGNER" | "DESSINATEUR_DECORS" | "REALISATEUR_MISE_EN_PAGE" | "COMPOSITEUR" | "PAROLIER" | "ARRANGEUR" | "MUSICIEN" | "CHANTEUR_EUSE" | "CHEF_ORCHESTRE" | "PRODUCTEUR_MUSICAL" | "DESIGNER_SONORE" | "MIXEUR" | undefined;
             }[] | undefined;
@@ -2722,16 +2716,10 @@ export declare const MangaCreateBody: z.ZodObject<z.objectUtil.extendShape<{
             id: string;
             parentLabel?: "SEQUEL" | "SPIN_OFF" | "ALTERNATIVE" | "REBOOT" | "FILM" | undefined;
         }>>;
-        title: z.ZodEffects<z.ZodObject<{
+        title: z.ZodObject<{
             default: z.ZodString;
             alias: z.ZodOptional<z.ZodArray<z.ZodString, "many">>;
         }, "strip", z.ZodTypeAny, {
-            default: string;
-            alias?: string[] | undefined;
-        }, {
-            default: string;
-            alias?: string[] | undefined;
-        }>, {
             default: string;
             alias?: string[] | undefined;
         }, {
@@ -2832,15 +2820,15 @@ export declare const MangaCreateBody: z.ZodObject<z.objectUtil.extendShape<{
                 label: "COVER" | "BANNER" | "AVATAR" | "LOGO";
             }>>;
         }, "strip", z.ZodTypeAny, {
-            id?: string | undefined;
             label?: "COVER" | "BANNER" | "AVATAR" | "LOGO" | undefined;
+            id?: string | undefined;
             newImage?: {
                 value: string;
                 label: "COVER" | "BANNER" | "AVATAR" | "LOGO";
             } | undefined;
         }, {
-            id?: string | undefined;
             label?: "COVER" | "BANNER" | "AVATAR" | "LOGO" | undefined;
+            id?: string | undefined;
             newImage?: {
                 value: string;
                 label: "COVER" | "BANNER" | "AVATAR" | "LOGO";
@@ -2860,15 +2848,15 @@ export declare const MangaCreateBody: z.ZodObject<z.objectUtil.extendShape<{
                 label: "COVER" | "BANNER" | "AVATAR" | "LOGO";
             }>>;
         }, "strip", z.ZodTypeAny, {
-            id?: string | undefined;
             label?: "COVER" | "BANNER" | "AVATAR" | "LOGO" | undefined;
+            id?: string | undefined;
             newImage?: {
                 value: string;
                 label: "COVER" | "BANNER" | "AVATAR" | "LOGO";
             } | undefined;
         }, {
-            id?: string | undefined;
             label?: "COVER" | "BANNER" | "AVATAR" | "LOGO" | undefined;
+            id?: string | undefined;
             newImage?: {
                 value: string;
                 label: "COVER" | "BANNER" | "AVATAR" | "LOGO";
@@ -2979,7 +2967,7 @@ export declare const MangaCreateBody: z.ZodObject<z.objectUtil.extendShape<{
         explicit: z.ZodEffects<z.ZodUnion<[z.ZodBoolean, z.ZodLiteral<"true">, z.ZodLiteral<"false">]>, boolean, boolean | "true" | "false">;
         links: z.ZodOptional<z.ZodArray<z.ZodObject<{
             name: z.ZodString;
-            value: z.ZodEffects<z.ZodString, string, string>;
+            value: z.ZodString;
         }, "strip", z.ZodTypeAny, {
             value: string;
             name: string;
@@ -3004,7 +2992,7 @@ export declare const MangaCreateBody: z.ZodObject<z.objectUtil.extendShape<{
                 description: z.ZodOptional<z.ZodString>;
                 links: z.ZodOptional<z.ZodArray<z.ZodObject<{
                     name: z.ZodString;
-                    value: z.ZodEffects<z.ZodString, string, string>;
+                    value: z.ZodString;
                 }, "strip", z.ZodTypeAny, {
                     value: string;
                     name: string;
@@ -3026,15 +3014,15 @@ export declare const MangaCreateBody: z.ZodObject<z.objectUtil.extendShape<{
                         label: "COVER" | "BANNER" | "AVATAR" | "LOGO";
                     }>>;
                 }, "strip", z.ZodTypeAny, {
-                    id?: string | undefined;
                     label?: "COVER" | "BANNER" | "AVATAR" | "LOGO" | undefined;
+                    id?: string | undefined;
                     newImage?: {
                         value: string;
                         label: "COVER" | "BANNER" | "AVATAR" | "LOGO";
                     } | undefined;
                 }, {
-                    id?: string | undefined;
                     label?: "COVER" | "BANNER" | "AVATAR" | "LOGO" | undefined;
+                    id?: string | undefined;
                     newImage?: {
                         value: string;
                         label: "COVER" | "BANNER" | "AVATAR" | "LOGO";
@@ -3068,14 +3056,14 @@ export declare const MangaCreateBody: z.ZodObject<z.objectUtil.extendShape<{
                     default: string;
                     alias?: string[] | undefined;
                 };
-                description?: string | undefined;
                 links?: {
                     value: string;
                     name: string;
                 }[] | undefined;
+                description?: string | undefined;
                 logo?: {
-                    id?: string | undefined;
                     label?: "COVER" | "BANNER" | "AVATAR" | "LOGO" | undefined;
+                    id?: string | undefined;
                     newImage?: {
                         value: string;
                         label: "COVER" | "BANNER" | "AVATAR" | "LOGO";
@@ -3095,14 +3083,14 @@ export declare const MangaCreateBody: z.ZodObject<z.objectUtil.extendShape<{
                     default: string;
                     alias?: string[] | undefined;
                 };
-                description?: string | undefined;
                 links?: {
                     value: string;
                     name: string;
                 }[] | undefined;
+                description?: string | undefined;
                 logo?: {
-                    id?: string | undefined;
                     label?: "COVER" | "BANNER" | "AVATAR" | "LOGO" | undefined;
+                    id?: string | undefined;
                     newImage?: {
                         value: string;
                         label: "COVER" | "BANNER" | "AVATAR" | "LOGO";
@@ -3125,14 +3113,14 @@ export declare const MangaCreateBody: z.ZodObject<z.objectUtil.extendShape<{
                     default: string;
                     alias?: string[] | undefined;
                 };
-                description?: string | undefined;
                 links?: {
                     value: string;
                     name: string;
                 }[] | undefined;
+                description?: string | undefined;
                 logo?: {
-                    id?: string | undefined;
                     label?: "COVER" | "BANNER" | "AVATAR" | "LOGO" | undefined;
+                    id?: string | undefined;
                     newImage?: {
                         value: string;
                         label: "COVER" | "BANNER" | "AVATAR" | "LOGO";
@@ -3155,14 +3143,14 @@ export declare const MangaCreateBody: z.ZodObject<z.objectUtil.extendShape<{
                     default: string;
                     alias?: string[] | undefined;
                 };
-                description?: string | undefined;
                 links?: {
                     value: string;
                     name: string;
                 }[] | undefined;
+                description?: string | undefined;
                 logo?: {
-                    id?: string | undefined;
                     label?: "COVER" | "BANNER" | "AVATAR" | "LOGO" | undefined;
+                    id?: string | undefined;
                     newImage?: {
                         value: string;
                         label: "COVER" | "BANNER" | "AVATAR" | "LOGO";
@@ -3251,15 +3239,15 @@ export declare const MangaCreateBody: z.ZodObject<z.objectUtil.extendShape<{
                         label: "COVER" | "BANNER" | "AVATAR" | "LOGO";
                     }>>;
                 }, "strip", z.ZodTypeAny, {
-                    id?: string | undefined;
                     label?: "COVER" | "BANNER" | "AVATAR" | "LOGO" | undefined;
+                    id?: string | undefined;
                     newImage?: {
                         value: string;
                         label: "COVER" | "BANNER" | "AVATAR" | "LOGO";
                     } | undefined;
                 }, {
-                    id?: string | undefined;
                     label?: "COVER" | "BANNER" | "AVATAR" | "LOGO" | undefined;
+                    id?: string | undefined;
                     newImage?: {
                         value: string;
                         label: "COVER" | "BANNER" | "AVATAR" | "LOGO";
@@ -3267,7 +3255,7 @@ export declare const MangaCreateBody: z.ZodObject<z.objectUtil.extendShape<{
                 }>>;
                 links: z.ZodOptional<z.ZodArray<z.ZodObject<{
                     name: z.ZodString;
-                    value: z.ZodEffects<z.ZodString, string, string>;
+                    value: z.ZodString;
                 }, "strip", z.ZodTypeAny, {
                     value: string;
                     name: string;
@@ -3280,7 +3268,6 @@ export declare const MangaCreateBody: z.ZodObject<z.objectUtil.extendShape<{
                     default: string;
                     alias?: string[] | undefined;
                 };
-                description?: string | undefined;
                 isGroupe?: boolean | undefined;
                 birthDate?: {
                     year?: number | undefined;
@@ -3299,8 +3286,8 @@ export declare const MangaCreateBody: z.ZodObject<z.objectUtil.extendShape<{
                     seconds?: number | undefined;
                 } | undefined;
                 avatar?: {
-                    id?: string | undefined;
                     label?: "COVER" | "BANNER" | "AVATAR" | "LOGO" | undefined;
+                    id?: string | undefined;
                     newImage?: {
                         value: string;
                         label: "COVER" | "BANNER" | "AVATAR" | "LOGO";
@@ -3310,12 +3297,12 @@ export declare const MangaCreateBody: z.ZodObject<z.objectUtil.extendShape<{
                     value: string;
                     name: string;
                 }[] | undefined;
+                description?: string | undefined;
             }, {
                 name: {
                     default: string;
                     alias?: string[] | undefined;
                 };
-                description?: string | undefined;
                 isGroupe?: boolean | undefined;
                 birthDate?: {
                     year?: string | number | undefined;
@@ -3334,8 +3321,8 @@ export declare const MangaCreateBody: z.ZodObject<z.objectUtil.extendShape<{
                     seconds?: string | number | undefined;
                 } | undefined;
                 avatar?: {
-                    id?: string | undefined;
                     label?: "COVER" | "BANNER" | "AVATAR" | "LOGO" | undefined;
+                    id?: string | undefined;
                     newImage?: {
                         value: string;
                         label: "COVER" | "BANNER" | "AVATAR" | "LOGO";
@@ -3345,6 +3332,7 @@ export declare const MangaCreateBody: z.ZodObject<z.objectUtil.extendShape<{
                     value: string;
                     name: string;
                 }[] | undefined;
+                description?: string | undefined;
             }>>;
             role: z.ZodOptional<z.ZodEnum<("DOUBLAGE_SEIYU" | "AUTEUR" | "EDITEUR" | "PRODUCTEUR" | "REALISATEUR" | "REALISATEUR_EPISODES" | "REALISATEUR_MISEENPAGE" | "DIRECTEUR_ARTISTIQUE_CINEMATROGRAPHIQUE" | "DIRECTEUR_ANIMATION" | "CONCEPTEUR" | "ANIMATEUR_PRINCIPAL" | "ANIMATEUR_INTERMEDIAIRE" | "COLORISTES" | "DIRECTEUR_ENREGISTREMENT" | "SCENARISTE" | "ANIMATEUR_3D" | "METTEUR_EN_SCENE" | "SUPERVISEUR" | "MONTEUR" | "RESPONSABLE_DROITS" | "PRODUCTEUR_MUSIQUE" | "RESPONSABLE_MARKETING" | "DIFFUSEUR" | "STORYBOARDER" | "ARTISTE_VFX" | "INGENIEUR_SON" | "DIRECTEUR_DOUBLAGE" | "TRADUCTEUR" | "MANGAKA" | "CHARACTER_DESIGNER" | "DESSINATEUR_DECORS" | "REALISATEUR_MISE_EN_PAGE" | "COMPOSITEUR" | "PAROLIER" | "ARRANGEUR" | "MUSICIEN" | "CHANTEUR_EUSE" | "CHEF_ORCHESTRE" | "PRODUCTEUR_MUSICAL" | "DESIGNER_SONORE" | "MIXEUR")[] & [string, ...string[]]>>;
         }, "strip", z.ZodTypeAny, {
@@ -3354,7 +3342,6 @@ export declare const MangaCreateBody: z.ZodObject<z.objectUtil.extendShape<{
                     default: string;
                     alias?: string[] | undefined;
                 };
-                description?: string | undefined;
                 isGroupe?: boolean | undefined;
                 birthDate?: {
                     year?: number | undefined;
@@ -3373,8 +3360,8 @@ export declare const MangaCreateBody: z.ZodObject<z.objectUtil.extendShape<{
                     seconds?: number | undefined;
                 } | undefined;
                 avatar?: {
-                    id?: string | undefined;
                     label?: "COVER" | "BANNER" | "AVATAR" | "LOGO" | undefined;
+                    id?: string | undefined;
                     newImage?: {
                         value: string;
                         label: "COVER" | "BANNER" | "AVATAR" | "LOGO";
@@ -3384,6 +3371,7 @@ export declare const MangaCreateBody: z.ZodObject<z.objectUtil.extendShape<{
                     value: string;
                     name: string;
                 }[] | undefined;
+                description?: string | undefined;
             } | undefined;
             role?: "DOUBLAGE_SEIYU" | "AUTEUR" | "EDITEUR" | "PRODUCTEUR" | "REALISATEUR" | "REALISATEUR_EPISODES" | "REALISATEUR_MISEENPAGE" | "DIRECTEUR_ARTISTIQUE_CINEMATROGRAPHIQUE" | "DIRECTEUR_ANIMATION" | "CONCEPTEUR" | "ANIMATEUR_PRINCIPAL" | "ANIMATEUR_INTERMEDIAIRE" | "COLORISTES" | "DIRECTEUR_ENREGISTREMENT" | "SCENARISTE" | "ANIMATEUR_3D" | "METTEUR_EN_SCENE" | "SUPERVISEUR" | "MONTEUR" | "RESPONSABLE_DROITS" | "PRODUCTEUR_MUSIQUE" | "RESPONSABLE_MARKETING" | "DIFFUSEUR" | "STORYBOARDER" | "ARTISTE_VFX" | "INGENIEUR_SON" | "DIRECTEUR_DOUBLAGE" | "TRADUCTEUR" | "MANGAKA" | "CHARACTER_DESIGNER" | "DESSINATEUR_DECORS" | "REALISATEUR_MISE_EN_PAGE" | "COMPOSITEUR" | "PAROLIER" | "ARRANGEUR" | "MUSICIEN" | "CHANTEUR_EUSE" | "CHEF_ORCHESTRE" | "PRODUCTEUR_MUSICAL" | "DESIGNER_SONORE" | "MIXEUR" | undefined;
         }, {
@@ -3393,7 +3381,6 @@ export declare const MangaCreateBody: z.ZodObject<z.objectUtil.extendShape<{
                     default: string;
                     alias?: string[] | undefined;
                 };
-                description?: string | undefined;
                 isGroupe?: boolean | undefined;
                 birthDate?: {
                     year?: string | number | undefined;
@@ -3412,8 +3399,8 @@ export declare const MangaCreateBody: z.ZodObject<z.objectUtil.extendShape<{
                     seconds?: string | number | undefined;
                 } | undefined;
                 avatar?: {
-                    id?: string | undefined;
                     label?: "COVER" | "BANNER" | "AVATAR" | "LOGO" | undefined;
+                    id?: string | undefined;
                     newImage?: {
                         value: string;
                         label: "COVER" | "BANNER" | "AVATAR" | "LOGO";
@@ -3423,6 +3410,7 @@ export declare const MangaCreateBody: z.ZodObject<z.objectUtil.extendShape<{
                     value: string;
                     name: string;
                 }[] | undefined;
+                description?: string | undefined;
             } | undefined;
             role?: "DOUBLAGE_SEIYU" | "AUTEUR" | "EDITEUR" | "PRODUCTEUR" | "REALISATEUR" | "REALISATEUR_EPISODES" | "REALISATEUR_MISEENPAGE" | "DIRECTEUR_ARTISTIQUE_CINEMATROGRAPHIQUE" | "DIRECTEUR_ANIMATION" | "CONCEPTEUR" | "ANIMATEUR_PRINCIPAL" | "ANIMATEUR_INTERMEDIAIRE" | "COLORISTES" | "DIRECTEUR_ENREGISTREMENT" | "SCENARISTE" | "ANIMATEUR_3D" | "METTEUR_EN_SCENE" | "SUPERVISEUR" | "MONTEUR" | "RESPONSABLE_DROITS" | "PRODUCTEUR_MUSIQUE" | "RESPONSABLE_MARKETING" | "DIFFUSEUR" | "STORYBOARDER" | "ARTISTE_VFX" | "INGENIEUR_SON" | "DIRECTEUR_DOUBLAGE" | "TRADUCTEUR" | "MANGAKA" | "CHARACTER_DESIGNER" | "DESSINATEUR_DECORS" | "REALISATEUR_MISE_EN_PAGE" | "COMPOSITEUR" | "PAROLIER" | "ARRANGEUR" | "MUSICIEN" | "CHANTEUR_EUSE" | "CHEF_ORCHESTRE" | "PRODUCTEUR_MUSICAL" | "DESIGNER_SONORE" | "MIXEUR" | undefined;
         }>, "many">>;
@@ -3462,8 +3450,8 @@ export declare const MangaCreateBody: z.ZodObject<z.objectUtil.extendShape<{
                     minutes?: string | number | undefined;
                     seconds?: string | number | undefined;
                 }>>;
-                gender: z.ZodEnum<("MASCULIN" | "FEMININ" | "NEUTRE" | "TRANSGENRE" | "NON_BINAIRE" | "GENRE_FLUIDE" | "AUTRE")[] & [string, ...string[]]>;
-                species: z.ZodEnum<("AUTRE" | "HUMAIN" | "ELFE" | "NAIN" | "LEZARD" | "DRAGON" | "ORC")[] & [string, ...string[]]>;
+                gender: z.ZodOptional<z.ZodEnum<("MASCULIN" | "FEMININ" | "NEUTRE" | "TRANSGENRE" | "NON_BINAIRE" | "GENRE_FLUIDE" | "AUTRE")[] & [string, ...string[]]>>;
+                species: z.ZodOptional<z.ZodEnum<("AUTRE" | "HUMAIN" | "ELFE" | "NAIN" | "LEZARD" | "DRAGON" | "ORC")[] & [string, ...string[]]>>;
                 description: z.ZodOptional<z.ZodString>;
                 avatar: z.ZodOptional<z.ZodObject<{
                     id: z.ZodOptional<z.ZodString>;
@@ -3479,15 +3467,15 @@ export declare const MangaCreateBody: z.ZodObject<z.objectUtil.extendShape<{
                         label: "COVER" | "BANNER" | "AVATAR" | "LOGO";
                     }>>;
                 }, "strip", z.ZodTypeAny, {
-                    id?: string | undefined;
                     label?: "COVER" | "BANNER" | "AVATAR" | "LOGO" | undefined;
+                    id?: string | undefined;
                     newImage?: {
                         value: string;
                         label: "COVER" | "BANNER" | "AVATAR" | "LOGO";
                     } | undefined;
                 }, {
-                    id?: string | undefined;
                     label?: "COVER" | "BANNER" | "AVATAR" | "LOGO" | undefined;
+                    id?: string | undefined;
                     newImage?: {
                         value: string;
                         label: "COVER" | "BANNER" | "AVATAR" | "LOGO";
@@ -3566,15 +3554,15 @@ export declare const MangaCreateBody: z.ZodObject<z.objectUtil.extendShape<{
                                 label: "COVER" | "BANNER" | "AVATAR" | "LOGO";
                             }>>;
                         }, "strip", z.ZodTypeAny, {
-                            id?: string | undefined;
                             label?: "COVER" | "BANNER" | "AVATAR" | "LOGO" | undefined;
+                            id?: string | undefined;
                             newImage?: {
                                 value: string;
                                 label: "COVER" | "BANNER" | "AVATAR" | "LOGO";
                             } | undefined;
                         }, {
-                            id?: string | undefined;
                             label?: "COVER" | "BANNER" | "AVATAR" | "LOGO" | undefined;
+                            id?: string | undefined;
                             newImage?: {
                                 value: string;
                                 label: "COVER" | "BANNER" | "AVATAR" | "LOGO";
@@ -3582,7 +3570,7 @@ export declare const MangaCreateBody: z.ZodObject<z.objectUtil.extendShape<{
                         }>>;
                         links: z.ZodOptional<z.ZodArray<z.ZodObject<{
                             name: z.ZodString;
-                            value: z.ZodEffects<z.ZodString, string, string>;
+                            value: z.ZodString;
                         }, "strip", z.ZodTypeAny, {
                             value: string;
                             name: string;
@@ -3595,7 +3583,6 @@ export declare const MangaCreateBody: z.ZodObject<z.objectUtil.extendShape<{
                             default: string;
                             alias?: string[] | undefined;
                         };
-                        description?: string | undefined;
                         isGroupe?: boolean | undefined;
                         birthDate?: {
                             year?: number | undefined;
@@ -3614,8 +3601,8 @@ export declare const MangaCreateBody: z.ZodObject<z.objectUtil.extendShape<{
                             seconds?: number | undefined;
                         } | undefined;
                         avatar?: {
-                            id?: string | undefined;
                             label?: "COVER" | "BANNER" | "AVATAR" | "LOGO" | undefined;
+                            id?: string | undefined;
                             newImage?: {
                                 value: string;
                                 label: "COVER" | "BANNER" | "AVATAR" | "LOGO";
@@ -3625,12 +3612,12 @@ export declare const MangaCreateBody: z.ZodObject<z.objectUtil.extendShape<{
                             value: string;
                             name: string;
                         }[] | undefined;
+                        description?: string | undefined;
                     }, {
                         name: {
                             default: string;
                             alias?: string[] | undefined;
                         };
-                        description?: string | undefined;
                         isGroupe?: boolean | undefined;
                         birthDate?: {
                             year?: string | number | undefined;
@@ -3649,8 +3636,8 @@ export declare const MangaCreateBody: z.ZodObject<z.objectUtil.extendShape<{
                             seconds?: string | number | undefined;
                         } | undefined;
                         avatar?: {
-                            id?: string | undefined;
                             label?: "COVER" | "BANNER" | "AVATAR" | "LOGO" | undefined;
+                            id?: string | undefined;
                             newImage?: {
                                 value: string;
                                 label: "COVER" | "BANNER" | "AVATAR" | "LOGO";
@@ -3660,6 +3647,7 @@ export declare const MangaCreateBody: z.ZodObject<z.objectUtil.extendShape<{
                             value: string;
                             name: string;
                         }[] | undefined;
+                        description?: string | undefined;
                     }>>;
                     role: z.ZodOptional<z.ZodEnum<("DOUBLAGE_SEIYU" | "AUTEUR" | "EDITEUR" | "PRODUCTEUR" | "REALISATEUR" | "REALISATEUR_EPISODES" | "REALISATEUR_MISEENPAGE" | "DIRECTEUR_ARTISTIQUE_CINEMATROGRAPHIQUE" | "DIRECTEUR_ANIMATION" | "CONCEPTEUR" | "ANIMATEUR_PRINCIPAL" | "ANIMATEUR_INTERMEDIAIRE" | "COLORISTES" | "DIRECTEUR_ENREGISTREMENT" | "SCENARISTE" | "ANIMATEUR_3D" | "METTEUR_EN_SCENE" | "SUPERVISEUR" | "MONTEUR" | "RESPONSABLE_DROITS" | "PRODUCTEUR_MUSIQUE" | "RESPONSABLE_MARKETING" | "DIFFUSEUR" | "STORYBOARDER" | "ARTISTE_VFX" | "INGENIEUR_SON" | "DIRECTEUR_DOUBLAGE" | "TRADUCTEUR" | "MANGAKA" | "CHARACTER_DESIGNER" | "DESSINATEUR_DECORS" | "REALISATEUR_MISE_EN_PAGE" | "COMPOSITEUR" | "PAROLIER" | "ARRANGEUR" | "MUSICIEN" | "CHANTEUR_EUSE" | "CHEF_ORCHESTRE" | "PRODUCTEUR_MUSICAL" | "DESIGNER_SONORE" | "MIXEUR")[] & [string, ...string[]]>>;
                 }, "strip", z.ZodTypeAny, {
@@ -3669,7 +3657,6 @@ export declare const MangaCreateBody: z.ZodObject<z.objectUtil.extendShape<{
                             default: string;
                             alias?: string[] | undefined;
                         };
-                        description?: string | undefined;
                         isGroupe?: boolean | undefined;
                         birthDate?: {
                             year?: number | undefined;
@@ -3688,8 +3675,8 @@ export declare const MangaCreateBody: z.ZodObject<z.objectUtil.extendShape<{
                             seconds?: number | undefined;
                         } | undefined;
                         avatar?: {
-                            id?: string | undefined;
                             label?: "COVER" | "BANNER" | "AVATAR" | "LOGO" | undefined;
+                            id?: string | undefined;
                             newImage?: {
                                 value: string;
                                 label: "COVER" | "BANNER" | "AVATAR" | "LOGO";
@@ -3699,6 +3686,7 @@ export declare const MangaCreateBody: z.ZodObject<z.objectUtil.extendShape<{
                             value: string;
                             name: string;
                         }[] | undefined;
+                        description?: string | undefined;
                     } | undefined;
                     role?: "DOUBLAGE_SEIYU" | "AUTEUR" | "EDITEUR" | "PRODUCTEUR" | "REALISATEUR" | "REALISATEUR_EPISODES" | "REALISATEUR_MISEENPAGE" | "DIRECTEUR_ARTISTIQUE_CINEMATROGRAPHIQUE" | "DIRECTEUR_ANIMATION" | "CONCEPTEUR" | "ANIMATEUR_PRINCIPAL" | "ANIMATEUR_INTERMEDIAIRE" | "COLORISTES" | "DIRECTEUR_ENREGISTREMENT" | "SCENARISTE" | "ANIMATEUR_3D" | "METTEUR_EN_SCENE" | "SUPERVISEUR" | "MONTEUR" | "RESPONSABLE_DROITS" | "PRODUCTEUR_MUSIQUE" | "RESPONSABLE_MARKETING" | "DIFFUSEUR" | "STORYBOARDER" | "ARTISTE_VFX" | "INGENIEUR_SON" | "DIRECTEUR_DOUBLAGE" | "TRADUCTEUR" | "MANGAKA" | "CHARACTER_DESIGNER" | "DESSINATEUR_DECORS" | "REALISATEUR_MISE_EN_PAGE" | "COMPOSITEUR" | "PAROLIER" | "ARRANGEUR" | "MUSICIEN" | "CHANTEUR_EUSE" | "CHEF_ORCHESTRE" | "PRODUCTEUR_MUSICAL" | "DESIGNER_SONORE" | "MIXEUR" | undefined;
                 }, {
@@ -3708,7 +3696,6 @@ export declare const MangaCreateBody: z.ZodObject<z.objectUtil.extendShape<{
                             default: string;
                             alias?: string[] | undefined;
                         };
-                        description?: string | undefined;
                         isGroupe?: boolean | undefined;
                         birthDate?: {
                             year?: string | number | undefined;
@@ -3727,8 +3714,8 @@ export declare const MangaCreateBody: z.ZodObject<z.objectUtil.extendShape<{
                             seconds?: string | number | undefined;
                         } | undefined;
                         avatar?: {
-                            id?: string | undefined;
                             label?: "COVER" | "BANNER" | "AVATAR" | "LOGO" | undefined;
+                            id?: string | undefined;
                             newImage?: {
                                 value: string;
                                 label: "COVER" | "BANNER" | "AVATAR" | "LOGO";
@@ -3738,6 +3725,7 @@ export declare const MangaCreateBody: z.ZodObject<z.objectUtil.extendShape<{
                             value: string;
                             name: string;
                         }[] | undefined;
+                        description?: string | undefined;
                     } | undefined;
                     role?: "DOUBLAGE_SEIYU" | "AUTEUR" | "EDITEUR" | "PRODUCTEUR" | "REALISATEUR" | "REALISATEUR_EPISODES" | "REALISATEUR_MISEENPAGE" | "DIRECTEUR_ARTISTIQUE_CINEMATROGRAPHIQUE" | "DIRECTEUR_ANIMATION" | "CONCEPTEUR" | "ANIMATEUR_PRINCIPAL" | "ANIMATEUR_INTERMEDIAIRE" | "COLORISTES" | "DIRECTEUR_ENREGISTREMENT" | "SCENARISTE" | "ANIMATEUR_3D" | "METTEUR_EN_SCENE" | "SUPERVISEUR" | "MONTEUR" | "RESPONSABLE_DROITS" | "PRODUCTEUR_MUSIQUE" | "RESPONSABLE_MARKETING" | "DIFFUSEUR" | "STORYBOARDER" | "ARTISTE_VFX" | "INGENIEUR_SON" | "DIRECTEUR_DOUBLAGE" | "TRADUCTEUR" | "MANGAKA" | "CHARACTER_DESIGNER" | "DESSINATEUR_DECORS" | "REALISATEUR_MISE_EN_PAGE" | "COMPOSITEUR" | "PAROLIER" | "ARRANGEUR" | "MUSICIEN" | "CHANTEUR_EUSE" | "CHEF_ORCHESTRE" | "PRODUCTEUR_MUSICAL" | "DESIGNER_SONORE" | "MIXEUR" | undefined;
                 }>, "many">>;
@@ -3746,9 +3734,6 @@ export declare const MangaCreateBody: z.ZodObject<z.objectUtil.extendShape<{
                     default: string;
                     alias?: string[] | undefined;
                 };
-                gender: "MASCULIN" | "FEMININ" | "NEUTRE" | "TRANSGENRE" | "NON_BINAIRE" | "GENRE_FLUIDE" | "AUTRE";
-                species: "AUTRE" | "HUMAIN" | "ELFE" | "NAIN" | "LEZARD" | "DRAGON" | "ORC";
-                description?: string | undefined;
                 birthDate?: {
                     year?: number | undefined;
                     month?: number | undefined;
@@ -3758,14 +3743,17 @@ export declare const MangaCreateBody: z.ZodObject<z.objectUtil.extendShape<{
                     seconds?: number | undefined;
                 } | undefined;
                 avatar?: {
-                    id?: string | undefined;
                     label?: "COVER" | "BANNER" | "AVATAR" | "LOGO" | undefined;
+                    id?: string | undefined;
                     newImage?: {
                         value: string;
                         label: "COVER" | "BANNER" | "AVATAR" | "LOGO";
                     } | undefined;
                 } | undefined;
+                description?: string | undefined;
                 age?: number | undefined;
+                gender?: "MASCULIN" | "FEMININ" | "NEUTRE" | "TRANSGENRE" | "NON_BINAIRE" | "GENRE_FLUIDE" | "AUTRE" | undefined;
+                species?: "AUTRE" | "HUMAIN" | "ELFE" | "NAIN" | "LEZARD" | "DRAGON" | "ORC" | undefined;
                 actors?: {
                     id?: string | undefined;
                     newPerson?: {
@@ -3773,7 +3761,6 @@ export declare const MangaCreateBody: z.ZodObject<z.objectUtil.extendShape<{
                             default: string;
                             alias?: string[] | undefined;
                         };
-                        description?: string | undefined;
                         isGroupe?: boolean | undefined;
                         birthDate?: {
                             year?: number | undefined;
@@ -3792,8 +3779,8 @@ export declare const MangaCreateBody: z.ZodObject<z.objectUtil.extendShape<{
                             seconds?: number | undefined;
                         } | undefined;
                         avatar?: {
-                            id?: string | undefined;
                             label?: "COVER" | "BANNER" | "AVATAR" | "LOGO" | undefined;
+                            id?: string | undefined;
                             newImage?: {
                                 value: string;
                                 label: "COVER" | "BANNER" | "AVATAR" | "LOGO";
@@ -3803,6 +3790,7 @@ export declare const MangaCreateBody: z.ZodObject<z.objectUtil.extendShape<{
                             value: string;
                             name: string;
                         }[] | undefined;
+                        description?: string | undefined;
                     } | undefined;
                     role?: "DOUBLAGE_SEIYU" | "AUTEUR" | "EDITEUR" | "PRODUCTEUR" | "REALISATEUR" | "REALISATEUR_EPISODES" | "REALISATEUR_MISEENPAGE" | "DIRECTEUR_ARTISTIQUE_CINEMATROGRAPHIQUE" | "DIRECTEUR_ANIMATION" | "CONCEPTEUR" | "ANIMATEUR_PRINCIPAL" | "ANIMATEUR_INTERMEDIAIRE" | "COLORISTES" | "DIRECTEUR_ENREGISTREMENT" | "SCENARISTE" | "ANIMATEUR_3D" | "METTEUR_EN_SCENE" | "SUPERVISEUR" | "MONTEUR" | "RESPONSABLE_DROITS" | "PRODUCTEUR_MUSIQUE" | "RESPONSABLE_MARKETING" | "DIFFUSEUR" | "STORYBOARDER" | "ARTISTE_VFX" | "INGENIEUR_SON" | "DIRECTEUR_DOUBLAGE" | "TRADUCTEUR" | "MANGAKA" | "CHARACTER_DESIGNER" | "DESSINATEUR_DECORS" | "REALISATEUR_MISE_EN_PAGE" | "COMPOSITEUR" | "PAROLIER" | "ARRANGEUR" | "MUSICIEN" | "CHANTEUR_EUSE" | "CHEF_ORCHESTRE" | "PRODUCTEUR_MUSICAL" | "DESIGNER_SONORE" | "MIXEUR" | undefined;
                 }[] | undefined;
@@ -3811,9 +3799,6 @@ export declare const MangaCreateBody: z.ZodObject<z.objectUtil.extendShape<{
                     default: string;
                     alias?: string[] | undefined;
                 };
-                gender: "MASCULIN" | "FEMININ" | "NEUTRE" | "TRANSGENRE" | "NON_BINAIRE" | "GENRE_FLUIDE" | "AUTRE";
-                species: "AUTRE" | "HUMAIN" | "ELFE" | "NAIN" | "LEZARD" | "DRAGON" | "ORC";
-                description?: string | undefined;
                 birthDate?: {
                     year?: string | number | undefined;
                     month?: string | number | undefined;
@@ -3823,14 +3808,17 @@ export declare const MangaCreateBody: z.ZodObject<z.objectUtil.extendShape<{
                     seconds?: string | number | undefined;
                 } | undefined;
                 avatar?: {
-                    id?: string | undefined;
                     label?: "COVER" | "BANNER" | "AVATAR" | "LOGO" | undefined;
+                    id?: string | undefined;
                     newImage?: {
                         value: string;
                         label: "COVER" | "BANNER" | "AVATAR" | "LOGO";
                     } | undefined;
                 } | undefined;
+                description?: string | undefined;
                 age?: string | number | undefined;
+                gender?: "MASCULIN" | "FEMININ" | "NEUTRE" | "TRANSGENRE" | "NON_BINAIRE" | "GENRE_FLUIDE" | "AUTRE" | undefined;
+                species?: "AUTRE" | "HUMAIN" | "ELFE" | "NAIN" | "LEZARD" | "DRAGON" | "ORC" | undefined;
                 actors?: {
                     id?: string | undefined;
                     newPerson?: {
@@ -3838,7 +3826,6 @@ export declare const MangaCreateBody: z.ZodObject<z.objectUtil.extendShape<{
                             default: string;
                             alias?: string[] | undefined;
                         };
-                        description?: string | undefined;
                         isGroupe?: boolean | undefined;
                         birthDate?: {
                             year?: string | number | undefined;
@@ -3857,8 +3844,8 @@ export declare const MangaCreateBody: z.ZodObject<z.objectUtil.extendShape<{
                             seconds?: string | number | undefined;
                         } | undefined;
                         avatar?: {
-                            id?: string | undefined;
                             label?: "COVER" | "BANNER" | "AVATAR" | "LOGO" | undefined;
+                            id?: string | undefined;
                             newImage?: {
                                 value: string;
                                 label: "COVER" | "BANNER" | "AVATAR" | "LOGO";
@@ -3868,6 +3855,7 @@ export declare const MangaCreateBody: z.ZodObject<z.objectUtil.extendShape<{
                             value: string;
                             name: string;
                         }[] | undefined;
+                        description?: string | undefined;
                     } | undefined;
                     role?: "DOUBLAGE_SEIYU" | "AUTEUR" | "EDITEUR" | "PRODUCTEUR" | "REALISATEUR" | "REALISATEUR_EPISODES" | "REALISATEUR_MISEENPAGE" | "DIRECTEUR_ARTISTIQUE_CINEMATROGRAPHIQUE" | "DIRECTEUR_ANIMATION" | "CONCEPTEUR" | "ANIMATEUR_PRINCIPAL" | "ANIMATEUR_INTERMEDIAIRE" | "COLORISTES" | "DIRECTEUR_ENREGISTREMENT" | "SCENARISTE" | "ANIMATEUR_3D" | "METTEUR_EN_SCENE" | "SUPERVISEUR" | "MONTEUR" | "RESPONSABLE_DROITS" | "PRODUCTEUR_MUSIQUE" | "RESPONSABLE_MARKETING" | "DIFFUSEUR" | "STORYBOARDER" | "ARTISTE_VFX" | "INGENIEUR_SON" | "DIRECTEUR_DOUBLAGE" | "TRADUCTEUR" | "MANGAKA" | "CHARACTER_DESIGNER" | "DESSINATEUR_DECORS" | "REALISATEUR_MISE_EN_PAGE" | "COMPOSITEUR" | "PAROLIER" | "ARRANGEUR" | "MUSICIEN" | "CHANTEUR_EUSE" | "CHEF_ORCHESTRE" | "PRODUCTEUR_MUSICAL" | "DESIGNER_SONORE" | "MIXEUR" | undefined;
                 }[] | undefined;
@@ -3881,9 +3869,6 @@ export declare const MangaCreateBody: z.ZodObject<z.objectUtil.extendShape<{
                     default: string;
                     alias?: string[] | undefined;
                 };
-                gender: "MASCULIN" | "FEMININ" | "NEUTRE" | "TRANSGENRE" | "NON_BINAIRE" | "GENRE_FLUIDE" | "AUTRE";
-                species: "AUTRE" | "HUMAIN" | "ELFE" | "NAIN" | "LEZARD" | "DRAGON" | "ORC";
-                description?: string | undefined;
                 birthDate?: {
                     year?: number | undefined;
                     month?: number | undefined;
@@ -3893,14 +3878,17 @@ export declare const MangaCreateBody: z.ZodObject<z.objectUtil.extendShape<{
                     seconds?: number | undefined;
                 } | undefined;
                 avatar?: {
-                    id?: string | undefined;
                     label?: "COVER" | "BANNER" | "AVATAR" | "LOGO" | undefined;
+                    id?: string | undefined;
                     newImage?: {
                         value: string;
                         label: "COVER" | "BANNER" | "AVATAR" | "LOGO";
                     } | undefined;
                 } | undefined;
+                description?: string | undefined;
                 age?: number | undefined;
+                gender?: "MASCULIN" | "FEMININ" | "NEUTRE" | "TRANSGENRE" | "NON_BINAIRE" | "GENRE_FLUIDE" | "AUTRE" | undefined;
+                species?: "AUTRE" | "HUMAIN" | "ELFE" | "NAIN" | "LEZARD" | "DRAGON" | "ORC" | undefined;
                 actors?: {
                     id?: string | undefined;
                     newPerson?: {
@@ -3908,7 +3896,6 @@ export declare const MangaCreateBody: z.ZodObject<z.objectUtil.extendShape<{
                             default: string;
                             alias?: string[] | undefined;
                         };
-                        description?: string | undefined;
                         isGroupe?: boolean | undefined;
                         birthDate?: {
                             year?: number | undefined;
@@ -3927,8 +3914,8 @@ export declare const MangaCreateBody: z.ZodObject<z.objectUtil.extendShape<{
                             seconds?: number | undefined;
                         } | undefined;
                         avatar?: {
-                            id?: string | undefined;
                             label?: "COVER" | "BANNER" | "AVATAR" | "LOGO" | undefined;
+                            id?: string | undefined;
                             newImage?: {
                                 value: string;
                                 label: "COVER" | "BANNER" | "AVATAR" | "LOGO";
@@ -3938,6 +3925,7 @@ export declare const MangaCreateBody: z.ZodObject<z.objectUtil.extendShape<{
                             value: string;
                             name: string;
                         }[] | undefined;
+                        description?: string | undefined;
                     } | undefined;
                     role?: "DOUBLAGE_SEIYU" | "AUTEUR" | "EDITEUR" | "PRODUCTEUR" | "REALISATEUR" | "REALISATEUR_EPISODES" | "REALISATEUR_MISEENPAGE" | "DIRECTEUR_ARTISTIQUE_CINEMATROGRAPHIQUE" | "DIRECTEUR_ANIMATION" | "CONCEPTEUR" | "ANIMATEUR_PRINCIPAL" | "ANIMATEUR_INTERMEDIAIRE" | "COLORISTES" | "DIRECTEUR_ENREGISTREMENT" | "SCENARISTE" | "ANIMATEUR_3D" | "METTEUR_EN_SCENE" | "SUPERVISEUR" | "MONTEUR" | "RESPONSABLE_DROITS" | "PRODUCTEUR_MUSIQUE" | "RESPONSABLE_MARKETING" | "DIFFUSEUR" | "STORYBOARDER" | "ARTISTE_VFX" | "INGENIEUR_SON" | "DIRECTEUR_DOUBLAGE" | "TRADUCTEUR" | "MANGAKA" | "CHARACTER_DESIGNER" | "DESSINATEUR_DECORS" | "REALISATEUR_MISE_EN_PAGE" | "COMPOSITEUR" | "PAROLIER" | "ARRANGEUR" | "MUSICIEN" | "CHANTEUR_EUSE" | "CHEF_ORCHESTRE" | "PRODUCTEUR_MUSICAL" | "DESIGNER_SONORE" | "MIXEUR" | undefined;
                 }[] | undefined;
@@ -3950,9 +3938,6 @@ export declare const MangaCreateBody: z.ZodObject<z.objectUtil.extendShape<{
                     default: string;
                     alias?: string[] | undefined;
                 };
-                gender: "MASCULIN" | "FEMININ" | "NEUTRE" | "TRANSGENRE" | "NON_BINAIRE" | "GENRE_FLUIDE" | "AUTRE";
-                species: "AUTRE" | "HUMAIN" | "ELFE" | "NAIN" | "LEZARD" | "DRAGON" | "ORC";
-                description?: string | undefined;
                 birthDate?: {
                     year?: string | number | undefined;
                     month?: string | number | undefined;
@@ -3962,14 +3947,17 @@ export declare const MangaCreateBody: z.ZodObject<z.objectUtil.extendShape<{
                     seconds?: string | number | undefined;
                 } | undefined;
                 avatar?: {
-                    id?: string | undefined;
                     label?: "COVER" | "BANNER" | "AVATAR" | "LOGO" | undefined;
+                    id?: string | undefined;
                     newImage?: {
                         value: string;
                         label: "COVER" | "BANNER" | "AVATAR" | "LOGO";
                     } | undefined;
                 } | undefined;
+                description?: string | undefined;
                 age?: string | number | undefined;
+                gender?: "MASCULIN" | "FEMININ" | "NEUTRE" | "TRANSGENRE" | "NON_BINAIRE" | "GENRE_FLUIDE" | "AUTRE" | undefined;
+                species?: "AUTRE" | "HUMAIN" | "ELFE" | "NAIN" | "LEZARD" | "DRAGON" | "ORC" | undefined;
                 actors?: {
                     id?: string | undefined;
                     newPerson?: {
@@ -3977,7 +3965,6 @@ export declare const MangaCreateBody: z.ZodObject<z.objectUtil.extendShape<{
                             default: string;
                             alias?: string[] | undefined;
                         };
-                        description?: string | undefined;
                         isGroupe?: boolean | undefined;
                         birthDate?: {
                             year?: string | number | undefined;
@@ -3996,8 +3983,8 @@ export declare const MangaCreateBody: z.ZodObject<z.objectUtil.extendShape<{
                             seconds?: string | number | undefined;
                         } | undefined;
                         avatar?: {
-                            id?: string | undefined;
                             label?: "COVER" | "BANNER" | "AVATAR" | "LOGO" | undefined;
+                            id?: string | undefined;
                             newImage?: {
                                 value: string;
                                 label: "COVER" | "BANNER" | "AVATAR" | "LOGO";
@@ -4007,6 +3994,7 @@ export declare const MangaCreateBody: z.ZodObject<z.objectUtil.extendShape<{
                             value: string;
                             name: string;
                         }[] | undefined;
+                        description?: string | undefined;
                     } | undefined;
                     role?: "DOUBLAGE_SEIYU" | "AUTEUR" | "EDITEUR" | "PRODUCTEUR" | "REALISATEUR" | "REALISATEUR_EPISODES" | "REALISATEUR_MISEENPAGE" | "DIRECTEUR_ARTISTIQUE_CINEMATROGRAPHIQUE" | "DIRECTEUR_ANIMATION" | "CONCEPTEUR" | "ANIMATEUR_PRINCIPAL" | "ANIMATEUR_INTERMEDIAIRE" | "COLORISTES" | "DIRECTEUR_ENREGISTREMENT" | "SCENARISTE" | "ANIMATEUR_3D" | "METTEUR_EN_SCENE" | "SUPERVISEUR" | "MONTEUR" | "RESPONSABLE_DROITS" | "PRODUCTEUR_MUSIQUE" | "RESPONSABLE_MARKETING" | "DIFFUSEUR" | "STORYBOARDER" | "ARTISTE_VFX" | "INGENIEUR_SON" | "DIRECTEUR_DOUBLAGE" | "TRADUCTEUR" | "MANGAKA" | "CHARACTER_DESIGNER" | "DESSINATEUR_DECORS" | "REALISATEUR_MISE_EN_PAGE" | "COMPOSITEUR" | "PAROLIER" | "ARRANGEUR" | "MUSICIEN" | "CHANTEUR_EUSE" | "CHEF_ORCHESTRE" | "PRODUCTEUR_MUSICAL" | "DESIGNER_SONORE" | "MIXEUR" | undefined;
                 }[] | undefined;
@@ -4048,22 +4036,6 @@ export declare const MangaCreateBody: z.ZodObject<z.objectUtil.extendShape<{
                 seconds?: number | undefined;
             } | undefined;
         } | undefined;
-        cover?: {
-            id?: string | undefined;
-            label?: "COVER" | "BANNER" | "AVATAR" | "LOGO" | undefined;
-            newImage?: {
-                value: string;
-                label: "COVER" | "BANNER" | "AVATAR" | "LOGO";
-            } | undefined;
-        } | undefined;
-        banner?: {
-            id?: string | undefined;
-            label?: "COVER" | "BANNER" | "AVATAR" | "LOGO" | undefined;
-            newImage?: {
-                value: string;
-                label: "COVER" | "BANNER" | "AVATAR" | "LOGO";
-            } | undefined;
-        } | undefined;
         links?: {
             value: string;
             name: string;
@@ -4098,6 +4070,22 @@ export declare const MangaCreateBody: z.ZodObject<z.objectUtil.extendShape<{
             id: string;
             parentLabel?: "SEQUEL" | "SPIN_OFF" | "ALTERNATIVE" | "REBOOT" | "FILM" | undefined;
         } | undefined;
+        cover?: {
+            label?: "COVER" | "BANNER" | "AVATAR" | "LOGO" | undefined;
+            id?: string | undefined;
+            newImage?: {
+                value: string;
+                label: "COVER" | "BANNER" | "AVATAR" | "LOGO";
+            } | undefined;
+        } | undefined;
+        banner?: {
+            label?: "COVER" | "BANNER" | "AVATAR" | "LOGO" | undefined;
+            id?: string | undefined;
+            newImage?: {
+                value: string;
+                label: "COVER" | "BANNER" | "AVATAR" | "LOGO";
+            } | undefined;
+        } | undefined;
         synopsis?: string | undefined;
         companys?: {
             id?: string | undefined;
@@ -4107,14 +4095,14 @@ export declare const MangaCreateBody: z.ZodObject<z.objectUtil.extendShape<{
                     default: string;
                     alias?: string[] | undefined;
                 };
-                description?: string | undefined;
                 links?: {
                     value: string;
                     name: string;
                 }[] | undefined;
+                description?: string | undefined;
                 logo?: {
-                    id?: string | undefined;
                     label?: "COVER" | "BANNER" | "AVATAR" | "LOGO" | undefined;
+                    id?: string | undefined;
                     newImage?: {
                         value: string;
                         label: "COVER" | "BANNER" | "AVATAR" | "LOGO";
@@ -4137,7 +4125,6 @@ export declare const MangaCreateBody: z.ZodObject<z.objectUtil.extendShape<{
                     default: string;
                     alias?: string[] | undefined;
                 };
-                description?: string | undefined;
                 isGroupe?: boolean | undefined;
                 birthDate?: {
                     year?: number | undefined;
@@ -4156,8 +4143,8 @@ export declare const MangaCreateBody: z.ZodObject<z.objectUtil.extendShape<{
                     seconds?: number | undefined;
                 } | undefined;
                 avatar?: {
-                    id?: string | undefined;
                     label?: "COVER" | "BANNER" | "AVATAR" | "LOGO" | undefined;
+                    id?: string | undefined;
                     newImage?: {
                         value: string;
                         label: "COVER" | "BANNER" | "AVATAR" | "LOGO";
@@ -4167,6 +4154,7 @@ export declare const MangaCreateBody: z.ZodObject<z.objectUtil.extendShape<{
                     value: string;
                     name: string;
                 }[] | undefined;
+                description?: string | undefined;
             } | undefined;
             role?: "DOUBLAGE_SEIYU" | "AUTEUR" | "EDITEUR" | "PRODUCTEUR" | "REALISATEUR" | "REALISATEUR_EPISODES" | "REALISATEUR_MISEENPAGE" | "DIRECTEUR_ARTISTIQUE_CINEMATROGRAPHIQUE" | "DIRECTEUR_ANIMATION" | "CONCEPTEUR" | "ANIMATEUR_PRINCIPAL" | "ANIMATEUR_INTERMEDIAIRE" | "COLORISTES" | "DIRECTEUR_ENREGISTREMENT" | "SCENARISTE" | "ANIMATEUR_3D" | "METTEUR_EN_SCENE" | "SUPERVISEUR" | "MONTEUR" | "RESPONSABLE_DROITS" | "PRODUCTEUR_MUSIQUE" | "RESPONSABLE_MARKETING" | "DIFFUSEUR" | "STORYBOARDER" | "ARTISTE_VFX" | "INGENIEUR_SON" | "DIRECTEUR_DOUBLAGE" | "TRADUCTEUR" | "MANGAKA" | "CHARACTER_DESIGNER" | "DESSINATEUR_DECORS" | "REALISATEUR_MISE_EN_PAGE" | "COMPOSITEUR" | "PAROLIER" | "ARRANGEUR" | "MUSICIEN" | "CHANTEUR_EUSE" | "CHEF_ORCHESTRE" | "PRODUCTEUR_MUSICAL" | "DESIGNER_SONORE" | "MIXEUR" | undefined;
         }[] | undefined;
@@ -4178,9 +4166,6 @@ export declare const MangaCreateBody: z.ZodObject<z.objectUtil.extendShape<{
                     default: string;
                     alias?: string[] | undefined;
                 };
-                gender: "MASCULIN" | "FEMININ" | "NEUTRE" | "TRANSGENRE" | "NON_BINAIRE" | "GENRE_FLUIDE" | "AUTRE";
-                species: "AUTRE" | "HUMAIN" | "ELFE" | "NAIN" | "LEZARD" | "DRAGON" | "ORC";
-                description?: string | undefined;
                 birthDate?: {
                     year?: number | undefined;
                     month?: number | undefined;
@@ -4190,14 +4175,17 @@ export declare const MangaCreateBody: z.ZodObject<z.objectUtil.extendShape<{
                     seconds?: number | undefined;
                 } | undefined;
                 avatar?: {
-                    id?: string | undefined;
                     label?: "COVER" | "BANNER" | "AVATAR" | "LOGO" | undefined;
+                    id?: string | undefined;
                     newImage?: {
                         value: string;
                         label: "COVER" | "BANNER" | "AVATAR" | "LOGO";
                     } | undefined;
                 } | undefined;
+                description?: string | undefined;
                 age?: number | undefined;
+                gender?: "MASCULIN" | "FEMININ" | "NEUTRE" | "TRANSGENRE" | "NON_BINAIRE" | "GENRE_FLUIDE" | "AUTRE" | undefined;
+                species?: "AUTRE" | "HUMAIN" | "ELFE" | "NAIN" | "LEZARD" | "DRAGON" | "ORC" | undefined;
                 actors?: {
                     id?: string | undefined;
                     newPerson?: {
@@ -4205,7 +4193,6 @@ export declare const MangaCreateBody: z.ZodObject<z.objectUtil.extendShape<{
                             default: string;
                             alias?: string[] | undefined;
                         };
-                        description?: string | undefined;
                         isGroupe?: boolean | undefined;
                         birthDate?: {
                             year?: number | undefined;
@@ -4224,8 +4211,8 @@ export declare const MangaCreateBody: z.ZodObject<z.objectUtil.extendShape<{
                             seconds?: number | undefined;
                         } | undefined;
                         avatar?: {
-                            id?: string | undefined;
                             label?: "COVER" | "BANNER" | "AVATAR" | "LOGO" | undefined;
+                            id?: string | undefined;
                             newImage?: {
                                 value: string;
                                 label: "COVER" | "BANNER" | "AVATAR" | "LOGO";
@@ -4235,6 +4222,7 @@ export declare const MangaCreateBody: z.ZodObject<z.objectUtil.extendShape<{
                             value: string;
                             name: string;
                         }[] | undefined;
+                        description?: string | undefined;
                     } | undefined;
                     role?: "DOUBLAGE_SEIYU" | "AUTEUR" | "EDITEUR" | "PRODUCTEUR" | "REALISATEUR" | "REALISATEUR_EPISODES" | "REALISATEUR_MISEENPAGE" | "DIRECTEUR_ARTISTIQUE_CINEMATROGRAPHIQUE" | "DIRECTEUR_ANIMATION" | "CONCEPTEUR" | "ANIMATEUR_PRINCIPAL" | "ANIMATEUR_INTERMEDIAIRE" | "COLORISTES" | "DIRECTEUR_ENREGISTREMENT" | "SCENARISTE" | "ANIMATEUR_3D" | "METTEUR_EN_SCENE" | "SUPERVISEUR" | "MONTEUR" | "RESPONSABLE_DROITS" | "PRODUCTEUR_MUSIQUE" | "RESPONSABLE_MARKETING" | "DIFFUSEUR" | "STORYBOARDER" | "ARTISTE_VFX" | "INGENIEUR_SON" | "DIRECTEUR_DOUBLAGE" | "TRADUCTEUR" | "MANGAKA" | "CHARACTER_DESIGNER" | "DESSINATEUR_DECORS" | "REALISATEUR_MISE_EN_PAGE" | "COMPOSITEUR" | "PAROLIER" | "ARRANGEUR" | "MUSICIEN" | "CHANTEUR_EUSE" | "CHEF_ORCHESTRE" | "PRODUCTEUR_MUSICAL" | "DESIGNER_SONORE" | "MIXEUR" | undefined;
                 }[] | undefined;
@@ -4276,22 +4264,6 @@ export declare const MangaCreateBody: z.ZodObject<z.objectUtil.extendShape<{
                 seconds?: string | number | undefined;
             } | undefined;
         } | undefined;
-        cover?: {
-            id?: string | undefined;
-            label?: "COVER" | "BANNER" | "AVATAR" | "LOGO" | undefined;
-            newImage?: {
-                value: string;
-                label: "COVER" | "BANNER" | "AVATAR" | "LOGO";
-            } | undefined;
-        } | undefined;
-        banner?: {
-            id?: string | undefined;
-            label?: "COVER" | "BANNER" | "AVATAR" | "LOGO" | undefined;
-            newImage?: {
-                value: string;
-                label: "COVER" | "BANNER" | "AVATAR" | "LOGO";
-            } | undefined;
-        } | undefined;
         links?: {
             value: string;
             name: string;
@@ -4326,6 +4298,22 @@ export declare const MangaCreateBody: z.ZodObject<z.objectUtil.extendShape<{
             id: string;
             parentLabel?: "SEQUEL" | "SPIN_OFF" | "ALTERNATIVE" | "REBOOT" | "FILM" | undefined;
         } | undefined;
+        cover?: {
+            label?: "COVER" | "BANNER" | "AVATAR" | "LOGO" | undefined;
+            id?: string | undefined;
+            newImage?: {
+                value: string;
+                label: "COVER" | "BANNER" | "AVATAR" | "LOGO";
+            } | undefined;
+        } | undefined;
+        banner?: {
+            label?: "COVER" | "BANNER" | "AVATAR" | "LOGO" | undefined;
+            id?: string | undefined;
+            newImage?: {
+                value: string;
+                label: "COVER" | "BANNER" | "AVATAR" | "LOGO";
+            } | undefined;
+        } | undefined;
         synopsis?: string | undefined;
         companys?: {
             id?: string | undefined;
@@ -4335,14 +4323,14 @@ export declare const MangaCreateBody: z.ZodObject<z.objectUtil.extendShape<{
                     default: string;
                     alias?: string[] | undefined;
                 };
-                description?: string | undefined;
                 links?: {
                     value: string;
                     name: string;
                 }[] | undefined;
+                description?: string | undefined;
                 logo?: {
-                    id?: string | undefined;
                     label?: "COVER" | "BANNER" | "AVATAR" | "LOGO" | undefined;
+                    id?: string | undefined;
                     newImage?: {
                         value: string;
                         label: "COVER" | "BANNER" | "AVATAR" | "LOGO";
@@ -4365,7 +4353,6 @@ export declare const MangaCreateBody: z.ZodObject<z.objectUtil.extendShape<{
                     default: string;
                     alias?: string[] | undefined;
                 };
-                description?: string | undefined;
                 isGroupe?: boolean | undefined;
                 birthDate?: {
                     year?: string | number | undefined;
@@ -4384,8 +4371,8 @@ export declare const MangaCreateBody: z.ZodObject<z.objectUtil.extendShape<{
                     seconds?: string | number | undefined;
                 } | undefined;
                 avatar?: {
-                    id?: string | undefined;
                     label?: "COVER" | "BANNER" | "AVATAR" | "LOGO" | undefined;
+                    id?: string | undefined;
                     newImage?: {
                         value: string;
                         label: "COVER" | "BANNER" | "AVATAR" | "LOGO";
@@ -4395,6 +4382,7 @@ export declare const MangaCreateBody: z.ZodObject<z.objectUtil.extendShape<{
                     value: string;
                     name: string;
                 }[] | undefined;
+                description?: string | undefined;
             } | undefined;
             role?: "DOUBLAGE_SEIYU" | "AUTEUR" | "EDITEUR" | "PRODUCTEUR" | "REALISATEUR" | "REALISATEUR_EPISODES" | "REALISATEUR_MISEENPAGE" | "DIRECTEUR_ARTISTIQUE_CINEMATROGRAPHIQUE" | "DIRECTEUR_ANIMATION" | "CONCEPTEUR" | "ANIMATEUR_PRINCIPAL" | "ANIMATEUR_INTERMEDIAIRE" | "COLORISTES" | "DIRECTEUR_ENREGISTREMENT" | "SCENARISTE" | "ANIMATEUR_3D" | "METTEUR_EN_SCENE" | "SUPERVISEUR" | "MONTEUR" | "RESPONSABLE_DROITS" | "PRODUCTEUR_MUSIQUE" | "RESPONSABLE_MARKETING" | "DIFFUSEUR" | "STORYBOARDER" | "ARTISTE_VFX" | "INGENIEUR_SON" | "DIRECTEUR_DOUBLAGE" | "TRADUCTEUR" | "MANGAKA" | "CHARACTER_DESIGNER" | "DESSINATEUR_DECORS" | "REALISATEUR_MISE_EN_PAGE" | "COMPOSITEUR" | "PAROLIER" | "ARRANGEUR" | "MUSICIEN" | "CHANTEUR_EUSE" | "CHEF_ORCHESTRE" | "PRODUCTEUR_MUSICAL" | "DESIGNER_SONORE" | "MIXEUR" | undefined;
         }[] | undefined;
@@ -4406,9 +4394,6 @@ export declare const MangaCreateBody: z.ZodObject<z.objectUtil.extendShape<{
                     default: string;
                     alias?: string[] | undefined;
                 };
-                gender: "MASCULIN" | "FEMININ" | "NEUTRE" | "TRANSGENRE" | "NON_BINAIRE" | "GENRE_FLUIDE" | "AUTRE";
-                species: "AUTRE" | "HUMAIN" | "ELFE" | "NAIN" | "LEZARD" | "DRAGON" | "ORC";
-                description?: string | undefined;
                 birthDate?: {
                     year?: string | number | undefined;
                     month?: string | number | undefined;
@@ -4418,14 +4403,17 @@ export declare const MangaCreateBody: z.ZodObject<z.objectUtil.extendShape<{
                     seconds?: string | number | undefined;
                 } | undefined;
                 avatar?: {
-                    id?: string | undefined;
                     label?: "COVER" | "BANNER" | "AVATAR" | "LOGO" | undefined;
+                    id?: string | undefined;
                     newImage?: {
                         value: string;
                         label: "COVER" | "BANNER" | "AVATAR" | "LOGO";
                     } | undefined;
                 } | undefined;
+                description?: string | undefined;
                 age?: string | number | undefined;
+                gender?: "MASCULIN" | "FEMININ" | "NEUTRE" | "TRANSGENRE" | "NON_BINAIRE" | "GENRE_FLUIDE" | "AUTRE" | undefined;
+                species?: "AUTRE" | "HUMAIN" | "ELFE" | "NAIN" | "LEZARD" | "DRAGON" | "ORC" | undefined;
                 actors?: {
                     id?: string | undefined;
                     newPerson?: {
@@ -4433,7 +4421,6 @@ export declare const MangaCreateBody: z.ZodObject<z.objectUtil.extendShape<{
                             default: string;
                             alias?: string[] | undefined;
                         };
-                        description?: string | undefined;
                         isGroupe?: boolean | undefined;
                         birthDate?: {
                             year?: string | number | undefined;
@@ -4452,8 +4439,8 @@ export declare const MangaCreateBody: z.ZodObject<z.objectUtil.extendShape<{
                             seconds?: string | number | undefined;
                         } | undefined;
                         avatar?: {
-                            id?: string | undefined;
                             label?: "COVER" | "BANNER" | "AVATAR" | "LOGO" | undefined;
+                            id?: string | undefined;
                             newImage?: {
                                 value: string;
                                 label: "COVER" | "BANNER" | "AVATAR" | "LOGO";
@@ -4463,6 +4450,7 @@ export declare const MangaCreateBody: z.ZodObject<z.objectUtil.extendShape<{
                             value: string;
                             name: string;
                         }[] | undefined;
+                        description?: string | undefined;
                     } | undefined;
                     role?: "DOUBLAGE_SEIYU" | "AUTEUR" | "EDITEUR" | "PRODUCTEUR" | "REALISATEUR" | "REALISATEUR_EPISODES" | "REALISATEUR_MISEENPAGE" | "DIRECTEUR_ARTISTIQUE_CINEMATROGRAPHIQUE" | "DIRECTEUR_ANIMATION" | "CONCEPTEUR" | "ANIMATEUR_PRINCIPAL" | "ANIMATEUR_INTERMEDIAIRE" | "COLORISTES" | "DIRECTEUR_ENREGISTREMENT" | "SCENARISTE" | "ANIMATEUR_3D" | "METTEUR_EN_SCENE" | "SUPERVISEUR" | "MONTEUR" | "RESPONSABLE_DROITS" | "PRODUCTEUR_MUSIQUE" | "RESPONSABLE_MARKETING" | "DIFFUSEUR" | "STORYBOARDER" | "ARTISTE_VFX" | "INGENIEUR_SON" | "DIRECTEUR_DOUBLAGE" | "TRADUCTEUR" | "MANGAKA" | "CHARACTER_DESIGNER" | "DESSINATEUR_DECORS" | "REALISATEUR_MISE_EN_PAGE" | "COMPOSITEUR" | "PAROLIER" | "ARRANGEUR" | "MUSICIEN" | "CHANTEUR_EUSE" | "CHEF_ORCHESTRE" | "PRODUCTEUR_MUSICAL" | "DESIGNER_SONORE" | "MIXEUR" | undefined;
                 }[] | undefined;
@@ -4506,22 +4494,6 @@ export declare const MangaCreateBody: z.ZodObject<z.objectUtil.extendShape<{
                 seconds?: number | undefined;
             } | undefined;
         } | undefined;
-        cover?: {
-            id?: string | undefined;
-            label?: "COVER" | "BANNER" | "AVATAR" | "LOGO" | undefined;
-            newImage?: {
-                value: string;
-                label: "COVER" | "BANNER" | "AVATAR" | "LOGO";
-            } | undefined;
-        } | undefined;
-        banner?: {
-            id?: string | undefined;
-            label?: "COVER" | "BANNER" | "AVATAR" | "LOGO" | undefined;
-            newImage?: {
-                value: string;
-                label: "COVER" | "BANNER" | "AVATAR" | "LOGO";
-            } | undefined;
-        } | undefined;
         links?: {
             value: string;
             name: string;
@@ -4556,6 +4528,22 @@ export declare const MangaCreateBody: z.ZodObject<z.objectUtil.extendShape<{
             id: string;
             parentLabel?: "SEQUEL" | "SPIN_OFF" | "ALTERNATIVE" | "REBOOT" | "FILM" | undefined;
         } | undefined;
+        cover?: {
+            label?: "COVER" | "BANNER" | "AVATAR" | "LOGO" | undefined;
+            id?: string | undefined;
+            newImage?: {
+                value: string;
+                label: "COVER" | "BANNER" | "AVATAR" | "LOGO";
+            } | undefined;
+        } | undefined;
+        banner?: {
+            label?: "COVER" | "BANNER" | "AVATAR" | "LOGO" | undefined;
+            id?: string | undefined;
+            newImage?: {
+                value: string;
+                label: "COVER" | "BANNER" | "AVATAR" | "LOGO";
+            } | undefined;
+        } | undefined;
         synopsis?: string | undefined;
         companys?: {
             id?: string | undefined;
@@ -4565,14 +4553,14 @@ export declare const MangaCreateBody: z.ZodObject<z.objectUtil.extendShape<{
                     default: string;
                     alias?: string[] | undefined;
                 };
-                description?: string | undefined;
                 links?: {
                     value: string;
                     name: string;
                 }[] | undefined;
+                description?: string | undefined;
                 logo?: {
-                    id?: string | undefined;
                     label?: "COVER" | "BANNER" | "AVATAR" | "LOGO" | undefined;
+                    id?: string | undefined;
                     newImage?: {
                         value: string;
                         label: "COVER" | "BANNER" | "AVATAR" | "LOGO";
@@ -4595,7 +4583,6 @@ export declare const MangaCreateBody: z.ZodObject<z.objectUtil.extendShape<{
                     default: string;
                     alias?: string[] | undefined;
                 };
-                description?: string | undefined;
                 isGroupe?: boolean | undefined;
                 birthDate?: {
                     year?: number | undefined;
@@ -4614,8 +4601,8 @@ export declare const MangaCreateBody: z.ZodObject<z.objectUtil.extendShape<{
                     seconds?: number | undefined;
                 } | undefined;
                 avatar?: {
-                    id?: string | undefined;
                     label?: "COVER" | "BANNER" | "AVATAR" | "LOGO" | undefined;
+                    id?: string | undefined;
                     newImage?: {
                         value: string;
                         label: "COVER" | "BANNER" | "AVATAR" | "LOGO";
@@ -4625,6 +4612,7 @@ export declare const MangaCreateBody: z.ZodObject<z.objectUtil.extendShape<{
                     value: string;
                     name: string;
                 }[] | undefined;
+                description?: string | undefined;
             } | undefined;
             role?: "DOUBLAGE_SEIYU" | "AUTEUR" | "EDITEUR" | "PRODUCTEUR" | "REALISATEUR" | "REALISATEUR_EPISODES" | "REALISATEUR_MISEENPAGE" | "DIRECTEUR_ARTISTIQUE_CINEMATROGRAPHIQUE" | "DIRECTEUR_ANIMATION" | "CONCEPTEUR" | "ANIMATEUR_PRINCIPAL" | "ANIMATEUR_INTERMEDIAIRE" | "COLORISTES" | "DIRECTEUR_ENREGISTREMENT" | "SCENARISTE" | "ANIMATEUR_3D" | "METTEUR_EN_SCENE" | "SUPERVISEUR" | "MONTEUR" | "RESPONSABLE_DROITS" | "PRODUCTEUR_MUSIQUE" | "RESPONSABLE_MARKETING" | "DIFFUSEUR" | "STORYBOARDER" | "ARTISTE_VFX" | "INGENIEUR_SON" | "DIRECTEUR_DOUBLAGE" | "TRADUCTEUR" | "MANGAKA" | "CHARACTER_DESIGNER" | "DESSINATEUR_DECORS" | "REALISATEUR_MISE_EN_PAGE" | "COMPOSITEUR" | "PAROLIER" | "ARRANGEUR" | "MUSICIEN" | "CHANTEUR_EUSE" | "CHEF_ORCHESTRE" | "PRODUCTEUR_MUSICAL" | "DESIGNER_SONORE" | "MIXEUR" | undefined;
         }[] | undefined;
@@ -4636,9 +4624,6 @@ export declare const MangaCreateBody: z.ZodObject<z.objectUtil.extendShape<{
                     default: string;
                     alias?: string[] | undefined;
                 };
-                gender: "MASCULIN" | "FEMININ" | "NEUTRE" | "TRANSGENRE" | "NON_BINAIRE" | "GENRE_FLUIDE" | "AUTRE";
-                species: "AUTRE" | "HUMAIN" | "ELFE" | "NAIN" | "LEZARD" | "DRAGON" | "ORC";
-                description?: string | undefined;
                 birthDate?: {
                     year?: number | undefined;
                     month?: number | undefined;
@@ -4648,14 +4633,17 @@ export declare const MangaCreateBody: z.ZodObject<z.objectUtil.extendShape<{
                     seconds?: number | undefined;
                 } | undefined;
                 avatar?: {
-                    id?: string | undefined;
                     label?: "COVER" | "BANNER" | "AVATAR" | "LOGO" | undefined;
+                    id?: string | undefined;
                     newImage?: {
                         value: string;
                         label: "COVER" | "BANNER" | "AVATAR" | "LOGO";
                     } | undefined;
                 } | undefined;
+                description?: string | undefined;
                 age?: number | undefined;
+                gender?: "MASCULIN" | "FEMININ" | "NEUTRE" | "TRANSGENRE" | "NON_BINAIRE" | "GENRE_FLUIDE" | "AUTRE" | undefined;
+                species?: "AUTRE" | "HUMAIN" | "ELFE" | "NAIN" | "LEZARD" | "DRAGON" | "ORC" | undefined;
                 actors?: {
                     id?: string | undefined;
                     newPerson?: {
@@ -4663,7 +4651,6 @@ export declare const MangaCreateBody: z.ZodObject<z.objectUtil.extendShape<{
                             default: string;
                             alias?: string[] | undefined;
                         };
-                        description?: string | undefined;
                         isGroupe?: boolean | undefined;
                         birthDate?: {
                             year?: number | undefined;
@@ -4682,8 +4669,8 @@ export declare const MangaCreateBody: z.ZodObject<z.objectUtil.extendShape<{
                             seconds?: number | undefined;
                         } | undefined;
                         avatar?: {
-                            id?: string | undefined;
                             label?: "COVER" | "BANNER" | "AVATAR" | "LOGO" | undefined;
+                            id?: string | undefined;
                             newImage?: {
                                 value: string;
                                 label: "COVER" | "BANNER" | "AVATAR" | "LOGO";
@@ -4693,14 +4680,15 @@ export declare const MangaCreateBody: z.ZodObject<z.objectUtil.extendShape<{
                             value: string;
                             name: string;
                         }[] | undefined;
+                        description?: string | undefined;
                     } | undefined;
                     role?: "DOUBLAGE_SEIYU" | "AUTEUR" | "EDITEUR" | "PRODUCTEUR" | "REALISATEUR" | "REALISATEUR_EPISODES" | "REALISATEUR_MISEENPAGE" | "DIRECTEUR_ARTISTIQUE_CINEMATROGRAPHIQUE" | "DIRECTEUR_ANIMATION" | "CONCEPTEUR" | "ANIMATEUR_PRINCIPAL" | "ANIMATEUR_INTERMEDIAIRE" | "COLORISTES" | "DIRECTEUR_ENREGISTREMENT" | "SCENARISTE" | "ANIMATEUR_3D" | "METTEUR_EN_SCENE" | "SUPERVISEUR" | "MONTEUR" | "RESPONSABLE_DROITS" | "PRODUCTEUR_MUSIQUE" | "RESPONSABLE_MARKETING" | "DIFFUSEUR" | "STORYBOARDER" | "ARTISTE_VFX" | "INGENIEUR_SON" | "DIRECTEUR_DOUBLAGE" | "TRADUCTEUR" | "MANGAKA" | "CHARACTER_DESIGNER" | "DESSINATEUR_DECORS" | "REALISATEUR_MISE_EN_PAGE" | "COMPOSITEUR" | "PAROLIER" | "ARRANGEUR" | "MUSICIEN" | "CHANTEUR_EUSE" | "CHEF_ORCHESTRE" | "PRODUCTEUR_MUSICAL" | "DESIGNER_SONORE" | "MIXEUR" | undefined;
                 }[] | undefined;
             } | undefined;
         }[] | undefined;
     };
-    reason?: string | undefined;
     description?: string | undefined;
+    reason?: string | undefined;
 }, {
     data: {
         status: "AIRING" | "PAUSED" | "ENDED" | "STOPPED" | "POSTONED" | "SOON" | "any";
@@ -4738,22 +4726,6 @@ export declare const MangaCreateBody: z.ZodObject<z.objectUtil.extendShape<{
                 seconds?: string | number | undefined;
             } | undefined;
         } | undefined;
-        cover?: {
-            id?: string | undefined;
-            label?: "COVER" | "BANNER" | "AVATAR" | "LOGO" | undefined;
-            newImage?: {
-                value: string;
-                label: "COVER" | "BANNER" | "AVATAR" | "LOGO";
-            } | undefined;
-        } | undefined;
-        banner?: {
-            id?: string | undefined;
-            label?: "COVER" | "BANNER" | "AVATAR" | "LOGO" | undefined;
-            newImage?: {
-                value: string;
-                label: "COVER" | "BANNER" | "AVATAR" | "LOGO";
-            } | undefined;
-        } | undefined;
         links?: {
             value: string;
             name: string;
@@ -4788,6 +4760,22 @@ export declare const MangaCreateBody: z.ZodObject<z.objectUtil.extendShape<{
             id: string;
             parentLabel?: "SEQUEL" | "SPIN_OFF" | "ALTERNATIVE" | "REBOOT" | "FILM" | undefined;
         } | undefined;
+        cover?: {
+            label?: "COVER" | "BANNER" | "AVATAR" | "LOGO" | undefined;
+            id?: string | undefined;
+            newImage?: {
+                value: string;
+                label: "COVER" | "BANNER" | "AVATAR" | "LOGO";
+            } | undefined;
+        } | undefined;
+        banner?: {
+            label?: "COVER" | "BANNER" | "AVATAR" | "LOGO" | undefined;
+            id?: string | undefined;
+            newImage?: {
+                value: string;
+                label: "COVER" | "BANNER" | "AVATAR" | "LOGO";
+            } | undefined;
+        } | undefined;
         synopsis?: string | undefined;
         companys?: {
             id?: string | undefined;
@@ -4797,14 +4785,14 @@ export declare const MangaCreateBody: z.ZodObject<z.objectUtil.extendShape<{
                     default: string;
                     alias?: string[] | undefined;
                 };
-                description?: string | undefined;
                 links?: {
                     value: string;
                     name: string;
                 }[] | undefined;
+                description?: string | undefined;
                 logo?: {
-                    id?: string | undefined;
                     label?: "COVER" | "BANNER" | "AVATAR" | "LOGO" | undefined;
+                    id?: string | undefined;
                     newImage?: {
                         value: string;
                         label: "COVER" | "BANNER" | "AVATAR" | "LOGO";
@@ -4827,7 +4815,6 @@ export declare const MangaCreateBody: z.ZodObject<z.objectUtil.extendShape<{
                     default: string;
                     alias?: string[] | undefined;
                 };
-                description?: string | undefined;
                 isGroupe?: boolean | undefined;
                 birthDate?: {
                     year?: string | number | undefined;
@@ -4846,8 +4833,8 @@ export declare const MangaCreateBody: z.ZodObject<z.objectUtil.extendShape<{
                     seconds?: string | number | undefined;
                 } | undefined;
                 avatar?: {
-                    id?: string | undefined;
                     label?: "COVER" | "BANNER" | "AVATAR" | "LOGO" | undefined;
+                    id?: string | undefined;
                     newImage?: {
                         value: string;
                         label: "COVER" | "BANNER" | "AVATAR" | "LOGO";
@@ -4857,6 +4844,7 @@ export declare const MangaCreateBody: z.ZodObject<z.objectUtil.extendShape<{
                     value: string;
                     name: string;
                 }[] | undefined;
+                description?: string | undefined;
             } | undefined;
             role?: "DOUBLAGE_SEIYU" | "AUTEUR" | "EDITEUR" | "PRODUCTEUR" | "REALISATEUR" | "REALISATEUR_EPISODES" | "REALISATEUR_MISEENPAGE" | "DIRECTEUR_ARTISTIQUE_CINEMATROGRAPHIQUE" | "DIRECTEUR_ANIMATION" | "CONCEPTEUR" | "ANIMATEUR_PRINCIPAL" | "ANIMATEUR_INTERMEDIAIRE" | "COLORISTES" | "DIRECTEUR_ENREGISTREMENT" | "SCENARISTE" | "ANIMATEUR_3D" | "METTEUR_EN_SCENE" | "SUPERVISEUR" | "MONTEUR" | "RESPONSABLE_DROITS" | "PRODUCTEUR_MUSIQUE" | "RESPONSABLE_MARKETING" | "DIFFUSEUR" | "STORYBOARDER" | "ARTISTE_VFX" | "INGENIEUR_SON" | "DIRECTEUR_DOUBLAGE" | "TRADUCTEUR" | "MANGAKA" | "CHARACTER_DESIGNER" | "DESSINATEUR_DECORS" | "REALISATEUR_MISE_EN_PAGE" | "COMPOSITEUR" | "PAROLIER" | "ARRANGEUR" | "MUSICIEN" | "CHANTEUR_EUSE" | "CHEF_ORCHESTRE" | "PRODUCTEUR_MUSICAL" | "DESIGNER_SONORE" | "MIXEUR" | undefined;
         }[] | undefined;
@@ -4868,9 +4856,6 @@ export declare const MangaCreateBody: z.ZodObject<z.objectUtil.extendShape<{
                     default: string;
                     alias?: string[] | undefined;
                 };
-                gender: "MASCULIN" | "FEMININ" | "NEUTRE" | "TRANSGENRE" | "NON_BINAIRE" | "GENRE_FLUIDE" | "AUTRE";
-                species: "AUTRE" | "HUMAIN" | "ELFE" | "NAIN" | "LEZARD" | "DRAGON" | "ORC";
-                description?: string | undefined;
                 birthDate?: {
                     year?: string | number | undefined;
                     month?: string | number | undefined;
@@ -4880,14 +4865,17 @@ export declare const MangaCreateBody: z.ZodObject<z.objectUtil.extendShape<{
                     seconds?: string | number | undefined;
                 } | undefined;
                 avatar?: {
-                    id?: string | undefined;
                     label?: "COVER" | "BANNER" | "AVATAR" | "LOGO" | undefined;
+                    id?: string | undefined;
                     newImage?: {
                         value: string;
                         label: "COVER" | "BANNER" | "AVATAR" | "LOGO";
                     } | undefined;
                 } | undefined;
+                description?: string | undefined;
                 age?: string | number | undefined;
+                gender?: "MASCULIN" | "FEMININ" | "NEUTRE" | "TRANSGENRE" | "NON_BINAIRE" | "GENRE_FLUIDE" | "AUTRE" | undefined;
+                species?: "AUTRE" | "HUMAIN" | "ELFE" | "NAIN" | "LEZARD" | "DRAGON" | "ORC" | undefined;
                 actors?: {
                     id?: string | undefined;
                     newPerson?: {
@@ -4895,7 +4883,6 @@ export declare const MangaCreateBody: z.ZodObject<z.objectUtil.extendShape<{
                             default: string;
                             alias?: string[] | undefined;
                         };
-                        description?: string | undefined;
                         isGroupe?: boolean | undefined;
                         birthDate?: {
                             year?: string | number | undefined;
@@ -4914,8 +4901,8 @@ export declare const MangaCreateBody: z.ZodObject<z.objectUtil.extendShape<{
                             seconds?: string | number | undefined;
                         } | undefined;
                         avatar?: {
-                            id?: string | undefined;
                             label?: "COVER" | "BANNER" | "AVATAR" | "LOGO" | undefined;
+                            id?: string | undefined;
                             newImage?: {
                                 value: string;
                                 label: "COVER" | "BANNER" | "AVATAR" | "LOGO";
@@ -4925,14 +4912,15 @@ export declare const MangaCreateBody: z.ZodObject<z.objectUtil.extendShape<{
                             value: string;
                             name: string;
                         }[] | undefined;
+                        description?: string | undefined;
                     } | undefined;
                     role?: "DOUBLAGE_SEIYU" | "AUTEUR" | "EDITEUR" | "PRODUCTEUR" | "REALISATEUR" | "REALISATEUR_EPISODES" | "REALISATEUR_MISEENPAGE" | "DIRECTEUR_ARTISTIQUE_CINEMATROGRAPHIQUE" | "DIRECTEUR_ANIMATION" | "CONCEPTEUR" | "ANIMATEUR_PRINCIPAL" | "ANIMATEUR_INTERMEDIAIRE" | "COLORISTES" | "DIRECTEUR_ENREGISTREMENT" | "SCENARISTE" | "ANIMATEUR_3D" | "METTEUR_EN_SCENE" | "SUPERVISEUR" | "MONTEUR" | "RESPONSABLE_DROITS" | "PRODUCTEUR_MUSIQUE" | "RESPONSABLE_MARKETING" | "DIFFUSEUR" | "STORYBOARDER" | "ARTISTE_VFX" | "INGENIEUR_SON" | "DIRECTEUR_DOUBLAGE" | "TRADUCTEUR" | "MANGAKA" | "CHARACTER_DESIGNER" | "DESSINATEUR_DECORS" | "REALISATEUR_MISE_EN_PAGE" | "COMPOSITEUR" | "PAROLIER" | "ARRANGEUR" | "MUSICIEN" | "CHANTEUR_EUSE" | "CHEF_ORCHESTRE" | "PRODUCTEUR_MUSICAL" | "DESIGNER_SONORE" | "MIXEUR" | undefined;
                 }[] | undefined;
             } | undefined;
         }[] | undefined;
     };
-    reason?: string | undefined;
     description?: string | undefined;
+    reason?: string | undefined;
 }>;
 export type IMangaCreateBody = z.infer<typeof MangaCreateBody>;
 export declare const MangaDataToZOD: (data: IManga) => {
@@ -4971,22 +4959,6 @@ export declare const MangaDataToZOD: (data: IManga) => {
             seconds?: number | undefined;
         } | undefined;
     } | undefined;
-    cover?: {
-        id?: string | undefined;
-        label?: "COVER" | "BANNER" | "AVATAR" | "LOGO" | undefined;
-        newImage?: {
-            value: string;
-            label: "COVER" | "BANNER" | "AVATAR" | "LOGO";
-        } | undefined;
-    } | undefined;
-    banner?: {
-        id?: string | undefined;
-        label?: "COVER" | "BANNER" | "AVATAR" | "LOGO" | undefined;
-        newImage?: {
-            value: string;
-            label: "COVER" | "BANNER" | "AVATAR" | "LOGO";
-        } | undefined;
-    } | undefined;
     links?: {
         value: string;
         name: string;
@@ -5021,6 +4993,22 @@ export declare const MangaDataToZOD: (data: IManga) => {
         id: string;
         parentLabel?: "SEQUEL" | "SPIN_OFF" | "ALTERNATIVE" | "REBOOT" | "FILM" | undefined;
     } | undefined;
+    cover?: {
+        label?: "COVER" | "BANNER" | "AVATAR" | "LOGO" | undefined;
+        id?: string | undefined;
+        newImage?: {
+            value: string;
+            label: "COVER" | "BANNER" | "AVATAR" | "LOGO";
+        } | undefined;
+    } | undefined;
+    banner?: {
+        label?: "COVER" | "BANNER" | "AVATAR" | "LOGO" | undefined;
+        id?: string | undefined;
+        newImage?: {
+            value: string;
+            label: "COVER" | "BANNER" | "AVATAR" | "LOGO";
+        } | undefined;
+    } | undefined;
     synopsis?: string | undefined;
     companys?: {
         id?: string | undefined;
@@ -5030,14 +5018,14 @@ export declare const MangaDataToZOD: (data: IManga) => {
                 default: string;
                 alias?: string[] | undefined;
             };
-            description?: string | undefined;
             links?: {
                 value: string;
                 name: string;
             }[] | undefined;
+            description?: string | undefined;
             logo?: {
-                id?: string | undefined;
                 label?: "COVER" | "BANNER" | "AVATAR" | "LOGO" | undefined;
+                id?: string | undefined;
                 newImage?: {
                     value: string;
                     label: "COVER" | "BANNER" | "AVATAR" | "LOGO";
@@ -5060,7 +5048,6 @@ export declare const MangaDataToZOD: (data: IManga) => {
                 default: string;
                 alias?: string[] | undefined;
             };
-            description?: string | undefined;
             isGroupe?: boolean | undefined;
             birthDate?: {
                 year?: number | undefined;
@@ -5079,8 +5066,8 @@ export declare const MangaDataToZOD: (data: IManga) => {
                 seconds?: number | undefined;
             } | undefined;
             avatar?: {
-                id?: string | undefined;
                 label?: "COVER" | "BANNER" | "AVATAR" | "LOGO" | undefined;
+                id?: string | undefined;
                 newImage?: {
                     value: string;
                     label: "COVER" | "BANNER" | "AVATAR" | "LOGO";
@@ -5090,6 +5077,7 @@ export declare const MangaDataToZOD: (data: IManga) => {
                 value: string;
                 name: string;
             }[] | undefined;
+            description?: string | undefined;
         } | undefined;
         role?: "DOUBLAGE_SEIYU" | "AUTEUR" | "EDITEUR" | "PRODUCTEUR" | "REALISATEUR" | "REALISATEUR_EPISODES" | "REALISATEUR_MISEENPAGE" | "DIRECTEUR_ARTISTIQUE_CINEMATROGRAPHIQUE" | "DIRECTEUR_ANIMATION" | "CONCEPTEUR" | "ANIMATEUR_PRINCIPAL" | "ANIMATEUR_INTERMEDIAIRE" | "COLORISTES" | "DIRECTEUR_ENREGISTREMENT" | "SCENARISTE" | "ANIMATEUR_3D" | "METTEUR_EN_SCENE" | "SUPERVISEUR" | "MONTEUR" | "RESPONSABLE_DROITS" | "PRODUCTEUR_MUSIQUE" | "RESPONSABLE_MARKETING" | "DIFFUSEUR" | "STORYBOARDER" | "ARTISTE_VFX" | "INGENIEUR_SON" | "DIRECTEUR_DOUBLAGE" | "TRADUCTEUR" | "MANGAKA" | "CHARACTER_DESIGNER" | "DESSINATEUR_DECORS" | "REALISATEUR_MISE_EN_PAGE" | "COMPOSITEUR" | "PAROLIER" | "ARRANGEUR" | "MUSICIEN" | "CHANTEUR_EUSE" | "CHEF_ORCHESTRE" | "PRODUCTEUR_MUSICAL" | "DESIGNER_SONORE" | "MIXEUR" | undefined;
     }[] | undefined;
@@ -5101,9 +5089,6 @@ export declare const MangaDataToZOD: (data: IManga) => {
                 default: string;
                 alias?: string[] | undefined;
             };
-            gender: "MASCULIN" | "FEMININ" | "NEUTRE" | "TRANSGENRE" | "NON_BINAIRE" | "GENRE_FLUIDE" | "AUTRE";
-            species: "AUTRE" | "HUMAIN" | "ELFE" | "NAIN" | "LEZARD" | "DRAGON" | "ORC";
-            description?: string | undefined;
             birthDate?: {
                 year?: number | undefined;
                 month?: number | undefined;
@@ -5113,14 +5098,17 @@ export declare const MangaDataToZOD: (data: IManga) => {
                 seconds?: number | undefined;
             } | undefined;
             avatar?: {
-                id?: string | undefined;
                 label?: "COVER" | "BANNER" | "AVATAR" | "LOGO" | undefined;
+                id?: string | undefined;
                 newImage?: {
                     value: string;
                     label: "COVER" | "BANNER" | "AVATAR" | "LOGO";
                 } | undefined;
             } | undefined;
+            description?: string | undefined;
             age?: number | undefined;
+            gender?: "MASCULIN" | "FEMININ" | "NEUTRE" | "TRANSGENRE" | "NON_BINAIRE" | "GENRE_FLUIDE" | "AUTRE" | undefined;
+            species?: "AUTRE" | "HUMAIN" | "ELFE" | "NAIN" | "LEZARD" | "DRAGON" | "ORC" | undefined;
             actors?: {
                 id?: string | undefined;
                 newPerson?: {
@@ -5128,7 +5116,6 @@ export declare const MangaDataToZOD: (data: IManga) => {
                         default: string;
                         alias?: string[] | undefined;
                     };
-                    description?: string | undefined;
                     isGroupe?: boolean | undefined;
                     birthDate?: {
                         year?: number | undefined;
@@ -5147,8 +5134,8 @@ export declare const MangaDataToZOD: (data: IManga) => {
                         seconds?: number | undefined;
                     } | undefined;
                     avatar?: {
-                        id?: string | undefined;
                         label?: "COVER" | "BANNER" | "AVATAR" | "LOGO" | undefined;
+                        id?: string | undefined;
                         newImage?: {
                             value: string;
                             label: "COVER" | "BANNER" | "AVATAR" | "LOGO";
@@ -5158,6 +5145,7 @@ export declare const MangaDataToZOD: (data: IManga) => {
                         value: string;
                         name: string;
                     }[] | undefined;
+                    description?: string | undefined;
                 } | undefined;
                 role?: "DOUBLAGE_SEIYU" | "AUTEUR" | "EDITEUR" | "PRODUCTEUR" | "REALISATEUR" | "REALISATEUR_EPISODES" | "REALISATEUR_MISEENPAGE" | "DIRECTEUR_ARTISTIQUE_CINEMATROGRAPHIQUE" | "DIRECTEUR_ANIMATION" | "CONCEPTEUR" | "ANIMATEUR_PRINCIPAL" | "ANIMATEUR_INTERMEDIAIRE" | "COLORISTES" | "DIRECTEUR_ENREGISTREMENT" | "SCENARISTE" | "ANIMATEUR_3D" | "METTEUR_EN_SCENE" | "SUPERVISEUR" | "MONTEUR" | "RESPONSABLE_DROITS" | "PRODUCTEUR_MUSIQUE" | "RESPONSABLE_MARKETING" | "DIFFUSEUR" | "STORYBOARDER" | "ARTISTE_VFX" | "INGENIEUR_SON" | "DIRECTEUR_DOUBLAGE" | "TRADUCTEUR" | "MANGAKA" | "CHARACTER_DESIGNER" | "DESSINATEUR_DECORS" | "REALISATEUR_MISE_EN_PAGE" | "COMPOSITEUR" | "PAROLIER" | "ARRANGEUR" | "MUSICIEN" | "CHANTEUR_EUSE" | "CHEF_ORCHESTRE" | "PRODUCTEUR_MUSICAL" | "DESIGNER_SONORE" | "MIXEUR" | undefined;
             }[] | undefined;

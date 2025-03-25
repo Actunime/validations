@@ -1,32 +1,28 @@
-"use strict";
-Object.defineProperty(exports, "__esModule", { value: true });
-exports.UserDatabase_Pagination_ZOD = void 0;
-const types_1 = require("@actunime/types");
-const zod_1 = require("zod");
-const _util_1 = require("../_util");
-exports.UserDatabase_Pagination_ZOD = zod_1.z
+import { UserRolesArray } from "@actunime/types";
+import { z } from "zod";
+import { zodNumber } from "../_util";
+export const UserDatabase_Pagination_ZOD = z
     .object({
-    page: (0, _util_1.zodNumber)(),
-    limit: (0, _util_1.zodNumber)(),
-    query: zod_1.z
+    page: zodNumber(),
+    limit: zodNumber(),
+    query: z
         .object({
-        displayName: zod_1.z.string(),
-        username: zod_1.z.string(),
-        id: zod_1.z.string(),
-        roles: zod_1.z.array(zod_1.z.enum(types_1.UserRolesArray)),
+        displayName: z.string(),
+        username: z.string(),
+        id: z.string(),
+        roles: z.array(z.enum(UserRolesArray)),
     })
         .partial()
         .strict(),
-    strict: zod_1.z.boolean().optional(),
-    sort: zod_1.z.object({
-        createdAt: zod_1.z.enum(["DESC", "ASC"]).optional(),
-        updatedAt: zod_1.z.enum(["DESC", "ASC"]).optional(),
+    strict: z.boolean().optional(),
+    sort: z.object({
+        createdAt: z.enum(["DESC", "ASC"]).optional(),
+        updatedAt: z.enum(["DESC", "ASC"]).optional(),
     }),
-    with: zod_1.z
+    with: z
         .object({})
         .partial()
         .strict(),
 })
     .partial()
     .strict();
-//# sourceMappingURL=_userDatabaseZOD.js.map

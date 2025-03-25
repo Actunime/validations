@@ -1,54 +1,53 @@
-"use strict";
-Object.defineProperty(exports, "__esModule", { value: true });
-exports.PersonDataToZOD = exports.PersonAddBody = exports.PersonCreateBody = exports.PersonBody = exports.PersonPaginationBody = exports.PersonSortBody = exports.PersonQueryBody = void 0;
-const zod_1 = require("zod");
-const _media_1 = require("./_media");
-const _util_1 = require("./_util");
-const _imageZOD_1 = require("./_imageZOD");
-const types_1 = require("@actunime/types");
-const _patchZOD_1 = require("./_patchZOD");
-exports.PersonQueryBody = zod_1.z.object({
-    isGroupe: zod_1.z.boolean(),
-    name: _media_1.MediaTitleBody.partial(),
-    birthDate: zod_1.z.string(),
-    deathDate: zod_1.z.string(),
-    avatar: _imageZOD_1.ImageBody.partial(),
-    links: _media_1.LinkBody.partial(),
-    createdAt: zod_1.z.string(),
-    updatedAt: zod_1.z.string(),
+import { z } from 'zod';
+import { DateBody, FromBody, MediaLinkBody, MediaTitleBody } from './_media';
+import { PaginationBody, zodNumber } from './_util';
+import { ImageAddBody, ImageBody } from './_imageZOD';
+import { PersonRoleArray } from '@actunime/types';
+import { PatchParamsBody } from './_patchZOD';
+export const PersonQueryBody = z.object({
+    isGroupe: z.boolean(),
+    name: MediaTitleBody.partial(),
+    birthDate: z.string(),
+    deathDate: z.string(),
+    avatar: ImageBody.partial(),
+    links: MediaLinkBody.partial(),
+    createdAt: z.string(),
+    updatedAt: z.string(),
 });
 const check = (v) => [-1, 1].includes(v);
-const checkErr = "le sort doit être soit -1 ou 1";
-exports.PersonSortBody = zod_1.z.object({
-    isGroupe: (0, _util_1.zodNumber)().refine(check, checkErr),
-    birthDate: (0, _util_1.zodNumber)().refine(check, checkErr),
-    deathDate: (0, _util_1.zodNumber)().refine(check, checkErr),
-    createdAt: (0, _util_1.zodNumber)().refine(check, checkErr),
-    updatedAt: (0, _util_1.zodNumber)().refine(check, checkErr),
+const checkErr = 'le sort doit être soit -1 ou 1';
+export const PersonSortBody = z.object({
+    isGroupe: zodNumber().refine(check, checkErr),
+    birthDate: zodNumber().refine(check, checkErr),
+    deathDate: zodNumber().refine(check, checkErr),
+    createdAt: zodNumber().refine(check, checkErr),
+    updatedAt: zodNumber().refine(check, checkErr),
 });
-exports.PersonPaginationBody = _util_1.PaginationBody.extend({
-    sort: exports.PersonSortBody.partial(),
-    query: exports.PersonQueryBody.partial(),
-    from: _media_1.FromBody,
+export const PersonPaginationBody = PaginationBody.extend({
+    sort: PersonSortBody.partial(),
+    query: PersonQueryBody.partial(),
+    from: FromBody,
 }).partial();
-exports.PersonBody = zod_1.z.object({
-    isGroupe: zod_1.z.optional(zod_1.z.boolean()),
-    name: _media_1.MediaTitleBody,
-    birthDate: zod_1.z.optional(_media_1.DateBody.partial()),
-    deathDate: zod_1.z.optional(_media_1.DateBody.partial()),
-    description: zod_1.z.optional(zod_1.z.string()),
-    avatar: zod_1.z.optional(_imageZOD_1.Add_Image_ZOD),
-    links: zod_1.z.optional(zod_1.z.array(_media_1.Create_Link_ZOD)),
-}).strict();
-exports.PersonCreateBody = _patchZOD_1.PatchParamsBody.partial().extend({
-    data: exports.PersonBody
+export const PersonBody = z
+    .object({
+    isGroupe: z.optional(z.boolean()),
+    name: MediaTitleBody,
+    birthDate: z.optional(DateBody.partial()),
+    deathDate: z.optional(DateBody.partial()),
+    description: z.optional(z.string()),
+    avatar: z.optional(ImageAddBody),
+    links: z.optional(z.array(MediaLinkBody)),
+})
+    .strict();
+export const PersonCreateBody = PatchParamsBody.partial().extend({
+    data: PersonBody,
 });
-exports.PersonAddBody = zod_1.z.object({
-    id: zod_1.z.optional(zod_1.z.string()),
-    newPerson: zod_1.z.optional(exports.PersonBody),
-    role: zod_1.z.optional(zod_1.z.enum(types_1.PersonRoleArray)),
+export const PersonAddBody = z.object({
+    id: z.optional(z.string()),
+    newPerson: z.optional(PersonBody),
+    role: z.optional(z.enum(PersonRoleArray)),
 });
-const PersonDataToZOD = (data) => {
+export const PersonDataToZOD = (data) => {
     if (!data)
         return;
     const toZOD = {
@@ -60,10 +59,8 @@ const PersonDataToZOD = (data) => {
         avatar: data.avatar,
         links: data.links,
     };
-    const safeParse = exports.PersonBody.safeParse(toZOD);
+    const safeParse = PersonBody.safeParse(toZOD);
     if (safeParse.success)
         return safeParse.data;
     return toZOD;
 };
-exports.PersonDataToZOD = PersonDataToZOD;
-//# sourceMappingURL=_personZOD.js.map

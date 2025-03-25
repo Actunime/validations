@@ -1,7 +1,6 @@
-import { UserRolesArray, IUser } from "@actunime/types";
-import { z } from "zod";
-import { Add_Image_ZOD } from "./_imageZOD";
-
+import { UserRolesArray, IUser } from '@actunime/types';
+import { z } from 'zod';
+import { ImageAddBody } from './_imageZOD';
 
 export const Patch_UserProfile_ZOD = z
   .object({
@@ -9,8 +8,8 @@ export const Patch_UserProfile_ZOD = z
     displayName: z.string().optional(),
     description: z.string().optional(),
     roles: z.array(z.enum(UserRolesArray)).optional(),
-    avatar: z.optional(Add_Image_ZOD),
-    banner: z.optional(Add_Image_ZOD),
+    avatar: z.optional(ImageAddBody),
+    banner: z.optional(ImageAddBody),
   })
   .partial();
 
@@ -21,9 +20,13 @@ export const Patch_UserProfile_ZOD_FORM = z.object({
   note: z.string().optional(),
 });
 
-export type IPatch_UserProfile_ZOD_FORM = z.infer<typeof Patch_UserProfile_ZOD_FORM>;
+export type IPatch_UserProfile_ZOD_FORM = z.infer<
+  typeof Patch_UserProfile_ZOD_FORM
+>;
 
-export const UserDataToPatchProfileZOD = (data: IUser): Partial<IPatch_UserProfile_ZOD> => {
+export const UserDataToPatchProfileZOD = (
+  data: IUser
+): Partial<IPatch_UserProfile_ZOD> => {
   if (!data) return {};
 
   let toZOD: Partial<IPatch_UserProfile_ZOD> = {

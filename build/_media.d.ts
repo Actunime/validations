@@ -216,9 +216,9 @@ export declare const MediaImageZodSchema: z.ZodObject<{
     cover?: string | undefined;
     banner?: string | undefined;
 }>;
-export declare const Create_Link_ZOD: z.ZodObject<{
+export declare const MediaLinkBody: z.ZodObject<{
     name: z.ZodString;
-    value: z.ZodEffects<z.ZodString, string, string>;
+    value: z.ZodString;
 }, "strip", z.ZodTypeAny, {
     value: string;
     name: string;
@@ -226,35 +226,7 @@ export declare const Create_Link_ZOD: z.ZodObject<{
     value: string;
     name: string;
 }>;
-export declare const LinkBody: z.ZodObject<{
-    name: z.ZodDefault<z.ZodString>;
-    value: z.ZodDefault<z.ZodString>;
-}, "strip", z.ZodTypeAny, {
-    value: string;
-    name: string;
-}, {
-    value?: string | undefined;
-    name?: string | undefined;
-}>;
-export type IMediaLinkBody = EqualType<IMediaLink, z.infer<typeof LinkBody>>;
-export type ICreate_Link_ZOD = z.infer<typeof Create_Link_ZOD>;
-export declare const MediaTitleZodSchema: z.ZodEffects<z.ZodObject<{
-    default: z.ZodString;
-    alias: z.ZodOptional<z.ZodArray<z.ZodString, "many">>;
-}, "strip", z.ZodTypeAny, {
-    default: string;
-    alias?: string[] | undefined;
-}, {
-    default: string;
-    alias?: string[] | undefined;
-}>, {
-    default: string;
-    alias?: string[] | undefined;
-}, {
-    default: string;
-    alias?: string[] | undefined;
-}>;
-export type IMediaTitleZodSchema = EqualType<IMediaTitle, z.infer<typeof MediaTitleZodSchema>>;
+export type IMediaLinkBody = EqualType<IMediaLink, z.infer<typeof MediaLinkBody>>;
 export declare const MediaTitleBody: z.ZodObject<{
     default: z.ZodString;
     alias: z.ZodOptional<z.ZodArray<z.ZodString, "many">>;
@@ -266,15 +238,15 @@ export declare const MediaTitleBody: z.ZodObject<{
     alias?: string[] | undefined;
 }>;
 export type IMediaTitleBody = EqualType<IMediaTitle, z.infer<typeof MediaTitleBody>>;
-export declare const MediaTrailerZod: z.ZodString;
+export declare const YoutubeURLStringBody: z.ZodString;
 export declare const FromBody: z.ZodObject<{
     id: z.ZodString;
-    path: z.ZodEnum<("User" | "Account" | "UserProfile" | "UserPreferences" | "UserAnimeListe" | "UserDeleteAnimeFromListe" | "Groupe" | "Manga" | "Anime" | "Person" | "Character" | "Track" | "Company" | "Image" | "Patch" | "Activity" | "Report" | "DisabledUser" | "PremiumUser")[] & [string, ...string[]]>;
+    path: z.ZodEnum<("User" | "Groupe" | "Manga" | "Anime" | "Person" | "Character" | "Track" | "Company" | "Image" | "Patch" | "Activity" | "Report")[] & [string, ...string[]]>;
 }, "strip", z.ZodTypeAny, {
-    path: "User" | "Account" | "UserProfile" | "UserPreferences" | "UserAnimeListe" | "UserDeleteAnimeFromListe" | "Groupe" | "Manga" | "Anime" | "Person" | "Character" | "Track" | "Company" | "Image" | "Patch" | "Activity" | "Report" | "DisabledUser" | "PremiumUser";
+    path: "User" | "Groupe" | "Manga" | "Anime" | "Person" | "Character" | "Track" | "Company" | "Image" | "Patch" | "Activity" | "Report";
     id: string;
 }, {
-    path: "User" | "Account" | "UserProfile" | "UserPreferences" | "UserAnimeListe" | "UserDeleteAnimeFromListe" | "Groupe" | "Manga" | "Anime" | "Person" | "Character" | "Track" | "Company" | "Image" | "Patch" | "Activity" | "Report" | "DisabledUser" | "PremiumUser";
+    path: "User" | "Groupe" | "Manga" | "Anime" | "Person" | "Character" | "Track" | "Company" | "Image" | "Patch" | "Activity" | "Report";
     id: string;
 }>;
 export declare const MediaDeleteBody: z.ZodObject<{

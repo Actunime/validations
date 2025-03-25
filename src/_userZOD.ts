@@ -1,7 +1,11 @@
-import { UserRolesArray, IUser, UserAnimeListStatusArray } from "@actunime/types";
-import { z } from "zod";
-import { PaginationBody, zodNumber } from "./_util";
-import { Add_Image_ZOD } from "./_imageZOD";
+import {
+  UserRolesArray,
+  IUser,
+  UserAnimeListStatusArray,
+} from '@actunime/types';
+import { z } from 'zod';
+import { PaginationBody, zodNumber } from './_util';
+import { ImageAddBody } from './_imageZOD';
 
 export const UserQueryBody = z.object({
   username: z.string(),
@@ -12,27 +16,30 @@ export const UserQueryBody = z.object({
 });
 
 const check = (v: number) => [-1, 1].includes(v);
-const checkErr = "le sort doit être soit -1 ou 1";
+const checkErr = 'le sort doit être soit -1 ou 1';
 export const UserSortBody = z.object({
   username: zodNumber().refine(check, checkErr),
   displayName: zodNumber().refine(check, checkErr),
   roles: zodNumber().refine(check, checkErr),
   createdAt: zodNumber().refine(check, checkErr),
   updatedAt: zodNumber().refine(check, checkErr),
-})
+});
 
 export const UserPaginationBody = PaginationBody.extend({
   sort: UserSortBody.partial(),
-  query: UserQueryBody.partial()
-})
+  query: UserQueryBody.partial(),
+});
 
 export const UserMutationBody = z.object({
   username: z.string(),
-  displayName: z.string().min(3, "Le pseudonyme doit contenir au moins 3 caractères").max(18, "Le pseudonyme doit contenir au maximum 18 caractères"),
+  displayName: z
+    .string()
+    .min(3, 'Le pseudonyme doit contenir au moins 3 caractères')
+    .max(18, 'Le pseudonyme doit contenir au maximum 18 caractères'),
   description: z.optional(z.string()),
-  avatar: z.optional(Add_Image_ZOD),
-  banner: z.optional(Add_Image_ZOD),
-})
+  avatar: z.optional(ImageAddBody),
+  banner: z.optional(ImageAddBody),
+});
 
 export type IUserMutationBody = z.infer<typeof UserMutationBody>;
 
@@ -53,8 +60,8 @@ export const User_Pagination_ZOD = z
       .strict(),
     strict: z.boolean().optional(),
     sort: z.object({
-      createdAt: z.enum(["DESC", "ASC"]).optional(),
-      updatedAt: z.enum(["DESC", "ASC"]).optional(),
+      createdAt: z.enum(['DESC', 'ASC']).optional(),
+      updatedAt: z.enum(['DESC', 'ASC']).optional(),
     }),
     with: z
       .object({
@@ -75,8 +82,8 @@ export const Patch_User_ZOD = z
     displayName: z.string().optional(),
     description: z.string().optional(),
     roles: z.array(z.enum(UserRolesArray)).optional(),
-    avatar: z.optional(Add_Image_ZOD),
-    banner: z.optional(Add_Image_ZOD),
+    avatar: z.optional(ImageAddBody),
+    banner: z.optional(ImageAddBody),
   })
   .partial();
 
@@ -119,7 +126,6 @@ export const UserDataToZOD = (data: IUser): Partial<IPatch_User_ZOD> => {
 
   return toZOD;
 };
-
 
 export const UserAnimeListe_ZOD = z.object({
   id: z.string(),

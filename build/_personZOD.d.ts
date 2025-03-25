@@ -1,5 +1,5 @@
-import { z } from "zod";
-import { IPerson } from "@actunime/types";
+import { z } from 'zod';
+import { IPerson } from '@actunime/types';
 export declare const PersonQueryBody: z.ZodObject<{
     isGroupe: z.ZodBoolean;
     name: z.ZodObject<{
@@ -15,18 +15,18 @@ export declare const PersonQueryBody: z.ZodObject<{
     birthDate: z.ZodString;
     deathDate: z.ZodString;
     avatar: z.ZodObject<{
-        id: z.ZodOptional<z.ZodString>;
         label: z.ZodOptional<z.ZodEnum<("COVER" | "BANNER" | "AVATAR" | "LOGO")[] & [string, ...string[]]>>;
+        value: z.ZodOptional<z.ZodString>;
     }, "strip", z.ZodTypeAny, {
-        id?: string | undefined;
+        value?: string | undefined;
         label?: "COVER" | "BANNER" | "AVATAR" | "LOGO" | undefined;
     }, {
-        id?: string | undefined;
+        value?: string | undefined;
         label?: "COVER" | "BANNER" | "AVATAR" | "LOGO" | undefined;
     }>;
     links: z.ZodObject<{
-        name: z.ZodOptional<z.ZodDefault<z.ZodString>>;
-        value: z.ZodOptional<z.ZodDefault<z.ZodString>>;
+        name: z.ZodOptional<z.ZodString>;
+        value: z.ZodOptional<z.ZodString>;
     }, "strip", z.ZodTypeAny, {
         value?: string | undefined;
         name?: string | undefined;
@@ -37,41 +37,41 @@ export declare const PersonQueryBody: z.ZodObject<{
     createdAt: z.ZodString;
     updatedAt: z.ZodString;
 }, "strip", z.ZodTypeAny, {
+    isGroupe: boolean;
     name: {
         default?: string | undefined;
         alias?: string[] | undefined;
     };
-    createdAt: string;
-    updatedAt: string;
-    isGroupe: boolean;
     birthDate: string;
     deathDate: string;
     avatar: {
-        id?: string | undefined;
+        value?: string | undefined;
         label?: "COVER" | "BANNER" | "AVATAR" | "LOGO" | undefined;
     };
     links: {
         value?: string | undefined;
         name?: string | undefined;
     };
+    createdAt: string;
+    updatedAt: string;
 }, {
+    isGroupe: boolean;
     name: {
         default?: string | undefined;
         alias?: string[] | undefined;
     };
-    createdAt: string;
-    updatedAt: string;
-    isGroupe: boolean;
     birthDate: string;
     deathDate: string;
     avatar: {
-        id?: string | undefined;
+        value?: string | undefined;
         label?: "COVER" | "BANNER" | "AVATAR" | "LOGO" | undefined;
     };
     links: {
         value?: string | undefined;
         name?: string | undefined;
     };
+    createdAt: string;
+    updatedAt: string;
 }>;
 export declare const PersonSortBody: z.ZodObject<{
     isGroupe: z.ZodEffects<z.ZodEffects<z.ZodUnion<[z.ZodNumber, z.ZodString]>, number, string | number>, number, string | number>;
@@ -80,17 +80,17 @@ export declare const PersonSortBody: z.ZodObject<{
     createdAt: z.ZodEffects<z.ZodEffects<z.ZodUnion<[z.ZodNumber, z.ZodString]>, number, string | number>, number, string | number>;
     updatedAt: z.ZodEffects<z.ZodEffects<z.ZodUnion<[z.ZodNumber, z.ZodString]>, number, string | number>, number, string | number>;
 }, "strip", z.ZodTypeAny, {
-    createdAt: number;
-    updatedAt: number;
     isGroupe: number;
     birthDate: number;
     deathDate: number;
+    createdAt: number;
+    updatedAt: number;
 }, {
-    createdAt: string | number;
-    updatedAt: string | number;
     isGroupe: string | number;
     birthDate: string | number;
     deathDate: string | number;
+    createdAt: string | number;
+    updatedAt: string | number;
 }>;
 export declare const PersonPaginationBody: z.ZodObject<{
     page: z.ZodOptional<z.ZodNumber>;
@@ -104,17 +104,17 @@ export declare const PersonPaginationBody: z.ZodObject<{
         createdAt: z.ZodOptional<z.ZodEffects<z.ZodEffects<z.ZodUnion<[z.ZodNumber, z.ZodString]>, number, string | number>, number, string | number>>;
         updatedAt: z.ZodOptional<z.ZodEffects<z.ZodEffects<z.ZodUnion<[z.ZodNumber, z.ZodString]>, number, string | number>, number, string | number>>;
     }, "strip", z.ZodTypeAny, {
-        createdAt?: number | undefined;
-        updatedAt?: number | undefined;
         isGroupe?: number | undefined;
         birthDate?: number | undefined;
         deathDate?: number | undefined;
+        createdAt?: number | undefined;
+        updatedAt?: number | undefined;
     }, {
-        createdAt?: string | number | undefined;
-        updatedAt?: string | number | undefined;
         isGroupe?: string | number | undefined;
         birthDate?: string | number | undefined;
         deathDate?: string | number | undefined;
+        createdAt?: string | number | undefined;
+        updatedAt?: string | number | undefined;
     }>>;
     query: z.ZodOptional<z.ZodObject<{
         isGroupe: z.ZodOptional<z.ZodBoolean>;
@@ -131,18 +131,18 @@ export declare const PersonPaginationBody: z.ZodObject<{
         birthDate: z.ZodOptional<z.ZodString>;
         deathDate: z.ZodOptional<z.ZodString>;
         avatar: z.ZodOptional<z.ZodObject<{
-            id: z.ZodOptional<z.ZodString>;
             label: z.ZodOptional<z.ZodEnum<("COVER" | "BANNER" | "AVATAR" | "LOGO")[] & [string, ...string[]]>>;
+            value: z.ZodOptional<z.ZodString>;
         }, "strip", z.ZodTypeAny, {
-            id?: string | undefined;
+            value?: string | undefined;
             label?: "COVER" | "BANNER" | "AVATAR" | "LOGO" | undefined;
         }, {
-            id?: string | undefined;
+            value?: string | undefined;
             label?: "COVER" | "BANNER" | "AVATAR" | "LOGO" | undefined;
         }>>;
         links: z.ZodOptional<z.ZodObject<{
-            name: z.ZodOptional<z.ZodDefault<z.ZodString>>;
-            value: z.ZodOptional<z.ZodDefault<z.ZodString>>;
+            name: z.ZodOptional<z.ZodString>;
+            value: z.ZodOptional<z.ZodString>;
         }, "strip", z.ZodTypeAny, {
             value?: string | undefined;
             name?: string | undefined;
@@ -153,120 +153,120 @@ export declare const PersonPaginationBody: z.ZodObject<{
         createdAt: z.ZodOptional<z.ZodString>;
         updatedAt: z.ZodOptional<z.ZodString>;
     }, "strip", z.ZodTypeAny, {
+        isGroupe?: boolean | undefined;
         name?: {
             default?: string | undefined;
             alias?: string[] | undefined;
         } | undefined;
-        createdAt?: string | undefined;
-        updatedAt?: string | undefined;
-        isGroupe?: boolean | undefined;
         birthDate?: string | undefined;
         deathDate?: string | undefined;
         avatar?: {
-            id?: string | undefined;
+            value?: string | undefined;
             label?: "COVER" | "BANNER" | "AVATAR" | "LOGO" | undefined;
         } | undefined;
         links?: {
             value?: string | undefined;
             name?: string | undefined;
         } | undefined;
+        createdAt?: string | undefined;
+        updatedAt?: string | undefined;
     }, {
+        isGroupe?: boolean | undefined;
         name?: {
             default?: string | undefined;
             alias?: string[] | undefined;
         } | undefined;
-        createdAt?: string | undefined;
-        updatedAt?: string | undefined;
-        isGroupe?: boolean | undefined;
         birthDate?: string | undefined;
         deathDate?: string | undefined;
         avatar?: {
-            id?: string | undefined;
+            value?: string | undefined;
             label?: "COVER" | "BANNER" | "AVATAR" | "LOGO" | undefined;
         } | undefined;
         links?: {
             value?: string | undefined;
             name?: string | undefined;
         } | undefined;
+        createdAt?: string | undefined;
+        updatedAt?: string | undefined;
     }>>;
     from: z.ZodOptional<z.ZodObject<{
         id: z.ZodString;
-        path: z.ZodEnum<("User" | "Account" | "UserProfile" | "UserPreferences" | "UserAnimeListe" | "UserDeleteAnimeFromListe" | "Groupe" | "Manga" | "Anime" | "Person" | "Character" | "Track" | "Company" | "Image" | "Patch" | "Activity" | "Report" | "DisabledUser" | "PremiumUser")[] & [string, ...string[]]>;
+        path: z.ZodEnum<("User" | "Groupe" | "Manga" | "Anime" | "Person" | "Character" | "Track" | "Company" | "Image" | "Patch" | "Activity" | "Report")[] & [string, ...string[]]>;
     }, "strip", z.ZodTypeAny, {
-        path: "User" | "Account" | "UserProfile" | "UserPreferences" | "UserAnimeListe" | "UserDeleteAnimeFromListe" | "Groupe" | "Manga" | "Anime" | "Person" | "Character" | "Track" | "Company" | "Image" | "Patch" | "Activity" | "Report" | "DisabledUser" | "PremiumUser";
+        path: "User" | "Groupe" | "Manga" | "Anime" | "Person" | "Character" | "Track" | "Company" | "Image" | "Patch" | "Activity" | "Report";
         id: string;
     }, {
-        path: "User" | "Account" | "UserProfile" | "UserPreferences" | "UserAnimeListe" | "UserDeleteAnimeFromListe" | "Groupe" | "Manga" | "Anime" | "Person" | "Character" | "Track" | "Company" | "Image" | "Patch" | "Activity" | "Report" | "DisabledUser" | "PremiumUser";
+        path: "User" | "Groupe" | "Manga" | "Anime" | "Person" | "Character" | "Track" | "Company" | "Image" | "Patch" | "Activity" | "Report";
         id: string;
     }>>;
 }, "strip", z.ZodTypeAny, {
-    page?: number | undefined;
-    limit?: number | undefined;
-    strict?: boolean | undefined;
-    onlyVerified?: boolean | undefined;
     sort?: {
-        createdAt?: number | undefined;
-        updatedAt?: number | undefined;
         isGroupe?: number | undefined;
         birthDate?: number | undefined;
         deathDate?: number | undefined;
+        createdAt?: number | undefined;
+        updatedAt?: number | undefined;
     } | undefined;
-    query?: {
-        name?: {
-            default?: string | undefined;
-            alias?: string[] | undefined;
-        } | undefined;
-        createdAt?: string | undefined;
-        updatedAt?: string | undefined;
-        isGroupe?: boolean | undefined;
-        birthDate?: string | undefined;
-        deathDate?: string | undefined;
-        avatar?: {
-            id?: string | undefined;
-            label?: "COVER" | "BANNER" | "AVATAR" | "LOGO" | undefined;
-        } | undefined;
-        links?: {
-            value?: string | undefined;
-            name?: string | undefined;
-        } | undefined;
-    } | undefined;
-    from?: {
-        path: "User" | "Account" | "UserProfile" | "UserPreferences" | "UserAnimeListe" | "UserDeleteAnimeFromListe" | "Groupe" | "Manga" | "Anime" | "Person" | "Character" | "Track" | "Company" | "Image" | "Patch" | "Activity" | "Report" | "DisabledUser" | "PremiumUser";
-        id: string;
-    } | undefined;
-}, {
     page?: number | undefined;
     limit?: number | undefined;
     strict?: boolean | undefined;
     onlyVerified?: boolean | undefined;
-    sort?: {
-        createdAt?: string | number | undefined;
-        updatedAt?: string | number | undefined;
-        isGroupe?: string | number | undefined;
-        birthDate?: string | number | undefined;
-        deathDate?: string | number | undefined;
-    } | undefined;
     query?: {
+        isGroupe?: boolean | undefined;
         name?: {
             default?: string | undefined;
             alias?: string[] | undefined;
         } | undefined;
-        createdAt?: string | undefined;
-        updatedAt?: string | undefined;
-        isGroupe?: boolean | undefined;
         birthDate?: string | undefined;
         deathDate?: string | undefined;
         avatar?: {
-            id?: string | undefined;
+            value?: string | undefined;
             label?: "COVER" | "BANNER" | "AVATAR" | "LOGO" | undefined;
         } | undefined;
         links?: {
             value?: string | undefined;
             name?: string | undefined;
         } | undefined;
+        createdAt?: string | undefined;
+        updatedAt?: string | undefined;
     } | undefined;
     from?: {
-        path: "User" | "Account" | "UserProfile" | "UserPreferences" | "UserAnimeListe" | "UserDeleteAnimeFromListe" | "Groupe" | "Manga" | "Anime" | "Person" | "Character" | "Track" | "Company" | "Image" | "Patch" | "Activity" | "Report" | "DisabledUser" | "PremiumUser";
+        path: "User" | "Groupe" | "Manga" | "Anime" | "Person" | "Character" | "Track" | "Company" | "Image" | "Patch" | "Activity" | "Report";
+        id: string;
+    } | undefined;
+}, {
+    sort?: {
+        isGroupe?: string | number | undefined;
+        birthDate?: string | number | undefined;
+        deathDate?: string | number | undefined;
+        createdAt?: string | number | undefined;
+        updatedAt?: string | number | undefined;
+    } | undefined;
+    page?: number | undefined;
+    limit?: number | undefined;
+    strict?: boolean | undefined;
+    onlyVerified?: boolean | undefined;
+    query?: {
+        isGroupe?: boolean | undefined;
+        name?: {
+            default?: string | undefined;
+            alias?: string[] | undefined;
+        } | undefined;
+        birthDate?: string | undefined;
+        deathDate?: string | undefined;
+        avatar?: {
+            value?: string | undefined;
+            label?: "COVER" | "BANNER" | "AVATAR" | "LOGO" | undefined;
+        } | undefined;
+        links?: {
+            value?: string | undefined;
+            name?: string | undefined;
+        } | undefined;
+        createdAt?: string | undefined;
+        updatedAt?: string | undefined;
+    } | undefined;
+    from?: {
+        path: "User" | "Groupe" | "Manga" | "Anime" | "Person" | "Character" | "Track" | "Company" | "Image" | "Patch" | "Activity" | "Report";
         id: string;
     } | undefined;
 }>;
@@ -342,15 +342,15 @@ export declare const PersonBody: z.ZodObject<{
             label: "COVER" | "BANNER" | "AVATAR" | "LOGO";
         }>>;
     }, "strip", z.ZodTypeAny, {
-        id?: string | undefined;
         label?: "COVER" | "BANNER" | "AVATAR" | "LOGO" | undefined;
+        id?: string | undefined;
         newImage?: {
             value: string;
             label: "COVER" | "BANNER" | "AVATAR" | "LOGO";
         } | undefined;
     }, {
-        id?: string | undefined;
         label?: "COVER" | "BANNER" | "AVATAR" | "LOGO" | undefined;
+        id?: string | undefined;
         newImage?: {
             value: string;
             label: "COVER" | "BANNER" | "AVATAR" | "LOGO";
@@ -358,7 +358,7 @@ export declare const PersonBody: z.ZodObject<{
     }>>;
     links: z.ZodOptional<z.ZodArray<z.ZodObject<{
         name: z.ZodString;
-        value: z.ZodEffects<z.ZodString, string, string>;
+        value: z.ZodString;
     }, "strip", z.ZodTypeAny, {
         value: string;
         name: string;
@@ -371,7 +371,6 @@ export declare const PersonBody: z.ZodObject<{
         default: string;
         alias?: string[] | undefined;
     };
-    description?: string | undefined;
     isGroupe?: boolean | undefined;
     birthDate?: {
         year?: number | undefined;
@@ -390,8 +389,8 @@ export declare const PersonBody: z.ZodObject<{
         seconds?: number | undefined;
     } | undefined;
     avatar?: {
-        id?: string | undefined;
         label?: "COVER" | "BANNER" | "AVATAR" | "LOGO" | undefined;
+        id?: string | undefined;
         newImage?: {
             value: string;
             label: "COVER" | "BANNER" | "AVATAR" | "LOGO";
@@ -401,12 +400,12 @@ export declare const PersonBody: z.ZodObject<{
         value: string;
         name: string;
     }[] | undefined;
+    description?: string | undefined;
 }, {
     name: {
         default: string;
         alias?: string[] | undefined;
     };
-    description?: string | undefined;
     isGroupe?: boolean | undefined;
     birthDate?: {
         year?: string | number | undefined;
@@ -425,8 +424,8 @@ export declare const PersonBody: z.ZodObject<{
         seconds?: string | number | undefined;
     } | undefined;
     avatar?: {
-        id?: string | undefined;
         label?: "COVER" | "BANNER" | "AVATAR" | "LOGO" | undefined;
+        id?: string | undefined;
         newImage?: {
             value: string;
             label: "COVER" | "BANNER" | "AVATAR" | "LOGO";
@@ -436,6 +435,7 @@ export declare const PersonBody: z.ZodObject<{
         value: string;
         name: string;
     }[] | undefined;
+    description?: string | undefined;
 }>;
 export type IPersonBody = z.infer<typeof PersonBody>;
 export declare const PersonCreateBody: z.ZodObject<z.objectUtil.extendShape<{
@@ -513,15 +513,15 @@ export declare const PersonCreateBody: z.ZodObject<z.objectUtil.extendShape<{
                 label: "COVER" | "BANNER" | "AVATAR" | "LOGO";
             }>>;
         }, "strip", z.ZodTypeAny, {
-            id?: string | undefined;
             label?: "COVER" | "BANNER" | "AVATAR" | "LOGO" | undefined;
+            id?: string | undefined;
             newImage?: {
                 value: string;
                 label: "COVER" | "BANNER" | "AVATAR" | "LOGO";
             } | undefined;
         }, {
-            id?: string | undefined;
             label?: "COVER" | "BANNER" | "AVATAR" | "LOGO" | undefined;
+            id?: string | undefined;
             newImage?: {
                 value: string;
                 label: "COVER" | "BANNER" | "AVATAR" | "LOGO";
@@ -529,7 +529,7 @@ export declare const PersonCreateBody: z.ZodObject<z.objectUtil.extendShape<{
         }>>;
         links: z.ZodOptional<z.ZodArray<z.ZodObject<{
             name: z.ZodString;
-            value: z.ZodEffects<z.ZodString, string, string>;
+            value: z.ZodString;
         }, "strip", z.ZodTypeAny, {
             value: string;
             name: string;
@@ -542,7 +542,6 @@ export declare const PersonCreateBody: z.ZodObject<z.objectUtil.extendShape<{
             default: string;
             alias?: string[] | undefined;
         };
-        description?: string | undefined;
         isGroupe?: boolean | undefined;
         birthDate?: {
             year?: number | undefined;
@@ -561,8 +560,8 @@ export declare const PersonCreateBody: z.ZodObject<z.objectUtil.extendShape<{
             seconds?: number | undefined;
         } | undefined;
         avatar?: {
-            id?: string | undefined;
             label?: "COVER" | "BANNER" | "AVATAR" | "LOGO" | undefined;
+            id?: string | undefined;
             newImage?: {
                 value: string;
                 label: "COVER" | "BANNER" | "AVATAR" | "LOGO";
@@ -572,12 +571,12 @@ export declare const PersonCreateBody: z.ZodObject<z.objectUtil.extendShape<{
             value: string;
             name: string;
         }[] | undefined;
+        description?: string | undefined;
     }, {
         name: {
             default: string;
             alias?: string[] | undefined;
         };
-        description?: string | undefined;
         isGroupe?: boolean | undefined;
         birthDate?: {
             year?: string | number | undefined;
@@ -596,8 +595,8 @@ export declare const PersonCreateBody: z.ZodObject<z.objectUtil.extendShape<{
             seconds?: string | number | undefined;
         } | undefined;
         avatar?: {
-            id?: string | undefined;
             label?: "COVER" | "BANNER" | "AVATAR" | "LOGO" | undefined;
+            id?: string | undefined;
             newImage?: {
                 value: string;
                 label: "COVER" | "BANNER" | "AVATAR" | "LOGO";
@@ -607,6 +606,7 @@ export declare const PersonCreateBody: z.ZodObject<z.objectUtil.extendShape<{
             value: string;
             name: string;
         }[] | undefined;
+        description?: string | undefined;
     }>;
 }>, "strip", z.ZodTypeAny, {
     data: {
@@ -614,7 +614,6 @@ export declare const PersonCreateBody: z.ZodObject<z.objectUtil.extendShape<{
             default: string;
             alias?: string[] | undefined;
         };
-        description?: string | undefined;
         isGroupe?: boolean | undefined;
         birthDate?: {
             year?: number | undefined;
@@ -633,8 +632,8 @@ export declare const PersonCreateBody: z.ZodObject<z.objectUtil.extendShape<{
             seconds?: number | undefined;
         } | undefined;
         avatar?: {
-            id?: string | undefined;
             label?: "COVER" | "BANNER" | "AVATAR" | "LOGO" | undefined;
+            id?: string | undefined;
             newImage?: {
                 value: string;
                 label: "COVER" | "BANNER" | "AVATAR" | "LOGO";
@@ -644,16 +643,16 @@ export declare const PersonCreateBody: z.ZodObject<z.objectUtil.extendShape<{
             value: string;
             name: string;
         }[] | undefined;
+        description?: string | undefined;
     };
-    reason?: string | undefined;
     description?: string | undefined;
+    reason?: string | undefined;
 }, {
     data: {
         name: {
             default: string;
             alias?: string[] | undefined;
         };
-        description?: string | undefined;
         isGroupe?: boolean | undefined;
         birthDate?: {
             year?: string | number | undefined;
@@ -672,8 +671,8 @@ export declare const PersonCreateBody: z.ZodObject<z.objectUtil.extendShape<{
             seconds?: string | number | undefined;
         } | undefined;
         avatar?: {
-            id?: string | undefined;
             label?: "COVER" | "BANNER" | "AVATAR" | "LOGO" | undefined;
+            id?: string | undefined;
             newImage?: {
                 value: string;
                 label: "COVER" | "BANNER" | "AVATAR" | "LOGO";
@@ -683,9 +682,10 @@ export declare const PersonCreateBody: z.ZodObject<z.objectUtil.extendShape<{
             value: string;
             name: string;
         }[] | undefined;
+        description?: string | undefined;
     };
-    reason?: string | undefined;
     description?: string | undefined;
+    reason?: string | undefined;
 }>;
 export type IPersonCreateBody = z.infer<typeof PersonCreateBody>;
 export declare const PersonAddBody: z.ZodObject<{
@@ -761,15 +761,15 @@ export declare const PersonAddBody: z.ZodObject<{
                 label: "COVER" | "BANNER" | "AVATAR" | "LOGO";
             }>>;
         }, "strip", z.ZodTypeAny, {
-            id?: string | undefined;
             label?: "COVER" | "BANNER" | "AVATAR" | "LOGO" | undefined;
+            id?: string | undefined;
             newImage?: {
                 value: string;
                 label: "COVER" | "BANNER" | "AVATAR" | "LOGO";
             } | undefined;
         }, {
-            id?: string | undefined;
             label?: "COVER" | "BANNER" | "AVATAR" | "LOGO" | undefined;
+            id?: string | undefined;
             newImage?: {
                 value: string;
                 label: "COVER" | "BANNER" | "AVATAR" | "LOGO";
@@ -777,7 +777,7 @@ export declare const PersonAddBody: z.ZodObject<{
         }>>;
         links: z.ZodOptional<z.ZodArray<z.ZodObject<{
             name: z.ZodString;
-            value: z.ZodEffects<z.ZodString, string, string>;
+            value: z.ZodString;
         }, "strip", z.ZodTypeAny, {
             value: string;
             name: string;
@@ -790,7 +790,6 @@ export declare const PersonAddBody: z.ZodObject<{
             default: string;
             alias?: string[] | undefined;
         };
-        description?: string | undefined;
         isGroupe?: boolean | undefined;
         birthDate?: {
             year?: number | undefined;
@@ -809,8 +808,8 @@ export declare const PersonAddBody: z.ZodObject<{
             seconds?: number | undefined;
         } | undefined;
         avatar?: {
-            id?: string | undefined;
             label?: "COVER" | "BANNER" | "AVATAR" | "LOGO" | undefined;
+            id?: string | undefined;
             newImage?: {
                 value: string;
                 label: "COVER" | "BANNER" | "AVATAR" | "LOGO";
@@ -820,12 +819,12 @@ export declare const PersonAddBody: z.ZodObject<{
             value: string;
             name: string;
         }[] | undefined;
+        description?: string | undefined;
     }, {
         name: {
             default: string;
             alias?: string[] | undefined;
         };
-        description?: string | undefined;
         isGroupe?: boolean | undefined;
         birthDate?: {
             year?: string | number | undefined;
@@ -844,8 +843,8 @@ export declare const PersonAddBody: z.ZodObject<{
             seconds?: string | number | undefined;
         } | undefined;
         avatar?: {
-            id?: string | undefined;
             label?: "COVER" | "BANNER" | "AVATAR" | "LOGO" | undefined;
+            id?: string | undefined;
             newImage?: {
                 value: string;
                 label: "COVER" | "BANNER" | "AVATAR" | "LOGO";
@@ -855,6 +854,7 @@ export declare const PersonAddBody: z.ZodObject<{
             value: string;
             name: string;
         }[] | undefined;
+        description?: string | undefined;
     }>>;
     role: z.ZodOptional<z.ZodEnum<("DOUBLAGE_SEIYU" | "AUTEUR" | "EDITEUR" | "PRODUCTEUR" | "REALISATEUR" | "REALISATEUR_EPISODES" | "REALISATEUR_MISEENPAGE" | "DIRECTEUR_ARTISTIQUE_CINEMATROGRAPHIQUE" | "DIRECTEUR_ANIMATION" | "CONCEPTEUR" | "ANIMATEUR_PRINCIPAL" | "ANIMATEUR_INTERMEDIAIRE" | "COLORISTES" | "DIRECTEUR_ENREGISTREMENT" | "SCENARISTE" | "ANIMATEUR_3D" | "METTEUR_EN_SCENE" | "SUPERVISEUR" | "MONTEUR" | "RESPONSABLE_DROITS" | "PRODUCTEUR_MUSIQUE" | "RESPONSABLE_MARKETING" | "DIFFUSEUR" | "STORYBOARDER" | "ARTISTE_VFX" | "INGENIEUR_SON" | "DIRECTEUR_DOUBLAGE" | "TRADUCTEUR" | "MANGAKA" | "CHARACTER_DESIGNER" | "DESSINATEUR_DECORS" | "REALISATEUR_MISE_EN_PAGE" | "COMPOSITEUR" | "PAROLIER" | "ARRANGEUR" | "MUSICIEN" | "CHANTEUR_EUSE" | "CHEF_ORCHESTRE" | "PRODUCTEUR_MUSICAL" | "DESIGNER_SONORE" | "MIXEUR")[] & [string, ...string[]]>>;
 }, "strip", z.ZodTypeAny, {
@@ -864,7 +864,6 @@ export declare const PersonAddBody: z.ZodObject<{
             default: string;
             alias?: string[] | undefined;
         };
-        description?: string | undefined;
         isGroupe?: boolean | undefined;
         birthDate?: {
             year?: number | undefined;
@@ -883,8 +882,8 @@ export declare const PersonAddBody: z.ZodObject<{
             seconds?: number | undefined;
         } | undefined;
         avatar?: {
-            id?: string | undefined;
             label?: "COVER" | "BANNER" | "AVATAR" | "LOGO" | undefined;
+            id?: string | undefined;
             newImage?: {
                 value: string;
                 label: "COVER" | "BANNER" | "AVATAR" | "LOGO";
@@ -894,6 +893,7 @@ export declare const PersonAddBody: z.ZodObject<{
             value: string;
             name: string;
         }[] | undefined;
+        description?: string | undefined;
     } | undefined;
     role?: "DOUBLAGE_SEIYU" | "AUTEUR" | "EDITEUR" | "PRODUCTEUR" | "REALISATEUR" | "REALISATEUR_EPISODES" | "REALISATEUR_MISEENPAGE" | "DIRECTEUR_ARTISTIQUE_CINEMATROGRAPHIQUE" | "DIRECTEUR_ANIMATION" | "CONCEPTEUR" | "ANIMATEUR_PRINCIPAL" | "ANIMATEUR_INTERMEDIAIRE" | "COLORISTES" | "DIRECTEUR_ENREGISTREMENT" | "SCENARISTE" | "ANIMATEUR_3D" | "METTEUR_EN_SCENE" | "SUPERVISEUR" | "MONTEUR" | "RESPONSABLE_DROITS" | "PRODUCTEUR_MUSIQUE" | "RESPONSABLE_MARKETING" | "DIFFUSEUR" | "STORYBOARDER" | "ARTISTE_VFX" | "INGENIEUR_SON" | "DIRECTEUR_DOUBLAGE" | "TRADUCTEUR" | "MANGAKA" | "CHARACTER_DESIGNER" | "DESSINATEUR_DECORS" | "REALISATEUR_MISE_EN_PAGE" | "COMPOSITEUR" | "PAROLIER" | "ARRANGEUR" | "MUSICIEN" | "CHANTEUR_EUSE" | "CHEF_ORCHESTRE" | "PRODUCTEUR_MUSICAL" | "DESIGNER_SONORE" | "MIXEUR" | undefined;
 }, {
@@ -903,7 +903,6 @@ export declare const PersonAddBody: z.ZodObject<{
             default: string;
             alias?: string[] | undefined;
         };
-        description?: string | undefined;
         isGroupe?: boolean | undefined;
         birthDate?: {
             year?: string | number | undefined;
@@ -922,8 +921,8 @@ export declare const PersonAddBody: z.ZodObject<{
             seconds?: string | number | undefined;
         } | undefined;
         avatar?: {
-            id?: string | undefined;
             label?: "COVER" | "BANNER" | "AVATAR" | "LOGO" | undefined;
+            id?: string | undefined;
             newImage?: {
                 value: string;
                 label: "COVER" | "BANNER" | "AVATAR" | "LOGO";
@@ -933,6 +932,7 @@ export declare const PersonAddBody: z.ZodObject<{
             value: string;
             name: string;
         }[] | undefined;
+        description?: string | undefined;
     } | undefined;
     role?: "DOUBLAGE_SEIYU" | "AUTEUR" | "EDITEUR" | "PRODUCTEUR" | "REALISATEUR" | "REALISATEUR_EPISODES" | "REALISATEUR_MISEENPAGE" | "DIRECTEUR_ARTISTIQUE_CINEMATROGRAPHIQUE" | "DIRECTEUR_ANIMATION" | "CONCEPTEUR" | "ANIMATEUR_PRINCIPAL" | "ANIMATEUR_INTERMEDIAIRE" | "COLORISTES" | "DIRECTEUR_ENREGISTREMENT" | "SCENARISTE" | "ANIMATEUR_3D" | "METTEUR_EN_SCENE" | "SUPERVISEUR" | "MONTEUR" | "RESPONSABLE_DROITS" | "PRODUCTEUR_MUSIQUE" | "RESPONSABLE_MARKETING" | "DIFFUSEUR" | "STORYBOARDER" | "ARTISTE_VFX" | "INGENIEUR_SON" | "DIRECTEUR_DOUBLAGE" | "TRADUCTEUR" | "MANGAKA" | "CHARACTER_DESIGNER" | "DESSINATEUR_DECORS" | "REALISATEUR_MISE_EN_PAGE" | "COMPOSITEUR" | "PAROLIER" | "ARRANGEUR" | "MUSICIEN" | "CHANTEUR_EUSE" | "CHEF_ORCHESTRE" | "PRODUCTEUR_MUSICAL" | "DESIGNER_SONORE" | "MIXEUR" | undefined;
 }>;
@@ -942,7 +942,6 @@ export declare const PersonDataToZOD: (data: IPerson) => {
         default: string;
         alias?: string[] | undefined;
     };
-    description?: string | undefined;
     isGroupe?: boolean | undefined;
     birthDate?: {
         year?: number | undefined;
@@ -961,8 +960,8 @@ export declare const PersonDataToZOD: (data: IPerson) => {
         seconds?: number | undefined;
     } | undefined;
     avatar?: {
-        id?: string | undefined;
         label?: "COVER" | "BANNER" | "AVATAR" | "LOGO" | undefined;
+        id?: string | undefined;
         newImage?: {
             value: string;
             label: "COVER" | "BANNER" | "AVATAR" | "LOGO";
@@ -972,4 +971,5 @@ export declare const PersonDataToZOD: (data: IPerson) => {
         value: string;
         name: string;
     }[] | undefined;
+    description?: string | undefined;
 } | undefined;

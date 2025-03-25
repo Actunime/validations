@@ -3,13 +3,13 @@ import {
   CharacterRoleArray,
   CharacterSpeciesArray,
   ICharacter,
-} from "@actunime/types";
-import { z } from "zod";
-import { PersonAddBody, PersonBody } from "./_personZOD";
-import { PaginationBody, zodNumber } from "./_util";
-import { Add_Image_ZOD, ImageBody } from "./_imageZOD";
-import { PatchParamsBody } from "./_patchZOD";
-import { DateBody, FromBody, MediaTitleBody } from "./_media";
+} from '@actunime/types';
+import { z } from 'zod';
+import { PersonAddBody, PersonBody } from './_personZOD';
+import { PaginationBody, zodNumber } from './_util';
+import { ImageAddBody, ImageBody } from './_imageZOD';
+import { PatchParamsBody } from './_patchZOD';
+import { DateBody, FromBody, MediaTitleBody } from './_media';
 
 export const CharacterQueryBody = z.object({
   name: MediaTitleBody.partial(),
@@ -24,7 +24,7 @@ export const CharacterQueryBody = z.object({
 });
 
 const check = (v: number) => [-1, 1].includes(v);
-const checkErr = "le sort doit être soit -1 ou 1";
+const checkErr = 'le sort doit être soit -1 ou 1';
 export const CharacterSortBody = z.object({
   age: zodNumber().refine(check, checkErr),
   birthDate: zodNumber().refine(check, checkErr),
@@ -32,46 +32,46 @@ export const CharacterSortBody = z.object({
   species: zodNumber().refine(check, checkErr),
   createdAt: zodNumber().refine(check, checkErr),
   updatedAt: zodNumber().refine(check, checkErr),
-})
+});
 
 export const CharacterPaginationBody = PaginationBody.extend({
   sort: CharacterSortBody.partial(),
   query: CharacterQueryBody.partial(),
   from: FromBody,
-}).partial()
+}).partial();
 
-export type ICharacterPaginationBody = z.infer<
-  typeof CharacterPaginationBody
->;
+export type ICharacterPaginationBody = z.infer<typeof CharacterPaginationBody>;
 
 export const CharacterBody = z.object({
   name: MediaTitleBody,
   age: z.optional(zodNumber()),
   birthDate: z.optional(DateBody.partial()),
-  gender: z.enum(CharacterGenderArray),
-  species: z.enum(CharacterSpeciesArray),
+  gender: z.optional(z.enum(CharacterGenderArray)),
+  species: z.optional(z.enum(CharacterSpeciesArray)),
   description: z.optional(z.string()),
-  avatar: z.optional(Add_Image_ZOD),
+  avatar: z.optional(ImageAddBody),
   actors: z.optional(z.array(PersonAddBody)),
-})
+});
 
 export type ICharacterBody = z.infer<typeof CharacterBody>;
 
-export const CharacterCreateBody = PatchParamsBody.partial().extend({ data: CharacterBody });
+export const CharacterCreateBody = PatchParamsBody.partial().extend({
+  data: CharacterBody,
+});
 
 export type ICharacterCreateBody = z.infer<typeof CharacterCreateBody>;
 
 export const CharacterAddBody = z.object({
   id: z.optional(z.string()),
   newCharacter: z.optional(CharacterBody),
-  role: z.optional(z.enum(CharacterRoleArray, { required_error: "Le role est requis" })),
+  role: z.optional(
+    z.enum(CharacterRoleArray, { required_error: 'Le role est requis' })
+  ),
 });
 
 export type ICharacterAddBody = z.infer<typeof CharacterAddBody>;
 
-export const CharacterDataToZOD = (
-  data: ICharacter,
-) => {
+export const CharacterDataToZOD = (data: ICharacter) => {
   if (!data) return;
 
   const toZOD: ICharacterBody = {
