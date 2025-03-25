@@ -1,3 +1,12 @@
+## [1.0.32](https://github.com/Actunime/validations/compare/v1.0.31...v1.0.32) (2025-03-25)
+
+
+### Bug Fixes
+
+* **build:** maj des types ([5f37d92](https://github.com/Actunime/validations/commit/5f37d92b61893aec1b9b8be9e6aacb3f0e9816c2))
+* merge branches 'main' and 'main' of https://github.com/Actunime/validations ([e8b7963](https://github.com/Actunime/validations/commit/e8b796391f8ed628ab2ab7e7175d146edb4646f6))
+* release ([770d612](https://github.com/Actunime/validations/commit/770d612ab65cbb95654a04e5985ec9391b617255))
+
 ## [1.0.31](https://github.com/Actunime/validations/compare/v1.0.30...v1.0.31) (2025-03-18)
 
 
