@@ -62,12 +62,12 @@ export declare const CompanyQueryBody: z.ZodObject<{
         default?: string | undefined;
         alias?: string[] | undefined;
     };
+    createdAt: string;
+    updatedAt: string;
     links: {
         value?: string | undefined;
         name?: string | undefined;
     };
-    createdAt: string;
-    updatedAt: string;
     logo: {
         value?: string | undefined;
         label?: "COVER" | "BANNER" | "AVATAR" | "LOGO" | undefined;
@@ -86,12 +86,12 @@ export declare const CompanyQueryBody: z.ZodObject<{
         default?: string | undefined;
         alias?: string[] | undefined;
     };
+    createdAt: string;
+    updatedAt: string;
     links: {
         value?: string | undefined;
         name?: string | undefined;
     };
-    createdAt: string;
-    updatedAt: string;
     logo: {
         value?: string | undefined;
         label?: "COVER" | "BANNER" | "AVATAR" | "LOGO" | undefined;
@@ -244,12 +244,12 @@ export declare const CompanyPaginationBody: z.ZodObject<{
             default?: string | undefined;
             alias?: string[] | undefined;
         } | undefined;
+        createdAt?: string | undefined;
+        updatedAt?: string | undefined;
         links?: {
             value?: string | undefined;
             name?: string | undefined;
         } | undefined;
-        createdAt?: string | undefined;
-        updatedAt?: string | undefined;
         logo?: {
             value?: string | undefined;
             label?: "COVER" | "BANNER" | "AVATAR" | "LOGO" | undefined;
@@ -268,12 +268,12 @@ export declare const CompanyPaginationBody: z.ZodObject<{
             default?: string | undefined;
             alias?: string[] | undefined;
         } | undefined;
+        createdAt?: string | undefined;
+        updatedAt?: string | undefined;
         links?: {
             value?: string | undefined;
             name?: string | undefined;
         } | undefined;
-        createdAt?: string | undefined;
-        updatedAt?: string | undefined;
         logo?: {
             value?: string | undefined;
             label?: "COVER" | "BANNER" | "AVATAR" | "LOGO" | undefined;
@@ -318,12 +318,12 @@ export declare const CompanyPaginationBody: z.ZodObject<{
             default?: string | undefined;
             alias?: string[] | undefined;
         } | undefined;
+        createdAt?: string | undefined;
+        updatedAt?: string | undefined;
         links?: {
             value?: string | undefined;
             name?: string | undefined;
         } | undefined;
-        createdAt?: string | undefined;
-        updatedAt?: string | undefined;
         logo?: {
             value?: string | undefined;
             label?: "COVER" | "BANNER" | "AVATAR" | "LOGO" | undefined;
@@ -362,12 +362,12 @@ export declare const CompanyPaginationBody: z.ZodObject<{
             default?: string | undefined;
             alias?: string[] | undefined;
         } | undefined;
+        createdAt?: string | undefined;
+        updatedAt?: string | undefined;
         links?: {
             value?: string | undefined;
             name?: string | undefined;
         } | undefined;
-        createdAt?: string | undefined;
-        updatedAt?: string | undefined;
         logo?: {
             value?: string | undefined;
             label?: "COVER" | "BANNER" | "AVATAR" | "LOGO" | undefined;
@@ -489,12 +489,12 @@ export declare const Company_Pagination_ZOD: z.ZodObject<{
             default?: string | undefined;
             alias?: string[] | undefined;
         } | undefined;
+        createdAt?: string | undefined;
+        updatedAt?: string | undefined;
         links?: {
             value?: string | undefined;
             name?: string | undefined;
         } | undefined;
-        createdAt?: string | undefined;
-        updatedAt?: string | undefined;
         logo?: {
             value?: string | undefined;
             label?: "COVER" | "BANNER" | "AVATAR" | "LOGO" | undefined;
@@ -513,12 +513,12 @@ export declare const Company_Pagination_ZOD: z.ZodObject<{
             default?: string | undefined;
             alias?: string[] | undefined;
         } | undefined;
+        createdAt?: string | undefined;
+        updatedAt?: string | undefined;
         links?: {
             value?: string | undefined;
             name?: string | undefined;
         } | undefined;
-        createdAt?: string | undefined;
-        updatedAt?: string | undefined;
         logo?: {
             value?: string | undefined;
             label?: "COVER" | "BANNER" | "AVATAR" | "LOGO" | undefined;
@@ -552,12 +552,12 @@ export declare const Company_Pagination_ZOD: z.ZodObject<{
             default?: string | undefined;
             alias?: string[] | undefined;
         } | undefined;
+        createdAt?: string | undefined;
+        updatedAt?: string | undefined;
         links?: {
             value?: string | undefined;
             name?: string | undefined;
         } | undefined;
-        createdAt?: string | undefined;
-        updatedAt?: string | undefined;
         logo?: {
             value?: string | undefined;
             label?: "COVER" | "BANNER" | "AVATAR" | "LOGO" | undefined;
@@ -591,12 +591,12 @@ export declare const Company_Pagination_ZOD: z.ZodObject<{
             default?: string | undefined;
             alias?: string[] | undefined;
         } | undefined;
+        createdAt?: string | undefined;
+        updatedAt?: string | undefined;
         links?: {
             value?: string | undefined;
             name?: string | undefined;
         } | undefined;
-        createdAt?: string | undefined;
-        updatedAt?: string | undefined;
         logo?: {
             value?: string | undefined;
             label?: "COVER" | "BANNER" | "AVATAR" | "LOGO" | undefined;
@@ -649,15 +649,15 @@ export declare const CompanyBody: z.ZodObject<{
             label: "COVER" | "BANNER" | "AVATAR" | "LOGO";
         }>>;
     }, "strip", z.ZodTypeAny, {
-        label?: "COVER" | "BANNER" | "AVATAR" | "LOGO" | undefined;
         id?: string | undefined;
+        label?: "COVER" | "BANNER" | "AVATAR" | "LOGO" | undefined;
         newImage?: {
             value: string;
             label: "COVER" | "BANNER" | "AVATAR" | "LOGO";
         } | undefined;
     }, {
-        label?: "COVER" | "BANNER" | "AVATAR" | "LOGO" | undefined;
         id?: string | undefined;
+        label?: "COVER" | "BANNER" | "AVATAR" | "LOGO" | undefined;
         newImage?: {
             value: string;
             label: "COVER" | "BANNER" | "AVATAR" | "LOGO";
@@ -691,14 +691,14 @@ export declare const CompanyBody: z.ZodObject<{
         default: string;
         alias?: string[] | undefined;
     };
+    description?: string | undefined;
     links?: {
         value: string;
         name: string;
     }[] | undefined;
-    description?: string | undefined;
     logo?: {
-        label?: "COVER" | "BANNER" | "AVATAR" | "LOGO" | undefined;
         id?: string | undefined;
+        label?: "COVER" | "BANNER" | "AVATAR" | "LOGO" | undefined;
         newImage?: {
             value: string;
             label: "COVER" | "BANNER" | "AVATAR" | "LOGO";
@@ -718,14 +718,14 @@ export declare const CompanyBody: z.ZodObject<{
         default: string;
         alias?: string[] | undefined;
     };
+    description?: string | undefined;
     links?: {
         value: string;
         name: string;
     }[] | undefined;
-    description?: string | undefined;
     logo?: {
-        label?: "COVER" | "BANNER" | "AVATAR" | "LOGO" | undefined;
         id?: string | undefined;
+        label?: "COVER" | "BANNER" | "AVATAR" | "LOGO" | undefined;
         newImage?: {
             value: string;
             label: "COVER" | "BANNER" | "AVATAR" | "LOGO";
@@ -782,15 +782,15 @@ export declare const CompanyCreateBody: z.ZodObject<z.objectUtil.extendShape<{
                 label: "COVER" | "BANNER" | "AVATAR" | "LOGO";
             }>>;
         }, "strip", z.ZodTypeAny, {
-            label?: "COVER" | "BANNER" | "AVATAR" | "LOGO" | undefined;
             id?: string | undefined;
+            label?: "COVER" | "BANNER" | "AVATAR" | "LOGO" | undefined;
             newImage?: {
                 value: string;
                 label: "COVER" | "BANNER" | "AVATAR" | "LOGO";
             } | undefined;
         }, {
-            label?: "COVER" | "BANNER" | "AVATAR" | "LOGO" | undefined;
             id?: string | undefined;
+            label?: "COVER" | "BANNER" | "AVATAR" | "LOGO" | undefined;
             newImage?: {
                 value: string;
                 label: "COVER" | "BANNER" | "AVATAR" | "LOGO";
@@ -824,14 +824,14 @@ export declare const CompanyCreateBody: z.ZodObject<z.objectUtil.extendShape<{
             default: string;
             alias?: string[] | undefined;
         };
+        description?: string | undefined;
         links?: {
             value: string;
             name: string;
         }[] | undefined;
-        description?: string | undefined;
         logo?: {
-            label?: "COVER" | "BANNER" | "AVATAR" | "LOGO" | undefined;
             id?: string | undefined;
+            label?: "COVER" | "BANNER" | "AVATAR" | "LOGO" | undefined;
             newImage?: {
                 value: string;
                 label: "COVER" | "BANNER" | "AVATAR" | "LOGO";
@@ -851,14 +851,14 @@ export declare const CompanyCreateBody: z.ZodObject<z.objectUtil.extendShape<{
             default: string;
             alias?: string[] | undefined;
         };
+        description?: string | undefined;
         links?: {
             value: string;
             name: string;
         }[] | undefined;
-        description?: string | undefined;
         logo?: {
-            label?: "COVER" | "BANNER" | "AVATAR" | "LOGO" | undefined;
             id?: string | undefined;
+            label?: "COVER" | "BANNER" | "AVATAR" | "LOGO" | undefined;
             newImage?: {
                 value: string;
                 label: "COVER" | "BANNER" | "AVATAR" | "LOGO";
@@ -880,14 +880,14 @@ export declare const CompanyCreateBody: z.ZodObject<z.objectUtil.extendShape<{
             default: string;
             alias?: string[] | undefined;
         };
+        description?: string | undefined;
         links?: {
             value: string;
             name: string;
         }[] | undefined;
-        description?: string | undefined;
         logo?: {
-            label?: "COVER" | "BANNER" | "AVATAR" | "LOGO" | undefined;
             id?: string | undefined;
+            label?: "COVER" | "BANNER" | "AVATAR" | "LOGO" | undefined;
             newImage?: {
                 value: string;
                 label: "COVER" | "BANNER" | "AVATAR" | "LOGO";
@@ -902,8 +902,8 @@ export declare const CompanyCreateBody: z.ZodObject<z.objectUtil.extendShape<{
             seconds?: number | undefined;
         } | undefined;
     };
-    description?: string | undefined;
     reason?: string | undefined;
+    description?: string | undefined;
 }, {
     data: {
         type: "STUDIO" | "PRODUCER";
@@ -911,14 +911,14 @@ export declare const CompanyCreateBody: z.ZodObject<z.objectUtil.extendShape<{
             default: string;
             alias?: string[] | undefined;
         };
+        description?: string | undefined;
         links?: {
             value: string;
             name: string;
         }[] | undefined;
-        description?: string | undefined;
         logo?: {
-            label?: "COVER" | "BANNER" | "AVATAR" | "LOGO" | undefined;
             id?: string | undefined;
+            label?: "COVER" | "BANNER" | "AVATAR" | "LOGO" | undefined;
             newImage?: {
                 value: string;
                 label: "COVER" | "BANNER" | "AVATAR" | "LOGO";
@@ -933,8 +933,8 @@ export declare const CompanyCreateBody: z.ZodObject<z.objectUtil.extendShape<{
             seconds?: string | number | undefined;
         } | undefined;
     };
-    description?: string | undefined;
     reason?: string | undefined;
+    description?: string | undefined;
 }>;
 export type ICompanyCreateBody = z.infer<typeof CompanyCreateBody>;
 export declare const CompanyAddBody: z.ZodObject<{
@@ -976,15 +976,15 @@ export declare const CompanyAddBody: z.ZodObject<{
                 label: "COVER" | "BANNER" | "AVATAR" | "LOGO";
             }>>;
         }, "strip", z.ZodTypeAny, {
-            label?: "COVER" | "BANNER" | "AVATAR" | "LOGO" | undefined;
             id?: string | undefined;
+            label?: "COVER" | "BANNER" | "AVATAR" | "LOGO" | undefined;
             newImage?: {
                 value: string;
                 label: "COVER" | "BANNER" | "AVATAR" | "LOGO";
             } | undefined;
         }, {
-            label?: "COVER" | "BANNER" | "AVATAR" | "LOGO" | undefined;
             id?: string | undefined;
+            label?: "COVER" | "BANNER" | "AVATAR" | "LOGO" | undefined;
             newImage?: {
                 value: string;
                 label: "COVER" | "BANNER" | "AVATAR" | "LOGO";
@@ -1018,14 +1018,14 @@ export declare const CompanyAddBody: z.ZodObject<{
             default: string;
             alias?: string[] | undefined;
         };
+        description?: string | undefined;
         links?: {
             value: string;
             name: string;
         }[] | undefined;
-        description?: string | undefined;
         logo?: {
-            label?: "COVER" | "BANNER" | "AVATAR" | "LOGO" | undefined;
             id?: string | undefined;
+            label?: "COVER" | "BANNER" | "AVATAR" | "LOGO" | undefined;
             newImage?: {
                 value: string;
                 label: "COVER" | "BANNER" | "AVATAR" | "LOGO";
@@ -1045,14 +1045,14 @@ export declare const CompanyAddBody: z.ZodObject<{
             default: string;
             alias?: string[] | undefined;
         };
+        description?: string | undefined;
         links?: {
             value: string;
             name: string;
         }[] | undefined;
-        description?: string | undefined;
         logo?: {
-            label?: "COVER" | "BANNER" | "AVATAR" | "LOGO" | undefined;
             id?: string | undefined;
+            label?: "COVER" | "BANNER" | "AVATAR" | "LOGO" | undefined;
             newImage?: {
                 value: string;
                 label: "COVER" | "BANNER" | "AVATAR" | "LOGO";
@@ -1075,14 +1075,14 @@ export declare const CompanyAddBody: z.ZodObject<{
             default: string;
             alias?: string[] | undefined;
         };
+        description?: string | undefined;
         links?: {
             value: string;
             name: string;
         }[] | undefined;
-        description?: string | undefined;
         logo?: {
-            label?: "COVER" | "BANNER" | "AVATAR" | "LOGO" | undefined;
             id?: string | undefined;
+            label?: "COVER" | "BANNER" | "AVATAR" | "LOGO" | undefined;
             newImage?: {
                 value: string;
                 label: "COVER" | "BANNER" | "AVATAR" | "LOGO";
@@ -1105,14 +1105,14 @@ export declare const CompanyAddBody: z.ZodObject<{
             default: string;
             alias?: string[] | undefined;
         };
+        description?: string | undefined;
         links?: {
             value: string;
             name: string;
         }[] | undefined;
-        description?: string | undefined;
         logo?: {
-            label?: "COVER" | "BANNER" | "AVATAR" | "LOGO" | undefined;
             id?: string | undefined;
+            label?: "COVER" | "BANNER" | "AVATAR" | "LOGO" | undefined;
             newImage?: {
                 value: string;
                 label: "COVER" | "BANNER" | "AVATAR" | "LOGO";
@@ -1135,14 +1135,14 @@ export declare const CompanyDataToZOD: (data: ICompany) => {
         default: string;
         alias?: string[] | undefined;
     };
+    description?: string | undefined;
     links?: {
         value: string;
         name: string;
     }[] | undefined;
-    description?: string | undefined;
     logo?: {
-        label?: "COVER" | "BANNER" | "AVATAR" | "LOGO" | undefined;
         id?: string | undefined;
+        label?: "COVER" | "BANNER" | "AVATAR" | "LOGO" | undefined;
         newImage?: {
             value: string;
             label: "COVER" | "BANNER" | "AVATAR" | "LOGO";

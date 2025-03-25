@@ -123,8 +123,15 @@ export declare const UserPaginationBody: z.ZodObject<z.objectUtil.extendShape<{
         roles?: ("MEMBER" | "PREMIUM" | "MODERATOR" | "ANIME_MODERATOR" | "MANGA_MODERATOR" | "CHARACTER_MODERATOR" | "PERSON_MODERATOR" | "TRACK_MODERATOR" | "COMPANY_MODERATOR" | "ADMINISTRATOR" | "ACTUNIME")[] | undefined;
     };
 }>;
-export declare const UserMutationBody: z.ZodObject<{
-    username: z.ZodString;
+export type IUserPaginationBody = z.infer<typeof UserPaginationBody>;
+export declare const UserOptions: z.ZodObject<{
+    displayUnverified: z.ZodBoolean;
+}, "strip", z.ZodTypeAny, {
+    displayUnverified: boolean;
+}, {
+    displayUnverified: boolean;
+}>;
+export declare const UserBody: z.ZodObject<{
     displayName: z.ZodString;
     description: z.ZodOptional<z.ZodString>;
     avatar: z.ZodOptional<z.ZodObject<{
@@ -141,15 +148,15 @@ export declare const UserMutationBody: z.ZodObject<{
             label: "COVER" | "BANNER" | "AVATAR" | "LOGO";
         }>>;
     }, "strip", z.ZodTypeAny, {
-        label?: "COVER" | "BANNER" | "AVATAR" | "LOGO" | undefined;
         id?: string | undefined;
+        label?: "COVER" | "BANNER" | "AVATAR" | "LOGO" | undefined;
         newImage?: {
             value: string;
             label: "COVER" | "BANNER" | "AVATAR" | "LOGO";
         } | undefined;
     }, {
-        label?: "COVER" | "BANNER" | "AVATAR" | "LOGO" | undefined;
         id?: string | undefined;
+        label?: "COVER" | "BANNER" | "AVATAR" | "LOGO" | undefined;
         newImage?: {
             value: string;
             label: "COVER" | "BANNER" | "AVATAR" | "LOGO";
@@ -169,253 +176,81 @@ export declare const UserMutationBody: z.ZodObject<{
             label: "COVER" | "BANNER" | "AVATAR" | "LOGO";
         }>>;
     }, "strip", z.ZodTypeAny, {
-        label?: "COVER" | "BANNER" | "AVATAR" | "LOGO" | undefined;
         id?: string | undefined;
+        label?: "COVER" | "BANNER" | "AVATAR" | "LOGO" | undefined;
         newImage?: {
             value: string;
             label: "COVER" | "BANNER" | "AVATAR" | "LOGO";
         } | undefined;
     }, {
-        label?: "COVER" | "BANNER" | "AVATAR" | "LOGO" | undefined;
         id?: string | undefined;
+        label?: "COVER" | "BANNER" | "AVATAR" | "LOGO" | undefined;
         newImage?: {
             value: string;
             label: "COVER" | "BANNER" | "AVATAR" | "LOGO";
         } | undefined;
+    }>>;
+    options: z.ZodOptional<z.ZodObject<{
+        displayUnverified: z.ZodOptional<z.ZodBoolean>;
+    }, "strip", z.ZodTypeAny, {
+        displayUnverified?: boolean | undefined;
+    }, {
+        displayUnverified?: boolean | undefined;
     }>>;
 }, "strip", z.ZodTypeAny, {
-    username: string;
     displayName: string;
-    avatar?: {
-        label?: "COVER" | "BANNER" | "AVATAR" | "LOGO" | undefined;
+    options?: {
+        displayUnverified?: boolean | undefined;
+    } | undefined;
+    banner?: {
         id?: string | undefined;
+        label?: "COVER" | "BANNER" | "AVATAR" | "LOGO" | undefined;
         newImage?: {
             value: string;
             label: "COVER" | "BANNER" | "AVATAR" | "LOGO";
         } | undefined;
     } | undefined;
     description?: string | undefined;
-    banner?: {
-        label?: "COVER" | "BANNER" | "AVATAR" | "LOGO" | undefined;
+    avatar?: {
         id?: string | undefined;
+        label?: "COVER" | "BANNER" | "AVATAR" | "LOGO" | undefined;
         newImage?: {
             value: string;
             label: "COVER" | "BANNER" | "AVATAR" | "LOGO";
         } | undefined;
     } | undefined;
 }, {
-    username: string;
     displayName: string;
-    avatar?: {
-        label?: "COVER" | "BANNER" | "AVATAR" | "LOGO" | undefined;
+    options?: {
+        displayUnverified?: boolean | undefined;
+    } | undefined;
+    banner?: {
         id?: string | undefined;
+        label?: "COVER" | "BANNER" | "AVATAR" | "LOGO" | undefined;
         newImage?: {
             value: string;
             label: "COVER" | "BANNER" | "AVATAR" | "LOGO";
         } | undefined;
     } | undefined;
     description?: string | undefined;
-    banner?: {
-        label?: "COVER" | "BANNER" | "AVATAR" | "LOGO" | undefined;
+    avatar?: {
         id?: string | undefined;
+        label?: "COVER" | "BANNER" | "AVATAR" | "LOGO" | undefined;
         newImage?: {
             value: string;
             label: "COVER" | "BANNER" | "AVATAR" | "LOGO";
         } | undefined;
     } | undefined;
 }>;
-export type IUserMutationBody = z.infer<typeof UserMutationBody>;
-export type IUserPaginationBody = z.infer<typeof UserPaginationBody>;
-export declare const User_Pagination_ZOD: z.ZodObject<{
-    page: z.ZodOptional<z.ZodEffects<z.ZodUnion<[z.ZodNumber, z.ZodString]>, number, string | number>>;
-    limit: z.ZodOptional<z.ZodEffects<z.ZodUnion<[z.ZodNumber, z.ZodString]>, number, string | number>>;
-    query: z.ZodOptional<z.ZodObject<{
-        name: z.ZodOptional<z.ZodString>;
-        id: z.ZodOptional<z.ZodString>;
-        roles: z.ZodOptional<z.ZodArray<z.ZodEnum<("MEMBER" | "PREMIUM" | "MODERATOR" | "ANIME_MODERATOR" | "MANGA_MODERATOR" | "CHARACTER_MODERATOR" | "PERSON_MODERATOR" | "TRACK_MODERATOR" | "COMPANY_MODERATOR" | "ADMINISTRATOR" | "ACTUNIME")[] & [string, ...string[]]>, "many">>;
-        allowUnverified: z.ZodOptional<z.ZodOptional<z.ZodBoolean>>;
-    }, "strict", z.ZodTypeAny, {
-        name?: string | undefined;
-        id?: string | undefined;
-        roles?: ("MEMBER" | "PREMIUM" | "MODERATOR" | "ANIME_MODERATOR" | "MANGA_MODERATOR" | "CHARACTER_MODERATOR" | "PERSON_MODERATOR" | "TRACK_MODERATOR" | "COMPANY_MODERATOR" | "ADMINISTRATOR" | "ACTUNIME")[] | undefined;
-        allowUnverified?: boolean | undefined;
-    }, {
-        name?: string | undefined;
-        id?: string | undefined;
-        roles?: ("MEMBER" | "PREMIUM" | "MODERATOR" | "ANIME_MODERATOR" | "MANGA_MODERATOR" | "CHARACTER_MODERATOR" | "PERSON_MODERATOR" | "TRACK_MODERATOR" | "COMPANY_MODERATOR" | "ADMINISTRATOR" | "ACTUNIME")[] | undefined;
-        allowUnverified?: boolean | undefined;
-    }>>;
-    strict: z.ZodOptional<z.ZodOptional<z.ZodBoolean>>;
-    sort: z.ZodOptional<z.ZodObject<{
-        createdAt: z.ZodOptional<z.ZodEnum<["DESC", "ASC"]>>;
-        updatedAt: z.ZodOptional<z.ZodEnum<["DESC", "ASC"]>>;
-    }, "strip", z.ZodTypeAny, {
-        createdAt?: "DESC" | "ASC" | undefined;
-        updatedAt?: "DESC" | "ASC" | undefined;
-    }, {
-        createdAt?: "DESC" | "ASC" | undefined;
-        updatedAt?: "DESC" | "ASC" | undefined;
-    }>>;
-    with: z.ZodOptional<z.ZodObject<{
-        avatar: z.ZodOptional<z.ZodOptional<z.ZodBoolean>>;
-        banner: z.ZodOptional<z.ZodOptional<z.ZodBoolean>>;
-    }, "strict", z.ZodTypeAny, {
-        avatar?: boolean | undefined;
-        banner?: boolean | undefined;
-    }, {
-        avatar?: boolean | undefined;
-        banner?: boolean | undefined;
-    }>>;
-}, "strict", z.ZodTypeAny, {
-    sort?: {
-        createdAt?: "DESC" | "ASC" | undefined;
-        updatedAt?: "DESC" | "ASC" | undefined;
-    } | undefined;
-    page?: number | undefined;
-    limit?: number | undefined;
-    strict?: boolean | undefined;
-    query?: {
-        name?: string | undefined;
-        id?: string | undefined;
-        roles?: ("MEMBER" | "PREMIUM" | "MODERATOR" | "ANIME_MODERATOR" | "MANGA_MODERATOR" | "CHARACTER_MODERATOR" | "PERSON_MODERATOR" | "TRACK_MODERATOR" | "COMPANY_MODERATOR" | "ADMINISTRATOR" | "ACTUNIME")[] | undefined;
-        allowUnverified?: boolean | undefined;
-    } | undefined;
-    with?: {
-        avatar?: boolean | undefined;
-        banner?: boolean | undefined;
-    } | undefined;
+export type IUserBody = z.infer<typeof UserBody>;
+export declare const UserCreateBody: z.ZodObject<z.objectUtil.extendShape<{
+    description: z.ZodOptional<z.ZodString>;
+    reason: z.ZodOptional<z.ZodString>;
 }, {
-    sort?: {
-        createdAt?: "DESC" | "ASC" | undefined;
-        updatedAt?: "DESC" | "ASC" | undefined;
-    } | undefined;
-    page?: string | number | undefined;
-    limit?: string | number | undefined;
-    strict?: boolean | undefined;
-    query?: {
-        name?: string | undefined;
-        id?: string | undefined;
-        roles?: ("MEMBER" | "PREMIUM" | "MODERATOR" | "ANIME_MODERATOR" | "MANGA_MODERATOR" | "CHARACTER_MODERATOR" | "PERSON_MODERATOR" | "TRACK_MODERATOR" | "COMPANY_MODERATOR" | "ADMINISTRATOR" | "ACTUNIME")[] | undefined;
-        allowUnverified?: boolean | undefined;
-    } | undefined;
-    with?: {
-        avatar?: boolean | undefined;
-        banner?: boolean | undefined;
-    } | undefined;
-}>;
-export type IUser_Pagination_ZOD = z.infer<typeof User_Pagination_ZOD>;
-export declare const Patch_User_ZOD: z.ZodObject<{
-    username: z.ZodOptional<z.ZodOptional<z.ZodString>>;
-    displayName: z.ZodOptional<z.ZodOptional<z.ZodString>>;
-    description: z.ZodOptional<z.ZodOptional<z.ZodString>>;
-    roles: z.ZodOptional<z.ZodOptional<z.ZodArray<z.ZodEnum<("MEMBER" | "PREMIUM" | "MODERATOR" | "ANIME_MODERATOR" | "MANGA_MODERATOR" | "CHARACTER_MODERATOR" | "PERSON_MODERATOR" | "TRACK_MODERATOR" | "COMPANY_MODERATOR" | "ADMINISTRATOR" | "ACTUNIME")[] & [string, ...string[]]>, "many">>>;
-    avatar: z.ZodOptional<z.ZodOptional<z.ZodObject<{
-        id: z.ZodOptional<z.ZodString>;
-        label: z.ZodOptional<z.ZodEnum<("COVER" | "BANNER" | "AVATAR" | "LOGO")[] & [string, ...string[]]>>;
-        newImage: z.ZodOptional<z.ZodObject<{
-            label: z.ZodEnum<("COVER" | "BANNER" | "AVATAR" | "LOGO")[] & [string, ...string[]]>;
-            value: z.ZodString;
-        }, "strip", z.ZodTypeAny, {
-            value: string;
-            label: "COVER" | "BANNER" | "AVATAR" | "LOGO";
-        }, {
-            value: string;
-            label: "COVER" | "BANNER" | "AVATAR" | "LOGO";
-        }>>;
-    }, "strip", z.ZodTypeAny, {
-        label?: "COVER" | "BANNER" | "AVATAR" | "LOGO" | undefined;
-        id?: string | undefined;
-        newImage?: {
-            value: string;
-            label: "COVER" | "BANNER" | "AVATAR" | "LOGO";
-        } | undefined;
-    }, {
-        label?: "COVER" | "BANNER" | "AVATAR" | "LOGO" | undefined;
-        id?: string | undefined;
-        newImage?: {
-            value: string;
-            label: "COVER" | "BANNER" | "AVATAR" | "LOGO";
-        } | undefined;
-    }>>>;
-    banner: z.ZodOptional<z.ZodOptional<z.ZodObject<{
-        id: z.ZodOptional<z.ZodString>;
-        label: z.ZodOptional<z.ZodEnum<("COVER" | "BANNER" | "AVATAR" | "LOGO")[] & [string, ...string[]]>>;
-        newImage: z.ZodOptional<z.ZodObject<{
-            label: z.ZodEnum<("COVER" | "BANNER" | "AVATAR" | "LOGO")[] & [string, ...string[]]>;
-            value: z.ZodString;
-        }, "strip", z.ZodTypeAny, {
-            value: string;
-            label: "COVER" | "BANNER" | "AVATAR" | "LOGO";
-        }, {
-            value: string;
-            label: "COVER" | "BANNER" | "AVATAR" | "LOGO";
-        }>>;
-    }, "strip", z.ZodTypeAny, {
-        label?: "COVER" | "BANNER" | "AVATAR" | "LOGO" | undefined;
-        id?: string | undefined;
-        newImage?: {
-            value: string;
-            label: "COVER" | "BANNER" | "AVATAR" | "LOGO";
-        } | undefined;
-    }, {
-        label?: "COVER" | "BANNER" | "AVATAR" | "LOGO" | undefined;
-        id?: string | undefined;
-        newImage?: {
-            value: string;
-            label: "COVER" | "BANNER" | "AVATAR" | "LOGO";
-        } | undefined;
-    }>>>;
-}, "strip", z.ZodTypeAny, {
-    avatar?: {
-        label?: "COVER" | "BANNER" | "AVATAR" | "LOGO" | undefined;
-        id?: string | undefined;
-        newImage?: {
-            value: string;
-            label: "COVER" | "BANNER" | "AVATAR" | "LOGO";
-        } | undefined;
-    } | undefined;
-    description?: string | undefined;
-    banner?: {
-        label?: "COVER" | "BANNER" | "AVATAR" | "LOGO" | undefined;
-        id?: string | undefined;
-        newImage?: {
-            value: string;
-            label: "COVER" | "BANNER" | "AVATAR" | "LOGO";
-        } | undefined;
-    } | undefined;
-    username?: string | undefined;
-    displayName?: string | undefined;
-    roles?: ("MEMBER" | "PREMIUM" | "MODERATOR" | "ANIME_MODERATOR" | "MANGA_MODERATOR" | "CHARACTER_MODERATOR" | "PERSON_MODERATOR" | "TRACK_MODERATOR" | "COMPANY_MODERATOR" | "ADMINISTRATOR" | "ACTUNIME")[] | undefined;
-}, {
-    avatar?: {
-        label?: "COVER" | "BANNER" | "AVATAR" | "LOGO" | undefined;
-        id?: string | undefined;
-        newImage?: {
-            value: string;
-            label: "COVER" | "BANNER" | "AVATAR" | "LOGO";
-        } | undefined;
-    } | undefined;
-    description?: string | undefined;
-    banner?: {
-        label?: "COVER" | "BANNER" | "AVATAR" | "LOGO" | undefined;
-        id?: string | undefined;
-        newImage?: {
-            value: string;
-            label: "COVER" | "BANNER" | "AVATAR" | "LOGO";
-        } | undefined;
-    } | undefined;
-    username?: string | undefined;
-    displayName?: string | undefined;
-    roles?: ("MEMBER" | "PREMIUM" | "MODERATOR" | "ANIME_MODERATOR" | "MANGA_MODERATOR" | "CHARACTER_MODERATOR" | "PERSON_MODERATOR" | "TRACK_MODERATOR" | "COMPANY_MODERATOR" | "ADMINISTRATOR" | "ACTUNIME")[] | undefined;
-}>;
-export type IPatch_User_ZOD = z.infer<typeof Patch_User_ZOD>;
-export declare const Patch_User_ZOD_FORM: z.ZodObject<{
     data: z.ZodObject<{
-        username: z.ZodOptional<z.ZodOptional<z.ZodString>>;
-        displayName: z.ZodOptional<z.ZodOptional<z.ZodString>>;
-        description: z.ZodOptional<z.ZodOptional<z.ZodString>>;
-        roles: z.ZodOptional<z.ZodOptional<z.ZodArray<z.ZodEnum<("MEMBER" | "PREMIUM" | "MODERATOR" | "ANIME_MODERATOR" | "MANGA_MODERATOR" | "CHARACTER_MODERATOR" | "PERSON_MODERATOR" | "TRACK_MODERATOR" | "COMPANY_MODERATOR" | "ADMINISTRATOR" | "ACTUNIME")[] & [string, ...string[]]>, "many">>>;
-        avatar: z.ZodOptional<z.ZodOptional<z.ZodObject<{
+        displayName: z.ZodString;
+        description: z.ZodOptional<z.ZodString>;
+        avatar: z.ZodOptional<z.ZodObject<{
             id: z.ZodOptional<z.ZodString>;
             label: z.ZodOptional<z.ZodEnum<("COVER" | "BANNER" | "AVATAR" | "LOGO")[] & [string, ...string[]]>>;
             newImage: z.ZodOptional<z.ZodObject<{
@@ -429,21 +264,21 @@ export declare const Patch_User_ZOD_FORM: z.ZodObject<{
                 label: "COVER" | "BANNER" | "AVATAR" | "LOGO";
             }>>;
         }, "strip", z.ZodTypeAny, {
-            label?: "COVER" | "BANNER" | "AVATAR" | "LOGO" | undefined;
             id?: string | undefined;
+            label?: "COVER" | "BANNER" | "AVATAR" | "LOGO" | undefined;
             newImage?: {
                 value: string;
                 label: "COVER" | "BANNER" | "AVATAR" | "LOGO";
             } | undefined;
         }, {
-            label?: "COVER" | "BANNER" | "AVATAR" | "LOGO" | undefined;
             id?: string | undefined;
+            label?: "COVER" | "BANNER" | "AVATAR" | "LOGO" | undefined;
             newImage?: {
                 value: string;
                 label: "COVER" | "BANNER" | "AVATAR" | "LOGO";
             } | undefined;
-        }>>>;
-        banner: z.ZodOptional<z.ZodOptional<z.ZodObject<{
+        }>>;
+        banner: z.ZodOptional<z.ZodObject<{
             id: z.ZodOptional<z.ZodString>;
             label: z.ZodOptional<z.ZodEnum<("COVER" | "BANNER" | "AVATAR" | "LOGO")[] & [string, ...string[]]>>;
             newImage: z.ZodOptional<z.ZodObject<{
@@ -457,127 +292,135 @@ export declare const Patch_User_ZOD_FORM: z.ZodObject<{
                 label: "COVER" | "BANNER" | "AVATAR" | "LOGO";
             }>>;
         }, "strip", z.ZodTypeAny, {
-            label?: "COVER" | "BANNER" | "AVATAR" | "LOGO" | undefined;
             id?: string | undefined;
+            label?: "COVER" | "BANNER" | "AVATAR" | "LOGO" | undefined;
             newImage?: {
                 value: string;
                 label: "COVER" | "BANNER" | "AVATAR" | "LOGO";
             } | undefined;
         }, {
-            label?: "COVER" | "BANNER" | "AVATAR" | "LOGO" | undefined;
             id?: string | undefined;
+            label?: "COVER" | "BANNER" | "AVATAR" | "LOGO" | undefined;
             newImage?: {
                 value: string;
                 label: "COVER" | "BANNER" | "AVATAR" | "LOGO";
             } | undefined;
-        }>>>;
+        }>>;
+        options: z.ZodOptional<z.ZodObject<{
+            displayUnverified: z.ZodOptional<z.ZodBoolean>;
+        }, "strip", z.ZodTypeAny, {
+            displayUnverified?: boolean | undefined;
+        }, {
+            displayUnverified?: boolean | undefined;
+        }>>;
     }, "strip", z.ZodTypeAny, {
-        avatar?: {
-            label?: "COVER" | "BANNER" | "AVATAR" | "LOGO" | undefined;
+        displayName: string;
+        options?: {
+            displayUnverified?: boolean | undefined;
+        } | undefined;
+        banner?: {
             id?: string | undefined;
+            label?: "COVER" | "BANNER" | "AVATAR" | "LOGO" | undefined;
             newImage?: {
                 value: string;
                 label: "COVER" | "BANNER" | "AVATAR" | "LOGO";
             } | undefined;
         } | undefined;
         description?: string | undefined;
-        banner?: {
-            label?: "COVER" | "BANNER" | "AVATAR" | "LOGO" | undefined;
+        avatar?: {
             id?: string | undefined;
+            label?: "COVER" | "BANNER" | "AVATAR" | "LOGO" | undefined;
             newImage?: {
                 value: string;
                 label: "COVER" | "BANNER" | "AVATAR" | "LOGO";
             } | undefined;
         } | undefined;
-        username?: string | undefined;
-        displayName?: string | undefined;
-        roles?: ("MEMBER" | "PREMIUM" | "MODERATOR" | "ANIME_MODERATOR" | "MANGA_MODERATOR" | "CHARACTER_MODERATOR" | "PERSON_MODERATOR" | "TRACK_MODERATOR" | "COMPANY_MODERATOR" | "ADMINISTRATOR" | "ACTUNIME")[] | undefined;
     }, {
-        avatar?: {
-            label?: "COVER" | "BANNER" | "AVATAR" | "LOGO" | undefined;
+        displayName: string;
+        options?: {
+            displayUnverified?: boolean | undefined;
+        } | undefined;
+        banner?: {
             id?: string | undefined;
+            label?: "COVER" | "BANNER" | "AVATAR" | "LOGO" | undefined;
             newImage?: {
                 value: string;
                 label: "COVER" | "BANNER" | "AVATAR" | "LOGO";
             } | undefined;
         } | undefined;
         description?: string | undefined;
-        banner?: {
-            label?: "COVER" | "BANNER" | "AVATAR" | "LOGO" | undefined;
+        avatar?: {
             id?: string | undefined;
+            label?: "COVER" | "BANNER" | "AVATAR" | "LOGO" | undefined;
             newImage?: {
                 value: string;
                 label: "COVER" | "BANNER" | "AVATAR" | "LOGO";
             } | undefined;
         } | undefined;
-        username?: string | undefined;
-        displayName?: string | undefined;
-        roles?: ("MEMBER" | "PREMIUM" | "MODERATOR" | "ANIME_MODERATOR" | "MANGA_MODERATOR" | "CHARACTER_MODERATOR" | "PERSON_MODERATOR" | "TRACK_MODERATOR" | "COMPANY_MODERATOR" | "ADMINISTRATOR" | "ACTUNIME")[] | undefined;
     }>;
-    note: z.ZodOptional<z.ZodString>;
-}, "strip", z.ZodTypeAny, {
+}>, "strip", z.ZodTypeAny, {
     data: {
-        avatar?: {
-            label?: "COVER" | "BANNER" | "AVATAR" | "LOGO" | undefined;
+        displayName: string;
+        options?: {
+            displayUnverified?: boolean | undefined;
+        } | undefined;
+        banner?: {
             id?: string | undefined;
+            label?: "COVER" | "BANNER" | "AVATAR" | "LOGO" | undefined;
             newImage?: {
                 value: string;
                 label: "COVER" | "BANNER" | "AVATAR" | "LOGO";
             } | undefined;
         } | undefined;
         description?: string | undefined;
-        banner?: {
-            label?: "COVER" | "BANNER" | "AVATAR" | "LOGO" | undefined;
+        avatar?: {
             id?: string | undefined;
+            label?: "COVER" | "BANNER" | "AVATAR" | "LOGO" | undefined;
             newImage?: {
                 value: string;
                 label: "COVER" | "BANNER" | "AVATAR" | "LOGO";
             } | undefined;
         } | undefined;
-        username?: string | undefined;
-        displayName?: string | undefined;
-        roles?: ("MEMBER" | "PREMIUM" | "MODERATOR" | "ANIME_MODERATOR" | "MANGA_MODERATOR" | "CHARACTER_MODERATOR" | "PERSON_MODERATOR" | "TRACK_MODERATOR" | "COMPANY_MODERATOR" | "ADMINISTRATOR" | "ACTUNIME")[] | undefined;
     };
-    note?: string | undefined;
+    reason?: string | undefined;
+    description?: string | undefined;
 }, {
     data: {
-        avatar?: {
-            label?: "COVER" | "BANNER" | "AVATAR" | "LOGO" | undefined;
+        displayName: string;
+        options?: {
+            displayUnverified?: boolean | undefined;
+        } | undefined;
+        banner?: {
             id?: string | undefined;
+            label?: "COVER" | "BANNER" | "AVATAR" | "LOGO" | undefined;
             newImage?: {
                 value: string;
                 label: "COVER" | "BANNER" | "AVATAR" | "LOGO";
             } | undefined;
         } | undefined;
         description?: string | undefined;
-        banner?: {
-            label?: "COVER" | "BANNER" | "AVATAR" | "LOGO" | undefined;
+        avatar?: {
             id?: string | undefined;
+            label?: "COVER" | "BANNER" | "AVATAR" | "LOGO" | undefined;
             newImage?: {
                 value: string;
                 label: "COVER" | "BANNER" | "AVATAR" | "LOGO";
             } | undefined;
         } | undefined;
-        username?: string | undefined;
-        displayName?: string | undefined;
-        roles?: ("MEMBER" | "PREMIUM" | "MODERATOR" | "ANIME_MODERATOR" | "MANGA_MODERATOR" | "CHARACTER_MODERATOR" | "PERSON_MODERATOR" | "TRACK_MODERATOR" | "COMPANY_MODERATOR" | "ADMINISTRATOR" | "ACTUNIME")[] | undefined;
     };
-    note?: string | undefined;
+    reason?: string | undefined;
+    description?: string | undefined;
 }>;
-export type IPatch_User_ZOD_FORM = z.infer<typeof Patch_User_ZOD_FORM>;
-export declare const Disable_User_ZOD_FORM: z.ZodObject<{
-    reason: z.ZodString;
-    note: z.ZodOptional<z.ZodString>;
+export type IUserCreateBody = z.infer<typeof UserCreateBody>;
+export declare const UserAddBody: z.ZodObject<{
+    id: z.ZodString;
 }, "strip", z.ZodTypeAny, {
-    reason: string;
-    note?: string | undefined;
+    id: string;
 }, {
-    reason: string;
-    note?: string | undefined;
+    id: string;
 }>;
-export type IDisable_User_ZOD_FORM = z.infer<typeof Disable_User_ZOD_FORM>;
-export declare const Create_User_ZOD: any;
-export declare const UserDataToZOD: (data: IUser) => Partial<IPatch_User_ZOD>;
+export type IUserAddBody = z.infer<typeof UserAddBody>;
+export declare const UserDataToZOD: (data: IUser) => Partial<IUserCreateBody>;
 export declare const UserAnimeListe_ZOD: z.ZodObject<{
     id: z.ZodString;
     episode: z.ZodOptional<z.ZodEffects<z.ZodUnion<[z.ZodNumber, z.ZodString]>, number, string | number>>;

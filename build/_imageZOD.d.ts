@@ -5,26 +5,26 @@ export declare const ImageQueryBody: z.ZodObject<{
     createdAt: z.ZodString;
     updatedAt: z.ZodString;
 }, "strip", z.ZodTypeAny, {
-    label: "COVER" | "BANNER" | "AVATAR" | "LOGO";
     createdAt: string;
     updatedAt: string;
+    label: "COVER" | "BANNER" | "AVATAR" | "LOGO";
 }, {
-    label: "COVER" | "BANNER" | "AVATAR" | "LOGO";
     createdAt: string;
     updatedAt: string;
+    label: "COVER" | "BANNER" | "AVATAR" | "LOGO";
 }>;
 export declare const ImageSortBody: z.ZodObject<{
     label: z.ZodEffects<z.ZodEffects<z.ZodUnion<[z.ZodNumber, z.ZodString]>, number, string | number>, number, string | number>;
     createdAt: z.ZodEffects<z.ZodEffects<z.ZodUnion<[z.ZodNumber, z.ZodString]>, number, string | number>, number, string | number>;
     updatedAt: z.ZodEffects<z.ZodEffects<z.ZodUnion<[z.ZodNumber, z.ZodString]>, number, string | number>, number, string | number>;
 }, "strip", z.ZodTypeAny, {
-    label: number;
     createdAt: number;
     updatedAt: number;
+    label: number;
 }, {
-    label: string | number;
     createdAt: string | number;
     updatedAt: string | number;
+    label: string | number;
 }>;
 export declare const ImagePaginationBody: z.ZodObject<{
     page: z.ZodOptional<z.ZodNumber>;
@@ -36,26 +36,26 @@ export declare const ImagePaginationBody: z.ZodObject<{
         createdAt: z.ZodOptional<z.ZodEffects<z.ZodEffects<z.ZodUnion<[z.ZodNumber, z.ZodString]>, number, string | number>, number, string | number>>;
         updatedAt: z.ZodOptional<z.ZodEffects<z.ZodEffects<z.ZodUnion<[z.ZodNumber, z.ZodString]>, number, string | number>, number, string | number>>;
     }, "strip", z.ZodTypeAny, {
-        label?: number | undefined;
         createdAt?: number | undefined;
         updatedAt?: number | undefined;
+        label?: number | undefined;
     }, {
-        label?: string | number | undefined;
         createdAt?: string | number | undefined;
         updatedAt?: string | number | undefined;
+        label?: string | number | undefined;
     }>>;
     query: z.ZodOptional<z.ZodObject<{
         label: z.ZodOptional<z.ZodEnum<("COVER" | "BANNER" | "AVATAR" | "LOGO")[] & [string, ...string[]]>>;
         createdAt: z.ZodOptional<z.ZodString>;
         updatedAt: z.ZodOptional<z.ZodString>;
     }, "strip", z.ZodTypeAny, {
-        label?: "COVER" | "BANNER" | "AVATAR" | "LOGO" | undefined;
         createdAt?: string | undefined;
         updatedAt?: string | undefined;
+        label?: "COVER" | "BANNER" | "AVATAR" | "LOGO" | undefined;
     }, {
-        label?: "COVER" | "BANNER" | "AVATAR" | "LOGO" | undefined;
         createdAt?: string | undefined;
         updatedAt?: string | undefined;
+        label?: "COVER" | "BANNER" | "AVATAR" | "LOGO" | undefined;
     }>>;
     from: z.ZodOptional<z.ZodObject<{
         id: z.ZodString;
@@ -69,18 +69,18 @@ export declare const ImagePaginationBody: z.ZodObject<{
     }>>;
 }, "strip", z.ZodTypeAny, {
     sort?: {
-        label?: number | undefined;
         createdAt?: number | undefined;
         updatedAt?: number | undefined;
+        label?: number | undefined;
     } | undefined;
     page?: number | undefined;
     limit?: number | undefined;
     strict?: boolean | undefined;
     onlyVerified?: boolean | undefined;
     query?: {
-        label?: "COVER" | "BANNER" | "AVATAR" | "LOGO" | undefined;
         createdAt?: string | undefined;
         updatedAt?: string | undefined;
+        label?: "COVER" | "BANNER" | "AVATAR" | "LOGO" | undefined;
     } | undefined;
     from?: {
         path: "User" | "Groupe" | "Manga" | "Anime" | "Person" | "Character" | "Track" | "Company" | "Image" | "Patch" | "Activity" | "Report";
@@ -88,18 +88,18 @@ export declare const ImagePaginationBody: z.ZodObject<{
     } | undefined;
 }, {
     sort?: {
-        label?: string | number | undefined;
         createdAt?: string | number | undefined;
         updatedAt?: string | number | undefined;
+        label?: string | number | undefined;
     } | undefined;
     page?: number | undefined;
     limit?: number | undefined;
     strict?: boolean | undefined;
     onlyVerified?: boolean | undefined;
     query?: {
-        label?: "COVER" | "BANNER" | "AVATAR" | "LOGO" | undefined;
         createdAt?: string | undefined;
         updatedAt?: string | undefined;
+        label?: "COVER" | "BANNER" | "AVATAR" | "LOGO" | undefined;
     } | undefined;
     from?: {
         path: "User" | "Groupe" | "Manga" | "Anime" | "Person" | "Character" | "Track" | "Company" | "Image" | "Patch" | "Activity" | "Report";
@@ -111,11 +111,11 @@ export declare const ImageBody: z.ZodObject<{
     label: z.ZodEnum<("COVER" | "BANNER" | "AVATAR" | "LOGO")[] & [string, ...string[]]>;
     value: z.ZodString;
 }, "strip", z.ZodTypeAny, {
-    label: "COVER" | "BANNER" | "AVATAR" | "LOGO";
     value: string;
+    label: "COVER" | "BANNER" | "AVATAR" | "LOGO";
 }, {
-    label: "COVER" | "BANNER" | "AVATAR" | "LOGO";
     value: string;
+    label: "COVER" | "BANNER" | "AVATAR" | "LOGO";
 }>;
 export type IImageBody = z.infer<typeof ImageBody>;
 export declare const ImageCreateBody: z.ZodObject<z.objectUtil.extendShape<{
@@ -126,26 +126,26 @@ export declare const ImageCreateBody: z.ZodObject<z.objectUtil.extendShape<{
         label: z.ZodEnum<("COVER" | "BANNER" | "AVATAR" | "LOGO")[] & [string, ...string[]]>;
         value: z.ZodString;
     }, "strip", z.ZodTypeAny, {
-        label: "COVER" | "BANNER" | "AVATAR" | "LOGO";
         value: string;
+        label: "COVER" | "BANNER" | "AVATAR" | "LOGO";
     }, {
-        label: "COVER" | "BANNER" | "AVATAR" | "LOGO";
         value: string;
+        label: "COVER" | "BANNER" | "AVATAR" | "LOGO";
     }>;
 }>, "strip", z.ZodTypeAny, {
     data: {
-        label: "COVER" | "BANNER" | "AVATAR" | "LOGO";
         value: string;
+        label: "COVER" | "BANNER" | "AVATAR" | "LOGO";
     };
-    description?: string | undefined;
     reason?: string | undefined;
+    description?: string | undefined;
 }, {
     data: {
-        label: "COVER" | "BANNER" | "AVATAR" | "LOGO";
         value: string;
+        label: "COVER" | "BANNER" | "AVATAR" | "LOGO";
     };
-    description?: string | undefined;
     reason?: string | undefined;
+    description?: string | undefined;
 }>;
 export type IImageCreateBody = z.infer<typeof ImageCreateBody>;
 export declare const ImageAddBody: z.ZodObject<{
@@ -155,29 +155,29 @@ export declare const ImageAddBody: z.ZodObject<{
         label: z.ZodEnum<("COVER" | "BANNER" | "AVATAR" | "LOGO")[] & [string, ...string[]]>;
         value: z.ZodString;
     }, "strip", z.ZodTypeAny, {
-        label: "COVER" | "BANNER" | "AVATAR" | "LOGO";
         value: string;
+        label: "COVER" | "BANNER" | "AVATAR" | "LOGO";
     }, {
-        label: "COVER" | "BANNER" | "AVATAR" | "LOGO";
         value: string;
+        label: "COVER" | "BANNER" | "AVATAR" | "LOGO";
     }>>;
 }, "strip", z.ZodTypeAny, {
-    label?: "COVER" | "BANNER" | "AVATAR" | "LOGO" | undefined;
     id?: string | undefined;
+    label?: "COVER" | "BANNER" | "AVATAR" | "LOGO" | undefined;
     newImage?: {
-        label: "COVER" | "BANNER" | "AVATAR" | "LOGO";
         value: string;
+        label: "COVER" | "BANNER" | "AVATAR" | "LOGO";
     } | undefined;
 }, {
-    label?: "COVER" | "BANNER" | "AVATAR" | "LOGO" | undefined;
     id?: string | undefined;
+    label?: "COVER" | "BANNER" | "AVATAR" | "LOGO" | undefined;
     newImage?: {
-        label: "COVER" | "BANNER" | "AVATAR" | "LOGO";
         value: string;
+        label: "COVER" | "BANNER" | "AVATAR" | "LOGO";
     } | undefined;
 }>;
 export type IImageAddBody = z.infer<typeof ImageAddBody>;
 export declare const ImageDataToZOD: (data: IImageFull) => {
-    label: "COVER" | "BANNER" | "AVATAR" | "LOGO";
     value: string;
+    label: "COVER" | "BANNER" | "AVATAR" | "LOGO";
 } | undefined;

@@ -17,7 +17,5 @@ export * from './_personZOD';
 export * from './_reportZOD';
 export * from './_trackZOD';
 export * from './_updateZOD';
-export * from './_user.profileZOD';
 export * from './_userZOD';
 export * from './_util';
-export * from './_user.preferencesZOD';
