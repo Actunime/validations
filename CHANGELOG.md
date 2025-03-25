@@ -1,3 +1,10 @@
+## [1.0.33](https://github.com/Actunime/validations/compare/v1.0.32...v1.0.33) (2025-03-25)
+
+
+### Bug Fixes
+
+* types & user ([cd2f906](https://github.com/Actunime/validations/commit/cd2f906a488bccca41380392219750f1a4139aec))
+
 ## [1.0.32](https://github.com/Actunime/validations/compare/v1.0.31...v1.0.32) (2025-03-25)
 
 
