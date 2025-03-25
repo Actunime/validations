@@ -54,7 +54,7 @@ export const AnimeBody = z
     .object({
     groupe: GroupeAddBody,
     parent: z.optional(AnimeAddBody),
-    manga: z.optional(MangaAddBody.partial()),
+    manga: z.optional(MangaAddBody),
     source: z.optional(z.enum(MediaSourceArray)),
     title: MediaTitleBody,
     date: z.optional(MediaDateBody.partial()),
