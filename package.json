@@ -45,7 +45,7 @@
     "typescript-eslint": "^8.26.0"
   },
   "dependencies": {
-    "@actunime/types": "^1.0.49",
+    "@actunime/types": "^1.0.50",
     "@actunime/utils": "^1.0.11",
     "flat": "^6.0.1",
     "zod": "^3.24.2"

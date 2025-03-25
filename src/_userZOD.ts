@@ -53,6 +53,20 @@ export const UserCreateBody = PatchParamsBody.partial().extend({
 
 export type IUserCreateBody = z.infer<typeof UserCreateBody>;
 
+export const UserClientBody = UserBody.extend({
+  accountId: z.string(),
+  username: z.string(),
+  roles: z.array(z.string()),
+});
+
+export type IUserClientBody = z.infer<typeof UserClientBody>;
+
+export const UserClientCreateBody = PatchParamsBody.partial().extend({
+  data: UserBody,
+});
+
+export type IUserClientCreateBody = z.infer<typeof UserClientCreateBody>;
+
 export const UserAddBody = z.object({
   id: z.string(),
 });

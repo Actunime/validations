@@ -36,6 +36,14 @@ export const UserBody = z.object({
 export const UserCreateBody = PatchParamsBody.partial().extend({
     data: UserBody,
 });
+export const UserClientBody = UserBody.extend({
+    accountId: z.string(),
+    username: z.string(),
+    roles: z.array(z.string()),
+});
+export const UserClientCreateBody = PatchParamsBody.partial().extend({
+    data: UserBody,
+});
 export const UserAddBody = z.object({
     id: z.string(),
 });
