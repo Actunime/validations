@@ -1,3 +1,10 @@
+## [1.0.36](https://github.com/Actunime/validations/compare/v1.0.35...v1.0.36) (2025-03-29)
+
+
+### Bug Fixes
+
+* divers ([7370609](https://github.com/Actunime/validations/commit/73706096f6130853439e6900faeed9a44cf6c61d))
+
 ## [1.0.35](https://github.com/Actunime/validations/compare/v1.0.34...v1.0.35) (2025-03-25)
 
 
