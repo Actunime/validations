@@ -1,3 +1,10 @@
+## [1.0.35](https://github.com/Actunime/validations/compare/v1.0.34...v1.0.35) (2025-03-25)
+
+
+### Bug Fixes
+
+* add UserClientCreateBody ([6de629a](https://github.com/Actunime/validations/commit/6de629afaf43789191e08aae2e6e315a271468ad))
+
 ## [1.0.34](https://github.com/Actunime/validations/compare/v1.0.33...v1.0.34) (2025-03-25)
 
 
