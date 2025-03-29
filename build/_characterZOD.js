@@ -39,7 +39,7 @@ export const CharacterBody = z.object({
     species: z.optional(z.enum(CharacterSpeciesArray)),
     description: z.optional(z.string()),
     avatar: z.optional(ImageAddBody),
-    actors: z.optional(z.array(PersonAddBody)),
+    actors: z.optional(z.array(PersonAddBody.omit({ role: true }))),
 });
 export const CharacterCreateBody = PatchParamsBody.partial().extend({
     data: CharacterBody,

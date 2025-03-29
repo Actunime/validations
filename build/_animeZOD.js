@@ -205,7 +205,7 @@ export const AnimeDataToZOD = (data) => {
         date: data.date,
         status: data.status,
         format: data.format,
-        vf: data.vf || false,
+        vf: data.vf,
         episodes: data.episodes,
         adult: data.adult || false,
         trailer: data.trailer,
