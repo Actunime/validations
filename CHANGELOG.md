@@ -1,3 +1,10 @@
+## [1.0.40](https://github.com/Actunime/validations/compare/v1.0.39...v1.0.40) (2025-03-30)
+
+
+### Bug Fixes
+
+* add image targetPath in image validation ([09b4348](https://github.com/Actunime/validations/commit/09b434805a5b353199f9254d6551307def341b82))
+
 ## [1.0.39](https://github.com/Actunime/validations/compare/v1.0.38...v1.0.39) (2025-03-30)
 
 
