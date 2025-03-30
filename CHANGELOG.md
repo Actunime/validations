@@ -1,3 +1,11 @@
+## [1.0.39](https://github.com/Actunime/validations/compare/v1.0.38...v1.0.39) (2025-03-30)
+
+
+### Bug Fixes
+
+* manga remvoe durationMinute on chapter ([6de6f75](https://github.com/Actunime/validations/commit/6de6f7538bf98fbb948b06fbce6047189893a7c1))
+* manga remvoe durationMinute on chapter ([1642bd1](https://github.com/Actunime/validations/commit/1642bd12d1873f16f9bbd0b1065356b6fcfb004f))
+
 ## [1.0.38](https://github.com/Actunime/validations/compare/v1.0.37...v1.0.38) (2025-03-30)
 
 
