@@ -18,14 +18,17 @@ export declare const Inscription_Zod_Schema: z.ZodObject<{
             id: z.ZodOptional<z.ZodString>;
             label: z.ZodOptional<z.ZodEnum<("COVER" | "BANNER" | "AVATAR" | "LOGO")[] & [string, ...string[]]>>;
             newImage: z.ZodOptional<z.ZodObject<{
-                label: z.ZodEnum<("COVER" | "BANNER" | "AVATAR" | "LOGO")[] & [string, ...string[]]>;
                 value: z.ZodString;
+                targetPath: z.ZodOptional<z.ZodEnum<("User" | "Groupe" | "Manga" | "Anime" | "Person" | "Character" | "Track" | "Company" | "Image" | "Patch" | "Activity" | "Report")[] & [string, ...string[]]>>;
+                label: z.ZodEnum<("COVER" | "BANNER" | "AVATAR" | "LOGO")[] & [string, ...string[]]>;
             }, "strip", z.ZodTypeAny, {
                 value: string;
                 label: "COVER" | "BANNER" | "AVATAR" | "LOGO";
+                targetPath?: "User" | "Groupe" | "Manga" | "Anime" | "Person" | "Character" | "Track" | "Company" | "Image" | "Patch" | "Activity" | "Report" | undefined;
             }, {
                 value: string;
                 label: "COVER" | "BANNER" | "AVATAR" | "LOGO";
+                targetPath?: "User" | "Groupe" | "Manga" | "Anime" | "Person" | "Character" | "Track" | "Company" | "Image" | "Patch" | "Activity" | "Report" | undefined;
             }>>;
         }, "strip", z.ZodTypeAny, {
             id?: string | undefined;
@@ -33,6 +36,7 @@ export declare const Inscription_Zod_Schema: z.ZodObject<{
             newImage?: {
                 value: string;
                 label: "COVER" | "BANNER" | "AVATAR" | "LOGO";
+                targetPath?: "User" | "Groupe" | "Manga" | "Anime" | "Person" | "Character" | "Track" | "Company" | "Image" | "Patch" | "Activity" | "Report" | undefined;
             } | undefined;
         }, {
             id?: string | undefined;
@@ -40,20 +44,24 @@ export declare const Inscription_Zod_Schema: z.ZodObject<{
             newImage?: {
                 value: string;
                 label: "COVER" | "BANNER" | "AVATAR" | "LOGO";
+                targetPath?: "User" | "Groupe" | "Manga" | "Anime" | "Person" | "Character" | "Track" | "Company" | "Image" | "Patch" | "Activity" | "Report" | undefined;
             } | undefined;
         }>>;
         banner: z.ZodOptional<z.ZodObject<{
             id: z.ZodOptional<z.ZodString>;
             label: z.ZodOptional<z.ZodEnum<("COVER" | "BANNER" | "AVATAR" | "LOGO")[] & [string, ...string[]]>>;
             newImage: z.ZodOptional<z.ZodObject<{
-                label: z.ZodEnum<("COVER" | "BANNER" | "AVATAR" | "LOGO")[] & [string, ...string[]]>;
                 value: z.ZodString;
+                targetPath: z.ZodOptional<z.ZodEnum<("User" | "Groupe" | "Manga" | "Anime" | "Person" | "Character" | "Track" | "Company" | "Image" | "Patch" | "Activity" | "Report")[] & [string, ...string[]]>>;
+                label: z.ZodEnum<("COVER" | "BANNER" | "AVATAR" | "LOGO")[] & [string, ...string[]]>;
             }, "strip", z.ZodTypeAny, {
                 value: string;
                 label: "COVER" | "BANNER" | "AVATAR" | "LOGO";
+                targetPath?: "User" | "Groupe" | "Manga" | "Anime" | "Person" | "Character" | "Track" | "Company" | "Image" | "Patch" | "Activity" | "Report" | undefined;
             }, {
                 value: string;
                 label: "COVER" | "BANNER" | "AVATAR" | "LOGO";
+                targetPath?: "User" | "Groupe" | "Manga" | "Anime" | "Person" | "Character" | "Track" | "Company" | "Image" | "Patch" | "Activity" | "Report" | undefined;
             }>>;
         }, "strip", z.ZodTypeAny, {
             id?: string | undefined;
@@ -61,6 +69,7 @@ export declare const Inscription_Zod_Schema: z.ZodObject<{
             newImage?: {
                 value: string;
                 label: "COVER" | "BANNER" | "AVATAR" | "LOGO";
+                targetPath?: "User" | "Groupe" | "Manga" | "Anime" | "Person" | "Character" | "Track" | "Company" | "Image" | "Patch" | "Activity" | "Report" | undefined;
             } | undefined;
         }, {
             id?: string | undefined;
@@ -68,6 +77,7 @@ export declare const Inscription_Zod_Schema: z.ZodObject<{
             newImage?: {
                 value: string;
                 label: "COVER" | "BANNER" | "AVATAR" | "LOGO";
+                targetPath?: "User" | "Groupe" | "Manga" | "Anime" | "Person" | "Character" | "Track" | "Company" | "Image" | "Patch" | "Activity" | "Report" | undefined;
             } | undefined;
         }>>;
     }, "strip", z.ZodTypeAny, {
@@ -79,6 +89,7 @@ export declare const Inscription_Zod_Schema: z.ZodObject<{
             newImage?: {
                 value: string;
                 label: "COVER" | "BANNER" | "AVATAR" | "LOGO";
+                targetPath?: "User" | "Groupe" | "Manga" | "Anime" | "Person" | "Character" | "Track" | "Company" | "Image" | "Patch" | "Activity" | "Report" | undefined;
             } | undefined;
         } | undefined;
         description?: string | undefined;
@@ -88,6 +99,7 @@ export declare const Inscription_Zod_Schema: z.ZodObject<{
             newImage?: {
                 value: string;
                 label: "COVER" | "BANNER" | "AVATAR" | "LOGO";
+                targetPath?: "User" | "Groupe" | "Manga" | "Anime" | "Person" | "Character" | "Track" | "Company" | "Image" | "Patch" | "Activity" | "Report" | undefined;
             } | undefined;
         } | undefined;
     }, {
@@ -99,6 +111,7 @@ export declare const Inscription_Zod_Schema: z.ZodObject<{
             newImage?: {
                 value: string;
                 label: "COVER" | "BANNER" | "AVATAR" | "LOGO";
+                targetPath?: "User" | "Groupe" | "Manga" | "Anime" | "Person" | "Character" | "Track" | "Company" | "Image" | "Patch" | "Activity" | "Report" | undefined;
             } | undefined;
         } | undefined;
         description?: string | undefined;
@@ -108,6 +121,7 @@ export declare const Inscription_Zod_Schema: z.ZodObject<{
             newImage?: {
                 value: string;
                 label: "COVER" | "BANNER" | "AVATAR" | "LOGO";
+                targetPath?: "User" | "Groupe" | "Manga" | "Anime" | "Person" | "Character" | "Track" | "Company" | "Image" | "Patch" | "Activity" | "Report" | undefined;
             } | undefined;
         } | undefined;
     }>;
@@ -126,6 +140,7 @@ export declare const Inscription_Zod_Schema: z.ZodObject<{
             newImage?: {
                 value: string;
                 label: "COVER" | "BANNER" | "AVATAR" | "LOGO";
+                targetPath?: "User" | "Groupe" | "Manga" | "Anime" | "Person" | "Character" | "Track" | "Company" | "Image" | "Patch" | "Activity" | "Report" | undefined;
             } | undefined;
         } | undefined;
         description?: string | undefined;
@@ -135,6 +150,7 @@ export declare const Inscription_Zod_Schema: z.ZodObject<{
             newImage?: {
                 value: string;
                 label: "COVER" | "BANNER" | "AVATAR" | "LOGO";
+                targetPath?: "User" | "Groupe" | "Manga" | "Anime" | "Person" | "Character" | "Track" | "Company" | "Image" | "Patch" | "Activity" | "Report" | undefined;
             } | undefined;
         } | undefined;
     };
@@ -153,6 +169,7 @@ export declare const Inscription_Zod_Schema: z.ZodObject<{
             newImage?: {
                 value: string;
                 label: "COVER" | "BANNER" | "AVATAR" | "LOGO";
+                targetPath?: "User" | "Groupe" | "Manga" | "Anime" | "Person" | "Character" | "Track" | "Company" | "Image" | "Patch" | "Activity" | "Report" | undefined;
             } | undefined;
         } | undefined;
         description?: string | undefined;
@@ -162,6 +179,7 @@ export declare const Inscription_Zod_Schema: z.ZodObject<{
             newImage?: {
                 value: string;
                 label: "COVER" | "BANNER" | "AVATAR" | "LOGO";
+                targetPath?: "User" | "Groupe" | "Manga" | "Anime" | "Person" | "Character" | "Track" | "Company" | "Image" | "Patch" | "Activity" | "Report" | undefined;
             } | undefined;
         } | undefined;
     };

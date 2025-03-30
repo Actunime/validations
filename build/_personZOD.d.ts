@@ -17,11 +17,14 @@ export declare const PersonQueryBody: z.ZodObject<{
     avatar: z.ZodObject<{
         label: z.ZodOptional<z.ZodEnum<("COVER" | "BANNER" | "AVATAR" | "LOGO")[] & [string, ...string[]]>>;
         value: z.ZodOptional<z.ZodString>;
+        targetPath: z.ZodOptional<z.ZodEnum<("User" | "Groupe" | "Manga" | "Anime" | "Person" | "Character" | "Track" | "Company" | "Image" | "Patch" | "Activity" | "Report")[] & [string, ...string[]]>>;
     }, "strip", z.ZodTypeAny, {
         value?: string | undefined;
+        targetPath?: "User" | "Groupe" | "Manga" | "Anime" | "Person" | "Character" | "Track" | "Company" | "Image" | "Patch" | "Activity" | "Report" | undefined;
         label?: "COVER" | "BANNER" | "AVATAR" | "LOGO" | undefined;
     }, {
         value?: string | undefined;
+        targetPath?: "User" | "Groupe" | "Manga" | "Anime" | "Person" | "Character" | "Track" | "Company" | "Image" | "Patch" | "Activity" | "Report" | undefined;
         label?: "COVER" | "BANNER" | "AVATAR" | "LOGO" | undefined;
     }>;
     links: z.ZodObject<{
@@ -48,6 +51,7 @@ export declare const PersonQueryBody: z.ZodObject<{
     deathDate: string;
     avatar: {
         value?: string | undefined;
+        targetPath?: "User" | "Groupe" | "Manga" | "Anime" | "Person" | "Character" | "Track" | "Company" | "Image" | "Patch" | "Activity" | "Report" | undefined;
         label?: "COVER" | "BANNER" | "AVATAR" | "LOGO" | undefined;
     };
     links: {
@@ -66,6 +70,7 @@ export declare const PersonQueryBody: z.ZodObject<{
     deathDate: string;
     avatar: {
         value?: string | undefined;
+        targetPath?: "User" | "Groupe" | "Manga" | "Anime" | "Person" | "Character" | "Track" | "Company" | "Image" | "Patch" | "Activity" | "Report" | undefined;
         label?: "COVER" | "BANNER" | "AVATAR" | "LOGO" | undefined;
     };
     links: {
@@ -133,11 +138,14 @@ export declare const PersonPaginationBody: z.ZodObject<{
         avatar: z.ZodOptional<z.ZodObject<{
             label: z.ZodOptional<z.ZodEnum<("COVER" | "BANNER" | "AVATAR" | "LOGO")[] & [string, ...string[]]>>;
             value: z.ZodOptional<z.ZodString>;
+            targetPath: z.ZodOptional<z.ZodEnum<("User" | "Groupe" | "Manga" | "Anime" | "Person" | "Character" | "Track" | "Company" | "Image" | "Patch" | "Activity" | "Report")[] & [string, ...string[]]>>;
         }, "strip", z.ZodTypeAny, {
             value?: string | undefined;
+            targetPath?: "User" | "Groupe" | "Manga" | "Anime" | "Person" | "Character" | "Track" | "Company" | "Image" | "Patch" | "Activity" | "Report" | undefined;
             label?: "COVER" | "BANNER" | "AVATAR" | "LOGO" | undefined;
         }, {
             value?: string | undefined;
+            targetPath?: "User" | "Groupe" | "Manga" | "Anime" | "Person" | "Character" | "Track" | "Company" | "Image" | "Patch" | "Activity" | "Report" | undefined;
             label?: "COVER" | "BANNER" | "AVATAR" | "LOGO" | undefined;
         }>>;
         links: z.ZodOptional<z.ZodObject<{
@@ -164,6 +172,7 @@ export declare const PersonPaginationBody: z.ZodObject<{
         deathDate?: string | undefined;
         avatar?: {
             value?: string | undefined;
+            targetPath?: "User" | "Groupe" | "Manga" | "Anime" | "Person" | "Character" | "Track" | "Company" | "Image" | "Patch" | "Activity" | "Report" | undefined;
             label?: "COVER" | "BANNER" | "AVATAR" | "LOGO" | undefined;
         } | undefined;
         links?: {
@@ -182,6 +191,7 @@ export declare const PersonPaginationBody: z.ZodObject<{
         deathDate?: string | undefined;
         avatar?: {
             value?: string | undefined;
+            targetPath?: "User" | "Groupe" | "Manga" | "Anime" | "Person" | "Character" | "Track" | "Company" | "Image" | "Patch" | "Activity" | "Report" | undefined;
             label?: "COVER" | "BANNER" | "AVATAR" | "LOGO" | undefined;
         } | undefined;
         links?: {
@@ -223,6 +233,7 @@ export declare const PersonPaginationBody: z.ZodObject<{
         deathDate?: string | undefined;
         avatar?: {
             value?: string | undefined;
+            targetPath?: "User" | "Groupe" | "Manga" | "Anime" | "Person" | "Character" | "Track" | "Company" | "Image" | "Patch" | "Activity" | "Report" | undefined;
             label?: "COVER" | "BANNER" | "AVATAR" | "LOGO" | undefined;
         } | undefined;
         links?: {
@@ -258,6 +269,7 @@ export declare const PersonPaginationBody: z.ZodObject<{
         deathDate?: string | undefined;
         avatar?: {
             value?: string | undefined;
+            targetPath?: "User" | "Groupe" | "Manga" | "Anime" | "Person" | "Character" | "Track" | "Company" | "Image" | "Patch" | "Activity" | "Report" | undefined;
             label?: "COVER" | "BANNER" | "AVATAR" | "LOGO" | undefined;
         } | undefined;
         links?: {
@@ -332,14 +344,17 @@ export declare const PersonBody: z.ZodObject<{
         id: z.ZodOptional<z.ZodString>;
         label: z.ZodOptional<z.ZodEnum<("COVER" | "BANNER" | "AVATAR" | "LOGO")[] & [string, ...string[]]>>;
         newImage: z.ZodOptional<z.ZodObject<{
-            label: z.ZodEnum<("COVER" | "BANNER" | "AVATAR" | "LOGO")[] & [string, ...string[]]>;
             value: z.ZodString;
+            targetPath: z.ZodOptional<z.ZodEnum<("User" | "Groupe" | "Manga" | "Anime" | "Person" | "Character" | "Track" | "Company" | "Image" | "Patch" | "Activity" | "Report")[] & [string, ...string[]]>>;
+            label: z.ZodEnum<("COVER" | "BANNER" | "AVATAR" | "LOGO")[] & [string, ...string[]]>;
         }, "strip", z.ZodTypeAny, {
             value: string;
             label: "COVER" | "BANNER" | "AVATAR" | "LOGO";
+            targetPath?: "User" | "Groupe" | "Manga" | "Anime" | "Person" | "Character" | "Track" | "Company" | "Image" | "Patch" | "Activity" | "Report" | undefined;
         }, {
             value: string;
             label: "COVER" | "BANNER" | "AVATAR" | "LOGO";
+            targetPath?: "User" | "Groupe" | "Manga" | "Anime" | "Person" | "Character" | "Track" | "Company" | "Image" | "Patch" | "Activity" | "Report" | undefined;
         }>>;
     }, "strip", z.ZodTypeAny, {
         id?: string | undefined;
@@ -347,6 +362,7 @@ export declare const PersonBody: z.ZodObject<{
         newImage?: {
             value: string;
             label: "COVER" | "BANNER" | "AVATAR" | "LOGO";
+            targetPath?: "User" | "Groupe" | "Manga" | "Anime" | "Person" | "Character" | "Track" | "Company" | "Image" | "Patch" | "Activity" | "Report" | undefined;
         } | undefined;
     }, {
         id?: string | undefined;
@@ -354,6 +370,7 @@ export declare const PersonBody: z.ZodObject<{
         newImage?: {
             value: string;
             label: "COVER" | "BANNER" | "AVATAR" | "LOGO";
+            targetPath?: "User" | "Groupe" | "Manga" | "Anime" | "Person" | "Character" | "Track" | "Company" | "Image" | "Patch" | "Activity" | "Report" | undefined;
         } | undefined;
     }>>;
     links: z.ZodOptional<z.ZodArray<z.ZodObject<{
@@ -395,6 +412,7 @@ export declare const PersonBody: z.ZodObject<{
         newImage?: {
             value: string;
             label: "COVER" | "BANNER" | "AVATAR" | "LOGO";
+            targetPath?: "User" | "Groupe" | "Manga" | "Anime" | "Person" | "Character" | "Track" | "Company" | "Image" | "Patch" | "Activity" | "Report" | undefined;
         } | undefined;
     } | undefined;
     links?: {
@@ -430,6 +448,7 @@ export declare const PersonBody: z.ZodObject<{
         newImage?: {
             value: string;
             label: "COVER" | "BANNER" | "AVATAR" | "LOGO";
+            targetPath?: "User" | "Groupe" | "Manga" | "Anime" | "Person" | "Character" | "Track" | "Company" | "Image" | "Patch" | "Activity" | "Report" | undefined;
         } | undefined;
     } | undefined;
     links?: {
@@ -503,14 +522,17 @@ export declare const PersonCreateBody: z.ZodObject<z.objectUtil.extendShape<{
             id: z.ZodOptional<z.ZodString>;
             label: z.ZodOptional<z.ZodEnum<("COVER" | "BANNER" | "AVATAR" | "LOGO")[] & [string, ...string[]]>>;
             newImage: z.ZodOptional<z.ZodObject<{
-                label: z.ZodEnum<("COVER" | "BANNER" | "AVATAR" | "LOGO")[] & [string, ...string[]]>;
                 value: z.ZodString;
+                targetPath: z.ZodOptional<z.ZodEnum<("User" | "Groupe" | "Manga" | "Anime" | "Person" | "Character" | "Track" | "Company" | "Image" | "Patch" | "Activity" | "Report")[] & [string, ...string[]]>>;
+                label: z.ZodEnum<("COVER" | "BANNER" | "AVATAR" | "LOGO")[] & [string, ...string[]]>;
             }, "strip", z.ZodTypeAny, {
                 value: string;
                 label: "COVER" | "BANNER" | "AVATAR" | "LOGO";
+                targetPath?: "User" | "Groupe" | "Manga" | "Anime" | "Person" | "Character" | "Track" | "Company" | "Image" | "Patch" | "Activity" | "Report" | undefined;
             }, {
                 value: string;
                 label: "COVER" | "BANNER" | "AVATAR" | "LOGO";
+                targetPath?: "User" | "Groupe" | "Manga" | "Anime" | "Person" | "Character" | "Track" | "Company" | "Image" | "Patch" | "Activity" | "Report" | undefined;
             }>>;
         }, "strip", z.ZodTypeAny, {
             id?: string | undefined;
@@ -518,6 +540,7 @@ export declare const PersonCreateBody: z.ZodObject<z.objectUtil.extendShape<{
             newImage?: {
                 value: string;
                 label: "COVER" | "BANNER" | "AVATAR" | "LOGO";
+                targetPath?: "User" | "Groupe" | "Manga" | "Anime" | "Person" | "Character" | "Track" | "Company" | "Image" | "Patch" | "Activity" | "Report" | undefined;
             } | undefined;
         }, {
             id?: string | undefined;
@@ -525,6 +548,7 @@ export declare const PersonCreateBody: z.ZodObject<z.objectUtil.extendShape<{
             newImage?: {
                 value: string;
                 label: "COVER" | "BANNER" | "AVATAR" | "LOGO";
+                targetPath?: "User" | "Groupe" | "Manga" | "Anime" | "Person" | "Character" | "Track" | "Company" | "Image" | "Patch" | "Activity" | "Report" | undefined;
             } | undefined;
         }>>;
         links: z.ZodOptional<z.ZodArray<z.ZodObject<{
@@ -566,6 +590,7 @@ export declare const PersonCreateBody: z.ZodObject<z.objectUtil.extendShape<{
             newImage?: {
                 value: string;
                 label: "COVER" | "BANNER" | "AVATAR" | "LOGO";
+                targetPath?: "User" | "Groupe" | "Manga" | "Anime" | "Person" | "Character" | "Track" | "Company" | "Image" | "Patch" | "Activity" | "Report" | undefined;
             } | undefined;
         } | undefined;
         links?: {
@@ -601,6 +626,7 @@ export declare const PersonCreateBody: z.ZodObject<z.objectUtil.extendShape<{
             newImage?: {
                 value: string;
                 label: "COVER" | "BANNER" | "AVATAR" | "LOGO";
+                targetPath?: "User" | "Groupe" | "Manga" | "Anime" | "Person" | "Character" | "Track" | "Company" | "Image" | "Patch" | "Activity" | "Report" | undefined;
             } | undefined;
         } | undefined;
         links?: {
@@ -638,6 +664,7 @@ export declare const PersonCreateBody: z.ZodObject<z.objectUtil.extendShape<{
             newImage?: {
                 value: string;
                 label: "COVER" | "BANNER" | "AVATAR" | "LOGO";
+                targetPath?: "User" | "Groupe" | "Manga" | "Anime" | "Person" | "Character" | "Track" | "Company" | "Image" | "Patch" | "Activity" | "Report" | undefined;
             } | undefined;
         } | undefined;
         links?: {
@@ -677,6 +704,7 @@ export declare const PersonCreateBody: z.ZodObject<z.objectUtil.extendShape<{
             newImage?: {
                 value: string;
                 label: "COVER" | "BANNER" | "AVATAR" | "LOGO";
+                targetPath?: "User" | "Groupe" | "Manga" | "Anime" | "Person" | "Character" | "Track" | "Company" | "Image" | "Patch" | "Activity" | "Report" | undefined;
             } | undefined;
         } | undefined;
         links?: {
@@ -751,14 +779,17 @@ export declare const PersonAddBody: z.ZodObject<{
             id: z.ZodOptional<z.ZodString>;
             label: z.ZodOptional<z.ZodEnum<("COVER" | "BANNER" | "AVATAR" | "LOGO")[] & [string, ...string[]]>>;
             newImage: z.ZodOptional<z.ZodObject<{
-                label: z.ZodEnum<("COVER" | "BANNER" | "AVATAR" | "LOGO")[] & [string, ...string[]]>;
                 value: z.ZodString;
+                targetPath: z.ZodOptional<z.ZodEnum<("User" | "Groupe" | "Manga" | "Anime" | "Person" | "Character" | "Track" | "Company" | "Image" | "Patch" | "Activity" | "Report")[] & [string, ...string[]]>>;
+                label: z.ZodEnum<("COVER" | "BANNER" | "AVATAR" | "LOGO")[] & [string, ...string[]]>;
             }, "strip", z.ZodTypeAny, {
                 value: string;
                 label: "COVER" | "BANNER" | "AVATAR" | "LOGO";
+                targetPath?: "User" | "Groupe" | "Manga" | "Anime" | "Person" | "Character" | "Track" | "Company" | "Image" | "Patch" | "Activity" | "Report" | undefined;
             }, {
                 value: string;
                 label: "COVER" | "BANNER" | "AVATAR" | "LOGO";
+                targetPath?: "User" | "Groupe" | "Manga" | "Anime" | "Person" | "Character" | "Track" | "Company" | "Image" | "Patch" | "Activity" | "Report" | undefined;
             }>>;
         }, "strip", z.ZodTypeAny, {
             id?: string | undefined;
@@ -766,6 +797,7 @@ export declare const PersonAddBody: z.ZodObject<{
             newImage?: {
                 value: string;
                 label: "COVER" | "BANNER" | "AVATAR" | "LOGO";
+                targetPath?: "User" | "Groupe" | "Manga" | "Anime" | "Person" | "Character" | "Track" | "Company" | "Image" | "Patch" | "Activity" | "Report" | undefined;
             } | undefined;
         }, {
             id?: string | undefined;
@@ -773,6 +805,7 @@ export declare const PersonAddBody: z.ZodObject<{
             newImage?: {
                 value: string;
                 label: "COVER" | "BANNER" | "AVATAR" | "LOGO";
+                targetPath?: "User" | "Groupe" | "Manga" | "Anime" | "Person" | "Character" | "Track" | "Company" | "Image" | "Patch" | "Activity" | "Report" | undefined;
             } | undefined;
         }>>;
         links: z.ZodOptional<z.ZodArray<z.ZodObject<{
@@ -814,6 +847,7 @@ export declare const PersonAddBody: z.ZodObject<{
             newImage?: {
                 value: string;
                 label: "COVER" | "BANNER" | "AVATAR" | "LOGO";
+                targetPath?: "User" | "Groupe" | "Manga" | "Anime" | "Person" | "Character" | "Track" | "Company" | "Image" | "Patch" | "Activity" | "Report" | undefined;
             } | undefined;
         } | undefined;
         links?: {
@@ -849,6 +883,7 @@ export declare const PersonAddBody: z.ZodObject<{
             newImage?: {
                 value: string;
                 label: "COVER" | "BANNER" | "AVATAR" | "LOGO";
+                targetPath?: "User" | "Groupe" | "Manga" | "Anime" | "Person" | "Character" | "Track" | "Company" | "Image" | "Patch" | "Activity" | "Report" | undefined;
             } | undefined;
         } | undefined;
         links?: {
@@ -888,6 +923,7 @@ export declare const PersonAddBody: z.ZodObject<{
             newImage?: {
                 value: string;
                 label: "COVER" | "BANNER" | "AVATAR" | "LOGO";
+                targetPath?: "User" | "Groupe" | "Manga" | "Anime" | "Person" | "Character" | "Track" | "Company" | "Image" | "Patch" | "Activity" | "Report" | undefined;
             } | undefined;
         } | undefined;
         links?: {
@@ -927,6 +963,7 @@ export declare const PersonAddBody: z.ZodObject<{
             newImage?: {
                 value: string;
                 label: "COVER" | "BANNER" | "AVATAR" | "LOGO";
+                targetPath?: "User" | "Groupe" | "Manga" | "Anime" | "Person" | "Character" | "Track" | "Company" | "Image" | "Patch" | "Activity" | "Report" | undefined;
             } | undefined;
         } | undefined;
         links?: {
@@ -966,6 +1003,7 @@ export declare const PersonDataToZOD: (data: IPerson) => {
         newImage?: {
             value: string;
             label: "COVER" | "BANNER" | "AVATAR" | "LOGO";
+            targetPath?: "User" | "Groupe" | "Manga" | "Anime" | "Person" | "Character" | "Track" | "Company" | "Image" | "Patch" | "Activity" | "Report" | undefined;
         } | undefined;
     } | undefined;
     links?: {

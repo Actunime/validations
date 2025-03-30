@@ -1,6 +1,6 @@
 import { z } from 'zod';
 import { PaginationBody, zodNumber } from './_util';
-import { IImageFull, ImageLabelArray } from '@actunime/types';
+import { IImageFull, ImageLabelArray, TargetPathArray } from '@actunime/types';
 import { PatchParamsBody } from './_patchZOD';
 import { FromBody } from './_media';
 
@@ -29,6 +29,7 @@ export type IImagePaginationBody = z.infer<typeof ImagePaginationBody>;
 export const ImageBody = z.object({
   label: z.enum(ImageLabelArray),
   value: z.string(),
+  targetPath: z.enum(TargetPathArray),
 });
 
 export type IImageBody = z.infer<typeof ImageBody>;
@@ -42,7 +43,7 @@ export type IImageCreateBody = z.infer<typeof ImageCreateBody>;
 export const ImageAddBody = z.object({
   id: z.optional(z.string()),
   label: z.optional(z.enum(ImageLabelArray)),
-  newImage: z.optional(ImageBody),
+  newImage: z.optional(ImageBody.partial({ targetPath: true })),
 });
 
 export type IImageAddBody = z.infer<typeof ImageAddBody>;
@@ -53,6 +54,7 @@ export const ImageDataToZOD = (data: IImageFull) => {
   const toZOD: IImageBody = {
     value: data.url,
     label: data.label,
+    targetPath: data.targetPath,
   };
 
   const safeParse = ImageBody.safeParse(toZOD);
