@@ -97,8 +97,8 @@ export const AnimeBody = z
     status: z.enum(MediaStatusArray),
     trailer: z.optional(YoutubeURLStringBody),
     episodes: z.optional(AnimeEpisodeBody.partial()),
-    adult: zodBoolean(),
-    explicit: zodBoolean(),
+    adult: z.optional(zodBoolean()),
+    explicit: z.optional(zodBoolean()),
     links: z.optional(z.array(MediaLinkBody)),
     companys: z.optional(z.array(CompanyAddBody)),
     staffs: z.optional(z.array(PersonAddBody)),
@@ -245,7 +245,7 @@ export const AnimeDataToZOD = (data: IAnime) => {
     groupe: data.groupe,
     parent: data.parent,
     source: data.source,
-    title: { ...data.title, alias: data.title?.alias || [] },
+    title: data.title,
     synopsis: data.synopsis,
     cover: data.cover,
     banner: data.banner,
@@ -254,9 +254,9 @@ export const AnimeDataToZOD = (data: IAnime) => {
     format: data.format,
     vf: data.vf,
     episodes: data.episodes,
-    adult: data.adult || false,
+    adult: data.adult,
     trailer: data.trailer,
-    explicit: data.explicit || false,
+    explicit: data.explicit,
     genres: data.genres,
     links: data.links,
     companys: data.companys,
@@ -265,7 +265,7 @@ export const AnimeDataToZOD = (data: IAnime) => {
     tracks: data.tracks,
   };
 
-  const safeParse = AnimeCreateBody.safeParse({ data: toZOD });
+  const safeParse = AnimeBody.safeParse({ data: toZOD });
 
   if (safeParse.success) return safeParse.data;
 
