@@ -1,31 +1,33 @@
-import {
-  MediaGenresArray,
-  MediaParentLabelArray,
-  MediaStatusArray,
-  IManga,
-  MangaFormatArray,
-} from '@actunime/types';
 import { z } from 'zod';
 import { CharacterAddBody } from './_characterZOD';
 import { CompanyAddBody } from './_companyZOD';
 import { GroupeAddBody } from './_groupeZOD';
 import {
   DateBody,
-  FromBody,
   MediaDateBody,
+  MediaDateSortBody,
   MediaLinkBody,
   MediaTitleBody,
   YoutubeURLStringBody,
 } from './_media';
 import { PersonAddBody } from './_personZOD';
-import { PaginationBody, zodBoolean, zodNumber } from './_util';
+import { PaginationBody, zodBoolean } from './_util';
 import { ImageAddBody } from './_imageZOD';
 import { PatchParamsBody } from './_patchZOD';
+import {
+  MangaFormatArray,
+  IManga,
+  MediaGenresArray,
+  MediaParentLabelArray,
+  MediaSourceArray,
+  MediaStatusArray
+} from '@actunime/types';
 
-const Manga_ChapterVolume_ZOD = z.object({
-  airing: z.optional(zodNumber()),
+const MangaChapterVolumeBody = z.object({
+  airing: z.number(),
   nextAiringDate: z.optional(DateBody.partial()),
-  total: z.optional(zodNumber()),
+  total: z.number(),
+  durationMinutes: z.number(),
 });
 
 export const MangaQueryBody = z.object({
@@ -36,12 +38,16 @@ export const MangaQueryBody = z.object({
   genres: z.array(z.enum(MediaGenresArray)),
   status: z.enum(MediaStatusArray),
   trailer: YoutubeURLStringBody,
-  chapters: Manga_ChapterVolume_ZOD.partial(),
-  volumes: Manga_ChapterVolume_ZOD.partial(),
+  chapters: MangaChapterVolumeBody.partial(),
+  volumes: MangaChapterVolumeBody.partial(),
   adult: z.boolean(),
   explicit: z.boolean(),
   links: MediaLinkBody.partial(),
+  createdAt: z.string(),
+  updatedAt: z.string(),
 });
+
+export type IMangaQueryBody = z.infer<typeof MangaQueryBody>;
 
 const check = (v: number) => [-1, 1].includes(v);
 const checkErr = 'le sort doit être soit -1 ou 1';
@@ -49,16 +55,18 @@ export const MangaSortBody = z.object({
   vf: z.number().refine(check, checkErr),
   status: z.number().refine(check, checkErr),
   adult: z.number().refine(check, checkErr),
+  date: MediaDateSortBody,
   explicit: z.number().refine(check, checkErr),
   createdAt: z.number().refine(check, checkErr),
   updatedAt: z.number().refine(check, checkErr),
 });
 
+export type IMangaSortBody = z.infer<typeof MangaSortBody>;
+
 export const MangaPaginationBody = PaginationBody.extend({
   sort: MangaSortBody.partial(),
   query: MangaQueryBody.partial(),
-  from: FromBody,
-}).partial();
+});
 
 export type IMangaPaginationBody = z.infer<typeof MangaPaginationBody>;
 
@@ -73,27 +81,29 @@ export const MangaBody = z
   .object({
     groupe: GroupeAddBody,
     parent: z.optional(MangaAddBody),
-    // source: z.optional(MangaAddBody),
+    
+    source: z.optional(z.enum(MediaSourceArray)),
     title: MediaTitleBody,
     date: z.optional(MediaDateBody.partial()),
-    cover: z.optional(ImageAddBody),
-    banner: z.optional(ImageAddBody),
+    cover: z.optional(ImageAddBody.partial()),
+    banner: z.optional(ImageAddBody.partial()),
     synopsis: z.optional(z.string()),
     format: z.enum(MangaFormatArray),
     vf: z.optional(zodBoolean()),
     genres: z.optional(z.array(z.enum(MediaGenresArray))),
-    // themes: z.optional(z.array(z.enum())),
-    status: z.enum(MediaStatusArray),
-    chapters: z.optional(Manga_ChapterVolume_ZOD),
-    volumes: z.optional(Manga_ChapterVolume_ZOD),
-    adult: zodBoolean(),
-    explicit: zodBoolean(),
+    // themes: z.optional(z.array(z.string())),
+    status: z.optional(z.enum(MediaStatusArray)),
+    trailer: z.optional(YoutubeURLStringBody),
+    chapters: z.optional(MangaChapterVolumeBody.partial()),
+    volumes: z.optional(MangaChapterVolumeBody.partial()),
+    adult: z.optional(zodBoolean()),
+    explicit: z.optional(zodBoolean()),
     links: z.optional(z.array(MediaLinkBody)),
     companys: z.optional(z.array(CompanyAddBody)),
     staffs: z.optional(z.array(PersonAddBody)),
-    characters: z.optional(z.array(CharacterAddBody)),
+    characters: z.optional(z.array(CharacterAddBody))
   })
-  .strict();
+  .strict()
 
 export type IMangaBody = z.infer<typeof MangaBody>;
 
@@ -107,30 +117,30 @@ export const MangaDataToZOD = (data: IManga) => {
   if (!data) return;
 
   const toZOD: IMangaBody = {
-    groupe: data.groupe!,
-    // parent: data.parent,
-    // source: data.source,
-
-    title: data.title as any,
+    groupe: data.groupe,
+    parent: data.parent,
+    source: data.source,
+    title: data.title,
     synopsis: data.synopsis,
     cover: data.cover,
     banner: data.banner,
     date: data.date,
-    status: data.status as any,
-    format: data.format as any,
-    vf: data.vf || ('false' as any),
+    status: data.status,
+    format: data.format,
+    vf: data.vf,
     chapters: data.chapters,
     volumes: data.volumes,
-    adult: data.adult || ('false' as any),
-    explicit: data.explicit || ('false' as any),
-    genres: (data.genres || []) as any,
-    links: data.links || [],
-    companys: data.companys || [],
-    staffs: (data.staffs || []) as any,
-    characters: (data.characters || []) as any,
+    adult: data.adult,
+    trailer: data.trailer,
+    explicit: data.explicit,
+    genres: data.genres,
+    links: data.links,
+    companys: data.companys,
+    staffs: data.staffs,
+    characters: data.characters
   };
 
-  const safeParse = MangaBody.safeParse(toZOD);
+  const safeParse = MangaBody.safeParse({ data: toZOD });
 
   if (safeParse.success) return safeParse.data;
 
