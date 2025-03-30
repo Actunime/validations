@@ -26,8 +26,7 @@ import {
 const MangaChapterVolumeBody = z.object({
   airing: z.number(),
   nextAiringDate: z.optional(DateBody.partial()),
-  total: z.number(),
-  durationMinutes: z.number(),
+  total: z.number()
 });
 
 export const MangaQueryBody = z.object({
