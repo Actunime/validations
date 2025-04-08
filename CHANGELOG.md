@@ -1,3 +1,10 @@
+## [1.0.43](https://github.com/Actunime/validations/compare/v1.0.42...v1.0.43) (2025-04-08)
+
+
+### Bug Fixes
+
+* add globalseach validation ([40c6678](https://github.com/Actunime/validations/commit/40c66783855809ff4332c0863bded87a6ceac04b))
+
 ## [1.0.42](https://github.com/Actunime/validations/compare/v1.0.41...v1.0.42) (2025-04-08)
 
 
