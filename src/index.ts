@@ -19,3 +19,4 @@ export * from './_trackZOD';
 export * from './_updateZOD';
 export * from './_userZOD';
 export * from './_util';
+export * from './_globalSearchZOD';
