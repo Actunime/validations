@@ -68,7 +68,7 @@ export type IMediaLinkBody = EqualType<
 >;
 
 export const MediaTitleBody = z.object({
-  default: z
+  original: z
     .string()
     .trim()
     .min(2, 'le nom doit contenir au moins 2 caractères'),

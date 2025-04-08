@@ -285,6 +285,7 @@ export declare const PatchPaginationBody: z.ZodObject<z.objectUtil.extendShape<{
     }, "strip", z.ZodTypeAny, {
         status?: "PENDING" | "PROGRESS" | "ACCEPTED" | "REJECTED" | undefined;
         type?: "CREATE" | "UPDATE" | "DELETE" | "RESTORE" | undefined;
+        original?: any;
         id?: string | undefined;
         reason?: string | undefined;
         author?: {
@@ -300,7 +301,6 @@ export declare const PatchPaginationBody: z.ZodObject<z.objectUtil.extendShape<{
         } | undefined;
         targetPath?: "User" | "Groupe" | "Manga" | "Anime" | "Person" | "Character" | "Track" | "Company" | "Image" | "Patch" | "Activity" | "Report" | undefined;
         description?: string | undefined;
-        original?: any;
         changes?: any;
         isChangesUpdated?: boolean | undefined;
         moderator?: {
@@ -309,6 +309,7 @@ export declare const PatchPaginationBody: z.ZodObject<z.objectUtil.extendShape<{
     }, {
         status?: "PENDING" | "PROGRESS" | "ACCEPTED" | "REJECTED" | undefined;
         type?: "CREATE" | "UPDATE" | "DELETE" | "RESTORE" | undefined;
+        original?: any;
         id?: string | undefined;
         reason?: string | undefined;
         author?: {
@@ -324,7 +325,6 @@ export declare const PatchPaginationBody: z.ZodObject<z.objectUtil.extendShape<{
         } | undefined;
         targetPath?: "User" | "Groupe" | "Manga" | "Anime" | "Person" | "Character" | "Track" | "Company" | "Image" | "Patch" | "Activity" | "Report" | undefined;
         description?: string | undefined;
-        original?: any;
         changes?: any;
         isChangesUpdated?: boolean | undefined;
         moderator?: {
@@ -360,6 +360,7 @@ export declare const PatchPaginationBody: z.ZodObject<z.objectUtil.extendShape<{
     query: {
         status?: "PENDING" | "PROGRESS" | "ACCEPTED" | "REJECTED" | undefined;
         type?: "CREATE" | "UPDATE" | "DELETE" | "RESTORE" | undefined;
+        original?: any;
         id?: string | undefined;
         reason?: string | undefined;
         author?: {
@@ -375,7 +376,6 @@ export declare const PatchPaginationBody: z.ZodObject<z.objectUtil.extendShape<{
         } | undefined;
         targetPath?: "User" | "Groupe" | "Manga" | "Anime" | "Person" | "Character" | "Track" | "Company" | "Image" | "Patch" | "Activity" | "Report" | undefined;
         description?: string | undefined;
-        original?: any;
         changes?: any;
         isChangesUpdated?: boolean | undefined;
         moderator?: {
@@ -411,6 +411,7 @@ export declare const PatchPaginationBody: z.ZodObject<z.objectUtil.extendShape<{
     query: {
         status?: "PENDING" | "PROGRESS" | "ACCEPTED" | "REJECTED" | undefined;
         type?: "CREATE" | "UPDATE" | "DELETE" | "RESTORE" | undefined;
+        original?: any;
         id?: string | undefined;
         reason?: string | undefined;
         author?: {
@@ -426,7 +427,6 @@ export declare const PatchPaginationBody: z.ZodObject<z.objectUtil.extendShape<{
         } | undefined;
         targetPath?: "User" | "Groupe" | "Manga" | "Anime" | "Person" | "Character" | "Track" | "Company" | "Image" | "Patch" | "Activity" | "Report" | undefined;
         description?: string | undefined;
-        original?: any;
         changes?: any;
         isChangesUpdated?: boolean | undefined;
         moderator?: {

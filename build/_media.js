@@ -37,7 +37,7 @@ export const MediaLinkBody = z.object({
     value: z.string().trim().regex(urlRegex, 'Lien HTTPS invalide'),
 });
 export const MediaTitleBody = z.object({
-    default: z
+    original: z
         .string()
         .trim()
         .min(2, 'le nom doit contenir au moins 2 caractères'),

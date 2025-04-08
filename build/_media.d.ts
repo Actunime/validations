@@ -228,13 +228,13 @@ export declare const MediaLinkBody: z.ZodObject<{
 }>;
 export type IMediaLinkBody = EqualType<IMediaLink, z.infer<typeof MediaLinkBody>>;
 export declare const MediaTitleBody: z.ZodObject<{
-    default: z.ZodString;
+    original: z.ZodString;
     alias: z.ZodOptional<z.ZodArray<z.ZodString, "many">>;
 }, "strip", z.ZodTypeAny, {
-    default: string;
+    original: string;
     alias?: string[] | undefined;
 }, {
-    default: string;
+    original: string;
     alias?: string[] | undefined;
 }>;
 export type IMediaTitleBody = EqualType<Omit<IMediaTitle, 'normal'>, z.infer<typeof MediaTitleBody>>;

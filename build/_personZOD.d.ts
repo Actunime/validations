@@ -3,13 +3,13 @@ import { IPerson } from '@actunime/types';
 export declare const PersonQueryBody: z.ZodObject<{
     isGroupe: z.ZodBoolean;
     name: z.ZodObject<{
-        default: z.ZodOptional<z.ZodString>;
+        original: z.ZodOptional<z.ZodString>;
         alias: z.ZodOptional<z.ZodOptional<z.ZodArray<z.ZodString, "many">>>;
     }, "strip", z.ZodTypeAny, {
-        default?: string | undefined;
+        original?: string | undefined;
         alias?: string[] | undefined;
     }, {
-        default?: string | undefined;
+        original?: string | undefined;
         alias?: string[] | undefined;
     }>;
     birthDate: z.ZodString;
@@ -41,7 +41,7 @@ export declare const PersonQueryBody: z.ZodObject<{
     updatedAt: z.ZodString;
 }, "strip", z.ZodTypeAny, {
     name: {
-        default?: string | undefined;
+        original?: string | undefined;
         alias?: string[] | undefined;
     };
     createdAt: string;
@@ -60,7 +60,7 @@ export declare const PersonQueryBody: z.ZodObject<{
     };
 }, {
     name: {
-        default?: string | undefined;
+        original?: string | undefined;
         alias?: string[] | undefined;
     };
     createdAt: string;
@@ -124,13 +124,13 @@ export declare const PersonPaginationBody: z.ZodObject<{
     query: z.ZodOptional<z.ZodObject<{
         isGroupe: z.ZodOptional<z.ZodBoolean>;
         name: z.ZodOptional<z.ZodObject<{
-            default: z.ZodOptional<z.ZodString>;
+            original: z.ZodOptional<z.ZodString>;
             alias: z.ZodOptional<z.ZodOptional<z.ZodArray<z.ZodString, "many">>>;
         }, "strip", z.ZodTypeAny, {
-            default?: string | undefined;
+            original?: string | undefined;
             alias?: string[] | undefined;
         }, {
-            default?: string | undefined;
+            original?: string | undefined;
             alias?: string[] | undefined;
         }>>;
         birthDate: z.ZodOptional<z.ZodString>;
@@ -162,7 +162,7 @@ export declare const PersonPaginationBody: z.ZodObject<{
         updatedAt: z.ZodOptional<z.ZodString>;
     }, "strip", z.ZodTypeAny, {
         name?: {
-            default?: string | undefined;
+            original?: string | undefined;
             alias?: string[] | undefined;
         } | undefined;
         createdAt?: string | undefined;
@@ -181,7 +181,7 @@ export declare const PersonPaginationBody: z.ZodObject<{
         } | undefined;
     }, {
         name?: {
-            default?: string | undefined;
+            original?: string | undefined;
             alias?: string[] | undefined;
         } | undefined;
         createdAt?: string | undefined;
@@ -223,7 +223,7 @@ export declare const PersonPaginationBody: z.ZodObject<{
     onlyVerified?: boolean | undefined;
     query?: {
         name?: {
-            default?: string | undefined;
+            original?: string | undefined;
             alias?: string[] | undefined;
         } | undefined;
         createdAt?: string | undefined;
@@ -259,7 +259,7 @@ export declare const PersonPaginationBody: z.ZodObject<{
     onlyVerified?: boolean | undefined;
     query?: {
         name?: {
-            default?: string | undefined;
+            original?: string | undefined;
             alias?: string[] | undefined;
         } | undefined;
         createdAt?: string | undefined;
@@ -286,13 +286,13 @@ export type IPersonPaginationBody = z.infer<typeof PersonPaginationBody>;
 export declare const PersonBody: z.ZodObject<{
     isGroupe: z.ZodOptional<z.ZodBoolean>;
     name: z.ZodObject<{
-        default: z.ZodString;
+        original: z.ZodString;
         alias: z.ZodOptional<z.ZodArray<z.ZodString, "many">>;
     }, "strip", z.ZodTypeAny, {
-        default: string;
+        original: string;
         alias?: string[] | undefined;
     }, {
-        default: string;
+        original: string;
         alias?: string[] | undefined;
     }>;
     birthDate: z.ZodOptional<z.ZodObject<{
@@ -385,7 +385,7 @@ export declare const PersonBody: z.ZodObject<{
     }>, "many">>;
 }, "strict", z.ZodTypeAny, {
     name: {
-        default: string;
+        original: string;
         alias?: string[] | undefined;
     };
     description?: string | undefined;
@@ -421,7 +421,7 @@ export declare const PersonBody: z.ZodObject<{
     }[] | undefined;
 }, {
     name: {
-        default: string;
+        original: string;
         alias?: string[] | undefined;
     };
     description?: string | undefined;
@@ -464,13 +464,13 @@ export declare const PersonCreateBody: z.ZodObject<z.objectUtil.extendShape<{
     data: z.ZodObject<{
         isGroupe: z.ZodOptional<z.ZodBoolean>;
         name: z.ZodObject<{
-            default: z.ZodString;
+            original: z.ZodString;
             alias: z.ZodOptional<z.ZodArray<z.ZodString, "many">>;
         }, "strip", z.ZodTypeAny, {
-            default: string;
+            original: string;
             alias?: string[] | undefined;
         }, {
-            default: string;
+            original: string;
             alias?: string[] | undefined;
         }>;
         birthDate: z.ZodOptional<z.ZodObject<{
@@ -563,7 +563,7 @@ export declare const PersonCreateBody: z.ZodObject<z.objectUtil.extendShape<{
         }>, "many">>;
     }, "strict", z.ZodTypeAny, {
         name: {
-            default: string;
+            original: string;
             alias?: string[] | undefined;
         };
         description?: string | undefined;
@@ -599,7 +599,7 @@ export declare const PersonCreateBody: z.ZodObject<z.objectUtil.extendShape<{
         }[] | undefined;
     }, {
         name: {
-            default: string;
+            original: string;
             alias?: string[] | undefined;
         };
         description?: string | undefined;
@@ -637,7 +637,7 @@ export declare const PersonCreateBody: z.ZodObject<z.objectUtil.extendShape<{
 }>, "strip", z.ZodTypeAny, {
     data: {
         name: {
-            default: string;
+            original: string;
             alias?: string[] | undefined;
         };
         description?: string | undefined;
@@ -677,7 +677,7 @@ export declare const PersonCreateBody: z.ZodObject<z.objectUtil.extendShape<{
 }, {
     data: {
         name: {
-            default: string;
+            original: string;
             alias?: string[] | undefined;
         };
         description?: string | undefined;
@@ -721,13 +721,13 @@ export declare const PersonAddBody: z.ZodObject<{
     newPerson: z.ZodOptional<z.ZodObject<{
         isGroupe: z.ZodOptional<z.ZodBoolean>;
         name: z.ZodObject<{
-            default: z.ZodString;
+            original: z.ZodString;
             alias: z.ZodOptional<z.ZodArray<z.ZodString, "many">>;
         }, "strip", z.ZodTypeAny, {
-            default: string;
+            original: string;
             alias?: string[] | undefined;
         }, {
-            default: string;
+            original: string;
             alias?: string[] | undefined;
         }>;
         birthDate: z.ZodOptional<z.ZodObject<{
@@ -820,7 +820,7 @@ export declare const PersonAddBody: z.ZodObject<{
         }>, "many">>;
     }, "strict", z.ZodTypeAny, {
         name: {
-            default: string;
+            original: string;
             alias?: string[] | undefined;
         };
         description?: string | undefined;
@@ -856,7 +856,7 @@ export declare const PersonAddBody: z.ZodObject<{
         }[] | undefined;
     }, {
         name: {
-            default: string;
+            original: string;
             alias?: string[] | undefined;
         };
         description?: string | undefined;
@@ -896,7 +896,7 @@ export declare const PersonAddBody: z.ZodObject<{
     id?: string | undefined;
     newPerson?: {
         name: {
-            default: string;
+            original: string;
             alias?: string[] | undefined;
         };
         description?: string | undefined;
@@ -936,7 +936,7 @@ export declare const PersonAddBody: z.ZodObject<{
     id?: string | undefined;
     newPerson?: {
         name: {
-            default: string;
+            original: string;
             alias?: string[] | undefined;
         };
         description?: string | undefined;
@@ -976,7 +976,7 @@ export declare const PersonAddBody: z.ZodObject<{
 export type IPersonAddBody = z.infer<typeof PersonAddBody>;
 export declare const PersonDataToZOD: (data: IPerson) => {
     name: {
-        default: string;
+        original: string;
         alias?: string[] | undefined;
     };
     description?: string | undefined;

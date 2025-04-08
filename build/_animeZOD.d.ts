@@ -2,13 +2,13 @@ import { z } from 'zod';
 import { IAnime } from '@actunime/types';
 export declare const AnimeQueryBody: z.ZodObject<{
     title: z.ZodObject<{
-        default: z.ZodOptional<z.ZodString>;
+        original: z.ZodOptional<z.ZodString>;
         alias: z.ZodOptional<z.ZodOptional<z.ZodArray<z.ZodString, "many">>>;
     }, "strip", z.ZodTypeAny, {
-        default?: string | undefined;
+        original?: string | undefined;
         alias?: string[] | undefined;
     }, {
-        default?: string | undefined;
+        original?: string | undefined;
         alias?: string[] | undefined;
     }>;
     date: z.ZodObject<{
@@ -188,7 +188,7 @@ export declare const AnimeQueryBody: z.ZodObject<{
         name?: string | undefined;
     };
     title: {
-        default?: string | undefined;
+        original?: string | undefined;
         alias?: string[] | undefined;
     };
     format: "FILM" | "SERIE" | "SERIE_COURTE" | "ONA" | "OVA" | "SPECIAL";
@@ -237,7 +237,7 @@ export declare const AnimeQueryBody: z.ZodObject<{
         name?: string | undefined;
     };
     title: {
-        default?: string | undefined;
+        original?: string | undefined;
         alias?: string[] | undefined;
     };
     format: "FILM" | "SERIE" | "SERIE_COURTE" | "ONA" | "OVA" | "SPECIAL";
@@ -548,13 +548,13 @@ export declare const AnimePaginationBody: z.ZodObject<z.objectUtil.extendShape<{
     }>;
     query: z.ZodObject<{
         title: z.ZodOptional<z.ZodObject<{
-            default: z.ZodOptional<z.ZodString>;
+            original: z.ZodOptional<z.ZodString>;
             alias: z.ZodOptional<z.ZodOptional<z.ZodArray<z.ZodString, "many">>>;
         }, "strip", z.ZodTypeAny, {
-            default?: string | undefined;
+            original?: string | undefined;
             alias?: string[] | undefined;
         }, {
-            default?: string | undefined;
+            original?: string | undefined;
             alias?: string[] | undefined;
         }>>;
         date: z.ZodOptional<z.ZodObject<{
@@ -734,7 +734,7 @@ export declare const AnimePaginationBody: z.ZodObject<z.objectUtil.extendShape<{
             name?: string | undefined;
         } | undefined;
         title?: {
-            default?: string | undefined;
+            original?: string | undefined;
             alias?: string[] | undefined;
         } | undefined;
         format?: "FILM" | "SERIE" | "SERIE_COURTE" | "ONA" | "OVA" | "SPECIAL" | undefined;
@@ -783,7 +783,7 @@ export declare const AnimePaginationBody: z.ZodObject<z.objectUtil.extendShape<{
             name?: string | undefined;
         } | undefined;
         title?: {
-            default?: string | undefined;
+            original?: string | undefined;
             alias?: string[] | undefined;
         } | undefined;
         format?: "FILM" | "SERIE" | "SERIE_COURTE" | "ONA" | "OVA" | "SPECIAL" | undefined;
@@ -864,7 +864,7 @@ export declare const AnimePaginationBody: z.ZodObject<z.objectUtil.extendShape<{
             name?: string | undefined;
         } | undefined;
         title?: {
-            default?: string | undefined;
+            original?: string | undefined;
             alias?: string[] | undefined;
         } | undefined;
         format?: "FILM" | "SERIE" | "SERIE_COURTE" | "ONA" | "OVA" | "SPECIAL" | undefined;
@@ -945,7 +945,7 @@ export declare const AnimePaginationBody: z.ZodObject<z.objectUtil.extendShape<{
             name?: string | undefined;
         } | undefined;
         title?: {
-            default?: string | undefined;
+            original?: string | undefined;
             alias?: string[] | undefined;
         } | undefined;
         format?: "FILM" | "SERIE" | "SERIE_COURTE" | "ONA" | "OVA" | "SPECIAL" | undefined;
@@ -986,23 +986,23 @@ export declare const AnimeBody: z.ZodEffects<z.ZodObject<{
         id: z.ZodOptional<z.ZodString>;
         newGroupe: z.ZodOptional<z.ZodObject<{
             name: z.ZodObject<{
-                default: z.ZodString;
+                original: z.ZodString;
                 alias: z.ZodOptional<z.ZodArray<z.ZodString, "many">>;
             }, "strip", z.ZodTypeAny, {
-                default: string;
+                original: string;
                 alias?: string[] | undefined;
             }, {
-                default: string;
+                original: string;
                 alias?: string[] | undefined;
             }>;
         }, "strip", z.ZodTypeAny, {
             name: {
-                default: string;
+                original: string;
                 alias?: string[] | undefined;
             };
         }, {
             name: {
-                default: string;
+                original: string;
                 alias?: string[] | undefined;
             };
         }>>;
@@ -1010,7 +1010,7 @@ export declare const AnimeBody: z.ZodEffects<z.ZodObject<{
         id?: string | undefined;
         newGroupe?: {
             name: {
-                default: string;
+                original: string;
                 alias?: string[] | undefined;
             };
         } | undefined;
@@ -1018,7 +1018,7 @@ export declare const AnimeBody: z.ZodEffects<z.ZodObject<{
         id?: string | undefined;
         newGroupe?: {
             name: {
-                default: string;
+                original: string;
                 alias?: string[] | undefined;
             };
         } | undefined;
@@ -1045,13 +1045,13 @@ export declare const AnimeBody: z.ZodEffects<z.ZodObject<{
     }>>;
     source: z.ZodOptional<z.ZodEnum<("MANGA" | "MANHWA" | "MANHUA" | "LIGHT_NOVEL" | "ORIGINAL" | "VISUAL_NOVEL" | "WEB_NOVEL" | "GAME" | "NOVEL" | "ANIME")[] & [string, ...string[]]>>;
     title: z.ZodObject<{
-        default: z.ZodString;
+        original: z.ZodString;
         alias: z.ZodOptional<z.ZodArray<z.ZodString, "many">>;
     }, "strip", z.ZodTypeAny, {
-        default: string;
+        original: string;
         alias?: string[] | undefined;
     }, {
-        default: string;
+        original: string;
         alias?: string[] | undefined;
     }>;
     date: z.ZodOptional<z.ZodObject<{
@@ -1274,13 +1274,13 @@ export declare const AnimeBody: z.ZodEffects<z.ZodObject<{
         newCompany: z.ZodOptional<z.ZodObject<{
             type: z.ZodEnum<["STUDIO", "PRODUCER"]>;
             name: z.ZodObject<{
-                default: z.ZodString;
+                original: z.ZodString;
                 alias: z.ZodOptional<z.ZodArray<z.ZodString, "many">>;
             }, "strip", z.ZodTypeAny, {
-                default: string;
+                original: string;
                 alias?: string[] | undefined;
             }, {
-                default: string;
+                original: string;
                 alias?: string[] | undefined;
             }>;
             description: z.ZodOptional<z.ZodString>;
@@ -1352,7 +1352,7 @@ export declare const AnimeBody: z.ZodEffects<z.ZodObject<{
         }, "strict", z.ZodTypeAny, {
             type: "STUDIO" | "PRODUCER";
             name: {
-                default: string;
+                original: string;
                 alias?: string[] | undefined;
             };
             description?: string | undefined;
@@ -1380,7 +1380,7 @@ export declare const AnimeBody: z.ZodEffects<z.ZodObject<{
         }, {
             type: "STUDIO" | "PRODUCER";
             name: {
-                default: string;
+                original: string;
                 alias?: string[] | undefined;
             };
             description?: string | undefined;
@@ -1411,7 +1411,7 @@ export declare const AnimeBody: z.ZodEffects<z.ZodObject<{
         newCompany?: {
             type: "STUDIO" | "PRODUCER";
             name: {
-                default: string;
+                original: string;
                 alias?: string[] | undefined;
             };
             description?: string | undefined;
@@ -1442,7 +1442,7 @@ export declare const AnimeBody: z.ZodEffects<z.ZodObject<{
         newCompany?: {
             type: "STUDIO" | "PRODUCER";
             name: {
-                default: string;
+                original: string;
                 alias?: string[] | undefined;
             };
             description?: string | undefined;
@@ -1474,13 +1474,13 @@ export declare const AnimeBody: z.ZodEffects<z.ZodObject<{
         newPerson: z.ZodOptional<z.ZodObject<{
             isGroupe: z.ZodOptional<z.ZodBoolean>;
             name: z.ZodObject<{
-                default: z.ZodString;
+                original: z.ZodString;
                 alias: z.ZodOptional<z.ZodArray<z.ZodString, "many">>;
             }, "strip", z.ZodTypeAny, {
-                default: string;
+                original: string;
                 alias?: string[] | undefined;
             }, {
-                default: string;
+                original: string;
                 alias?: string[] | undefined;
             }>;
             birthDate: z.ZodOptional<z.ZodObject<{
@@ -1573,7 +1573,7 @@ export declare const AnimeBody: z.ZodEffects<z.ZodObject<{
             }>, "many">>;
         }, "strict", z.ZodTypeAny, {
             name: {
-                default: string;
+                original: string;
                 alias?: string[] | undefined;
             };
             description?: string | undefined;
@@ -1609,7 +1609,7 @@ export declare const AnimeBody: z.ZodEffects<z.ZodObject<{
             }[] | undefined;
         }, {
             name: {
-                default: string;
+                original: string;
                 alias?: string[] | undefined;
             };
             description?: string | undefined;
@@ -1649,7 +1649,7 @@ export declare const AnimeBody: z.ZodEffects<z.ZodObject<{
         id?: string | undefined;
         newPerson?: {
             name: {
-                default: string;
+                original: string;
                 alias?: string[] | undefined;
             };
             description?: string | undefined;
@@ -1689,7 +1689,7 @@ export declare const AnimeBody: z.ZodEffects<z.ZodObject<{
         id?: string | undefined;
         newPerson?: {
             name: {
-                default: string;
+                original: string;
                 alias?: string[] | undefined;
             };
             description?: string | undefined;
@@ -1730,13 +1730,13 @@ export declare const AnimeBody: z.ZodEffects<z.ZodObject<{
         id: z.ZodOptional<z.ZodString>;
         newCharacter: z.ZodOptional<z.ZodObject<{
             name: z.ZodObject<{
-                default: z.ZodString;
+                original: z.ZodString;
                 alias: z.ZodOptional<z.ZodArray<z.ZodString, "many">>;
             }, "strip", z.ZodTypeAny, {
-                default: string;
+                original: string;
                 alias?: string[] | undefined;
             }, {
-                default: string;
+                original: string;
                 alias?: string[] | undefined;
             }>;
             age: z.ZodOptional<z.ZodEffects<z.ZodUnion<[z.ZodNumber, z.ZodString]>, number, string | number>>;
@@ -1803,13 +1803,13 @@ export declare const AnimeBody: z.ZodEffects<z.ZodObject<{
                 newPerson: z.ZodOptional<z.ZodObject<{
                     isGroupe: z.ZodOptional<z.ZodBoolean>;
                     name: z.ZodObject<{
-                        default: z.ZodString;
+                        original: z.ZodString;
                         alias: z.ZodOptional<z.ZodArray<z.ZodString, "many">>;
                     }, "strip", z.ZodTypeAny, {
-                        default: string;
+                        original: string;
                         alias?: string[] | undefined;
                     }, {
-                        default: string;
+                        original: string;
                         alias?: string[] | undefined;
                     }>;
                     birthDate: z.ZodOptional<z.ZodObject<{
@@ -1902,7 +1902,7 @@ export declare const AnimeBody: z.ZodEffects<z.ZodObject<{
                     }>, "many">>;
                 }, "strict", z.ZodTypeAny, {
                     name: {
-                        default: string;
+                        original: string;
                         alias?: string[] | undefined;
                     };
                     description?: string | undefined;
@@ -1938,7 +1938,7 @@ export declare const AnimeBody: z.ZodEffects<z.ZodObject<{
                     }[] | undefined;
                 }, {
                     name: {
-                        default: string;
+                        original: string;
                         alias?: string[] | undefined;
                     };
                     description?: string | undefined;
@@ -1978,7 +1978,7 @@ export declare const AnimeBody: z.ZodEffects<z.ZodObject<{
                 id?: string | undefined;
                 newPerson?: {
                     name: {
-                        default: string;
+                        original: string;
                         alias?: string[] | undefined;
                     };
                     description?: string | undefined;
@@ -2017,7 +2017,7 @@ export declare const AnimeBody: z.ZodEffects<z.ZodObject<{
                 id?: string | undefined;
                 newPerson?: {
                     name: {
-                        default: string;
+                        original: string;
                         alias?: string[] | undefined;
                     };
                     description?: string | undefined;
@@ -2055,7 +2055,7 @@ export declare const AnimeBody: z.ZodEffects<z.ZodObject<{
             }>, "many">>;
         }, "strip", z.ZodTypeAny, {
             name: {
-                default: string;
+                original: string;
                 alias?: string[] | undefined;
             };
             description?: string | undefined;
@@ -2083,7 +2083,7 @@ export declare const AnimeBody: z.ZodEffects<z.ZodObject<{
                 id?: string | undefined;
                 newPerson?: {
                     name: {
-                        default: string;
+                        original: string;
                         alias?: string[] | undefined;
                     };
                     description?: string | undefined;
@@ -2121,7 +2121,7 @@ export declare const AnimeBody: z.ZodEffects<z.ZodObject<{
             }[] | undefined;
         }, {
             name: {
-                default: string;
+                original: string;
                 alias?: string[] | undefined;
             };
             description?: string | undefined;
@@ -2149,7 +2149,7 @@ export declare const AnimeBody: z.ZodEffects<z.ZodObject<{
                 id?: string | undefined;
                 newPerson?: {
                     name: {
-                        default: string;
+                        original: string;
                         alias?: string[] | undefined;
                     };
                     description?: string | undefined;
@@ -2192,7 +2192,7 @@ export declare const AnimeBody: z.ZodEffects<z.ZodObject<{
         role?: "PRINCIPAL" | "SECONDAIRE" | "FIGURANT" | "ANTAGONISTE" | "SOUTIEN" | undefined;
         newCharacter?: {
             name: {
-                default: string;
+                original: string;
                 alias?: string[] | undefined;
             };
             description?: string | undefined;
@@ -2220,7 +2220,7 @@ export declare const AnimeBody: z.ZodEffects<z.ZodObject<{
                 id?: string | undefined;
                 newPerson?: {
                     name: {
-                        default: string;
+                        original: string;
                         alias?: string[] | undefined;
                     };
                     description?: string | undefined;
@@ -2262,7 +2262,7 @@ export declare const AnimeBody: z.ZodEffects<z.ZodObject<{
         role?: "PRINCIPAL" | "SECONDAIRE" | "FIGURANT" | "ANTAGONISTE" | "SOUTIEN" | undefined;
         newCharacter?: {
             name: {
-                default: string;
+                original: string;
                 alias?: string[] | undefined;
             };
             description?: string | undefined;
@@ -2290,7 +2290,7 @@ export declare const AnimeBody: z.ZodEffects<z.ZodObject<{
                 id?: string | undefined;
                 newPerson?: {
                     name: {
-                        default: string;
+                        original: string;
                         alias?: string[] | undefined;
                     };
                     description?: string | undefined;
@@ -2332,13 +2332,13 @@ export declare const AnimeBody: z.ZodEffects<z.ZodObject<{
         id: z.ZodOptional<z.ZodString>;
         newTrack: z.ZodOptional<z.ZodObject<{
             name: z.ZodObject<{
-                default: z.ZodString;
+                original: z.ZodString;
                 alias: z.ZodOptional<z.ZodArray<z.ZodString, "many">>;
             }, "strip", z.ZodTypeAny, {
-                default: string;
+                original: string;
                 alias?: string[] | undefined;
             }, {
-                default: string;
+                original: string;
                 alias?: string[] | undefined;
             }>;
             type: z.ZodEnum<("OPENING" | "ENDING" | "BGM" | "INSERT")[] & [string, ...string[]]>;
@@ -2369,13 +2369,13 @@ export declare const AnimeBody: z.ZodEffects<z.ZodObject<{
                 newPerson: z.ZodOptional<z.ZodObject<{
                     isGroupe: z.ZodOptional<z.ZodBoolean>;
                     name: z.ZodObject<{
-                        default: z.ZodString;
+                        original: z.ZodString;
                         alias: z.ZodOptional<z.ZodArray<z.ZodString, "many">>;
                     }, "strip", z.ZodTypeAny, {
-                        default: string;
+                        original: string;
                         alias?: string[] | undefined;
                     }, {
-                        default: string;
+                        original: string;
                         alias?: string[] | undefined;
                     }>;
                     birthDate: z.ZodOptional<z.ZodObject<{
@@ -2468,7 +2468,7 @@ export declare const AnimeBody: z.ZodEffects<z.ZodObject<{
                     }>, "many">>;
                 }, "strict", z.ZodTypeAny, {
                     name: {
-                        default: string;
+                        original: string;
                         alias?: string[] | undefined;
                     };
                     description?: string | undefined;
@@ -2504,7 +2504,7 @@ export declare const AnimeBody: z.ZodEffects<z.ZodObject<{
                     }[] | undefined;
                 }, {
                     name: {
-                        default: string;
+                        original: string;
                         alias?: string[] | undefined;
                     };
                     description?: string | undefined;
@@ -2544,7 +2544,7 @@ export declare const AnimeBody: z.ZodEffects<z.ZodObject<{
                 id?: string | undefined;
                 newPerson?: {
                     name: {
-                        default: string;
+                        original: string;
                         alias?: string[] | undefined;
                     };
                     description?: string | undefined;
@@ -2584,7 +2584,7 @@ export declare const AnimeBody: z.ZodEffects<z.ZodObject<{
                 id?: string | undefined;
                 newPerson?: {
                     name: {
-                        default: string;
+                        original: string;
                         alias?: string[] | undefined;
                     };
                     description?: string | undefined;
@@ -2668,7 +2668,7 @@ export declare const AnimeBody: z.ZodEffects<z.ZodObject<{
         }, "strict", z.ZodTypeAny, {
             type: "OPENING" | "ENDING" | "BGM" | "INSERT";
             name: {
-                default: string;
+                original: string;
                 alias?: string[] | undefined;
             };
             cover?: {
@@ -2697,7 +2697,7 @@ export declare const AnimeBody: z.ZodEffects<z.ZodObject<{
                 id?: string | undefined;
                 newPerson?: {
                     name: {
-                        default: string;
+                        original: string;
                         alias?: string[] | undefined;
                     };
                     description?: string | undefined;
@@ -2737,7 +2737,7 @@ export declare const AnimeBody: z.ZodEffects<z.ZodObject<{
         }, {
             type: "OPENING" | "ENDING" | "BGM" | "INSERT";
             name: {
-                default: string;
+                original: string;
                 alias?: string[] | undefined;
             };
             cover?: {
@@ -2766,7 +2766,7 @@ export declare const AnimeBody: z.ZodEffects<z.ZodObject<{
                 id?: string | undefined;
                 newPerson?: {
                     name: {
-                        default: string;
+                        original: string;
                         alias?: string[] | undefined;
                     };
                     description?: string | undefined;
@@ -2809,7 +2809,7 @@ export declare const AnimeBody: z.ZodEffects<z.ZodObject<{
         newTrack?: {
             type: "OPENING" | "ENDING" | "BGM" | "INSERT";
             name: {
-                default: string;
+                original: string;
                 alias?: string[] | undefined;
             };
             cover?: {
@@ -2838,7 +2838,7 @@ export declare const AnimeBody: z.ZodEffects<z.ZodObject<{
                 id?: string | undefined;
                 newPerson?: {
                     name: {
-                        default: string;
+                        original: string;
                         alias?: string[] | undefined;
                     };
                     description?: string | undefined;
@@ -2881,7 +2881,7 @@ export declare const AnimeBody: z.ZodEffects<z.ZodObject<{
         newTrack?: {
             type: "OPENING" | "ENDING" | "BGM" | "INSERT";
             name: {
-                default: string;
+                original: string;
                 alias?: string[] | undefined;
             };
             cover?: {
@@ -2910,7 +2910,7 @@ export declare const AnimeBody: z.ZodEffects<z.ZodObject<{
                 id?: string | undefined;
                 newPerson?: {
                     name: {
-                        default: string;
+                        original: string;
                         alias?: string[] | undefined;
                     };
                     description?: string | undefined;
@@ -2952,7 +2952,7 @@ export declare const AnimeBody: z.ZodEffects<z.ZodObject<{
 }, "strict", z.ZodTypeAny, {
     status: "AIRING" | "PAUSED" | "ENDED" | "STOPPED" | "POSTONED" | "SOON" | "any";
     title: {
-        default: string;
+        original: string;
         alias?: string[] | undefined;
     };
     format: "FILM" | "SERIE" | "SERIE_COURTE" | "ONA" | "OVA" | "SPECIAL";
@@ -2960,7 +2960,7 @@ export declare const AnimeBody: z.ZodEffects<z.ZodObject<{
         id?: string | undefined;
         newGroupe?: {
             name: {
-                default: string;
+                original: string;
                 alias?: string[] | undefined;
             };
         } | undefined;
@@ -3021,7 +3021,7 @@ export declare const AnimeBody: z.ZodEffects<z.ZodObject<{
         newCompany?: {
             type: "STUDIO" | "PRODUCER";
             name: {
-                default: string;
+                original: string;
                 alias?: string[] | undefined;
             };
             description?: string | undefined;
@@ -3052,7 +3052,7 @@ export declare const AnimeBody: z.ZodEffects<z.ZodObject<{
         id?: string | undefined;
         newPerson?: {
             name: {
-                default: string;
+                original: string;
                 alias?: string[] | undefined;
             };
             description?: string | undefined;
@@ -3094,7 +3094,7 @@ export declare const AnimeBody: z.ZodEffects<z.ZodObject<{
         role?: "PRINCIPAL" | "SECONDAIRE" | "FIGURANT" | "ANTAGONISTE" | "SOUTIEN" | undefined;
         newCharacter?: {
             name: {
-                default: string;
+                original: string;
                 alias?: string[] | undefined;
             };
             description?: string | undefined;
@@ -3122,7 +3122,7 @@ export declare const AnimeBody: z.ZodEffects<z.ZodObject<{
                 id?: string | undefined;
                 newPerson?: {
                     name: {
-                        default: string;
+                        original: string;
                         alias?: string[] | undefined;
                     };
                     description?: string | undefined;
@@ -3182,7 +3182,7 @@ export declare const AnimeBody: z.ZodEffects<z.ZodObject<{
         newTrack?: {
             type: "OPENING" | "ENDING" | "BGM" | "INSERT";
             name: {
-                default: string;
+                original: string;
                 alias?: string[] | undefined;
             };
             cover?: {
@@ -3211,7 +3211,7 @@ export declare const AnimeBody: z.ZodEffects<z.ZodObject<{
                 id?: string | undefined;
                 newPerson?: {
                     name: {
-                        default: string;
+                        original: string;
                         alias?: string[] | undefined;
                     };
                     description?: string | undefined;
@@ -3253,7 +3253,7 @@ export declare const AnimeBody: z.ZodEffects<z.ZodObject<{
 }, {
     status: "AIRING" | "PAUSED" | "ENDED" | "STOPPED" | "POSTONED" | "SOON" | "any";
     title: {
-        default: string;
+        original: string;
         alias?: string[] | undefined;
     };
     format: "FILM" | "SERIE" | "SERIE_COURTE" | "ONA" | "OVA" | "SPECIAL";
@@ -3261,7 +3261,7 @@ export declare const AnimeBody: z.ZodEffects<z.ZodObject<{
         id?: string | undefined;
         newGroupe?: {
             name: {
-                default: string;
+                original: string;
                 alias?: string[] | undefined;
             };
         } | undefined;
@@ -3322,7 +3322,7 @@ export declare const AnimeBody: z.ZodEffects<z.ZodObject<{
         newCompany?: {
             type: "STUDIO" | "PRODUCER";
             name: {
-                default: string;
+                original: string;
                 alias?: string[] | undefined;
             };
             description?: string | undefined;
@@ -3353,7 +3353,7 @@ export declare const AnimeBody: z.ZodEffects<z.ZodObject<{
         id?: string | undefined;
         newPerson?: {
             name: {
-                default: string;
+                original: string;
                 alias?: string[] | undefined;
             };
             description?: string | undefined;
@@ -3395,7 +3395,7 @@ export declare const AnimeBody: z.ZodEffects<z.ZodObject<{
         role?: "PRINCIPAL" | "SECONDAIRE" | "FIGURANT" | "ANTAGONISTE" | "SOUTIEN" | undefined;
         newCharacter?: {
             name: {
-                default: string;
+                original: string;
                 alias?: string[] | undefined;
             };
             description?: string | undefined;
@@ -3423,7 +3423,7 @@ export declare const AnimeBody: z.ZodEffects<z.ZodObject<{
                 id?: string | undefined;
                 newPerson?: {
                     name: {
-                        default: string;
+                        original: string;
                         alias?: string[] | undefined;
                     };
                     description?: string | undefined;
@@ -3483,7 +3483,7 @@ export declare const AnimeBody: z.ZodEffects<z.ZodObject<{
         newTrack?: {
             type: "OPENING" | "ENDING" | "BGM" | "INSERT";
             name: {
-                default: string;
+                original: string;
                 alias?: string[] | undefined;
             };
             cover?: {
@@ -3512,7 +3512,7 @@ export declare const AnimeBody: z.ZodEffects<z.ZodObject<{
                 id?: string | undefined;
                 newPerson?: {
                     name: {
-                        default: string;
+                        original: string;
                         alias?: string[] | undefined;
                     };
                     description?: string | undefined;
@@ -3554,7 +3554,7 @@ export declare const AnimeBody: z.ZodEffects<z.ZodObject<{
 }>, {
     status: "AIRING" | "PAUSED" | "ENDED" | "STOPPED" | "POSTONED" | "SOON" | "any";
     title: {
-        default: string;
+        original: string;
         alias?: string[] | undefined;
     };
     format: "FILM" | "SERIE" | "SERIE_COURTE" | "ONA" | "OVA" | "SPECIAL";
@@ -3562,7 +3562,7 @@ export declare const AnimeBody: z.ZodEffects<z.ZodObject<{
         id?: string | undefined;
         newGroupe?: {
             name: {
-                default: string;
+                original: string;
                 alias?: string[] | undefined;
             };
         } | undefined;
@@ -3623,7 +3623,7 @@ export declare const AnimeBody: z.ZodEffects<z.ZodObject<{
         newCompany?: {
             type: "STUDIO" | "PRODUCER";
             name: {
-                default: string;
+                original: string;
                 alias?: string[] | undefined;
             };
             description?: string | undefined;
@@ -3654,7 +3654,7 @@ export declare const AnimeBody: z.ZodEffects<z.ZodObject<{
         id?: string | undefined;
         newPerson?: {
             name: {
-                default: string;
+                original: string;
                 alias?: string[] | undefined;
             };
             description?: string | undefined;
@@ -3696,7 +3696,7 @@ export declare const AnimeBody: z.ZodEffects<z.ZodObject<{
         role?: "PRINCIPAL" | "SECONDAIRE" | "FIGURANT" | "ANTAGONISTE" | "SOUTIEN" | undefined;
         newCharacter?: {
             name: {
-                default: string;
+                original: string;
                 alias?: string[] | undefined;
             };
             description?: string | undefined;
@@ -3724,7 +3724,7 @@ export declare const AnimeBody: z.ZodEffects<z.ZodObject<{
                 id?: string | undefined;
                 newPerson?: {
                     name: {
-                        default: string;
+                        original: string;
                         alias?: string[] | undefined;
                     };
                     description?: string | undefined;
@@ -3784,7 +3784,7 @@ export declare const AnimeBody: z.ZodEffects<z.ZodObject<{
         newTrack?: {
             type: "OPENING" | "ENDING" | "BGM" | "INSERT";
             name: {
-                default: string;
+                original: string;
                 alias?: string[] | undefined;
             };
             cover?: {
@@ -3813,7 +3813,7 @@ export declare const AnimeBody: z.ZodEffects<z.ZodObject<{
                 id?: string | undefined;
                 newPerson?: {
                     name: {
-                        default: string;
+                        original: string;
                         alias?: string[] | undefined;
                     };
                     description?: string | undefined;
@@ -3855,7 +3855,7 @@ export declare const AnimeBody: z.ZodEffects<z.ZodObject<{
 }, {
     status: "AIRING" | "PAUSED" | "ENDED" | "STOPPED" | "POSTONED" | "SOON" | "any";
     title: {
-        default: string;
+        original: string;
         alias?: string[] | undefined;
     };
     format: "FILM" | "SERIE" | "SERIE_COURTE" | "ONA" | "OVA" | "SPECIAL";
@@ -3863,7 +3863,7 @@ export declare const AnimeBody: z.ZodEffects<z.ZodObject<{
         id?: string | undefined;
         newGroupe?: {
             name: {
-                default: string;
+                original: string;
                 alias?: string[] | undefined;
             };
         } | undefined;
@@ -3924,7 +3924,7 @@ export declare const AnimeBody: z.ZodEffects<z.ZodObject<{
         newCompany?: {
             type: "STUDIO" | "PRODUCER";
             name: {
-                default: string;
+                original: string;
                 alias?: string[] | undefined;
             };
             description?: string | undefined;
@@ -3955,7 +3955,7 @@ export declare const AnimeBody: z.ZodEffects<z.ZodObject<{
         id?: string | undefined;
         newPerson?: {
             name: {
-                default: string;
+                original: string;
                 alias?: string[] | undefined;
             };
             description?: string | undefined;
@@ -3997,7 +3997,7 @@ export declare const AnimeBody: z.ZodEffects<z.ZodObject<{
         role?: "PRINCIPAL" | "SECONDAIRE" | "FIGURANT" | "ANTAGONISTE" | "SOUTIEN" | undefined;
         newCharacter?: {
             name: {
-                default: string;
+                original: string;
                 alias?: string[] | undefined;
             };
             description?: string | undefined;
@@ -4025,7 +4025,7 @@ export declare const AnimeBody: z.ZodEffects<z.ZodObject<{
                 id?: string | undefined;
                 newPerson?: {
                     name: {
-                        default: string;
+                        original: string;
                         alias?: string[] | undefined;
                     };
                     description?: string | undefined;
@@ -4085,7 +4085,7 @@ export declare const AnimeBody: z.ZodEffects<z.ZodObject<{
         newTrack?: {
             type: "OPENING" | "ENDING" | "BGM" | "INSERT";
             name: {
-                default: string;
+                original: string;
                 alias?: string[] | undefined;
             };
             cover?: {
@@ -4114,7 +4114,7 @@ export declare const AnimeBody: z.ZodEffects<z.ZodObject<{
                 id?: string | undefined;
                 newPerson?: {
                     name: {
-                        default: string;
+                        original: string;
                         alias?: string[] | undefined;
                     };
                     description?: string | undefined;
@@ -4164,23 +4164,23 @@ export declare const AnimeCreateBody: z.ZodObject<z.objectUtil.extendShape<{
             id: z.ZodOptional<z.ZodString>;
             newGroupe: z.ZodOptional<z.ZodObject<{
                 name: z.ZodObject<{
-                    default: z.ZodString;
+                    original: z.ZodString;
                     alias: z.ZodOptional<z.ZodArray<z.ZodString, "many">>;
                 }, "strip", z.ZodTypeAny, {
-                    default: string;
+                    original: string;
                     alias?: string[] | undefined;
                 }, {
-                    default: string;
+                    original: string;
                     alias?: string[] | undefined;
                 }>;
             }, "strip", z.ZodTypeAny, {
                 name: {
-                    default: string;
+                    original: string;
                     alias?: string[] | undefined;
                 };
             }, {
                 name: {
-                    default: string;
+                    original: string;
                     alias?: string[] | undefined;
                 };
             }>>;
@@ -4188,7 +4188,7 @@ export declare const AnimeCreateBody: z.ZodObject<z.objectUtil.extendShape<{
             id?: string | undefined;
             newGroupe?: {
                 name: {
-                    default: string;
+                    original: string;
                     alias?: string[] | undefined;
                 };
             } | undefined;
@@ -4196,7 +4196,7 @@ export declare const AnimeCreateBody: z.ZodObject<z.objectUtil.extendShape<{
             id?: string | undefined;
             newGroupe?: {
                 name: {
-                    default: string;
+                    original: string;
                     alias?: string[] | undefined;
                 };
             } | undefined;
@@ -4223,13 +4223,13 @@ export declare const AnimeCreateBody: z.ZodObject<z.objectUtil.extendShape<{
         }>>;
         source: z.ZodOptional<z.ZodEnum<("MANGA" | "MANHWA" | "MANHUA" | "LIGHT_NOVEL" | "ORIGINAL" | "VISUAL_NOVEL" | "WEB_NOVEL" | "GAME" | "NOVEL" | "ANIME")[] & [string, ...string[]]>>;
         title: z.ZodObject<{
-            default: z.ZodString;
+            original: z.ZodString;
             alias: z.ZodOptional<z.ZodArray<z.ZodString, "many">>;
         }, "strip", z.ZodTypeAny, {
-            default: string;
+            original: string;
             alias?: string[] | undefined;
         }, {
-            default: string;
+            original: string;
             alias?: string[] | undefined;
         }>;
         date: z.ZodOptional<z.ZodObject<{
@@ -4452,13 +4452,13 @@ export declare const AnimeCreateBody: z.ZodObject<z.objectUtil.extendShape<{
             newCompany: z.ZodOptional<z.ZodObject<{
                 type: z.ZodEnum<["STUDIO", "PRODUCER"]>;
                 name: z.ZodObject<{
-                    default: z.ZodString;
+                    original: z.ZodString;
                     alias: z.ZodOptional<z.ZodArray<z.ZodString, "many">>;
                 }, "strip", z.ZodTypeAny, {
-                    default: string;
+                    original: string;
                     alias?: string[] | undefined;
                 }, {
-                    default: string;
+                    original: string;
                     alias?: string[] | undefined;
                 }>;
                 description: z.ZodOptional<z.ZodString>;
@@ -4530,7 +4530,7 @@ export declare const AnimeCreateBody: z.ZodObject<z.objectUtil.extendShape<{
             }, "strict", z.ZodTypeAny, {
                 type: "STUDIO" | "PRODUCER";
                 name: {
-                    default: string;
+                    original: string;
                     alias?: string[] | undefined;
                 };
                 description?: string | undefined;
@@ -4558,7 +4558,7 @@ export declare const AnimeCreateBody: z.ZodObject<z.objectUtil.extendShape<{
             }, {
                 type: "STUDIO" | "PRODUCER";
                 name: {
-                    default: string;
+                    original: string;
                     alias?: string[] | undefined;
                 };
                 description?: string | undefined;
@@ -4589,7 +4589,7 @@ export declare const AnimeCreateBody: z.ZodObject<z.objectUtil.extendShape<{
             newCompany?: {
                 type: "STUDIO" | "PRODUCER";
                 name: {
-                    default: string;
+                    original: string;
                     alias?: string[] | undefined;
                 };
                 description?: string | undefined;
@@ -4620,7 +4620,7 @@ export declare const AnimeCreateBody: z.ZodObject<z.objectUtil.extendShape<{
             newCompany?: {
                 type: "STUDIO" | "PRODUCER";
                 name: {
-                    default: string;
+                    original: string;
                     alias?: string[] | undefined;
                 };
                 description?: string | undefined;
@@ -4652,13 +4652,13 @@ export declare const AnimeCreateBody: z.ZodObject<z.objectUtil.extendShape<{
             newPerson: z.ZodOptional<z.ZodObject<{
                 isGroupe: z.ZodOptional<z.ZodBoolean>;
                 name: z.ZodObject<{
-                    default: z.ZodString;
+                    original: z.ZodString;
                     alias: z.ZodOptional<z.ZodArray<z.ZodString, "many">>;
                 }, "strip", z.ZodTypeAny, {
-                    default: string;
+                    original: string;
                     alias?: string[] | undefined;
                 }, {
-                    default: string;
+                    original: string;
                     alias?: string[] | undefined;
                 }>;
                 birthDate: z.ZodOptional<z.ZodObject<{
@@ -4751,7 +4751,7 @@ export declare const AnimeCreateBody: z.ZodObject<z.objectUtil.extendShape<{
                 }>, "many">>;
             }, "strict", z.ZodTypeAny, {
                 name: {
-                    default: string;
+                    original: string;
                     alias?: string[] | undefined;
                 };
                 description?: string | undefined;
@@ -4787,7 +4787,7 @@ export declare const AnimeCreateBody: z.ZodObject<z.objectUtil.extendShape<{
                 }[] | undefined;
             }, {
                 name: {
-                    default: string;
+                    original: string;
                     alias?: string[] | undefined;
                 };
                 description?: string | undefined;
@@ -4827,7 +4827,7 @@ export declare const AnimeCreateBody: z.ZodObject<z.objectUtil.extendShape<{
             id?: string | undefined;
             newPerson?: {
                 name: {
-                    default: string;
+                    original: string;
                     alias?: string[] | undefined;
                 };
                 description?: string | undefined;
@@ -4867,7 +4867,7 @@ export declare const AnimeCreateBody: z.ZodObject<z.objectUtil.extendShape<{
             id?: string | undefined;
             newPerson?: {
                 name: {
-                    default: string;
+                    original: string;
                     alias?: string[] | undefined;
                 };
                 description?: string | undefined;
@@ -4908,13 +4908,13 @@ export declare const AnimeCreateBody: z.ZodObject<z.objectUtil.extendShape<{
             id: z.ZodOptional<z.ZodString>;
             newCharacter: z.ZodOptional<z.ZodObject<{
                 name: z.ZodObject<{
-                    default: z.ZodString;
+                    original: z.ZodString;
                     alias: z.ZodOptional<z.ZodArray<z.ZodString, "many">>;
                 }, "strip", z.ZodTypeAny, {
-                    default: string;
+                    original: string;
                     alias?: string[] | undefined;
                 }, {
-                    default: string;
+                    original: string;
                     alias?: string[] | undefined;
                 }>;
                 age: z.ZodOptional<z.ZodEffects<z.ZodUnion<[z.ZodNumber, z.ZodString]>, number, string | number>>;
@@ -4981,13 +4981,13 @@ export declare const AnimeCreateBody: z.ZodObject<z.objectUtil.extendShape<{
                     newPerson: z.ZodOptional<z.ZodObject<{
                         isGroupe: z.ZodOptional<z.ZodBoolean>;
                         name: z.ZodObject<{
-                            default: z.ZodString;
+                            original: z.ZodString;
                             alias: z.ZodOptional<z.ZodArray<z.ZodString, "many">>;
                         }, "strip", z.ZodTypeAny, {
-                            default: string;
+                            original: string;
                             alias?: string[] | undefined;
                         }, {
-                            default: string;
+                            original: string;
                             alias?: string[] | undefined;
                         }>;
                         birthDate: z.ZodOptional<z.ZodObject<{
@@ -5080,7 +5080,7 @@ export declare const AnimeCreateBody: z.ZodObject<z.objectUtil.extendShape<{
                         }>, "many">>;
                     }, "strict", z.ZodTypeAny, {
                         name: {
-                            default: string;
+                            original: string;
                             alias?: string[] | undefined;
                         };
                         description?: string | undefined;
@@ -5116,7 +5116,7 @@ export declare const AnimeCreateBody: z.ZodObject<z.objectUtil.extendShape<{
                         }[] | undefined;
                     }, {
                         name: {
-                            default: string;
+                            original: string;
                             alias?: string[] | undefined;
                         };
                         description?: string | undefined;
@@ -5156,7 +5156,7 @@ export declare const AnimeCreateBody: z.ZodObject<z.objectUtil.extendShape<{
                     id?: string | undefined;
                     newPerson?: {
                         name: {
-                            default: string;
+                            original: string;
                             alias?: string[] | undefined;
                         };
                         description?: string | undefined;
@@ -5195,7 +5195,7 @@ export declare const AnimeCreateBody: z.ZodObject<z.objectUtil.extendShape<{
                     id?: string | undefined;
                     newPerson?: {
                         name: {
-                            default: string;
+                            original: string;
                             alias?: string[] | undefined;
                         };
                         description?: string | undefined;
@@ -5233,7 +5233,7 @@ export declare const AnimeCreateBody: z.ZodObject<z.objectUtil.extendShape<{
                 }>, "many">>;
             }, "strip", z.ZodTypeAny, {
                 name: {
-                    default: string;
+                    original: string;
                     alias?: string[] | undefined;
                 };
                 description?: string | undefined;
@@ -5261,7 +5261,7 @@ export declare const AnimeCreateBody: z.ZodObject<z.objectUtil.extendShape<{
                     id?: string | undefined;
                     newPerson?: {
                         name: {
-                            default: string;
+                            original: string;
                             alias?: string[] | undefined;
                         };
                         description?: string | undefined;
@@ -5299,7 +5299,7 @@ export declare const AnimeCreateBody: z.ZodObject<z.objectUtil.extendShape<{
                 }[] | undefined;
             }, {
                 name: {
-                    default: string;
+                    original: string;
                     alias?: string[] | undefined;
                 };
                 description?: string | undefined;
@@ -5327,7 +5327,7 @@ export declare const AnimeCreateBody: z.ZodObject<z.objectUtil.extendShape<{
                     id?: string | undefined;
                     newPerson?: {
                         name: {
-                            default: string;
+                            original: string;
                             alias?: string[] | undefined;
                         };
                         description?: string | undefined;
@@ -5370,7 +5370,7 @@ export declare const AnimeCreateBody: z.ZodObject<z.objectUtil.extendShape<{
             role?: "PRINCIPAL" | "SECONDAIRE" | "FIGURANT" | "ANTAGONISTE" | "SOUTIEN" | undefined;
             newCharacter?: {
                 name: {
-                    default: string;
+                    original: string;
                     alias?: string[] | undefined;
                 };
                 description?: string | undefined;
@@ -5398,7 +5398,7 @@ export declare const AnimeCreateBody: z.ZodObject<z.objectUtil.extendShape<{
                     id?: string | undefined;
                     newPerson?: {
                         name: {
-                            default: string;
+                            original: string;
                             alias?: string[] | undefined;
                         };
                         description?: string | undefined;
@@ -5440,7 +5440,7 @@ export declare const AnimeCreateBody: z.ZodObject<z.objectUtil.extendShape<{
             role?: "PRINCIPAL" | "SECONDAIRE" | "FIGURANT" | "ANTAGONISTE" | "SOUTIEN" | undefined;
             newCharacter?: {
                 name: {
-                    default: string;
+                    original: string;
                     alias?: string[] | undefined;
                 };
                 description?: string | undefined;
@@ -5468,7 +5468,7 @@ export declare const AnimeCreateBody: z.ZodObject<z.objectUtil.extendShape<{
                     id?: string | undefined;
                     newPerson?: {
                         name: {
-                            default: string;
+                            original: string;
                             alias?: string[] | undefined;
                         };
                         description?: string | undefined;
@@ -5510,13 +5510,13 @@ export declare const AnimeCreateBody: z.ZodObject<z.objectUtil.extendShape<{
             id: z.ZodOptional<z.ZodString>;
             newTrack: z.ZodOptional<z.ZodObject<{
                 name: z.ZodObject<{
-                    default: z.ZodString;
+                    original: z.ZodString;
                     alias: z.ZodOptional<z.ZodArray<z.ZodString, "many">>;
                 }, "strip", z.ZodTypeAny, {
-                    default: string;
+                    original: string;
                     alias?: string[] | undefined;
                 }, {
-                    default: string;
+                    original: string;
                     alias?: string[] | undefined;
                 }>;
                 type: z.ZodEnum<("OPENING" | "ENDING" | "BGM" | "INSERT")[] & [string, ...string[]]>;
@@ -5547,13 +5547,13 @@ export declare const AnimeCreateBody: z.ZodObject<z.objectUtil.extendShape<{
                     newPerson: z.ZodOptional<z.ZodObject<{
                         isGroupe: z.ZodOptional<z.ZodBoolean>;
                         name: z.ZodObject<{
-                            default: z.ZodString;
+                            original: z.ZodString;
                             alias: z.ZodOptional<z.ZodArray<z.ZodString, "many">>;
                         }, "strip", z.ZodTypeAny, {
-                            default: string;
+                            original: string;
                             alias?: string[] | undefined;
                         }, {
-                            default: string;
+                            original: string;
                             alias?: string[] | undefined;
                         }>;
                         birthDate: z.ZodOptional<z.ZodObject<{
@@ -5646,7 +5646,7 @@ export declare const AnimeCreateBody: z.ZodObject<z.objectUtil.extendShape<{
                         }>, "many">>;
                     }, "strict", z.ZodTypeAny, {
                         name: {
-                            default: string;
+                            original: string;
                             alias?: string[] | undefined;
                         };
                         description?: string | undefined;
@@ -5682,7 +5682,7 @@ export declare const AnimeCreateBody: z.ZodObject<z.objectUtil.extendShape<{
                         }[] | undefined;
                     }, {
                         name: {
-                            default: string;
+                            original: string;
                             alias?: string[] | undefined;
                         };
                         description?: string | undefined;
@@ -5722,7 +5722,7 @@ export declare const AnimeCreateBody: z.ZodObject<z.objectUtil.extendShape<{
                     id?: string | undefined;
                     newPerson?: {
                         name: {
-                            default: string;
+                            original: string;
                             alias?: string[] | undefined;
                         };
                         description?: string | undefined;
@@ -5762,7 +5762,7 @@ export declare const AnimeCreateBody: z.ZodObject<z.objectUtil.extendShape<{
                     id?: string | undefined;
                     newPerson?: {
                         name: {
-                            default: string;
+                            original: string;
                             alias?: string[] | undefined;
                         };
                         description?: string | undefined;
@@ -5846,7 +5846,7 @@ export declare const AnimeCreateBody: z.ZodObject<z.objectUtil.extendShape<{
             }, "strict", z.ZodTypeAny, {
                 type: "OPENING" | "ENDING" | "BGM" | "INSERT";
                 name: {
-                    default: string;
+                    original: string;
                     alias?: string[] | undefined;
                 };
                 cover?: {
@@ -5875,7 +5875,7 @@ export declare const AnimeCreateBody: z.ZodObject<z.objectUtil.extendShape<{
                     id?: string | undefined;
                     newPerson?: {
                         name: {
-                            default: string;
+                            original: string;
                             alias?: string[] | undefined;
                         };
                         description?: string | undefined;
@@ -5915,7 +5915,7 @@ export declare const AnimeCreateBody: z.ZodObject<z.objectUtil.extendShape<{
             }, {
                 type: "OPENING" | "ENDING" | "BGM" | "INSERT";
                 name: {
-                    default: string;
+                    original: string;
                     alias?: string[] | undefined;
                 };
                 cover?: {
@@ -5944,7 +5944,7 @@ export declare const AnimeCreateBody: z.ZodObject<z.objectUtil.extendShape<{
                     id?: string | undefined;
                     newPerson?: {
                         name: {
-                            default: string;
+                            original: string;
                             alias?: string[] | undefined;
                         };
                         description?: string | undefined;
@@ -5987,7 +5987,7 @@ export declare const AnimeCreateBody: z.ZodObject<z.objectUtil.extendShape<{
             newTrack?: {
                 type: "OPENING" | "ENDING" | "BGM" | "INSERT";
                 name: {
-                    default: string;
+                    original: string;
                     alias?: string[] | undefined;
                 };
                 cover?: {
@@ -6016,7 +6016,7 @@ export declare const AnimeCreateBody: z.ZodObject<z.objectUtil.extendShape<{
                     id?: string | undefined;
                     newPerson?: {
                         name: {
-                            default: string;
+                            original: string;
                             alias?: string[] | undefined;
                         };
                         description?: string | undefined;
@@ -6059,7 +6059,7 @@ export declare const AnimeCreateBody: z.ZodObject<z.objectUtil.extendShape<{
             newTrack?: {
                 type: "OPENING" | "ENDING" | "BGM" | "INSERT";
                 name: {
-                    default: string;
+                    original: string;
                     alias?: string[] | undefined;
                 };
                 cover?: {
@@ -6088,7 +6088,7 @@ export declare const AnimeCreateBody: z.ZodObject<z.objectUtil.extendShape<{
                     id?: string | undefined;
                     newPerson?: {
                         name: {
-                            default: string;
+                            original: string;
                             alias?: string[] | undefined;
                         };
                         description?: string | undefined;
@@ -6130,7 +6130,7 @@ export declare const AnimeCreateBody: z.ZodObject<z.objectUtil.extendShape<{
     }, "strict", z.ZodTypeAny, {
         status: "AIRING" | "PAUSED" | "ENDED" | "STOPPED" | "POSTONED" | "SOON" | "any";
         title: {
-            default: string;
+            original: string;
             alias?: string[] | undefined;
         };
         format: "FILM" | "SERIE" | "SERIE_COURTE" | "ONA" | "OVA" | "SPECIAL";
@@ -6138,7 +6138,7 @@ export declare const AnimeCreateBody: z.ZodObject<z.objectUtil.extendShape<{
             id?: string | undefined;
             newGroupe?: {
                 name: {
-                    default: string;
+                    original: string;
                     alias?: string[] | undefined;
                 };
             } | undefined;
@@ -6199,7 +6199,7 @@ export declare const AnimeCreateBody: z.ZodObject<z.objectUtil.extendShape<{
             newCompany?: {
                 type: "STUDIO" | "PRODUCER";
                 name: {
-                    default: string;
+                    original: string;
                     alias?: string[] | undefined;
                 };
                 description?: string | undefined;
@@ -6230,7 +6230,7 @@ export declare const AnimeCreateBody: z.ZodObject<z.objectUtil.extendShape<{
             id?: string | undefined;
             newPerson?: {
                 name: {
-                    default: string;
+                    original: string;
                     alias?: string[] | undefined;
                 };
                 description?: string | undefined;
@@ -6272,7 +6272,7 @@ export declare const AnimeCreateBody: z.ZodObject<z.objectUtil.extendShape<{
             role?: "PRINCIPAL" | "SECONDAIRE" | "FIGURANT" | "ANTAGONISTE" | "SOUTIEN" | undefined;
             newCharacter?: {
                 name: {
-                    default: string;
+                    original: string;
                     alias?: string[] | undefined;
                 };
                 description?: string | undefined;
@@ -6300,7 +6300,7 @@ export declare const AnimeCreateBody: z.ZodObject<z.objectUtil.extendShape<{
                     id?: string | undefined;
                     newPerson?: {
                         name: {
-                            default: string;
+                            original: string;
                             alias?: string[] | undefined;
                         };
                         description?: string | undefined;
@@ -6360,7 +6360,7 @@ export declare const AnimeCreateBody: z.ZodObject<z.objectUtil.extendShape<{
             newTrack?: {
                 type: "OPENING" | "ENDING" | "BGM" | "INSERT";
                 name: {
-                    default: string;
+                    original: string;
                     alias?: string[] | undefined;
                 };
                 cover?: {
@@ -6389,7 +6389,7 @@ export declare const AnimeCreateBody: z.ZodObject<z.objectUtil.extendShape<{
                     id?: string | undefined;
                     newPerson?: {
                         name: {
-                            default: string;
+                            original: string;
                             alias?: string[] | undefined;
                         };
                         description?: string | undefined;
@@ -6431,7 +6431,7 @@ export declare const AnimeCreateBody: z.ZodObject<z.objectUtil.extendShape<{
     }, {
         status: "AIRING" | "PAUSED" | "ENDED" | "STOPPED" | "POSTONED" | "SOON" | "any";
         title: {
-            default: string;
+            original: string;
             alias?: string[] | undefined;
         };
         format: "FILM" | "SERIE" | "SERIE_COURTE" | "ONA" | "OVA" | "SPECIAL";
@@ -6439,7 +6439,7 @@ export declare const AnimeCreateBody: z.ZodObject<z.objectUtil.extendShape<{
             id?: string | undefined;
             newGroupe?: {
                 name: {
-                    default: string;
+                    original: string;
                     alias?: string[] | undefined;
                 };
             } | undefined;
@@ -6500,7 +6500,7 @@ export declare const AnimeCreateBody: z.ZodObject<z.objectUtil.extendShape<{
             newCompany?: {
                 type: "STUDIO" | "PRODUCER";
                 name: {
-                    default: string;
+                    original: string;
                     alias?: string[] | undefined;
                 };
                 description?: string | undefined;
@@ -6531,7 +6531,7 @@ export declare const AnimeCreateBody: z.ZodObject<z.objectUtil.extendShape<{
             id?: string | undefined;
             newPerson?: {
                 name: {
-                    default: string;
+                    original: string;
                     alias?: string[] | undefined;
                 };
                 description?: string | undefined;
@@ -6573,7 +6573,7 @@ export declare const AnimeCreateBody: z.ZodObject<z.objectUtil.extendShape<{
             role?: "PRINCIPAL" | "SECONDAIRE" | "FIGURANT" | "ANTAGONISTE" | "SOUTIEN" | undefined;
             newCharacter?: {
                 name: {
-                    default: string;
+                    original: string;
                     alias?: string[] | undefined;
                 };
                 description?: string | undefined;
@@ -6601,7 +6601,7 @@ export declare const AnimeCreateBody: z.ZodObject<z.objectUtil.extendShape<{
                     id?: string | undefined;
                     newPerson?: {
                         name: {
-                            default: string;
+                            original: string;
                             alias?: string[] | undefined;
                         };
                         description?: string | undefined;
@@ -6661,7 +6661,7 @@ export declare const AnimeCreateBody: z.ZodObject<z.objectUtil.extendShape<{
             newTrack?: {
                 type: "OPENING" | "ENDING" | "BGM" | "INSERT";
                 name: {
-                    default: string;
+                    original: string;
                     alias?: string[] | undefined;
                 };
                 cover?: {
@@ -6690,7 +6690,7 @@ export declare const AnimeCreateBody: z.ZodObject<z.objectUtil.extendShape<{
                     id?: string | undefined;
                     newPerson?: {
                         name: {
-                            default: string;
+                            original: string;
                             alias?: string[] | undefined;
                         };
                         description?: string | undefined;
@@ -6732,7 +6732,7 @@ export declare const AnimeCreateBody: z.ZodObject<z.objectUtil.extendShape<{
     }>, {
         status: "AIRING" | "PAUSED" | "ENDED" | "STOPPED" | "POSTONED" | "SOON" | "any";
         title: {
-            default: string;
+            original: string;
             alias?: string[] | undefined;
         };
         format: "FILM" | "SERIE" | "SERIE_COURTE" | "ONA" | "OVA" | "SPECIAL";
@@ -6740,7 +6740,7 @@ export declare const AnimeCreateBody: z.ZodObject<z.objectUtil.extendShape<{
             id?: string | undefined;
             newGroupe?: {
                 name: {
-                    default: string;
+                    original: string;
                     alias?: string[] | undefined;
                 };
             } | undefined;
@@ -6801,7 +6801,7 @@ export declare const AnimeCreateBody: z.ZodObject<z.objectUtil.extendShape<{
             newCompany?: {
                 type: "STUDIO" | "PRODUCER";
                 name: {
-                    default: string;
+                    original: string;
                     alias?: string[] | undefined;
                 };
                 description?: string | undefined;
@@ -6832,7 +6832,7 @@ export declare const AnimeCreateBody: z.ZodObject<z.objectUtil.extendShape<{
             id?: string | undefined;
             newPerson?: {
                 name: {
-                    default: string;
+                    original: string;
                     alias?: string[] | undefined;
                 };
                 description?: string | undefined;
@@ -6874,7 +6874,7 @@ export declare const AnimeCreateBody: z.ZodObject<z.objectUtil.extendShape<{
             role?: "PRINCIPAL" | "SECONDAIRE" | "FIGURANT" | "ANTAGONISTE" | "SOUTIEN" | undefined;
             newCharacter?: {
                 name: {
-                    default: string;
+                    original: string;
                     alias?: string[] | undefined;
                 };
                 description?: string | undefined;
@@ -6902,7 +6902,7 @@ export declare const AnimeCreateBody: z.ZodObject<z.objectUtil.extendShape<{
                     id?: string | undefined;
                     newPerson?: {
                         name: {
-                            default: string;
+                            original: string;
                             alias?: string[] | undefined;
                         };
                         description?: string | undefined;
@@ -6962,7 +6962,7 @@ export declare const AnimeCreateBody: z.ZodObject<z.objectUtil.extendShape<{
             newTrack?: {
                 type: "OPENING" | "ENDING" | "BGM" | "INSERT";
                 name: {
-                    default: string;
+                    original: string;
                     alias?: string[] | undefined;
                 };
                 cover?: {
@@ -6991,7 +6991,7 @@ export declare const AnimeCreateBody: z.ZodObject<z.objectUtil.extendShape<{
                     id?: string | undefined;
                     newPerson?: {
                         name: {
-                            default: string;
+                            original: string;
                             alias?: string[] | undefined;
                         };
                         description?: string | undefined;
@@ -7033,7 +7033,7 @@ export declare const AnimeCreateBody: z.ZodObject<z.objectUtil.extendShape<{
     }, {
         status: "AIRING" | "PAUSED" | "ENDED" | "STOPPED" | "POSTONED" | "SOON" | "any";
         title: {
-            default: string;
+            original: string;
             alias?: string[] | undefined;
         };
         format: "FILM" | "SERIE" | "SERIE_COURTE" | "ONA" | "OVA" | "SPECIAL";
@@ -7041,7 +7041,7 @@ export declare const AnimeCreateBody: z.ZodObject<z.objectUtil.extendShape<{
             id?: string | undefined;
             newGroupe?: {
                 name: {
-                    default: string;
+                    original: string;
                     alias?: string[] | undefined;
                 };
             } | undefined;
@@ -7102,7 +7102,7 @@ export declare const AnimeCreateBody: z.ZodObject<z.objectUtil.extendShape<{
             newCompany?: {
                 type: "STUDIO" | "PRODUCER";
                 name: {
-                    default: string;
+                    original: string;
                     alias?: string[] | undefined;
                 };
                 description?: string | undefined;
@@ -7133,7 +7133,7 @@ export declare const AnimeCreateBody: z.ZodObject<z.objectUtil.extendShape<{
             id?: string | undefined;
             newPerson?: {
                 name: {
-                    default: string;
+                    original: string;
                     alias?: string[] | undefined;
                 };
                 description?: string | undefined;
@@ -7175,7 +7175,7 @@ export declare const AnimeCreateBody: z.ZodObject<z.objectUtil.extendShape<{
             role?: "PRINCIPAL" | "SECONDAIRE" | "FIGURANT" | "ANTAGONISTE" | "SOUTIEN" | undefined;
             newCharacter?: {
                 name: {
-                    default: string;
+                    original: string;
                     alias?: string[] | undefined;
                 };
                 description?: string | undefined;
@@ -7203,7 +7203,7 @@ export declare const AnimeCreateBody: z.ZodObject<z.objectUtil.extendShape<{
                     id?: string | undefined;
                     newPerson?: {
                         name: {
-                            default: string;
+                            original: string;
                             alias?: string[] | undefined;
                         };
                         description?: string | undefined;
@@ -7263,7 +7263,7 @@ export declare const AnimeCreateBody: z.ZodObject<z.objectUtil.extendShape<{
             newTrack?: {
                 type: "OPENING" | "ENDING" | "BGM" | "INSERT";
                 name: {
-                    default: string;
+                    original: string;
                     alias?: string[] | undefined;
                 };
                 cover?: {
@@ -7292,7 +7292,7 @@ export declare const AnimeCreateBody: z.ZodObject<z.objectUtil.extendShape<{
                     id?: string | undefined;
                     newPerson?: {
                         name: {
-                            default: string;
+                            original: string;
                             alias?: string[] | undefined;
                         };
                         description?: string | undefined;
@@ -7336,7 +7336,7 @@ export declare const AnimeCreateBody: z.ZodObject<z.objectUtil.extendShape<{
     data: {
         status: "AIRING" | "PAUSED" | "ENDED" | "STOPPED" | "POSTONED" | "SOON" | "any";
         title: {
-            default: string;
+            original: string;
             alias?: string[] | undefined;
         };
         format: "FILM" | "SERIE" | "SERIE_COURTE" | "ONA" | "OVA" | "SPECIAL";
@@ -7344,7 +7344,7 @@ export declare const AnimeCreateBody: z.ZodObject<z.objectUtil.extendShape<{
             id?: string | undefined;
             newGroupe?: {
                 name: {
-                    default: string;
+                    original: string;
                     alias?: string[] | undefined;
                 };
             } | undefined;
@@ -7405,7 +7405,7 @@ export declare const AnimeCreateBody: z.ZodObject<z.objectUtil.extendShape<{
             newCompany?: {
                 type: "STUDIO" | "PRODUCER";
                 name: {
-                    default: string;
+                    original: string;
                     alias?: string[] | undefined;
                 };
                 description?: string | undefined;
@@ -7436,7 +7436,7 @@ export declare const AnimeCreateBody: z.ZodObject<z.objectUtil.extendShape<{
             id?: string | undefined;
             newPerson?: {
                 name: {
-                    default: string;
+                    original: string;
                     alias?: string[] | undefined;
                 };
                 description?: string | undefined;
@@ -7478,7 +7478,7 @@ export declare const AnimeCreateBody: z.ZodObject<z.objectUtil.extendShape<{
             role?: "PRINCIPAL" | "SECONDAIRE" | "FIGURANT" | "ANTAGONISTE" | "SOUTIEN" | undefined;
             newCharacter?: {
                 name: {
-                    default: string;
+                    original: string;
                     alias?: string[] | undefined;
                 };
                 description?: string | undefined;
@@ -7506,7 +7506,7 @@ export declare const AnimeCreateBody: z.ZodObject<z.objectUtil.extendShape<{
                     id?: string | undefined;
                     newPerson?: {
                         name: {
-                            default: string;
+                            original: string;
                             alias?: string[] | undefined;
                         };
                         description?: string | undefined;
@@ -7566,7 +7566,7 @@ export declare const AnimeCreateBody: z.ZodObject<z.objectUtil.extendShape<{
             newTrack?: {
                 type: "OPENING" | "ENDING" | "BGM" | "INSERT";
                 name: {
-                    default: string;
+                    original: string;
                     alias?: string[] | undefined;
                 };
                 cover?: {
@@ -7595,7 +7595,7 @@ export declare const AnimeCreateBody: z.ZodObject<z.objectUtil.extendShape<{
                     id?: string | undefined;
                     newPerson?: {
                         name: {
-                            default: string;
+                            original: string;
                             alias?: string[] | undefined;
                         };
                         description?: string | undefined;
@@ -7641,7 +7641,7 @@ export declare const AnimeCreateBody: z.ZodObject<z.objectUtil.extendShape<{
     data: {
         status: "AIRING" | "PAUSED" | "ENDED" | "STOPPED" | "POSTONED" | "SOON" | "any";
         title: {
-            default: string;
+            original: string;
             alias?: string[] | undefined;
         };
         format: "FILM" | "SERIE" | "SERIE_COURTE" | "ONA" | "OVA" | "SPECIAL";
@@ -7649,7 +7649,7 @@ export declare const AnimeCreateBody: z.ZodObject<z.objectUtil.extendShape<{
             id?: string | undefined;
             newGroupe?: {
                 name: {
-                    default: string;
+                    original: string;
                     alias?: string[] | undefined;
                 };
             } | undefined;
@@ -7710,7 +7710,7 @@ export declare const AnimeCreateBody: z.ZodObject<z.objectUtil.extendShape<{
             newCompany?: {
                 type: "STUDIO" | "PRODUCER";
                 name: {
-                    default: string;
+                    original: string;
                     alias?: string[] | undefined;
                 };
                 description?: string | undefined;
@@ -7741,7 +7741,7 @@ export declare const AnimeCreateBody: z.ZodObject<z.objectUtil.extendShape<{
             id?: string | undefined;
             newPerson?: {
                 name: {
-                    default: string;
+                    original: string;
                     alias?: string[] | undefined;
                 };
                 description?: string | undefined;
@@ -7783,7 +7783,7 @@ export declare const AnimeCreateBody: z.ZodObject<z.objectUtil.extendShape<{
             role?: "PRINCIPAL" | "SECONDAIRE" | "FIGURANT" | "ANTAGONISTE" | "SOUTIEN" | undefined;
             newCharacter?: {
                 name: {
-                    default: string;
+                    original: string;
                     alias?: string[] | undefined;
                 };
                 description?: string | undefined;
@@ -7811,7 +7811,7 @@ export declare const AnimeCreateBody: z.ZodObject<z.objectUtil.extendShape<{
                     id?: string | undefined;
                     newPerson?: {
                         name: {
-                            default: string;
+                            original: string;
                             alias?: string[] | undefined;
                         };
                         description?: string | undefined;
@@ -7871,7 +7871,7 @@ export declare const AnimeCreateBody: z.ZodObject<z.objectUtil.extendShape<{
             newTrack?: {
                 type: "OPENING" | "ENDING" | "BGM" | "INSERT";
                 name: {
-                    default: string;
+                    original: string;
                     alias?: string[] | undefined;
                 };
                 cover?: {
@@ -7900,7 +7900,7 @@ export declare const AnimeCreateBody: z.ZodObject<z.objectUtil.extendShape<{
                     id?: string | undefined;
                     newPerson?: {
                         name: {
-                            default: string;
+                            original: string;
                             alias?: string[] | undefined;
                         };
                         description?: string | undefined;
@@ -7947,7 +7947,7 @@ export type IAnimeCreateBody = z.infer<typeof AnimeCreateBody>;
 export declare const AnimeDataToZOD: (data: IAnime) => {
     status: "AIRING" | "PAUSED" | "ENDED" | "STOPPED" | "POSTONED" | "SOON" | "any";
     title: {
-        default: string;
+        original: string;
         alias?: string[] | undefined;
     };
     format: "FILM" | "SERIE" | "SERIE_COURTE" | "ONA" | "OVA" | "SPECIAL";
@@ -7955,7 +7955,7 @@ export declare const AnimeDataToZOD: (data: IAnime) => {
         id?: string | undefined;
         newGroupe?: {
             name: {
-                default: string;
+                original: string;
                 alias?: string[] | undefined;
             };
         } | undefined;
@@ -8016,7 +8016,7 @@ export declare const AnimeDataToZOD: (data: IAnime) => {
         newCompany?: {
             type: "STUDIO" | "PRODUCER";
             name: {
-                default: string;
+                original: string;
                 alias?: string[] | undefined;
             };
             description?: string | undefined;
@@ -8047,7 +8047,7 @@ export declare const AnimeDataToZOD: (data: IAnime) => {
         id?: string | undefined;
         newPerson?: {
             name: {
-                default: string;
+                original: string;
                 alias?: string[] | undefined;
             };
             description?: string | undefined;
@@ -8089,7 +8089,7 @@ export declare const AnimeDataToZOD: (data: IAnime) => {
         role?: "PRINCIPAL" | "SECONDAIRE" | "FIGURANT" | "ANTAGONISTE" | "SOUTIEN" | undefined;
         newCharacter?: {
             name: {
-                default: string;
+                original: string;
                 alias?: string[] | undefined;
             };
             description?: string | undefined;
@@ -8117,7 +8117,7 @@ export declare const AnimeDataToZOD: (data: IAnime) => {
                 id?: string | undefined;
                 newPerson?: {
                     name: {
-                        default: string;
+                        original: string;
                         alias?: string[] | undefined;
                     };
                     description?: string | undefined;
@@ -8177,7 +8177,7 @@ export declare const AnimeDataToZOD: (data: IAnime) => {
         newTrack?: {
             type: "OPENING" | "ENDING" | "BGM" | "INSERT";
             name: {
-                default: string;
+                original: string;
                 alias?: string[] | undefined;
             };
             cover?: {
@@ -8206,7 +8206,7 @@ export declare const AnimeDataToZOD: (data: IAnime) => {
                 id?: string | undefined;
                 newPerson?: {
                     name: {
-                        default: string;
+                        original: string;
                         alias?: string[] | undefined;
                     };
                     description?: string | undefined;
