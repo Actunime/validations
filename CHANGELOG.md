@@ -1,3 +1,10 @@
+## [1.0.42](https://github.com/Actunime/validations/compare/v1.0.41...v1.0.42) (2025-04-08)
+
+
+### Bug Fixes
+
+* name&title to original ([bd3db31](https://github.com/Actunime/validations/commit/bd3db316304b8557f2ed7f604a75b7ed03cacd64))
+
 ## [1.0.41](https://github.com/Actunime/validations/compare/v1.0.40...v1.0.41) (2025-04-08)
 
 
