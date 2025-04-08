@@ -1,5 +1,5 @@
-import { z } from "zod";
-import { IMediaDate, IMediaLink, IMediaTitle } from "@actunime/types";
+import { z } from 'zod';
+import { IMediaDate, IMediaLink, IMediaTitle } from '@actunime/types';
 export type EqualType<T, Expected extends T> = T extends Expected ? Expected extends T ? T : never : never;
 export declare const DateBody: z.ZodObject<{
     year: z.ZodOptional<z.ZodEffects<z.ZodUnion<[z.ZodNumber, z.ZodString]>, number, string | number>>;
@@ -237,7 +237,7 @@ export declare const MediaTitleBody: z.ZodObject<{
     default: string;
     alias?: string[] | undefined;
 }>;
-export type IMediaTitleBody = EqualType<IMediaTitle, z.infer<typeof MediaTitleBody>>;
+export type IMediaTitleBody = EqualType<Omit<IMediaTitle, 'normal'>, z.infer<typeof MediaTitleBody>>;
 export declare const YoutubeURLStringBody: z.ZodString;
 export declare const FromBody: z.ZodObject<{
     id: z.ZodString;
