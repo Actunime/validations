@@ -79,15 +79,15 @@ export declare const GroupePaginationBody: z.ZodObject<z.objectUtil.extendShape<
         } | undefined;
     }>;
 }>, "strip", z.ZodTypeAny, {
+    page: number;
+    limit: number;
+    strict: boolean;
+    onlyVerified: boolean;
     sort: {
         name?: number | undefined;
         createdAt?: number | undefined;
         updatedAt?: number | undefined;
     };
-    page: number;
-    limit: number;
-    strict: boolean;
-    onlyVerified: boolean;
     query: {
         name?: {
             original?: string | undefined;
@@ -95,15 +95,15 @@ export declare const GroupePaginationBody: z.ZodObject<z.objectUtil.extendShape<
         } | undefined;
     };
 }, {
+    page: number;
+    limit: number;
+    strict: boolean;
+    onlyVerified: boolean;
     sort: {
         name?: number | undefined;
         createdAt?: number | undefined;
         updatedAt?: number | undefined;
     };
-    page: number;
-    limit: number;
-    strict: boolean;
-    onlyVerified: boolean;
     query: {
         name?: {
             original?: string | undefined;

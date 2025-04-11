@@ -768,16 +768,16 @@ export declare const TrackPaginationBody: z.ZodObject<{
         id: string;
     }>>;
 }, "strip", z.ZodTypeAny, {
+    page?: number | undefined;
+    limit?: number | undefined;
+    strict?: boolean | undefined;
+    onlyVerified?: boolean | undefined;
     sort?: {
         type?: number | undefined;
         createdAt?: number | undefined;
         updatedAt?: number | undefined;
         releaseDate?: number | undefined;
     } | undefined;
-    page?: number | undefined;
-    limit?: number | undefined;
-    strict?: boolean | undefined;
-    onlyVerified?: boolean | undefined;
     query?: {
         type?: "OPENING" | "ENDING" | "BGM" | "INSERT" | undefined;
         cover?: {
@@ -847,16 +847,16 @@ export declare const TrackPaginationBody: z.ZodObject<{
         id: string;
     } | undefined;
 }, {
+    page?: number | undefined;
+    limit?: number | undefined;
+    strict?: boolean | undefined;
+    onlyVerified?: boolean | undefined;
     sort?: {
         type?: string | number | undefined;
         createdAt?: string | number | undefined;
         updatedAt?: string | number | undefined;
         releaseDate?: string | number | undefined;
     } | undefined;
-    page?: number | undefined;
-    limit?: number | undefined;
-    strict?: boolean | undefined;
-    onlyVerified?: boolean | undefined;
     query?: {
         type?: "OPENING" | "ENDING" | "BGM" | "INSERT" | undefined;
         cover?: {
@@ -1308,15 +1308,15 @@ export declare const Track_Pagination_ZOD: z.ZodObject<{
         } | undefined;
     }>;
 }, "strip", z.ZodTypeAny, {
+    page: number;
+    limit: number;
+    strict: boolean;
     sort: {
         type?: number | undefined;
         createdAt?: number | undefined;
         updatedAt?: number | undefined;
         releaseDate?: number | undefined;
     };
-    page: number;
-    limit: number;
-    strict: boolean;
     query: {
         type?: "OPENING" | "ENDING" | "BGM" | "INSERT" | undefined;
         cover?: {
@@ -1382,15 +1382,15 @@ export declare const Track_Pagination_ZOD: z.ZodObject<{
         } | undefined;
     };
 }, {
+    page: number;
+    limit: number;
+    strict: boolean;
     sort: {
         type?: string | number | undefined;
         createdAt?: string | number | undefined;
         updatedAt?: string | number | undefined;
         releaseDate?: string | number | undefined;
     };
-    page: number;
-    limit: number;
-    strict: boolean;
     query: {
         type?: "OPENING" | "ENDING" | "BGM" | "INSERT" | undefined;
         cover?: {

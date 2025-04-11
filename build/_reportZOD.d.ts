@@ -49,13 +49,13 @@ export declare const Report_Pagination_ZOD: z.ZodObject<{
         by?: boolean | undefined;
     }>>;
 }, "strict", z.ZodTypeAny, {
+    page?: number | undefined;
+    limit?: number | undefined;
+    strict?: boolean | undefined;
     sort?: {
         createdAt?: "DESC" | "ASC" | undefined;
         updaptedAt?: "DESC" | "ASC" | undefined;
     } | undefined;
-    page?: number | undefined;
-    limit?: number | undefined;
-    strict?: boolean | undefined;
     query?: {
         status?: "PENDING" | "REJECTED" | "VERIFIED" | undefined;
         author?: string | undefined;
@@ -70,13 +70,13 @@ export declare const Report_Pagination_ZOD: z.ZodObject<{
         by?: boolean | undefined;
     } | undefined;
 }, {
+    page?: string | number | undefined;
+    limit?: string | number | undefined;
+    strict?: boolean | undefined;
     sort?: {
         createdAt?: "DESC" | "ASC" | undefined;
         updaptedAt?: "DESC" | "ASC" | undefined;
     } | undefined;
-    page?: string | number | undefined;
-    limit?: string | number | undefined;
-    strict?: boolean | undefined;
     query?: {
         status?: "PENDING" | "REJECTED" | "VERIFIED" | undefined;
         author?: string | undefined;

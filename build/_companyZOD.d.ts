@@ -308,6 +308,10 @@ export declare const CompanyPaginationBody: z.ZodObject<{
         id: string;
     }>>;
 }, "strip", z.ZodTypeAny, {
+    page?: number | undefined;
+    limit?: number | undefined;
+    strict?: boolean | undefined;
+    onlyVerified?: boolean | undefined;
     sort?: {
         type?: number | undefined;
         createdAt?: number | undefined;
@@ -318,10 +322,6 @@ export declare const CompanyPaginationBody: z.ZodObject<{
             day: number;
         } | undefined;
     } | undefined;
-    page?: number | undefined;
-    limit?: number | undefined;
-    strict?: boolean | undefined;
-    onlyVerified?: boolean | undefined;
     query?: {
         type?: "STUDIO" | "PRODUCER" | undefined;
         name?: {
@@ -353,6 +353,10 @@ export declare const CompanyPaginationBody: z.ZodObject<{
         id: string;
     } | undefined;
 }, {
+    page?: number | undefined;
+    limit?: number | undefined;
+    strict?: boolean | undefined;
+    onlyVerified?: boolean | undefined;
     sort?: {
         type?: string | number | undefined;
         createdAt?: string | number | undefined;
@@ -363,10 +367,6 @@ export declare const CompanyPaginationBody: z.ZodObject<{
             day: string | number;
         } | undefined;
     } | undefined;
-    page?: number | undefined;
-    limit?: number | undefined;
-    strict?: boolean | undefined;
-    onlyVerified?: boolean | undefined;
     query?: {
         type?: "STUDIO" | "PRODUCER" | undefined;
         name?: {
@@ -550,6 +550,9 @@ export declare const Company_Pagination_ZOD: z.ZodObject<{
         } | undefined;
     }>;
 }, "strip", z.ZodTypeAny, {
+    page: number;
+    limit: number;
+    strict: boolean;
     sort: {
         type?: number | undefined;
         createdAt?: number | undefined;
@@ -560,9 +563,6 @@ export declare const Company_Pagination_ZOD: z.ZodObject<{
             day: number;
         } | undefined;
     };
-    page: number;
-    limit: number;
-    strict: boolean;
     query: {
         type?: "STUDIO" | "PRODUCER" | undefined;
         name?: {
@@ -590,6 +590,9 @@ export declare const Company_Pagination_ZOD: z.ZodObject<{
         } | undefined;
     };
 }, {
+    page: number;
+    limit: number;
+    strict: boolean;
     sort: {
         type?: string | number | undefined;
         createdAt?: string | number | undefined;
@@ -600,9 +603,6 @@ export declare const Company_Pagination_ZOD: z.ZodObject<{
             day: string | number;
         } | undefined;
     };
-    page: number;
-    limit: number;
-    strict: boolean;
     query: {
         type?: "STUDIO" | "PRODUCER" | undefined;
         name?: {

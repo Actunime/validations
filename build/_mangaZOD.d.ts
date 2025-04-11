@@ -941,6 +941,10 @@ export declare const MangaPaginationBody: z.ZodObject<z.objectUtil.extendShape<{
         explicit?: boolean | undefined;
     }>;
 }>, "strip", z.ZodTypeAny, {
+    page: number;
+    limit: number;
+    strict: boolean;
+    onlyVerified: boolean;
     sort: {
         status?: number | undefined;
         date?: {
@@ -967,10 +971,6 @@ export declare const MangaPaginationBody: z.ZodObject<z.objectUtil.extendShape<{
         adult?: number | undefined;
         explicit?: number | undefined;
     };
-    page: number;
-    limit: number;
-    strict: boolean;
-    onlyVerified: boolean;
     query: {
         status?: "AIRING" | "PAUSED" | "ENDED" | "STOPPED" | "POSTONED" | "SOON" | "any" | undefined;
         date?: {
@@ -1033,6 +1033,10 @@ export declare const MangaPaginationBody: z.ZodObject<z.objectUtil.extendShape<{
         explicit?: boolean | undefined;
     };
 }, {
+    page: number;
+    limit: number;
+    strict: boolean;
+    onlyVerified: boolean;
     sort: {
         status?: number | undefined;
         date?: {
@@ -1059,10 +1063,6 @@ export declare const MangaPaginationBody: z.ZodObject<z.objectUtil.extendShape<{
         adult?: number | undefined;
         explicit?: number | undefined;
     };
-    page: number;
-    limit: number;
-    strict: boolean;
-    onlyVerified: boolean;
     query: {
         status?: "AIRING" | "PAUSED" | "ENDED" | "STOPPED" | "POSTONED" | "SOON" | "any" | undefined;
         date?: {

@@ -750,6 +750,10 @@ export declare const CharacterPaginationBody: z.ZodObject<{
         id: string;
     }>>;
 }, "strip", z.ZodTypeAny, {
+    page?: number | undefined;
+    limit?: number | undefined;
+    strict?: boolean | undefined;
+    onlyVerified?: boolean | undefined;
     sort?: {
         createdAt?: number | undefined;
         updatedAt?: number | undefined;
@@ -758,10 +762,6 @@ export declare const CharacterPaginationBody: z.ZodObject<{
         gender?: number | undefined;
         species?: number | undefined;
     } | undefined;
-    page?: number | undefined;
-    limit?: number | undefined;
-    strict?: boolean | undefined;
-    onlyVerified?: boolean | undefined;
     query?: {
         name?: {
             original?: string | undefined;
@@ -828,6 +828,10 @@ export declare const CharacterPaginationBody: z.ZodObject<{
         id: string;
     } | undefined;
 }, {
+    page?: number | undefined;
+    limit?: number | undefined;
+    strict?: boolean | undefined;
+    onlyVerified?: boolean | undefined;
     sort?: {
         createdAt?: string | number | undefined;
         updatedAt?: string | number | undefined;
@@ -836,10 +840,6 @@ export declare const CharacterPaginationBody: z.ZodObject<{
         gender?: string | number | undefined;
         species?: string | number | undefined;
     } | undefined;
-    page?: number | undefined;
-    limit?: number | undefined;
-    strict?: boolean | undefined;
-    onlyVerified?: boolean | undefined;
     query?: {
         name?: {
             original?: string | undefined;

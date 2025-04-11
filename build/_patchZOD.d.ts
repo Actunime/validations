@@ -40,8 +40,8 @@ export declare const PatchQueryBody: z.ZodObject<{
     createdAt: z.ZodEffects<z.ZodString, string, string>;
     updatedAt: z.ZodEffects<z.ZodString, string, string>;
 }, "strip", z.ZodTypeAny, {
-    status: "PENDING" | "PROGRESS" | "ACCEPTED" | "REJECTED";
     type: "CREATE" | "UPDATE" | "DELETE" | "RESTORE";
+    status: "PENDING" | "PROGRESS" | "ACCEPTED" | "REJECTED";
     id: string;
     reason: string;
     author: {
@@ -64,8 +64,8 @@ export declare const PatchQueryBody: z.ZodObject<{
     original?: any;
     changes?: any;
 }, {
-    status: "PENDING" | "PROGRESS" | "ACCEPTED" | "REJECTED";
     type: "CREATE" | "UPDATE" | "DELETE" | "RESTORE";
+    status: "PENDING" | "PROGRESS" | "ACCEPTED" | "REJECTED";
     id: string;
     reason: string;
     author: {
@@ -121,8 +121,8 @@ export declare const PatchSortBody: z.ZodObject<{
     createdAt: z.ZodEffects<z.ZodNumber, number, number>;
     updatedAt: z.ZodEffects<z.ZodNumber, number, number>;
 }, "strip", z.ZodTypeAny, {
-    status: number;
     type: number;
+    status: number;
     id: number;
     reason: number;
     author: {
@@ -141,8 +141,8 @@ export declare const PatchSortBody: z.ZodObject<{
         id: number;
     };
 }, {
-    status: number;
     type: number;
+    status: number;
     id: number;
     reason: number;
     author: {
@@ -202,8 +202,8 @@ export declare const PatchPaginationBody: z.ZodObject<z.objectUtil.extendShape<{
         createdAt: z.ZodOptional<z.ZodEffects<z.ZodNumber, number, number>>;
         updatedAt: z.ZodOptional<z.ZodEffects<z.ZodNumber, number, number>>;
     }, "strip", z.ZodTypeAny, {
-        status?: number | undefined;
         type?: number | undefined;
+        status?: number | undefined;
         id?: number | undefined;
         reason?: number | undefined;
         author?: {
@@ -222,8 +222,8 @@ export declare const PatchPaginationBody: z.ZodObject<z.objectUtil.extendShape<{
             id: number;
         } | undefined;
     }, {
-        status?: number | undefined;
         type?: number | undefined;
+        status?: number | undefined;
         id?: number | undefined;
         reason?: number | undefined;
         author?: {
@@ -283,8 +283,8 @@ export declare const PatchPaginationBody: z.ZodObject<z.objectUtil.extendShape<{
         createdAt: z.ZodOptional<z.ZodEffects<z.ZodString, string, string>>;
         updatedAt: z.ZodOptional<z.ZodEffects<z.ZodString, string, string>>;
     }, "strip", z.ZodTypeAny, {
-        status?: "PENDING" | "PROGRESS" | "ACCEPTED" | "REJECTED" | undefined;
         type?: "CREATE" | "UPDATE" | "DELETE" | "RESTORE" | undefined;
+        status?: "PENDING" | "PROGRESS" | "ACCEPTED" | "REJECTED" | undefined;
         original?: any;
         id?: string | undefined;
         reason?: string | undefined;
@@ -307,8 +307,8 @@ export declare const PatchPaginationBody: z.ZodObject<z.objectUtil.extendShape<{
             id: string;
         } | undefined;
     }, {
-        status?: "PENDING" | "PROGRESS" | "ACCEPTED" | "REJECTED" | undefined;
         type?: "CREATE" | "UPDATE" | "DELETE" | "RESTORE" | undefined;
+        status?: "PENDING" | "PROGRESS" | "ACCEPTED" | "REJECTED" | undefined;
         original?: any;
         id?: string | undefined;
         reason?: string | undefined;
@@ -332,9 +332,13 @@ export declare const PatchPaginationBody: z.ZodObject<z.objectUtil.extendShape<{
         } | undefined;
     }>;
 }>, "strip", z.ZodTypeAny, {
+    page: number;
+    limit: number;
+    strict: boolean;
+    onlyVerified: boolean;
     sort: {
-        status?: number | undefined;
         type?: number | undefined;
+        status?: number | undefined;
         id?: number | undefined;
         reason?: number | undefined;
         author?: {
@@ -353,13 +357,9 @@ export declare const PatchPaginationBody: z.ZodObject<z.objectUtil.extendShape<{
             id: number;
         } | undefined;
     };
-    page: number;
-    limit: number;
-    strict: boolean;
-    onlyVerified: boolean;
     query: {
-        status?: "PENDING" | "PROGRESS" | "ACCEPTED" | "REJECTED" | undefined;
         type?: "CREATE" | "UPDATE" | "DELETE" | "RESTORE" | undefined;
+        status?: "PENDING" | "PROGRESS" | "ACCEPTED" | "REJECTED" | undefined;
         original?: any;
         id?: string | undefined;
         reason?: string | undefined;
@@ -383,9 +383,13 @@ export declare const PatchPaginationBody: z.ZodObject<z.objectUtil.extendShape<{
         } | undefined;
     };
 }, {
+    page: number;
+    limit: number;
+    strict: boolean;
+    onlyVerified: boolean;
     sort: {
-        status?: number | undefined;
         type?: number | undefined;
+        status?: number | undefined;
         id?: number | undefined;
         reason?: number | undefined;
         author?: {
@@ -404,13 +408,9 @@ export declare const PatchPaginationBody: z.ZodObject<z.objectUtil.extendShape<{
             id: number;
         } | undefined;
     };
-    page: number;
-    limit: number;
-    strict: boolean;
-    onlyVerified: boolean;
     query: {
-        status?: "PENDING" | "PROGRESS" | "ACCEPTED" | "REJECTED" | undefined;
         type?: "CREATE" | "UPDATE" | "DELETE" | "RESTORE" | undefined;
+        status?: "PENDING" | "PROGRESS" | "ACCEPTED" | "REJECTED" | undefined;
         original?: any;
         id?: string | undefined;
         reason?: string | undefined;
@@ -468,16 +468,16 @@ export declare const Patch_Pagination_ZOD: z.ZodObject<{
         type: z.ZodOptional<z.ZodOptional<z.ZodUnion<[z.ZodEnum<("User" | "Groupe" | "Manga" | "Anime" | "Person" | "Character" | "Track" | "Company" | "Image" | "Patch" | "Activity" | "Report")[] & [string, ...string[]]>, z.ZodArray<z.ZodEnum<("CREATE" | "UPDATE" | "DELETE" | "RESTORE")[] & [string, ...string[]]>, "many">]>>>;
         ref: z.ZodOptional<z.ZodOptional<z.ZodString>>;
     }, "strict", z.ZodTypeAny, {
-        status?: "PENDING" | "PROGRESS" | "ACCEPTED" | "REJECTED" | ("PENDING" | "PROGRESS" | "ACCEPTED" | "REJECTED")[] | undefined;
         type?: "User" | "Groupe" | "Manga" | "Anime" | "Person" | "Character" | "Track" | "Company" | "Image" | "Patch" | "Activity" | "Report" | ("CREATE" | "UPDATE" | "DELETE" | "RESTORE")[] | undefined;
+        status?: "PENDING" | "PROGRESS" | "ACCEPTED" | "REJECTED" | ("PENDING" | "PROGRESS" | "ACCEPTED" | "REJECTED")[] | undefined;
         author?: string | undefined;
         ref?: string | undefined;
         target?: string | undefined;
         targetPath?: "User" | "Groupe" | "Manga" | "Anime" | "Person" | "Character" | "Track" | "Company" | "Image" | "Patch" | "Activity" | "Report" | ("User" | "Groupe" | "Manga" | "Anime" | "Person" | "Character" | "Track" | "Company" | "Image" | "Patch" | "Activity" | "Report")[] | undefined;
         actionUser?: string | undefined;
     }, {
-        status?: "PENDING" | "PROGRESS" | "ACCEPTED" | "REJECTED" | ("PENDING" | "PROGRESS" | "ACCEPTED" | "REJECTED")[] | undefined;
         type?: "User" | "Groupe" | "Manga" | "Anime" | "Person" | "Character" | "Track" | "Company" | "Image" | "Patch" | "Activity" | "Report" | ("CREATE" | "UPDATE" | "DELETE" | "RESTORE")[] | undefined;
+        status?: "PENDING" | "PROGRESS" | "ACCEPTED" | "REJECTED" | ("PENDING" | "PROGRESS" | "ACCEPTED" | "REJECTED")[] | undefined;
         author?: string | undefined;
         ref?: string | undefined;
         target?: string | undefined;
@@ -501,16 +501,16 @@ export declare const Patch_Pagination_ZOD: z.ZodObject<{
         actions?: boolean | undefined;
     }>>;
 }, "strict", z.ZodTypeAny, {
+    page?: number | undefined;
+    limit?: number | undefined;
+    strict?: boolean | undefined;
     sort?: {
         createdAt?: "DESC" | "ASC" | undefined;
         updaptedAt?: "DESC" | "ASC" | undefined;
     } | undefined;
-    page?: number | undefined;
-    limit?: number | undefined;
-    strict?: boolean | undefined;
     query?: {
-        status?: "PENDING" | "PROGRESS" | "ACCEPTED" | "REJECTED" | ("PENDING" | "PROGRESS" | "ACCEPTED" | "REJECTED")[] | undefined;
         type?: "User" | "Groupe" | "Manga" | "Anime" | "Person" | "Character" | "Track" | "Company" | "Image" | "Patch" | "Activity" | "Report" | ("CREATE" | "UPDATE" | "DELETE" | "RESTORE")[] | undefined;
+        status?: "PENDING" | "PROGRESS" | "ACCEPTED" | "REJECTED" | ("PENDING" | "PROGRESS" | "ACCEPTED" | "REJECTED")[] | undefined;
         author?: string | undefined;
         ref?: string | undefined;
         target?: string | undefined;
@@ -524,16 +524,16 @@ export declare const Patch_Pagination_ZOD: z.ZodObject<{
         actions?: boolean | undefined;
     } | undefined;
 }, {
+    page?: string | number | undefined;
+    limit?: string | number | undefined;
+    strict?: boolean | undefined;
     sort?: {
         createdAt?: "DESC" | "ASC" | undefined;
         updaptedAt?: "DESC" | "ASC" | undefined;
     } | undefined;
-    page?: string | number | undefined;
-    limit?: string | number | undefined;
-    strict?: boolean | undefined;
     query?: {
-        status?: "PENDING" | "PROGRESS" | "ACCEPTED" | "REJECTED" | ("PENDING" | "PROGRESS" | "ACCEPTED" | "REJECTED")[] | undefined;
         type?: "User" | "Groupe" | "Manga" | "Anime" | "Person" | "Character" | "Track" | "Company" | "Image" | "Patch" | "Activity" | "Report" | ("CREATE" | "UPDATE" | "DELETE" | "RESTORE")[] | undefined;
+        status?: "PENDING" | "PROGRESS" | "ACCEPTED" | "REJECTED" | ("PENDING" | "PROGRESS" | "ACCEPTED" | "REJECTED")[] | undefined;
         author?: string | undefined;
         ref?: string | undefined;
         target?: string | undefined;

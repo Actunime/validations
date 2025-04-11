@@ -85,6 +85,10 @@ export declare const UserPaginationBody: z.ZodObject<z.objectUtil.extendShape<{
         roles?: ("MEMBER" | "PREMIUM" | "MODERATOR" | "ANIME_MODERATOR" | "MANGA_MODERATOR" | "CHARACTER_MODERATOR" | "PERSON_MODERATOR" | "TRACK_MODERATOR" | "COMPANY_MODERATOR" | "ADMINISTRATOR" | "ACTUNIME")[] | undefined;
     }>;
 }>, "strip", z.ZodTypeAny, {
+    page: number;
+    limit: number;
+    strict: boolean;
+    onlyVerified: boolean;
     sort: {
         createdAt?: number | undefined;
         updatedAt?: number | undefined;
@@ -92,10 +96,6 @@ export declare const UserPaginationBody: z.ZodObject<z.objectUtil.extendShape<{
         displayName?: number | undefined;
         roles?: number | undefined;
     };
-    page: number;
-    limit: number;
-    strict: boolean;
-    onlyVerified: boolean;
     query: {
         createdAt?: string | undefined;
         updatedAt?: string | undefined;
@@ -104,6 +104,10 @@ export declare const UserPaginationBody: z.ZodObject<z.objectUtil.extendShape<{
         roles?: ("MEMBER" | "PREMIUM" | "MODERATOR" | "ANIME_MODERATOR" | "MANGA_MODERATOR" | "CHARACTER_MODERATOR" | "PERSON_MODERATOR" | "TRACK_MODERATOR" | "COMPANY_MODERATOR" | "ADMINISTRATOR" | "ACTUNIME")[] | undefined;
     };
 }, {
+    page: number;
+    limit: number;
+    strict: boolean;
+    onlyVerified: boolean;
     sort: {
         createdAt?: string | number | undefined;
         updatedAt?: string | number | undefined;
@@ -111,10 +115,6 @@ export declare const UserPaginationBody: z.ZodObject<z.objectUtil.extendShape<{
         displayName?: string | number | undefined;
         roles?: string | number | undefined;
     };
-    page: number;
-    limit: number;
-    strict: boolean;
-    onlyVerified: boolean;
     query: {
         createdAt?: string | undefined;
         updatedAt?: string | undefined;

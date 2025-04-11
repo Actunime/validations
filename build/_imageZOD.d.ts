@@ -68,15 +68,15 @@ export declare const ImagePaginationBody: z.ZodObject<{
         id: string;
     }>>;
 }, "strip", z.ZodTypeAny, {
+    page?: number | undefined;
+    limit?: number | undefined;
+    strict?: boolean | undefined;
+    onlyVerified?: boolean | undefined;
     sort?: {
         createdAt?: number | undefined;
         updatedAt?: number | undefined;
         label?: number | undefined;
     } | undefined;
-    page?: number | undefined;
-    limit?: number | undefined;
-    strict?: boolean | undefined;
-    onlyVerified?: boolean | undefined;
     query?: {
         createdAt?: string | undefined;
         updatedAt?: string | undefined;
@@ -87,15 +87,15 @@ export declare const ImagePaginationBody: z.ZodObject<{
         id: string;
     } | undefined;
 }, {
+    page?: number | undefined;
+    limit?: number | undefined;
+    strict?: boolean | undefined;
+    onlyVerified?: boolean | undefined;
     sort?: {
         createdAt?: string | number | undefined;
         updatedAt?: string | number | undefined;
         label?: string | number | undefined;
     } | undefined;
-    page?: number | undefined;
-    limit?: number | undefined;
-    strict?: boolean | undefined;
-    onlyVerified?: boolean | undefined;
     query?: {
         createdAt?: string | undefined;
         updatedAt?: string | undefined;

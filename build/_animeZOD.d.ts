@@ -807,6 +807,10 @@ export declare const AnimePaginationBody: z.ZodObject<z.objectUtil.extendShape<{
         } | undefined;
     }>;
 }>, "strip", z.ZodTypeAny, {
+    page: number;
+    limit: number;
+    strict: boolean;
+    onlyVerified: boolean;
     sort: {
         status?: number | undefined;
         date?: {
@@ -833,10 +837,6 @@ export declare const AnimePaginationBody: z.ZodObject<z.objectUtil.extendShape<{
         adult?: number | undefined;
         explicit?: number | undefined;
     };
-    page: number;
-    limit: number;
-    strict: boolean;
-    onlyVerified: boolean;
     query: {
         status?: "AIRING" | "PAUSED" | "ENDED" | "STOPPED" | "POSTONED" | "SOON" | "any" | undefined;
         date?: {
@@ -888,6 +888,10 @@ export declare const AnimePaginationBody: z.ZodObject<z.objectUtil.extendShape<{
         } | undefined;
     };
 }, {
+    page: number;
+    limit: number;
+    strict: boolean;
+    onlyVerified: boolean;
     sort: {
         status?: number | undefined;
         date?: {
@@ -914,10 +918,6 @@ export declare const AnimePaginationBody: z.ZodObject<z.objectUtil.extendShape<{
         adult?: number | undefined;
         explicit?: number | undefined;
     };
-    page: number;
-    limit: number;
-    strict: boolean;
-    onlyVerified: boolean;
     query: {
         status?: "AIRING" | "PAUSED" | "ENDED" | "STOPPED" | "POSTONED" | "SOON" | "any" | undefined;
         date?: {

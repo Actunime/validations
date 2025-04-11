@@ -48,27 +48,27 @@ export declare const GlobalSearchPaginationBody: z.ZodObject<z.objectUtil.extend
         search?: string | undefined;
     }>;
 }>, "strip", z.ZodTypeAny, {
-    sort: {
-        original?: number | undefined;
-        normal?: number | undefined;
-    };
     page: number;
     limit: number;
     strict: boolean;
     onlyVerified: boolean;
+    sort: {
+        original?: number | undefined;
+        normal?: number | undefined;
+    };
     query: {
         path?: "User" | "Groupe" | "Manga" | "Anime" | "Person" | "Character" | "Track" | "Company" | "Image" | "Patch" | "Activity" | "Report" | undefined;
         search?: string | undefined;
     };
 }, {
-    sort: {
-        original?: number | undefined;
-        normal?: number | undefined;
-    };
     page: number;
     limit: number;
     strict: boolean;
     onlyVerified: boolean;
+    sort: {
+        original?: number | undefined;
+        normal?: number | undefined;
+    };
     query: {
         path?: "User" | "Groupe" | "Manga" | "Anime" | "Person" | "Character" | "Track" | "Company" | "Image" | "Patch" | "Activity" | "Report" | undefined;
         search?: string | undefined;
