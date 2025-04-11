@@ -1,3 +1,10 @@
+## [1.0.44](https://github.com/Actunime/validations/compare/v1.0.43...v1.0.44) (2025-04-11)
+
+
+### Bug Fixes
+
+* build & up types ([40c2202](https://github.com/Actunime/validations/commit/40c2202868c44a133b767dcba5b077623c993bb8))
+
 ## [1.0.43](https://github.com/Actunime/validations/compare/v1.0.42...v1.0.43) (2025-04-08)
 
 
